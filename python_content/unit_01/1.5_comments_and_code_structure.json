@@ -1,0 +1,432 @@
+{
+  "lesson_id": "1.5",
+  "title": "Comments and Code Structure",
+  "unit": "Python Foundations",
+  "items": [
+    {
+      "id": "1.5_q1",
+      "type": "micro_lesson",
+      "concept": "comments_definition",
+      "skill": "recognition",
+      "difficulty": "easy",
+      "prerequisites": ["1.3_q1"],
+      "title": "What is a Comment?",
+      "content": "A **comment** is a note written in the source code specifically for human readers. \n\nIn Python, any text following the hash symbol `#` on a line is completely ignored by the Python interpreter.\n```python\n# This is a comment. Python skips this entirely.\nprint(\"Hello!\")\n```"
+    },
+    {
+      "id": "1.5_q2",
+      "type": "multiple_choice",
+      "concept": "comments_definition",
+      "skill": "recognition",
+      "difficulty": "easy",
+      "prerequisites": ["1.5_q1"],
+      "prompt": "Which character begins a single-line comment in Python?",
+      "options": [
+        "A. `//`",
+        "B. `#`",
+        "C. `--`",
+        "D. `/*`"
+      ],
+      "correct_answer": "B",
+      "explanation": "Python uses the `#` (hash/pound) symbol for single-line comments."
+    },
+    {
+      "id": "1.5_q3",
+      "type": "code_prediction",
+      "concept": "comments_execution",
+      "skill": "prediction",
+      "difficulty": "easy",
+      "prerequisites": ["1.5_q1"],
+      "prompt": "What does this script print when run?\n```python\n# print(\"Apple\")\nprint(\"Banana\")\n# print(\"Cherry\")\n```",
+      "options": [
+        "A. Apple Banana Cherry",
+        "B. Banana",
+        "C. # Banana",
+        "D. Nothing"
+      ],
+      "correct_answer": "B",
+      "explanation": "Lines starting with `#` are ignored by the Python interpreter, so only `print(\"Banana\")` executes."
+    },
+    {
+      "id": "1.5_q4",
+      "type": "micro_lesson",
+      "concept": "inline_comments",
+      "skill": "understanding",
+      "difficulty": "easy",
+      "prerequisites": ["1.5_q1"],
+      "title": "Inline Comments",
+      "content": "You can place a comment on the same line after executable code. This is called an **inline comment**:\n```python\nprint(\"Game Over\")  # Display final status to user\n```\nPython executes the code on the left first, and ignores everything after the `#`."
+    },
+    {
+      "id": "1.5_q5",
+      "type": "fill_in_the_blank",
+      "concept": "inline_comments",
+      "skill": "application",
+      "difficulty": "easy",
+      "prerequisites": ["1.5_q4"],
+      "prompt": "Add a comment symbol to make the note valid Python:\n```python\nprint(100) ___ Print maximum points\n```",
+      "accepted_answers": ["#"],
+      "explanation": "The `#` symbol marks the start of the comment."
+    },
+    {
+      "id": "1.5_q6",
+      "type": "micro_lesson",
+      "concept": "hash_in_strings",
+      "skill": "understanding",
+      "difficulty": "medium",
+      "prerequisites": ["1.4_q1", "1.5_q1"],
+      "title": "The Hash Symbol Inside Strings",
+      "content": "A `#` symbol that appears **inside quotes** is NOT a comment. It is treated as normal text (a character in a string):\n```python\nprint(\"Order #1042\")  # This is a comment\n```\nOutput:\n`Order #1042`"
+    },
+    {
+      "id": "1.5_q7",
+      "type": "code_prediction",
+      "concept": "hash_in_strings",
+      "skill": "prediction",
+      "difficulty": "medium",
+      "prerequisites": ["1.5_q6"],
+      "prompt": "What does this code output?\n```python\nprint(\"#1 Python Fan\")\n```",
+      "options": [
+        "A. Nothing, because the line is commented out.",
+        "B. #1 Python Fan",
+        "C. 1 Python Fan",
+        "D. A SyntaxError"
+      ],
+      "correct_answer": "B",
+      "explanation": "Because `#1 Python Fan` is inside quotation marks, it is a string literal, not a comment."
+    },
+    {
+      "id": "1.5_q8",
+      "type": "micro_lesson",
+      "concept": "purpose_of_comments",
+      "skill": "reasoning",
+      "difficulty": "medium",
+      "prerequisites": ["1.5_q1"],
+      "title": "Why vs. What in Comments",
+      "content": "Good comments explain **why** code is written, not **what** the code obviously does.\n\n❌ Bad:\n```python\nprint(\"Hello\")  # Prints Hello\n```\n(This adds clutter without new information.)\n\n✅ Good:\n```python\n# Wait 5 seconds to prevent exceeding the third-party API rate limit\n```\n(This explains non-obvious business logic or intent.)"
+    },
+    {
+      "id": "1.5_q9",
+      "type": "multiple_choice",
+      "concept": "purpose_of_comments",
+      "skill": "evaluation",
+      "difficulty": "medium",
+      "prerequisites": ["1.5_q8"],
+      "prompt": "Which of the following is considered a high-quality, professional comment?",
+      "options": [
+        "A. `print(5) # Print the number five`",
+        "B. `x = 10 # Set x to ten`",
+        "C. `# Offset by 1 because the legacy vendor API uses 1-based indexing`",
+        "D. `# This is a line of python code`"
+      ],
+      "correct_answer": "C",
+      "explanation": "Option C explains the *why* (context/rationale) that cannot be deduced simply by reading the syntax."
+    },
+    {
+      "id": "1.5_q10",
+      "type": "micro_lesson",
+      "concept": "commenting_out",
+      "skill": "application",
+      "difficulty": "easy",
+      "prerequisites": ["1.5_q1"],
+      "title": "Commenting Out Code to Debug",
+      "content": "When troubleshooting a bug, developers often prefix code with `#` to temporarily disable it without deleting it. This is known as **commenting out** code.\n\nMost code editors allow you to toggle comments on highlighted lines using `Ctrl + /` (or `Cmd + /` on Mac)."
+    },
+    {
+      "id": "1.5_q11",
+      "type": "fix_the_code",
+      "concept": "commenting_out",
+      "skill": "debugging",
+      "difficulty": "easy",
+      "prerequisites": ["1.5_q10"],
+      "prompt": "Comment out the broken print call so the script runs cleanly without an error:",
+      "starter_code": "print(\"Start\")\nprint(\"Error\"\nprint(\"End\")",
+      "solution_code": "print(\"Start\")\n# print(\"Error\"\nprint(\"End\")",
+      "explanation": "Adding `#` to the broken line instructs Python to skip it."
+    },
+    {
+      "id": "1.5_q12",
+      "type": "micro_lesson",
+      "concept": "multiline_comments",
+      "skill": "understanding",
+      "difficulty": "medium",
+      "prerequisites": ["1.5_q1"],
+      "title": "Multi-Line Comments",
+      "content": "Python does not have a dedicated `/* ... */` syntax like C or Java.\n\nTo write multi-line comments in Python, you can either:\n1. Place a `#` at the start of each line (PEP 8 recommended).\n2. Use a triple-quoted string (`\"\"\"...\"\"\"` or `'''...'''`) not assigned to any variable. When unassigned, Python evaluates it as an expression and discards it."
+    },
+    {
+      "id": "1.5_q13",
+      "type": "code_prediction",
+      "concept": "multiline_comments",
+      "skill": "prediction",
+      "difficulty": "medium",
+      "prerequisites": ["1.5_q12"],
+      "prompt": "What does this code output?\n```python\n\"\"\"\nThis script handles\nuser notifications.\n\"\"\"\nprint(\"Active\")\n```",
+      "options": [
+        "A. Displays the multi-line text followed by 'Active'",
+        "B. Active",
+        "C. A SyntaxError because triple quotes are only for functions",
+        "D. Nothing"
+      ],
+      "correct_answer": "B",
+      "explanation": "The standalone triple-quoted string is evaluated as an unassigned expression and ignored, so only `Active` is printed."
+    },
+    {
+      "id": "1.5_q14",
+      "type": "micro_lesson",
+      "concept": "pep8_whitespace",
+      "skill": "recognition",
+      "difficulty": "easy",
+      "prerequisites": ["1.3_q1"],
+      "title": "Code Readability and Whitespace",
+      "content": "**PEP 8** is the official style guide for Python code.\n\nOne of its key principles is that code should be easy to scan:\n* Use blank lines sparingly to separate logical sections.\n* Put two spaces before an inline comment, and one space after the `#`.\n```python\n# Correct formatting\nprint(\"Status: OK\")  # Two spaces before hash, one after\n```"
+    },
+    {
+      "id": "1.5_q15",
+      "type": "multiple_choice",
+      "concept": "pep8_whitespace",
+      "skill": "recognition",
+      "difficulty": "easy",
+      "prerequisites": ["1.5_q14"],
+      "prompt": "What is 'PEP 8' in the Python community?",
+      "options": [
+        "A. The 8th version of Python released in 2020.",
+        "B. The official Python Enhancement Proposal that defines style conventions for writing clean, readable Python code.",
+        "C. An antivirus tool for Python scripts.",
+        "D. A hardware accelerator for loops."
+      ],
+      "correct_answer": "B",
+      "explanation": "PEP 8 is the official style guide for Python code authoring."
+    },
+    {
+      "id": "1.5_q16",
+      "type": "multiple_choice",
+      "concept": "comments_performance",
+      "skill": "reasoning",
+      "difficulty": "medium",
+      "prerequisites": ["1.2_q8", "1.5_q1"],
+      "prompt": "If you write 500 lines of descriptive comments in your Python script, how will it impact execution speed?",
+      "options": [
+        "A. It will make the program 500 times slower during execution.",
+        "B. It has zero effect on execution speed, because the Python compiler strips comments during the compilation to bytecode.",
+        "C. It will crash the Python Virtual Machine (PVM).",
+        "D. It speeds up the CPU by caching memory."
+      ],
+      "correct_answer": "B",
+      "explanation": "Comments are completely stripped out during the parsing and bytecode compilation phase. They do not exist in the compiled bytecode."
+    },
+    {
+      "id": "1.5_q17",
+      "type": "match_code_to_concept",
+      "concept": "comment_styles",
+      "skill": "analysis",
+      "difficulty": "medium",
+      "prerequisites": ["1.5_q4", "1.5_q12"],
+      "prompt": "Match the comment style to its code representation.",
+      "options": {
+        "Block Comment": "`# First step\\n# Second step`",
+        "Inline Comment": "`print(total)  # Output sum`",
+        "Docstring / Multi-line String": "`\"\"\"Multi-line overview\"\"\"`"
+      },
+      "correct_answer": {
+        "Block Comment": "`# First step\\n# Second step`",
+        "Inline Comment": "`print(total)  # Output sum`",
+        "Docstring / Multi-line String": "`\"\"\"Multi-line overview\"\"\"`"
+      },
+      "explanation": "Block comments precede code blocks, inline comments follow code on the same line, and triple-quoted strings can span multiple lines."
+    },
+    {
+      "id": "1.5_q18",
+      "type": "write_the_code",
+      "concept": "writing_comments",
+      "skill": "application",
+      "difficulty": "easy",
+      "prerequisites": ["1.5_q1"],
+      "prompt": "Write a single-line comment containing the exact text: `TODO: Refactor later`",
+      "starter_code": "",
+      "solution_code": "# TODO: Refactor later",
+      "explanation": "A comment line begins with `#` followed by a space and the comment text."
+    },
+    {
+      "id": "1.5_q19",
+      "type": "code_prediction",
+      "concept": "hash_in_code",
+      "skill": "prediction",
+      "difficulty": "medium",
+      "prerequisites": ["1.5_q6"],
+      "prompt": "What does this code print?\n```python\nprint(\"#\")\n# print(\"*\")\nprint(\"#\")\n```",
+      "options": [
+        "A. #\\n*\\n#",
+        "B. #\\n#",
+        "C. Nothing",
+        "D. A SyntaxError"
+      ],
+      "correct_answer": "B",
+      "explanation": "The first and third lines print the literal character `#`. The middle line is commented out."
+    },
+    {
+      "id": "1.5_q20",
+      "type": "micro_lesson",
+      "concept": "indentation_intro",
+      "skill": "understanding",
+      "difficulty": "medium",
+      "prerequisites": ["1.3_q1"],
+      "title": "Python's Golden Rule: Indentation",
+      "content": "Unlike languages like C++, Java, or JavaScript that use curly braces `{}` to group code, Python uses **indentation** (leading whitespace).\n\nTop-level statements in a script must have NO leading spaces. If you add unexpected spaces at the beginning of a line, Python raises an `IndentationError`."
+    },
+    {
+      "id": "1.5_q21",
+      "type": "error_diagnosis",
+      "concept": "indentation_intro",
+      "skill": "debugging",
+      "difficulty": "medium",
+      "prerequisites": ["1.5_q20"],
+      "prompt": "What error will Python produce when trying to run this file?\n```python\nprint(\"Hello\")\n  print(\"World\")\n```",
+      "options": [
+        "A. NameError",
+        "B. IndentationError: unexpected indent",
+        "C. TypeError",
+        "D. ZeroDivisionError"
+      ],
+      "correct_answer": "B",
+      "explanation": "The second line has accidental leading spaces. In Python, an unprovoked indent causes an `IndentationError`."
+    },
+    {
+      "id": "1.5_q22",
+      "type": "fix_the_code",
+      "concept": "indentation_fix",
+      "skill": "debugging",
+      "difficulty": "easy",
+      "prerequisites": ["1.5_q21"],
+      "prompt": "Remove the unwanted indentation so this script runs without error:",
+      "starter_code": "print(\"One\")\n  print(\"Two\")",
+      "solution_code": "print(\"One\")\nprint(\"Two\")",
+      "explanation": "Both lines must start flush at the left margin (column 0)."
+    },
+    {
+      "id": "1.5_q23",
+      "type": "multiple_choice",
+      "concept": "zen_of_python",
+      "skill": "recognition",
+      "difficulty": "easy",
+      "prerequisites": ["1.5_q14"],
+      "prompt": "The Zen of Python states: 'Readability counts.' What does this mean for developers?",
+      "options": [
+        "A. Code is read by humans far more often than it is written, so writing clear, structured code with helpful comments is essential.",
+        "B. You should only use fonts that are easy to print on paper.",
+        "C. The computer reads code out loud using text-to-speech.",
+        "D. Python code cannot exceed 100 characters in total."
+      ],
+      "correct_answer": "A",
+      "explanation": "Software spends most of its lifecycle being read, maintained, and debugged by humans. Clean style and thoughtful comments save immense developer time."
+    },
+    {
+      "id": "1.5_q24",
+      "type": "fill_in_the_blank",
+      "concept": "pep8_indentation",
+      "skill": "recognition",
+      "difficulty": "easy",
+      "prerequisites": ["1.5_q14", "1.5_q20"],
+      "prompt": "PEP 8 specifies that standard Python indentation should consist of ___ spaces per indentation level.",
+      "accepted_answers": ["4", "four"],
+      "explanation": "4 spaces per indent level is the universal Python standard."
+    },
+    {
+      "id": "1.5_q25",
+      "type": "scenario",
+      "concept": "outdated_comments",
+      "skill": "reasoning",
+      "difficulty": "hard",
+      "prerequisites": ["1.5_q8"],
+      "prompt": "A developer updates an algorithm to calculate a 15% discount, but leaves an old comment saying `# Calculate 10% discount`. Why is this worse than having no comment at all?",
+      "options": [
+        "A. It causes Python to crash with a SyntaxError.",
+        "B. An outdated or misleading comment actively confuses future developers and contradicts the actual code behavior.",
+        "C. The computer will execute the comment instead of the code.",
+        "D. It increases the file size by 1 gigabyte."
+      ],
+      "correct_answer": "B",
+      "explanation": "A misleading comment is dangerous because it misleads human readers about what the program is doing."
+    },
+    {
+      "id": "1.5_q26",
+      "type": "output_prediction",
+      "concept": "mixed_comments_code",
+      "skill": "prediction",
+      "difficulty": "medium",
+      "prerequisites": ["1.5_q4", "1.5_q6"],
+      "prompt": "What is the output of this code?\n```python\n# print(\"A\")\nprint(\"# B\")  # print(\"C\")\n# print(\"D\")\n```",
+      "options": [
+        "A. # B",
+        "B. A\\n# B\\nC\\nD",
+        "C. # B C",
+        "D. B"
+      ],
+      "correct_answer": "A",
+      "explanation": "Line 2 prints `'# B'`. The inline comment `# print(\"C\")` is ignored. Lines 1 and 3 are ignored."
+    },
+    {
+      "id": "1.5_q27",
+      "type": "multiple_choice",
+      "concept": "keyboard_shortcut",
+      "skill": "application",
+      "difficulty": "easy",
+      "prerequisites": ["1.5_q10"],
+      "prompt": "In most modern code editors (like VS Code, PyCharm, and Cursor), what is the universal shortcut to toggle a comment on the current line?",
+      "options": [
+        "A. Ctrl + Z (or Cmd + Z)",
+        "B. Ctrl + / (or Cmd + /)",
+        "C. Ctrl + S (or Cmd + S)",
+        "D. Shift + Alt + Del"
+      ],
+      "correct_answer": "B",
+      "explanation": "`Ctrl + /` (or `Cmd + /` on macOS) toggles line comments on and off."
+    },
+    {
+      "id": "1.5_q28",
+      "type": "mini_challenge",
+      "concept": "code_organization",
+      "skill": "synthesis",
+      "difficulty": "medium",
+      "prerequisites": ["1.5_q1", "1.5_q4", "1.5_q14"],
+      "prompt": "Write two lines of code: a comment saying `# Application start`, followed by a print statement that prints 'Running'.",
+      "starter_code": "",
+      "solution_code": "# Application start\nprint(\"Running\")",
+      "explanation": "Place the comment on the first line and the print call on the second line."
+    },
+    {
+      "id": "1.5_q29",
+      "type": "scenario",
+      "concept": "code_review_comments",
+      "skill": "evaluation",
+      "difficulty": "hard",
+      "prerequisites": ["1.5_q8", "1.5_q14"],
+      "prompt": "You are reviewing code from a teammate:\n```python\na = 0.0825  # Sales tax rate for Travis County, TX\n```\nIs this a good comment, and why?",
+      "options": [
+        "A. No, comments should never be placed next to numbers.",
+        "B. Yes, because `0.0825` is a 'magic number' whose business meaning and jurisdiction would otherwise be mysterious.",
+        "C. No, the comment should be written in French.",
+        "D. Yes, but only if written in all caps."
+      ],
+      "correct_answer": "B",
+      "explanation": "Explaining the real-world origin and meaning of specific numeric constants is one of the best uses of comments."
+    },
+    {
+      "id": "1.5_q30",
+      "type": "scenario",
+      "concept": "structure_synthesis",
+      "skill": "transfer",
+      "difficulty": "hard",
+      "prerequisites": ["1.5_q1", "1.5_q8", "1.5_q14", "1.5_q20"],
+      "prompt": "Which of the following summarizes the best practices for Python comments and code structure?",
+      "options": [
+        "A. Comment every single line with its literal syntax, and use random tab spacing.",
+        "B. Keep top-level code unindented, use consistent 4-space indentation for nested blocks, write concise comments explaining *why* decisions were made, and keep comments up-to-date with code changes.",
+        "C. Never write any comments because they slow down CPU execution.",
+        "D. Use triple quotes on every line instead of hash symbols."
+      ],
+      "correct_answer": "B",
+      "explanation": "This encapsulates clean Python code structure according to PEP 8 and professional engineering standards."
+    }
+  ]
+}

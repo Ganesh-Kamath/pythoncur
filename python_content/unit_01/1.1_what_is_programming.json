@@ -11,7 +11,7 @@
       "difficulty": "easy",
       "prerequisites": [],
       "title": "Computers Are Fast but Not Smart",
-      "content": "A computer can calculate billions of numbers in a second, but it has absolutely no common sense. It cannot think for itself or guess what you mean. \n\n**Programming** is the process of writing explicit, step-by-step instructions for a computer to execute."
+      "content": "A computer can calculate billions of numbers in a second, but it has absolutely no common sense. It cannot think for itself or guess what you mean.\n\n**Programming** is the process of writing explicit, step-by-step instructions for a computer to execute."
     },
     {
       "id": "1.1_q2",
@@ -39,7 +39,7 @@
       "difficulty": "easy",
       "prerequisites": [],
       "title": "What is an Algorithm?",
-      "content": "An **algorithm** is just a fancy word for a 'recipe'. It is a specific sequence of steps designed to solve a problem.\n\nBefore you write code, you must design the algorithm in your head or on paper."
+      "content": "An **algorithm** is a specific sequence of clear, unambiguous steps designed to solve a problem or complete a task.\n\nBefore you write code, you must design the algorithm in your head or on paper."
     },
     {
       "id": "1.1_q4",
@@ -48,11 +48,11 @@
       "skill": "application",
       "difficulty": "medium",
       "prerequisites": ["1.1_q3"],
-      "prompt": "Arrange these steps into a logical algorithm for making a cup of tea. Remember, sequence matters!",
+      "prompt": "Arrange these steps into a logical algorithm for making a cup of tea. Sequence matters!",
       "options": [
-        "Pour boiling water into the cup.",
         "Boil the water in a kettle.",
         "Place a tea bag in the cup.",
+        "Pour boiling water into the cup.",
         "Wait 3 minutes and remove the tea bag."
       ],
       "correct_answer": [
@@ -74,7 +74,7 @@
       "options": [
         "A. It is executing at the exact same time as line 4.",
         "B. It has already finished executing.",
-        "C. It is waiting. The computer must finish line 4 completely before looking at line 5.",
+        "C. It is waiting; the computer must finish line 4 completely before executing line 5.",
         "D. It is randomly selected next."
       ],
       "correct_answer": "C",
@@ -88,7 +88,7 @@
       "difficulty": "easy",
       "prerequisites": [],
       "title": "The Language Barrier",
-      "content": "Deep down, computer hardware only understands **machine code**: a massive stream of electrical signals represented as 1s and 0s (binary).\n\nBecause humans are terrible at reading millions of 1s and 0s, we invented **Programming Languages**."
+      "content": "Deep down, computer hardware only understands **machine code**: a massive stream of electrical signals represented as 1s and 0s (binary).\n\nBecause humans cannot efficiently write millions of 1s and 0s, we invented **Programming Languages**."
     },
     {
       "id": "1.1_q7",
@@ -98,7 +98,7 @@
       "difficulty": "easy",
       "prerequisites": ["1.1_q6"],
       "prompt": "Programming languages act as a bridge. They allow humans to write code using readable words, which the system then translates into ___ code for the hardware to run.",
-      "expected_output": "machine",
+      "accepted_answers": ["machine", "binary"],
       "explanation": "Ultimately, every Python script you write gets translated down into machine code (binary) so the CPU can execute it."
     },
     {
@@ -157,7 +157,8 @@
       "options": [
         "A. A syntax error",
         "B. A logic error",
-        "C. A machine code error"
+        "C. A hardware failure",
+        "D. A translation error"
       ],
       "correct_answer": "B",
       "explanation": "Because it successfully ran without crashing, the syntax was perfectly valid. The programmer just gave it the wrong mathematical instruction (subtraction instead of addition)."
@@ -203,7 +204,8 @@
       "options": [
         "A. The app will run faster.",
         "B. The user will have no idea if the program actually did anything.",
-        "C. The computer will automatically print the code."
+        "C. The computer will automatically print the code.",
+        "D. The operating system will shut down."
       ],
       "correct_answer": "B",
       "explanation": "Output is how the computer communicates back to the user. Without output (like text on a screen, a sound, or a saved file), the processing is invisible."
@@ -215,11 +217,12 @@
       "skill": "understanding",
       "difficulty": "medium",
       "prerequisites": ["1.1_q1", "1.1_q11"],
-      "prompt": "When a bug occurs in your code, who is almost always at fault?",
+      "prompt": "When a bug occurs in your code, who is almost always responsible?",
       "options": [
         "A. The Python programming language",
         "B. The computer hardware",
-        "C. You, the programmer"
+        "C. You, the programmer, due to a typo or incorrect instruction",
+        "D. The monitor display driver"
       ],
       "correct_answer": "C",
       "explanation": "A critical part of learning to code is accepting that the computer is just following your instructions. Bugs are human logic errors or typos 99.9% of the time."
@@ -232,7 +235,7 @@
       "difficulty": "easy",
       "prerequisites": ["1.1_q9"],
       "prompt": "The strict spelling and grammar rules of a programming language are called its ___.",
-      "expected_output": "syntax",
+      "accepted_answers": ["syntax"],
       "explanation": "Learning a new programming language is largely about learning its unique syntax."
     },
     {
@@ -246,10 +249,221 @@
       "options": [
         "A. Walk across the street.",
         "B. Look left and right for cars.",
-        "C. Step off the sidewalk."
+        "C. Step off the sidewalk.",
+        "D. Celebrate arriving at the other side."
       ],
       "correct_answer": "B",
       "explanation": "Order of execution is critical. If you walk across the street before looking for cars, the algorithm fails catastrophically."
+    },
+    {
+      "id": "1.1_q18",
+      "type": "micro_lesson",
+      "concept": "determinism",
+      "skill": "understanding",
+      "difficulty": "medium",
+      "prerequisites": ["1.1_q3"],
+      "title": "Computers are Deterministic",
+      "content": "Standard computer algorithms are **deterministic**. This means that given the exact same initial state and input values, the computer will follow the exact same steps and produce the exact same output every single time.\n\nComputers do not get bored, creative, or tired. If the output is wrong, it means the instructions were wrong."
+    },
+    {
+      "id": "1.1_q19",
+      "type": "multiple_choice",
+      "concept": "determinism",
+      "skill": "reasoning",
+      "difficulty": "medium",
+      "prerequisites": ["1.1_q18"],
+      "prompt": "You run a Python script that calculates tax, and it gives the result '$14.50'. You run it a second time with the exact same inputs without changing any code. What will happen?",
+      "options": [
+        "A. It may output a slightly different number because computers simulate natural variation.",
+        "B. It will output '$14.50' because computers execute instructions deterministically.",
+        "C. It will crash because computers cannot repeat identical operations.",
+        "D. It will double the result to '$29.00'."
+      ],
+      "correct_answer": "B",
+      "explanation": "Determinism guarantees that identical inputs fed into identical instructions yield identical results."
+    },
+    {
+      "id": "1.1_q20",
+      "type": "code_ordering",
+      "concept": "algorithms",
+      "skill": "application",
+      "difficulty": "medium",
+      "prerequisites": ["1.1_q4"],
+      "prompt": "Order the sequence of an ATM withdrawal algorithm from start to finish.",
+      "options": [
+        "User inserts card and enters PIN.",
+        "ATM checks if account has sufficient balance.",
+        "ATM dispenses requested cash and prints receipt.",
+        "ATM ejects the card."
+      ],
+      "correct_answer": [
+        "User inserts card and enters PIN.",
+        "ATM checks if account has sufficient balance.",
+        "ATM dispenses requested cash and prints receipt.",
+        "ATM ejects the card."
+      ],
+      "explanation": "An ATM must verify credentials and check the account balance before dispensing any cash."
+    },
+    {
+      "id": "1.1_q21",
+      "type": "fill_in_the_blank",
+      "concept": "algorithms",
+      "skill": "recognition",
+      "difficulty": "easy",
+      "prerequisites": ["1.1_q3"],
+      "prompt": "A finite, step-by-step sequence of instructions designed to solve a problem is known as an ___.",
+      "accepted_answers": ["algorithm"],
+      "explanation": "Algorithms form the logical foundation of all computer software."
+    },
+    {
+      "id": "1.1_q22",
+      "type": "match_code_to_concept",
+      "concept": "programming_roles",
+      "skill": "analysis",
+      "difficulty": "medium",
+      "prerequisites": ["1.1_q1", "1.1_q6"],
+      "prompt": "Match each role to its primary responsibility in computing.",
+      "options": {
+        "Hardware": "The physical silicon, circuits, and memory that run electrical signals.",
+        "Programmer": "The human who designs algorithms and writes source code.",
+        "Software": "The collection of programs and instructions that tell the hardware what to do."
+      },
+      "correct_answer": {
+        "Hardware": "The physical silicon, circuits, and memory that run electrical signals.",
+        "Programmer": "The human who designs algorithms and writes source code.",
+        "Software": "The collection of programs and instructions that tell the hardware what to do."
+      },
+      "explanation": "Hardware provides the raw computing power, software provides the directions, and the programmer creates the software."
+    },
+    {
+      "id": "1.1_q23",
+      "type": "multiple_choice",
+      "concept": "high_level_languages",
+      "skill": "reasoning",
+      "difficulty": "medium",
+      "prerequisites": ["1.1_q6", "1.1_q8"],
+      "prompt": "What makes Python a 'high-level' programming language?",
+      "options": [
+        "A. It can only be used by advanced university researchers.",
+        "B. It abstracts away direct hardware details like CPU registers and memory addresses, allowing humans to write readable code.",
+        "C. It is physically located high up in cloud servers.",
+        "D. It runs at a higher electrical voltage than low-level code."
+      ],
+      "correct_answer": "B",
+      "explanation": "'High-level' refers to the layer of abstraction: high-level languages are closer to human thought and language, while 'low-level' languages are closer to hardware circuitry."
+    },
+    {
+      "id": "1.1_q24",
+      "type": "fill_in_the_blank",
+      "concept": "high_level_languages",
+      "skill": "recognition",
+      "difficulty": "easy",
+      "prerequisites": ["1.1_q23"],
+      "prompt": "Languages like Python that hide low-level hardware details behind human-readable syntax are called ___-level languages.",
+      "accepted_answers": ["high"],
+      "explanation": "Python is a high-level programming language."
+    },
+    {
+      "id": "1.1_q25",
+      "type": "scenario",
+      "concept": "syntax_vs_logic",
+      "skill": "diagnosis",
+      "difficulty": "hard",
+      "prerequisites": ["1.1_q9", "1.1_q11"],
+      "prompt": "An online store applies discounts. A customer buys an item for $100 with a $20 coupon. The order completes successfully, but the invoice charges the customer $120. Which diagnosis is correct?",
+      "options": [
+        "A. The program crashed due to a syntax error.",
+        "B. The program has a logic error: the developer accidentally added the discount to the price instead of subtracting it.",
+        "C. The computer ran out of memory.",
+        "D. High-level languages cannot perform subtraction."
+      ],
+      "correct_answer": "B",
+      "explanation": "Because the transaction completed without errors, the syntax and system operations were valid. The error was purely algorithmic: adding instead of subtracting."
+    },
+    {
+      "id": "1.1_q26",
+      "type": "output_prediction",
+      "concept": "sequential_execution",
+      "skill": "prediction",
+      "difficulty": "medium",
+      "prerequisites": ["1.1_q5"],
+      "prompt": "Trace the execution of these pseudo-code steps:\n1. Start with total = 5\n2. Multiply total by 2\n3. Add 4 to total\nWhat is the final value of total?",
+      "options": [
+        "A. 10",
+        "B. 14",
+        "C. 18",
+        "D. 24"
+      ],
+      "correct_answer": "B",
+      "explanation": "Following line by line: start at 5 -> 5 * 2 = 10 -> 10 + 4 = 14."
+    },
+    {
+      "id": "1.1_q27",
+      "type": "multiple_choice",
+      "concept": "syntax_vs_logic",
+      "skill": "analysis",
+      "difficulty": "medium",
+      "prerequisites": ["1.1_q9"],
+      "prompt": "Why are logic errors usually much harder to detect than syntax errors?",
+      "options": [
+        "A. Syntax errors delete your source code file.",
+        "B. The computer automatically catches syntax errors and displays an error message, but it cannot know what you intended to achieve with your logic.",
+        "C. Logic errors only happen once a year.",
+        "D. Syntax errors only occur in hardware, not software."
+      ],
+      "correct_answer": "B",
+      "explanation": "The computer has no idea what your real-world goal is. If you tell it to subtract instead of add, it happily does the subtraction."
+    },
+    {
+      "id": "1.1_q28",
+      "type": "multiple_choice",
+      "concept": "programming_mindset",
+      "skill": "reasoning",
+      "difficulty": "medium",
+      "prerequisites": ["1.1_q1", "1.1_q18"],
+      "prompt": "Why can't you tell Python: 'Send an email to everyone who wants one'?",
+      "options": [
+        "A. Python does not have internet access.",
+        "B. Python cannot interpret ambiguous terms like 'everyone who wants one' without explicit conditions and data defining who wants it.",
+        "C. Python only understands numbers, not text.",
+        "D. Email protocols do not support programming languages."
+      ],
+      "correct_answer": "B",
+      "explanation": "Computers require precise specifications: where to get the list of users, what field denotes their preference, and what message template to use."
+    },
+    {
+      "id": "1.1_q29",
+      "type": "scenario",
+      "concept": "ipo_model",
+      "skill": "application",
+      "difficulty": "hard",
+      "prerequisites": ["1.1_q12", "1.1_q13"],
+      "prompt": "A smart thermostat measures room temperature at 65°F. Its target is 72°F. It calculates that the temperature is below target and turns on the heater. Which element represents the 'Processing' step?",
+      "options": [
+        "A. The temperature sensor reading 65°F.",
+        "B. Comparing 65°F to the target 72°F and deciding to turn on the heat.",
+        "C. The furnace igniting and pumping hot air.",
+        "D. The user pressing the power button."
+      ],
+      "correct_answer": "B",
+      "explanation": "The sensor reading is the Input. The furnace activating is the Output (action). The decision logic comparing current vs target temperature is the Processing."
+    },
+    {
+      "id": "1.1_q30",
+      "type": "scenario",
+      "concept": "programming_definition",
+      "skill": "transfer",
+      "difficulty": "hard",
+      "prerequisites": ["1.1_q1", "1.1_q3", "1.1_q9", "1.1_q12"],
+      "prompt": "Which of the following best summarizes the ultimate goal of learning to program in Python?",
+      "options": [
+        "A. To memorize hundreds of machine code binary patterns.",
+        "B. To develop computational thinking: breaking real-world problems down into clear, unambiguous steps that a computer can reliably execute.",
+        "C. To replace all human decision-making with random guesses.",
+        "D. To write code without needing to test or debug it."
+      ],
+      "correct_answer": "B",
+      "explanation": "Programming is fundamentally about problem solving: transforming vague human goals into precise, robust, and automated algorithmic procedures."
     }
   ]
 }
