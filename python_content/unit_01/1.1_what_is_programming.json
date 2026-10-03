@@ -1,0 +1,255 @@
+{
+  "lesson_id": "1.1",
+  "title": "What Is Programming?",
+  "unit": "Python Foundations",
+  "items": [
+    {
+      "id": "1.1_q1",
+      "type": "micro_lesson",
+      "concept": "programming_definition",
+      "skill": "recognition",
+      "difficulty": "easy",
+      "prerequisites": [],
+      "title": "Computers Are Fast but Not Smart",
+      "content": "A computer can calculate billions of numbers in a second, but it has absolutely no common sense. It cannot think for itself or guess what you mean. \n\n**Programming** is the process of writing explicit, step-by-step instructions for a computer to execute."
+    },
+    {
+      "id": "1.1_q2",
+      "type": "multiple_choice",
+      "concept": "programming_definition",
+      "skill": "reasoning",
+      "difficulty": "easy",
+      "prerequisites": ["1.1_q1"],
+      "prompt": "You tell a computer to 'Make a sandwich.' Why will it fail?",
+      "options": [
+        "A. The computer is too slow to process the command.",
+        "B. The instruction is too vague; computers need exact, step-by-step instructions.",
+        "C. The computer knows how to make a sandwich, but requires a password.",
+        "D. Computers can only calculate math, not physical tasks."
+      ],
+      "correct_answer": "B",
+      "explanation": "Computers have no context or common sense. You must tell it exactly *how* to make the sandwich: open the bag, take out two slices, open the jar, etc.",
+      "common_mistake": "D is incorrect because computers control physical robotics (like factory arms) all the time, provided they have exact instructions."
+    },
+    {
+      "id": "1.1_q3",
+      "type": "micro_lesson",
+      "concept": "algorithms",
+      "skill": "recognition",
+      "difficulty": "easy",
+      "prerequisites": [],
+      "title": "What is an Algorithm?",
+      "content": "An **algorithm** is just a fancy word for a 'recipe'. It is a specific sequence of steps designed to solve a problem.\n\nBefore you write code, you must design the algorithm in your head or on paper."
+    },
+    {
+      "id": "1.1_q4",
+      "type": "code_ordering",
+      "concept": "algorithms",
+      "skill": "application",
+      "difficulty": "medium",
+      "prerequisites": ["1.1_q3"],
+      "prompt": "Arrange these steps into a logical algorithm for making a cup of tea. Remember, sequence matters!",
+      "options": [
+        "Pour boiling water into the cup.",
+        "Boil the water in a kettle.",
+        "Place a tea bag in the cup.",
+        "Wait 3 minutes and remove the tea bag."
+      ],
+      "correct_answer": [
+        "Boil the water in a kettle.",
+        "Place a tea bag in the cup.",
+        "Pour boiling water into the cup.",
+        "Wait 3 minutes and remove the tea bag."
+      ],
+      "explanation": "If you pour the water before boiling it, the tea will be cold. In programming, executing instructions out of order is a major source of bugs."
+    },
+    {
+      "id": "1.1_q5",
+      "type": "multiple_choice",
+      "concept": "sequential_execution",
+      "skill": "prediction",
+      "difficulty": "medium",
+      "prerequisites": ["1.1_q4"],
+      "prompt": "If a computer is executing a 10-line algorithm, and it is currently on line 4, what is happening with line 5?",
+      "options": [
+        "A. It is executing at the exact same time as line 4.",
+        "B. It has already finished executing.",
+        "C. It is waiting. The computer must finish line 4 completely before looking at line 5.",
+        "D. It is randomly selected next."
+      ],
+      "correct_answer": "C",
+      "explanation": "Standard programs run **sequentially**. The computer finishes the current step completely before proceeding to the next."
+    },
+    {
+      "id": "1.1_q6",
+      "type": "micro_lesson",
+      "concept": "machine_code",
+      "skill": "understanding",
+      "difficulty": "easy",
+      "prerequisites": [],
+      "title": "The Language Barrier",
+      "content": "Deep down, computer hardware only understands **machine code**: a massive stream of electrical signals represented as 1s and 0s (binary).\n\nBecause humans are terrible at reading millions of 1s and 0s, we invented **Programming Languages**."
+    },
+    {
+      "id": "1.1_q7",
+      "type": "fill_in_the_blank",
+      "concept": "programming_languages",
+      "skill": "reasoning",
+      "difficulty": "easy",
+      "prerequisites": ["1.1_q6"],
+      "prompt": "Programming languages act as a bridge. They allow humans to write code using readable words, which the system then translates into ___ code for the hardware to run.",
+      "expected_output": "machine",
+      "explanation": "Ultimately, every Python script you write gets translated down into machine code (binary) so the CPU can execute it."
+    },
+    {
+      "id": "1.1_q8",
+      "type": "multiple_choice",
+      "concept": "python_characteristics",
+      "skill": "recognition",
+      "difficulty": "easy",
+      "prerequisites": ["1.1_q6"],
+      "prompt": "Why is Python such a popular programming language?",
+      "options": [
+        "A. Because it requires you to write directly in 1s and 0s, which is faster.",
+        "B. Because its syntax is highly readable and looks similar to plain English.",
+        "C. Because it is the only language that computers can understand directly.",
+        "D. Because it ignores spelling mistakes."
+      ],
+      "correct_answer": "B",
+      "explanation": "Python was explicitly designed to be readable for humans. This makes it easier to write, read, and collaborate on, without losing power."
+    },
+    {
+      "id": "1.1_q9",
+      "type": "micro_lesson",
+      "concept": "syntax_vs_logic",
+      "skill": "understanding",
+      "difficulty": "medium",
+      "prerequisites": [],
+      "title": "Syntax vs. Logic",
+      "content": "**Syntax** refers to the spelling and grammar rules of a programming language. If you break syntax (e.g., forgetting a quote mark), the program refuses to run.\n\n**Logic** refers to your algorithm. If your syntax is perfect, but your algorithm says 'Add 2 + 2 to get 5', the program will run, but produce the wrong result."
+    },
+    {
+      "id": "1.1_q10",
+      "type": "match_code_to_concept",
+      "concept": "syntax_vs_logic",
+      "skill": "application",
+      "difficulty": "medium",
+      "prerequisites": ["1.1_q9"],
+      "prompt": "Match the real-world scenario to the type of programming error it represents.",
+      "options": {
+        "Syntax Error": "Writing 'pleaze open th dore' instead of 'please open the door'.",
+        "Logic Error": "Giving someone perfect driving directions, but to the wrong city."
+      },
+      "correct_answer": {
+        "Syntax Error": "Writing 'pleaze open th dore' instead of 'please open the door'.",
+        "Logic Error": "Giving someone perfect driving directions, but to the wrong city."
+      },
+      "explanation": "Syntax errors stop execution immediately because the translator doesn't understand you. Logic errors are dangerous because the computer does exactly what you said—it was just the wrong thing to do."
+    },
+    {
+      "id": "1.1_q11",
+      "type": "multiple_choice",
+      "concept": "syntax_vs_logic",
+      "skill": "diagnosis",
+      "difficulty": "hard",
+      "prerequisites": ["1.1_q9"],
+      "prompt": "A banking app successfully runs without crashing, but it accidentally deducts $10 from your account instead of adding $10. What kind of error is this?",
+      "options": [
+        "A. A syntax error",
+        "B. A logic error",
+        "C. A machine code error"
+      ],
+      "correct_answer": "B",
+      "explanation": "Because it successfully ran without crashing, the syntax was perfectly valid. The programmer just gave it the wrong mathematical instruction (subtraction instead of addition)."
+    },
+    {
+      "id": "1.1_q12",
+      "type": "micro_lesson",
+      "concept": "ipo_model",
+      "skill": "recognition",
+      "difficulty": "easy",
+      "prerequisites": [],
+      "title": "Input, Processing, Output",
+      "content": "Most software follows the IPO model:\n\n1. **Input**: Receiving data (e.g., tapping a button, typing a password).\n2. **Processing**: Calculating or manipulating the data (e.g., verifying the password).\n3. **Output**: Giving a result back to the user (e.g., showing the dashboard, playing a sound)."
+    },
+    {
+      "id": "1.1_q13",
+      "type": "match_code_to_concept",
+      "concept": "ipo_model",
+      "skill": "application",
+      "difficulty": "medium",
+      "prerequisites": ["1.1_q12"],
+      "prompt": "You are playing a video game. Match the event to its phase in the IPO model.",
+      "options": {
+        "Input": "You press the 'Jump' button on your controller.",
+        "Processing": "The game calculates the physics of gravity and your character's velocity.",
+        "Output": "Your TV screen updates to show your character moving upward."
+      },
+      "correct_answer": {
+        "Input": "You press the 'Jump' button on your controller.",
+        "Processing": "The game calculates the physics of gravity and your character's velocity.",
+        "Output": "Your TV screen updates to show your character moving upward."
+      },
+      "explanation": "Almost all computing, from basic calculators to high-end 3D games, relies on the Input -> Processing -> Output cycle."
+    },
+    {
+      "id": "1.1_q14",
+      "type": "multiple_choice",
+      "concept": "ipo_model",
+      "skill": "reasoning",
+      "difficulty": "medium",
+      "prerequisites": ["1.1_q12"],
+      "prompt": "If an application has no 'Output' whatsoever, what is the user experience?",
+      "options": [
+        "A. The app will run faster.",
+        "B. The user will have no idea if the program actually did anything.",
+        "C. The computer will automatically print the code."
+      ],
+      "correct_answer": "B",
+      "explanation": "Output is how the computer communicates back to the user. Without output (like text on a screen, a sound, or a saved file), the processing is invisible."
+    },
+    {
+      "id": "1.1_q15",
+      "type": "multiple_choice",
+      "concept": "programming_mindset",
+      "skill": "understanding",
+      "difficulty": "medium",
+      "prerequisites": ["1.1_q1", "1.1_q11"],
+      "prompt": "When a bug occurs in your code, who is almost always at fault?",
+      "options": [
+        "A. The Python programming language",
+        "B. The computer hardware",
+        "C. You, the programmer"
+      ],
+      "correct_answer": "C",
+      "explanation": "A critical part of learning to code is accepting that the computer is just following your instructions. Bugs are human logic errors or typos 99.9% of the time."
+    },
+    {
+      "id": "1.1_q16",
+      "type": "fill_in_the_blank",
+      "concept": "syntax",
+      "skill": "recognition",
+      "difficulty": "easy",
+      "prerequisites": ["1.1_q9"],
+      "prompt": "The strict spelling and grammar rules of a programming language are called its ___.",
+      "expected_output": "syntax",
+      "explanation": "Learning a new programming language is largely about learning its unique syntax."
+    },
+    {
+      "id": "1.1_q17",
+      "type": "multiple_choice",
+      "concept": "algorithms",
+      "skill": "transfer",
+      "difficulty": "hard",
+      "prerequisites": ["1.1_q4"],
+      "prompt": "You are writing an algorithm to safely cross a street. Which step MUST be processed first?",
+      "options": [
+        "A. Walk across the street.",
+        "B. Look left and right for cars.",
+        "C. Step off the sidewalk."
+      ],
+      "correct_answer": "B",
+      "explanation": "Order of execution is critical. If you walk across the street before looking for cars, the algorithm fails catastrophically."
+    }
+  ]
+}
