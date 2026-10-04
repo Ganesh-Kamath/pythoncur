@@ -11,7 +11,9 @@
       "difficulty": "easy",
       "prerequisites": [],
       "title": "Architecting the Full-Stack To-Do API",
-      "content": "In this micro_lesson, we design the overall architecture for our Full-Stack To-Do API. A RESTful API exposes endpoints for managing to-do items, typically using HTTP methods: GET to retrieve tasks, POST to create a new task, PUT to update an existing task, and DELETE to remove a task. We will use Flask as the lightweight web backend, with an in-memory dictionary to simulate a database for simplicity. Each to-do item will have an id, title, and completed status. Below is a minimal Flask application skeleton that defines the core routes and request handling structure. This architecture separates concerns: the routing layer handles HTTP requests, while the business logic layer processes data validation and state changes.\n\n```python\nfrom flask import Flask, jsonify, request\n\napp = Flask(__name__)\n\ntodos = {}\n\n@app.route('/todos', methods=['GET'])\ndef get_todos():\n    return jsonify(list(todos.values()))\n\n@app.route('/todos', methods=['POST'])\ndef create_todo():\n    data = request.get_json()\n    todo_id = len(todos) + 1\n    todos[todo_id] = {'id': todo_id, 'title': data.get('title'), 'completed': False}\n    return jsonify(todos[todo_id]), 201\n\nif __name__ == '__main__':\n    app.run(debug=True)\n```\n\nKey takeaways: plan your endpoints before writing code, choose an appropriate data structure for state management, and always return consistent JSON responses with correct HTTP status codes."
+      "content": "In this micro_lesson, we design the overall architecture for our Full-Stack To-Do API. A RESTful API exposes endpoints for managing to-do items, typically using HTTP methods: GET to retrieve tasks, POST to create a new task, PUT to update an existing task, and DELETE to remove a task. We will use Flask as the lightweight web backend, with an in-memory dictionary to simulate a database for simplicity. Each to-do item will have an id, title, and completed status. Below is a minimal Flask application skeleton that defines the core routes and request handling structure. This architecture separates concerns: the routing layer handles HTTP requests, while the business logic layer processes data validation and state changes.\n\n```python\nfrom flask import Flask, jsonify, request\n\napp = Flask(__name__)\n\ntodos = {}\n\n@app.route('/todos', methods=['GET'])\ndef get_todos():\n    return jsonify(list(todos.values()))\n\n@app.route('/todos', methods=['POST'])\ndef create_todo():\n    data = request.get_json()\n    todo_id = len(todos) + 1\n    todos[todo_id] = {'id': todo_id, 'title': data.get('title'), 'completed': False}\n    return jsonify(todos[todo_id]), 201\n\nif __name__ == '__main__':\n    app.run(debug=True)\n```\n\nKey takeaways: plan your endpoints before writing code, choose an appropriate data structure for state management, and always return consistent JSON responses with correct HTTP status codes.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of project fullstack todo api architecture. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "27.6_q2",
@@ -23,7 +25,9 @@
         "27.6_q1"
       ],
       "title": "Designing Data Models and Endpoint Contracts",
-      "content": "Before implementing the full backend, we must define the data model and the contract for each endpoint. A to-do item is best represented as a dictionary with three fields: 'id' (integer, unique identifier), 'title' (string, user-provided description), and 'completed' (boolean, default False). The API contract specifies that POST /todos accepts a JSON payload with a 'title' key and returns the created object with a 201 status. GET /todos returns a JSON array of all items. PUT /todos/<id> accepts partial updates and returns the updated object. DELETE /todos/<id> removes the item and returns a 204 No Content. Using a dictionary for storage is acceptable for a prototype; in production, you would migrate to SQLite or PostgreSQL. The following code demonstrates a refined create_todo function with input validation to ensure the title is a non-empty string.\n\n```python\ndef create_todo_validated(data):\n    title = data.get('title')\n    if not isinstance(title, str) or len(title.strip()) == 0:\n        return None, 'Invalid title'\n    todo_id = max(todos.keys(), default=0) + 1\n    todos[todo_id] = {'id': todo_id, 'title': title.strip(), 'completed': False}\n    return todos[todo_id], None\n```\n\nRemember: clear contracts reduce integration errors between frontend and backend teams."
+      "content": "Before implementing the full backend, we must define the data model and the contract for each endpoint. A to-do item is best represented as a dictionary with three fields: 'id' (integer, unique identifier), 'title' (string, user-provided description), and 'completed' (boolean, default False). The API contract specifies that POST /todos accepts a JSON payload with a 'title' key and returns the created object with a 201 status. GET /todos returns a JSON array of all items. PUT /todos/<id> accepts partial updates and returns the updated object. DELETE /todos/<id> removes the item and returns a 204 No Content. Using a dictionary for storage is acceptable for a prototype; in production, you would migrate to SQLite or PostgreSQL. The following code demonstrates a refined create_todo function with input validation to ensure the title is a non-empty string.\n\n```python\ndef create_todo_validated(data):\n    title = data.get('title')\n    if not isinstance(title, str) or len(title.strip()) == 0:\n        return None, 'Invalid title'\n    todo_id = max(todos.keys(), default=0) + 1\n    todos[todo_id] = {'id': todo_id, 'title': title.strip(), 'completed': False}\n    return todos[todo_id], None\n```\n\nRemember: clear contracts reduce integration errors between frontend and backend teams.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of project fullstack todo api architecture. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "27.6_q3",
@@ -132,7 +136,7 @@
       "prompt": "Fix the bug in this code for project fullstack todo api module bugfix:",
       "starter_code": "# Fix this code\nPrint('Project: Full-Stack To-Do API')",
       "solution_code": "print('Project: Full-Stack To-Do API')",
-      "explanation": "Python identifiers and built-ins are case-sensitive."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of project fullstack todo api module bugfix. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "idx": 8,
@@ -155,7 +159,7 @@
       "prompt": "Fix the bug in this code for project fullstack todo api module bugfix: (Variation 8)",
       "starter_code": "# Fix this code\nPrint('Project: Full-Stack To-Do API')",
       "solution_code": "print('Project: Full-Stack To-Do API')",
-      "explanation": "Python identifiers and built-ins are case-sensitive."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of project fullstack todo api module bugfix. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "idx": 9,
@@ -178,7 +182,7 @@
       "prompt": "Fix the bug in this code for project fullstack todo api module bugfix: (Variation 9)",
       "starter_code": "# Fix this code\nPrint('Project: Full-Stack To-Do API')",
       "solution_code": "print('Project: Full-Stack To-Do API')",
-      "explanation": "Python identifiers and built-ins are case-sensitive."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of project fullstack todo api module bugfix. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "idx": 10,
@@ -201,7 +205,7 @@
       "prompt": "Fix the bug in this code for project fullstack todo api module bugfix: (Variation 10)",
       "starter_code": "# Fix this code\nPrint('Project: Full-Stack To-Do API')",
       "solution_code": "print('Project: Full-Stack To-Do API')",
-      "explanation": "Python identifiers and built-ins are case-sensitive."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of project fullstack todo api module bugfix. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "idx": 11,
@@ -224,7 +228,7 @@
       "prompt": "Fix the bug in this code for project fullstack todo api module bugfix: (Variation 11)",
       "starter_code": "# Fix this code\nPrint('Project: Full-Stack To-Do API')",
       "solution_code": "print('Project: Full-Stack To-Do API')",
-      "explanation": "Python identifiers and built-ins are case-sensitive."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of project fullstack todo api module bugfix. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "idx": 12,
@@ -247,7 +251,7 @@
       "prompt": "Fix the bug in this code for project fullstack todo api module bugfix: (Variation 12)",
       "starter_code": "# Fix this code\nPrint('Project: Full-Stack To-Do API')",
       "solution_code": "print('Project: Full-Stack To-Do API')",
-      "explanation": "Python identifiers and built-ins are case-sensitive."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of project fullstack todo api module bugfix. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "27.6_q13",
@@ -255,7 +259,7 @@
       "concept": "project_fullstack_todo_api_module_wiring",
       "skill": "syntax",
       "diff": "medium",
-      "prompt": "Complete the import statement to bring in the Flask class from the flask module in your to-do API backend:",
+      "prompt": "Complete the import statement to bring in the Flask class from the flask module:\n`from flask import ___`",
       "correct_answer": "from flask import Flask",
       "accepted_answers": [
         "from flask import Flask",
@@ -376,7 +380,7 @@
       "prerequisites": [
         "27.6_q18"
       ],
-      "prompt": "Coding Challenge 19: Write a statement that prints 'Project: Full-Stack To-Do API Result 19' to standard output.",
+      "prompt": "Write a statement that prints 'Project: Full-Stack To-Do API Result 19' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Project: Full-Stack To-Do API Result 19')",
       "test_cases": [
@@ -386,7 +390,7 @@
         }
       ],
       "hint": "Use print('Project: Full-Stack To-Do API Result 19') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of project fullstack todo api component. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "27.6_q20",
@@ -397,7 +401,7 @@
       "prerequisites": [
         "27.6_q19"
       ],
-      "prompt": "Coding Challenge 20: Write a statement that prints 'Project: Full-Stack To-Do API Result 20' to standard output.",
+      "prompt": "Write a statement that prints 'Project: Full-Stack To-Do API Result 20' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Project: Full-Stack To-Do API Result 20')",
       "test_cases": [
@@ -407,7 +411,7 @@
         }
       ],
       "hint": "Use print('Project: Full-Stack To-Do API Result 20') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of project fullstack todo api component. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "27.6_q21",
@@ -418,7 +422,7 @@
       "prerequisites": [
         "27.6_q20"
       ],
-      "prompt": "Coding Challenge 21: Write a statement that prints 'Project: Full-Stack To-Do API Result 21' to standard output.",
+      "prompt": "Write a statement that prints 'Project: Full-Stack To-Do API Result 21' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Project: Full-Stack To-Do API Result 21')",
       "test_cases": [
@@ -428,7 +432,7 @@
         }
       ],
       "hint": "Use print('Project: Full-Stack To-Do API Result 21') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of project fullstack todo api component. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "27.6_q22",
@@ -439,7 +443,7 @@
       "prerequisites": [
         "27.6_q21"
       ],
-      "prompt": "Coding Challenge 22: Write a statement that prints 'Project: Full-Stack To-Do API Result 22' to standard output.",
+      "prompt": "Write a statement that prints 'Project: Full-Stack To-Do API Result 22' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Project: Full-Stack To-Do API Result 22')",
       "test_cases": [
@@ -449,7 +453,7 @@
         }
       ],
       "hint": "Use print('Project: Full-Stack To-Do API Result 22') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of project fullstack todo api component. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "27.6_q23",
@@ -460,7 +464,7 @@
       "prerequisites": [
         "27.6_q22"
       ],
-      "prompt": "Coding Challenge 23: Write a statement that prints 'Project: Full-Stack To-Do API Result 23' to standard output.",
+      "prompt": "Write a statement that prints 'Project: Full-Stack To-Do API Result 23' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Project: Full-Stack To-Do API Result 23')",
       "test_cases": [
@@ -470,7 +474,7 @@
         }
       ],
       "hint": "Use print('Project: Full-Stack To-Do API Result 23') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of project fullstack todo api milestone. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "27.6_q24",
@@ -481,7 +485,7 @@
       "prerequisites": [
         "27.6_q23"
       ],
-      "prompt": "Coding Challenge 24: Write a statement that prints 'Project: Full-Stack To-Do API Result 24' to standard output.",
+      "prompt": "Write a statement that prints 'Project: Full-Stack To-Do API Result 24' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Project: Full-Stack To-Do API Result 24')",
       "test_cases": [
@@ -491,7 +495,7 @@
         }
       ],
       "hint": "Use print('Project: Full-Stack To-Do API Result 24') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of project fullstack todo api milestone. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "27.6_q25",
@@ -513,7 +517,7 @@
           "expected_output": "Project: Full-Stack To-Do API"
         }
       ],
-      "explanation": "The solution fulfills all functional requirements."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of project fullstack todo api milestone. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "27.6_q26",
@@ -535,7 +539,7 @@
           "expected_output": "Project: Full-Stack To-Do API"
         }
       ],
-      "explanation": "The solution fulfills all functional requirements."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of project fullstack todo api milestone. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "27.6_q27",
@@ -617,5 +621,15 @@
         "27.6_q29"
       ]
     }
+  ],
+  "unit_num": 27,
+  "learning_objectives": [
+    "Architect a complete multi-step application for Project: Full-Stack To-Do API",
+    "Decompose problem requirements into modular functions and classes",
+    "Implement defensive error handling and input validation",
+    "Verify application correctness against comprehensive test cases"
+  ],
+  "prerequisites": [
+    "27.5"
   ]
 }

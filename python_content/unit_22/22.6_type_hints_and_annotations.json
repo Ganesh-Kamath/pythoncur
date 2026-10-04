@@ -11,7 +11,9 @@
       "difficulty": "easy",
       "prerequisites": [],
       "title": "What Are Type Hints?",
-      "content": "Type hints are optional annotations in Python that specify the expected data type of variables, function parameters, and return values. They do not change runtime behavior but help static analysis tools, IDEs, and developers understand code intent. Introduced in Python 3.5 via PEP 484, they improve readability and catch bugs before execution. Example: def greet(name: str) -> str: return f'Hello, {name}' Here, name is expected to be a string and the function returns a string. The interpreter ignores these annotations during normal execution, but tools like mypy can verify them."
+      "content": "Type hints are optional annotations in Python that specify the expected data type of variables, function parameters, and return values. They do not change runtime behavior but help static analysis tools, IDEs, and developers understand code intent. Introduced in Python 3.5 via PEP 484, they improve readability and catch bugs before execution. Example: def greet(name: str) -> str: return f'Hello, {name}' Here, name is expected to be a string and the function returns a string. The interpreter ignores these annotations during normal execution, but tools like mypy can verify them.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of type hints and annotations basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "22.6_q2",
@@ -42,7 +44,9 @@
         "22.6_q2"
       ],
       "title": "Syntax of Annotations",
-      "content": "The basic syntax places a colon after the parameter name followed by the type, and an arrow with the return type after the parameter list. For multiple parameters, each gets its own annotation. You can also annotate local variables. Example: def calculate_area(width: float, height: float) -> float: area = width * height return area x: int = 5 y: str = 'world' print(x, y) Note that string annotations inside quotes are evaluated lazily at runtime, so 'int' is stored as a string unless imported from typing. For built-in generic types like list or dict, use from typing import List, Dict and write List[int] or Dict[str, int]."
+      "content": "The basic syntax places a colon after the parameter name followed by the type, and an arrow with the return type after the parameter list. For multiple parameters, each gets its own annotation. You can also annotate local variables. Example: def calculate_area(width: float, height: float) -> float: area = width * height return area x: int = 5 y: str = 'world' print(x, y) Note that string annotations inside quotes are evaluated lazily at runtime, so 'int' is stored as a string unless imported from typing. For built-in generic types like list or dict, use from typing import List, Dict and write List[int] or Dict[str, int].",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of type hints and annotations syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "22.6_q4",
@@ -454,7 +458,7 @@
       "prerequisites": [
         "22.6_q24"
       ],
-      "prompt": "Coding Challenge 25: Write a statement that prints 'Type Hints and Annotations Result 25' to standard output.",
+      "prompt": "Write a statement that prints 'Type Hints and Annotations Result 25' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Type Hints and Annotations Result 25')",
       "test_cases": [
@@ -464,7 +468,7 @@
         }
       ],
       "hint": "Use print('Type Hints and Annotations Result 25') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of type hints and annotations implementation. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "22.6_q26",
@@ -475,7 +479,7 @@
       "prerequisites": [
         "22.6_q25"
       ],
-      "prompt": "Coding Challenge 26: Write a statement that prints 'Type Hints and Annotations Result 26' to standard output.",
+      "prompt": "Write a statement that prints 'Type Hints and Annotations Result 26' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Type Hints and Annotations Result 26')",
       "test_cases": [
@@ -485,7 +489,7 @@
         }
       ],
       "hint": "Use print('Type Hints and Annotations Result 26') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of type hints and annotations practical. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "22.6_q27",
@@ -496,7 +500,7 @@
       "prerequisites": [
         "22.6_q26"
       ],
-      "prompt": "Coding Challenge 27: Write a statement that prints 'Type Hints and Annotations Result 27' to standard output.",
+      "prompt": "Write a statement that prints 'Type Hints and Annotations Result 27' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Type Hints and Annotations Result 27')",
       "test_cases": [
@@ -506,7 +510,7 @@
         }
       ],
       "hint": "Use print('Type Hints and Annotations Result 27') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of type hints and annotations advanced. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "22.6_q28",
@@ -517,7 +521,7 @@
       "prerequisites": [
         "22.6_q27"
       ],
-      "prompt": "Coding Challenge 28: Write a statement that prints 'Type Hints and Annotations Result 28' to standard output.",
+      "prompt": "Write a statement that prints 'Type Hints and Annotations Result 28' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Type Hints and Annotations Result 28')",
       "test_cases": [
@@ -527,7 +531,7 @@
         }
       ],
       "hint": "Use print('Type Hints and Annotations Result 28') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of type hints and annotations challenge. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "22.6_q29",
@@ -538,7 +542,7 @@
       "prerequisites": [
         "22.6_q28"
       ],
-      "prompt": "Coding Challenge 29: Write a statement that prints 'Type Hints and Annotations Result 29' to standard output.",
+      "prompt": "Write a statement that prints 'Type Hints and Annotations Result 29' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Type Hints and Annotations Result 29')",
       "test_cases": [
@@ -548,7 +552,7 @@
         }
       ],
       "hint": "Use print('Type Hints and Annotations Result 29') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of type hints and annotations scenario. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "22.6_q30",
@@ -559,7 +563,7 @@
       "prerequisites": [
         "22.6_q29"
       ],
-      "prompt": "Coding Challenge 30: Write a statement that prints 'Type Hints and Annotations Result 30' to standard output.",
+      "prompt": "Write a statement that prints 'Type Hints and Annotations Result 30' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Type Hints and Annotations Result 30')",
       "test_cases": [
@@ -569,7 +573,17 @@
         }
       ],
       "hint": "Use print('Type Hints and Annotations Result 30') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of type hints and annotations mastery. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     }
+  ],
+  "unit_num": 22,
+  "learning_objectives": [
+    "Explain the technical concepts and mechanics of Type Hints and Annotations",
+    "Apply idiomatic Python patterns when working with Type Hints and Annotations",
+    "Debug common runtime exceptions and logic errors associated with Type Hints and Annotations",
+    "Implement production-ready code utilizing Type Hints and Annotations"
+  ],
+  "prerequisites": [
+    "22.5"
   ]
 }

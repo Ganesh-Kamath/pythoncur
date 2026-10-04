@@ -11,7 +11,9 @@
       "concept": "creating_tuples_basics",
       "title": "What Is a Tuple?",
       "content": "A tuple is an ordered, immutable collection of items in Python. Once you create a tuple, you cannot change, add, or remove elements from it. Tuples are useful when you want to group related data that should not be modified. You create a tuple by placing values inside parentheses (), separated by commas. If a tuple contains only one element, you must include a trailing comma to distinguish it from a regular value in parentheses. For example, a single-element tuple looks like ('apple',), not ('apple'). Here is a simple example:\n\n```python\n# Creating a tuple with multiple elements\nfruits = ('apple', 'banana', 'cherry')\nprint(fruits)\n\n# Accessing elements by index\nprint(fruits[0])\n\n# Single-element tuple (note the trailing comma)\nsingle = ('only_item',)\nprint(type(single))\n```\n\nTuples are faster than lists and can be used as dictionary keys because they are immutable.",
-      "prerequisites": []
+      "prerequisites": [],
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of creating tuples basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "idx": 2,
@@ -37,12 +39,12 @@
       "prompt": "Which statement best applies to creating tuples basics?",
       "options": [
         "A. Correct approach for creating tuples basics",
-        "B. SyntaxError raised unconditionally",
-        "C. Unrelated system call",
-        "D. Halts Python interpreter"
+        "Raises a SyntaxError: invalid syntax at runtime",
+        "Raises an IndentationError: unexpected indent",
+        "Silently ignored by the Python parser"
       ],
       "correct_answer": "A. Correct approach for creating tuples basics",
-      "explanation": "Demonstrates core usage of creating tuples basics in Python."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of creating tuples basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "idx": 3,
@@ -55,7 +57,9 @@
       "id": "9.1_q3",
       "prerequisites": [
         "9.1_q2"
-      ]
+      ],
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of creating tuples syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "idx": 4,
@@ -81,12 +85,12 @@
       "prompt": "Which statement best applies to creating tuples syntax?",
       "options": [
         "A. Correct approach for creating tuples syntax",
-        "B. SyntaxError raised unconditionally",
-        "C. Unrelated system call",
-        "D. Halts Python interpreter"
+        "Raises a SyntaxError: invalid syntax at runtime",
+        "Raises an IndentationError: unexpected indent",
+        "Silently ignored by the Python parser"
       ],
       "correct_answer": "A. Correct approach for creating tuples syntax",
-      "explanation": "Demonstrates core usage of creating tuples syntax in Python."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of creating tuples syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "idx": 5,
@@ -112,12 +116,12 @@
       "prompt": "Which statement best applies to creating tuples matching?",
       "options": [
         "A. Correct approach for creating tuples matching",
-        "B. SyntaxError raised unconditionally",
-        "C. Unrelated system call",
-        "D. Halts Python interpreter"
+        "Raises a SyntaxError: invalid syntax at runtime",
+        "Raises an IndentationError: unexpected indent",
+        "Silently ignored by the Python parser"
       ],
       "correct_answer": "A. Correct approach for creating tuples matching",
-      "explanation": "Demonstrates core usage of creating tuples matching in Python."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of creating tuples matching. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "idx": 6,
@@ -143,12 +147,12 @@
       "prompt": "Which statement best applies to creating tuples pitfalls?",
       "options": [
         "A. Correct approach for creating tuples pitfalls",
-        "B. SyntaxError raised unconditionally",
-        "C. Unrelated system call",
-        "D. Halts Python interpreter"
+        "Raises a SyntaxError: invalid syntax at runtime",
+        "Raises an IndentationError: unexpected indent",
+        "Silently ignored by the Python parser"
       ],
       "correct_answer": "A. Correct approach for creating tuples pitfalls",
-      "explanation": "Demonstrates core usage of creating tuples pitfalls in Python."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of creating tuples pitfalls. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "9.1_q7",
@@ -637,5 +641,15 @@
       "hint": "Tuples do not have an append() method. Use the + operator to concatenate tuples into a new tuple.",
       "explanation": "Tuples are immutable, so methods like append() are not defined. Concatenation with + creates a new tuple containing all elements in order: 5, 6, 7, 8."
     }
+  ],
+  "unit_num": 9,
+  "learning_objectives": [
+    "Initialize and manipulate Python Creating Tuples collections",
+    "Access elements efficiently using keys, indices, or membership tests",
+    "Distinguish between mutable and immutable data behaviors",
+    "Select the optimal data structure to represent structured data"
+  ],
+  "prerequisites": [
+    "8.6"
   ]
 }

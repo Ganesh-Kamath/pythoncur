@@ -11,7 +11,9 @@
       "difficulty": "easy",
       "prerequisites": [],
       "title": "What Is an Instance Method?",
-      "content": "An instance method is a function defined inside a class that belongs to an instance of that class. It can access and modify the data (attributes) of a specific object using the special parameter self. When you call an instance method on an object, Python automatically passes that object as the first argument. For example:\n\n```python\nclass Dog:\n    def bark(self):\n        print('woof')\n\nmy_dog = Dog()\nmy_dog.bark()\n```\n\nIn this code, bark is an instance method. The self parameter refers to my_dog. Without self, Python would not know which object's data to use. Instance methods are the primary way objects interact with their own state."
+      "content": "An instance method is a function defined inside a class that belongs to an instance of that class. It can access and modify the data (attributes) of a specific object using the special parameter self. When you call an instance method on an object, Python automatically passes that object as the first argument. For example:\n\n```python\nclass Dog:\n    def bark(self):\n        print('woof')\n\nmy_dog = Dog()\nmy_dog.bark()\n```\n\nIn this code, bark is an instance method. The self parameter refers to my_dog. Without self, Python would not know which object's data to use. Instance methods are the primary way objects interact with their own state.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of instance methods basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "20.5_q2",
@@ -42,7 +44,9 @@
         "20.5_q2"
       ],
       "title": "Syntax of Defining and Calling Instance Methods",
-      "content": "To define an instance method, write def followed by the method name, then self, then any additional parameters, and a colon. The body is indented. When calling the method on an instance, use dot notation: instance.method_name(arguments). The self parameter is supplied automatically by Python and should not be passed manually when calling the method.\n\nExample:\n\n```python\nclass Calculator:\n    def add(self, a, b):\n        return a + b\n\nresult = Calculator().add(3, 5)\nprint(result)\n```\n\nHere, add is an instance method. When Calculator().add(3, 5) is executed, Python creates a temporary Calculator instance, passes it as self, and evaluates the return value 8."
+      "content": "To define an instance method, write def followed by the method name, then self, then any additional parameters, and a colon. The body is indented. When calling the method on an instance, use dot notation: instance.method_name(arguments). The self parameter is supplied automatically by Python and should not be passed manually when calling the method.\n\nExample:\n\n```python\nclass Calculator:\n    def add(self, a, b):\n        return a + b\n\nresult = Calculator().add(3, 5)\nprint(result)\n```\n\nHere, add is an instance method. When Calculator().add(3, 5) is executed, Python creates a temporary Calculator instance, passes it as self, and evaluates the return value 8.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of instance methods syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "20.5_q4",
@@ -72,7 +76,7 @@
       "prerequisites": [
         "20.5_q4"
       ],
-      "prompt": "Match each term to its correct description.",
+      "prompt": "Match each OOP instance method term to its appropriate role.",
       "options": [
         "instance method: A function inside a class that operates on a specific object; self: The first parameter that refers to the calling instance; dot notation: Syntax like object.method() to invoke behavior.",
         "instance method: A variable shared across all instances; self: A global constant; dot notation: Syntax like class.method() to invoke behavior.",
@@ -249,7 +253,7 @@
       "prerequisites": [
         "20.5_q13"
       ],
-      "prompt": "Fill in the missing keywords to define and call an instance method correctly.\n\nclass Calculator:\n    def add(a, b):\n        return a + b\n\ncalc = Calculator()\nresult = calc.add(3, 4)",
+      "prompt": "class Calculator:\n    def add(___, a, b):\n        return a + b\n\ncalc = Calculator()\nresult = calc.add(2, 3)",
       "correct_answer": "def, self",
       "accepted_answers": [
         "def, self",
@@ -351,7 +355,7 @@
       "prompt": "Fix the bug in this code for instance methods errors:",
       "starter_code": "# Fix this code\nPrint('Instance Methods')",
       "solution_code": "print('Instance Methods')",
-      "explanation": "Python identifiers and built-ins are case-sensitive."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of instance methods errors. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "20.5_q20",
@@ -399,7 +403,7 @@
       "prompt": "Fix the bug in this code for instance methods runtime:",
       "starter_code": "# Fix this code\nPrint('Instance Methods')",
       "solution_code": "print('Instance Methods')",
-      "explanation": "Python identifiers and built-ins are case-sensitive."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of instance methods runtime. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "20.5_q23",
@@ -554,5 +558,15 @@
       "hint": "Override describe in ElectricCar to access self.battery_size. No need to call super() here since we are replacing behavior entirely.",
       "explanation": "Mastery of instance methods includes understanding inheritance, overriding, and accessing subclass-specific attributes via self in overridden methods."
     }
+  ],
+  "unit_num": 20,
+  "learning_objectives": [
+    "Explain the technical concepts and mechanics of Instance s",
+    "Apply idiomatic Python patterns when working with Instance s",
+    "Debug common runtime exceptions and logic errors associated with Instance s",
+    "Implement production-ready code utilizing Instance s"
+  ],
+  "prerequisites": [
+    "20.4"
   ]
 }

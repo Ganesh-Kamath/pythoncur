@@ -11,7 +11,9 @@
       "concept": "pythons_heapq_module_basics",
       "skill": "recognition",
       "title": "What Is the heapq Module?",
-      "content": "The heapq module in Python implements a binary min-heap, which is a tree-based data structure that satisfies the heap property: the value of each node is less than or equal to the value of its children. This makes the smallest element always accessible at index 0. The module does not provide a full priority queue class, but offers functions to treat a regular list as a heap. Common operations include heapq.heappush(heap, item) to add an element, heapq.heappop(heap) to remove and return the smallest element, heapq.heapify(heap) to transform a list into a heap in-place, and heapq.heappushpop(heap, item) to push a new item and pop the smallest in one efficient step. A key property is that heapq works with any comparable objects, not just numbers, and it maintains the heap invariant after each operation."
+      "content": "The heapq module in Python implements a binary min-heap, which is a tree-based data structure that satisfies the heap property: the value of each node is less than or equal to the value of its children. This makes the smallest element always accessible at index 0. The module does not provide a full priority queue class, but offers functions to treat a regular list as a heap. Common operations include heapq.heappush(heap, item) to add an element, heapq.heappop(heap) to remove and return the smallest element, heapq.heapify(heap) to transform a list into a heap in-place, and heapq.heappushpop(heap, item) to push a new item and pop the smallest in one efficient step. A key property is that heapq works with any comparable objects, not just numbers, and it maintains the heap invariant after each operation.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of pythons heapq module basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "40.3_q2",
@@ -42,7 +44,9 @@
       "concept": "pythons_heapq_module_syntax",
       "skill": "understanding",
       "title": "Core heapq Functions and Their Signatures",
-      "content": "The heapq module exposes several functions that operate on a list representing a heap. The most frequently used ones are: heapq.heappush(heap, item) inserts item while maintaining the heap invariant; heapq.heappop(heap) removes and returns the smallest item; heapq.heapify(heap) reorders heap in-place; heapq.heappushpop(heap, item) pushes item and returns the smallest of the two; heapq.heapreplace(heap, item) pops the smallest and pushes item; and heapq.nlargest(n, iterable) and heapq.nsmallest(n, iterable) return the n largest or smallest elements without fully sorting the iterable. Note that heapq does not support decreasing the priority of an arbitrary element directly; to update an element, one typically removes and re-inserts it. All functions assume the list is already a heap unless heapify is called first."
+      "content": "The heapq module exposes several functions that operate on a list representing a heap. The most frequently used ones are: heapq.heappush(heap, item) inserts item while maintaining the heap invariant; heapq.heappop(heap) removes and returns the smallest item; heapq.heapify(heap) reorders heap in-place; heapq.heappushpop(heap, item) pushes item and returns the smallest of the two; heapq.heapreplace(heap, item) pops the smallest and pushes item; and heapq.nlargest(n, iterable) and heapq.nsmallest(n, iterable) return the n largest or smallest elements without fully sorting the iterable. Note that heapq does not support decreasing the priority of an arbitrary element directly; to update an element, one typically removes and re-inserts it. All functions assume the list is already a heap unless heapify is called first.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of pythons heapq module syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "40.3_q4",
@@ -182,7 +186,7 @@
           "expected_output": "OK"
         }
       ],
-      "explanation": "The solution fulfills all functional requirements."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of pythons heapq module analysis. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "40.3_q11",
@@ -648,5 +652,15 @@
       "explanation": "The lower half (max-heap) stores elements <= median, and the upper half (min-heap) stores elements >= median. The size invariant guarantees O(1) median access. Insertion is O(log n) due to heap pushes and occasional rebalancing. This technique is foundational for online algorithms and real-time analytics.",
       "skill": "mastery"
     }
+  ],
+  "unit_num": 40,
+  "learning_objectives": [
+    "Explain the technical concepts and mechanics of Python's heapq Module",
+    "Apply idiomatic Python patterns when working with Python's heapq Module",
+    "Debug common runtime exceptions and logic errors associated with Python's heapq Module",
+    "Implement production-ready code utilizing Python's heapq Module"
+  ],
+  "prerequisites": [
+    "40.2"
   ]
 }

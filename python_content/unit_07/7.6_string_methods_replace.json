@@ -12,7 +12,9 @@
       "title": "What is replace()?",
       "content": "The replace() method in Python creates a new string by replacing all occurrences of a specified substring with another substring. It does not change the original string because strings are immutable in Python. For example, if you have the sentence 'I love Python' and you want to replace 'Python' with 'JavaScript', you can use: result = 'I love Python'.replace('Python', 'JavaScript'). The output will be 'I love JavaScript'. Note that replace() only replaces exact matches and is case-sensitive.",
       "difficulty": "easy",
-      "prerequisites": []
+      "prerequisites": [],
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of string methods replace basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "7.6_q2",
@@ -45,7 +47,9 @@
       "difficulty": "easy",
       "prerequisites": [
         "7.6_q2"
-      ]
+      ],
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of string methods replace syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "7.6_q4",
@@ -218,17 +222,17 @@
       ],
       "micro_lesson": {
         "title": "Step-by-Step Tracing replace()",
-        "content": "To trace `replace()`, write down the string value before and after each call. Track how many replacements happen when `count` is used. For example:\n```python\ns = 'aaa'\ns = s.replace('a', 'b', 1)\ns = s.replace('a', 'c')\nprint(s)\n```\nFirst step: 'aaa' \u2192 'baa' (only first 'a' replaced). Second step: 'baa' \u2192 'bca' (remaining 'a' replaced). Final output: 'bca'."
+        "content": "To trace `replace()`, write down the string value before and after each call. Track how many replacements happen when `count` is used. For example:\n```python\ns = 'aaa'\ns = s.replace('a', 'b', 1)\ns = s.replace('a', 'c')\nprint(s)\n```\nFirst step: 'aaa' → 'baa' (only first 'a' replaced). Second step: 'baa' → 'bca' (remaining 'a' replaced). Final output: 'bca'."
       },
       "prompt": "What is the output of the following code?\n```python\ns = 'aaa'\ns = s.replace('a', 'b', 1)\ns = s.replace('a', 'c')\nprint(s)\n```",
       "options": [
         "'aaa'",
         "'aba'",
-        "'bca'",
+        "'bcc'",
         "'ccc'"
       ],
-      "correct_answer": "'bca'",
-      "explanation": "After the first replacement with count 1, 'aaa' becomes 'baa'. The second replacement changes all remaining 'a' to 'c', producing 'bca'."
+      "correct_answer": "'bcc'",
+      "explanation": "The first replacement replaces only 1 occurrence of 'a' with 'b', yielding 'baa'. The second replacement replaces all remaining occurrences of 'a' with 'c', yielding 'bcc'."
     },
     {
       "id": "7.6_q12",
@@ -625,5 +629,15 @@
       "hint": "Use a conditional check for underscores before applying replace(), and chain both replacements safely.",
       "explanation": "This mastery task integrates conditional logic with multiple string transformations. The key insight is that replace() is applied only to codes lacking underscores, preserving existing formatting while standardizing others."
     }
+  ],
+  "unit_num": 7,
+  "learning_objectives": [
+    "Manipulate textual data using String s: replace()",
+    "Apply zero-based indexing and slicing syntax correctly",
+    "Differentiate between in-place mutation and immutable string transformations",
+    "Format and clean user-provided text data safely"
+  ],
+  "prerequisites": [
+    "7.5"
   ]
 }

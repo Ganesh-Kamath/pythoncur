@@ -12,7 +12,9 @@
       "title": "Recognizing Context Managers",
       "content": "A context manager is an object that defines the methods __enter__() and __exit__() to manage resources, such as files, database connections, or locks. When you use the with statement, Python automatically calls __enter__() at the start of the block and __exit__() at the end, even if an error occurs. This ensures that resources are properly released. For file handling, the built-in open() function returns a file object that acts as a context manager. Here is an example:\n\n```python\nwith open('data.txt', 'r') as file:\n    content = file.read()\n```\n\nIn this example, 'data.txt' is opened in read mode ('r'), and the file is automatically closed when the block exits, whether successfully or due to an exception.",
       "difficulty": "easy",
-      "prerequisites": []
+      "prerequisites": [],
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of the with statement context managers basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "13.3_q2",
@@ -45,7 +47,9 @@
       "difficulty": "easy",
       "prerequisites": [
         "13.3_q2"
-      ]
+      ],
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of the with statement context managers syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "13.3_q4",
@@ -371,7 +375,7 @@
       "prompt": "Fix the bug in this code for the with statement context managers errors:",
       "starter_code": "# Fix this code\nPrint('The with Statement (Context Managers)')",
       "solution_code": "print('The with Statement (Context Managers)')",
-      "explanation": "Python identifiers and built-ins are case-sensitive."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of the with statement context managers errors. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "13.3_q20",
@@ -419,7 +423,7 @@
       "prompt": "Fix the bug in this code for the with statement context managers runtime:",
       "starter_code": "# Fix this code\nPrint('The with Statement (Context Managers)')",
       "solution_code": "print('The with Statement (Context Managers)')",
-      "explanation": "Python identifiers and built-ins are case-sensitive."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of the with statement context managers runtime. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "13.3_q23",
@@ -627,5 +631,15 @@
       "explanation": "Custom context managers follow the protocol with __enter__ and __exit__. __exit__ receives exception info as arguments, allowing cleanup code to run before the exception propagates. This pattern is essential for advanced resource management beyond built-in open().",
       "difficulty": "hard"
     }
+  ],
+  "unit_num": 13,
+  "learning_objectives": [
+    "Explain the technical concepts and mechanics of with Statement (Context Managers)",
+    "Apply idiomatic Python patterns when working with with Statement (Context Managers)",
+    "Debug common runtime exceptions and logic errors associated with with Statement (Context Managers)",
+    "Implement production-ready code utilizing with Statement (Context Managers)"
+  ],
+  "prerequisites": [
+    "13.2"
   ]
 }

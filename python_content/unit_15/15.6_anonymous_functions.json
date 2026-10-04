@@ -11,7 +11,9 @@
       "difficulty": "easy",
       "prerequisites": [],
       "title": "What is a Lambda?",
-      "content": "A lambda is an anonymous function, meaning it is not bound to a name at runtime. It is a small, single-expression function defined with the lambda keyword. You write a lambda as lambda arguments: expression. Unlike a regular function created with def, a lambda can only contain one expression, and that expression is automatically returned. Lambdas are often used when you need a simple function temporarily, especially as arguments to higher-order functions like map(), filter(), and sorted().\n\nExample:\n```\n# Regular function\ndef add(a, b):\n    return a + b\n\n# Equivalent lambda\nadd_lambda = lambda a, b: a + b\nprint(add_lambda(3, 4))  # Output: 7\n```\nNotice that the lambda does not use the return keyword; the expression after the colon is evaluated and returned automatically."
+      "content": "A lambda is an anonymous function, meaning it is not bound to a name at runtime. It is a small, single-expression function defined with the lambda keyword. You write a lambda as lambda arguments: expression. Unlike a regular function created with def, a lambda can only contain one expression, and that expression is automatically returned. Lambdas are often used when you need a simple function temporarily, especially as arguments to higher-order functions like map(), filter(), and sorted().\n\nExample:\n```\n# Regular function\ndef add(a, b):\n    return a + b\n\n# Equivalent lambda\nadd_lambda = lambda a, b: a + b\nprint(add_lambda(3, 4))  # Output: 7\n```\nNotice that the lambda does not use the return keyword; the expression after the colon is evaluated and returned automatically.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of anonymous functions lambdas basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "15.6_q2",
@@ -42,7 +44,9 @@
         "15.6_q2"
       ],
       "title": "Lambda Syntax Rules",
-      "content": "The general form of a lambda is:\n\nlambda parameter1, parameter2, ...: expression\n\nKey rules to remember:\n1. The lambda keyword is always lowercase.\n2. Parameters are listed after the keyword, separated by commas.\n3. A single colon separates the parameters from the expression.\n4. The expression is evaluated and its result is returned automatically; no return statement is used.\n5. Only one expression is allowed; you cannot include statements like assignments or loops.\n\nExamples:\n```\n# Lambda with one parameter\nsquare = lambda x: x ** 2\nprint(square(5))  # Output: 25\n\n# Lambda with multiple parameters\nadd = lambda a, b: a + b\nprint(add(10, 20))  # Output: 30\n\n# Lambda returning a string\ngreet = lambda name: 'Hello, ' + name\nprint(greet('Alice'))  # Output: Hello, Alice\n```\nBecause a lambda is just an expression, it is often assigned to a variable or passed directly to another function."
+      "content": "The general form of a lambda is:\n\nlambda parameter1, parameter2, ...: expression\n\nKey rules to remember:\n1. The lambda keyword is always lowercase.\n2. Parameters are listed after the keyword, separated by commas.\n3. A single colon separates the parameters from the expression.\n4. The expression is evaluated and its result is returned automatically; no return statement is used.\n5. Only one expression is allowed; you cannot include statements like assignments or loops.\n\nExamples:\n```\n# Lambda with one parameter\nsquare = lambda x: x ** 2\nprint(square(5))  # Output: 25\n\n# Lambda with multiple parameters\nadd = lambda a, b: a + b\nprint(add(10, 20))  # Output: 30\n\n# Lambda returning a string\ngreet = lambda name: 'Hello, ' + name\nprint(greet('Alice'))  # Output: Hello, Alice\n```\nBecause a lambda is just an expression, it is often assigned to a variable or passed directly to another function.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of anonymous functions lambdas syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "15.6_q4",
@@ -379,7 +383,7 @@
       "prompt": "Fix the bug in this code for anonymous functions lambdas errors:",
       "starter_code": "# Fix this code\nPrint('Anonymous Functions (lambdas)')",
       "solution_code": "print('Anonymous Functions (lambdas)')",
-      "explanation": "Python identifiers and built-ins are case-sensitive."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of anonymous functions lambdas errors. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "15.6_q20",
@@ -433,7 +437,7 @@
       "prompt": "Fix the bug in this code for anonymous functions lambdas runtime:",
       "starter_code": "# Fix this code\nPrint('Anonymous Functions (lambdas)')",
       "solution_code": "print('Anonymous Functions (lambdas)')",
-      "explanation": "Python identifiers and built-ins are case-sensitive."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of anonymous functions lambdas runtime. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "15.6_q23",
@@ -625,5 +629,15 @@
       "hint": "First isolate even numbers with `filter()` and `lambda`. Then use `reduce()` with a multiplication lambda. Handle the empty case before reducing.",
       "explanation": "This exercise demonstrates mastery by combining `filter()`, `reduce()`, and a conditional check\u2014all orchestrated through anonymous functions. `reduce(lambda a, b: a * b, evens)` accumulates the product, and the guard clause ensures correctness for edge cases."
     }
+  ],
+  "unit_num": 15,
+  "learning_objectives": [
+    "Explain the technical concepts and mechanics of Anonymous s (lambdas)",
+    "Apply idiomatic Python patterns when working with Anonymous s (lambdas)",
+    "Debug common runtime exceptions and logic errors associated with Anonymous s (lambdas)",
+    "Implement production-ready code utilizing Anonymous s (lambdas)"
+  ],
+  "prerequisites": [
+    "15.5"
   ]
 }

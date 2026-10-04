@@ -11,7 +11,9 @@
       "title": "Introduction to collections.deque",
       "content": "The collections module in Python provides specialized container datatypes. One of the most useful is deque, which stands for double-ended queue. Unlike a regular list, a deque is optimized for fast appends and pops from both ends. This makes it ideal for implementing stacks and queues in Data Structures and Algorithms.\n\nTo use deque, you must import it from the collections module. Once imported, you can create an instance by passing an iterable or leaving it empty. Common operations include append() to add to the right end, appendleft() to add to the left end, pop() to remove from the right, and popleft() to remove from the left.\n\nHere is a basic example:\n\n```python\nfrom collections import deque\n\nd = deque([1, 2, 3])\nprint(d)  # deque([1, 2, 3])\nd.append(4)\nprint(d)  # deque([1, 2, 3, 4])\nd.appendleft(0)\nprint(d)  # deque([0, 1, 2, 3, 4])\n```\n\nRemember that deque does not support indexing like a list; you access elements using iteration or by converting to a list when needed.",
       "concept": "the_collectionsdeque_module_basics",
-      "skill": "recognition"
+      "skill": "recognition",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of the collectionsdeque module basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "34.5_q2",
@@ -42,7 +44,9 @@
       "title": "Core deque Syntax and Methods",
       "content": "Once you have imported deque, you can use several methods to manipulate the structure. The most frequently used methods are append(), appendleft(), pop(), and popleft(). These correspond to adding and removing elements from the right and left ends, respectively.\n\nYou can also initialize a deque with a maximum length. When the deque is full, adding a new element to either end automatically removes an element from the opposite end. This is useful for sliding window problems.\n\nConsider the following syntax examples:\n\n```python\nfrom collections import deque\n\n# Basic operations\ndq = deque()\ndq.append('a')\ndq.appendleft('b')\nprint(dq)  # deque(['b', 'a'])\n\n# With maxlen\ndq_maxlen = deque(maxlen=3)\ndq_maxlen.append(1)\ndq_maxlen.append(2)\ndq_maxlen.append(3)\ndq_maxlen.append(4)  # 1 is removed\nprint(dq_maxlen)  # deque([2, 3, 4])\n```\n\nAlways ensure that your code imports deque before calling any of these methods, or you will encounter an AttributeError.",
       "concept": "the_collectionsdeque_module_syntax",
-      "skill": "understanding"
+      "skill": "understanding",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of the collectionsdeque module syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "34.5_q4",
@@ -576,5 +580,15 @@
       "hint": "deque with maxlen automatically discards the leftmost item when a new item is appended beyond capacity. Use indexing for get().",
       "explanation": "This mastery item demonstrates the built-in circular behavior of deque when maxlen is set. It is memory-efficient and thread-safe for producer-consumer patterns. The get() method uses standard indexing, and is_full() checks against the configured capacity, not the current length after potential overwrites."
     }
+  ],
+  "unit_num": 34,
+  "learning_objectives": [
+    "Explain the technical concepts and mechanics of collections.deque Module",
+    "Apply idiomatic Python patterns when working with collections.deque Module",
+    "Debug common runtime exceptions and logic errors associated with collections.deque Module",
+    "Implement production-ready code utilizing collections.deque Module"
+  ],
+  "prerequisites": [
+    "34.4"
   ]
 }

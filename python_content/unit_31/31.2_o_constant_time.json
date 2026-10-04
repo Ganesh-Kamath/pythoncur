@@ -11,7 +11,9 @@
       "difficulty": "easy",
       "prerequisites": [],
       "title": "What is O(1) Constant Time?",
-      "content": "O(1) Constant Time means that the execution time of an operation does not change as the input size grows. Whether you have 10 items or 10 million items, the operation takes the same amount of time. A classic example is accessing an element in a list by its index using square brackets, because Python can directly compute the memory address. Another example is adding an element to the end of a list when there is available capacity. These operations are fast and predictable. Consider the following Python code:\n\n```python\nitems = [10, 20, 30, 40, 50]\nvalue = items[2]  # Always one step, no matter how large 'items' becomes\nprint('Retrieved value:', value)\n```\n\nNotice that `items[2]` does not loop through the list; it jumps straight to the third position. This is why we classify it as O(1)."
+      "content": "O(1) Constant Time means that the execution time of an operation does not change as the input size grows. Whether you have 10 items or 10 million items, the operation takes the same amount of time. A classic example is accessing an element in a list by its index using square brackets, because Python can directly compute the memory address. Another example is adding an element to the end of a list when there is available capacity. These operations are fast and predictable. Consider the following Python code:\n\n```python\nitems = [10, 20, 30, 40, 50]\nvalue = items[2]  # Always one step, no matter how large 'items' becomes\nprint('Retrieved value:', value)\n```\n\nNotice that `items[2]` does not loop through the list; it jumps straight to the third position. This is why we classify it as O(1).",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of o1 constant time basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "31.2_q2",
@@ -42,7 +44,9 @@
         "31.2_q2"
       ],
       "title": "Identifying O(1) Syntax in Python",
-      "content": "In Python, certain built-in operations are O(1) because they do not iterate over collections. Direct indexing with square brackets is the most common example. Appending to a list is amortized O(1) when the list has spare capacity. Dictionary lookups by key are also O(1) on average because Python uses a hash table. Here is a syntax example to study:\n\n```python\nscores = {'alice': 85, 'bob': 92, 'charlie': 78}\nscore = scores['bob']  # Hash lookup, constant time\nprint('Bob\\'s score:', score)\n```\n\nKey syntax to remember: bracket notation for lists and dictionaries, and the `.append()` method for lists when space is available. These patterns signal O(1) behavior."
+      "content": "In Python, certain built-in operations are O(1) because they do not iterate over collections. Direct indexing with square brackets is the most common example. Appending to a list is amortized O(1) when the list has spare capacity. Dictionary lookups by key are also O(1) on average because Python uses a hash table. Here is a syntax example to study:\n\n```python\nscores = {'alice': 85, 'bob': 92, 'charlie': 78}\nscore = scores['bob']  # Hash lookup, constant time\nprint('Bob\\'s score:', score)\n```\n\nKey syntax to remember: bracket notation for lists and dictionaries, and the `.append()` method for lists when space is available. These patterns signal O(1) behavior.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of o1 constant time syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "31.2_q4",
@@ -466,7 +470,7 @@
       "prerequisites": [
         "31.2_q24"
       ],
-      "prompt": "Coding Challenge 25: Write a statement that prints 'O(1) Constant Time Result 25' to standard output.",
+      "prompt": "Write a statement that prints 'O(1) Constant Time Result 25' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('O(1) Constant Time Result 25')",
       "test_cases": [
@@ -476,7 +480,7 @@
         }
       ],
       "hint": "Use print('O(1) Constant Time Result 25') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of o1 constant time implementation. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "31.2_q26",
@@ -487,7 +491,7 @@
       "prerequisites": [
         "31.2_q25"
       ],
-      "prompt": "Coding Challenge 26: Write a statement that prints 'O(1) Constant Time Result 26' to standard output.",
+      "prompt": "Write a statement that prints 'O(1) Constant Time Result 26' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('O(1) Constant Time Result 26')",
       "test_cases": [
@@ -497,7 +501,7 @@
         }
       ],
       "hint": "Use print('O(1) Constant Time Result 26') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of o1 constant time practical. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "31.2_q27",
@@ -508,7 +512,7 @@
       "prerequisites": [
         "31.2_q26"
       ],
-      "prompt": "Coding Challenge 27: Write a statement that prints 'O(1) Constant Time Result 27' to standard output.",
+      "prompt": "Write a statement that prints 'O(1) Constant Time Result 27' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('O(1) Constant Time Result 27')",
       "test_cases": [
@@ -518,7 +522,7 @@
         }
       ],
       "hint": "Use print('O(1) Constant Time Result 27') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of o1 constant time advanced. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "31.2_q28",
@@ -529,7 +533,7 @@
       "prerequisites": [
         "31.2_q27"
       ],
-      "prompt": "Coding Challenge 28: Write a statement that prints 'O(1) Constant Time Result 28' to standard output.",
+      "prompt": "Write a statement that prints 'O(1) Constant Time Result 28' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('O(1) Constant Time Result 28')",
       "test_cases": [
@@ -539,7 +543,7 @@
         }
       ],
       "hint": "Use print('O(1) Constant Time Result 28') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of o1 constant time challenge. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "31.2_q29",
@@ -550,7 +554,7 @@
       "prerequisites": [
         "31.2_q28"
       ],
-      "prompt": "Coding Challenge 29: Write a statement that prints 'O(1) Constant Time Result 29' to standard output.",
+      "prompt": "Write a statement that prints 'O(1) Constant Time Result 29' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('O(1) Constant Time Result 29')",
       "test_cases": [
@@ -560,7 +564,7 @@
         }
       ],
       "hint": "Use print('O(1) Constant Time Result 29') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of o1 constant time scenario. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "31.2_q30",
@@ -571,7 +575,7 @@
       "prerequisites": [
         "31.2_q29"
       ],
-      "prompt": "Coding Challenge 30: Write a statement that prints 'O(1) Constant Time Result 30' to standard output.",
+      "prompt": "Write a statement that prints 'O(1) Constant Time Result 30' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('O(1) Constant Time Result 30')",
       "test_cases": [
@@ -581,7 +585,17 @@
         }
       ],
       "hint": "Use print('O(1) Constant Time Result 30') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of o1 constant time mastery. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     }
+  ],
+  "unit_num": 31,
+  "learning_objectives": [
+    "Explain the technical concepts and mechanics of O(1) Constant Time",
+    "Apply idiomatic Python patterns when working with O(1) Constant Time",
+    "Debug common runtime exceptions and logic errors associated with O(1) Constant Time",
+    "Implement production-ready code utilizing O(1) Constant Time"
+  ],
+  "prerequisites": [
+    "31.1"
   ]
 }

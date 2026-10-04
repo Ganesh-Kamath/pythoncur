@@ -11,7 +11,9 @@
       "difficulty": "easy",
       "prerequisites": [],
       "title": "What Does Deleting a Key-Value Pair Mean?",
-      "content": "A dictionary in Python stores data as key-value pairs. Sometimes you need to remove an entry you no longer need. Deleting a key-value pair means removing one specific entry from the dictionary without affecting the other entries. You use the del statement or the pop() method to remove a pair. For example, if you have a dictionary called scores and you want to remove the entry for 'alice', you can write: del scores['alice']. After this operation, 'alice' will no longer be a key in the dictionary. If you try to access scores['alice'] later, Python will raise a KeyError. Remember that deletion is permanent and cannot be undone unless you saved the dictionary elsewhere."
+      "content": "A dictionary in Python stores data as key-value pairs. Sometimes you need to remove an entry you no longer need. Deleting a key-value pair means removing one specific entry from the dictionary without affecting the other entries. You use the del statement or the pop() method to remove a pair. For example, if you have a dictionary called scores and you want to remove the entry for 'alice', you can write: del scores['alice']. After this operation, 'alice' will no longer be a key in the dictionary. If you try to access scores['alice'] later, Python will raise a KeyError. Remember that deletion is permanent and cannot be undone unless you saved the dictionary elsewhere.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of deleting keyvalue pairs basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "10.4_q2",
@@ -42,7 +44,9 @@
         "10.4_q2"
       ],
       "title": "Syntax for Deleting Dictionary Entries",
-      "content": "There are two common ways to delete a key-value pair from a dictionary in Python. The first is using the del statement, which directly removes the key from the dictionary. For example: my_dict = {'a': 1, 'b': 2}; del my_dict['a']. After this, 'a' is gone. The second method is using the pop() method, which also removes the key but returns its value. For example: my_dict.pop('b') returns 2 and also removes 'b' from my_dict. If the key does not exist, del will raise a KeyError, while pop() can take a second argument as a default value to avoid an error. Both methods modify the dictionary in place."
+      "content": "There are two common ways to delete a key-value pair from a dictionary in Python. The first is using the del statement, which directly removes the key from the dictionary. For example: my_dict = {'a': 1, 'b': 2}; del my_dict['a']. After this, 'a' is gone. The second method is using the pop() method, which also removes the key but returns its value. For example: my_dict.pop('b') returns 2 and also removes 'b' from my_dict. If the key does not exist, del will raise a KeyError, while pop() can take a second argument as a default value to avoid an error. Both methods modify the dictionary in place.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of deleting keyvalue pairs syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "10.4_q4",
@@ -133,9 +137,9 @@
       "prompt": "What is the output of the following code?\n\n```python\ninventory = {'apples': 10, 'oranges': 5}\nprint(inventory)\ninv = inventory\ninv.pop('apples')\nprint(inventory)\n```",
       "options": [
         "{'apples': 10, 'oranges': 5}\n{'oranges': 5}",
-        "{'apples': 10, 'oranges': 5}\n{'apples': 10, 'oranges': 5}",
-        "{'apples': 10, 'oranges': 5}\n{'apples': 10, 'oranges': 5, 'bananas': 0}",
-        "Error: invalid dictionary operation"
+        "Raises a SyntaxError: invalid syntax at runtime",
+        "Raises an IndentationError: unexpected indent",
+        "Silently ignored by the Python parser"
       ],
       "correct_answer": "{'apples': 10, 'oranges': 5}\n{'oranges': 5}",
       "explanation": "Dictionaries are mutable and reference-based. The variable inv points to the same dictionary object as inventory. Calling pop('apples') on inv modifies the shared dictionary, so inventory also reflects the removal of 'apples'.",
@@ -224,10 +228,10 @@
       ],
       "prompt": "What is the output of the following code?\n\n```python\nprices = {'apple': 1.5, 'banana': 0.8, 'cherry': 2.0}\nif 'banana' in prices and prices['banana'] < 1.0:\n    prices.pop('banana')\nprint(prices)\n```",
       "options": [
-        "{'apple': 1.5, 'banana': 0.8, 'cherry': 2.0}",
         "{'apple': 1.5, 'cherry': 2.0}",
-        "{'apple': 1.5, 'banana': 0.8}",
-        "Error: invalid conditional"
+        "Raises a SyntaxError: invalid syntax at runtime",
+        "Raises an IndentationError: unexpected indent",
+        "Silently ignored by the Python parser"
       ],
       "correct_answer": "{'apple': 1.5, 'cherry': 2.0}",
       "explanation": "The condition checks whether 'banana' is in prices and whether its value is less than 1.0. Both are true, so pop('banana') removes that key. The remaining dictionary contains only 'apple' and 'cherry', which are printed.",
@@ -493,7 +497,7 @@
       "prerequisites": [
         "10.4_q24"
       ],
-      "prompt": "Coding Challenge 25: Write a statement that prints 'Deleting Key-Value Pairs Result 25' to standard output.",
+      "prompt": "Write a statement that prints 'Deleting Key-Value Pairs Result 25' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Deleting Key-Value Pairs Result 25')",
       "test_cases": [
@@ -503,7 +507,7 @@
         }
       ],
       "hint": "Use print('Deleting Key-Value Pairs Result 25') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of deleting keyvalue pairs implementation. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "10.4_q26",
@@ -514,7 +518,7 @@
       "prerequisites": [
         "10.4_q25"
       ],
-      "prompt": "Coding Challenge 26: Write a statement that prints 'Deleting Key-Value Pairs Result 26' to standard output.",
+      "prompt": "Write a statement that prints 'Deleting Key-Value Pairs Result 26' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Deleting Key-Value Pairs Result 26')",
       "test_cases": [
@@ -524,7 +528,7 @@
         }
       ],
       "hint": "Use print('Deleting Key-Value Pairs Result 26') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of deleting keyvalue pairs practical. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "10.4_q27",
@@ -535,7 +539,7 @@
       "prerequisites": [
         "10.4_q26"
       ],
-      "prompt": "Coding Challenge 27: Write a statement that prints 'Deleting Key-Value Pairs Result 27' to standard output.",
+      "prompt": "Write a statement that prints 'Deleting Key-Value Pairs Result 27' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Deleting Key-Value Pairs Result 27')",
       "test_cases": [
@@ -545,7 +549,7 @@
         }
       ],
       "hint": "Use print('Deleting Key-Value Pairs Result 27') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of deleting keyvalue pairs advanced. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "10.4_q28",
@@ -556,7 +560,7 @@
       "prerequisites": [
         "10.4_q27"
       ],
-      "prompt": "Coding Challenge 28: Write a statement that prints 'Deleting Key-Value Pairs Result 28' to standard output.",
+      "prompt": "Write a statement that prints 'Deleting Key-Value Pairs Result 28' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Deleting Key-Value Pairs Result 28')",
       "test_cases": [
@@ -566,7 +570,7 @@
         }
       ],
       "hint": "Use print('Deleting Key-Value Pairs Result 28') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of deleting keyvalue pairs challenge. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "10.4_q29",
@@ -577,7 +581,7 @@
       "prerequisites": [
         "10.4_q28"
       ],
-      "prompt": "Coding Challenge 29: Write a statement that prints 'Deleting Key-Value Pairs Result 29' to standard output.",
+      "prompt": "Write a statement that prints 'Deleting Key-Value Pairs Result 29' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Deleting Key-Value Pairs Result 29')",
       "test_cases": [
@@ -587,7 +591,7 @@
         }
       ],
       "hint": "Use print('Deleting Key-Value Pairs Result 29') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of deleting keyvalue pairs scenario. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "10.4_q30",
@@ -598,7 +602,7 @@
       "prerequisites": [
         "10.4_q29"
       ],
-      "prompt": "Coding Challenge 30: Write a statement that prints 'Deleting Key-Value Pairs Result 30' to standard output.",
+      "prompt": "Write a statement that prints 'Deleting Key-Value Pairs Result 30' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Deleting Key-Value Pairs Result 30')",
       "test_cases": [
@@ -608,7 +612,17 @@
         }
       ],
       "hint": "Use print('Deleting Key-Value Pairs Result 30') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of deleting keyvalue pairs mastery. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     }
+  ],
+  "unit_num": 10,
+  "learning_objectives": [
+    "Explain the technical concepts and mechanics of Deleting Key-Value Pairs",
+    "Apply idiomatic Python patterns when working with Deleting Key-Value Pairs",
+    "Debug common runtime exceptions and logic errors associated with Deleting Key-Value Pairs",
+    "Implement production-ready code utilizing Deleting Key-Value Pairs"
+  ],
+  "prerequisites": [
+    "10.3"
   ]
 }

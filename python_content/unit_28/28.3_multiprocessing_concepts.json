@@ -11,7 +11,9 @@
       "difficulty": "easy",
       "prerequisites": [],
       "title": "What is Multiprocessing?",
-      "content": "Multiprocessing is a programming paradigm where multiple processes run concurrently, each with its own memory space. Unlike threading, processes are isolated, which helps avoid certain types of bugs caused by shared state. In Python, the multiprocessing module allows you to spawn new processes using the Process class. A process is created by passing a target function to Process, then calling start() to run it and join() to wait for completion. Here is a simple example:\n\n```python\nfrom multiprocessing import Process\n\ndef worker():\n    print('Worker running in a separate process')\n\nif __name__ == '__main__':\n    p = Process(target=worker)\n    p.start()\n    p.join()\n    print('Process finished')\n```\n\nKey takeaway: multiprocessing is ideal for CPU-bound tasks because it bypasses the Global Interpreter Lock (GIL) by using separate memory spaces."
+      "content": "Multiprocessing is a programming paradigm where multiple processes run concurrently, each with its own memory space. Unlike threading, processes are isolated, which helps avoid certain types of bugs caused by shared state. In Python, the multiprocessing module allows you to spawn new processes using the Process class. A process is created by passing a target function to Process, then calling start() to run it and join() to wait for completion. Here is a simple example:\n\n```python\nfrom multiprocessing import Process\n\ndef worker():\n    print('Worker running in a separate process')\n\nif __name__ == '__main__':\n    p = Process(target=worker)\n    p.start()\n    p.join()\n    print('Process finished')\n```\n\nKey takeaway: multiprocessing is ideal for CPU-bound tasks because it bypasses the Global Interpreter Lock (GIL) by using separate memory spaces.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of multiprocessing concepts basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "28.3_q2",
@@ -42,7 +44,9 @@
         "28.3_q2"
       ],
       "title": "Basic Syntax of the multiprocessing Module",
-      "content": "To use multiprocessing, import the Process class from the multiprocessing module. You define a function that contains the work to be done, then instantiate Process with target set to that function. The start() method launches the process, and join() blocks the main process until the child finishes. It is essential to guard process creation with if __name__ == '__main__': to prevent infinite recursion on some platforms like Windows.\n\n```python\nfrom multiprocessing import Process\n\ndef calculate(n):\n    total = 0\n    for i in range(n):\n        total += i\n    print('Sum is', total)\n\nif __name__ == '__main__':\n    p = Process(target=calculate, args=(10,))\n    p.start()\n    p.join()\n```\n\nNotice how args is a tuple even for a single argument. The main process waits at join() before printing any final message."
+      "content": "To use multiprocessing, import the Process class from the multiprocessing module. You define a function that contains the work to be done, then instantiate Process with target set to that function. The start() method launches the process, and join() blocks the main process until the child finishes. It is essential to guard process creation with if __name__ == '__main__': to prevent infinite recursion on some platforms like Windows.\n\n```python\nfrom multiprocessing import Process\n\ndef calculate(n):\n    total = 0\n    for i in range(n):\n        total += i\n    print('Sum is', total)\n\nif __name__ == '__main__':\n    p = Process(target=calculate, args=(10,))\n    p.start()\n    p.join()\n```\n\nNotice how args is a tuple even for a single argument. The main process waits at join() before printing any final message.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of multiprocessing concepts syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "28.3_q4",
@@ -72,7 +76,7 @@
       "prerequisites": [
         "28.3_q4"
       ],
-      "prompt": "Match each term to its correct description.",
+      "prompt": "Match each concurrent programming concept to its operational behavior.",
       "options": [
         "Process: A function that runs in the background",
         "Process: A separate execution environment with its own memory",
@@ -132,9 +136,9 @@
       "prompt": "What is the output of this script?\n```python\nfrom multiprocessing import Process, Queue\n\ndef producer(q):\n    q.put('apple')\n    q.put('banana')\n\ndef consumer(q):\n    print(q.get())\n    print(q.get())\n\nq = Queue()\np = Process(target=producer, args=(q,))\nc = Process(target=consumer, args=(q,))\np.start()\nc.start()\np.join()\nc.join()\n```",
       "options": [
         "'apple'\n'banana'",
-        "'banana'\n'apple'",
-        "'apple'\nError: Queue empty",
-        "Error: Process cannot share Queue"
+        "Raises a SyntaxError: invalid syntax at runtime",
+        "Raises an IndentationError: unexpected indent",
+        "Silently ignored by the Python parser"
       ],
       "correct_answer": "'apple'\n'banana'",
       "explanation": "Queue is process-safe and supports inter-process communication. The consumer retrieves items in the same order they were put. Both processes finish cleanly, so no error occurs."
@@ -579,5 +583,15 @@
       "hint": "The consumer must loop to process all items and use while loops with wait to avoid spurious wakeups.",
       "explanation": "This mastery challenge requires precise use of Condition variables and proper loop-based waiting to implement a classic bounded buffer. It tests deep understanding of process synchronization and avoiding lost wakeups."
     }
+  ],
+  "unit_num": 28,
+  "learning_objectives": [
+    "Explain the technical concepts and mechanics of Multiprocessing Concepts",
+    "Apply idiomatic Python patterns when working with Multiprocessing Concepts",
+    "Debug common runtime exceptions and logic errors associated with Multiprocessing Concepts",
+    "Implement production-ready code utilizing Multiprocessing Concepts"
+  ],
+  "prerequisites": [
+    "28.2"
   ]
 }

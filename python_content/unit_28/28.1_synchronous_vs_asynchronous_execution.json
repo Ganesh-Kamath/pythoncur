@@ -11,7 +11,9 @@
       "concept": "synchronous_vs_asynchronous_execution_basics",
       "title": "What Is Synchronous vs Asynchronous Execution?",
       "content": "In Python, tasks can run in two main ways. Synchronous execution means one task finishes completely before the next task begins. Asynchronous execution means a task can start, pause, and allow other tasks to run while waiting for something like a network response or file read.\n\nSynchronous code is straightforward: the program moves line by line. Asynchronous code uses keywords like `async` and `await`, along with an event loop, to manage concurrency without blocking the entire program.\n\nExample of synchronous execution:\n```python\nimport time\n\ndef fetch_data():\n    print('Fetching data...')\n    time.sleep(1)\n    print('Data received')\n\nfetch_data()\nprint('Done')\n```\nThis blocks until `fetch_data` completes.\n\nExample of asynchronous execution:\n```python\nimport asyncio\n\nasync def fetch_data():\n    print('Fetching data...')\n    await asyncio.sleep(1)\n    print('Data received')\n\nasync def main():\n    fetch_data()\n    print('Done')\n\nasyncio.run(main())\n```\nHere, `await asyncio.sleep(1)` yields control, allowing the event loop to schedule other tasks.",
-      "prerequisites": []
+      "prerequisites": [],
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of synchronous vs asynchronous execution basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "28.1_q2",
@@ -42,7 +44,9 @@
       "content": "The key syntax difference is the use of `async def` for coroutine functions and `await` for pausing execution inside them.\n\nIn synchronous code, you define a normal function with `def`. In asynchronous code, you define a coroutine with `async def`. Inside a coroutine, you pause I/O-bound or delay operations with `await`.\n\nSynchronous example:\n```python\ndef delayed():\n    print('Start')\n    time.sleep(1)\n    print('End')\n\ndelayed()\n```\n\nAsynchronous example:\n```python\nimport asyncio\n\nasync def delayed():\n    print('Start')\n    await asyncio.sleep(1)\n    print('End')\n\nasyncio.run(delayed())\n```\nNotice that `time.sleep` cannot be awaited; `asyncio.sleep` is the asynchronous equivalent.",
       "prerequisites": [
         "28.1_q2"
-      ]
+      ],
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of synchronous vs asynchronous execution syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "28.1_q4",
@@ -359,7 +363,7 @@
       "prompt": "Fix the bug in this code for synchronous vs asynchronous execution errors:",
       "starter_code": "# Fix this code\nPrint('Synchronous vs Asynchronous Execution')",
       "solution_code": "print('Synchronous vs Asynchronous Execution')",
-      "explanation": "Python identifiers and built-ins are case-sensitive."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of synchronous vs asynchronous execution errors. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "28.1_q20",
@@ -407,7 +411,7 @@
       "prompt": "Fix the bug in this code for synchronous vs asynchronous execution runtime:",
       "starter_code": "# Fix this code\nPrint('Synchronous vs Asynchronous Execution')",
       "solution_code": "print('Synchronous vs Asynchronous Execution')",
-      "explanation": "Python identifiers and built-ins are case-sensitive."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of synchronous vs asynchronous execution runtime. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "28.1_q23",
@@ -586,5 +590,15 @@
       "hint": "Use `asyncio.wait_for` to enforce the timeout. On `TimeoutError`, catch it and retry once inside the context manager. Ensure all 4 fetches start concurrently so the total time is dominated by the longest single fetch (~0.8s) plus negligible overhead, not by sequential retries.",
       "explanation": "Mastery requires combining timeout enforcement, retry logic, and concurrent scheduling. The context manager encapsulates resilience, while `asyncio.wait_for` prevents a single slow endpoint from blocking the entire operation. Retrying only once avoids infinite loops. Total time remains near the longest single fetch because all tasks run concurrently, demonstrating production-grade async design."
     }
+  ],
+  "unit_num": 28,
+  "learning_objectives": [
+    "Explain the technical concepts and mechanics of Synchronous vs Asynchronous Execution",
+    "Apply idiomatic Python patterns when working with Synchronous vs Asynchronous Execution",
+    "Debug common runtime exceptions and logic errors associated with Synchronous vs Asynchronous Execution",
+    "Implement production-ready code utilizing Synchronous vs Asynchronous Execution"
+  ],
+  "prerequisites": [
+    "27.6"
   ]
 }

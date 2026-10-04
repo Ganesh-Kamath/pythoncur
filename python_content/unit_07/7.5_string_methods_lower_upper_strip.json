@@ -11,7 +11,9 @@
       "difficulty": "easy",
       "prerequisites": [],
       "title": "Recognizing lower(), upper(), and strip()",
-      "content": "In Python, strings are sequences of characters that can be modified using built-in methods. Three commonly used methods are lower(), upper(), and strip().\n\n- lower() converts all uppercase characters in a string to lowercase. It does not change the original string; instead, it returns a new string.\n- upper() converts all lowercase characters in a string to uppercase. Like lower(), it returns a new string.\n- strip() removes leading and trailing whitespace (spaces, tabs, newlines) from a string. It also returns a new string.\n\nExample:\n```python\ns = '  Hello WORLD  '\nprint(s.lower())\n# Output: '  hello world  '\nprint(s.upper())\n# Output: '  HELLO WORLD  '\nprint(s.strip())\n# Output: 'Hello WORLD'\n```\nNote that lower() and upper() do not remove whitespace, while strip() only removes whitespace from the beginning and end."
+      "content": "In Python, strings are sequences of characters that can be modified using built-in methods. Three commonly used methods are lower(), upper(), and strip().\n\n- lower() converts all uppercase characters in a string to lowercase. It does not change the original string; instead, it returns a new string.\n- upper() converts all lowercase characters in a string to uppercase. Like lower(), it returns a new string.\n- strip() removes leading and trailing whitespace (spaces, tabs, newlines) from a string. It also returns a new string.\n\nExample:\n```python\ns = '  Hello WORLD  '\nprint(s.lower())\n# Output: '  hello world  '\nprint(s.upper())\n# Output: '  HELLO WORLD  '\nprint(s.strip())\n# Output: 'Hello WORLD'\n```\nNote that lower() and upper() do not remove whitespace, while strip() only removes whitespace from the beginning and end.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of string methods lower upper strip basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "7.5_q2",
@@ -42,7 +44,9 @@
         "7.5_q2"
       ],
       "title": "Syntax of lower(), upper(), and strip()",
-      "content": "All three methods follow the same calling pattern: you invoke them on a string object using dot notation. The syntax is:\n\n```python\nnew_string = original_string.method_name()\n```\n\nImportant syntax rules:\n- The method name is followed by empty parentheses.\n- No arguments are required for these three methods.\n- The result is always a new string; the original string remains unchanged.\n\nExamples:\n```python\ntext = 'Python'\nlower_text = text.lower()\nupper_text = text.upper()\nstripped_text = '  Python  '.strip()\nprint(lower_text)\nprint(upper_text)\nprint(stripped_text)\n```\nOutput:\n```\npython\nP Y T H O N\nPython\n```\nBecause strings are immutable in Python, these methods cannot modify the original string in place."
+      "content": "All three methods follow the same calling pattern: you invoke them on a string object using dot notation. The syntax is:\n\n```python\nnew_string = original_string.method_name()\n```\n\nImportant syntax rules:\n- The method name is followed by empty parentheses.\n- No arguments are required for these three methods.\n- The result is always a new string; the original string remains unchanged.\n\nExamples:\n```python\ntext = 'Python'\nlower_text = text.lower()\nupper_text = text.upper()\nstripped_text = '  Python  '.strip()\nprint(lower_text)\nprint(upper_text)\nprint(stripped_text)\n```\nOutput:\n```\npython\nP Y T H O N\nPython\n```\nBecause strings are immutable in Python, these methods cannot modify the original string in place.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of string methods lower upper strip syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "7.5_q4",
@@ -388,11 +392,11 @@
       "prerequisites": [
         "7.5_q18"
       ],
-      "prompt": "Debug Challenge 19: Fix the capitalization error in this line for String Methods Lower Upper Strip Errors:",
+      "prompt": "Fix the capitalization error in this line for String Methods Lower Upper Strip Errors:",
       "starter_code": "Print('String s: lower(), upper(), strip() Item 19')",
       "solution_code": "print('String s: lower(), upper(), strip() Item 19')",
       "hint": "Python built-in functions like print() must be written in lowercase.",
-      "explanation": "Built-in function names in Python are case-sensitive and require lowercase."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of string methods lower upper strip errors. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "7.5_q20",
@@ -403,11 +407,11 @@
       "prerequisites": [
         "7.5_q19"
       ],
-      "prompt": "Debug Challenge 20: Fix the capitalization error in this line for String Methods Lower Upper Strip Fix:",
+      "prompt": "Fix the capitalization error in this line for String Methods Lower Upper Strip Fix:",
       "starter_code": "Print('String s: lower(), upper(), strip() Item 20')",
       "solution_code": "print('String s: lower(), upper(), strip() Item 20')",
       "hint": "Python built-in functions like print() must be written in lowercase.",
-      "explanation": "Built-in function names in Python are case-sensitive and require lowercase."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of string methods lower upper strip fix. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "7.5_q21",
@@ -418,11 +422,11 @@
       "prerequisites": [
         "7.5_q20"
       ],
-      "prompt": "Debug Challenge 21: Fix the capitalization error in this line for String Methods Lower Upper Strip Edge Cases:",
+      "prompt": "Fix the capitalization error in this line for String Methods Lower Upper Strip Edge Cases:",
       "starter_code": "Print('String s: lower(), upper(), strip() Item 21')",
       "solution_code": "print('String s: lower(), upper(), strip() Item 21')",
       "hint": "Python built-in functions like print() must be written in lowercase.",
-      "explanation": "Built-in function names in Python are case-sensitive and require lowercase."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of string methods lower upper strip edge cases. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "7.5_q22",
@@ -433,11 +437,11 @@
       "prerequisites": [
         "7.5_q21"
       ],
-      "prompt": "Debug Challenge 22: Fix the capitalization error in this line for String Methods Lower Upper Strip Runtime:",
+      "prompt": "Fix the capitalization error in this line for String Methods Lower Upper Strip Runtime:",
       "starter_code": "Print('String s: lower(), upper(), strip() Item 22')",
       "solution_code": "print('String s: lower(), upper(), strip() Item 22')",
       "hint": "Python built-in functions like print() must be written in lowercase.",
-      "explanation": "Built-in function names in Python are case-sensitive and require lowercase."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of string methods lower upper strip runtime. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "7.5_q23",
@@ -448,11 +452,11 @@
       "prerequisites": [
         "7.5_q22"
       ],
-      "prompt": "Debug Challenge 23: Fix the capitalization error in this line for String Methods Lower Upper Strip Logic Repair:",
+      "prompt": "Fix the capitalization error in this line for String Methods Lower Upper Strip Logic Repair:",
       "starter_code": "Print('String s: lower(), upper(), strip() Item 23')",
       "solution_code": "print('String s: lower(), upper(), strip() Item 23')",
       "hint": "Python built-in functions like print() must be written in lowercase.",
-      "explanation": "Built-in function names in Python are case-sensitive and require lowercase."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of string methods lower upper strip logic repair. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "7.5_q24",
@@ -463,7 +467,7 @@
       "prerequisites": [
         "7.5_q23"
       ],
-      "prompt": "Coding Challenge 24: Write a statement that prints 'String s: lower(), upper(), strip() Result 24' to standard output.",
+      "prompt": "Write a statement that prints 'String s: lower(), upper(), strip() Result 24' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('String s: lower(), upper(), strip() Result 24')",
       "test_cases": [
@@ -473,7 +477,7 @@
         }
       ],
       "hint": "Use print('String s: lower(), upper(), strip() Result 24') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of string methods lower upper strip optimization. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "7.5_q25",
@@ -484,7 +488,7 @@
       "prerequisites": [
         "7.5_q24"
       ],
-      "prompt": "Coding Challenge 25: Write a statement that prints 'String s: lower(), upper(), strip() Result 25' to standard output.",
+      "prompt": "Write a statement that prints 'String s: lower(), upper(), strip() Result 25' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('String s: lower(), upper(), strip() Result 25')",
       "test_cases": [
@@ -494,7 +498,7 @@
         }
       ],
       "hint": "Use print('String s: lower(), upper(), strip() Result 25') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of string methods lower upper strip implementation. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "7.5_q26",
@@ -505,7 +509,7 @@
       "prerequisites": [
         "7.5_q25"
       ],
-      "prompt": "Coding Challenge 26: Write a statement that prints 'String s: lower(), upper(), strip() Result 26' to standard output.",
+      "prompt": "Write a statement that prints 'String s: lower(), upper(), strip() Result 26' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('String s: lower(), upper(), strip() Result 26')",
       "test_cases": [
@@ -515,7 +519,7 @@
         }
       ],
       "hint": "Use print('String s: lower(), upper(), strip() Result 26') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of string methods lower upper strip practical. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "7.5_q27",
@@ -526,7 +530,7 @@
       "prerequisites": [
         "7.5_q26"
       ],
-      "prompt": "Coding Challenge 27: Write a statement that prints 'String s: lower(), upper(), strip() Result 27' to standard output.",
+      "prompt": "Write a statement that prints 'String s: lower(), upper(), strip() Result 27' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('String s: lower(), upper(), strip() Result 27')",
       "test_cases": [
@@ -536,7 +540,7 @@
         }
       ],
       "hint": "Use print('String s: lower(), upper(), strip() Result 27') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of string methods lower upper strip advanced. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "7.5_q28",
@@ -547,7 +551,7 @@
       "prerequisites": [
         "7.5_q27"
       ],
-      "prompt": "Coding Challenge 28: Write a statement that prints 'String s: lower(), upper(), strip() Result 28' to standard output.",
+      "prompt": "Write a statement that prints 'String s: lower(), upper(), strip() Result 28' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('String s: lower(), upper(), strip() Result 28')",
       "test_cases": [
@@ -557,7 +561,7 @@
         }
       ],
       "hint": "Use print('String s: lower(), upper(), strip() Result 28') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of string methods lower upper strip challenge. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "7.5_q29",
@@ -568,7 +572,7 @@
       "prerequisites": [
         "7.5_q28"
       ],
-      "prompt": "Coding Challenge 29: Write a statement that prints 'String s: lower(), upper(), strip() Result 29' to standard output.",
+      "prompt": "Write a statement that prints 'String s: lower(), upper(), strip() Result 29' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('String s: lower(), upper(), strip() Result 29')",
       "test_cases": [
@@ -578,7 +582,7 @@
         }
       ],
       "hint": "Use print('String s: lower(), upper(), strip() Result 29') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of string methods lower upper strip scenario. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "7.5_q30",
@@ -589,7 +593,7 @@
       "prerequisites": [
         "7.5_q29"
       ],
-      "prompt": "Coding Challenge 30: Write a statement that prints 'String s: lower(), upper(), strip() Result 30' to standard output.",
+      "prompt": "Write a statement that prints 'String s: lower(), upper(), strip() Result 30' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('String s: lower(), upper(), strip() Result 30')",
       "test_cases": [
@@ -599,7 +603,17 @@
         }
       ],
       "hint": "Use print('String s: lower(), upper(), strip() Result 30') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of string methods lower upper strip mastery. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     }
+  ],
+  "unit_num": 7,
+  "learning_objectives": [
+    "Manipulate textual data using String s: lower(), upper(), strip()",
+    "Apply zero-based indexing and slicing syntax correctly",
+    "Differentiate between in-place mutation and immutable string transformations",
+    "Format and clean user-provided text data safely"
+  ],
+  "prerequisites": [
+    "7.4"
   ]
 }

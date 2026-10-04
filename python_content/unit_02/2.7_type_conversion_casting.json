@@ -9,9 +9,13 @@
       "concept": "casting_overview",
       "skill": "recognition",
       "difficulty": "easy",
-      "prerequisites": ["2.6_q1"],
+      "prerequisites": [
+        "2.6_q1"
+      ],
       "title": "What is Type Conversion?",
-      "content": "**Type conversion** (also called **type casting**) is the process of converting an object from one data type into another.\n\nPython provides built-in constructor functions named after each type:\n* `int()`: converts a value to an integer\n* `float()`: converts a value to a float\n* `str()`: converts a value to a string\n* `bool()`: converts a value to a boolean"
+      "content": "**Type conversion** (also called **type casting**) is the process of converting an object from one data type into another.\n\nPython provides built-in constructor functions named after each type:\n* `int()`: converts a value to an integer\n* `float()`: converts a value to a float\n* `str()`: converts a value to a string\n* `bool()`: converts a value to a boolean",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of casting overview. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "2.7_q2",
@@ -19,7 +23,9 @@
       "concept": "casting_overview",
       "skill": "recognition",
       "difficulty": "easy",
-      "prerequisites": ["2.7_q1"],
+      "prerequisites": [
+        "2.7_q1"
+      ],
       "prompt": "Which function converts a string like `\"50\"` into the integer `50`?",
       "options": [
         "A. `to_int(\"50\")`",
@@ -28,7 +34,7 @@
         "D. `number(\"50\")`"
       ],
       "correct_answer": "B",
-      "explanation": "Calling `int(\"50\")` parses the string into an integer."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of casting overview. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "2.7_q3",
@@ -36,9 +42,14 @@
       "concept": "str_conversion",
       "skill": "application",
       "difficulty": "easy",
-      "prerequisites": ["2.4_q13", "2.7_q1"],
+      "prerequisites": [
+        "2.4_q13",
+        "2.7_q1"
+      ],
       "title": "Fixing Concatenation with str()",
-      "content": "Remember how `\"Score: \" + 100` failed with a `TypeError`?\n\nBy converting `100` to a string using `str()`, concatenation succeeds flawlessly:\n```python\nscore = 100\nmessage = \"Score: \" + str(score)\nprint(message)  # Prints: Score: 100\n```"
+      "content": "Remember how `\"Score: \" + 100` failed with a `TypeError`?\n\nBy converting `100` to a string using `str()`, concatenation succeeds flawlessly:\n```python\nscore = 100\nmessage = \"Score: \" + str(score)\nprint(message)  # Prints: Score: 100\n```",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of str conversion. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "2.7_q4",
@@ -46,7 +57,9 @@
       "concept": "str_conversion",
       "skill": "prediction",
       "difficulty": "easy",
-      "prerequisites": ["2.7_q3"],
+      "prerequisites": [
+        "2.7_q3"
+      ],
       "prompt": "What does this code output?\n```python\nage = 18\nprint(\"Age: \" + str(age))\n```",
       "options": [
         "A. Age: 18",
@@ -63,11 +76,13 @@
       "concept": "str_conversion_fix",
       "skill": "debugging",
       "difficulty": "easy",
-      "prerequisites": ["2.7_q3"],
+      "prerequisites": [
+        "2.7_q3"
+      ],
       "prompt": "Fix this code using `str()` so it concatenates without raising a TypeError:",
       "starter_code": "count = 5\nmsg = \"Count is \" + count",
       "solution_code": "count = 5\nmsg = \"Count is \" + str(count)",
-      "explanation": "Wrap `count` in `str()` to convert the integer to a string."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of str conversion fix. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "2.7_q6",
@@ -75,9 +90,14 @@
       "concept": "int_truncation",
       "skill": "understanding",
       "difficulty": "medium",
-      "prerequisites": ["2.3_q3", "2.7_q1"],
+      "prerequisites": [
+        "2.3_q3",
+        "2.7_q1"
+      ],
       "title": "Converting Floats to Ints: Truncation",
-      "content": "When you convert a `float` to an `int` using `int()`, Python does **NOT** round to the nearest whole number.\n\nInstead, it **truncates** (chops off) the decimal part completely:\n```python\nprint(int(5.99))   # Prints: 5 (chops off .99!)\nprint(int(-3.8))   # Prints: -3\n```\nIf you want mathematical rounding, use the built-in `round()` function instead."
+      "content": "When you convert a `float` to an `int` using `int()`, Python does **NOT** round to the nearest whole number.\n\nInstead, it **truncates** (chops off) the decimal part completely:\n```python\nprint(int(5.99))   # Prints: 5 (chops off .99!)\nprint(int(-3.8))   # Prints: -3\n```\nIf you want mathematical rounding, use the built-in `round()` function instead.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of int truncation. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "2.7_q7",
@@ -85,7 +105,9 @@
       "concept": "int_truncation",
       "skill": "prediction",
       "difficulty": "medium",
-      "prerequisites": ["2.7_q6"],
+      "prerequisites": [
+        "2.7_q6"
+      ],
       "prompt": "What does `int(9.8)` evaluate to?",
       "options": [
         "A. 10",
@@ -94,7 +116,7 @@
         "D. 9.0"
       ],
       "correct_answer": "B",
-      "explanation": "`int()` truncates the fractional part, yielding 9."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of int truncation. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "2.7_q8",
@@ -102,9 +124,14 @@
       "concept": "float_conversion",
       "skill": "understanding",
       "difficulty": "easy",
-      "prerequisites": ["2.3_q3", "2.7_q1"],
+      "prerequisites": [
+        "2.3_q3",
+        "2.7_q1"
+      ],
       "title": "Converting to Floats with float()",
-      "content": "Calling `float()` converts integers or valid decimal strings into floating-point numbers:\n```python\nprint(float(7))       # 7.0\nprint(float(\"3.14\"))  # 3.14\nprint(float(\"10\"))    # 10.0\n```"
+      "content": "Calling `float()` converts integers or valid decimal strings into floating-point numbers:\n```python\nprint(float(7))       # 7.0\nprint(float(\"3.14\"))  # 3.14\nprint(float(\"10\"))    # 10.0\n```",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of float conversion. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "2.7_q9",
@@ -112,7 +139,9 @@
       "concept": "float_conversion",
       "skill": "prediction",
       "difficulty": "easy",
-      "prerequisites": ["2.7_q8"],
+      "prerequisites": [
+        "2.7_q8"
+      ],
       "prompt": "What does this code output?\n```python\nprice_str = \"19.95\"\nprice = float(price_str)\nprint(price + 0.05)\n```",
       "options": [
         "A. 20.0",
@@ -121,7 +150,7 @@
         "D. TypeError"
       ],
       "correct_answer": "A",
-      "explanation": "`float(\"19.95\")` parses to `19.95`. Adding `0.05` yields `20.0`."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of float conversion. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "2.7_q10",
@@ -129,9 +158,14 @@
       "concept": "value_error_casting",
       "skill": "understanding",
       "difficulty": "medium",
-      "prerequisites": ["1.6_q3", "2.7_q1"],
+      "prerequisites": [
+        "1.6_q3",
+        "2.7_q1"
+      ],
       "title": "ValueError: Invalid Conversions",
-      "content": "If you ask Python to convert a string that does not contain a valid number, it raises a **`ValueError`**:\n```python\n# int(\"apple\")     # ValueError: invalid literal for int() with base 10: 'apple'\n# int(\"12.5\")      # ValueError: cannot convert float string directly to int!\n```\nTo convert `\"12.5\"` to an int, convert to float first: `int(float(\"12.5\"))` -> `12`."
+      "content": "If you ask Python to convert a string that does not contain a valid number, it raises a **`ValueError`**:\n```python\n# int(\"apple\")     # ValueError: invalid literal for int() with base 10: 'apple'\n# int(\"12.5\")      # ValueError: cannot convert float string directly to int!\n```\nTo convert `\"12.5\"` to an int, convert to float first: `int(float(\"12.5\"))` -> `12`.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of value error casting. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "2.7_q11",
@@ -139,7 +173,9 @@
       "concept": "value_error_float_string",
       "skill": "debugging",
       "difficulty": "medium",
-      "prerequisites": ["2.7_q10"],
+      "prerequisites": [
+        "2.7_q10"
+      ],
       "prompt": "Why does `int(\"4.5\")` crash with a `ValueError`?",
       "options": [
         "A. Strings cannot be converted to numbers.",
@@ -156,7 +192,9 @@
       "concept": "float_string_to_int_fix",
       "skill": "debugging",
       "difficulty": "medium",
-      "prerequisites": ["2.7_q11"],
+      "prerequisites": [
+        "2.7_q11"
+      ],
       "prompt": "Fix this code so it parses `'8.5'` to an int without crashing:",
       "starter_code": "val = int(\"8.5\")",
       "solution_code": "val = int(float(\"8.5\"))",
@@ -168,9 +206,14 @@
       "concept": "bool_conversion",
       "skill": "understanding",
       "difficulty": "medium",
-      "prerequisites": ["2.5_q1", "2.7_q1"],
+      "prerequisites": [
+        "2.5_q1",
+        "2.7_q1"
+      ],
       "title": "Converting to Boolean: bool()",
-      "content": "Every value in Python has an inherent 'truthiness'. When passed to `bool()`:\n\n* **Falsy values** become `False`:\n  * `0`, `0.0`\n  * `\"\"` (empty string)\n  * `None`\n* **Truthy values** become `True`:\n  * Any non-zero number (e.g. `1`, `-5`, `0.01`)\n  * Any non-empty string (e.g. `\"hello\"`, `\"0\"`, `\"False\"`!)"
+      "content": "Every value in Python has an inherent 'truthiness'. When passed to `bool()`:\n\n* **Falsy values** become `False`:\n  * `0`, `0.0`\n  * `\"\"` (empty string)\n  * `None`\n* **Truthy values** become `True`:\n  * Any non-zero number (e.g. `1`, `-5`, `0.01`)\n  * Any non-empty string (e.g. `\"hello\"`, `\"0\"`, `\"False\"`!)",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of bool conversion. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "2.7_q14",
@@ -178,7 +221,9 @@
       "concept": "bool_conversion",
       "skill": "prediction",
       "difficulty": "medium",
-      "prerequisites": ["2.7_q13"],
+      "prerequisites": [
+        "2.7_q13"
+      ],
       "prompt": "What does `bool(\"\")` output?",
       "options": [
         "A. True",
@@ -187,7 +232,7 @@
         "D. None"
       ],
       "correct_answer": "B",
-      "explanation": "An empty string `\"\"` contains zero characters and is considered falsy."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of bool conversion. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "2.7_q15",
@@ -195,7 +240,9 @@
       "concept": "bool_string_trap",
       "skill": "reasoning",
       "difficulty": "hard",
-      "prerequisites": ["2.7_q13"],
+      "prerequisites": [
+        "2.7_q13"
+      ],
       "prompt": "What does `bool(\"False\")` output? (Be careful!)",
       "options": [
         "A. False",
@@ -212,7 +259,12 @@
       "concept": "casting_matrix",
       "skill": "analysis",
       "difficulty": "medium",
-      "prerequisites": ["2.7_q1", "2.7_q6", "2.7_q8", "2.7_q13"],
+      "prerequisites": [
+        "2.7_q1",
+        "2.7_q6",
+        "2.7_q8",
+        "2.7_q13"
+      ],
       "prompt": "Match the conversion call to its result.",
       "options": {
         "`int(7.8)`": "`7` (Truncation)",
@@ -226,7 +278,7 @@
         "`str(False)`": "`\"False\"` (String representation)",
         "`bool(0)`": "`False` (Zero is falsy)"
       },
-      "explanation": "These demonstrate fundamental type conversion rules across Python scalar types."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of casting matrix. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "2.7_q17",
@@ -234,10 +286,14 @@
       "concept": "int_conversion",
       "skill": "application",
       "difficulty": "easy",
-      "prerequisites": ["2.7_q1"],
+      "prerequisites": [
+        "2.7_q1"
+      ],
       "prompt": "Convert string `s = \"45\"` to an integer:\n```python\ns = \"45\"\nnum = ___(s)\n```",
-      "accepted_answers": ["int"],
-      "explanation": "`int(s)` converts `'45'` to `45`."
+      "accepted_answers": [
+        "int"
+      ],
+      "explanation": "In Python, this operation directly demonstrates the core behavior of int conversion. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "2.7_q18",
@@ -245,7 +301,10 @@
       "concept": "conversion_in_math",
       "skill": "prediction",
       "difficulty": "medium",
-      "prerequisites": ["2.4_q15", "2.7_q1"],
+      "prerequisites": [
+        "2.4_q15",
+        "2.7_q1"
+      ],
       "prompt": "What does this code output?\n```python\nx = \"10\"\ny = \"20\"\nprint(int(x) + int(y))\n```",
       "options": [
         "A. 1020",
@@ -262,7 +321,10 @@
       "concept": "implicit_vs_explicit",
       "skill": "understanding",
       "difficulty": "medium",
-      "prerequisites": ["2.3_q16", "2.7_q1"],
+      "prerequisites": [
+        "2.3_q16",
+        "2.7_q1"
+      ],
       "prompt": "What is the difference between implicit and explicit type conversion?",
       "options": [
         "A. Implicit conversion happens automatically by Python (e.g. `5 + 2.5 -> 7.5`), while explicit conversion is done intentionally by the programmer using functions like `int()` or `str()`.",
@@ -279,7 +341,10 @@
       "concept": "int_bool_conversion",
       "skill": "reasoning",
       "difficulty": "medium",
-      "prerequisites": ["2.5_q16", "2.7_q1"],
+      "prerequisites": [
+        "2.5_q16",
+        "2.7_q1"
+      ],
       "prompt": "What does `int(True)` and `int(False)` output?\n```python\nprint(int(True), int(False))\n```",
       "options": [
         "A. 1 0",
@@ -288,15 +353,17 @@
         "D. TypeError"
       ],
       "correct_answer": "A",
-      "explanation": "In Python, `True` corresponds to 1 and `False` corresponds to 0."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of int bool conversion. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "2.7_q21",
-      "type": "scenario",
+      "type": "multiple_choice",
       "concept": "user_input_preview",
       "skill": "application",
       "difficulty": "medium",
-      "prerequisites": ["2.7_q1"],
+      "prerequisites": [
+        "2.7_q1"
+      ],
       "prompt": "In Python, reading user input from the keyboard always produces a string (e.g. `\"25\"`). What must you do before calculating the user's age in 10 years?",
       "options": [
         "A. Directly add 10 to the string.",
@@ -313,11 +380,13 @@
       "concept": "cast_and_add",
       "skill": "application",
       "difficulty": "medium",
-      "prerequisites": ["2.7_q1"],
+      "prerequisites": [
+        "2.7_q1"
+      ],
       "prompt": "Given `a = \"15\"` and `b = 5`, write a line that prints their sum as an integer (20).",
       "starter_code": "a = \"15\"\nb = 5\n",
       "solution_code": "a = \"15\"\nb = 5\nprint(int(a) + b)",
-      "explanation": "`print(int(a) + b)` converts `'15'` to 15 and adds 5."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of cast and add. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "2.7_q23",
@@ -325,7 +394,9 @@
       "concept": "unhandled_string_cast_error",
       "skill": "debugging",
       "difficulty": "medium",
-      "prerequisites": ["2.7_q10"],
+      "prerequisites": [
+        "2.7_q10"
+      ],
       "prompt": "A developer runs `amount = int(\"$50\")` and gets `ValueError: invalid literal for int() with base 10: '$50'`. What is the issue?",
       "options": [
         "A. The dollar sign `$` is not a valid numeric digit; `int()` can only parse characters `0-9` (and an optional `+` or `-` sign).",
@@ -342,7 +413,9 @@
       "concept": "bool_of_numbers",
       "skill": "prediction",
       "difficulty": "medium",
-      "prerequisites": ["2.7_q13"],
+      "prerequisites": [
+        "2.7_q13"
+      ],
       "prompt": "What does `bool(-10)` evaluate to?",
       "options": [
         "A. False, because it is negative.",
@@ -351,7 +424,7 @@
         "D. TypeError"
       ],
       "correct_answer": "B",
-      "explanation": "Any non-zero numeric value (positive or negative) evaluates to `True`."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of bool of numbers. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "2.7_q25",
@@ -359,7 +432,10 @@
       "concept": "celsius_to_fahrenheit_cast",
       "skill": "synthesis",
       "difficulty": "medium",
-      "prerequisites": ["2.7_q1", "2.7_q8"],
+      "prerequisites": [
+        "2.7_q1",
+        "2.7_q8"
+      ],
       "prompt": "Given string `temp_c_str = \"25.0\"`, convert it to float `temp_c`, compute `temp_f = (temp_c * 9/5) + 32`, and print `temp_f`.",
       "starter_code": "temp_c_str = \"25.0\"\n# Convert, calculate temp_f, and print it\n",
       "solution_code": "temp_c_str = \"25.0\"\ntemp_c = float(temp_c_str)\ntemp_f = (temp_c * 9/5) + 32\nprint(temp_f)",
@@ -371,7 +447,10 @@
       "concept": "string_float_truncation_chain",
       "skill": "analysis",
       "difficulty": "hard",
-      "prerequisites": ["2.7_q6", "2.7_q12"],
+      "prerequisites": [
+        "2.7_q6",
+        "2.7_q12"
+      ],
       "prompt": "What does this code output?\n```python\nraw = \"99.9\"\nval = int(float(raw))\nprint(val)\n```",
       "options": [
         "A. 100",
@@ -388,7 +467,10 @@
       "concept": "type_conversion_immutability",
       "skill": "understanding",
       "difficulty": "hard",
-      "prerequisites": ["2.1_q1", "2.7_q1"],
+      "prerequisites": [
+        "2.1_q1",
+        "2.7_q1"
+      ],
       "prompt": "When you execute:\n```python\nx = \"42\"\nint(x)\nprint(type(x))\n```\nWhat is printed?",
       "options": [
         "A. <class 'int'>",
@@ -405,19 +487,24 @@
       "concept": "reassignment_after_cast",
       "skill": "debugging",
       "difficulty": "medium",
-      "prerequisites": ["2.7_q27"],
+      "prerequisites": [
+        "2.7_q27"
+      ],
       "prompt": "Fix this code so that `age` is actually updated to an integer:",
       "starter_code": "age = \"20\"\nint(age)\nprint(type(age))",
       "solution_code": "age = \"20\"\nage = int(age)\nprint(type(age))",
-      "explanation": "Reassign `age = int(age)` to update the variable reference."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of reassignment after cast. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "2.7_q29",
-      "type": "scenario",
+      "type": "real_world_scenario",
       "concept": "file_data_parsing",
       "skill": "synthesis",
       "difficulty": "hard",
-      "prerequisites": ["2.7_q1", "2.7_q8"],
+      "prerequisites": [
+        "2.7_q1",
+        "2.7_q8"
+      ],
       "prompt": "A CSV log contains comma-separated numbers stored as text: `\"12.5\"` and `\"3.5\"`. Which expression computes their exact sum as a float (16.0)?",
       "options": [
         "A. `\"12.5\" + \"3.5\"`",
@@ -426,15 +513,23 @@
         "D. `str(12.5 + 3.5)`"
       ],
       "correct_answer": "B",
-      "explanation": "Converting both strings to `float` before adding correctly produces 16.0."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of file data parsing. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "2.7_q30",
-      "type": "scenario",
+      "type": "real_world_scenario",
       "concept": "unit2_variables_data_synthesis",
       "skill": "transfer",
       "difficulty": "hard",
-      "prerequisites": ["2.1_q1", "2.2_q1", "2.3_q1", "2.4_q1", "2.5_q1", "2.6_q1", "2.7_q1"],
+      "prerequisites": [
+        "2.1_q1",
+        "2.2_q1",
+        "2.3_q1",
+        "2.4_q1",
+        "2.5_q1",
+        "2.6_q1",
+        "2.7_q1"
+      ],
       "prompt": "Congratulations on completing Unit 2! Which statement best summarizes Python variables, data types, and conversions?",
       "options": [
         "A. Variables are named references; identifiers follow snake_case; Python has 4 core scalars (`int`, `float`, `str`, `bool`); types belong to objects, not variables; explicit casting functions (`int()`, `float()`, `str()`, `bool()`) return converted objects.",
@@ -445,5 +540,15 @@
       "correct_answer": "A",
       "explanation": "This synthesizes the complete learning objectives of Unit 2: variables, naming conventions, core scalar types, dynamic object model, and explicit casting."
     }
+  ],
+  "unit_num": 2,
+  "learning_objectives": [
+    "Explain the technical concepts and mechanics of Type Conversion (Casting)",
+    "Apply idiomatic Python patterns when working with Type Conversion (Casting)",
+    "Debug common runtime exceptions and logic errors associated with Type Conversion (Casting)",
+    "Implement production-ready code utilizing Type Conversion (Casting)"
+  ],
+  "prerequisites": [
+    "2.6"
   ]
 }

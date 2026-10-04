@@ -11,26 +11,28 @@
       "difficulty": "easy",
       "prerequisites": [],
       "title": "Keyword Arguments Part 1: Keyword Arguments Basics",
-      "content": "In Python, **Keyword Arguments Basics** provides essential rules when working with keyword arguments.\n\nUnderstanding how `keyword_arguments_basics` functions in practice enables you to write clean, unambiguous code.\n\n```python\n# Step 1: keyword_arguments_basics\nstage_1 = True\n```"
+      "content": "In Python, **Keyword Arguments Basics** provides essential rules when working with keyword arguments.\n\nUnderstanding how `keyword_arguments_basics` functions in practice enables you to write clean, unambiguous code.\n\n```python\n# Step 1: keyword_arguments_basics\nstage_1 = True\n```",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of keyword arguments basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "15.2_q2",
-      "type": "multiple_choice",
+      "type": "output_prediction",
       "concept": "keyword_arguments_basics",
       "skill": "recall",
       "difficulty": "easy",
       "prerequisites": [
         "15.2_q1"
       ],
-      "prompt": "Review 2: What is the primary characteristic of Keyword Arguments Basics in Keyword Arguments?",
+      "prompt": "Consider the following Python snippet demonstrating Keyword Arguments Basics:\n\n```python\ndef calculate_2(value):\n    base = 8\n    return base + value * 11\n\nresult = calculate_2(2)\nprint(result)\n```\n\nWhat is the value printed to the console?",
       "options": [
-        "A. It defines specific rules for keyword arguments basics in Python programs",
-        "B. It forces hardware clock speeds to double automatically",
-        "C. It permanently deletes system configuration records",
-        "D. It removes the need for syntax parsing completely"
+        "30",
+        "19",
+        "110",
+        "TypeError"
       ],
-      "correct_answer": "A",
-      "explanation": "Keyword Arguments Basics defines specific semantics for keyword arguments basics in Python programs."
+      "correct_answer": "30",
+      "explanation": "Python evaluates arithmetic following standard operator precedence (multiplication before addition). First, `value * 11` evaluates to `2 * 11 = 22`. Then, adding `base` (8) yields `30`. The function returns this integer and `print()` outputs it."
     },
     {
       "id": "15.2_q3",
@@ -42,113 +44,115 @@
         "15.2_q2"
       ],
       "title": "Keyword Arguments Part 3: Keyword Arguments Syntax",
-      "content": "In Python, **Keyword Arguments Syntax** provides essential rules when working with keyword arguments.\n\nUnderstanding how `keyword_arguments_syntax` functions in practice enables you to write clean, unambiguous code.\n\n```python\n# Step 3: keyword_arguments_syntax\nstage_3 = True\n```"
+      "content": "In Python, **Keyword Arguments Syntax** provides essential rules when working with keyword arguments.\n\nUnderstanding how `keyword_arguments_syntax` functions in practice enables you to write clean, unambiguous code.\n\n```python\n# Step 3: keyword_arguments_syntax\nstage_3 = True\n```",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of keyword arguments syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "15.2_q4",
-      "type": "multiple_choice",
+      "type": "output_prediction",
       "concept": "keyword_arguments_syntax",
       "skill": "reasoning",
       "difficulty": "easy",
       "prerequisites": [
         "15.2_q3"
       ],
-      "prompt": "Review 4: What is the primary characteristic of Keyword Arguments Syntax in Keyword Arguments?",
+      "prompt": "Consider the following Python snippet demonstrating Keyword Arguments Syntax:\n\n```python\ndef calculate_4(value):\n    base = 14\n    return base + value * 6\n\nresult = calculate_4(2)\nprint(result)\n```\n\nWhat is the value printed to the console?",
       "options": [
-        "A. It defines specific rules for keyword arguments syntax in Python programs",
-        "B. It forces hardware clock speeds to double automatically",
-        "C. It permanently deletes system configuration records",
-        "D. It removes the need for syntax parsing completely"
+        "26",
+        "20",
+        "96",
+        "TypeError"
       ],
-      "correct_answer": "A",
-      "explanation": "Keyword Arguments Syntax defines specific semantics for keyword arguments syntax in Python programs."
+      "correct_answer": "26",
+      "explanation": "Python evaluates arithmetic following standard operator precedence (multiplication before addition). First, `value * 6` evaluates to `2 * 6 = 12`. Then, adding `base` (14) yields `26`. The function returns this integer and `print()` outputs it."
     },
     {
       "id": "15.2_q5",
-      "type": "multiple_choice",
+      "type": "output_prediction",
       "concept": "keyword_arguments_matching",
       "skill": "recognition",
       "difficulty": "easy",
       "prerequisites": [
         "15.2_q4"
       ],
-      "prompt": "Review 5: What is the primary characteristic of Keyword Arguments Matching in Keyword Arguments?",
+      "prompt": "Consider the following Python snippet demonstrating Keyword Arguments Matching:\n\n```python\ndef calculate_5(value):\n    base = 17\n    return base + value * 11\n\nresult = calculate_5(2)\nprint(result)\n```\n\nWhat is the value printed to the console?",
       "options": [
-        "A. It defines specific rules for keyword arguments matching in Python programs",
-        "B. It forces hardware clock speeds to double automatically",
-        "C. It permanently deletes system configuration records",
-        "D. It removes the need for syntax parsing completely"
+        "39",
+        "28",
+        "209",
+        "TypeError"
       ],
-      "correct_answer": "A",
-      "explanation": "Keyword Arguments Matching defines specific semantics for keyword arguments matching in Python programs."
+      "correct_answer": "39",
+      "explanation": "Python evaluates arithmetic following standard operator precedence (multiplication before addition). First, `value * 11` evaluates to `2 * 11 = 22`. Then, adding `base` (17) yields `39`. The function returns this integer and `print()` outputs it."
     },
     {
       "id": "15.2_q6",
-      "type": "multiple_choice",
+      "type": "output_prediction",
       "concept": "keyword_arguments_pitfalls",
       "skill": "comprehension",
       "difficulty": "easy",
       "prerequisites": [
         "15.2_q5"
       ],
-      "prompt": "Review 6: What is the primary characteristic of Keyword Arguments Pitfalls in Keyword Arguments?",
+      "prompt": "Consider the following Python snippet demonstrating Keyword Arguments Pitfalls:\n\n```python\ndef calculate_6(value):\n    base = 20\n    return base + value * 1\n\nresult = calculate_6(2)\nprint(result)\n```\n\nWhat is the value printed to the console?",
       "options": [
-        "A. It defines specific rules for keyword arguments pitfalls in Python programs",
-        "B. It forces hardware clock speeds to double automatically",
-        "C. It permanently deletes system configuration records",
-        "D. It removes the need for syntax parsing completely"
+        "22",
+        "21",
+        "22",
+        "TypeError"
       ],
-      "correct_answer": "A",
-      "explanation": "Keyword Arguments Pitfalls defines specific semantics for keyword arguments pitfalls in Python programs."
+      "correct_answer": "22",
+      "explanation": "Python evaluates arithmetic following standard operator precedence (multiplication before addition). First, `value * 1` evaluates to `2 * 1 = 2`. Then, adding `base` (20) yields `22`. The function returns this integer and `print()` outputs it."
     },
     {
       "id": "15.2_q7",
       "type": "code_prediction",
-      "concept": "keyword_arguments_execution",
-      "skill": "prediction",
-      "difficulty": "easy",
+      "concept": "keyword_arg_syntax",
+      "skill": "understanding",
+      "difficulty": "medium",
       "prerequisites": [
         "15.2_q6"
       ],
-      "prompt": "Predict Output 7: What does this snippet output?\n```python\nvalue_7 = 35\nprint(value_7)\n```",
+      "prompt": "In the context of Keyword Arguments, what is the primary behavior demonstrated here?\n```python\n# Keyword Arguments\nprint('keyword_arg_syntax')\n```",
       "options": [
-        "35",
-        "17",
-        "value_7",
+        "keyword_arg_syntax",
+        "SyntaxError",
+        "None",
         "Error"
       ],
-      "correct_answer": "35",
-      "explanation": "The variable value_7 stores 35, and print outputs it to the console."
+      "correct_answer": "keyword_arg_syntax",
+      "explanation": "This directly illustrates the standard behavior of keyword_arg_syntax: keyword arguments allow passing parameters by name and overriding defaults."
     },
     {
       "id": "15.2_q8",
-      "type": "output_prediction",
-      "concept": "keyword_arguments_execution",
-      "skill": "prediction",
+      "type": "multiple_choice",
+      "concept": "keyword_arg_syntax_rules",
+      "skill": "reasoning",
       "difficulty": "medium",
       "prerequisites": [
         "15.2_q7"
       ],
-      "prompt": "Predict Output 8: What does this snippet output?\n```python\nvalue_8 = 40\nprint(value_8)\n```",
+      "prompt": "What is a core design principle when working with Keyword Arguments in Python?",
       "options": [
-        "40",
-        "20",
-        "value_8",
-        "Error"
+        "Keyword arguments allow passing parameters by name and overriding defaults",
+        "It bypasses all memory management constraints",
+        "It causes the interpreter to compile to C++ automatically",
+        "It can only be executed in interactive REPL mode"
       ],
-      "correct_answer": "40",
-      "explanation": "The variable value_8 stores 40, and print outputs it to the console."
+      "correct_answer": "Keyword arguments allow passing parameters by name and overriding defaults",
+      "explanation": "Understanding this rule is essential: keyword arguments allow passing parameters by name and overriding defaults."
     },
     {
       "id": "15.2_q9",
-      "type": "code_prediction",
-      "concept": "keyword_arguments_flow",
-      "skill": "prediction",
+      "type": "fix_the_code",
+      "concept": "keyword_arg_syntax_debugging",
+      "skill": "debugging",
       "difficulty": "medium",
       "prerequisites": [
         "15.2_q8"
       ],
-      "prompt": "Predict Output 9: What does this snippet output?\n```python\nvalue_9 = 45\nprint(value_9)\n```",
+      "prompt": "Fix this code snippet implementing Keyword Arguments correctly:",
       "options": [
         "45",
         "22",
@@ -156,7 +160,9 @@
         "Error"
       ],
       "correct_answer": "45",
-      "explanation": "The variable value_9 stores 45, and print outputs it to the console."
+      "explanation": "Applying standard Python idioms ensures correct behavior: keyword arguments allow passing parameters by name and overriding defaults.",
+      "starter_code": "# Keyword Arguments implementation\n___",
+      "solution_code": "# Keyword Arguments implementation\ndef send_message(to, subject='Notification', urgent=False):\n    return f'{to}: {subject}'"
     },
     {
       "id": "15.2_q10",
@@ -167,7 +173,7 @@
       "prerequisites": [
         "15.2_q9"
       ],
-      "prompt": "Coding Challenge 10: Write a statement that prints 'Keyword Arguments Result 10' to standard output.",
+      "prompt": "Write a statement that prints 'Keyword Arguments Result 10' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Keyword Arguments Result 10')",
       "test_cases": [
@@ -177,37 +183,37 @@
         }
       ],
       "hint": "Use print('Keyword Arguments Result 10') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of keyword arguments analysis. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "15.2_q11",
-      "type": "code_prediction",
-      "concept": "keyword_arguments_tracing",
-      "skill": "tracing",
-      "difficulty": "medium",
+      "type": "multiple_choice",
+      "concept": "keyword_arg_syntax_tradeoffs",
+      "skill": "evaluation",
+      "difficulty": "hard",
       "prerequisites": [
         "15.2_q10"
       ],
-      "prompt": "Predict Output 11: What does this snippet output?\n```python\nvalue_11 = 55\nprint(value_11)\n```",
+      "prompt": "Which common pitfall must programmers avoid when using Keyword Arguments?",
       "options": [
-        "55",
-        "27",
-        "value_11",
-        "Error"
+        "Misunderstanding edge cases related to: keyword arguments allow passing parameters by name and overriding defaults",
+        "Forgetting that Python does not support functions",
+        "Assuming integers are capped at 32 bits",
+        "Using lowercase variable names"
       ],
-      "correct_answer": "55",
-      "explanation": "The variable value_11 stores 55, and print outputs it to the console."
+      "correct_answer": "Misunderstanding edge cases related to: keyword arguments allow passing parameters by name and overriding defaults",
+      "explanation": "Careful attention to requirements avoids common traps: keyword arguments allow passing parameters by name and overriding defaults."
     },
     {
       "id": "15.2_q12",
-      "type": "output_prediction",
-      "concept": "keyword_arguments_logic",
-      "skill": "prediction",
-      "difficulty": "medium",
+      "type": "write_the_code",
+      "concept": "keyword_arg_syntax_application",
+      "skill": "implementation",
+      "difficulty": "hard",
       "prerequisites": [
         "15.2_q11"
       ],
-      "prompt": "Predict Output 12: What does this snippet output?\n```python\nvalue_12 = 60\nprint(value_12)\n```",
+      "prompt": "Write the canonical Python code statement for Keyword Arguments:",
       "options": [
         "60",
         "30",
@@ -215,7 +221,9 @@
         "Error"
       ],
       "correct_answer": "60",
-      "explanation": "The variable value_12 stores 60, and print outputs it to the console."
+      "explanation": "Canonical implementation: def send_message(to, subject='Notification', urgent=False):\n    return f'{to}: {subject}'. Keyword arguments allow passing parameters by name and overriding defaults.",
+      "starter_code": "# Complete the statement\n___",
+      "solution_code": "def send_message(to, subject='Notification', urgent=False):\n    return f'{to}: {subject}'"
     },
     {
       "id": "15.2_q13",
@@ -604,5 +612,15 @@
       "hint": "Validate `port` and `timeout` after extracting them with `.get()`, then raise `ValueError` on failure.",
       "explanation": "Mastery involves combining **kwargs, default extraction, validation, and error handling to build reliable configuration utilities."
     }
+  ],
+  "unit_num": 15,
+  "learning_objectives": [
+    "Explain the technical concepts and mechanics of Keyword Arguments",
+    "Apply idiomatic Python patterns when working with Keyword Arguments",
+    "Debug common runtime exceptions and logic errors associated with Keyword Arguments",
+    "Implement production-ready code utilizing Keyword Arguments"
+  ],
+  "prerequisites": [
+    "15.1"
   ]
 }

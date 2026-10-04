@@ -11,7 +11,9 @@
       "difficulty": "easy",
       "prerequisites": [],
       "title": "What is Calling a Function?",
-      "content": "In Python, a function is a reusable block of code that performs a specific task. Once you define a function using `def`, you can use that function anywhere in your program by 'calling' it. To call a function, simply write the function name followed by parentheses `()`. If the function requires input, you pass values inside the parentheses separated by commas. Calling a function executes the code inside it. For example, if you define `def greet(): print('Hello!')`, then calling `greet()` will run that print statement.\n\nExample:\n```python\ndef say_hi():\n    print('Hi there!')\n\nsay_hi()\n```\nOutput:\n```\nHi there!\n```\nNotice that `say_hi()` is the call. The function name is `say_hi` and the parentheses indicate that we are invoking it."
+      "content": "In Python, a function is a reusable block of code that performs a specific task. Once you define a function using `def`, you can use that function anywhere in your program by 'calling' it. To call a function, simply write the function name followed by parentheses `()`. If the function requires input, you pass values inside the parentheses separated by commas. Calling a function executes the code inside it. For example, if you define `def greet(): print('Hello!')`, then calling `greet()` will run that print statement.\n\nExample:\n```python\ndef say_hi():\n    print('Hi there!')\n\nsay_hi()\n```\nOutput:\n```\nHi there!\n```\nNotice that `say_hi()` is the call. The function name is `say_hi` and the parentheses indicate that we are invoking it.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of calling functions basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "11.2_q2",
@@ -42,7 +44,9 @@
         "11.2_q2"
       ],
       "title": "Function Call Syntax",
-      "content": "The general syntax for calling a function is `function_name(argument1, argument2, ...)`. The parentheses are required even if the function takes no arguments. When arguments are provided, they are evaluated and passed to the function's parameters in order. You can also call a function multiple times with different arguments to reuse the same logic. A common beginner mistake is forgetting the parentheses, which refers to the function object itself rather than executing it.\n\nExample with arguments:\n```python\ndef greet(name):\n    print('Hello, ' + name)\n\ngreet('Alice')\n```\nOutput:\n```\nHello, Alice\n```\nHere, `'Alice'` is passed as an argument, and the function uses it inside the print statement."
+      "content": "The general syntax for calling a function is `function_name(argument1, argument2, ...)`. The parentheses are required even if the function takes no arguments. When arguments are provided, they are evaluated and passed to the function's parameters in order. You can also call a function multiple times with different arguments to reuse the same logic. A common beginner mistake is forgetting the parentheses, which refers to the function object itself rather than executing it.\n\nExample with arguments:\n```python\ndef greet(name):\n    print('Hello, ' + name)\n\ngreet('Alice')\n```\nOutput:\n```\nHello, Alice\n```\nHere, `'Alice'` is passed as an argument, and the function uses it inside the print statement.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of calling functions syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "11.2_q4",
@@ -482,7 +486,7 @@
       "prerequisites": [
         "11.2_q24"
       ],
-      "prompt": "Coding Challenge 25: Write a statement that prints 'Calling s Result 25' to standard output.",
+      "prompt": "Write a statement that prints 'Calling s Result 25' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Calling s Result 25')",
       "test_cases": [
@@ -492,7 +496,7 @@
         }
       ],
       "hint": "Use print('Calling s Result 25') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of calling functions implementation. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "11.2_q26",
@@ -503,7 +507,7 @@
       "prerequisites": [
         "11.2_q25"
       ],
-      "prompt": "Coding Challenge 26: Write a statement that prints 'Calling s Result 26' to standard output.",
+      "prompt": "Write a statement that prints 'Calling s Result 26' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Calling s Result 26')",
       "test_cases": [
@@ -513,7 +517,7 @@
         }
       ],
       "hint": "Use print('Calling s Result 26') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of calling functions practical. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "11.2_q27",
@@ -524,7 +528,7 @@
       "prerequisites": [
         "11.2_q26"
       ],
-      "prompt": "Coding Challenge 27: Write a statement that prints 'Calling s Result 27' to standard output.",
+      "prompt": "Write a statement that prints 'Calling s Result 27' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Calling s Result 27')",
       "test_cases": [
@@ -534,7 +538,7 @@
         }
       ],
       "hint": "Use print('Calling s Result 27') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of calling functions advanced. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "11.2_q28",
@@ -545,7 +549,7 @@
       "prerequisites": [
         "11.2_q27"
       ],
-      "prompt": "Coding Challenge 28: Write a statement that prints 'Calling s Result 28' to standard output.",
+      "prompt": "Write a statement that prints 'Calling s Result 28' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Calling s Result 28')",
       "test_cases": [
@@ -555,7 +559,7 @@
         }
       ],
       "hint": "Use print('Calling s Result 28') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of calling functions challenge. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "11.2_q29",
@@ -566,7 +570,7 @@
       "prerequisites": [
         "11.2_q28"
       ],
-      "prompt": "Coding Challenge 29: Write a statement that prints 'Calling s Result 29' to standard output.",
+      "prompt": "Write a statement that prints 'Calling s Result 29' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Calling s Result 29')",
       "test_cases": [
@@ -576,7 +580,7 @@
         }
       ],
       "hint": "Use print('Calling s Result 29') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of calling functions scenario. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "11.2_q30",
@@ -587,7 +591,7 @@
       "prerequisites": [
         "11.2_q29"
       ],
-      "prompt": "Coding Challenge 30: Write a statement that prints 'Calling s Result 30' to standard output.",
+      "prompt": "Write a statement that prints 'Calling s Result 30' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Calling s Result 30')",
       "test_cases": [
@@ -597,7 +601,17 @@
         }
       ],
       "hint": "Use print('Calling s Result 30') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of calling functions mastery. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     }
+  ],
+  "unit_num": 11,
+  "learning_objectives": [
+    "Explain the technical concepts and mechanics of Calling s",
+    "Apply idiomatic Python patterns when working with Calling s",
+    "Debug common runtime exceptions and logic errors associated with Calling s",
+    "Implement production-ready code utilizing Calling s"
+  ],
+  "prerequisites": [
+    "11.1"
   ]
 }

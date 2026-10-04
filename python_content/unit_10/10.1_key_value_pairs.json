@@ -12,7 +12,9 @@
       "title": "What Are Key-Value Pairs?",
       "content": "A dictionary in Python is a collection of key-value pairs. Each key is unique and maps to a specific value. Think of a dictionary like a real-world dictionary where a word (key) corresponds to its definition (value). In Python, dictionaries are enclosed in curly braces {}.\n\nExample:\nstudent = {'name': 'Alice', 'age': 20, 'grade': 'A'}\nHere, 'name', 'age', and 'grade' are keys, while 'Alice', 20, and 'A' are their corresponding values.\n\nYou can access a value by using its key inside square brackets: student['name'] returns 'Alice'.\n\nKey properties:\n- Keys must be immutable types (e.g., strings, numbers, tuples).\n- Values can be of any data type.\n- Each key appears only once in a dictionary.\n\nPython code block:\nperson = {'city': 'Paris', 'country': 'France'}\nprint(person['city'])  # Output: Paris",
       "difficulty": "easy",
-      "prerequisites": []
+      "prerequisites": [],
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of keyvalue pairs basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "10.1_q2",
@@ -45,7 +47,9 @@
       "difficulty": "easy",
       "prerequisites": [
         "10.1_q2"
-      ]
+      ],
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of keyvalue pairs syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "10.1_q4",
@@ -61,7 +65,7 @@
         "{'name': 'Bob', 'age': 25}"
       ],
       "correct_answer": "{'name': 'Bob', 'age': 25}",
-      "explanation": "Option B is correct because it uses valid key: value pairs with string keys and integer values, separated by commas. Option A uses an integer as a key without quotes, which is valid, but the pair '25': 'age' is valid too; however, the question asks for valid syntax and B is the cleanest correct form. Actually, A is also valid, but B is the standard expected answer. Option C misses the colon between 'age' and 25. Option D has a trailing comma after the last pair, which is technically allowed in Python 3.6+, but B is the most standard correct choice.",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of keyvalue pairs syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors.",
       "difficulty": "easy",
       "prerequisites": [
         "10.1_q3"
@@ -356,7 +360,7 @@
       "prompt": "Fix the bug in this code for keyvalue pairs errors:",
       "starter_code": "# Fix this code\nPrint('Key-Value Pairs')",
       "solution_code": "print('Key-Value Pairs')",
-      "explanation": "Python identifiers and built-ins are case-sensitive."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of keyvalue pairs errors. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "10.1_q20",
@@ -404,7 +408,7 @@
       "prompt": "Fix the bug in this code for keyvalue pairs runtime:",
       "starter_code": "# Fix this code\nPrint('Key-Value Pairs')",
       "solution_code": "print('Key-Value Pairs')",
-      "explanation": "Python identifiers and built-ins are case-sensitive."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of keyvalue pairs runtime. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "10.1_q23",
@@ -596,5 +600,15 @@
       "hint": "Use tuple unpacking in the dictionary comprehension to access x and y directly.",
       "explanation": "This challenge combines dictionary iteration, tuple unpacking, and mathematical operations. The comprehension efficiently builds the result in a single readable expression."
     }
+  ],
+  "unit_num": 10,
+  "learning_objectives": [
+    "Explain the technical concepts and mechanics of Key-Value Pairs",
+    "Apply idiomatic Python patterns when working with Key-Value Pairs",
+    "Debug common runtime exceptions and logic errors associated with Key-Value Pairs",
+    "Implement production-ready code utilizing Key-Value Pairs"
+  ],
+  "prerequisites": [
+    "9.6"
   ]
 }

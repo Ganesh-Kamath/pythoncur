@@ -11,7 +11,9 @@
       "difficulty": "easy",
       "title": "What is O(N^2) Quadratic Time?",
       "content": "Big O notation describes how runtime grows as input size increases. O(N^2) means the runtime grows quadratically with the input size N. A classic example is nested loops over the same list. When you iterate through a list of size N, and inside that loop you iterate again through the same list, the total operations become N \u00d7 N = N^2. For example, comparing every pair of elements in a list requires roughly N^2 comparisons. This is slower than linear O(N) algorithms but still manageable for small N.",
-      "prerequisites": []
+      "prerequisites": [],
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of on2 quadratic time basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "31.4_q2",
@@ -42,7 +44,9 @@
       "content": "You can spot O(N^2) by looking for two nested loops that both iterate over collections of size N. A common pattern is a for loop inside another for loop where the inner loop does not break early based on the outer index. For example, the code below iterates over every pair of indices in a list of length N, performing a constant-time operation each time. This results in approximately N^2 total iterations. Understanding this pattern helps you identify quadratic-time algorithms before running them on large inputs.",
       "prerequisites": [
         "31.4_q2"
-      ]
+      ],
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of on2 quadratic time syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "31.4_q4",
@@ -275,7 +279,7 @@
       "prerequisites": [
         "31.4_q14"
       ],
-      "prompt": "Arrange the following code lines in the correct order to build a list of all pairs (i, j) where i and j range from 0 to 2.\n\n    pairs.append((i, j))\n    pairs = []\n    for i in range(3):\n        for j in range(3):\n",
+      "prompt": "Arrange the following code lines in the correct order to build a list of all pairs (i, j) where i and j range from 0 to 2.\n\n    pairs.append((i, j))\n    pairs = []\n    for i in range(3):\n        for j in range(3):",
       "options": [
         "x = 10",
         "y = 20",
@@ -316,7 +320,7 @@
       "prerequisites": [
         "31.4_q16"
       ],
-      "prompt": "Order the following lines to correctly check if any duplicate exists in a list using nested loops. Return True immediately upon finding a duplicate.\n\n    return True\n    for i in range(len(arr)):\n        for j in range(i + 1, len(arr)):\n            if arr[i] == arr[j]:\n                return True\n    return False\n",
+      "prompt": "Order the following lines to correctly check if any duplicate exists in a list using nested loops. Return True immediately upon finding a duplicate.\n\n    return True\n    for i in range(len(arr)):\n        for j in range(i + 1, len(arr)):\n            if arr[i] == arr[j]:\n                return True\n    return False",
       "options": [
         "x = 10",
         "y = 20",
@@ -634,5 +638,15 @@
       "hint": "Every pair of indices (i, j) with i < j must be examined exactly once. Increment the counter only when the earlier element is strictly greater than the later element.",
       "explanation": "The double loop structure guarantees that every ordered pair of distinct indices is visited exactly once, yielding exactly N(N-1)/2 comparisons. This is the canonical O(N^2) algorithm for counting inversions. Mastery of this pattern allows you to recognize quadratic behavior in combinatorial problems and decide when optimization is necessary."
     }
+  ],
+  "unit_num": 31,
+  "learning_objectives": [
+    "Explain the technical concepts and mechanics of O(N^2) Quadratic Time",
+    "Apply idiomatic Python patterns when working with O(N^2) Quadratic Time",
+    "Debug common runtime exceptions and logic errors associated with O(N^2) Quadratic Time",
+    "Implement production-ready code utilizing O(N^2) Quadratic Time"
+  ],
+  "prerequisites": [
+    "31.3"
   ]
 }

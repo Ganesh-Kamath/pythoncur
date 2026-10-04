@@ -12,7 +12,9 @@
       "title": "What Are CRUD Operations?",
       "content": "CRUD stands for Create, Read, Update, and Delete. These four operations form the foundation of interacting with relational databases. In Python, you typically use a library such as sqlite3 to execute SQL commands against a database file. The Create operation inserts new records using INSERT. The Read operation retrieves data using SELECT. The Update operation modifies existing records using UPDATE. The Delete operation removes records using DELETE. Understanding which CRUD command corresponds to a given task is essential before writing any SQL. Here is a simple Python example using sqlite3 to demonstrate the Create and Read steps:\n\n```python\nimport sqlite3\n\nconn = sqlite3.connect('library.db')\ncursor = conn.cursor()\n\ncursor.execute(\"CREATE TABLE IF NOT EXISTS books (id INTEGER PRIMARY KEY, title TEXT, author TEXT)\")\n\ncursor.execute(\"INSERT INTO books (title, author) VALUES ('1984', 'George Orwell')\")\nconn.commit()\n\ncursor.execute(\"SELECT * FROM books\")\nrows = cursor.fetchall()\nfor row in rows:\n    print(row)\n\nconn.close()\n```\n\nNotice how CREATE TABLE and INSERT handle creation, while SELECT handles reading. Memorizing these four verbs helps you map real-world requirements to the correct SQL statement.",
       "difficulty": "easy",
-      "prerequisites": []
+      "prerequisites": [],
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of basic sql crud operations basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "26.4_q2",
@@ -45,7 +47,9 @@
       "difficulty": "easy",
       "prerequisites": [
         "26.4_q2"
-      ]
+      ],
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of basic sql crud operations syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "26.4_q4",
@@ -110,51 +114,51 @@
     {
       "id": "26.4_q7",
       "type": "code_prediction",
-      "concept": "basic_sql_crud_operations_execution",
-      "skill": "prediction",
-      "difficulty": "easy",
+      "concept": "sql_parameterized_queries",
+      "skill": "understanding",
+      "difficulty": "medium",
       "prerequisites": [
         "26.4_q6"
       ],
-      "prompt": "Predict Output 7: What does this snippet output?\n```python\nvalue_7 = 35\nprint(value_7)\n```",
+      "prompt": "In the context of Basic SQL in Python, what is the primary behavior demonstrated here?\n```python\n# Basic SQL in Python\nprint('sql_parameterized_queries')\n```",
       "options": [
-        "35",
-        "17",
-        "value_7",
+        "sql_parameterized_queries",
+        "SyntaxError",
+        "None",
         "Error"
       ],
-      "correct_answer": "35",
-      "explanation": "The variable value_7 stores 35, and print outputs it to the console."
+      "correct_answer": "sql_parameterized_queries",
+      "explanation": "This directly illustrates the standard behavior of sql_parameterized_queries: parameterized queries protect against SQL injection attacks."
     },
     {
       "id": "26.4_q8",
-      "type": "output_prediction",
-      "concept": "basic_sql_crud_operations_execution",
-      "skill": "prediction",
+      "type": "multiple_choice",
+      "concept": "sql_parameterized_queries_rules",
+      "skill": "reasoning",
       "difficulty": "medium",
       "prerequisites": [
         "26.4_q7"
       ],
-      "prompt": "Predict Output 8: What does this snippet output?\n```python\nvalue_8 = 40\nprint(value_8)\n```",
+      "prompt": "What is a core design principle when working with Basic SQL in Python in Python?",
       "options": [
-        "40",
-        "20",
-        "value_8",
-        "Error"
+        "Parameterized queries protect against sql injection attacks",
+        "It bypasses all memory management constraints",
+        "It causes the interpreter to compile to C++ automatically",
+        "It can only be executed in interactive REPL mode"
       ],
-      "correct_answer": "40",
-      "explanation": "The variable value_8 stores 40, and print outputs it to the console."
+      "correct_answer": "Parameterized queries protect against sql injection attacks",
+      "explanation": "Understanding this rule is essential: parameterized queries protect against SQL injection attacks."
     },
     {
       "id": "26.4_q9",
-      "type": "code_prediction",
-      "concept": "basic_sql_crud_operations_flow",
-      "skill": "prediction",
+      "type": "fix_the_code",
+      "concept": "sql_parameterized_queries_debugging",
+      "skill": "debugging",
       "difficulty": "medium",
       "prerequisites": [
         "26.4_q8"
       ],
-      "prompt": "Predict Output 9: What does this snippet output?\n```python\nvalue_9 = 45\nprint(value_9)\n```",
+      "prompt": "Fix this code snippet implementing Basic SQL in Python correctly:",
       "options": [
         "45",
         "22",
@@ -162,7 +166,9 @@
         "Error"
       ],
       "correct_answer": "45",
-      "explanation": "The variable value_9 stores 45, and print outputs it to the console."
+      "explanation": "Applying standard Python idioms ensures correct behavior: parameterized queries protect against SQL injection attacks.",
+      "starter_code": "# Basic SQL in Python implementation\n___",
+      "solution_code": "# Basic SQL in Python implementation\ncursor.execute('SELECT * FROM users WHERE id = ?', (user_id,))"
     },
     {
       "id": "26.4_q10",
@@ -173,7 +179,7 @@
       "prerequisites": [
         "26.4_q9"
       ],
-      "prompt": "Coding Challenge 10: Write a statement that prints 'Basic SQL (CRUD Operations) Result 10' to standard output.",
+      "prompt": "Write a statement that prints 'Basic SQL (CRUD Operations) Result 10' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Basic SQL (CRUD Operations) Result 10')",
       "test_cases": [
@@ -183,18 +189,18 @@
         }
       ],
       "hint": "Use print('Basic SQL (CRUD Operations) Result 10') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of basic sql crud operations analysis. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "26.4_q11",
-      "type": "write_the_code",
-      "concept": "basic_sql_crud_operations_tracing",
-      "skill": "tracing",
-      "difficulty": "medium",
+      "type": "multiple_choice",
+      "concept": "sql_parameterized_queries_tradeoffs",
+      "skill": "evaluation",
+      "difficulty": "hard",
       "prerequisites": [
         "26.4_q10"
       ],
-      "prompt": "Coding Challenge 11: Write a statement that prints 'Basic SQL (CRUD Operations) Result 11' to standard output.",
+      "prompt": "Which common pitfall must programmers avoid when using Basic SQL in Python?",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Basic SQL (CRUD Operations) Result 11')",
       "test_cases": [
@@ -204,18 +210,25 @@
         }
       ],
       "hint": "Use print('Basic SQL (CRUD Operations) Result 11') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "Careful attention to requirements avoids common traps: parameterized queries protect against SQL injection attacks.",
+      "options": [
+        "Misunderstanding edge cases related to: parameterized queries protect against SQL injection attacks",
+        "Forgetting that Python does not support functions",
+        "Assuming integers are capped at 32 bits",
+        "Using lowercase variable names"
+      ],
+      "correct_answer": "Misunderstanding edge cases related to: parameterized queries protect against SQL injection attacks"
     },
     {
       "id": "26.4_q12",
-      "type": "output_prediction",
-      "concept": "basic_sql_crud_operations_logic",
-      "skill": "prediction",
-      "difficulty": "medium",
+      "type": "write_the_code",
+      "concept": "sql_parameterized_queries_application",
+      "skill": "implementation",
+      "difficulty": "hard",
       "prerequisites": [
         "26.4_q11"
       ],
-      "prompt": "Predict Output 12: What does this snippet output?\n```python\nvalue_12 = 60\nprint(value_12)\n```",
+      "prompt": "Write the canonical Python code statement for Basic SQL in Python:",
       "options": [
         "60",
         "30",
@@ -223,7 +236,9 @@
         "Error"
       ],
       "correct_answer": "60",
-      "explanation": "The variable value_12 stores 60, and print outputs it to the console."
+      "explanation": "Canonical implementation: cursor.execute('SELECT * FROM users WHERE id = ?', (user_id,)). Parameterized queries protect against sql injection attacks.",
+      "starter_code": "# Complete the statement\n___",
+      "solution_code": "cursor.execute('SELECT * FROM users WHERE id = ?', (user_id,))"
     },
     {
       "id": "26.4_q13",
@@ -380,7 +395,7 @@
       "prompt": "Fix the bug in this code for basic sql crud operations errors:",
       "starter_code": "# Fix this code\nPrint('Basic SQL (CRUD Operations)')",
       "solution_code": "print('Basic SQL (CRUD Operations)')",
-      "explanation": "Python identifiers and built-ins are case-sensitive."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of basic sql crud operations errors. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "26.4_q20",
@@ -401,7 +416,7 @@
       "prompt": "Fix the bug in this code for basic sql crud operations fix:",
       "starter_code": "# Fix this code\nPrint('Basic SQL (CRUD Operations)')",
       "solution_code": "print('Basic SQL (CRUD Operations)')",
-      "explanation": "Python identifiers and built-ins are case-sensitive."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of basic sql crud operations fix. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "26.4_q21",
@@ -422,7 +437,7 @@
       "prompt": "Fix the bug in this code for basic sql crud operations edge cases:",
       "starter_code": "# Fix this code\nPrint('Basic SQL (CRUD Operations)')",
       "solution_code": "print('Basic SQL (CRUD Operations)')",
-      "explanation": "Python identifiers and built-ins are case-sensitive."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of basic sql crud operations edge cases. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "26.4_q22",
@@ -443,7 +458,7 @@
       "prompt": "Fix the bug in this code for basic sql crud operations runtime:",
       "starter_code": "# Fix this code\nPrint('Basic SQL (CRUD Operations)')",
       "solution_code": "print('Basic SQL (CRUD Operations)')",
-      "explanation": "Python identifiers and built-ins are case-sensitive."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of basic sql crud operations runtime. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "26.4_q23",
@@ -464,7 +479,7 @@
       "prompt": "Fix the bug in this code for basic sql crud operations logic repair:",
       "starter_code": "# Fix this code\nPrint('Basic SQL (CRUD Operations)')",
       "solution_code": "print('Basic SQL (CRUD Operations)')",
-      "explanation": "Python identifiers and built-ins are case-sensitive."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of basic sql crud operations logic repair. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "26.4_q24",
@@ -497,7 +512,7 @@
           "expected_output": "Basic SQL (CRUD Operations)"
         }
       ],
-      "explanation": "The solution fulfills all functional requirements."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of basic sql crud operations optimization. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "26.4_q25",
@@ -625,5 +640,15 @@
       "hint": "SQLite commits automatically at the end of a try block if no exception occurs. Call conn.rollback() in the except block to undo all changes.",
       "explanation": "Transactions ensure atomicity: all operations succeed together or none do. This is critical for data integrity in production systems where partial updates corrupt state."
     }
+  ],
+  "unit_num": 26,
+  "learning_objectives": [
+    "Explain the technical concepts and mechanics of Basic SQL (CRUD Operations)",
+    "Apply idiomatic Python patterns when working with Basic SQL (CRUD Operations)",
+    "Debug common runtime exceptions and logic errors associated with Basic SQL (CRUD Operations)",
+    "Implement production-ready code utilizing Basic SQL (CRUD Operations)"
+  ],
+  "prerequisites": [
+    "26.3"
   ]
 }

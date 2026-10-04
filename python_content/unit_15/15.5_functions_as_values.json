@@ -11,7 +11,9 @@
       "concept": "functions_as_values_higherorder_functions_basics",
       "skill": "recognition",
       "title": "Functions Are First-Class Objects",
-      "content": "In Python, functions are first-class objects, which means they can be treated just like any other value: assigned to variables, stored in data structures, passed as arguments, and returned from other functions. This concept is the foundation of higher-order functions. A higher-order function is a function that either takes one or more functions as arguments, or returns a function as its result, or both. For example, you can assign a function to a variable name and call it through that name. Consider the following code:\n\n```python\ndef greet(name):\n    return 'Hello, ' + name\n\n# Assign the function to a variable\nmy_function = greet\n\n# Call the function using the variable\nresult = my_function('Alice')\nprint(result)\n```\n\nHere, `greet` is a function object. By writing `my_function = greet`, we are not calling `greet`; we are copying the reference to the function object. Later, `my_function('Alice')` executes the same behavior as `greet('Alice')`. This ability to pass functions around is what enables higher-order functions such as `map`, `filter`, and `sorted`."
+      "content": "In Python, functions are first-class objects, which means they can be treated just like any other value: assigned to variables, stored in data structures, passed as arguments, and returned from other functions. This concept is the foundation of higher-order functions. A higher-order function is a function that either takes one or more functions as arguments, or returns a function as its result, or both. For example, you can assign a function to a variable name and call it through that name. Consider the following code:\n\n```python\ndef greet(name):\n    return 'Hello, ' + name\n\n# Assign the function to a variable\nmy_function = greet\n\n# Call the function using the variable\nresult = my_function('Alice')\nprint(result)\n```\n\nHere, `greet` is a function object. By writing `my_function = greet`, we are not calling `greet`; we are copying the reference to the function object. Later, `my_function('Alice')` executes the same behavior as `greet('Alice')`. This ability to pass functions around is what enables higher-order functions such as `map`, `filter`, and `sorted`.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of functions as values higherorder functions basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "15.5_q2",
@@ -42,7 +44,9 @@
       "concept": "functions_as_values_higherorder_functions_syntax",
       "skill": "understanding",
       "title": "Passing Functions as Arguments",
-      "content": "When you pass a function as an argument to another function, you are supplying behavior that the receiving function can execute. The syntax is straightforward: write the function name without parentheses to pass the function object itself. Consider this example:\n\n```python\ndef apply_twice(func, value):\n    return func(func(value))\n\ndef square(x):\n    return x * x\n\nresult = apply_twice(square, 3)\nprint(result)\n```\n\nIn `apply_twice(square, 3)`, the argument `square` is passed by reference. Inside `apply_twice`, the parameter `func` refers to the same function object. The call `func(value)` evaluates to `square(3)`, which is `9`. Then `func(func(value))` becomes `func(9)`, which is `square(9)`, yielding `81`. Notice that we never used `square()` with parentheses when passing it; parentheses would invoke the function immediately and pass its return value instead of the function itself."
+      "content": "When you pass a function as an argument to another function, you are supplying behavior that the receiving function can execute. The syntax is straightforward: write the function name without parentheses to pass the function object itself. Consider this example:\n\n```python\ndef apply_twice(func, value):\n    return func(func(value))\n\ndef square(x):\n    return x * x\n\nresult = apply_twice(square, 3)\nprint(result)\n```\n\nIn `apply_twice(square, 3)`, the argument `square` is passed by reference. Inside `apply_twice`, the parameter `func` refers to the same function object. The call `func(value)` evaluates to `square(3)`, which is `9`. Then `func(func(value))` becomes `func(9)`, which is `square(9)`, yielding `81`. Notice that we never used `square()` with parentheses when passing it; parentheses would invoke the function immediately and pass its return value instead of the function itself.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of functions as values higherorder functions syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "15.5_q4",
@@ -449,7 +453,7 @@
       "prerequisites": [
         "15.5_q24"
       ],
-      "prompt": "Coding Challenge 25: Write a statement that prints 's as Values (Higher-Order s) Result 25' to standard output.",
+      "prompt": "Write a statement that prints 's as Values (Higher-Order s) Result 25' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('s as Values (Higher-Order s) Result 25')",
       "test_cases": [
@@ -459,7 +463,7 @@
         }
       ],
       "hint": "Use print('s as Values (Higher-Order s) Result 25') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of functions as values higherorder functions implementation. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "15.5_q26",
@@ -470,7 +474,7 @@
       "prerequisites": [
         "15.5_q25"
       ],
-      "prompt": "Coding Challenge 26: Write a statement that prints 's as Values (Higher-Order s) Result 26' to standard output.",
+      "prompt": "Write a statement that prints 's as Values (Higher-Order s) Result 26' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('s as Values (Higher-Order s) Result 26')",
       "test_cases": [
@@ -480,7 +484,7 @@
         }
       ],
       "hint": "Use print('s as Values (Higher-Order s) Result 26') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of functions as values higherorder functions practical. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "15.5_q27",
@@ -491,7 +495,7 @@
       "prerequisites": [
         "15.5_q26"
       ],
-      "prompt": "Coding Challenge 27: Write a statement that prints 's as Values (Higher-Order s) Result 27' to standard output.",
+      "prompt": "Write a statement that prints 's as Values (Higher-Order s) Result 27' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('s as Values (Higher-Order s) Result 27')",
       "test_cases": [
@@ -501,7 +505,7 @@
         }
       ],
       "hint": "Use print('s as Values (Higher-Order s) Result 27') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of functions as values higherorder functions advanced. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "15.5_q28",
@@ -512,7 +516,7 @@
       "prerequisites": [
         "15.5_q27"
       ],
-      "prompt": "Coding Challenge 28: Write a statement that prints 's as Values (Higher-Order s) Result 28' to standard output.",
+      "prompt": "Write a statement that prints 's as Values (Higher-Order s) Result 28' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('s as Values (Higher-Order s) Result 28')",
       "test_cases": [
@@ -522,7 +526,7 @@
         }
       ],
       "hint": "Use print('s as Values (Higher-Order s) Result 28') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of functions as values higherorder functions challenge. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "15.5_q29",
@@ -533,7 +537,7 @@
       "prerequisites": [
         "15.5_q28"
       ],
-      "prompt": "Coding Challenge 29: Write a statement that prints 's as Values (Higher-Order s) Result 29' to standard output.",
+      "prompt": "Write a statement that prints 's as Values (Higher-Order s) Result 29' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('s as Values (Higher-Order s) Result 29')",
       "test_cases": [
@@ -543,7 +547,7 @@
         }
       ],
       "hint": "Use print('s as Values (Higher-Order s) Result 29') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of functions as values higherorder functions scenario. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "15.5_q30",
@@ -554,7 +558,7 @@
       "prerequisites": [
         "15.5_q29"
       ],
-      "prompt": "Coding Challenge 30: Write a statement that prints 's as Values (Higher-Order s) Result 30' to standard output.",
+      "prompt": "Write a statement that prints 's as Values (Higher-Order s) Result 30' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('s as Values (Higher-Order s) Result 30')",
       "test_cases": [
@@ -564,7 +568,17 @@
         }
       ],
       "hint": "Use print('s as Values (Higher-Order s) Result 30') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of functions as values higherorder functions mastery. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     }
+  ],
+  "unit_num": 15,
+  "learning_objectives": [
+    "Explain the technical concepts and mechanics of s as Values (Higher-Order s)",
+    "Apply idiomatic Python patterns when working with s as Values (Higher-Order s)",
+    "Debug common runtime exceptions and logic errors associated with s as Values (Higher-Order s)",
+    "Implement production-ready code utilizing s as Values (Higher-Order s)"
+  ],
+  "prerequisites": [
+    "15.4"
   ]
 }

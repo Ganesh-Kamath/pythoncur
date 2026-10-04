@@ -12,7 +12,9 @@
       "prerequisites": [],
       "title": "What Are Edge Cases?",
       "content": "An edge case is an input or condition that lies at the extreme ends of the operating parameters. In Python, common edge cases include empty lists, zero values, negative numbers, and None. Recognizing these early helps you write robust programs. For example, if you divide a number by zero, Python raises a ZeroDivisionError. Similarly, calling len([]) returns 0, which is valid but must be handled in logic. Always ask: 'What happens when the input is empty or unexpected?'",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of handling edge cases basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "30.3_q2",
@@ -45,7 +47,9 @@
       ],
       "title": "Using Conditional Checks for Edge Cases",
       "content": "You can use if-statements to guard against edge cases before performing operations. A common pattern is checking for None, zero, or empty collections. Here is a simple example:\n\n```python\ndef safe_divide(a, b):\n    if b == 0:\n        return 'Cannot divide by zero'\n    return a / b\n\nprint(safe_divide(10, 2))\nprint(safe_divide(10, 0))\n```\n\nIn this code, the condition `if b == 0:` catches the edge case of division by zero and returns a safe message instead of crashing the program.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of handling edge cases syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "30.3_q4",
@@ -283,7 +287,7 @@
         "title": "Checking for Empty Inputs",
         "content": "When writing functions, edge cases often arise from empty or unexpected inputs. The most common syntax pattern is using an if-statement to verify a value before processing it. If you try to iterate over None or an empty list without a guard clause, Python raises a TypeError or silently produces no output. Always validate your inputs early to make your code robust."
       },
-      "prompt": "Complete the function below by adding the correct guard clause to handle an empty list. The function should return 0 if the input list is empty.\ndef safe_sum(numbers):\n    if ____ == []:\n        return 0\n    return sum(numbers)\n",
+      "prompt": "Complete the function below by adding the correct guard clause to handle an empty list. The function should return 0 if the input list is empty.\ndef safe_sum(numbers):\n    if ____ == []:\n        return 0\n    return sum(numbers)",
       "correct_answer": "numbers",
       "accepted_answers": [
         "numbers",
@@ -306,7 +310,7 @@
         "title": "Using 'and', 'or', and 'not' for Guard Conditions",
         "content": "Python's boolean operators let you combine multiple edge-case checks in a single line. The 'and' operator requires all conditions to be true, while 'or' returns true if at least one condition is true. The 'not' keyword inverts a boolean expression. These keywords are essential for concise validation logic when handling boundary values."
       },
-      "prompt": "Fill in the blank with the appropriate keyword to ensure the function returns True only when both x and y are non-negative.\ndef check_bounds(x, y):\n    return ____ x >= 0 and y >= 0\n",
+      "prompt": "Fill in the blank with the appropriate keyword to ensure the function returns True only when both x and y are non-negative.\ndef check_bounds(x, y):\n    return ____ x >= 0 and y >= 0",
       "correct_answer": "not",
       "accepted_answers": [
         "not",
@@ -331,7 +335,7 @@
         "title": "Order of Operations in Edge-Case Handling",
         "content": "The sequence in which you check conditions matters. Checking for division by zero before performing the division avoids a ZeroDivisionError. Similarly, verifying that a string is non-empty before indexing prevents an IndexError. A well-structured sequence places the most critical and common edge cases first."
       },
-      "prompt": "Arrange the following code lines in the correct order to safely divide a by b, returning None if b is zero or if a is not a number. Lines:\n1. if not isinstance(a, (int, float)):\n2. return None\n3. if b == 0:\n4. return a / b\n",
+      "prompt": "Arrange the following code lines in the correct order to safely divide a by b, returning None if b is zero or if a is not a number. Lines:\n1. if not isinstance(a, (int, float)):\n2. return None\n3. if b == 0:\n4. return a / b",
       "options": [
         "x = 10",
         "y = 20",
@@ -359,7 +363,7 @@
         "title": "The EAFP and LBYL Patterns",
         "content": "Python programmers often use two patterns to handle edge cases. LBYL (Look Before You Leap) checks conditions explicitly before acting. EAFP (Easier to Ask for Forgiveness than Permission) attempts the operation and catches exceptions. Both are valid, but EAFP is more idiomatic when the edge case is rare."
       },
-      "prompt": "Complete the EAFP-style pattern below by filling in the blank with the appropriate exception class.\ndef safe_pop(lst):\n    try:\n        return lst.pop()\n    except ____:\n        return None\n",
+      "prompt": "Complete the EAFP-style pattern below by filling in the blank with the appropriate exception class.\ndef safe_pop(lst):\n    try:\n        return lst.pop()\n    except ____:\n        return None",
       "correct_answer": "IndexError",
       "accepted_answers": [
         "IndexError",
@@ -384,7 +388,7 @@
         "title": "Algorithmic Flow for Boundary Values",
         "content": "Designing an algorithm that handles edge cases requires mapping out all possible inputs, including minimum, maximum, and null values. Start by identifying the normal case, then insert validation steps for outliers. The final sequence should minimize branching while ensuring correctness for every scenario."
       },
-      "prompt": "Order the steps to implement a function that returns the square root of n if n is non-negative, otherwise returns None. Steps:\n1. if n < 0:\n2. import math\n3. return math.sqrt(n)\n4. return None\n",
+      "prompt": "Order the steps to implement a function that returns the square root of n if n is non-negative, otherwise returns None. Steps:\n1. if n < 0:\n2. import math\n3. return math.sqrt(n)\n4. return None",
       "options": [
         "x = 10",
         "y = 20",
@@ -412,7 +416,7 @@
         "title": "Idiomatic Guard Clauses and Ternary Expressions",
         "content": "Python offers compact idioms for edge-case handling. A ternary expression like 'a if condition else b' lets you return a fallback in one line. Combined with early returns, these idioms reduce nesting and make the control flow easier to read, especially when dealing with missing or default values."
       },
-      "prompt": "Fill in the blank to use a ternary expression that returns 'empty' when the list has no items, otherwise returns the first item.\ndef first_or_empty(items):\n    return 'empty' if ____ else items[0]\n",
+      "prompt": "Fill in the blank to use a ternary expression that returns 'empty' when the list has no items, otherwise returns the first item.\ndef first_or_empty(items):\n    return 'empty' if ____ else items[0]",
       "correct_answer": "not items",
       "accepted_answers": [
         "not items",
@@ -443,7 +447,7 @@
       "prompt": "Fix the bug in this code for handling edge cases errors:",
       "starter_code": "# Fix this code\nPrint('Handling Edge Cases')",
       "solution_code": "print('Handling Edge Cases')",
-      "explanation": "Python identifiers and built-ins are case-sensitive."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of handling edge cases errors. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "30.3_q20",
@@ -491,7 +495,7 @@
       "prompt": "Fix the bug in this code for handling edge cases runtime:",
       "starter_code": "# Fix this code\nPrint('Handling Edge Cases')",
       "solution_code": "print('Handling Edge Cases')",
-      "explanation": "Python identifiers and built-ins are case-sensitive."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of handling edge cases runtime. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "30.3_q23",
@@ -650,5 +654,15 @@
       "hint": "First verify the type of `data`, then filter elements by numeric type before accumulation.",
       "explanation": "This mastery-level item demands comprehensive edge-case coverage: type validation, empty-collection handling, and element-level filtering. It prepares students to write production-safe aggregation utilities."
     }
+  ],
+  "unit_num": 30,
+  "learning_objectives": [
+    "Explain the technical concepts and mechanics of Handling Edge Cases",
+    "Apply idiomatic Python patterns when working with Handling Edge Cases",
+    "Debug common runtime exceptions and logic errors associated with Handling Edge Cases",
+    "Implement production-ready code utilizing Handling Edge Cases"
+  ],
+  "prerequisites": [
+    "30.2"
   ]
 }

@@ -11,7 +11,9 @@
       "difficulty": "easy",
       "prerequisites": [],
       "title": "What Is a Priority Queue?",
-      "content": "A priority queue is an abstract data type where each element has an associated priority. The element with the highest (or lowest) priority is served before elements with lower priority, regardless of when it was added. In Python, the heapq module implements a min-heap, meaning the smallest element is always at the root. This makes it ideal for tasks like scheduling, Dijkstra's algorithm, or processing events by urgency. Unlike a regular queue (FIFO), a priority queue orders elements by value, not insertion order."
+      "content": "A priority queue is an abstract data type where each element has an associated priority. The element with the highest (or lowest) priority is served before elements with lower priority, regardless of when it was added. In Python, the heapq module implements a min-heap, meaning the smallest element is always at the root. This makes it ideal for tasks like scheduling, Dijkstra's algorithm, or processing events by urgency. Unlike a regular queue (FIFO), a priority queue orders elements by value, not insertion order.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of priority queues basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "40.2_q2",
@@ -36,12 +38,12 @@
       "prompt": "Which statement best applies to priority queues basics?",
       "options": [
         "A. Correct approach for priority queues basics",
-        "B. SyntaxError raised unconditionally",
-        "C. Unrelated system call",
-        "D. Halts Python interpreter"
+        "Raises a SyntaxError: invalid syntax at runtime",
+        "Raises an IndentationError: unexpected indent",
+        "Silently ignored by the Python parser"
       ],
       "correct_answer": "A. Correct approach for priority queues basics",
-      "explanation": "Demonstrates core usage of priority queues basics in Python."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of priority queues basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "40.2_q3",
@@ -53,7 +55,9 @@
         "40.2_q2"
       ],
       "title": "Python heapq Syntax",
-      "content": "To use a priority queue in Python, import the heapq module. Use heapq.heappush(heap, item) to add an element, and heapq.heappop(heap) to remove and return the smallest element. The heap is represented as a list, and heapq maintains the heap invariant automatically. Here is a complete example:\n\n```python\nimport heapq\n\nmy_queue = []\nheapq.heappush(my_queue, 5)\nheapq.heappush(my_queue, 2)\nheapq.heappush(my_queue, 8)\n\nprint(heapq.heappop(my_queue))  # Output: 2\nprint(heapq.heappop(my_queue))  # Output: 5\n```\n\nNotice that the list my_queue is not sorted after each push; heapq only guarantees that the smallest element is at index 0."
+      "content": "To use a priority queue in Python, import the heapq module. Use heapq.heappush(heap, item) to add an element, and heapq.heappop(heap) to remove and return the smallest element. The heap is represented as a list, and heapq maintains the heap invariant automatically. Here is a complete example:\n\n```python\nimport heapq\n\nmy_queue = []\nheapq.heappush(my_queue, 5)\nheapq.heappush(my_queue, 2)\nheapq.heappush(my_queue, 8)\n\nprint(heapq.heappop(my_queue))  # Output: 2\nprint(heapq.heappop(my_queue))  # Output: 5\n```\n\nNotice that the list my_queue is not sorted after each push; heapq only guarantees that the smallest element is at index 0.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of priority queues syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "40.2_q4",
@@ -78,12 +82,12 @@
       "prompt": "Which statement best applies to priority queues syntax?",
       "options": [
         "A. Correct approach for priority queues syntax",
-        "B. SyntaxError raised unconditionally",
-        "C. Unrelated system call",
-        "D. Halts Python interpreter"
+        "Raises a SyntaxError: invalid syntax at runtime",
+        "Raises an IndentationError: unexpected indent",
+        "Silently ignored by the Python parser"
       ],
       "correct_answer": "A. Correct approach for priority queues syntax",
-      "explanation": "Demonstrates core usage of priority queues syntax in Python."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of priority queues syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "40.2_q5",
@@ -108,12 +112,12 @@
       "prompt": "Which statement best applies to priority queues matching?",
       "options": [
         "A. Correct approach for priority queues matching",
-        "B. SyntaxError raised unconditionally",
-        "C. Unrelated system call",
-        "D. Halts Python interpreter"
+        "Raises a SyntaxError: invalid syntax at runtime",
+        "Raises an IndentationError: unexpected indent",
+        "Silently ignored by the Python parser"
       ],
       "correct_answer": "A. Correct approach for priority queues matching",
-      "explanation": "Demonstrates core usage of priority queues matching in Python."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of priority queues matching. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "40.2_q6",
@@ -138,12 +142,12 @@
       "prompt": "Which statement best applies to priority queues pitfalls?",
       "options": [
         "A. Correct approach for priority queues pitfalls",
-        "B. SyntaxError raised unconditionally",
-        "C. Unrelated system call",
-        "D. Halts Python interpreter"
+        "Raises a SyntaxError: invalid syntax at runtime",
+        "Raises an IndentationError: unexpected indent",
+        "Silently ignored by the Python parser"
       ],
       "correct_answer": "A. Correct approach for priority queues pitfalls",
-      "explanation": "Demonstrates core usage of priority queues pitfalls in Python."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of priority queues pitfalls. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "40.2_q7",
@@ -388,11 +392,11 @@
       "prerequisites": [
         "40.2_q18"
       ],
-      "prompt": "Debug Challenge 19: Fix the capitalization error in this line for Priority Queues Errors:",
+      "prompt": "Fix the capitalization error in this line for Priority Queues Errors:",
       "starter_code": "Print('Priority Queues Item 19')",
       "solution_code": "print('Priority Queues Item 19')",
       "hint": "Python built-in functions like print() must be written in lowercase.",
-      "explanation": "Built-in function names in Python are case-sensitive and require lowercase."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of priority queues errors. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "40.2_q20",
@@ -403,11 +407,11 @@
       "prerequisites": [
         "40.2_q19"
       ],
-      "prompt": "Debug Challenge 20: Fix the capitalization error in this line for Priority Queues Fix:",
+      "prompt": "Fix the capitalization error in this line for Priority Queues Fix:",
       "starter_code": "Print('Priority Queues Item 20')",
       "solution_code": "print('Priority Queues Item 20')",
       "hint": "Python built-in functions like print() must be written in lowercase.",
-      "explanation": "Built-in function names in Python are case-sensitive and require lowercase."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of priority queues fix. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "40.2_q21",
@@ -418,11 +422,11 @@
       "prerequisites": [
         "40.2_q20"
       ],
-      "prompt": "Debug Challenge 21: Fix the capitalization error in this line for Priority Queues Edge Cases:",
+      "prompt": "Fix the capitalization error in this line for Priority Queues Edge Cases:",
       "starter_code": "Print('Priority Queues Item 21')",
       "solution_code": "print('Priority Queues Item 21')",
       "hint": "Python built-in functions like print() must be written in lowercase.",
-      "explanation": "Built-in function names in Python are case-sensitive and require lowercase."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of priority queues edge cases. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "40.2_q22",
@@ -433,11 +437,11 @@
       "prerequisites": [
         "40.2_q21"
       ],
-      "prompt": "Debug Challenge 22: Fix the capitalization error in this line for Priority Queues Runtime:",
+      "prompt": "Fix the capitalization error in this line for Priority Queues Runtime:",
       "starter_code": "Print('Priority Queues Item 22')",
       "solution_code": "print('Priority Queues Item 22')",
       "hint": "Python built-in functions like print() must be written in lowercase.",
-      "explanation": "Built-in function names in Python are case-sensitive and require lowercase."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of priority queues runtime. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "40.2_q23",
@@ -448,11 +452,11 @@
       "prerequisites": [
         "40.2_q22"
       ],
-      "prompt": "Debug Challenge 23: Fix the capitalization error in this line for Priority Queues Logic Repair:",
+      "prompt": "Fix the capitalization error in this line for Priority Queues Logic Repair:",
       "starter_code": "Print('Priority Queues Item 23')",
       "solution_code": "print('Priority Queues Item 23')",
       "hint": "Python built-in functions like print() must be written in lowercase.",
-      "explanation": "Built-in function names in Python are case-sensitive and require lowercase."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of priority queues logic repair. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "40.2_q24",
@@ -463,7 +467,7 @@
       "prerequisites": [
         "40.2_q23"
       ],
-      "prompt": "Coding Challenge 24: Write a statement that prints 'Priority Queues Result 24' to standard output.",
+      "prompt": "Write a statement that prints 'Priority Queues Result 24' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Priority Queues Result 24')",
       "test_cases": [
@@ -473,7 +477,7 @@
         }
       ],
       "hint": "Use print('Priority Queues Result 24') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of priority queues optimization. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "40.2_q25",
@@ -600,5 +604,15 @@
       "hint": "Maintain a min-heap of end times. Remove all meetings that finish before or at the current start, then add the current meeting. Track the last selected meeting to ensure non-overlap.",
       "explanation": "This greedy interval scheduling problem uses a priority queue to dynamically manage candidate meetings by earliest finish time. The heap allows efficient removal of expired intervals, yielding an O(n log n) solution that maximizes throughput in resource allocation scenarios."
     }
+  ],
+  "unit_num": 40,
+  "learning_objectives": [
+    "Explain the technical concepts and mechanics of Priority Queues",
+    "Apply idiomatic Python patterns when working with Priority Queues",
+    "Debug common runtime exceptions and logic errors associated with Priority Queues",
+    "Implement production-ready code utilizing Priority Queues"
+  ],
+  "prerequisites": [
+    "40.1"
   ]
 }

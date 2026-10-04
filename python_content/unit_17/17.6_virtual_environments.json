@@ -11,7 +11,9 @@
       "difficulty": "easy",
       "prerequisites": [],
       "title": "What is a Virtual Environment?",
-      "content": "A virtual environment (venv) is an isolated Python workspace that keeps project dependencies separate from the global Python installation. This prevents version conflicts between projects. To create one, run: python -m venv myenv. This creates a folder containing a copy of the Python interpreter and pip. Activate it with: source myenv/bin/activate (Linux/macOS) or myenv\\Scripts\\activate (Windows). Once active, the shell prompt shows (myenv), and any packages installed with pip are scoped to this environment only."
+      "content": "A virtual environment (venv) is an isolated Python workspace that keeps project dependencies separate from the global Python installation. This prevents version conflicts between projects. To create one, run: python -m venv myenv. This creates a folder containing a copy of the Python interpreter and pip. Activate it with: source myenv/bin/activate (Linux/macOS) or myenv\\Scripts\\activate (Windows). Once active, the shell prompt shows (myenv), and any packages installed with pip are scoped to this environment only.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of virtual environments venv basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "17.6_q2",
@@ -36,12 +38,12 @@
       "prompt": "Which statement best applies to virtual environments venv basics?",
       "options": [
         "A. Correct approach for virtual environments venv basics",
-        "B. SyntaxError raised unconditionally",
-        "C. Unrelated system call",
-        "D. Halts Python interpreter"
+        "Raises a SyntaxError: invalid syntax at runtime",
+        "Raises an IndentationError: unexpected indent",
+        "Silently ignored by the Python parser"
       ],
       "correct_answer": "A. Correct approach for virtual environments venv basics",
-      "explanation": "Demonstrates core usage of virtual environments venv basics in Python."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of virtual environments venv basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "17.6_q3",
@@ -53,7 +55,9 @@
         "17.6_q2"
       ],
       "title": "Activating and Deactivating a venv",
-      "content": "After creating a virtual environment, you must activate it before installing packages or running scripts. On Linux or macOS, use: source myenv/bin/activate. On Windows, use: myenv\\Scripts\\activate. The activation script modifies the PATH and sets the PYTHONHOME variable. To exit the environment and return to the global Python, simply type deactivate. Here is a small example demonstrating activation and package installation in a script:\n\n```python\nimport sys\nprint(sys.executable)\n```\n\nWhen run inside an activated venv, sys.executable points to the venv's Python binary rather than the system-wide one."
+      "content": "After creating a virtual environment, you must activate it before installing packages or running scripts. On Linux or macOS, use: source myenv/bin/activate. On Windows, use: myenv\\Scripts\\activate. The activation script modifies the PATH and sets the PYTHONHOME variable. To exit the environment and return to the global Python, simply type deactivate. Here is a small example demonstrating activation and package installation in a script:\n\n```python\nimport sys\nprint(sys.executable)\n```\n\nWhen run inside an activated venv, sys.executable points to the venv's Python binary rather than the system-wide one.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of virtual environments venv syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "17.6_q4",
@@ -78,12 +82,12 @@
       "prompt": "Which statement best applies to virtual environments venv syntax?",
       "options": [
         "A. Correct approach for virtual environments venv syntax",
-        "B. SyntaxError raised unconditionally",
-        "C. Unrelated system call",
-        "D. Halts Python interpreter"
+        "Raises a SyntaxError: invalid syntax at runtime",
+        "Raises an IndentationError: unexpected indent",
+        "Silently ignored by the Python parser"
       ],
       "correct_answer": "A. Correct approach for virtual environments venv syntax",
-      "explanation": "Demonstrates core usage of virtual environments venv syntax in Python."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of virtual environments venv syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "17.6_q5",
@@ -108,12 +112,12 @@
       "prompt": "Which statement best applies to virtual environments venv matching?",
       "options": [
         "A. Correct approach for virtual environments venv matching",
-        "B. SyntaxError raised unconditionally",
-        "C. Unrelated system call",
-        "D. Halts Python interpreter"
+        "Raises a SyntaxError: invalid syntax at runtime",
+        "Raises an IndentationError: unexpected indent",
+        "Silently ignored by the Python parser"
       ],
       "correct_answer": "A. Correct approach for virtual environments venv matching",
-      "explanation": "Demonstrates core usage of virtual environments venv matching in Python."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of virtual environments venv matching. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "17.6_q6",
@@ -138,12 +142,12 @@
       "prompt": "Which statement best applies to virtual environments venv pitfalls?",
       "options": [
         "A. Correct approach for virtual environments venv pitfalls",
-        "B. SyntaxError raised unconditionally",
-        "C. Unrelated system call",
-        "D. Halts Python interpreter"
+        "Raises a SyntaxError: invalid syntax at runtime",
+        "Raises an IndentationError: unexpected indent",
+        "Silently ignored by the Python parser"
       ],
       "correct_answer": "A. Correct approach for virtual environments venv pitfalls",
-      "explanation": "Demonstrates core usage of virtual environments venv pitfalls in Python."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of virtual environments venv pitfalls. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "17.6_q7",
@@ -636,5 +640,15 @@
       "hint": "Use platform.system() to branch OS-specific paths, and ensure pip path uses the venv's Python executable.",
       "explanation": "Mastery here requires synthesizing OS detection, activation logic, and cleanup into a robust, portable automation script\u2014skills directly applicable to deployment and DevOps tasks."
     }
+  ],
+  "unit_num": 17,
+  "learning_objectives": [
+    "Explain the technical concepts and mechanics of Virtual Environments (venv)",
+    "Apply idiomatic Python patterns when working with Virtual Environments (venv)",
+    "Debug common runtime exceptions and logic errors associated with Virtual Environments (venv)",
+    "Implement production-ready code utilizing Virtual Environments (venv)"
+  ],
+  "prerequisites": [
+    "17.5"
   ]
 }

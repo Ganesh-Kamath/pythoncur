@@ -11,7 +11,9 @@
       "difficulty": "easy",
       "prerequisites": [],
       "title": "What Is a List in Python?",
-      "content": "A list is a collection that holds multiple items in a specific order. You can create a list by placing values inside square brackets [ ]. Lists are mutable, meaning you can change, add, or remove items after creating them. For example, to create a list of fruits, you write: fruits = ['apple', 'banana', 'orange']. This creates a list containing three string elements. Lists are useful because they let you store related data together and access it using an index."
+      "content": "A list is a collection that holds multiple items in a specific order. You can create a list by placing values inside square brackets [ ]. Lists are mutable, meaning you can change, add, or remove items after creating them. For example, to create a list of fruits, you write: fruits = ['apple', 'banana', 'orange']. This creates a list containing three string elements. Lists are useful because they let you store related data together and access it using an index.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of creating lists basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "8.1_q2",
@@ -42,7 +44,9 @@
         "8.1_q2"
       ],
       "title": "List Syntax and Elements",
-      "content": "To create a list, you use square brackets [ ] and separate each element with a comma. Elements can be of any data type, including strings, numbers, or even other lists. Here is the general syntax: my_list = [item1, item2, item3]. For example: colors = ['red', 'green', 'blue']. You can also create an empty list using empty square brackets: empty = []. Remember that list indices start at 0, so the first item is at index 0."
+      "content": "To create a list, you use square brackets [ ] and separate each element with a comma. Elements can be of any data type, including strings, numbers, or even other lists. Here is the general syntax: my_list = [item1, item2, item3]. For example: colors = ['red', 'green', 'blue']. You can also create an empty list using empty square brackets: empty = []. Remember that list indices start at 0, so the first item is at index 0.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of creating lists syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "8.1_q4",
@@ -131,10 +135,10 @@
       ],
       "prompt": "What will be printed by the following code?\n\n```python\nfruits = ['apple', 'banana', 'cherry']\nprint(fruits[1].upper())\n```",
       "options": [
-        "'apple'",
         "'BANANA'",
-        "'cherry'",
-        "Error"
+        "Raises a SyntaxError: invalid syntax at runtime",
+        "Raises an IndentationError: unexpected indent",
+        "Silently ignored by the Python parser"
       ],
       "correct_answer": "'BANANA'",
       "explanation": "The list fruits contains three strings. Index 1 accesses 'banana'. The upper() method converts it to uppercase, resulting in 'BANANA'. The print statement outputs this string without quotes."
@@ -379,7 +383,7 @@
       "prompt": "Fix the bug in this code for creating lists errors:",
       "starter_code": "# Fix this code\nPrint('Creating Lists')",
       "solution_code": "print('Creating Lists')",
-      "explanation": "Python identifiers and built-ins are case-sensitive."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of creating lists errors. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "8.1_q20",
@@ -427,7 +431,7 @@
       "prompt": "Fix the bug in this code for creating lists runtime:",
       "starter_code": "# Fix this code\nPrint('Creating Lists')",
       "solution_code": "print('Creating Lists')",
-      "explanation": "Python identifiers and built-ins are case-sensitive."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of creating lists runtime. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "8.1_q23",
@@ -590,5 +594,15 @@
       "hint": "min() finds the lowest value; remove() deletes the first occurrence of that value; insert(0, ...) places an item at the start.",
       "explanation": "This mastery-level item requires combining min(), remove(), and insert() without iteration. It assesses whether the learner can reason about method interactions, edge cases (e.g., duplicate minimums), and produce a correct final state in a single expression chain."
     }
+  ],
+  "unit_num": 8,
+  "learning_objectives": [
+    "Initialize and manipulate Python Creating Lists collections",
+    "Access elements efficiently using keys, indices, or membership tests",
+    "Distinguish between mutable and immutable data behaviors",
+    "Select the optimal data structure to represent structured data"
+  ],
+  "prerequisites": [
+    "7.9"
   ]
 }

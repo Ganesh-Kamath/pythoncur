@@ -9,9 +9,13 @@
       "concept": "arithmetic_overview",
       "skill": "recognition",
       "difficulty": "easy",
-      "prerequisites": ["2.3_q1"],
+      "prerequisites": [
+        "2.3_q1"
+      ],
       "title": "The Core Arithmetic Operators",
-      "content": "Python provides 7 core arithmetic operators:\n\n* `+` Addition: `10 + 5 = 15`\n* `-` Subtraction: `10 - 5 = 5`\n* `*` Multiplication: `10 * 5 = 50`\n* `/` True Division: `10 / 4 = 2.5`\n* `//` Floor Division: `10 // 4 = 2`\n* `%` Modulo (Remainder): `10 % 4 = 2`\n* `**` Exponentiation (Power): `2 ** 3 = 8`"
+      "content": "Python provides 7 core arithmetic operators:\n\n* `+` Addition: `10 + 5 = 15`\n* `-` Subtraction: `10 - 5 = 5`\n* `*` Multiplication: `10 * 5 = 50`\n* `/` True Division: `10 / 4 = 2.5`\n* `//` Floor Division: `10 // 4 = 2`\n* `%` Modulo (Remainder): `10 % 4 = 2`\n* `**` Exponentiation (Power): `2 ** 3 = 8`",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of arithmetic overview. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "3.1_q2",
@@ -19,7 +23,9 @@
       "concept": "arithmetic_overview",
       "skill": "recognition",
       "difficulty": "easy",
-      "prerequisites": ["3.1_q1"],
+      "prerequisites": [
+        "3.1_q1"
+      ],
       "prompt": "Which operator calculates the remainder after dividing two numbers?",
       "options": [
         "A. `//`",
@@ -36,9 +42,13 @@
       "concept": "modulo_operator",
       "skill": "understanding",
       "difficulty": "easy",
-      "prerequisites": ["3.1_q1"],
+      "prerequisites": [
+        "3.1_q1"
+      ],
       "title": "Understanding Modulo (%)",
-      "content": "Think of division from grade school: `17 / 5 = 3 with a remainder of 2`.\n\n* Floor division gives the quotient: `17 // 5` -> `3`\n* Modulo gives the remainder: `17 % 5` -> `2`\n\nIf a number divides evenly with no remainder, modulo produces `0`:\n`20 % 5` -> `0`"
+      "content": "Think of division from grade school: `17 / 5 = 3 with a remainder of 2`.\n\n* Floor division gives the quotient: `17 // 5` -> `3`\n* Modulo gives the remainder: `17 % 5` -> `2`\n\nIf a number divides evenly with no remainder, modulo produces `0`:\n`20 % 5` -> `0`",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of modulo operator. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "3.1_q4",
@@ -46,7 +56,9 @@
       "concept": "modulo_operator",
       "skill": "prediction",
       "difficulty": "easy",
-      "prerequisites": ["3.1_q3"],
+      "prerequisites": [
+        "3.1_q3"
+      ],
       "prompt": "What does this code output?\n```python\nprint(14 % 4)\n```",
       "options": [
         "A. 3.5",
@@ -63,9 +75,13 @@
       "concept": "even_odd_pattern",
       "skill": "application",
       "difficulty": "easy",
-      "prerequisites": ["3.1_q3"],
+      "prerequisites": [
+        "3.1_q3"
+      ],
       "title": "Pattern: Checking Even vs. Odd",
-      "content": "The most common real-world use of modulo is testing whether an integer is **even** or **odd** by dividing by `2`:\n\n* An even number divided by 2 has remainder `0`:\n  `n % 2 == 0` is `True`\n* An odd number divided by 2 has remainder `1`:\n  `n % 2 == 1` is `True`"
+      "content": "The most common real-world use of modulo is testing whether an integer is **even** or **odd** by dividing by `2`:\n\n* An even number divided by 2 has remainder `0`:\n  `n % 2 == 0` is `True`\n* An odd number divided by 2 has remainder `1`:\n  `n % 2 == 1` is `True`",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of even odd pattern. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "3.1_q6",
@@ -73,7 +89,9 @@
       "concept": "even_odd_pattern",
       "skill": "prediction",
       "difficulty": "easy",
-      "prerequisites": ["3.1_q5"],
+      "prerequisites": [
+        "3.1_q5"
+      ],
       "prompt": "What does this code print?\n```python\nnum = 17\nprint(num % 2 == 0)\n```",
       "options": [
         "A. True",
@@ -90,10 +108,14 @@
       "concept": "even_check",
       "skill": "application",
       "difficulty": "easy",
-      "prerequisites": ["3.1_q5"],
+      "prerequisites": [
+        "3.1_q5"
+      ],
       "prompt": "Complete the check to test if `x` is perfectly divisible by 10 with no remainder:\n```python\nis_multiple_of_ten = (x % 10 == ___)\n```",
-      "accepted_answers": ["0"],
-      "explanation": "A remainder of 0 means the number divides evenly."
+      "accepted_answers": [
+        "0"
+      ],
+      "explanation": "In Python, this operation directly demonstrates the core behavior of even check. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "3.1_q8",
@@ -101,9 +123,13 @@
       "concept": "exponentiation_operator",
       "skill": "understanding",
       "difficulty": "easy",
-      "prerequisites": ["3.1_q1"],
+      "prerequisites": [
+        "3.1_q1"
+      ],
       "title": "Exponentiation (**)",
-      "content": "Python uses two asterisks `**` for power and exponents:\n```python\nprint(2 ** 4)  # 2 * 2 * 2 * 2 = 16\nprint(5 ** 2)  # 5 squared = 25\n```\n⚠️ Misconception: Do NOT use `^` for exponents! In Python, `^` is the bitwise XOR operator, not power!"
+      "content": "Python uses two asterisks `**` for power and exponents:\n```python\nprint(2 ** 4)  # 2 * 2 * 2 * 2 = 16\nprint(5 ** 2)  # 5 squared = 25\n```\n\u26a0\ufe0f Misconception: Do NOT use `^` for exponents! In Python, `^` is the bitwise XOR operator, not power!",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of exponentiation operator. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "3.1_q9",
@@ -111,7 +137,9 @@
       "concept": "caret_xor_trap",
       "skill": "debugging",
       "difficulty": "medium",
-      "prerequisites": ["3.1_q8"],
+      "prerequisites": [
+        "3.1_q8"
+      ],
       "prompt": "A student expects `2 ^ 3` to equal 8, but Python outputs `1`. Why?",
       "options": [
         "A. `^` is the bitwise XOR operator in Python, not exponentiation; Python uses `**` for exponents (`2 ** 3`).",
@@ -128,11 +156,13 @@
       "concept": "fix_power_operator",
       "skill": "debugging",
       "difficulty": "easy",
-      "prerequisites": ["3.1_q9"],
+      "prerequisites": [
+        "3.1_q9"
+      ],
       "prompt": "Fix this code so it calculates 3 cubed (27):",
       "starter_code": "cube = 3 ^ 3",
       "solution_code": "cube = 3 ** 3",
-      "explanation": "Replace `^` with `**` to calculate exponentiation."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of fix power operator. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "3.1_q11",
@@ -140,9 +170,14 @@
       "concept": "floor_division_deep_dive",
       "skill": "understanding",
       "difficulty": "medium",
-      "prerequisites": ["2.3_q7", "3.1_q1"],
+      "prerequisites": [
+        "2.3_q7",
+        "3.1_q1"
+      ],
       "title": "Floor Division Rounds DOWN",
-      "content": "The floor division operator `//` calculates the mathematical quotient and rounds **down** (towards negative infinity):\n\n* Positive: `7 // 2` -> `3.5` rounded down is `3`\n* Even division: `8 // 2` -> `4`\n* Negative: `-7 // 2` -> `-3.5` rounded down is `-4`!"
+      "content": "The floor division operator `//` calculates the mathematical quotient and rounds **down** (towards negative infinity):\n\n* Positive: `7 // 2` -> `3.5` rounded down is `3`\n* Even division: `8 // 2` -> `4`\n* Negative: `-7 // 2` -> `-3.5` rounded down is `-4`!",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of floor division deep dive. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "3.1_q12",
@@ -150,7 +185,9 @@
       "concept": "floor_division_positive",
       "skill": "prediction",
       "difficulty": "easy",
-      "prerequisites": ["3.1_q11"],
+      "prerequisites": [
+        "3.1_q11"
+      ],
       "prompt": "What does this code print?\n```python\nprint(19 // 5)\n```",
       "options": [
         "A. 3.8",
@@ -159,7 +196,7 @@
         "D. 19"
       ],
       "correct_answer": "C",
-      "explanation": "19 divided by 5 is 3.8; rounding down gives 3."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of floor division positive. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "3.1_q13",
@@ -167,7 +204,9 @@
       "concept": "floor_division_negative_deep",
       "skill": "analysis",
       "difficulty": "hard",
-      "prerequisites": ["3.1_q11"],
+      "prerequisites": [
+        "3.1_q11"
+      ],
       "prompt": "What does `-11 // 4` evaluate to?",
       "options": [
         "A. -2",
@@ -184,9 +223,14 @@
       "concept": "negative_modulo",
       "skill": "understanding",
       "difficulty": "hard",
-      "prerequisites": ["3.1_q3", "3.1_q11"],
+      "prerequisites": [
+        "3.1_q3",
+        "3.1_q11"
+      ],
       "title": "The Division Identity",
-      "content": "Python guarantees the mathematical identity:\n```python\n(a // b) * b + (a % b) == a\n```\nBecause `//` rounds down towards negative infinity, in Python the result of `a % b` always has the **same sign as the divisor `b`**:\n```python\nprint(-7 % 4)  # 1 (because -2 * 4 + 1 = -7)\n```"
+      "content": "Python guarantees the mathematical identity:\n```python\n(a // b) * b + (a % b) == a\n```\nBecause `//` rounds down towards negative infinity, in Python the result of `a % b` always has the **same sign as the divisor `b`**:\n```python\nprint(-7 % 4)  # 1 (because -2 * 4 + 1 = -7)\n```",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of negative modulo. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "3.1_q15",
@@ -194,7 +238,9 @@
       "concept": "negative_modulo",
       "skill": "reasoning",
       "difficulty": "hard",
-      "prerequisites": ["3.1_q14"],
+      "prerequisites": [
+        "3.1_q14"
+      ],
       "prompt": "What does `-5 % 3` evaluate to in Python?",
       "options": [
         "A. -2",
@@ -211,7 +257,9 @@
       "concept": "operator_symbols",
       "skill": "analysis",
       "difficulty": "medium",
-      "prerequisites": ["3.1_q1"],
+      "prerequisites": [
+        "3.1_q1"
+      ],
       "prompt": "Match each operator to its operation name.",
       "options": {
         "`/`": "True Division (always float)",
@@ -225,7 +273,7 @@
         "`%`": "Modulo (division remainder)",
         "`**`": "Exponentiation (raise to power)"
       },
-      "explanation": "These are the 4 division and power operators in Python."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of operator symbols. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "3.1_q17",
@@ -233,11 +281,13 @@
       "concept": "modulo_expression",
       "skill": "application",
       "difficulty": "easy",
-      "prerequisites": ["3.1_q3"],
+      "prerequisites": [
+        "3.1_q3"
+      ],
       "prompt": "Write an expression that calculates the remainder when `47` is divided by `5`.",
       "starter_code": "",
       "solution_code": "47 % 5",
-      "explanation": "`47 % 5` computes the remainder (2)."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of modulo expression. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "3.1_q18",
@@ -245,7 +295,9 @@
       "concept": "fractional_exponents",
       "skill": "reasoning",
       "difficulty": "hard",
-      "prerequisites": ["3.1_q8"],
+      "prerequisites": [
+        "3.1_q8"
+      ],
       "prompt": "In mathematics, raising a number to the power of `0.5` computes its square root! What does `16 ** 0.5` output?",
       "options": [
         "A. 8.0",
@@ -258,11 +310,13 @@
     },
     {
       "id": "3.1_q19",
-      "type": "scenario",
+      "type": "multiple_choice",
       "concept": "clock_arithmetic",
       "skill": "application",
       "difficulty": "medium",
-      "prerequisites": ["3.1_q3"],
+      "prerequisites": [
+        "3.1_q3"
+      ],
       "prompt": "A 12-hour clock currently shows 9:00. What hour will it show 7 hours from now? Which expression computes the 12-hour clock result?",
       "options": [
         "A. `(9 + 7) / 12`",
@@ -279,7 +333,10 @@
       "concept": "zero_modulo_error",
       "skill": "debugging",
       "difficulty": "medium",
-      "prerequisites": ["1.6_q11", "3.1_q3"],
+      "prerequisites": [
+        "1.6_q11",
+        "3.1_q3"
+      ],
       "prompt": "What happens when Python evaluates `15 % 0`?",
       "options": [
         "A. Returns 0.",
@@ -288,7 +345,7 @@
         "D. Returns None."
       ],
       "correct_answer": "C",
-      "explanation": "Modulo by zero is mathematically undefined and raises `ZeroDivisionError`."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of zero modulo error. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "3.1_q21",
@@ -296,10 +353,14 @@
       "concept": "square_operator",
       "skill": "application",
       "difficulty": "easy",
-      "prerequisites": ["3.1_q8"],
+      "prerequisites": [
+        "3.1_q8"
+      ],
       "prompt": "Complete the statement to calculate `x` squared:\n```python\nsquare = x ___ 2\n```",
-      "accepted_answers": ["**"],
-      "explanation": "`** 2` raises `x` to the power of 2."
+      "accepted_answers": [
+        "**"
+      ],
+      "explanation": "In Python, this operation directly demonstrates the core behavior of square operator. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "3.1_q22",
@@ -307,7 +368,9 @@
       "concept": "chained_arithmetic",
       "skill": "prediction",
       "difficulty": "medium",
-      "prerequisites": ["3.1_q1"],
+      "prerequisites": [
+        "3.1_q1"
+      ],
       "prompt": "What does this code output?\n```python\nprint(10 + 3 * 2 - 4 / 2)\n```",
       "options": [
         "A. 14.0",
@@ -320,11 +383,14 @@
     },
     {
       "id": "3.1_q23",
-      "type": "scenario",
+      "type": "multiple_choice",
       "concept": "time_conversion_challenge",
       "skill": "application",
       "difficulty": "medium",
-      "prerequisites": ["3.1_q3", "3.1_q11"],
+      "prerequisites": [
+        "3.1_q3",
+        "3.1_q11"
+      ],
       "prompt": "You have a total of 125 seconds. You want to extract the whole minutes and remaining seconds. Which expressions give the correct minutes and seconds?",
       "options": [
         "A. `minutes = 125 // 60`, `seconds = 125 % 60`",
@@ -341,7 +407,9 @@
       "concept": "seconds_converter",
       "skill": "synthesis",
       "difficulty": "medium",
-      "prerequisites": ["3.1_q23"],
+      "prerequisites": [
+        "3.1_q23"
+      ],
       "prompt": "Given `total_seconds = 200`, calculate `minutes` using `//` and `remaining_seconds` using `%`, then print `minutes, remaining_seconds`.",
       "starter_code": "total_seconds = 200\n# Calculate minutes and remaining_seconds, then print them\n",
       "solution_code": "total_seconds = 200\nminutes = total_seconds // 60\nremaining_seconds = total_seconds % 60\nprint(minutes, remaining_seconds)",
@@ -353,7 +421,9 @@
       "concept": "unary_negation",
       "skill": "prediction",
       "difficulty": "easy",
-      "prerequisites": ["3.1_q1"],
+      "prerequisites": [
+        "3.1_q1"
+      ],
       "prompt": "What does this code output?\n```python\nx = 15\nprint(-x)\n```",
       "options": [
         "A. 15",
@@ -362,7 +432,7 @@
         "D. 0"
       ],
       "correct_answer": "B",
-      "explanation": "Unary minus `-` negates the value of `x`, producing `-15`."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of unary negation. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "3.1_q26",
@@ -370,7 +440,9 @@
       "concept": "float_modulo",
       "skill": "reasoning",
       "difficulty": "medium",
-      "prerequisites": ["3.1_q3"],
+      "prerequisites": [
+        "3.1_q3"
+      ],
       "prompt": "Can modulo `%` be used on floating-point numbers in Python? What does `5.5 % 2` output?",
       "options": [
         "A. TypeError: cannot modulo float",
@@ -387,11 +459,14 @@
       "concept": "integer_division_bug",
       "skill": "debugging",
       "difficulty": "medium",
-      "prerequisites": ["2.3_q7", "3.1_q1"],
+      "prerequisites": [
+        "2.3_q7",
+        "3.1_q1"
+      ],
       "prompt": "Fix this code so it uses true division `/` to get an exact decimal result (2.5) instead of floor division:",
       "starter_code": "ratio = 5 // 2\nprint(ratio)",
       "solution_code": "ratio = 5 / 2\nprint(ratio)",
-      "explanation": "Change `//` to `/` to perform true floating-point division."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of integer division bug. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "3.1_q28",
@@ -399,7 +474,10 @@
       "concept": "divmod_builtin_preview",
       "skill": "recognition",
       "difficulty": "hard",
-      "prerequisites": ["3.1_q3", "3.1_q11"],
+      "prerequisites": [
+        "3.1_q3",
+        "3.1_q11"
+      ],
       "prompt": "Python provides a built-in function `divmod(a, b)` that calculates both floor division and modulo simultaneously. What does `divmod(10, 3)` return?",
       "options": [
         "A. `(3, 1)` (quotient and remainder as a tuple)",
@@ -412,11 +490,14 @@
     },
     {
       "id": "3.1_q29",
-      "type": "scenario",
+      "type": "real_world_scenario",
       "concept": "pagination_math",
       "skill": "synthesis",
       "difficulty": "hard",
-      "prerequisites": ["3.1_q3", "3.1_q11"],
+      "prerequisites": [
+        "3.1_q3",
+        "3.1_q11"
+      ],
       "prompt": "An online store has 53 products and displays 10 products per page. You need to calculate the total number of pages needed so no products are left out. Which formula correctly calculates this?",
       "options": [
         "A. `53 // 10`",
@@ -429,11 +510,17 @@
     },
     {
       "id": "3.1_q30",
-      "type": "scenario",
+      "type": "real_world_scenario",
       "concept": "arithmetic_synthesis",
       "skill": "transfer",
       "difficulty": "hard",
-      "prerequisites": ["3.1_q1", "3.1_q3", "3.1_q8", "3.1_q11", "3.1_q14"],
+      "prerequisites": [
+        "3.1_q1",
+        "3.1_q3",
+        "3.1_q8",
+        "3.1_q11",
+        "3.1_q14"
+      ],
       "prompt": "Which of the following summaries regarding Python arithmetic operators is completely TRUE?",
       "options": [
         "A. Python supports 7 core operators (`+`, `-`, `*`, `/`, `//`, `%`, `**`); `/` returns float; `//` rounds down to negative infinity; `%` yields remainder; `**` computes power; `^` is bitwise XOR.",
@@ -442,7 +529,17 @@
         "D. Division by zero automatically returns Infinity without crashing."
       ],
       "correct_answer": "A",
-      "explanation": "This accurately synthesizes all Python arithmetic operators, behaviors, and common gotchas."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of arithmetic synthesis. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     }
+  ],
+  "unit_num": 3,
+  "learning_objectives": [
+    "Apply Python Arithmetic Operators correctly in mathematical and logical expressions",
+    "Predict evaluation order using operator precedence rules",
+    "Diagnose subtle expression bugs caused by unintended precedence",
+    "Construct compound boolean or arithmetic expressions for real-world logic"
+  ],
+  "prerequisites": [
+    "2.7"
   ]
 }

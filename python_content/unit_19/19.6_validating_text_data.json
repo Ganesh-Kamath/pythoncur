@@ -11,7 +11,9 @@
       "difficulty": "easy",
       "prerequisites": [],
       "title": "Introduction to Text Validation",
-      "content": "Text validation ensures that user input conforms to expected formats before processing. For example, checking that an email address contains an '@' symbol or that a phone number consists of digits only. Python's re module provides tools to define patterns and test strings against them. A common first step is using re.match() or re.search() to verify whether a pattern exists in the input. Consider the following example:\n\n```python\nimport re\n\nuser_input = 'hello@example.com'\npattern = r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2}$'\n\nif re.match(pattern, user_input):\n    print('Valid email format')\nelse:\n    print('Invalid email format')\n```\n\nIn this snippet, the raw string r'...' defines the pattern, and re.match() checks from the start of the string. Recognizing when and why to validate text is the foundation for building robust applications."
+      "content": "Text validation ensures that user input conforms to expected formats before processing. For example, checking that an email address contains an '@' symbol or that a phone number consists of digits only. Python's re module provides tools to define patterns and test strings against them. A common first step is using re.match() or re.search() to verify whether a pattern exists in the input. Consider the following example:\n\n```python\nimport re\n\nuser_input = 'hello@example.com'\npattern = r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2}$'\n\nif re.match(pattern, user_input):\n    print('Valid email format')\nelse:\n    print('Invalid email format')\n```\n\nIn this snippet, the raw string r'...' defines the pattern, and re.match() checks from the start of the string. Recognizing when and why to validate text is the foundation for building robust applications.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of validating text data basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "19.6_q2",
@@ -42,7 +44,9 @@
         "19.6_q2"
       ],
       "title": "Common Regular Expression Syntax",
-      "content": "Regular expressions use special characters to describe patterns. Some essential symbols include:\n- ^ anchors the pattern to the start of the string.\n- $ anchors the pattern to the end of the string.\n- \\d matches any digit (0-9).\n- \\w matches any word character (letters, digits, and underscore).\n- \\s matches any whitespace character.\n- + means one or more of the preceding element.\n- * means zero or more of the preceding element.\n- ? means zero or one of the preceding element.\n\nFor instance, to validate a simple 4-digit PIN, you can use the pattern r'^\\d{4}$'. Here is a demonstration:\n\n```python\nimport re\n\npin = '1234'\npattern = r'^\\d{4}$'\n\nif re.fullmatch(pattern, pin):\n    print('PIN is valid')\nelse:\n    print('PIN is invalid')\n```\n\nNote that re.fullmatch() ensures the entire string matches the pattern, which is often safer than re.match() when you want exact-length validation."
+      "content": "Regular expressions use special characters to describe patterns. Some essential symbols include:\n- ^ anchors the pattern to the start of the string.\n- $ anchors the pattern to the end of the string.\n- \\d matches any digit (0-9).\n- \\w matches any word character (letters, digits, and underscore).\n- \\s matches any whitespace character.\n- + means one or more of the preceding element.\n- * means zero or more of the preceding element.\n- ? means zero or one of the preceding element.\n\nFor instance, to validate a simple 4-digit PIN, you can use the pattern r'^\\d{4}$'. Here is a demonstration:\n\n```python\nimport re\n\npin = '1234'\npattern = r'^\\d{4}$'\n\nif re.fullmatch(pattern, pin):\n    print('PIN is valid')\nelse:\n    print('PIN is invalid')\n```\n\nNote that re.fullmatch() ensures the entire string matches the pattern, which is often safer than re.match() when you want exact-length validation.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of validating text data syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "19.6_q4",
@@ -380,11 +384,11 @@
       "prerequisites": [
         "19.6_q18"
       ],
-      "prompt": "Debug Challenge 19: Fix the capitalization error in this line for Validating Text Data Errors:",
+      "prompt": "Fix the capitalization error in this line for Validating Text Data Errors:",
       "starter_code": "Print('Validating Text Data Item 19')",
       "solution_code": "print('Validating Text Data Item 19')",
       "hint": "Python built-in functions like print() must be written in lowercase.",
-      "explanation": "Built-in function names in Python are case-sensitive and require lowercase."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of validating text data errors. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "19.6_q20",
@@ -395,11 +399,11 @@
       "prerequisites": [
         "19.6_q19"
       ],
-      "prompt": "Debug Challenge 20: Fix the capitalization error in this line for Validating Text Data Fix:",
+      "prompt": "Fix the capitalization error in this line for Validating Text Data Fix:",
       "starter_code": "Print('Validating Text Data Item 20')",
       "solution_code": "print('Validating Text Data Item 20')",
       "hint": "Python built-in functions like print() must be written in lowercase.",
-      "explanation": "Built-in function names in Python are case-sensitive and require lowercase."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of validating text data fix. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "19.6_q21",
@@ -410,11 +414,11 @@
       "prerequisites": [
         "19.6_q20"
       ],
-      "prompt": "Debug Challenge 21: Fix the capitalization error in this line for Validating Text Data Edge Cases:",
+      "prompt": "Fix the capitalization error in this line for Validating Text Data Edge Cases:",
       "starter_code": "Print('Validating Text Data Item 21')",
       "solution_code": "print('Validating Text Data Item 21')",
       "hint": "Python built-in functions like print() must be written in lowercase.",
-      "explanation": "Built-in function names in Python are case-sensitive and require lowercase."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of validating text data edge cases. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "19.6_q22",
@@ -425,11 +429,11 @@
       "prerequisites": [
         "19.6_q21"
       ],
-      "prompt": "Debug Challenge 22: Fix the capitalization error in this line for Validating Text Data Runtime:",
+      "prompt": "Fix the capitalization error in this line for Validating Text Data Runtime:",
       "starter_code": "Print('Validating Text Data Item 22')",
       "solution_code": "print('Validating Text Data Item 22')",
       "hint": "Python built-in functions like print() must be written in lowercase.",
-      "explanation": "Built-in function names in Python are case-sensitive and require lowercase."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of validating text data runtime. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "19.6_q23",
@@ -440,11 +444,11 @@
       "prerequisites": [
         "19.6_q22"
       ],
-      "prompt": "Debug Challenge 23: Fix the capitalization error in this line for Validating Text Data Logic Repair:",
+      "prompt": "Fix the capitalization error in this line for Validating Text Data Logic Repair:",
       "starter_code": "Print('Validating Text Data Item 23')",
       "solution_code": "print('Validating Text Data Item 23')",
       "hint": "Python built-in functions like print() must be written in lowercase.",
-      "explanation": "Built-in function names in Python are case-sensitive and require lowercase."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of validating text data logic repair. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "19.6_q24",
@@ -455,7 +459,7 @@
       "prerequisites": [
         "19.6_q23"
       ],
-      "prompt": "Coding Challenge 24: Write a statement that prints 'Validating Text Data Result 24' to standard output.",
+      "prompt": "Write a statement that prints 'Validating Text Data Result 24' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Validating Text Data Result 24')",
       "test_cases": [
@@ -465,7 +469,7 @@
         }
       ],
       "hint": "Use print('Validating Text Data Result 24') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of validating text data optimization. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "19.6_q25",
@@ -595,5 +599,15 @@
       "hint": "Capture the first character in a named group (?P<sub>.), then use \\1{2} to match exactly two more occurrences of that same captured character. The total length must be exactly 3.",
       "explanation": "The pattern ^(?P<sub>.)\\1{2}$ uses a named group 'sub' to capture any single character. \\1 is a backreference to the captured group, and {2} requires exactly two more repetitions. This ensures the string is exactly 3 identical characters. re.fullmatch guarantees no extra characters before or after. Note: this checks for exactly 3 repetitions of a single character; extending to variable-length substrings requires more advanced techniques."
     }
+  ],
+  "unit_num": 19,
+  "learning_objectives": [
+    "Explain the technical concepts and mechanics of Validating Text Data",
+    "Apply idiomatic Python patterns when working with Validating Text Data",
+    "Debug common runtime exceptions and logic errors associated with Validating Text Data",
+    "Implement production-ready code utilizing Validating Text Data"
+  ],
+  "prerequisites": [
+    "19.5"
   ]
 }

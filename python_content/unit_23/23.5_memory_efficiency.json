@@ -11,7 +11,9 @@
       "difficulty": "easy",
       "prerequisites": [],
       "title": "What Is Memory Efficiency?",
-      "content": "When you create a large list in Python, the entire list is stored in memory at once. For example, `large_list = [i for i in range(1000000)]` allocates memory for one million integers simultaneously. This can cause high memory usage, especially on devices with limited resources. Memory efficiency means producing values one at a time without storing the whole sequence. Iterators and generators are Python's primary tools for this. An iterator is an object that implements the iterator protocol (`__iter__` and `__next__`). A generator is a special kind of iterator created using a function with `yield` or a generator expression. Both allow lazy evaluation: values are computed only when requested. This lesson introduces these ideas so you can recognize when memory-efficient code is preferable to eager list construction."
+      "content": "When you create a large list in Python, the entire list is stored in memory at once. For example, `large_list = [i for i in range(1000000)]` allocates memory for one million integers simultaneously. This can cause high memory usage, especially on devices with limited resources. Memory efficiency means producing values one at a time without storing the whole sequence. Iterators and generators are Python's primary tools for this. An iterator is an object that implements the iterator protocol (`__iter__` and `__next__`). A generator is a special kind of iterator created using a function with `yield` or a generator expression. Both allow lazy evaluation: values are computed only when requested. This lesson introduces these ideas so you can recognize when memory-efficient code is preferable to eager list construction.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of memory efficiency basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "23.5_q2",
@@ -42,7 +44,9 @@
         "23.5_q2"
       ],
       "title": "Generator Syntax with `yield`",
-      "content": "You can turn a function into a generator by replacing `return` with `yield`. When the function is called, it returns a generator object without executing the body. Execution resumes on each call to `next()`, running until the next `yield` expression. Consider this example:\n\n```python\ndef count_up_to(n):\n    i = 1\n    while i <= n:\n        yield i\n        i += 1\n\ngen = count_up_to(5)\nprint(next(gen))  # 1\nprint(next(gen))  # 2\n```\n\nAlternatively, a generator expression uses parentheses and resembles a list comprehension:\n\n```python\nsquares = (x * x for x in range(4))\nprint(next(squares))  # 0\n```\n\nBoth forms create iterators that generate values on demand, avoiding the need to allocate a full list upfront."
+      "content": "You can turn a function into a generator by replacing `return` with `yield`. When the function is called, it returns a generator object without executing the body. Execution resumes on each call to `next()`, running until the next `yield` expression. Consider this example:\n\n```python\ndef count_up_to(n):\n    i = 1\n    while i <= n:\n        yield i\n        i += 1\n\ngen = count_up_to(5)\nprint(next(gen))  # 1\nprint(next(gen))  # 2\n```\n\nAlternatively, a generator expression uses parentheses and resembles a list comprehension:\n\n```python\nsquares = (x * x for x in range(4))\nprint(next(squares))  # 0\n```\n\nBoth forms create iterators that generate values on demand, avoiding the need to allocate a full list upfront.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of memory efficiency syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "23.5_q4",
@@ -224,9 +228,9 @@
       "prompt": "What is the output of this code?\n\n```python\ndef read_lines(filename):\n    with open('data.txt', 'w') as f:\n        f.write('apple\\nbanana\\ncherry\\n')\n    with open('data.txt', 'r') as f:\n        for line in f:\n            yield line.strip()\n\nfor item in read_lines('data.txt'):\n    print(item, end=' | ')\n```",
       "options": [
         "apple | banana | cherry | ",
-        "apple\nbanana\ncherry\n",
-        "apple | banana | cherry",
-        "Error: file not found"
+        "Raises a SyntaxError: invalid syntax at runtime",
+        "Raises an IndentationError: unexpected indent",
+        "Silently ignored by the Python parser"
       ],
       "correct_answer": "apple | banana | cherry | ",
       "explanation": "The function write_lines first creates and populates data.txt with three lines. The read_lines generator opens the file, iterates line by line, strips the trailing newline with strip(), and yields each cleaned string. The for loop prints each yielded value followed by ' | '. Because the generator reads one line at a time, it never loads the entire file into memory, making it suitable for very large files. The final output is apple | banana | cherry | with a trailing space."
@@ -360,7 +364,7 @@
       "prompt": "Fix the bug in this code for memory efficiency errors:",
       "starter_code": "# Fix this code\nPrint('Memory Efficiency')",
       "solution_code": "print('Memory Efficiency')",
-      "explanation": "Python identifiers and built-ins are case-sensitive."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of memory efficiency errors. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "23.5_q20",
@@ -408,7 +412,7 @@
       "prompt": "Fix the bug in this code for memory efficiency runtime:",
       "starter_code": "# Fix this code\nPrint('Memory Efficiency')",
       "solution_code": "print('Memory Efficiency')",
-      "explanation": "Python identifiers and built-ins are case-sensitive."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of memory efficiency runtime. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "23.5_q23",
@@ -574,5 +578,15 @@
       "hint": "Use os.listdir to enumerate files one by one, open each file inside the loop, and use return to exit the generator early.",
       "explanation": "This design demonstrates mastery of memory efficiency by combining directory iteration, per-file streaming, early termination, and selective yielding. No list of all paths or all matches is ever created, so memory usage remains proportional to the size of the currently open file plus a few counters."
     }
+  ],
+  "unit_num": 23,
+  "learning_objectives": [
+    "Explain the technical concepts and mechanics of Memory Efficiency",
+    "Apply idiomatic Python patterns when working with Memory Efficiency",
+    "Debug common runtime exceptions and logic errors associated with Memory Efficiency",
+    "Implement production-ready code utilizing Memory Efficiency"
+  ],
+  "prerequisites": [
+    "23.4"
   ]
 }

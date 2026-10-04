@@ -11,7 +11,9 @@
       "difficulty": "easy",
       "prerequisites": [],
       "title": "What Are Tables, Rows, and Columns?",
-      "content": "A database table is one of the most fundamental structures in SQL and data management. Think of a table as a grid that stores related information. Each horizontal line in the grid is called a row, and each vertical line is called a column. A row represents a single record or entry, such as one student in a class. A column represents a specific attribute, such as the student's name or age. Together, rows and columns organize data so it can be queried efficiently. In Python, we often represent tabular data using lists of dictionaries or libraries like pandas, but the underlying concept remains the same: columns define the fields, and rows hold the values for those fields."
+      "content": "A database table is one of the most fundamental structures in SQL and data management. Think of a table as a grid that stores related information. Each horizontal line in the grid is called a row, and each vertical line is called a column. A row represents a single record or entry, such as one student in a class. A column represents a specific attribute, such as the student's name or age. Together, rows and columns organize data so it can be queried efficiently. In Python, we often represent tabular data using lists of dictionaries or libraries like pandas, but the underlying concept remains the same: columns define the fields, and rows hold the values for those fields.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of tables rows and columns basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "26.2_q2",
@@ -42,7 +44,9 @@
         "26.2_q2"
       ],
       "title": "SQL Table Syntax and Structure",
-      "content": "When creating a table in SQL, you use the CREATE TABLE statement. The basic syntax defines column names, data types, and constraints. For example, to create a simple table called students, you might write: CREATE TABLE students (id INTEGER, name VARCHAR(50), age INTEGER). Here, students is the table name. Inside the parentheses, each item is a column definition: id is an integer column, name is a variable-length string, and age is an integer. After creation, you insert rows using INSERT INTO. In Python, you can simulate this structure with a list of dictionaries, where each dictionary acts like a row and its keys act like column names. This mental model helps bridge SQL tables and Python data structures."
+      "content": "When creating a table in SQL, you use the CREATE TABLE statement. The basic syntax defines column names, data types, and constraints. For example, to create a simple table called students, you might write: CREATE TABLE students (id INTEGER, name VARCHAR(50), age INTEGER). Here, students is the table name. Inside the parentheses, each item is a column definition: id is an integer column, name is a variable-length string, and age is an integer. After creation, you insert rows using INSERT INTO. In Python, you can simulate this structure with a list of dictionaries, where each dictionary acts like a row and its keys act like column names. This mental model helps bridge SQL tables and Python data structures.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of tables rows and columns syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "26.2_q4",
@@ -640,5 +644,15 @@
       "hint": "Build an index on the right table by the join key, then iterate the left table and combine matching rows.",
       "explanation": "This simulates an SQL INNER JOIN. Indexing the second table by the join key improves efficiency from O(n*m) to O(n+m)."
     }
+  ],
+  "unit_num": 26,
+  "learning_objectives": [
+    "Explain the technical concepts and mechanics of Tables, Rows, and Columns",
+    "Apply idiomatic Python patterns when working with Tables, Rows, and Columns",
+    "Debug common runtime exceptions and logic errors associated with Tables, Rows, and Columns",
+    "Implement production-ready code utilizing Tables, Rows, and Columns"
+  ],
+  "prerequisites": [
+    "26.1"
   ]
 }

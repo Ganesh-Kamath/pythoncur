@@ -11,7 +11,9 @@
       "difficulty": "easy",
       "prerequisites": [],
       "title": "Introduction to List Comprehensions",
-      "content": "A list comprehension is a concise way to create lists in Python. Instead of writing a full for loop with append, you can express the same logic in a single readable line. The basic pattern is [expression for item in iterable]. For example, to create a list of squares from 0 to 4, you can write: [x ** 2 for x in range(5)]. This replaces:\n\nnumbers = [0, 1, 2, 3, 4]\nsquares = []\nfor n in numbers:\n    squares.append(n ** 2)\n\nList comprehensions make your code shorter and often faster."
+      "content": "A list comprehension is a concise way to create lists in Python. Instead of writing a full for loop with append, you can express the same logic in a single readable line. The basic pattern is [expression for item in iterable]. For example, to create a list of squares from 0 to 4, you can write: [x ** 2 for x in range(5)]. This replaces:\n\nnumbers = [0, 1, 2, 3, 4]\nsquares = []\nfor n in numbers:\n    squares.append(n ** 2)\n\nList comprehensions make your code shorter and often faster.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of list comprehensions basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "16.1_q2",
@@ -42,7 +44,9 @@
         "16.1_q2"
       ],
       "title": "Syntax of a List Comprehension",
-      "content": "The full syntax of a list comprehension is [expression for target in iterable if condition]. The expression is evaluated for each item in the iterable. The if condition is optional and filters items. If there is no condition, every item is included. For example:\n\nnames = ['alice', 'bob', 'charlie']\nfirst_letters = [n[0] for n in names]\n\nHere, expression is n[0], target is n, iterable is names, and there is no condition. If you want only names starting with 'a' or 'b', you add a condition:\n\nshort_names = [n for n in names if len(n) < 5]\n\nRemember: the expression comes first, then the for clause, then the optional if clause."
+      "content": "The full syntax of a list comprehension is [expression for target in iterable if condition]. The expression is evaluated for each item in the iterable. The if condition is optional and filters items. If there is no condition, every item is included. For example:\n\nnames = ['alice', 'bob', 'charlie']\nfirst_letters = [n[0] for n in names]\n\nHere, expression is n[0], target is n, iterable is names, and there is no condition. If you want only names starting with 'a' or 'b', you add a condition:\n\nshort_names = [n for n in names if len(n) < 5]\n\nRemember: the expression comes first, then the for clause, then the optional if clause.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of list comprehensions syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "16.1_q4",
@@ -178,7 +182,7 @@
           "expected_output": "List Comprehensions"
         }
       ],
-      "explanation": "The solution fulfills all functional requirements."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of list comprehensions analysis. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "16.1_q11",
@@ -601,5 +605,15 @@
       "hint": "Recognize that divisibility by 4 implies evenness, so the n % 2 == 0 check is redundant; however, keep both conditions as specified and express the logic in one comprehension.",
       "explanation": "Mastery of list comprehensions involves recognizing redundant conditions and consolidating logic. Although n % 4 == 0 already ensures n is even, the comprehension [n ** 2 for n in range(10) if n % 4 == 0 and n % 2 == 0] correctly implements the stated requirements in a single declarative statement, avoiding explicit loop and append boilerplate."
     }
+  ],
+  "unit_num": 16,
+  "learning_objectives": [
+    "Initialize and manipulate Python List Comprehensions collections",
+    "Access elements efficiently using keys, indices, or membership tests",
+    "Distinguish between mutable and immutable data behaviors",
+    "Select the optimal data structure to represent structured data"
+  ],
+  "prerequisites": [
+    "15.6"
   ]
 }

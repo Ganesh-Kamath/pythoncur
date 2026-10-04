@@ -11,7 +11,9 @@
       "difficulty": "easy",
       "prerequisites": [],
       "title": "Introduction to Execution Time Measurement",
-      "content": "Measuring how long a piece of code takes to run is essential for understanding performance. In Python, the built-in `time` module provides simple tools to capture elapsed time. The most common approach is to record the time just before a block of code executes, then record it again immediately after, and subtract the two values. This difference gives the duration in seconds. For example, you can use `time.time()` to get a floating-point timestamp, or `time.perf_counter()` for a high-resolution monotonic clock that is not affected by system time changes. Always import the module first. Here is a basic illustration:\n\n```python\nimport time\n\nstart = time.time()\n# some computation here\nend = time.time()\n\nduration = end - start\nprint('Elapsed time:', duration)\n```\n\nUsing `time.perf_counter()` is often preferred for benchmarking because it offers the highest available resolution on the platform."
+      "content": "Measuring how long a piece of code takes to run is essential for understanding performance. In Python, the built-in `time` module provides simple tools to capture elapsed time. The most common approach is to record the time just before a block of code executes, then record it again immediately after, and subtract the two values. This difference gives the duration in seconds. For example, you can use `time.time()` to get a floating-point timestamp, or `time.perf_counter()` for a high-resolution monotonic clock that is not affected by system time changes. Always import the module first. Here is a basic illustration:\n\n```python\nimport time\n\nstart = time.time()\n# some computation here\nend = time.time()\n\nduration = end - start\nprint('Elapsed time:', duration)\n```\n\nUsing `time.perf_counter()` is often preferred for benchmarking because it offers the highest available resolution on the platform.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of measuring execution time basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "29.1_q2",
@@ -42,7 +44,9 @@
         "29.1_q2"
       ],
       "title": "Recording Time Before and After Code",
-      "content": "The standard syntax for measuring execution time involves three steps: import the module, capture a start timestamp, run the code, capture an end timestamp, and compute the difference. You can store the timestamps in variables and subtract them to obtain a duration. Here is the correct pattern:\n\n```python\nimport time\n\nstart = time.perf_counter()\n\n# code to measure\nresult = sum(range(1000))\n\nend = time.perf_counter()\n\nelapsed = end - start\nprint('Result:', result)\nprint('Time taken:', elapsed)\n```\n\nNotice that `time.perf_counter()` returns a float representing seconds, and the subtraction yields the elapsed duration. You can wrap this pattern in a function to reuse it across different experiments."
+      "content": "The standard syntax for measuring execution time involves three steps: import the module, capture a start timestamp, run the code, capture an end timestamp, and compute the difference. You can store the timestamps in variables and subtract them to obtain a duration. Here is the correct pattern:\n\n```python\nimport time\n\nstart = time.perf_counter()\n\n# code to measure\nresult = sum(range(1000))\n\nend = time.perf_counter()\n\nelapsed = end - start\nprint('Result:', result)\nprint('Time taken:', elapsed)\n```\n\nNotice that `time.perf_counter()` returns a float representing seconds, and the subtraction yields the elapsed duration. You can wrap this pattern in a function to reuse it across different experiments.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of measuring execution time syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "29.1_q4",
@@ -365,7 +369,7 @@
       "prompt": "Fix the bug in this code for measuring execution time errors:",
       "starter_code": "# Fix this code\nPrint('Measuring Execution Time')",
       "solution_code": "print('Measuring Execution Time')",
-      "explanation": "Python identifiers and built-ins are case-sensitive."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of measuring execution time errors. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "29.1_q20",
@@ -413,7 +417,7 @@
       "prompt": "Fix the bug in this code for measuring execution time runtime:",
       "starter_code": "# Fix this code\nPrint('Measuring Execution Time')",
       "solution_code": "print('Measuring Execution Time')",
-      "explanation": "Python identifiers and built-ins are case-sensitive."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of measuring execution time runtime. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "29.1_q23",
@@ -587,5 +591,15 @@
       "hint": "Use time.perf_counter() around each block. ThreadPoolExecutor.map distributes work across threads. For I/O-bound delays, threads overlap waiting periods, reducing total elapsed time.",
       "explanation": "time.perf_counter() is ideal for measuring short-duration, high-resolution intervals. Threading improves throughput for I/O-bound operations because the Global Interpreter Lock (GIL) is released during I/O waits. For CPU-bound workloads, multiprocessing avoids the GIL and can yield greater speedups."
     }
+  ],
+  "unit_num": 29,
+  "learning_objectives": [
+    "Explain the technical concepts and mechanics of Measuring Execution Time",
+    "Apply idiomatic Python patterns when working with Measuring Execution Time",
+    "Debug common runtime exceptions and logic errors associated with Measuring Execution Time",
+    "Implement production-ready code utilizing Measuring Execution Time"
+  ],
+  "prerequisites": [
+    "28.6"
   ]
 }

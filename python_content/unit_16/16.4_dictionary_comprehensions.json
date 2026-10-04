@@ -12,7 +12,9 @@
       "title": "What Is a Dictionary Comprehension?",
       "content": "A dictionary comprehension is a concise way to create a dictionary in Python. Instead of building a dictionary with a loop and repeated assignments, you write the entire dictionary in a single expression. The basic pattern is {key_expression: value_expression for item in iterable}. This lets you transform data from another sequence into a dictionary quickly. For example, given a list of names, you can create a dictionary mapping each name to its length. Here is a code example:\n\n```python\nnames = ['alice', 'bob', 'charlie']\nname_lengths = {name: len(name) for name in names}\nprint(name_lengths)\n```\n\nRunning this produces {'alice': 5, 'bob': 3, 'charlie': 7}. Notice how the comprehension replaces the need for an explicit for loop and dictionary initialization.",
       "difficulty": "easy",
-      "prerequisites": []
+      "prerequisites": [],
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of dictionary comprehensions basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "16.4_q2",
@@ -43,7 +45,9 @@
       "difficulty": "easy",
       "prerequisites": [
         "16.4_q2"
-      ]
+      ],
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of dictionary comprehensions syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "16.4_q4",
@@ -620,5 +624,15 @@
       "hint": "Define a helper function to determine the grade, then call it inside the dictionary comprehension.",
       "explanation": "Mastery involves combining helper functions with comprehensions for clarity and reuse. The helper encapsulates the grading logic, while the comprehension cleanly applies it to each record."
     }
+  ],
+  "unit_num": 16,
+  "learning_objectives": [
+    "Initialize and manipulate Python Dictionary Comprehensions collections",
+    "Access elements efficiently using keys, indices, or membership tests",
+    "Distinguish between mutable and immutable data behaviors",
+    "Select the optimal data structure to represent structured data"
+  ],
+  "prerequisites": [
+    "16.3"
   ]
 }

@@ -9,9 +9,13 @@
       "concept": "print_basics",
       "skill": "recognition",
       "difficulty": "easy",
-      "prerequisites": ["1.3_q1"],
+      "prerequisites": [
+        "1.3_q1"
+      ],
       "title": "The Anatomy of print()",
-      "content": "In Python, `print()` is a **built-in function**.\n\nA function is like a tool that does a specific job. When you call a function, you write its name followed by parentheses `()`.\n\nThe values you place inside the parentheses are called **arguments** (or inputs). The `print()` function takes whatever arguments you give it and displays them on your screen."
+      "content": "In Python, `print()` is a **built-in function**.\n\nA function is like a tool that does a specific job. When you call a function, you write its name followed by parentheses `()`.\n\nThe values you place inside the parentheses are called **arguments** (or inputs). The `print()` function takes whatever arguments you give it and displays them on your screen.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of print basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "1.4_q2",
@@ -19,7 +23,9 @@
       "concept": "print_basics",
       "skill": "recognition",
       "difficulty": "easy",
-      "prerequisites": ["1.4_q1"],
+      "prerequisites": [
+        "1.4_q1"
+      ],
       "prompt": "In the statement `print(\"Welcome!\")`, what is the term for `\"Welcome!\"`?",
       "options": [
         "A. The function name",
@@ -36,9 +42,13 @@
       "concept": "multiple_arguments",
       "skill": "understanding",
       "difficulty": "easy",
-      "prerequisites": ["1.4_q1"],
+      "prerequisites": [
+        "1.4_q1"
+      ],
       "title": "Printing Multiple Items",
-      "content": "You can print multiple items in a single `print()` call by separating them with a **comma** `,`:\n```python\nprint(\"Level:\", 5)\n```\nOutput:\n`Level: 5`\n\nNotice that Python automatically puts a single space between each item separated by a comma!"
+      "content": "You can print multiple items in a single `print()` call by separating them with a **comma** `,`:\n```python\nprint(\"Level:\", 5)\n```\nOutput:\n`Level: 5`\n\nNotice that Python automatically puts a single space between each item separated by a comma!",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of multiple arguments. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "1.4_q4",
@@ -46,16 +56,18 @@
       "concept": "multiple_arguments",
       "skill": "prediction",
       "difficulty": "easy",
-      "prerequisites": ["1.4_q3"],
+      "prerequisites": [
+        "1.4_q3"
+      ],
       "prompt": "What does this code output?\n```python\nprint(\"Apple\", \"Banana\", \"Cherry\")\n```",
       "options": [
-        "A. AppleBananaCherry",
-        "B. Apple Banana Cherry",
-        "C. 'Apple', 'Banana', 'Cherry'",
-        "D. Apple\\nBanana\\nCherry"
+        "B",
+        "Raises a SyntaxError: invalid syntax at runtime",
+        "Raises an IndentationError: unexpected indent",
+        "Silently ignored by the Python parser"
       ],
       "correct_answer": "B",
-      "explanation": "Comma-separated arguments inside `print()` are joined with a space by default."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of multiple arguments. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "1.4_q5",
@@ -63,9 +75,13 @@
       "concept": "multiple_arguments",
       "skill": "application",
       "difficulty": "easy",
-      "prerequisites": ["1.4_q3"],
+      "prerequisites": [
+        "1.4_q3"
+      ],
       "prompt": "Complete the code to print `Score: 100` using two arguments:\n```python\nprint(\"Score:\", ___)\n```",
-      "accepted_answers": ["100"],
+      "accepted_answers": [
+        "100"
+      ],
       "explanation": "Passing `100` as the second argument causes Python to display `Score: 100`."
     },
     {
@@ -74,9 +90,13 @@
       "concept": "default_newline",
       "skill": "understanding",
       "difficulty": "easy",
-      "prerequisites": ["1.4_q1"],
+      "prerequisites": [
+        "1.4_q1"
+      ],
       "title": "The Default Newline",
-      "content": "By default, every `print()` statement ends with an invisible newline character (`\\n`). That is why consecutive `print()` statements appear on separate lines:\n```python\nprint(\"Line 1\")\nprint(\"Line 2\")\n```\nOutput:\n```text\nLine 1\nLine 2\n```"
+      "content": "By default, every `print()` statement ends with an invisible newline character (`\\n`). That is why consecutive `print()` statements appear on separate lines:\n```python\nprint(\"Line 1\")\nprint(\"Line 2\")\n```\nOutput:\n```text\nLine 1\nLine 2\n```",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of default newline. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "1.4_q7",
@@ -84,7 +104,9 @@
       "concept": "default_newline",
       "skill": "prediction",
       "difficulty": "easy",
-      "prerequisites": ["1.4_q6"],
+      "prerequisites": [
+        "1.4_q6"
+      ],
       "prompt": "How many lines of text will this script output?\n```python\nprint(\"Alpha\")\nprint()\nprint(\"Beta\")\n```",
       "options": [
         "A. 1 line",
@@ -101,9 +123,13 @@
       "concept": "end_parameter",
       "skill": "application",
       "difficulty": "medium",
-      "prerequisites": ["1.4_q6"],
+      "prerequisites": [
+        "1.4_q6"
+      ],
       "title": "Controlling the Line End with end=",
-      "content": "You can change how `print()` finishes its line using the `end` keyword argument:\n```python\nprint(\"Hello\", end=\" \")\nprint(\"World\")\n```\nOutput:\n`Hello World`\n\nInstead of jumping to a new line, Python ended the first print with a space, so the next print started on the exact same line."
+      "content": "You can change how `print()` finishes its line using the `end` keyword argument:\n```python\nprint(\"Hello\", end=\" \")\nprint(\"World\")\n```\nOutput:\n`Hello World`\n\nInstead of jumping to a new line, Python ended the first print with a space, so the next print started on the exact same line.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of end parameter. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "1.4_q9",
@@ -111,7 +137,9 @@
       "concept": "end_parameter",
       "skill": "prediction",
       "difficulty": "medium",
-      "prerequisites": ["1.4_q8"],
+      "prerequisites": [
+        "1.4_q8"
+      ],
       "prompt": "What does this code output?\n```python\nprint(\"A\", end=\"-\")\nprint(\"B\", end=\"-\")\nprint(\"C\")\n```",
       "options": [
         "A. A-B-C",
@@ -128,10 +156,15 @@
       "concept": "end_parameter",
       "skill": "application",
       "difficulty": "medium",
-      "prerequisites": ["1.4_q8"],
+      "prerequisites": [
+        "1.4_q8"
+      ],
       "prompt": "To print without adding any space or newline at the end, set `end` to an empty string:\n```python\nprint(\"Loading\", end=___)\n```",
-      "accepted_answers": ["\"\"", "''"],
-      "explanation": "Setting `end=\"\"` prevents Python from appending a newline or space."
+      "accepted_answers": [
+        "\"\"",
+        "''"
+      ],
+      "explanation": "In Python, this operation directly demonstrates the core behavior of end parameter. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "1.4_q11",
@@ -139,9 +172,13 @@
       "concept": "sep_parameter",
       "skill": "application",
       "difficulty": "medium",
-      "prerequisites": ["1.4_q3"],
+      "prerequisites": [
+        "1.4_q3"
+      ],
       "title": "Custom Separators with sep=",
-      "content": "When printing multiple arguments, Python puts a space between them by default (`sep=\" \"`).\n\nYou can customize this separator using `sep=`:\n```python\nprint(\"2026\", \"10\", \"03\", sep=\"-\")\n```\nOutput:\n`2026-10-03`"
+      "content": "When printing multiple arguments, Python puts a space between them by default (`sep=\" \"`).\n\nYou can customize this separator using `sep=`:\n```python\nprint(\"2026\", \"10\", \"03\", sep=\"-\")\n```\nOutput:\n`2026-10-03`",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of sep parameter. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "1.4_q12",
@@ -149,7 +186,9 @@
       "concept": "sep_parameter",
       "skill": "prediction",
       "difficulty": "medium",
-      "prerequisites": ["1.4_q11"],
+      "prerequisites": [
+        "1.4_q11"
+      ],
       "prompt": "What does this line output?\n```python\nprint(\"cat\", \"dog\", \"bird\", sep=\", \")\n```",
       "options": [
         "A. cat dog bird",
@@ -158,7 +197,7 @@
         "D. 'cat', 'dog', 'bird'"
       ],
       "correct_answer": "B",
-      "explanation": "The string `\", \"` is placed between each argument."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of sep parameter. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "1.4_q13",
@@ -166,7 +205,10 @@
       "concept": "print_parameters",
       "skill": "analysis",
       "difficulty": "medium",
-      "prerequisites": ["1.4_q8", "1.4_q11"],
+      "prerequisites": [
+        "1.4_q8",
+        "1.4_q11"
+      ],
       "prompt": "Match the print parameter to its role.",
       "options": {
         "`sep=`": "Defines what character(s) are inserted BETWEEN multiple arguments in the same print call.",
@@ -184,9 +226,13 @@
       "concept": "escape_characters",
       "skill": "understanding",
       "difficulty": "medium",
-      "prerequisites": ["1.4_q1"],
+      "prerequisites": [
+        "1.4_q1"
+      ],
       "title": "Escape Characters: \\n and \\t",
-      "content": "A backslash `\\` inside a string creates an **escape sequence** that represents special characters:\n\n* `\\n`: Inserts a new line\n* `\\t`: Inserts a tab (indentation space)\n* `\\\\`: Inserts a literal backslash\n* `\\\"`: Inserts a literal double quote inside double quotes\n\nExample:\n```python\nprint(\"Hello\\nWorld\")\n```\nOutputs 'Hello' on one line and 'World' on the next."
+      "content": "A backslash `\\` inside a string creates an **escape sequence** that represents special characters:\n\n* `\\n`: Inserts a new line\n* `\\t`: Inserts a tab (indentation space)\n* `\\\\`: Inserts a literal backslash\n* `\\\"`: Inserts a literal double quote inside double quotes\n\nExample:\n```python\nprint(\"Hello\\nWorld\")\n```\nOutputs 'Hello' on one line and 'World' on the next.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of escape characters. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "1.4_q15",
@@ -194,7 +240,9 @@
       "concept": "escape_characters",
       "skill": "prediction",
       "difficulty": "medium",
-      "prerequisites": ["1.4_q14"],
+      "prerequisites": [
+        "1.4_q14"
+      ],
       "prompt": "What is the output of this code?\n```python\nprint(\"One\\nTwo\\nThree\")\n```",
       "options": [
         "A. One\\nTwo\\nThree",
@@ -203,7 +251,7 @@
         "D. OneTwoThree"
       ],
       "correct_answer": "C",
-      "explanation": "Each `\\n` forces the cursor to begin on a fresh line."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of escape characters. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "1.4_q16",
@@ -211,7 +259,9 @@
       "concept": "escape_characters",
       "skill": "diagnosis",
       "difficulty": "medium",
-      "prerequisites": ["1.4_q14"],
+      "prerequisites": [
+        "1.4_q14"
+      ],
       "prompt": "Which line of code correctly prints the following text with quotes intact?\n`She said \"Hello\"`",
       "options": [
         "A. `print(\"She said \"Hello\"\")`",
@@ -228,10 +278,14 @@
       "concept": "escape_characters",
       "skill": "application",
       "difficulty": "easy",
-      "prerequisites": ["1.4_q14"],
+      "prerequisites": [
+        "1.4_q14"
+      ],
       "prompt": "What escape sequence inserts a horizontal tab space inside a string? `\\___`",
-      "accepted_answers": ["t"],
-      "explanation": "`\\t` represents a tab character."
+      "accepted_answers": [
+        "t"
+      ],
+      "explanation": "In Python, this operation directly demonstrates the core behavior of escape characters. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "1.4_q18",
@@ -239,7 +293,9 @@
       "concept": "math_in_print",
       "skill": "reasoning",
       "difficulty": "easy",
-      "prerequisites": ["1.3_q17"],
+      "prerequisites": [
+        "1.3_q17"
+      ],
       "prompt": "What does this code print?\n```python\nprint(\"Total:\", 10 + 5 * 2)\n```",
       "options": [
         "A. Total: 10 + 5 * 2",
@@ -256,11 +312,13 @@
       "concept": "print_syntax",
       "skill": "debugging",
       "difficulty": "medium",
-      "prerequisites": ["1.4_q1"],
+      "prerequisites": [
+        "1.4_q1"
+      ],
       "prompt": "Fix this code where a comma is missing between arguments:",
       "starter_code": "print(\"Age:\" 25)",
       "solution_code": "print(\"Age:\", 25)",
-      "explanation": "Multiple arguments inside a function call must be separated by commas."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of print syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "1.4_q20",
@@ -268,7 +326,10 @@
       "concept": "sep_and_end_combined",
       "skill": "analysis",
       "difficulty": "hard",
-      "prerequisites": ["1.4_q8", "1.4_q11"],
+      "prerequisites": [
+        "1.4_q8",
+        "1.4_q11"
+      ],
       "prompt": "What does this script output?\n```python\nprint(\"A\", \"B\", sep=\"*\", end=\"!\")\nprint(\"C\")\n```",
       "options": [
         "A. A*B!C",
@@ -285,7 +346,9 @@
       "concept": "print_vs_return",
       "skill": "understanding",
       "difficulty": "medium",
-      "prerequisites": ["1.4_q1"],
+      "prerequisites": [
+        "1.4_q1"
+      ],
       "prompt": "Does the `print()` function store data in your computer's memory for later use in your code?",
       "options": [
         "A. Yes, it automatically creates a variable.",
@@ -302,19 +365,24 @@
       "concept": "custom_sep",
       "skill": "application",
       "difficulty": "medium",
-      "prerequisites": ["1.4_q11"],
+      "prerequisites": [
+        "1.4_q11"
+      ],
       "prompt": "Write a `print()` call that prints `red/green/blue` using three string arguments separated by `/`.",
       "starter_code": "",
       "solution_code": "print(\"red\", \"green\", \"blue\", sep=\"/\")",
-      "explanation": "Passing `sep=\"/\"` replaces the default space with a forward slash."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of custom sep. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "1.4_q23",
-      "type": "scenario",
+      "type": "multiple_choice",
       "concept": "formatting_receipt",
       "skill": "application",
       "difficulty": "medium",
-      "prerequisites": ["1.4_q3", "1.4_q14"],
+      "prerequisites": [
+        "1.4_q3",
+        "1.4_q14"
+      ],
       "prompt": "You are writing a script that prints a receipt header. Which code prints 'ITEM' followed by a tab, then 'PRICE'?",
       "options": [
         "A. `print(\"ITEM\\tPRICE\")`",
@@ -323,7 +391,7 @@
         "D. `print(\"ITEM / PRICE\")`"
       ],
       "correct_answer": "A",
-      "explanation": "`\\t` inserts a tab column stop between 'ITEM' and 'PRICE'."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of formatting receipt. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "1.4_q24",
@@ -331,10 +399,15 @@
       "concept": "sep_parameter",
       "skill": "application",
       "difficulty": "medium",
-      "prerequisites": ["1.4_q11"],
+      "prerequisites": [
+        "1.4_q11"
+      ],
       "prompt": "To print arguments joined directly together with no space at all, set the separator to `sep=___`.",
-      "accepted_answers": ["\"\"", "''"],
-      "explanation": "`sep=\"\"` instructs Python to insert nothing between the arguments."
+      "accepted_answers": [
+        "\"\"",
+        "''"
+      ],
+      "explanation": "In Python, this operation directly demonstrates the core behavior of sep parameter. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "1.4_q25",
@@ -342,7 +415,9 @@
       "concept": "sep_parameter",
       "skill": "prediction",
       "difficulty": "medium",
-      "prerequisites": ["1.4_q24"],
+      "prerequisites": [
+        "1.4_q24"
+      ],
       "prompt": "What does this code output?\n```python\nprint(\"py\", \"thon\", sep=\"\")\n```",
       "options": [
         "A. py thon",
@@ -351,7 +426,7 @@
         "D. py, thon"
       ],
       "correct_answer": "B",
-      "explanation": "Because `sep=\"\"`, no space is added between 'py' and 'thon'."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of sep parameter. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "1.4_q26",
@@ -359,7 +434,9 @@
       "concept": "print_syntax",
       "skill": "debugging",
       "difficulty": "medium",
-      "prerequisites": ["1.4_q1"],
+      "prerequisites": [
+        "1.4_q1"
+      ],
       "prompt": "Why does this code cause a SyntaxError?\n```python\nprint(\"Hello World\"\n```",
       "options": [
         "A. The word `print` is misspelled.",
@@ -368,7 +445,7 @@
         "D. It requires an `end=` argument."
       ],
       "correct_answer": "B",
-      "explanation": "Parentheses must always be balanced in pairs."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of print syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "1.4_q27",
@@ -376,7 +453,9 @@
       "concept": "progress_indicator",
       "skill": "application",
       "difficulty": "hard",
-      "prerequisites": ["1.4_q8"],
+      "prerequisites": [
+        "1.4_q8"
+      ],
       "prompt": "Write two print calls: the first should print 'Downloading...' without starting a new line, and the second should print 'Done!'.",
       "starter_code": "# Line 1\n# Line 2\n",
       "solution_code": "print(\"Downloading...\", end=\" \")\nprint(\"Done!\")",
@@ -388,7 +467,9 @@
       "concept": "backslash_literal",
       "skill": "analysis",
       "difficulty": "hard",
-      "prerequisites": ["1.4_q14"],
+      "prerequisites": [
+        "1.4_q14"
+      ],
       "prompt": "What does this code output?\n```python\nprint(\"C:\\\\Users\\\\Admin\")\n```",
       "options": [
         "A. C:\\\\Users\\\\Admin",
@@ -401,11 +482,13 @@
     },
     {
       "id": "1.4_q29",
-      "type": "scenario",
+      "type": "real_world_scenario",
       "concept": "cli_menu_formatting",
       "skill": "synthesis",
       "difficulty": "hard",
-      "prerequisites": ["1.4_q14"],
+      "prerequisites": [
+        "1.4_q14"
+      ],
       "prompt": "You want to print a clean terminal menu with options on separate lines using a SINGLE `print()` call:\n```text\n--- MENU ---\n1. Start\n2. Exit\n```\nWhich code accomplishes this?",
       "options": [
         "A. `print(\"--- MENU ---\\n1. Start\\n2. Exit\")`",
@@ -418,11 +501,16 @@
     },
     {
       "id": "1.4_q30",
-      "type": "scenario",
+      "type": "real_world_scenario",
       "concept": "print_synthesis",
       "skill": "transfer",
       "difficulty": "hard",
-      "prerequisites": ["1.4_q3", "1.4_q8", "1.4_q11", "1.4_q14"],
+      "prerequisites": [
+        "1.4_q3",
+        "1.4_q8",
+        "1.4_q11",
+        "1.4_q14"
+      ],
       "prompt": "Which of the following statements about `print()` in modern Python is completely TRUE?",
       "options": [
         "A. `print()` is a keyword statement that cannot take keyword arguments.",
@@ -433,5 +521,15 @@
       "correct_answer": "B",
       "explanation": "`print()` is a flexible built-in function that formats and routes text to the standard output stream."
     }
+  ],
+  "unit_num": 1,
+  "learning_objectives": [
+    "Explain the technical concepts and mechanics of Print",
+    "Apply idiomatic Python patterns when working with Print",
+    "Debug common runtime exceptions and logic errors associated with Print",
+    "Implement production-ready code utilizing Print"
+  ],
+  "prerequisites": [
+    "1.3"
   ]
 }

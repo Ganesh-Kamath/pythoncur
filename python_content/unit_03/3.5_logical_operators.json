@@ -9,9 +9,13 @@
       "concept": "logical_operators_overview",
       "skill": "recognition",
       "difficulty": "easy",
-      "prerequisites": ["2.5_q1"],
+      "prerequisites": [
+        "2.5_q1"
+      ],
       "title": "The Three Logical Operators",
-      "content": "Logical operators combine or invert boolean values:\n\n* **`and`**: Returns `True` only if **BOTH** sides are true.\n* **`or`**: Returns `True` if **AT LEAST ONE** side is true.\n* **`not`**: Inverts (flips) the boolean value.\n\nPython uses plain English words (`and`, `or`, `not`), NOT symbols like `&&`, `||`, or `!`."
+      "content": "Logical operators combine or invert boolean values:\n\n* **`and`**: Returns `True` only if **BOTH** sides are true.\n* **`or`**: Returns `True` if **AT LEAST ONE** side is true.\n* **`not`**: Inverts (flips) the boolean value.\n\nPython uses plain English words (`and`, `or`, `not`), NOT symbols like `&&`, `||`, or `!`.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of logical operators overview. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "3.5_q2",
@@ -19,7 +23,9 @@
       "concept": "logical_operators_overview",
       "skill": "recognition",
       "difficulty": "easy",
-      "prerequisites": ["3.5_q1"],
+      "prerequisites": [
+        "3.5_q1"
+      ],
       "prompt": "How do you write the logical 'AND' operator in Python?",
       "options": [
         "A. `&&`",
@@ -28,7 +34,7 @@
         "D. `&`"
       ],
       "correct_answer": "C",
-      "explanation": "Python uses the lowercase keyword `and`."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of logical operators overview. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "3.5_q3",
@@ -36,9 +42,13 @@
       "concept": "and_operator",
       "skill": "understanding",
       "difficulty": "easy",
-      "prerequisites": ["3.5_q1"],
+      "prerequisites": [
+        "3.5_q1"
+      ],
       "title": "The and Operator",
-      "content": "Both conditions must be met for `and` to succeed:\n\n* `True and True` -> `True`\n* `True and False` -> `False`\n* `False and True` -> `False`\n* `False and False` -> `False`\n\n```python\nhas_ticket = True\nhas_id = True\ncan_enter = has_ticket and has_id  # True\n```"
+      "content": "Both conditions must be met for `and` to succeed:\n\n* `True and True` -> `True`\n* `True and False` -> `False`\n* `False and True` -> `False`\n* `False and False` -> `False`\n\n```python\nhas_ticket = True\nhas_id = True\ncan_enter = has_ticket and has_id  # True\n```",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of and operator. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "3.5_q4",
@@ -46,7 +56,9 @@
       "concept": "and_operator",
       "skill": "prediction",
       "difficulty": "easy",
-      "prerequisites": ["3.5_q3"],
+      "prerequisites": [
+        "3.5_q3"
+      ],
       "prompt": "What does this code output?\n```python\nprint(10 > 5 and 3 > 7)\n```",
       "options": [
         "A. True",
@@ -63,9 +75,13 @@
       "concept": "or_operator",
       "skill": "understanding",
       "difficulty": "easy",
-      "prerequisites": ["3.5_q1"],
+      "prerequisites": [
+        "3.5_q1"
+      ],
       "title": "The or Operator",
-      "content": "Only one condition needs to be met for `or` to succeed:\n\n* `True or False` -> `True`\n* `False or True` -> `True`\n* `True or True` -> `True`\n* `False or False` -> `False`\n\n`or` only fails if BOTH sides are false."
+      "content": "Only one condition needs to be met for `or` to succeed:\n\n* `True or False` -> `True`\n* `False or True` -> `True`\n* `True or True` -> `True`\n* `False or False` -> `False`\n\n`or` only fails if BOTH sides are false.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of or operator. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "3.5_q6",
@@ -73,7 +89,9 @@
       "concept": "or_operator",
       "skill": "prediction",
       "difficulty": "easy",
-      "prerequisites": ["3.5_q5"],
+      "prerequisites": [
+        "3.5_q5"
+      ],
       "prompt": "What does this code output?\n```python\nis_weekend = False\nis_holiday = True\ncan_sleep_in = is_weekend or is_holiday\nprint(can_sleep_in)\n```",
       "options": [
         "A. False",
@@ -82,7 +100,7 @@
         "D. None"
       ],
       "correct_answer": "B",
-      "explanation": "Because `is_holiday` is True, the `or` expression evaluates to `True`."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of or operator. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "3.5_q7",
@@ -90,9 +108,14 @@
       "concept": "logical_precedence",
       "skill": "understanding",
       "difficulty": "medium",
-      "prerequisites": ["3.2_q1", "3.5_q1"],
+      "prerequisites": [
+        "3.2_q1",
+        "3.5_q1"
+      ],
       "title": "Precedence: not > and > or",
-      "content": "When combining multiple logical operators without parentheses, Python evaluates them in this strict order:\n\n1. **`not`** evaluates first (highest precedence)\n2. **`and`** evaluates second\n3. **`or`** evaluates last (lowest precedence)\n\n```python\nprint(True or False and False)  # Evaluates (False and False) first -> True or False -> True\n```"
+      "content": "When combining multiple logical operators without parentheses, Python evaluates them in this strict order:\n\n1. **`not`** evaluates first (highest precedence)\n2. **`and`** evaluates second\n3. **`or`** evaluates last (lowest precedence)\n\n```python\nprint(True or False and False)  # Evaluates (False and False) first -> True or False -> True\n```",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of logical precedence. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "3.5_q8",
@@ -100,7 +123,9 @@
       "concept": "logical_precedence",
       "skill": "prediction",
       "difficulty": "medium",
-      "prerequisites": ["3.5_q7"],
+      "prerequisites": [
+        "3.5_q7"
+      ],
       "prompt": "What does this code output?\n```python\nprint(False and False or True)\n```",
       "options": [
         "A. False",
@@ -117,7 +142,9 @@
       "concept": "not_precedence",
       "skill": "prediction",
       "difficulty": "medium",
-      "prerequisites": ["3.5_q7"],
+      "prerequisites": [
+        "3.5_q7"
+      ],
       "prompt": "What does this code output?\n```python\nprint(not False and False)\n```",
       "options": [
         "A. True",
@@ -134,7 +161,9 @@
       "concept": "logical_precedence_hierarchy",
       "skill": "recognition",
       "difficulty": "easy",
-      "prerequisites": ["3.5_q7"],
+      "prerequisites": [
+        "3.5_q7"
+      ],
       "prompt": "Order the 3 logical operators from HIGHEST precedence (evaluates first) to LOWEST precedence (evaluates last).",
       "options": [
         "`not`",
@@ -146,7 +175,7 @@
         "`and`",
         "`or`"
       ],
-      "explanation": "Precedence order is `not` > `and` > `or`."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of logical precedence hierarchy. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "3.5_q11",
@@ -154,9 +183,14 @@
       "concept": "short_circuit_evaluation",
       "skill": "understanding",
       "difficulty": "hard",
-      "prerequisites": ["3.5_q3", "3.5_q5"],
+      "prerequisites": [
+        "3.5_q3",
+        "3.5_q5"
+      ],
       "title": "Short-Circuit Evaluation",
-      "content": "Python uses **short-circuit evaluation** for performance and safety:\n\n* **`and` short-circuits**: If the left operand is `False`, the overall result MUST be `False`. Python does not even look at the right side!\n* **`or` short-circuits**: If the left operand is `True`, the overall result MUST be `True`. Python stops immediately without evaluating the right side."
+      "content": "Python uses **short-circuit evaluation** for performance and safety:\n\n* **`and` short-circuits**: If the left operand is `False`, the overall result MUST be `False`. Python does not even look at the right side!\n* **`or` short-circuits**: If the left operand is `True`, the overall result MUST be `True`. Python stops immediately without evaluating the right side.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of short circuit evaluation. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "3.5_q12",
@@ -164,7 +198,9 @@
       "concept": "short_circuit_evaluation",
       "skill": "understanding",
       "difficulty": "hard",
-      "prerequisites": ["3.5_q11"],
+      "prerequisites": [
+        "3.5_q11"
+      ],
       "prompt": "Consider this code:\n```python\nFalse and (10 / 0 == 0)\n```\nWhy does this code run without causing a `ZeroDivisionError`?",
       "options": [
         "A. Python ignores math errors in parentheses.",
@@ -181,7 +217,9 @@
       "concept": "short_circuit_or",
       "skill": "prediction",
       "difficulty": "medium",
-      "prerequisites": ["3.5_q11"],
+      "prerequisites": [
+        "3.5_q11"
+      ],
       "prompt": "What does this code do?\n```python\nprint(True or (5 / 0 == 1))\n```",
       "options": [
         "A. Crashes with ZeroDivisionError.",
@@ -190,7 +228,7 @@
         "D. Outputs None."
       ],
       "correct_answer": "B",
-      "explanation": "Because `or` short-circuits on `True`, the right-hand division is skipped entirely."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of short circuit or. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "3.5_q14",
@@ -198,9 +236,13 @@
       "concept": "guard_pattern",
       "skill": "application",
       "difficulty": "hard",
-      "prerequisites": ["3.5_q11"],
+      "prerequisites": [
+        "3.5_q11"
+      ],
       "title": "The Guard Pattern",
-      "content": "Short-circuit evaluation enables the **guard pattern**: using the left side to check whether it is safe before executing the right side:\n\n```python\ncount = 0\ntotal = 50\n# The left side guards against dividing by zero!\nif count > 0 and total / count > 5:\n    print(\"High average\")\n```\nBecause `count > 0` is `False`, the division on the right is never attempted."
+      "content": "Short-circuit evaluation enables the **guard pattern**: using the left side to check whether it is safe before executing the right side:\n\n```python\ncount = 0\ntotal = 50\n# The left side guards against dividing by zero!\nif count > 0 and total / count > 5:\n    print(\"High average\")\n```\nBecause `count > 0` is `False`, the division on the right is never attempted.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of guard pattern. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "3.5_q15",
@@ -208,7 +250,9 @@
       "concept": "guard_pattern_order",
       "skill": "debugging",
       "difficulty": "hard",
-      "prerequisites": ["3.5_q14"],
+      "prerequisites": [
+        "3.5_q14"
+      ],
       "prompt": "Fix this crashing code by swapping the order of the conditions so the safety check guards the division:",
       "starter_code": "items = 0\ntotal = 100\nif total / items > 2 and items != 0:\n    print(\"Valid\")",
       "solution_code": "items = 0\ntotal = 100\nif items != 0 and total / items > 2:\n    print(\"Valid\")",
@@ -220,7 +264,10 @@
       "concept": "logical_truth_table",
       "skill": "analysis",
       "difficulty": "medium",
-      "prerequisites": ["3.5_q3", "3.5_q5"],
+      "prerequisites": [
+        "3.5_q3",
+        "3.5_q5"
+      ],
       "prompt": "Match the logical expression to its evaluated boolean.",
       "options": {
         "`True and False`": "`False`",
@@ -234,7 +281,7 @@
         "`not (False or False)`": "`True`",
         "`not True or False`": "`False`"
       },
-      "explanation": "These represent fundamental logical evaluations."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of logical truth table. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "3.5_q17",
@@ -242,9 +289,14 @@
       "concept": "value_returning_operators",
       "skill": "understanding",
       "difficulty": "hard",
-      "prerequisites": ["2.7_q13", "3.5_q11"],
+      "prerequisites": [
+        "2.7_q13",
+        "3.5_q11"
+      ],
       "title": "Logical Operators Return Values, Not Just Bools!",
-      "content": "In Python, `or` and `and` actually return the **value of the deciding operand**, not just `True` or `False`!\n\n* **`A or B`**: If `A` is truthy, returns `A`. Otherwise, returns `B`.\n```python\nusername = \"\" or \"Guest\"  # \"\" is falsy, so returns \"Guest\"\nprint(username)  # \"Guest\"\n```\n* **`A and B`**: If `A` is falsy, returns `A`. Otherwise, returns `B`.\n```python\nprint(0 and \"Hello\")  # 0\nprint(42 and \"Hello\")  # \"Hello\"\n```"
+      "content": "In Python, `or` and `and` actually return the **value of the deciding operand**, not just `True` or `False`!\n\n* **`A or B`**: If `A` is truthy, returns `A`. Otherwise, returns `B`.\n```python\nusername = \"\" or \"Guest\"  # \"\" is falsy, so returns \"Guest\"\nprint(username)  # \"Guest\"\n```\n* **`A and B`**: If `A` is falsy, returns `A`. Otherwise, returns `B`.\n```python\nprint(0 and \"Hello\")  # 0\nprint(42 and \"Hello\")  # \"Hello\"\n```",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of value returning operators. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "3.5_q18",
@@ -252,7 +304,9 @@
       "concept": "default_value_pattern",
       "skill": "prediction",
       "difficulty": "medium",
-      "prerequisites": ["3.5_q17"],
+      "prerequisites": [
+        "3.5_q17"
+      ],
       "prompt": "What does this code output?\n```python\nuser_name = \"\"\ndisplay_name = user_name or \"Anonymous\"\nprint(display_name)\n```",
       "options": [
         "A. True",
@@ -269,7 +323,9 @@
       "concept": "and_operand_return",
       "skill": "prediction",
       "difficulty": "hard",
-      "prerequisites": ["3.5_q17"],
+      "prerequisites": [
+        "3.5_q17"
+      ],
       "prompt": "What does this code output?\n```python\nprint(\"Python\" and \"Rocks\")\n```",
       "options": [
         "A. True",
@@ -286,10 +342,14 @@
       "concept": "default_fallback",
       "skill": "application",
       "difficulty": "easy",
-      "prerequisites": ["3.5_q17"],
+      "prerequisites": [
+        "3.5_q17"
+      ],
       "prompt": "Complete the fallback pattern to use `'standard'` if `mode` is empty:\n```python\nactive_mode = mode ___ \"standard\"\n```",
-      "accepted_answers": ["or"],
-      "explanation": "`mode or \"standard\"` returns `'standard'` if `mode` is falsy."
+      "accepted_answers": [
+        "or"
+      ],
+      "explanation": "In Python, this operation directly demonstrates the core behavior of default fallback. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "3.5_q21",
@@ -297,7 +357,10 @@
       "concept": "english_logic_trap",
       "skill": "debugging",
       "difficulty": "hard",
-      "prerequisites": ["3.5_q5", "3.5_q17"],
+      "prerequisites": [
+        "3.5_q5",
+        "3.5_q17"
+      ],
       "prompt": "A developer writes:\n```python\nx = 5\nif x == 1 or 2:\n    print(\"Matches\")\n```\nWhy does this always print 'Matches', even when `x` is 5?",
       "options": [
         "A. `or 2` evaluates `2` independently as truthy! Python parses this as `(x == 1) or (2)`. Since `bool(2)` is `True`, the condition is always True.",
@@ -314,11 +377,13 @@
       "concept": "fix_english_logic_trap",
       "skill": "debugging",
       "difficulty": "medium",
-      "prerequisites": ["3.5_q21"],
+      "prerequisites": [
+        "3.5_q21"
+      ],
       "prompt": "Fix this code so it correctly tests whether `role` is either 'admin' or 'moderator':",
-      "starter_code": "if role == \"admin\" or \"moderator\":",
-      "solution_code": "if role == \"admin\" or role == \"moderator\":",
-      "explanation": "You must write both full comparisons: `role == \"admin\" or role == \"moderator\"`."
+      "starter_code": "if role == \"admin\" or \"moderator\":\n    print(\"Access Granted\")",
+      "solution_code": "if role == \"admin\" or role == \"moderator\":\n    print(\"Access Granted\")",
+      "explanation": "In Python, each condition around 'or' is evaluated separately. 'or \"moderator\"' evaluates as truthy because non-empty strings are True. You must explicitly test `role == \"moderator\"`."
     },
     {
       "id": "3.5_q23",
@@ -326,7 +391,9 @@
       "concept": "de_morgans_laws",
       "skill": "analysis",
       "difficulty": "hard",
-      "prerequisites": ["3.5_q7"],
+      "prerequisites": [
+        "3.5_q7"
+      ],
       "prompt": "According to De Morgan's Law, `not (A and B)` is logically identical to:\n```python\nnot A or not B\n```\nIf `A = True` and `B = False`, what do both evaluate to?",
       "options": [
         "A. False",
@@ -343,19 +410,23 @@
       "concept": "combined_logical_condition",
       "skill": "application",
       "difficulty": "medium",
-      "prerequisites": ["3.5_q3"],
+      "prerequisites": [
+        "3.5_q3"
+      ],
       "prompt": "Write an expression checking if `age >= 18` and `has_license == True` using variables `age` and `has_license`.",
       "starter_code": "",
       "solution_code": "age >= 18 and has_license",
-      "explanation": "`age >= 18 and has_license` checks both conditions."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of combined logical condition. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "3.5_q25",
-      "type": "scenario",
+      "type": "real_world_scenario",
       "concept": "discount_eligibility",
       "skill": "application",
       "difficulty": "medium",
-      "prerequisites": ["3.5_q5"],
+      "prerequisites": [
+        "3.5_q5"
+      ],
       "prompt": "A museum offers free admission to visitors who are either under 12 OR 65 and older. Which condition tests this eligibility?",
       "options": [
         "A. `age < 12 and age >= 65`",
@@ -372,7 +443,10 @@
       "concept": "nested_parentheses_logic",
       "skill": "analysis",
       "difficulty": "hard",
-      "prerequisites": ["3.2_q3", "3.5_q7"],
+      "prerequisites": [
+        "3.2_q3",
+        "3.5_q7"
+      ],
       "prompt": "What does this code output?\n```python\nprint((True or False) and not (False or True))\n```",
       "options": [
         "A. True",
@@ -389,7 +463,9 @@
       "concept": "bitwise_vs_logical",
       "skill": "understanding",
       "difficulty": "medium",
-      "prerequisites": ["3.5_q1"],
+      "prerequisites": [
+        "3.5_q1"
+      ],
       "prompt": "What is the difference between `and` and `&` in Python?",
       "options": [
         "A. They are identical.",
@@ -406,19 +482,25 @@
       "concept": "login_validator",
       "skill": "synthesis",
       "difficulty": "medium",
-      "prerequisites": ["3.5_q3"],
+      "prerequisites": [
+        "3.5_q3"
+      ],
       "prompt": "Given `username = \"admin\"` and `password = \"secret123\"`, create a boolean variable `login_success` that checks if `username == \"admin\" and password == \"secret123\"`, and print `login_success`.",
       "starter_code": "username = \"admin\"\npassword = \"secret123\"\n# Check login_success and print it\n",
       "solution_code": "username = \"admin\"\npassword = \"secret123\"\nlogin_success = username == \"admin\" and password == \"secret123\"\nprint(login_success)",
-      "explanation": "`login_success` evaluates to `True`, which is printed."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of login validator. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "3.5_q29",
-      "type": "scenario",
+      "type": "real_world_scenario",
       "concept": "complex_business_rule",
       "skill": "synthesis",
       "difficulty": "hard",
-      "prerequisites": ["3.5_q3", "3.5_q5", "3.5_q7"],
+      "prerequisites": [
+        "3.5_q3",
+        "3.5_q5",
+        "3.5_q7"
+      ],
       "prompt": "A customer receives free shipping if they are a `vip_member` OR if their `cart_total >= 50` AND they have `in_stock == True`. Which expression correctly groups this?",
       "options": [
         "A. `vip_member or (cart_total >= 50 and in_stock)`",
@@ -431,11 +513,18 @@
     },
     {
       "id": "3.5_q30",
-      "type": "scenario",
+      "type": "real_world_scenario",
       "concept": "unit3_operators_synthesis",
       "skill": "transfer",
       "difficulty": "hard",
-      "prerequisites": ["3.1_q1", "3.2_q1", "3.3_q1", "3.4_q1", "3.5_q1", "3.5_q11"],
+      "prerequisites": [
+        "3.1_q1",
+        "3.2_q1",
+        "3.3_q1",
+        "3.4_q1",
+        "3.5_q1",
+        "3.5_q11"
+      ],
       "prompt": "Congratulations on completing Unit 3! Which statement accurately captures Python's operator ecosystem?",
       "options": [
         "A. Python provides arithmetic (`+`, `-`, `*`, `/`, `//`, `%`, `**`), augmented assignment (`+=`, etc.), comparisons (`==`, `!=`, `<`, `>`, `<=`, `>=`), and logical operators (`and`, `or`, `not`); operators follow PEMDAS precedence; short-circuit evaluation prevents unnecessary evaluation.",
@@ -446,5 +535,15 @@
       "correct_answer": "A",
       "explanation": "This synthesizes all arithmetic, assignment, comparison, and logical operators, precedence hierarchies, and short-circuit evaluation in Unit 3."
     }
+  ],
+  "unit_num": 3,
+  "learning_objectives": [
+    "Apply Python Logical Operators correctly in mathematical and logical expressions",
+    "Predict evaluation order using operator precedence rules",
+    "Diagnose subtle expression bugs caused by unintended precedence",
+    "Construct compound boolean or arithmetic expressions for real-world logic"
+  ],
+  "prerequisites": [
+    "3.4"
   ]
 }

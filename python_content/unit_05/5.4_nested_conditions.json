@@ -11,7 +11,9 @@
       "difficulty": "easy",
       "prerequisites": [],
       "title": "What Are Nested Conditions?",
-      "content": "Nested conditions occur when one conditional statement (like an if statement) is placed inside another conditional statement. This allows you to check multiple criteria in a specific order. For example, you might first check if a user is logged in, and only if they are, check if they have admin privileges. In Python, you simply indent the inner if block under the outer if block. Proper indentation is critical because Python uses indentation to define code blocks."
+      "content": "Nested conditions occur when one conditional statement (like an if statement) is placed inside another conditional statement. This allows you to check multiple criteria in a specific order. For example, you might first check if a user is logged in, and only if they are, check if they have admin privileges. In Python, you simply indent the inner if block under the outer if block. Proper indentation is critical because Python uses indentation to define code blocks.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of nested conditions basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "5.4_q2",
@@ -42,7 +44,9 @@
         "5.4_q2"
       ],
       "title": "Syntax and Indentation Rules",
-      "content": "When writing nested conditions in Python, follow these syntax rules:\n1. Use the `if` keyword to start a condition.\n2. Indent the inner block (typically 4 spaces) so Python recognizes it as belonging to the outer block.\n3. You may use `elif` and `else` at the same indentation level as the outer `if`.\nHere is an example:\n```python\nage = 16\nhas_license = True\n\nif age >= 18:\n    print(\"Adult\")\nelse:\n    if has_license and age >= 16:\n        print(\"Can drive\")\n    else:\n        print(\"Cannot drive\")\n```\nNotice how the inner `if` is indented under the outer `else`. Without correct indentation, Python raises an `IndentationError`."
+      "content": "When writing nested conditions in Python, follow these syntax rules:\n1. Use the `if` keyword to start a condition.\n2. Indent the inner block (typically 4 spaces) so Python recognizes it as belonging to the outer block.\n3. You may use `elif` and `else` at the same indentation level as the outer `if`.\nHere is an example:\n```python\nage = 16\nhas_license = True\n\nif age >= 18:\n    print(\"Adult\")\nelse:\n    if has_license and age >= 16:\n        print(\"Can drive\")\n    else:\n        print(\"Cannot drive\")\n```\nNotice how the inner `if` is indented under the outer `else`. Without correct indentation, Python raises an `IndentationError`.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of nested conditions syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "5.4_q4",
@@ -150,13 +154,13 @@
       ],
       "prompt": "What will be printed by this code?\n\n```python\nscore = 72\nif score >= 60:\n    if score < 80:\n        print('Pass')\n        print('Good job')\n    else:\n        print('Pass')\n        print('Excellent')\nelse:\n    print('Fail')\n```",
       "options": [
-        "'Pass' then 'Good job'",
-        "'Pass' then 'Excellent'",
-        "'Fail'",
+        "Pass\nGood job",
+        "Pass\nExcellent",
+        "Fail",
         "Error"
       ],
-      "correct_answer": "'Pass' then 'Good job'",
-      "explanation": "The outer condition `score >= 60` is True (72 >= 60), so we enter the first block. The inner condition `score < 80` is also True (72 < 80), so 'Pass' and 'Good job' are printed. The `else` branch of the inner condition is skipped. The outer `else` is also skipped."
+      "correct_answer": "Pass\nGood job",
+      "explanation": "Since score is 72, the outer condition `score >= 60` is True, and the inner condition `score < 80` is also True. Both 'Pass' and 'Good job' are printed."
     },
     {
       "id": "5.4_q10",
@@ -194,7 +198,7 @@
         "Error"
       ],
       "correct_answer": "'First'",
-      "explanation": "Step 1: Evaluate `a + b > c` \u2192 `3 + 4 > 5` \u2192 `7 > 5` \u2192 True. Step 2: Enter the first block and evaluate `a < b` \u2192 `3 < 4` \u2192 True. Step 3: Print 'First'. The `else` blocks are skipped. This demonstrates step-by-step tracing of nested conditions."
+      "explanation": "Step 1: Evaluate `a + b > c` → `3 + 4 > 5` → `7 > 5` → True. Step 2: Enter the first block and evaluate `a < b` → `3 < 4` → True. Step 3: Print 'First'. The `else` blocks are skipped. This demonstrates step-by-step tracing of nested conditions."
     },
     {
       "id": "5.4_q12",
@@ -435,7 +439,7 @@
       "prerequisites": [
         "5.4_q24"
       ],
-      "prompt": "Coding Challenge 25: Write a statement that prints 'Nested Conditions Result 25' to standard output.",
+      "prompt": "Write a statement that prints 'Nested Conditions Result 25' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Nested Conditions Result 25')",
       "test_cases": [
@@ -445,7 +449,7 @@
         }
       ],
       "hint": "Use print('Nested Conditions Result 25') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of nested conditions implementation. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "5.4_q26",
@@ -456,7 +460,7 @@
       "prerequisites": [
         "5.4_q25"
       ],
-      "prompt": "Coding Challenge 26: Write a statement that prints 'Nested Conditions Result 26' to standard output.",
+      "prompt": "Write a statement that prints 'Nested Conditions Result 26' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Nested Conditions Result 26')",
       "test_cases": [
@@ -466,7 +470,7 @@
         }
       ],
       "hint": "Use print('Nested Conditions Result 26') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of nested conditions practical. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "5.4_q27",
@@ -477,7 +481,7 @@
       "prerequisites": [
         "5.4_q26"
       ],
-      "prompt": "Coding Challenge 27: Write a statement that prints 'Nested Conditions Result 27' to standard output.",
+      "prompt": "Write a statement that prints 'Nested Conditions Result 27' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Nested Conditions Result 27')",
       "test_cases": [
@@ -487,7 +491,7 @@
         }
       ],
       "hint": "Use print('Nested Conditions Result 27') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of nested conditions advanced. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "5.4_q28",
@@ -498,7 +502,7 @@
       "prerequisites": [
         "5.4_q27"
       ],
-      "prompt": "Coding Challenge 28: Write a statement that prints 'Nested Conditions Result 28' to standard output.",
+      "prompt": "Write a statement that prints 'Nested Conditions Result 28' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Nested Conditions Result 28')",
       "test_cases": [
@@ -508,7 +512,7 @@
         }
       ],
       "hint": "Use print('Nested Conditions Result 28') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of nested conditions challenge. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "5.4_q29",
@@ -519,7 +523,7 @@
       "prerequisites": [
         "5.4_q28"
       ],
-      "prompt": "Coding Challenge 29: Write a statement that prints 'Nested Conditions Result 29' to standard output.",
+      "prompt": "Write a statement that prints 'Nested Conditions Result 29' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Nested Conditions Result 29')",
       "test_cases": [
@@ -529,7 +533,7 @@
         }
       ],
       "hint": "Use print('Nested Conditions Result 29') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of nested conditions scenario. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "5.4_q30",
@@ -540,7 +544,7 @@
       "prerequisites": [
         "5.4_q29"
       ],
-      "prompt": "Coding Challenge 30: Write a statement that prints 'Nested Conditions Result 30' to standard output.",
+      "prompt": "Write a statement that prints 'Nested Conditions Result 30' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Nested Conditions Result 30')",
       "test_cases": [
@@ -550,7 +554,17 @@
         }
       ],
       "hint": "Use print('Nested Conditions Result 30') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of nested conditions mastery. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     }
+  ],
+  "unit_num": 5,
+  "learning_objectives": [
+    "Explain the technical concepts and mechanics of Nested Conditions",
+    "Apply idiomatic Python patterns when working with Nested Conditions",
+    "Debug common runtime exceptions and logic errors associated with Nested Conditions",
+    "Implement production-ready code utilizing Nested Conditions"
+  ],
+  "prerequisites": [
+    "5.3"
   ]
 }

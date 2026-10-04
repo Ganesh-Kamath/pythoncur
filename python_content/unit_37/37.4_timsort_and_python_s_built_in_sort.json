@@ -11,7 +11,9 @@
       "difficulty": "easy",
       "prerequisites": [],
       "title": "What is Timsort and Why Does Python Use It?",
-      "content": "Timsort is a hybrid stable sorting algorithm derived from merge sort and insertion sort. It was designed by Tim Peters in 2002 and is the default sorting algorithm used by Python's built-in `sort()` method and the `sorted()` function. Timsort is optimized for real-world data, which often contains already sorted or partially sorted subsequences called \"runs.\" It detects these runs and merges them efficiently. Because it is stable, equal elements retain their original relative order. Python's built-in `sort()` sorts a list in-place, while `sorted()` returns a new sorted list, both leveraging Timsort under the hood."
+      "content": "Timsort is a hybrid stable sorting algorithm derived from merge sort and insertion sort. It was designed by Tim Peters in 2002 and is the default sorting algorithm used by Python's built-in `sort()` method and the `sorted()` function. Timsort is optimized for real-world data, which often contains already sorted or partially sorted subsequences called \"runs.\" It detects these runs and merges them efficiently. Because it is stable, equal elements retain their original relative order. Python's built-in `sort()` sorts a list in-place, while `sorted()` returns a new sorted list, both leveraging Timsort under the hood.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of timsort and pythons builtin sort basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "idx": 2,
@@ -44,7 +46,9 @@
         "37.4_q2"
       ],
       "title": "Using `sort()` and `sorted()` in Python",
-      "content": "Python provides two primary ways to sort sequences. The `list.sort()` method sorts the list in-place and returns `None`, modifying the original list. Syntax: `my_list.sort()`. The `sorted()` built-in function returns a new sorted list, leaving the original unchanged. Syntax: `sorted(my_list)`. Both accept optional `key` and `reverse` arguments. For example, `my_list.sort(reverse=True)` sorts in descending order. Timsort handles these calls efficiently, with a worst-case time complexity of O(n log n) and best-case O(n) when the data is already sorted."
+      "content": "Python provides two primary ways to sort sequences. The `list.sort()` method sorts the list in-place and returns `None`, modifying the original list. Syntax: `my_list.sort()`. The `sorted()` built-in function returns a new sorted list, leaving the original unchanged. Syntax: `sorted(my_list)`. Both accept optional `key` and `reverse` arguments. For example, `my_list.sort(reverse=True)` sorts in descending order. Timsort handles these calls efficiently, with a worst-case time complexity of O(n log n) and best-case O(n) when the data is already sorted.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of timsort and pythons builtin sort syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "idx": 4,
@@ -109,51 +113,51 @@
     {
       "id": "37.4_q7",
       "type": "code_prediction",
-      "concept": "timsort_and_pythons_builtin_sort_execution",
-      "skill": "prediction",
-      "difficulty": "easy",
+      "concept": "timsort_stability",
+      "skill": "understanding",
+      "difficulty": "medium",
       "prerequisites": [
         "37.4_q6"
       ],
-      "prompt": "Predict Output 7: What does this snippet output?\n```python\nvalue_7 = 35\nprint(value_7)\n```",
+      "prompt": "In the context of Timsort and Python Built-in Sort, what is the primary behavior demonstrated here?\n```python\n# Timsort and Python Built-in Sort\nprint('timsort_stability')\n```",
       "options": [
-        "35",
-        "17",
-        "value_7",
+        "timsort_stability",
+        "SyntaxError",
+        "None",
         "Error"
       ],
-      "correct_answer": "35",
-      "explanation": "The variable value_7 stores 35, and print outputs it to the console."
+      "correct_answer": "timsort_stability",
+      "explanation": "This directly illustrates the standard behavior of timsort_stability: stability guarantees relative order of equal keys is preserved."
     },
     {
       "id": "37.4_q8",
-      "type": "output_prediction",
-      "concept": "timsort_and_pythons_builtin_sort_execution",
-      "skill": "prediction",
+      "type": "multiple_choice",
+      "concept": "timsort_stability_rules",
+      "skill": "reasoning",
       "difficulty": "medium",
       "prerequisites": [
         "37.4_q7"
       ],
-      "prompt": "Predict Output 8: What does this snippet output?\n```python\nvalue_8 = 40\nprint(value_8)\n```",
+      "prompt": "What is a core design principle when working with Timsort and Python Built-in Sort in Python?",
       "options": [
-        "40",
-        "20",
-        "value_8",
-        "Error"
+        "Stability guarantees relative order of equal keys is preserved",
+        "It bypasses all memory management constraints",
+        "It causes the interpreter to compile to C++ automatically",
+        "It can only be executed in interactive REPL mode"
       ],
-      "correct_answer": "40",
-      "explanation": "The variable value_8 stores 40, and print outputs it to the console."
+      "correct_answer": "Stability guarantees relative order of equal keys is preserved",
+      "explanation": "Understanding this rule is essential: stability guarantees relative order of equal keys is preserved."
     },
     {
       "id": "37.4_q9",
-      "type": "code_prediction",
-      "concept": "timsort_and_pythons_builtin_sort_flow",
-      "skill": "prediction",
+      "type": "fix_the_code",
+      "concept": "timsort_stability_debugging",
+      "skill": "debugging",
       "difficulty": "medium",
       "prerequisites": [
         "37.4_q8"
       ],
-      "prompt": "Predict Output 9: What does this snippet output?\n```python\nvalue_9 = 45\nprint(value_9)\n```",
+      "prompt": "Fix this code snippet implementing Timsort and Python Built-in Sort correctly:",
       "options": [
         "45",
         "22",
@@ -161,7 +165,9 @@
         "Error"
       ],
       "correct_answer": "45",
-      "explanation": "The variable value_9 stores 45, and print outputs it to the console."
+      "explanation": "Applying standard Python idioms ensures correct behavior: stability guarantees relative order of equal keys is preserved.",
+      "starter_code": "# Timsort and Python Built-in Sort implementation\n___",
+      "solution_code": "# Timsort and Python Built-in Sort implementation\npairs = [(1, 'b'), (2, 'a'), (1, 'a')]\npairs.sort(key=lambda x: x[0])"
     },
     {
       "id": "37.4_q10",
@@ -172,7 +178,7 @@
       "prerequisites": [
         "37.4_q9"
       ],
-      "prompt": "Coding Challenge 10: Write a statement that prints 'Timsort and Python's Built-in sort() Result 10' to standard output.",
+      "prompt": "Write a statement that prints 'Timsort and Python's Built-in sort() Result 10' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('OK')",
       "test_cases": [
@@ -182,37 +188,37 @@
         }
       ],
       "hint": "Use print('Timsort and Python's Built-in sort() Result 10') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of timsort and pythons builtin sort analysis. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "37.4_q11",
-      "type": "code_prediction",
-      "concept": "timsort_and_pythons_builtin_sort_tracing",
-      "skill": "tracing",
-      "difficulty": "medium",
+      "type": "multiple_choice",
+      "concept": "timsort_stability_tradeoffs",
+      "skill": "evaluation",
+      "difficulty": "hard",
       "prerequisites": [
         "37.4_q10"
       ],
-      "prompt": "Predict Output 11: What does this snippet output?\n```python\nvalue_11 = 55\nprint(value_11)\n```",
+      "prompt": "Which common pitfall must programmers avoid when using Timsort and Python Built-in Sort?",
       "options": [
-        "55",
-        "27",
-        "value_11",
-        "Error"
+        "Misunderstanding edge cases related to: stability guarantees relative order of equal keys is preserved",
+        "Forgetting that Python does not support functions",
+        "Assuming integers are capped at 32 bits",
+        "Using lowercase variable names"
       ],
-      "correct_answer": "55",
-      "explanation": "The variable value_11 stores 55, and print outputs it to the console."
+      "correct_answer": "Misunderstanding edge cases related to: stability guarantees relative order of equal keys is preserved",
+      "explanation": "Careful attention to requirements avoids common traps: stability guarantees relative order of equal keys is preserved."
     },
     {
       "id": "37.4_q12",
-      "type": "output_prediction",
-      "concept": "timsort_and_pythons_builtin_sort_logic",
-      "skill": "prediction",
-      "difficulty": "medium",
+      "type": "write_the_code",
+      "concept": "timsort_stability_application",
+      "skill": "implementation",
+      "difficulty": "hard",
       "prerequisites": [
         "37.4_q11"
       ],
-      "prompt": "Predict Output 12: What does this snippet output?\n```python\nvalue_12 = 60\nprint(value_12)\n```",
+      "prompt": "Write the canonical Python code statement for Timsort and Python Built-in Sort:",
       "options": [
         "60",
         "30",
@@ -220,7 +226,9 @@
         "Error"
       ],
       "correct_answer": "60",
-      "explanation": "The variable value_12 stores 60, and print outputs it to the console."
+      "explanation": "Canonical implementation: pairs = [(1, 'b'), (2, 'a'), (1, 'a')]\npairs.sort(key=lambda x: x[0]). Stability guarantees relative order of equal keys is preserved.",
+      "starter_code": "# Complete the statement\n___",
+      "solution_code": "pairs = [(1, 'b'), (2, 'a'), (1, 'a')]\npairs.sort(key=lambda x: x[0])"
     },
     {
       "id": "37.4_q13",
@@ -352,7 +360,7 @@
       "prompt": "Fix the bug in this code for timsort and pythons builtin sort errors:",
       "starter_code": "# Fix this code\nPrint('Timsort and Python's Built-in sort()')",
       "solution_code": "print('OK')",
-      "explanation": "Python identifiers and built-ins are case-sensitive."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of timsort and pythons builtin sort errors. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "37.4_q20",
@@ -400,7 +408,7 @@
       "prompt": "Fix the bug in this code for timsort and pythons builtin sort runtime:",
       "starter_code": "# Fix this code\nPrint('Timsort and Python's Built-in sort()')",
       "solution_code": "print('OK')",
-      "explanation": "Python identifiers and built-ins are case-sensitive."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of timsort and pythons builtin sort runtime. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "37.4_q23",
@@ -598,5 +606,15 @@
       "hint": "Use `timeit.timeit` with a lambda that copies data to avoid in-place mutation. Compare all three dataset types. Note that Timsort's run detection gives linear or near-linear behavior on partially ordered data.",
       "explanation": "Timsort outperforms classic merge sort on nearly sorted data because it identifies existing runs and merges them with minimal comparisons, achieving O(n) best-case time. On random data, both are O(n log n), but Timsort's C implementation and optimizations (galloping mode, binary insertion sort for small runs) make it faster. On reverse-sorted data, Timsort still performs well due to efficient run detection and merging. Python's `sort()` is the recommended choice for production code due to its stability, speed, and memory efficiency."
     }
+  ],
+  "unit_num": 37,
+  "learning_objectives": [
+    "Implement the fundamental Timsort and Python's Built-in sort() algorithm in idiomatic Python",
+    "Calculate time and space complexity using Big O notation",
+    "Trace edge-case performance and termination conditions",
+    "Apply the algorithmic pattern to solve practical data structure problems"
+  ],
+  "prerequisites": [
+    "37.3"
   ]
 }

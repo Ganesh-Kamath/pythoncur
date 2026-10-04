@@ -11,7 +11,9 @@
       "difficulty": "easy",
       "prerequisites": [],
       "title": "What is String Indexing?",
-      "content": "In Python, a string is a sequence of characters. You can access individual characters using an index inside square brackets []. Python uses zero-based indexing, meaning the first character is at index 0, the second at index 1, and so on. For example, in the string 'hello', the character 'h' is at index 0 and 'e' is at index 1. If you try to access an index that is out of range, Python raises an IndexError. Here is how you can use indexing in practice:\n\n```python\ns = 'python'\nfirst_char = s[0]  # 'p'\nlast_char = s[5]   # 'n'\nprint(first_char)\n```\nRemember: the index must be an integer, and negative indices can be used to count from the end of the string (e.g., s[-1] gives the last character)."
+      "content": "In Python, a string is a sequence of characters. You can access individual characters using an index inside square brackets []. Python uses zero-based indexing, meaning the first character is at index 0, the second at index 1, and so on. For example, in the string 'hello', the character 'h' is at index 0 and 'e' is at index 1. If you try to access an index that is out of range, Python raises an IndexError. Here is how you can use indexing in practice:\n\n```python\ns = 'python'\nfirst_char = s[0]  # 'p'\nlast_char = s[5]   # 'n'\nprint(first_char)\n```\nRemember: the index must be an integer, and negative indices can be used to count from the end of the string (e.g., s[-1] gives the last character).",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of string indexing basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "7.1_q2",
@@ -42,7 +44,9 @@
         "7.1_q2"
       ],
       "title": "Syntax for Accessing Characters",
-      "content": "To retrieve a character from a string, place the string variable followed by square brackets containing the desired index. The index must be an integer expression. You can use positive indices to count from the start, or negative indices to count from the end. Here is the general syntax:\n\n```python\nmy_string = 'example'\nchar = my_string[index]\n```\nFor negative indexing, -1 refers to the last character, -2 to the second-to-last, and so on. This works for any string, including empty strings (though accessing any index on an empty string will raise an IndexError). Here is an example using both positive and negative indexing:\n\n```python\ntext = 'indexing'\nprint(text[0])   # 'i'\nprint(text[-1])  # 'g'\n```\nAlways ensure the index is within the valid range to avoid runtime errors."
+      "content": "To retrieve a character from a string, place the string variable followed by square brackets containing the desired index. The index must be an integer expression. You can use positive indices to count from the start, or negative indices to count from the end. Here is the general syntax:\n\n```python\nmy_string = 'example'\nchar = my_string[index]\n```\nFor negative indexing, -1 refers to the last character, -2 to the second-to-last, and so on. This works for any string, including empty strings (though accessing any index on an empty string will raise an IndexError). Here is an example using both positive and negative indexing:\n\n```python\ntext = 'indexing'\nprint(text[0])   # 'i'\nprint(text[-1])  # 'g'\n```\nAlways ensure the index is within the valid range to avoid runtime errors.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of string indexing syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "7.1_q4",
@@ -104,51 +108,51 @@
     {
       "id": "7.1_q7",
       "type": "code_prediction",
-      "concept": "string_indexing_execution",
+      "concept": "zero_based_indexing",
       "skill": "prediction",
       "difficulty": "easy",
       "prerequisites": [
         "7.1_q6"
       ],
-      "prompt": "Predict Output 7: What does this snippet output?\n```python\nvalue_7 = 35\nprint(value_7)\n```",
+      "prompt": "What character is at index 0 of `lang = 'Python'`?\n```python\nlang = 'Python'\nprint(lang[0])\n```",
       "options": [
-        "35",
-        "17",
-        "value_7",
+        "P",
+        "y",
+        "n",
         "Error"
       ],
-      "correct_answer": "35",
-      "explanation": "The variable value_7 stores 35, and print outputs it to the console."
+      "correct_answer": "P",
+      "explanation": "Python strings use zero-based indexing, so index 0 is the first character ('P')."
     },
     {
       "id": "7.1_q8",
-      "type": "output_prediction",
-      "concept": "string_indexing_execution",
-      "skill": "prediction",
+      "type": "error_diagnosis",
+      "concept": "index_out_of_range",
+      "skill": "diagnosis",
       "difficulty": "medium",
       "prerequisites": [
         "7.1_q7"
       ],
-      "prompt": "Predict Output 8: What does this snippet output?\n```python\nvalue_8 = 40\nprint(value_8)\n```",
+      "prompt": "What exception occurs when attempting to access `word[len(word)]` on any non-empty string?",
       "options": [
-        "40",
-        "20",
-        "value_8",
-        "Error"
+        "IndexError",
+        "ValueError",
+        "KeyError",
+        "TypeError"
       ],
-      "correct_answer": "40",
-      "explanation": "The variable value_8 stores 40, and print outputs it to the console."
+      "correct_answer": "IndexError",
+      "explanation": "Since indexing starts at 0, the last valid index is `len(word) - 1`. Accessing `len(word)` raises IndexError: string index out of range."
     },
     {
       "id": "7.1_q9",
-      "type": "code_prediction",
-      "concept": "string_indexing_flow",
-      "skill": "prediction",
+      "type": "fix_the_code",
+      "concept": "string_immutability",
+      "skill": "debugging",
       "difficulty": "medium",
       "prerequisites": [
         "7.1_q8"
       ],
-      "prompt": "Predict Output 9: What does this snippet output?\n```python\nvalue_9 = 45\nprint(value_9)\n```",
+      "prompt": "Strings are immutable. Fix this attempt to change the first letter by creating a new string instead:",
       "options": [
         "45",
         "22",
@@ -156,7 +160,9 @@
         "Error"
       ],
       "correct_answer": "45",
-      "explanation": "The variable value_9 stores 45, and print outputs it to the console."
+      "explanation": "You cannot mutate string items in place (`word[0] = ...` raises TypeError). Instead, concatenate the replacement prefix with a slice of the remainder.",
+      "starter_code": "word = 'cat'\nword[0] = 'b'\nprint(word)",
+      "solution_code": "word = 'cat'\nword = 'b' + word[1:]\nprint(word)"
     },
     {
       "id": "7.1_q10",
@@ -167,7 +173,7 @@
       "prerequisites": [
         "7.1_q9"
       ],
-      "prompt": "Coding Challenge 10: Write a statement that prints 'String Indexing Result 10' to standard output.",
+      "prompt": "Write a statement that prints 'String Indexing Result 10' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('String Indexing Result 10')",
       "test_cases": [
@@ -177,37 +183,37 @@
         }
       ],
       "hint": "Use print('String Indexing Result 10') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of string indexing analysis. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "7.1_q11",
       "type": "code_prediction",
-      "concept": "string_indexing_tracing",
-      "skill": "tracing",
-      "difficulty": "medium",
+      "concept": "last_character_indexing",
+      "skill": "prediction",
+      "difficulty": "easy",
       "prerequisites": [
         "7.1_q10"
       ],
-      "prompt": "Predict Output 11: What does this snippet output?\n```python\nvalue_11 = 55\nprint(value_11)\n```",
+      "prompt": "What does this code output?\n```python\ns = 'Developer'\nprint(s[-1])\n```",
       "options": [
-        "55",
-        "27",
-        "value_11",
-        "Error"
+        "r",
+        "D",
+        "e",
+        "IndexError"
       ],
-      "correct_answer": "55",
-      "explanation": "The variable value_11 stores 55, and print outputs it to the console."
+      "correct_answer": "r",
+      "explanation": "Negative index -1 always accesses the very last character of a sequence."
     },
     {
       "id": "7.1_q12",
-      "type": "output_prediction",
-      "concept": "string_indexing_logic",
-      "skill": "prediction",
+      "type": "write_the_code",
+      "concept": "middle_character",
+      "skill": "implementation",
       "difficulty": "medium",
       "prerequisites": [
         "7.1_q11"
       ],
-      "prompt": "Predict Output 12: What does this snippet output?\n```python\nvalue_12 = 60\nprint(value_12)\n```",
+      "prompt": "Write code to access and print the middle character of an odd-length string `s`:",
       "options": [
         "60",
         "30",
@@ -215,7 +221,9 @@
         "Error"
       ],
       "correct_answer": "60",
-      "explanation": "The variable value_12 stores 60, and print outputs it to the console."
+      "explanation": "`len(s) // 2` performs integer floor division, correctly indexing the middle character (e.g. index 2 for length 5).",
+      "starter_code": "s = 'RADAR'\n# Access middle char\nmid_char = ___",
+      "solution_code": "s = 'RADAR'\nmid_char = s[len(s) // 2]"
     },
     {
       "id": "7.1_q13",
@@ -230,7 +238,7 @@
         "title": "Accessing Characters with Square Brackets",
         "content": "In Python, strings are sequences of characters. You can retrieve a single character using its index inside square brackets. Python uses zero-based indexing, meaning the first character is at position 0. For example, in the string 'hello', 'h' is at index 0, 'e' is at index 1, and so on. Negative indices count from the end: -1 refers to the last character. The syntax is always `string[index]`. If you try to access an index that does not exist, Python raises an `IndexError`."
       },
-      "prompt": "Complete the expression to retrieve the first character of the string 'python':\n\nmessage = 'python'\nfirst = message[___]\n",
+      "prompt": "Complete the expression to retrieve the first character of the string 'python':\n\nmessage = 'python'\nfirst = message[___]",
       "correct_answer": "0",
       "accepted_answers": [
         "0",
@@ -251,7 +259,7 @@
         "title": "Using Negative Indices and Slicing Basics",
         "content": "Negative indices allow you to access characters from the end of a string. The index -1 refers to the last character, -2 to the second-to-last, and so on. This is especially useful when you do not know the exact length of the string. Remember that valid indices range from -(len(string)) to len(string)-1. Attempting to use an index outside this range causes an `IndexError`."
       },
-      "prompt": "Fill in the blank to retrieve the last character of the string 'codolingo':\n\nname = 'codolingo'\nlast_char = name[___]\n",
+      "prompt": "Fill in the blank to retrieve the last character of the string 'codolingo':\n\nname = 'codolingo'\nlast_char = name[___]",
       "correct_answer": "-1",
       "accepted_answers": [
         "-1",
@@ -298,7 +306,7 @@
         "title": "Recognizing Common Indexing Patterns",
         "content": "A common pattern is extracting the first and last characters together. You can combine index 0 and index -1 in a single expression or store them in variables. Another pattern is checking whether a string starts or ends with a specific character by comparing the indexed result to a literal. These patterns help validate input and parse simple data."
       },
-      "prompt": "Complete the pattern to compare the first and last characters of the string 'level':\n\nword = 'level'\nif word[___] == word[___]:\n    print('palindrome ends')\n",
+      "prompt": "Complete the pattern to compare the first and last characters of the string 'level':\n\nword = 'level'\nif word[___] == word[___]:\n    print('palindrome ends')",
       "correct_answer": "0, -1",
       "accepted_answers": [
         "0, -1",
@@ -346,7 +354,7 @@
         "title": "Idiomatic Indexing Expressions",
         "content": "A common Python idiom is using negative indexing to get the last character without knowing the string length. Another idiom is comparing `string[0]` to a literal to test for emptiness or a specific starting character. These idioms make code concise and readable, but you must ensure the string is non-empty before indexing to avoid an `IndexError`."
       },
-      "prompt": "Complete the idiomatic check to ensure the string 'data' is not empty before accessing its last character:\n\nvalue = 'data'\nif value and value[___] == 'a':\n    print('ends with a')\n",
+      "prompt": "Complete the idiomatic check to ensure the string 'data' is not empty before accessing its last character:\n\nvalue = 'data'\nif value and value[___] == 'a':\n    print('ends with a')",
       "correct_answer": "-1",
       "accepted_answers": [
         "-1",
@@ -594,5 +602,15 @@
       "hint": "Integer division // always rounds down, which naturally places even-length centers to the right of the midpoint.",
       "explanation": "For odd-length palindromes, len(p) // 2 lands on the exact center. For even-length palindromes, it lands on the first character of the right half, satisfying the requirement to return the character immediately to the right of center."
     }
+  ],
+  "unit_num": 7,
+  "learning_objectives": [
+    "Manipulate textual data using String Indexing",
+    "Apply zero-based indexing and slicing syntax correctly",
+    "Differentiate between in-place mutation and immutable string transformations",
+    "Format and clean user-provided text data safely"
+  ],
+  "prerequisites": [
+    "6.8"
   ]
 }

@@ -11,7 +11,9 @@
       "difficulty": "easy",
       "prerequisites": [],
       "title": "What Is a Prefix Sum?",
-      "content": "A prefix sum is the cumulative sum of elements up to a given index in an array. Given an array arr, the prefix sum at index i is the sum of all elements from index 0 to i. For example, if arr = [2, 3, 5], the prefix sums are [2, 5, 10] because 2 = 2, 5 = 2 + 3, and 10 = 2 + 3 + 5. This concept is useful for answering range-sum queries quickly after a one-time preprocessing step.\n\nHere is a simple Python implementation to compute prefix sums:\n\n```python\narr = [2, 3, 5, 1]\nprefix = []\nrunning_total = 0\nfor num in arr:\n    running_total += num\n    prefix.append(running_total)\nprint(prefix)  # Output: [2, 5, 10, 11]\n```\n\nBy storing these running totals, we can answer any query asking for the sum of a subarray in constant time."
+      "content": "A prefix sum is the cumulative sum of elements up to a given index in an array. Given an array arr, the prefix sum at index i is the sum of all elements from index 0 to i. For example, if arr = [2, 3, 5], the prefix sums are [2, 5, 10] because 2 = 2, 5 = 2 + 3, and 10 = 2 + 3 + 5. This concept is useful for answering range-sum queries quickly after a one-time preprocessing step.\n\nHere is a simple Python implementation to compute prefix sums:\n\n```python\narr = [2, 3, 5, 1]\nprefix = []\nrunning_total = 0\nfor num in arr:\n    running_total += num\n    prefix.append(running_total)\nprint(prefix)  # Output: [2, 5, 10, 11]\n```\n\nBy storing these running totals, we can answer any query asking for the sum of a subarray in constant time.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of prefix sums basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "32.5_q2",
@@ -42,7 +44,9 @@
         "32.5_q2"
       ],
       "title": "Building Prefix Sums in Python",
-      "content": "To build a prefix sum array in Python, initialize an empty list and a running total variable. Iterate through the input list, add each element to the running total, and append that total to your result list. This pattern is concise and efficient.\n\nConsider this example:\n\n```python\ndef compute_prefix(arr):\n    prefix = []\n    total = 0\n    for x in arr:\n        total += x\n        prefix.append(total)\n    return prefix\n\nprint(compute_prefix([4, 7, 2]))\n# Output: [4, 11, 13]\n```\n\nNotice that each entry in prefix corresponds to the sum of all prior elements plus the current one. This linear-time construction is the foundation for faster range queries later."
+      "content": "To build a prefix sum array in Python, initialize an empty list and a running total variable. Iterate through the input list, add each element to the running total, and append that total to your result list. This pattern is concise and efficient.\n\nConsider this example:\n\n```python\ndef compute_prefix(arr):\n    prefix = []\n    total = 0\n    for x in arr:\n        total += x\n        prefix.append(total)\n    return prefix\n\nprint(compute_prefix([4, 7, 2]))\n# Output: [4, 11, 13]\n```\n\nNotice that each entry in prefix corresponds to the sum of all prior elements plus the current one. This linear-time construction is the foundation for faster range queries later.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of prefix sums syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "32.5_q4",
@@ -859,5 +863,15 @@
       "hint": "Enumerate all top-left and bottom-right corners. For each pair, compute the submatrix sum using the 2D prefix sum formula and compare to target.",
       "explanation": "This brute-force enumeration runs in O(n^4) for an n x n grid. Mastery involves recognizing that prefix sums enable O(1) submatrix sum evaluation, though further optimization to O(n^3) or O(n^2) is possible with hash maps for 1D reductions."
     }
+  ],
+  "unit_num": 32,
+  "learning_objectives": [
+    "Explain the technical concepts and mechanics of Prefix Sums",
+    "Apply idiomatic Python patterns when working with Prefix Sums",
+    "Debug common runtime exceptions and logic errors associated with Prefix Sums",
+    "Implement production-ready code utilizing Prefix Sums"
+  ],
+  "prerequisites": [
+    "32.4"
   ]
 }

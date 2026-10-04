@@ -12,7 +12,9 @@
       "title": "Big O Notation in Sorting",
       "content": "Sorting algorithms are evaluated by how their runtime grows as the input size increases. Big O notation describes this upper-bound growth. For example, Bubble Sort compares adjacent elements and swaps them if they are out of order. In the worst case, it performs n^2 comparisons, giving it a time complexity of O(n^2). Merge Sort, on the other hand, divides the list in half repeatedly and merges sorted sublists, achieving O(n log n) in all cases. Understanding these basics helps you choose the right algorithm for a given dataset. Here is a simple Python example of Bubble Sort:\n\n```python\ndef bubble_sort(arr):\n    n = len(arr)\n    for i in range(n):\n        for j in range(0, n - i - 1):\n            if arr[j] > arr[j + 1]:\n                arr[j], arr[j + 1] = arr[j + 1], arr[j]\n    return arr\n```\n\nNotice how the nested loops lead to quadratic growth.",
       "difficulty": "easy",
-      "prerequisites": []
+      "prerequisites": [],
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of complexity of sorting algorithms basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "37.5_q2",
@@ -45,7 +47,9 @@
       "difficulty": "easy",
       "prerequisites": [
         "37.5_q2"
-      ]
+      ],
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of complexity of sorting algorithms syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "37.5_q4",
@@ -653,5 +657,15 @@
       "concept": "complexity_of_sorting_algorithms_mastery",
       "skill": "mastery"
     }
+  ],
+  "unit_num": 37,
+  "learning_objectives": [
+    "Implement the fundamental Complexity of Sorting Algorithms algorithm in idiomatic Python",
+    "Calculate time and space complexity using Big O notation",
+    "Trace edge-case performance and termination conditions",
+    "Apply the algorithmic pattern to solve practical data structure problems"
+  ],
+  "prerequisites": [
+    "37.4"
   ]
 }

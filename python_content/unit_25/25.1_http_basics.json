@@ -11,7 +11,9 @@
       "difficulty": "easy",
       "prerequisites": [],
       "title": "What is HTTP and How Do Clients and Servers Talk?",
-      "content": "HTTP (HyperText Transfer Protocol) is the foundation of data communication on the web. A client is a program that requests data\u2014such as your browser or a Python script using the requests library. A server is a program that waits for and responds to those requests, hosting websites or APIs. When you visit a webpage, your client sends an HTTP request, and the server sends back an HTTP response. Two of the most common HTTP methods are GET and POST. GET retrieves data from the server, like fetching a webpage or querying an API. POST sends data to the server to create or update a resource, such as submitting a login form or adding a new record. In Python, you can interact with HTTP using the built-in urllib module or the popular requests library. Here is a simple example using urllib to perform a GET request:\n\n```python\nimport urllib.request\n\nurl = 'https://api.example.com/data'\nresponse = urllib.request.urlopen(url)\nprint(response.read().decode('utf-8'))\n```\n\nNotice how the client opens a connection to the server, sends the request implicitly, and reads the response. POST requests are similar but require sending data, typically in the body of the request, using urllib.request.Request with a data parameter."
+      "content": "HTTP (HyperText Transfer Protocol) is the foundation of data communication on the web. A client is a program that requests data\u2014such as your browser or a Python script using the requests library. A server is a program that waits for and responds to those requests, hosting websites or APIs. When you visit a webpage, your client sends an HTTP request, and the server sends back an HTTP response. Two of the most common HTTP methods are GET and POST. GET retrieves data from the server, like fetching a webpage or querying an API. POST sends data to the server to create or update a resource, such as submitting a login form or adding a new record. In Python, you can interact with HTTP using the built-in urllib module or the popular requests library. Here is a simple example using urllib to perform a GET request:\n\n```python\nimport urllib.request\n\nurl = 'https://api.example.com/data'\nresponse = urllib.request.urlopen(url)\nprint(response.read().decode('utf-8'))\n```\n\nNotice how the client opens a connection to the server, sends the request implicitly, and reads the response. POST requests are similar but require sending data, typically in the body of the request, using urllib.request.Request with a data parameter.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of http basics clientserver getpost basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "25.1_q2",
@@ -42,7 +44,9 @@
         "25.1_q2"
       ],
       "title": "HTTP GET and POST Syntax in Python",
-      "content": "To make HTTP requests in Python, you typically use the requests library for clarity, or urllib from the standard library. A GET request retrieves information and is made by calling requests.get(url). A POST request sends data and is made by calling requests.post(url, data=payload). The payload is often a dictionary that gets encoded and sent in the request body. Here is a complete example showing both methods:\n\n```python\nimport requests\n\n# GET request: retrieve data\nresponse = requests.get('https://httpbin.org/get')\nprint('GET status:', response.status_code)\nprint('GET response:', response.json())\n\n# POST request: send data\npayload = {'name': 'Alice', 'age': 30}\nresponse = requests.post('https://httpbin.org/post', data=payload)\nprint('POST status:', response.status_code)\nprint('POST response:', response.json())\n```\n\nIn this example, the GET request fetches data from a test endpoint, while the POST request sends a small JSON-like dictionary. The status_code attribute tells you if the request succeeded (200 means OK). Always inspect the response object to ensure your request worked as expected."
+      "content": "To make HTTP requests in Python, you typically use the requests library for clarity, or urllib from the standard library. A GET request retrieves information and is made by calling requests.get(url). A POST request sends data and is made by calling requests.post(url, data=payload). The payload is often a dictionary that gets encoded and sent in the request body. Here is a complete example showing both methods:\n\n```python\nimport requests\n\n# GET request: retrieve data\nresponse = requests.get('https://httpbin.org/get')\nprint('GET status:', response.status_code)\nprint('GET response:', response.json())\n\n# POST request: send data\npayload = {'name': 'Alice', 'age': 30}\nresponse = requests.post('https://httpbin.org/post', data=payload)\nprint('POST status:', response.status_code)\nprint('POST response:', response.json())\n```\n\nIn this example, the GET request fetches data from a test endpoint, while the POST request sends a small JSON-like dictionary. The status_code attribute tells you if the request succeeded (200 means OK). Always inspect the response object to ensure your request worked as expected.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of http basics clientserver getpost syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "25.1_q4",
@@ -390,7 +394,7 @@
       "prompt": "Fix the bug in this code for http basics clientserver getpost errors:",
       "starter_code": "# Fix this code\nPrint('HTTP Basics (Client/Server, GET/POST)')",
       "solution_code": "print('HTTP Basics (Client/Server, GET/POST)')",
-      "explanation": "Python identifiers and built-ins are case-sensitive."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of http basics clientserver getpost errors. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "25.1_q20",
@@ -438,7 +442,7 @@
       "prompt": "Fix the bug in this code for http basics clientserver getpost runtime:",
       "starter_code": "# Fix this code\nPrint('HTTP Basics (Client/Server, GET/POST)')",
       "solution_code": "print('HTTP Basics (Client/Server, GET/POST)')",
-      "explanation": "Python identifiers and built-ins are case-sensitive."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of http basics clientserver getpost runtime. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "25.1_q23",
@@ -596,5 +600,15 @@
       "hint": "Store the response object in an instance variable. Use json= for POST payloads. Return a summary dict from last_response to avoid exposing the raw object.",
       "explanation": "Encapsulating HTTP logic in a class promotes reuse, consistency, and testability. This mastery task requires combining OOP principles with API interaction, error handling, and response introspection\u2014skills essential for building scalable networked applications."
     }
+  ],
+  "unit_num": 25,
+  "learning_objectives": [
+    "Explain the technical concepts and mechanics of HTTP Basics (Client/Server, GET/POST)",
+    "Apply idiomatic Python patterns when working with HTTP Basics (Client/Server, GET/POST)",
+    "Debug common runtime exceptions and logic errors associated with HTTP Basics (Client/Server, GET/POST)",
+    "Implement production-ready code utilizing HTTP Basics (Client/Server, GET/POST)"
+  ],
+  "prerequisites": [
+    "24.6"
   ]
 }

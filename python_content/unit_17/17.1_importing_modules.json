@@ -11,7 +11,9 @@
       "difficulty": "easy",
       "prerequisites": [],
       "title": "What Is a Module?",
-      "content": "A module is simply a Python file containing definitions and statements. The most common module is the built-in math module, which provides mathematical functions. To use a module, you import it with the import statement. For example, to use functions from the math module, you write import math. After importing, you access functions using dot notation, such as math.sqrt(16). This avoids cluttering your namespace and promotes code reuse. Python ships with many standard library modules, and you can also create your own modules."
+      "content": "A module is simply a Python file containing definitions and statements. The most common module is the built-in math module, which provides mathematical functions. To use a module, you import it with the import statement. For example, to use functions from the math module, you write import math. After importing, you access functions using dot notation, such as math.sqrt(16). This avoids cluttering your namespace and promotes code reuse. Python ships with many standard library modules, and you can also create your own modules.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of importing modules basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "17.1_q2",
@@ -42,7 +44,9 @@
         "17.1_q2"
       ],
       "title": "Import Syntax Variations",
-      "content": "There are several ways to import modules in Python. The simplest form is import module_name. You can also import specific items using from module_name import item_name. For example, from math import sqrt allows you to call sqrt(16) directly without the math prefix. Another variation is import module_name as alias, which lets you use a shorter name, such as import math as m. Using aliases can make code more concise when a module name is long. However, be cautious: importing many items with from can make your code harder to read because it is not immediately clear where each function originates."
+      "content": "There are several ways to import modules in Python. The simplest form is import module_name. You can also import specific items using from module_name import item_name. For example, from math import sqrt allows you to call sqrt(16) directly without the math prefix. Another variation is import module_name as alias, which lets you use a shorter name, such as import math as m. Using aliases can make code more concise when a module name is long. However, be cautious: importing many items with from can make your code harder to read because it is not immediately clear where each function originates.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of importing modules syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "17.1_q4",
@@ -400,7 +404,7 @@
       "prompt": "Fix the bug in this code for importing modules errors:",
       "starter_code": "# Fix this code\nPrint('Importing Modules')",
       "solution_code": "print('Importing Modules')",
-      "explanation": "Python identifiers and built-ins are case-sensitive."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of importing modules errors. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "17.1_q20",
@@ -448,7 +452,7 @@
       "prompt": "Fix the bug in this code for importing modules runtime:",
       "starter_code": "# Fix this code\nPrint('Importing Modules')",
       "solution_code": "print('Importing Modules')",
-      "explanation": "Python identifiers and built-ins are case-sensitive."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of importing modules runtime. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "17.1_q23",
@@ -616,5 +620,15 @@
       "hint": "Verify operator precedence: multiplication occurs before subtraction. The imported functions should be called with the correct arguments.",
       "explanation": "Mastery of importing requires combining from ... import ... syntax with correct arithmetic evaluation. This item assesses whether the learner can integrate multiple imported functions into a single expression and predict the outcome."
     }
+  ],
+  "unit_num": 17,
+  "learning_objectives": [
+    "Explain the technical concepts and mechanics of Importing Modules",
+    "Apply idiomatic Python patterns when working with Importing Modules",
+    "Debug common runtime exceptions and logic errors associated with Importing Modules",
+    "Implement production-ready code utilizing Importing Modules"
+  ],
+  "prerequisites": [
+    "16.6"
   ]
 }

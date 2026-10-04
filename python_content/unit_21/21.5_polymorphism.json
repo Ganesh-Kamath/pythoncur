@@ -11,7 +11,9 @@
       "difficulty": "easy",
       "prerequisites": [],
       "title": "What is Polymorphism?",
-      "content": "Polymorphism means 'many forms.' In Python, it allows objects of different classes to be treated as objects of a common superclass. The same method call can behave differently depending on the actual object type. For example, a 'speak()' method may print different messages for a Dog and a Cat, even though both inherit from Animal. This is polymorphism in action."
+      "content": "Polymorphism means 'many forms.' In Python, it allows objects of different classes to be treated as objects of a common superclass. The same method call can behave differently depending on the actual object type. For example, a 'speak()' method may print different messages for a Dog and a Cat, even though both inherit from Animal. This is polymorphism in action.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of polymorphism basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "idx": 2,
@@ -44,7 +46,9 @@
         "21.5_q2"
       ],
       "title": "Polymorphism Syntax in Python",
-      "content": "In Python, polymorphism is often expressed through method overriding. A subclass redefines a method already defined in its parent class. At runtime, Python determines which version to execute based on the actual object. Here is a simple example:\n\nclass Animal:\n    def speak(self):\n        return 'Some generic sound'\n\nclass Dog(Animal):\n    def speak(self):\n        return 'Woof!'\n\nclass Cat(Animal):\n    def speak(self):\n        return 'Meow!'\n\nanimals = [Animal(), Dog(), Cat()]\nfor a in animals:\n    print(a.speak())\n\nThe loop calls speak() on each object. Python dispatches to the correct overridden method automatically."
+      "content": "In Python, polymorphism is often expressed through method overriding. A subclass redefines a method already defined in its parent class. At runtime, Python determines which version to execute based on the actual object. Here is a simple example:\n\nclass Animal:\n    def speak(self):\n        return 'Some generic sound'\n\nclass Dog(Animal):\n    def speak(self):\n        return 'Woof!'\n\nclass Cat(Animal):\n    def speak(self):\n        return 'Meow!'\n\nanimals = [Animal(), Dog(), Cat()]\nfor a in animals:\n    print(a.speak())\n\nThe loop calls speak() on each object. Python dispatches to the correct overridden method automatically.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of polymorphism syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "idx": 4,
@@ -615,5 +619,15 @@
       "hint": "Override both make_sound() and feed() in Bird, Dog, and Fish. The run_daily_routine() method already demonstrates polymorphism by calling these methods on each Animal without type checks.",
       "explanation": "This mastery challenge integrates multiple OOP principles: inheritance provides the common interface, overriding enables polymorphic behavior, and the shelter class operates on abstractions. Adding a new Animal subclass later requires no changes to AnimalShelter, showcasing the true power of polymorphism in scalable software design."
     }
+  ],
+  "unit_num": 21,
+  "learning_objectives": [
+    "Explain the technical concepts and mechanics of Polymorphism",
+    "Apply idiomatic Python patterns when working with Polymorphism",
+    "Debug common runtime exceptions and logic errors associated with Polymorphism",
+    "Implement production-ready code utilizing Polymorphism"
+  ],
+  "prerequisites": [
+    "21.4"
   ]
 }

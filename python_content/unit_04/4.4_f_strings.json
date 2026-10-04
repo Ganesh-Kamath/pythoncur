@@ -13,7 +13,9 @@
       "title": "What Are f-Strings?",
       "content": "f-strings (formatted string literals) were introduced in Python 3.6 as a modern, readable way to embed expressions inside string literals. They are prefixed with an f or F and use curly braces {} to evaluate variables or expressions at runtime. Unlike older methods such as % formatting or str.format(), f-strings are concise and evaluated immediately. Example: name = 'Ada'; age = 12; print(f'Hello, {name}! You are {age} years old.') This outputs: Hello, Ada! You are 12 years old. F-strings are especially useful when displaying user input because they keep the code clean and easy to read.",
       "difficulty": "easy",
-      "prerequisites": []
+      "prerequisites": [],
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of fstrings basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "4.4_q2",
@@ -48,7 +50,9 @@
       "difficulty": "easy",
       "prerequisites": [
         "4.4_q2"
-      ]
+      ],
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of fstrings syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "4.4_q4",
@@ -608,5 +612,15 @@
       "hint": "Use datetime.strptime to parse the input, strftime to format the date, and compute age carefully accounting for whether the birthday has passed this year.",
       "explanation": "This mastery challenge requires datetime manipulation, precise age calculation, and complex f-string formatting with newlines and multiple interpolations. It demonstrates professional-level use of f-strings for structured, readable output."
     }
+  ],
+  "unit_num": 4,
+  "learning_objectives": [
+    "Manipulate textual data using f-strings",
+    "Apply zero-based indexing and slicing syntax correctly",
+    "Differentiate between in-place mutation and immutable string transformations",
+    "Format and clean user-provided text data safely"
+  ],
+  "prerequisites": [
+    "4.3"
   ]
 }

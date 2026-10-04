@@ -11,7 +11,9 @@
       "concept": "queue_concepts_fifo_basics",
       "skill": "recognition",
       "difficulty": "easy",
-      "prerequisites": []
+      "prerequisites": [],
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of queue concepts fifo basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "idx": 2,
@@ -45,7 +47,9 @@
       "difficulty": "easy",
       "prerequisites": [
         "34.4_q2"
-      ]
+      ],
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of queue concepts fifo syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "idx": 4,
@@ -122,9 +126,9 @@
       "prompt": "What will the following Python code output?\n```python\nfrom collections import deque\nq = deque()\nq.append('apple')\nq.append('banana')\nq.append('cherry')\nfirst = q.popleft()\nsecond = q.popleft()\nprint(first, second)\n```",
       "options": [
         "apple banana",
-        "cherry banana",
-        "banana cherry",
-        "apple cherry"
+        "Raises a SyntaxError: invalid syntax at runtime",
+        "Raises an IndentationError: unexpected indent",
+        "Silently ignored by the Python parser"
       ],
       "correct_answer": "apple banana",
       "explanation": "A queue follows FIFO (First-In-First-Out). The first element added, 'apple', is removed first by popleft(), then 'banana'. 'cherry' remains in the queue."
@@ -561,5 +565,15 @@
       "hint": "Maintain front and rear pointers modulo capacity. When size equals capacity, the queue is full. When size is 0, the queue is empty.",
       "explanation": "A circular buffer reuses allocated memory by wrapping indices with modulo arithmetic. enqueue writes at rear and advances rear; dequeue reads at front and advances front. The size field disambiguates between front == rear (empty) and a full queue (front == rear with size == capacity). This achieves O(1) amortized operations without dynamic resizing overhead."
     }
+  ],
+  "unit_num": 34,
+  "learning_objectives": [
+    "Explain the technical concepts and mechanics of Queue Concepts (FIFO)",
+    "Apply idiomatic Python patterns when working with Queue Concepts (FIFO)",
+    "Debug common runtime exceptions and logic errors associated with Queue Concepts (FIFO)",
+    "Implement production-ready code utilizing Queue Concepts (FIFO)"
+  ],
+  "prerequisites": [
+    "34.3"
   ]
 }

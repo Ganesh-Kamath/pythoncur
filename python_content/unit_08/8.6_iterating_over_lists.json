@@ -11,7 +11,9 @@
       "difficulty": "easy",
       "prerequisites": [],
       "title": "What Is Iteration Over a List?",
-      "content": "Iteration means going through each item in a sequence one by one. In Python, a list is an ordered collection of items. When we iterate over a list, we can perform an action on every element without writing the same code multiple times. The most common way to iterate is using a for loop. Here is an example:\n\n```python\nmy_list = [10, 20, 30, 40]\nfor item in my_list:\n    print(item)\n```\n\nThis code prints each number in my_list on a separate line. The variable item takes the value of each element in turn, starting from the first and ending at the last. Iteration is useful when you need to process many values that share the same logic."
+      "content": "Iteration means going through each item in a sequence one by one. In Python, a list is an ordered collection of items. When we iterate over a list, we can perform an action on every element without writing the same code multiple times. The most common way to iterate is using a for loop. Here is an example:\n\n```python\nmy_list = [10, 20, 30, 40]\nfor item in my_list:\n    print(item)\n```\n\nThis code prints each number in my_list on a separate line. The variable item takes the value of each element in turn, starting from the first and ending at the last. Iteration is useful when you need to process many values that share the same logic.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of iterating over lists basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "8.6_q2",
@@ -42,7 +44,9 @@
         "8.6_q2"
       ],
       "title": "The Basic Syntax of List Iteration",
-      "content": "The standard syntax for iterating over a list uses the for keyword followed by a variable name, the in keyword, and the list name. Here is the general form:\n\n```python\nfor variable in my_list:\n    # action for each element\n    pass\n```\n\nYou can choose any valid variable name. The indented block under the loop runs once for every item in my_list. After the loop finishes, the variable holds the value of the last element. If the list is empty, the block does not execute at all. This syntax is consistent across all iterable types in Python, not just lists."
+      "content": "The standard syntax for iterating over a list uses the for keyword followed by a variable name, the in keyword, and the list name. Here is the general form:\n\n```python\nfor variable in my_list:\n    # action for each element\n    pass\n```\n\nYou can choose any valid variable name. The indented block under the loop runs once for every item in my_list. After the loop finishes, the variable holds the value of the last element. If the list is empty, the block does not execute at all. This syntax is consistent across all iterable types in Python, not just lists.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of iterating over lists syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "8.6_q4",
@@ -74,10 +78,10 @@
       ],
       "prompt": "What will be printed by the following code?\n```python\nfruits = ['apple', 'banana']\nfor f in fruits:\n    print(f)\n```",
       "options": [
-        "apple banana",
         "apple\nbanana",
-        "['apple', 'banana']",
-        "fruits"
+        "Raises a SyntaxError: invalid syntax at runtime",
+        "Raises an IndentationError: unexpected indent",
+        "Silently ignored by the Python parser"
       ],
       "correct_answer": "apple\nbanana",
       "explanation": "The loop visits each string in fruits and prints it on its own line because print adds a newline by default. The output is not a single line unless join is used, and the list itself is not printed."
@@ -117,9 +121,9 @@
       "prompt": "What is the output of the following Python code?\n```python\nfruits = ['apple', 'banana', 'cherry']\nfor item in fruits:\n    print(item)\n```",
       "options": [
         "apple banana cherry",
-        "apple\nbanana\ncherry",
-        "['apple', 'banana', 'cherry']",
-        "Error"
+        "Raises a SyntaxError: invalid syntax at runtime",
+        "Raises an IndentationError: unexpected indent",
+        "Silently ignored by the Python parser"
       ],
       "correct_answer": "apple banana cherry",
       "explanation": "The for loop visits each element in fruits in order. Each call to print() adds a newline after the item, so the output appears on three separate lines."
@@ -384,7 +388,7 @@
       "prompt": "Fix the bug in this code for iterating over lists errors:",
       "starter_code": "# Fix this code\nPrint('Iterating Over Lists')",
       "solution_code": "print('Iterating Over Lists')",
-      "explanation": "Python identifiers and built-ins are case-sensitive."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of iterating over lists errors. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "8.6_q20",
@@ -432,7 +436,7 @@
       "prompt": "Fix the bug in this code for iterating over lists runtime:",
       "starter_code": "# Fix this code\nPrint('Iterating Over Lists')",
       "solution_code": "print('Iterating Over Lists')",
-      "explanation": "Python identifiers and built-ins are case-sensitive."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of iterating over lists runtime. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "8.6_q23",
@@ -604,5 +608,15 @@
       "hint": "Each record is a list; the score is at index 1. Accumulate scores and counts separately, then divide total by count after the loop.",
       "explanation": "Nested list structures are common when modeling tabular data. By indexing into each inner list during iteration, we aggregate values across records and derive summary statistics such as the mean."
     }
+  ],
+  "unit_num": 8,
+  "learning_objectives": [
+    "Initialize and manipulate Python Iterating Over Lists collections",
+    "Access elements efficiently using keys, indices, or membership tests",
+    "Distinguish between mutable and immutable data behaviors",
+    "Select the optimal data structure to represent structured data"
+  ],
+  "prerequisites": [
+    "8.5"
   ]
 }

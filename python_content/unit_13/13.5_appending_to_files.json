@@ -12,7 +12,9 @@
       "title": "What Is Appending to a File?",
       "content": "Appending to a file means adding new data to the end of an existing file without deleting its current contents. When you open a file in append mode, Python positions the cursor at the end of the file, so any new write operations add information after what is already there. This is useful for logging events, saving user inputs over time, or building a record incrementally. The built-in open() function accepts a second argument that specifies the mode. For appending, you use 'a' as the mode. If the file does not exist, Python will create it. Here is a simple example:\n\n```python\n# Open 'log.txt' in append mode and write a new line\nwith open('log.txt', 'a') as file:\n    file.write('New entry added.\\n')\n```\n\nNotice the use of the with statement, which ensures the file is automatically closed even if an error occurs. The 'a' mode is the key difference from write mode ('w'), which would erase the file first.",
       "difficulty": "easy",
-      "prerequisites": []
+      "prerequisites": [],
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of appending to files basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "13.5_q2",
@@ -45,7 +47,9 @@
       "difficulty": "easy",
       "prerequisites": [
         "13.5_q2"
-      ]
+      ],
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of appending to files syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "13.5_q4",
@@ -110,51 +114,51 @@
     {
       "id": "13.5_q7",
       "type": "code_prediction",
-      "concept": "appending_to_files_execution",
-      "skill": "prediction",
-      "difficulty": "easy",
+      "concept": "file_append_mode",
+      "skill": "understanding",
+      "difficulty": "medium",
       "prerequisites": [
         "13.5_q6"
       ],
-      "prompt": "Predict Output 7: What does this snippet output?\n```python\nvalue_7 = 35\nprint(value_7)\n```",
+      "prompt": "In the context of Appending to Files, what is the primary behavior demonstrated here?\n```python\n# Appending to Files\nprint('file_append_mode')\n```",
       "options": [
-        "35",
-        "17",
-        "value_7",
+        "file_append_mode",
+        "SyntaxError",
+        "None",
         "Error"
       ],
-      "correct_answer": "35",
-      "explanation": "The variable value_7 stores 35, and print outputs it to the console."
+      "correct_answer": "file_append_mode",
+      "explanation": "This directly illustrates the standard behavior of file_append_mode: append mode ('a') adds bytes to the end without truncating existing content."
     },
     {
       "id": "13.5_q8",
-      "type": "output_prediction",
-      "concept": "appending_to_files_execution",
-      "skill": "prediction",
+      "type": "multiple_choice",
+      "concept": "file_append_mode_rules",
+      "skill": "reasoning",
       "difficulty": "medium",
       "prerequisites": [
         "13.5_q7"
       ],
-      "prompt": "Predict Output 8: What does this snippet output?\n```python\nvalue_8 = 40\nprint(value_8)\n```",
+      "prompt": "What is a core design principle when working with Appending to Files in Python?",
       "options": [
-        "40",
-        "20",
-        "value_8",
-        "Error"
+        "Append mode ('a') adds bytes to the end without truncating existing content",
+        "It bypasses all memory management constraints",
+        "It causes the interpreter to compile to C++ automatically",
+        "It can only be executed in interactive REPL mode"
       ],
-      "correct_answer": "40",
-      "explanation": "The variable value_8 stores 40, and print outputs it to the console."
+      "correct_answer": "Append mode ('a') adds bytes to the end without truncating existing content",
+      "explanation": "Understanding this rule is essential: append mode ('a') adds bytes to the end without truncating existing content."
     },
     {
       "id": "13.5_q9",
-      "type": "code_prediction",
-      "concept": "appending_to_files_flow",
-      "skill": "prediction",
+      "type": "fix_the_code",
+      "concept": "file_append_mode_debugging",
+      "skill": "debugging",
       "difficulty": "medium",
       "prerequisites": [
         "13.5_q8"
       ],
-      "prompt": "Predict Output 9: What does this snippet output?\n```python\nvalue_9 = 45\nprint(value_9)\n```",
+      "prompt": "Fix this code snippet implementing Appending to Files correctly:",
       "options": [
         "45",
         "22",
@@ -162,7 +166,9 @@
         "Error"
       ],
       "correct_answer": "45",
-      "explanation": "The variable value_9 stores 45, and print outputs it to the console."
+      "explanation": "Applying standard Python idioms ensures correct behavior: append mode ('a') adds bytes to the end without truncating existing content.",
+      "starter_code": "# Appending to Files implementation\n___",
+      "solution_code": "# Appending to Files implementation\nwith open('log.txt', 'a') as f:\n    f.write('event\\n')"
     },
     {
       "id": "13.5_q10",
@@ -173,7 +179,7 @@
       "prerequisites": [
         "13.5_q9"
       ],
-      "prompt": "Coding Challenge 10: Write a statement that prints 'Appending to Files Result 10' to standard output.",
+      "prompt": "Write a statement that prints 'Appending to Files Result 10' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Appending to Files Result 10')",
       "test_cases": [
@@ -183,37 +189,37 @@
         }
       ],
       "hint": "Use print('Appending to Files Result 10') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of appending to files analysis. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "13.5_q11",
-      "type": "code_prediction",
-      "concept": "appending_to_files_tracing",
-      "skill": "tracing",
-      "difficulty": "medium",
+      "type": "multiple_choice",
+      "concept": "file_append_mode_tradeoffs",
+      "skill": "evaluation",
+      "difficulty": "hard",
       "prerequisites": [
         "13.5_q10"
       ],
-      "prompt": "Predict Output 11: What does this snippet output?\n```python\nvalue_11 = 55\nprint(value_11)\n```",
+      "prompt": "Which common pitfall must programmers avoid when using Appending to Files?",
       "options": [
-        "55",
-        "27",
-        "value_11",
-        "Error"
+        "Misunderstanding edge cases related to: append mode ('a') adds bytes to the end without truncating existing content",
+        "Forgetting that Python does not support functions",
+        "Assuming integers are capped at 32 bits",
+        "Using lowercase variable names"
       ],
-      "correct_answer": "55",
-      "explanation": "The variable value_11 stores 55, and print outputs it to the console."
+      "correct_answer": "Misunderstanding edge cases related to: append mode ('a') adds bytes to the end without truncating existing content",
+      "explanation": "Careful attention to requirements avoids common traps: append mode ('a') adds bytes to the end without truncating existing content."
     },
     {
       "id": "13.5_q12",
-      "type": "output_prediction",
-      "concept": "appending_to_files_logic",
-      "skill": "prediction",
-      "difficulty": "medium",
+      "type": "write_the_code",
+      "concept": "file_append_mode_application",
+      "skill": "implementation",
+      "difficulty": "hard",
       "prerequisites": [
         "13.5_q11"
       ],
-      "prompt": "Predict Output 12: What does this snippet output?\n```python\nvalue_12 = 60\nprint(value_12)\n```",
+      "prompt": "Write the canonical Python code statement for Appending to Files:",
       "options": [
         "60",
         "30",
@@ -221,7 +227,9 @@
         "Error"
       ],
       "correct_answer": "60",
-      "explanation": "The variable value_12 stores 60, and print outputs it to the console."
+      "explanation": "Canonical implementation: with open('log.txt', 'a') as f:\n    f.write('event\\n'). Append mode ('a') adds bytes to the end without truncating existing content.",
+      "starter_code": "# Complete the statement\n___",
+      "solution_code": "with open('log.txt', 'a') as f:\n    f.write('event\\n')"
     },
     {
       "id": "13.5_q13",
@@ -236,7 +244,7 @@
         "title": "Appending to Files: The Append Mode",
         "content": "To add data to an existing file without deleting its contents, you open the file in append mode. In Python, this is done by passing 'a' as the second argument to the open() function. The file pointer is automatically placed at the end of the file, so any write operation adds new content after the last character. After writing, always close the file or use a with statement to ensure resources are released properly.\n\nExample:\nwith open('log.txt', 'a') as f:\n    f.write('New entry\\n')"
       },
-      "prompt": "Complete the code to open a file named 'notes.txt' in append mode and write the string 'Python is fun' followed by a newline:",
+      "prompt": "with open('notes.txt', '___') as f:\n    f.write('Python is fun!')",
       "correct_answer": "with open('notes.txt', 'a') as f:\n    f.write('Python is fun\\n')",
       "accepted_answers": [
         "with open('notes.txt', 'a') as f:\n    f.write('Python is fun\\n')",
@@ -351,7 +359,7 @@
         "title": "Idiomatic Appending in Python",
         "content": "The most Pythonic idiom for appending is the with statement combined with f.write(). Another useful idiom is appending inside a loop while keeping the file open across iterations, though this is less common because reopening is safer. A robust idiom includes checking that the write succeeded by inspecting the return value, which is the number of characters written. For simple scripts, the with block is sufficient and preferred.\n\nExample idiom:\nwith open('report.txt', 'a') as f:\n    chars = f.write('Summary: OK\\n')\n    print(f'Wrote {chars} characters')"
       },
-      "prompt": "Complete the idiomatic pattern by filling in the method that returns the number of characters appended:",
+      "prompt": "with open('log.txt', 'a') as f:\n    bytes_written = f.___('entry\\n')",
       "correct_answer": "f.write('Summary: OK\\n')",
       "accepted_answers": [
         "f.write('Summary: OK\\n')",
@@ -609,5 +617,15 @@
       "hint": "Check directory existence with os.path.exists and os.path.dirname before opening. Use a with statement and catch PermissionError specifically.",
       "explanation": "A production-grade file appender validates the environment before attempting I/O, uses context managers for guaranteed cleanup, and distinguishes between expected permission issues and unexpected runtime errors for better debugging and user experience."
     }
+  ],
+  "unit_num": 13,
+  "learning_objectives": [
+    "Explain the technical concepts and mechanics of Appending to Files",
+    "Apply idiomatic Python patterns when working with Appending to Files",
+    "Debug common runtime exceptions and logic errors associated with Appending to Files",
+    "Implement production-ready code utilizing Appending to Files"
+  ],
+  "prerequisites": [
+    "13.4"
   ]
 }

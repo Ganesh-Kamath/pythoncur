@@ -11,7 +11,9 @@
       "concept": "creating_and_accessing_dictionaries_basics",
       "title": "What is a Dictionary?",
       "content": "A dictionary in Python is an unordered collection of key-value pairs. Unlike lists that use numeric indices, dictionaries allow you to store and retrieve data using unique keys. You create a dictionary by enclosing key-value pairs in curly braces {} with each pair separated by a colon. For example:\n\n```python\nstudent = {'name': 'Aisha', 'age': 14, 'grade': 'A'}\n```\n\nIn this example, 'name', 'age', and 'grade' are keys, while 'Aisha', 14, and 'A' are their corresponding values. To access a value, you place the key inside square brackets after the dictionary name. For instance:\n\n```python\nprint(student['name'])\n```\n\nThis prints 'Aisha'. Dictionaries are useful when you need to associate meaningful labels with data.",
-      "prerequisites": []
+      "prerequisites": [],
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of creating and accessing dictionaries basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "10.2_q2",
@@ -42,7 +44,9 @@
       "content": "The basic syntax for creating a dictionary is:\n\n```python\nmy_dict = {'key1': value1, 'key2': value2}\n```\n\nKeys must be immutable types such as strings, numbers, or tuples. Values can be any data type including strings, numbers, lists, or even other dictionaries. To access a value, use the key inside square brackets:\n\n```python\nmy_dict['key1']\n```\n\nYou can also use the get() method to safely retrieve a value without raising a KeyError if the key does not exist. For example:\n\n```python\nscore = {'math': 85, 'science': 92}\nprint(score.get('math'))\n```\n\nThis outputs 85. Using get() is safer than direct bracket access when you are unsure whether a key exists.",
       "prerequisites": [
         "10.2_q2"
-      ]
+      ],
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of creating and accessing dictionaries syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "10.2_q4",
@@ -639,5 +643,15 @@
       "hint": "Values in a dictionary can themselves be dictionaries. Access nested values by chaining square brackets: outer_dict[key][inner_key].",
       "explanation": "Nested dictionaries allow you to model complex, hierarchical data. You access inner values by chaining key lookups, which is a powerful pattern for structured information."
     }
+  ],
+  "unit_num": 10,
+  "learning_objectives": [
+    "Initialize and manipulate Python Creating and Accessing Dictionaries collections",
+    "Access elements efficiently using keys, indices, or membership tests",
+    "Distinguish between mutable and immutable data behaviors",
+    "Select the optimal data structure to represent structured data"
+  ],
+  "prerequisites": [
+    "10.1"
   ]
 }

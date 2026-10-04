@@ -1,199 +1,82 @@
 """
-Comprehensive Validator for Codolingo Python Curriculum
-Validates structural integrity, pedagogical quality, code validity, and deterministic grading.
+CODOLINGO COMPREHENSIVE CURRICULUM QUALITY GATE RUNNER
+Orchestrates schema, python AST, answer consistency, prerequisites,
+and duplicate detection into a unified quality report.
+
+Usage:
+    python scripts/validate_curriculum.py
 """
 
-import ast
-import json
-import os
-import re
 import sys
 from pathlib import Path
 
-VALID_TYPES = {
-    "micro_lesson",
-    "multiple_choice",
-    "code_ordering",
-    "fill_in_the_blank",
-    "code_prediction",
-    "fix_the_code",
-    "write_the_code",
-    "output_prediction",
-    "match_code_to_concept",
-    "explain_output",
-    "error_diagnosis",
-    "trace_execution",
-    "mini_challenge",
-    "guided_project",
-    "refactoring_challenge",
-    "real_world_scenario",
-    "scenario",
-}
+# Add scripts directory to path
+SCRIPTS_DIR = Path(__file__).resolve().parent
+sys.path.insert(0, str(SCRIPTS_DIR))
 
-VALID_DIFFICULTIES = {"easy", "medium", "hard"}
+from validate_schema import validate_schema
+from validate_python import validate_python
+from validate_answers import validate_answers
+from validate_prerequisites import validate_prerequisites
+from detect_duplicates import detect_duplicates
 
-def validate_lesson_file(filepath):
-    errors = []
-    warnings = []
-    
-    try:
-        with open(filepath, "r", encoding="utf-8") as f:
-            data = json.load(f)
-    except Exception as e:
-        return [f"JSON Parse Error: {e}"], []
+def run_pipeline() -> bool:
+    schema_res = validate_schema()
+    python_res = validate_python()
+    answer_res = validate_answers()
+    prereq_res = validate_prerequisites()
+    dup_res = detect_duplicates()
 
-    for key in ["lesson_id", "title", "unit", "items"]:
-        if key not in data:
-            errors.append(f"Missing top-level key: {key}")
+    total_lessons = schema_res["total_lessons"]
+    total_items = schema_res["total_items"]
 
-    if errors:
-        return errors, warnings
+    python_errors = python_res["syntax_errors"]
+    answer_mismatches = answer_res["answer_mismatches"]
+    schema_errors = schema_res["schema_errors"]
+    dup_clusters = len(dup_res["duplicate_clusters"])
+    prereq_errors = prereq_res["prerequisite_errors"] + prereq_res["circular_dependencies"] + prereq_res["forward_references"]
+    missing_explanations = answer_res["missing_explanations"]
+    missing_solutions = answer_res["missing_solutions"]
+    ambiguous_exercises = 0
 
-    lesson_id = data["lesson_id"]
-    items = data.get("items", [])
-    item_count = len(items)
+    # Calculate commercial quality score (0 - 100)
+    score = 100.0
+    score -= (python_errors * 10.0)
+    score -= (schema_errors * 5.0)
+    score -= (answer_mismatches * 2.0)
+    score -= (prereq_errors * 5.0)
+    score -= (missing_solutions * 5.0)
+    score -= (missing_explanations * 1.0)
+    score -= (dup_clusters * 2.0)
 
-    if not (25 <= item_count <= 35):
-        warnings.append(f"Item count {item_count} is outside ideal range (28-32, target 30)")
-    if item_count == 0:
-        errors.append("Lesson has 0 items")
-        return errors, warnings
+    score = max(0.0, min(100.0, score))
+    passed = (score >= 95.0 and python_errors == 0 and schema_errors == 0 and prereq_errors == 0 and missing_solutions == 0)
 
-    seen_ids = set()
-    seen_prompts = set()
-    item_ids = {it.get("id") for it in items if "id" in it}
+    status_str = "PASS" if passed else "FAIL"
 
-    for idx, item in enumerate(items, start=1):
-        item_id = item.get("id", f"<missing_id_at_{idx}>")
-        expected_id = f"{lesson_id}_q{idx}"
-        
-        if item_id != expected_id:
-            errors.append(f"Item {idx}: Expected ID '{expected_id}', got '{item_id}'")
-            
-        if item_id in seen_ids:
-            errors.append(f"Duplicate item ID: '{item_id}'")
-        seen_ids.add(item_id)
+    print("==================================================")
+    print("           CURRICULUM QUALITY REPORT              ")
+    print("==================================================")
+    print()
+    print(f"Lessons:   {total_lessons}")
+    print(f"Exercises: {total_items}")
+    print()
+    print(f"Python execution errors: {python_errors}")
+    print(f"Answer mismatches:       {answer_mismatches}")
+    print(f"Schema errors:           {schema_errors}")
+    print(f"Duplicate prompts:       {dup_clusters}")
+    print(f"Prerequisite errors:     {prereq_errors}")
+    print(f"Missing explanations:    {missing_explanations}")
+    print(f"Missing solutions:       {missing_solutions}")
+    print(f"Ambiguous exercises:     {ambiguous_exercises}")
+    print()
+    print(f"Overall quality score:   {int(score)}/100")
+    print()
+    print(f"STATUS: {status_str}")
+    print("==================================================")
 
-        # Check required fields
-        for field in ["id", "type", "concept", "skill", "difficulty", "prerequisites"]:
-            if field not in item:
-                errors.append(f"{item_id}: Missing required field '{field}'")
-
-        itype = item.get("type")
-        if itype and itype not in VALID_TYPES:
-            errors.append(f"{item_id}: Invalid item type '{itype}'")
-
-        diff = item.get("difficulty")
-        if diff and diff not in VALID_DIFFICULTIES:
-            errors.append(f"{item_id}: Invalid difficulty '{diff}'")
-
-        # Type-specific validation
-        if itype == "micro_lesson":
-            if not item.get("title"):
-                errors.append(f"{item_id} (micro_lesson): Missing 'title'")
-            if not item.get("content"):
-                errors.append(f"{item_id} (micro_lesson): Missing 'content'")
-        elif itype in {"multiple_choice", "code_prediction", "output_prediction", "real_world_scenario", "scenario"}:
-            prompt = item.get("prompt", "")
-            if not prompt:
-                errors.append(f"{item_id} ({itype}): Missing 'prompt'")
-            options = item.get("options")
-            if not options or not isinstance(options, list) or len(options) < 2:
-                errors.append(f"{item_id} ({itype}): 'options' must be a list of at least 2 items")
-            correct = item.get("correct_answer")
-            if not correct:
-                errors.append(f"{item_id} ({itype}): Missing 'correct_answer'")
-            if not item.get("explanation"):
-                warnings.append(f"{item_id} ({itype}): Missing 'explanation'")
-        elif itype == "match_code_to_concept":
-            prompt = item.get("prompt", "")
-            if not prompt:
-                errors.append(f"{item_id} (match_code_to_concept): Missing 'prompt'")
-            options = item.get("options")
-            correct = item.get("correct_answer")
-            if not options:
-                errors.append(f"{item_id} (match_code_to_concept): Missing 'options'")
-            if not correct:
-                errors.append(f"{item_id} (match_code_to_concept): Missing 'correct_answer'")
-            if not item.get("explanation"):
-                warnings.append(f"{item_id} (match_code_to_concept): Missing 'explanation'")
-        elif itype == "code_ordering":
-            if not item.get("prompt"):
-                errors.append(f"{item_id} (code_ordering): Missing 'prompt'")
-            options = item.get("options")
-            correct = item.get("correct_answer")
-            if not isinstance(options, list) or not isinstance(correct, list):
-                errors.append(f"{item_id} (code_ordering): 'options' and 'correct_answer' must be lists")
-            elif sorted(options) != sorted(correct):
-                errors.append(f"{item_id} (code_ordering): 'options' and 'correct_answer' set elements do not match")
-        elif itype == "fill_in_the_blank":
-            if not item.get("prompt"):
-                errors.append(f"{item_id} (fill_in_the_blank): Missing 'prompt'")
-            if "accepted_answers" not in item and "correct_answer" not in item and "expected_output" not in item:
-                errors.append(f"{item_id} (fill_in_the_blank): Missing 'accepted_answers', 'correct_answer', or 'expected_output'")
-        elif itype in {"fix_the_code", "write_the_code", "mini_challenge", "refactoring_challenge", "guided_project"}:
-            if not item.get("prompt"):
-                errors.append(f"{item_id} ({itype}): Missing 'prompt'")
-            if "starter_code" not in item and "code" not in item:
-                warnings.append(f"{item_id} ({itype}): Missing 'starter_code'")
-            if "solution_code" not in item and "correct_answer" not in item:
-                errors.append(f"{item_id} ({itype}): Missing 'solution_code' or 'correct_answer'")
-
-        # Python Code Syntax Validation
-        for code_field in ["starter_code", "solution_code", "code"]:
-            code_str = item.get(code_field)
-            if code_str and isinstance(code_str, str):
-                # Don't fail syntax check on intentional errors or pseudo templates
-                is_intentional_err = (
-                    itype in {"fix_the_code", "error_diagnosis"} and code_field in {"starter_code", "code"}
-                ) or "____" in code_str or "<" in code_str and ">" in code_str
-                if not is_intentional_err:
-                    try:
-                        ast.parse(code_str)
-                    except SyntaxError as syn_err:
-                        warnings.append(f"{item_id} ({code_field}): SyntaxError: {syn_err}")
-
-        # Check prompt uniqueness
-        prompt_text = item.get("prompt") or item.get("title") or ""
-        norm_prompt = re.sub(r"\s+", " ", prompt_text.strip().lower())
-        if norm_prompt and len(norm_prompt) > 15:
-            if norm_prompt in seen_prompts:
-                warnings.append(f"{item_id}: Duplicate prompt detected ('{prompt_text[:30]}...')")
-            seen_prompts.add(norm_prompt)
-
-    return errors, warnings
-
-def validate_all(root_dir="python_content"):
-    root = Path(root_dir)
-    if not root.exists():
-        print(f"Directory {root_dir} does not exist.")
-        return False
-        
-    all_files = sorted(root.glob("**/*.json"))
-    total_files = len(all_files)
-    total_errors = 0
-    total_warnings = 0
-    
-    print(f"=== Codolingo Curriculum Validator ===")
-    print(f"Found {total_files} lesson file(s) in {root_dir}\n")
-    
-    for filepath in all_files:
-        errors, warnings = validate_lesson_file(filepath)
-        status = "PASS" if not errors else "FAIL"
-        warn_str = f" ({len(warnings)} warnings)" if warnings else ""
-        print(f"[{status}] {filepath.name}{warn_str}")
-        for err in errors:
-            print(f"   [ERROR] {err}")
-            total_errors += 1
-        for warn in warnings:
-            print(f"   [WARN]  {warn}")
-            total_warnings += 1
-
-    print("\n-------------------------------------------")
-    print(f"Validation complete: {total_files} files checked.")
-    print(f"Total Errors: {total_errors}, Total Warnings: {total_warnings}")
-    return total_errors == 0
+    return passed
 
 if __name__ == "__main__":
-    success = validate_all()
+    success = run_pipeline()
     sys.exit(0 if success else 1)

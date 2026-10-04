@@ -11,7 +11,9 @@
       "difficulty": "easy",
       "prerequisites": [],
       "title": "Designing the Log Parsing Pipeline",
-      "content": "In this micro-lesson, we explore how to architect a Python-based log parsing automation tool. A log file typically contains timestamped entries, severity levels, and messages. The architecture should include: (1) reading the raw log file line by line to avoid memory overload, (2) splitting each line into structured components using delimiters such as ' | ', (3) filtering entries by severity (e.g., 'ERROR', 'WARNING'), and (4) aggregating results into a summary dictionary. Below is a concrete example of the core parsing loop. We open the file in read mode, iterate over each line, strip trailing whitespace, skip empty lines, split on the delimiter, and store valid records. This modular approach makes the system easy to extend later with regex or JSON output.\n\n```python\nlog_path = 'app.log'\nsummary = {}\nwith open(log_path, 'r') as f:\n    for line in f:\n        line = line.strip()\n        if not line:\n            continue\n        parts = line.split(' | ')\n        if len(parts) == 3:\n            timestamp, level, message = parts\n            summary.setdefault(level, []).append({\n                'timestamp': timestamp,\n                'message': message\n            })\nprint('Parsed entries:', len(summary))\n```\n\nKey takeaways: always validate line structure before indexing, use `setdefault` to safely build grouped collections, and prefer streaming file reads for large logs."
+      "content": "In this micro-lesson, we explore how to architect a Python-based log parsing automation tool. A log file typically contains timestamped entries, severity levels, and messages. The architecture should include: (1) reading the raw log file line by line to avoid memory overload, (2) splitting each line into structured components using delimiters such as ' | ', (3) filtering entries by severity (e.g., 'ERROR', 'WARNING'), and (4) aggregating results into a summary dictionary. Below is a concrete example of the core parsing loop. We open the file in read mode, iterate over each line, strip trailing whitespace, skip empty lines, split on the delimiter, and store valid records. This modular approach makes the system easy to extend later with regex or JSON output.\n\n```python\nlog_path = 'app.log'\nsummary = {}\nwith open(log_path, 'r') as f:\n    for line in f:\n        line = line.strip()\n        if not line:\n            continue\n        parts = line.split(' | ')\n        if len(parts) == 3:\n            timestamp, level, message = parts\n            summary.setdefault(level, []).append({\n                'timestamp': timestamp,\n                'message': message\n            })\nprint('Parsed entries:', len(summary))\n```\n\nKey takeaways: always validate line structure before indexing, use `setdefault` to safely build grouped collections, and prefer streaming file reads for large logs.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of project log parsing automation architecture. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "42.1_q2",
@@ -23,7 +25,9 @@
         "42.1_q1"
       ],
       "title": "Choosing Output Formats and Error Handling",
-      "content": "Once parsing is complete, deciding how to present results is critical for automation. Common output formats include plain text summaries, CSV exports, and JSON structures. For a capstone project, JSON is often ideal because it is machine-readable and easy to consume by dashboards or alerting systems. Additionally, robust error handling prevents crashes when malformed lines appear. You should wrap file operations in `try` / `except` blocks to catch `FileNotFoundError` and `IOError`, and log warnings for skipped lines rather than halting execution. Consider adding a configurable delimiter and an optional severity filter so the tool remains reusable across different log sources. The following snippet demonstrates safe JSON serialization of the parsed summary.\n\n```python\nimport json\n\ndef save_summary(summary, out_path):\n    try:\n        with open(out_path, 'w') as f:\n            json.dump(summary, f, indent=2)\n    except IOError as e:\n        print('Failed to write output:', e)\n\nif __name__ == '__main__':\n    summary = {'ERROR': [], 'WARNING': []}\n    save_summary(summary, 'report.json')\n```\n\nRemember: separate parsing logic from output logic, and validate inputs before serialization."
+      "content": "Once parsing is complete, deciding how to present results is critical for automation. Common output formats include plain text summaries, CSV exports, and JSON structures. For a capstone project, JSON is often ideal because it is machine-readable and easy to consume by dashboards or alerting systems. Additionally, robust error handling prevents crashes when malformed lines appear. You should wrap file operations in `try` / `except` blocks to catch `FileNotFoundError` and `IOError`, and log warnings for skipped lines rather than halting execution. Consider adding a configurable delimiter and an optional severity filter so the tool remains reusable across different log sources. The following snippet demonstrates safe JSON serialization of the parsed summary.\n\n```python\nimport json\n\ndef save_summary(summary, out_path):\n    try:\n        with open(out_path, 'w') as f:\n            json.dump(summary, f, indent=2)\n    except IOError as e:\n        print('Failed to write output:', e)\n\nif __name__ == '__main__':\n    summary = {'ERROR': [], 'WARNING': []}\n    save_summary(summary, 'report.json')\n```\n\nRemember: separate parsing logic from output logic, and validate inputs before serialization.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of project log parsing automation architecture. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "42.1_q3",
@@ -116,11 +120,11 @@
       "prerequisites": [
         "42.1_q6"
       ],
-      "prompt": "Debug Challenge 7: Fix the capitalization error in this line for Project Log Parsing Automation Module Bugfix:",
-      "starter_code": "Print('Project: Log Parsing Automation Item 7')",
-      "solution_code": "print('Project: Log Parsing Automation Item 7')",
+      "prompt": "In the Log Parsing Automation project, parse the timestamp and severity level from an Apache/Nginx log line:",
+      "starter_code": "line = '2026-10-04 12:00:00 [ERROR] Connection timeout'\nparts = line.split(' ')\ntimestamp = f'{parts[0]} {parts[1]}'\nseverity = parts[2].strip('___')",
+      "solution_code": "line = '2026-10-04 12:00:00 [ERROR] Connection timeout'\nparts = line.split(' ')\ntimestamp = f'{parts[0]} {parts[1]}'\nseverity = parts[2].strip('[]')",
       "hint": "Python built-in functions like print() must be written in lowercase.",
-      "explanation": "Built-in function names in Python are case-sensitive and require lowercase."
+      "explanation": "`.strip('[]')` strips both opening and closing square brackets from around the severity tag."
     },
     {
       "id": "42.1_q8",
@@ -131,11 +135,11 @@
       "prerequisites": [
         "42.1_q7"
       ],
-      "prompt": "Debug Challenge 8: Fix the capitalization error in this line for Project Log Parsing Automation Module Bugfix:",
-      "starter_code": "Print('Project: Log Parsing Automation Item 8')",
-      "solution_code": "print('Project: Log Parsing Automation Item 8')",
+      "prompt": "In the Log Parsing Automation project, filter a list of log entries to extract only entries where level is 'ERROR':",
+      "starter_code": "def filter_errors(logs):\n    return [log for log in logs if log['level'] == '___']",
+      "solution_code": "def filter_errors(logs):\n    return [log for log in logs if log['level'] == 'ERROR']",
       "hint": "Python built-in functions like print() must be written in lowercase.",
-      "explanation": "Built-in function names in Python are case-sensitive and require lowercase."
+      "explanation": "A list comprehension filters the logs matching `'level' == 'ERROR'`."
     },
     {
       "id": "42.1_q9",
@@ -146,11 +150,11 @@
       "prerequisites": [
         "42.1_q8"
       ],
-      "prompt": "Debug Challenge 9: Fix the capitalization error in this line for Project Log Parsing Automation Module Bugfix:",
-      "starter_code": "Print('Project: Log Parsing Automation Item 9')",
-      "solution_code": "print('Project: Log Parsing Automation Item 9')",
+      "prompt": "In the Log Parsing Automation project, count the frequency of each HTTP status code in a list of parsed log dictionaries:",
+      "starter_code": "def count_statuses(logs):\n    counts = {}\n    for entry in logs:\n        code = entry['status']\n        counts[code] = counts.get(code, 0) + 1\n    return counts",
+      "solution_code": "def count_statuses(logs):\n    counts = {}\n    for entry in logs:\n        code = entry['status']\n        counts[code] = counts.get(code, 0) + 1\n    return counts",
       "hint": "Python built-in functions like print() must be written in lowercase.",
-      "explanation": "Built-in function names in Python are case-sensitive and require lowercase."
+      "explanation": "`counts.get(code, 0) + 1` increments the tally for the status code, defaulting to 0 if not yet present."
     },
     {
       "id": "42.1_q10",
@@ -161,11 +165,11 @@
       "prerequisites": [
         "42.1_q9"
       ],
-      "prompt": "Debug Challenge 10: Fix the capitalization error in this line for Project Log Parsing Automation Module Bugfix:",
-      "starter_code": "Print('Project: Log Parsing Automation Item 10')",
-      "solution_code": "print('Project: Log Parsing Automation Item 10')",
+      "prompt": "In the Log Parsing Automation project, extract all IP addresses matching IPv4 format from a raw log line:",
+      "starter_code": "import re\ndef extract_ips(line):\n    return re.findall(r'\\b(?:\\d{1,3}\\.){3}\\d{1,3}\\b', line)",
+      "solution_code": "import re\ndef extract_ips(line):\n    return re.findall(r'\\b(?:\\d{1,3}\\.){3}\\d{1,3}\\b', line)",
       "hint": "Python built-in functions like print() must be written in lowercase.",
-      "explanation": "Built-in function names in Python are case-sensitive and require lowercase."
+      "explanation": "Regular expression `\\b(?:\\d{1,3}\\.){3}\\d{1,3}\\b` matches IPv4 dotted-decimal octets."
     },
     {
       "id": "42.1_q11",
@@ -176,11 +180,11 @@
       "prerequisites": [
         "42.1_q10"
       ],
-      "prompt": "Debug Challenge 11: Fix the capitalization error in this line for Project Log Parsing Automation Module Bugfix:",
-      "starter_code": "Print('Project: Log Parsing Automation Item 11')",
-      "solution_code": "print('Project: Log Parsing Automation Item 11')",
+      "prompt": "In the Log Parsing Automation project, sort top 5 IP addresses by visit frequency in descending order:",
+      "starter_code": "def top_ips(ip_counts):\n    return sorted(ip_counts.items(), key=lambda x: x[1], reverse=True)[:5]",
+      "solution_code": "def top_ips(ip_counts):\n    return sorted(ip_counts.items(), key=lambda x: x[1], reverse=True)[:5]",
       "hint": "Python built-in functions like print() must be written in lowercase.",
-      "explanation": "Built-in function names in Python are case-sensitive and require lowercase."
+      "explanation": "`reverse=True` orders the key-value frequency pairs from highest count to lowest."
     },
     {
       "id": "42.1_q12",
@@ -191,11 +195,11 @@
       "prerequisites": [
         "42.1_q11"
       ],
-      "prompt": "Debug Challenge 12: Fix the capitalization error in this line for Project Log Parsing Automation Module Bugfix:",
-      "starter_code": "Print('Project: Log Parsing Automation Item 12')",
-      "solution_code": "print('Project: Log Parsing Automation Item 12')",
+      "prompt": "In the Log Parsing Automation project, write structured log summary statistics to a JSON report file:",
+      "starter_code": "import json\ndef save_summary(stats, filepath):\n    with open(filepath, 'w') as f:\n        json.dump(stats, f, indent=2)",
+      "solution_code": "import json\ndef save_summary(stats, filepath):\n    with open(filepath, 'w') as f:\n        json.dump(stats, f, indent=2)",
       "hint": "Python built-in functions like print() must be written in lowercase.",
-      "explanation": "Built-in function names in Python are case-sensitive and require lowercase."
+      "explanation": "`json.dump(stats, f, indent=2)` serializes the summary dictionary into formatted JSON on disk."
     },
     {
       "id": "42.1_q13",
@@ -206,12 +210,12 @@
       "prerequisites": [
         "42.1_q12"
       ],
-      "prompt": "Fill Blank 13: Complete the code to output 'Project: Log Parsing Automation #13':\n```python\n___('Project: Log Parsing Automation #13')\n```",
+      "prompt": "Complete the code to output 'Project: Log Parsing Automation #13':\n```python\n___('Project: Log Parsing Automation #13')\n```",
       "correct_answer": "print",
       "accepted_answers": [
         "print"
       ],
-      "explanation": "The built-in print() function outputs the specified string."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of project log parsing automation module wiring. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "42.1_q14",
@@ -222,12 +226,12 @@
       "prerequisites": [
         "42.1_q13"
       ],
-      "prompt": "Fill Blank 14: Complete the code to output 'Project: Log Parsing Automation #14':\n```python\n___('Project: Log Parsing Automation #14')\n```",
+      "prompt": "Complete the code to output 'Project: Log Parsing Automation #14':\n```python\n___('Project: Log Parsing Automation #14')\n```",
       "correct_answer": "print",
       "accepted_answers": [
         "print"
       ],
-      "explanation": "The built-in print() function outputs the specified string."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of project log parsing automation module wiring. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "42.1_q15",
@@ -238,12 +242,12 @@
       "prerequisites": [
         "42.1_q14"
       ],
-      "prompt": "Fill Blank 15: Complete the code to output 'Project: Log Parsing Automation #15':\n```python\n___('Project: Log Parsing Automation #15')\n```",
+      "prompt": "Complete the code to output 'Project: Log Parsing Automation #15':\n```python\n___('Project: Log Parsing Automation #15')\n```",
       "correct_answer": "print",
       "accepted_answers": [
         "print"
       ],
-      "explanation": "The built-in print() function outputs the specified string."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of project log parsing automation module wiring. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "42.1_q16",
@@ -254,12 +258,12 @@
       "prerequisites": [
         "42.1_q15"
       ],
-      "prompt": "Fill Blank 16: Complete the code to output 'Project: Log Parsing Automation #16':\n```python\n___('Project: Log Parsing Automation #16')\n```",
+      "prompt": "Complete the code to output 'Project: Log Parsing Automation #16':\n```python\n___('Project: Log Parsing Automation #16')\n```",
       "correct_answer": "print",
       "accepted_answers": [
         "print"
       ],
-      "explanation": "The built-in print() function outputs the specified string."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of project log parsing automation module wiring. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "42.1_q17",
@@ -270,12 +274,12 @@
       "prerequisites": [
         "42.1_q16"
       ],
-      "prompt": "Fill Blank 17: Complete the code to output 'Project: Log Parsing Automation #17':\n```python\n___('Project: Log Parsing Automation #17')\n```",
+      "prompt": "Complete the code to output 'Project: Log Parsing Automation #17':\n```python\n___('Project: Log Parsing Automation #17')\n```",
       "correct_answer": "print",
       "accepted_answers": [
         "print"
       ],
-      "explanation": "The built-in print() function outputs the specified string."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of project log parsing automation module wiring. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "42.1_q18",
@@ -286,12 +290,12 @@
       "prerequisites": [
         "42.1_q17"
       ],
-      "prompt": "Fill Blank 18: Complete the code to output 'Project: Log Parsing Automation #18':\n```python\n___('Project: Log Parsing Automation #18')\n```",
+      "prompt": "Complete the code to output 'Project: Log Parsing Automation #18':\n```python\n___('Project: Log Parsing Automation #18')\n```",
       "correct_answer": "print",
       "accepted_answers": [
         "print"
       ],
-      "explanation": "The built-in print() function outputs the specified string."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of project log parsing automation module wiring. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "42.1_q19",
@@ -725,5 +729,15 @@
       "hint": "Use tempfile.NamedTemporaryFile to create isolated test files. Clean up with tearDown. Test parsing, filtering, export, and CLI invocation separately.",
       "explanation": "This final extension ensures reliability through automated testing. The solution validates correct entry counts, date-range filtering, JSON export integrity, and CLI execution using subprocess. It exemplifies test-driven maintenance for production-grade automation scripts."
     }
+  ],
+  "unit_num": 42,
+  "learning_objectives": [
+    "Architect a complete multi-step application for Project: Log Parsing Automation",
+    "Decompose problem requirements into modular functions and classes",
+    "Implement defensive error handling and input validation",
+    "Verify application correctness against comprehensive test cases"
+  ],
+  "prerequisites": [
+    "41.7"
   ]
 }

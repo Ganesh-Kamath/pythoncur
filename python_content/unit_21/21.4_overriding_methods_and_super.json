@@ -11,7 +11,9 @@
       "difficulty": "easy",
       "prerequisites": [],
       "title": "What is Method Overriding and super()",
-      "content": "In object-oriented programming, a child class can provide its own implementation of a method that already exists in its parent class. This is called method overriding. When the child class redefines a method, calling it on a child instance executes the child's version, not the parent's. Sometimes the child needs to reuse the parent's original behavior. Python provides the built-in function super() to access parent class methods. super() returns a temporary object of the parent class, allowing you to call parent methods explicitly. For example, if a parent class Animal has a speak() method and a child class Dog overrides it, Dog can call super().speak() inside its own speak() to reuse the parent logic before adding dog-specific behavior."
+      "content": "In object-oriented programming, a child class can provide its own implementation of a method that already exists in its parent class. This is called method overriding. When the child class redefines a method, calling it on a child instance executes the child's version, not the parent's. Sometimes the child needs to reuse the parent's original behavior. Python provides the built-in function super() to access parent class methods. super() returns a temporary object of the parent class, allowing you to call parent methods explicitly. For example, if a parent class Animal has a speak() method and a child class Dog overrides it, Dog can call super().speak() inside its own speak() to reuse the parent logic before adding dog-specific behavior.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of overriding methods and super basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "21.4_q2",
@@ -42,7 +44,9 @@
         "21.4_q2"
       ],
       "title": "Using super() Syntax Correctly",
-      "content": "To call a parent method from a child class, use super() followed by a dot and the method name. The syntax is super().method_name(). Inside an instance method, super() without arguments automatically refers to the parent class in the method resolution order. For example, consider this code:\n\n```python\nclass Vehicle:\n    def start(self):\n        print('Vehicle starting')\n\nclass Car(Vehicle):\n    def start(self):\n        super().start()\n        print('Car engine running')\n\nmy_car = Car()\nmy_car.start()\n```\n\nWhen my_car.start() is called, the Car.start() method runs first, then super().start() executes the Vehicle.start() method. This pattern lets you extend parent behavior instead of completely replacing it."
+      "content": "To call a parent method from a child class, use super() followed by a dot and the method name. The syntax is super().method_name(). Inside an instance method, super() without arguments automatically refers to the parent class in the method resolution order. For example, consider this code:\n\n```python\nclass Vehicle:\n    def start(self):\n        print('Vehicle starting')\n\nclass Car(Vehicle):\n    def start(self):\n        super().start()\n        print('Car engine running')\n\nmy_car = Car()\nmy_car.start()\n```\n\nWhen my_car.start() is called, the Car.start() method runs first, then super().start() executes the Vehicle.start() method. This pattern lets you extend parent behavior instead of completely replacing it.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of overriding methods and super syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "21.4_q4",
@@ -387,7 +391,7 @@
       "prompt": "Fix the bug in this code for overriding methods and super errors:",
       "starter_code": "# Fix this code\nPrint('Overriding Methods and super()')",
       "solution_code": "print('Overriding Methods and super()')",
-      "explanation": "Python identifiers and built-ins are case-sensitive."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of overriding methods and super errors. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "idx": 20,
@@ -438,7 +442,7 @@
       "prompt": "Fix the bug in this code for overriding methods and super runtime:",
       "starter_code": "# Fix this code\nPrint('Overriding Methods and super()')",
       "solution_code": "print('Overriding Methods and super()')",
-      "explanation": "Python identifiers and built-ins are case-sensitive."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of overriding methods and super runtime. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "idx": 23,
@@ -610,5 +614,15 @@
         "21.4_q29"
       ]
     }
+  ],
+  "unit_num": 21,
+  "learning_objectives": [
+    "Explain the technical concepts and mechanics of Overriding s and super()",
+    "Apply idiomatic Python patterns when working with Overriding s and super()",
+    "Debug common runtime exceptions and logic errors associated with Overriding s and super()",
+    "Implement production-ready code utilizing Overriding s and super()"
+  ],
+  "prerequisites": [
+    "21.3"
   ]
 }

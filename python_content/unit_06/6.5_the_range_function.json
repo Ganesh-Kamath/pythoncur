@@ -11,7 +11,9 @@
       "difficulty": "easy",
       "prerequisites": [],
       "title": "What is range()?",
-      "content": "The range() function generates a sequence of numbers. It is commonly used with a for loop to repeat an action a specific number of times. By default, range(stop) starts at 0 and ends just before stop. For example, range(5) produces 0, 1, 2, 3, 4. This makes it ideal for looping a fixed number of times without needing to count manually."
+      "content": "The range() function generates a sequence of numbers. It is commonly used with a for loop to repeat an action a specific number of times. By default, range(stop) starts at 0 and ends just before stop. For example, range(5) produces 0, 1, 2, 3, 4. This makes it ideal for looping a fixed number of times without needing to count manually.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of the range function basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "6.5_q2",
@@ -42,7 +44,9 @@
         "6.5_q2"
       ],
       "title": "range() Syntax",
-      "content": "range() can be called with one, two, or three arguments. range(stop) starts at 0. range(start, stop) starts at start and ends before stop. range(start, stop, step) starts at start and increases by step each time. Remember that the stop value is not included in the sequence. Here is an example:\n\n```python\nfor i in range(2, 8, 2):\n    print(i)\n```\n\nThis prints 2, 4, and 6 because the loop starts at 2 and stops before reaching 8, stepping by 2 each time."
+      "content": "range() can be called with one, two, or three arguments. range(stop) starts at 0. range(start, stop) starts at start and ends before stop. range(start, stop, step) starts at start and increases by step each time. Remember that the stop value is not included in the sequence. Here is an example:\n\n```python\nfor i in range(2, 8, 2):\n    print(i)\n```\n\nThis prints 2, 4, and 6 because the loop starts at 2 and stops before reaching 8, stepping by 2 each time.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of the range function syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "6.5_q4",
@@ -598,5 +602,15 @@
       "hint": "Consider how the step argument can eliminate the need for an if statement inside the loop.",
       "explanation": "Using range(2, 21, 2) directly generates even numbers by starting at 2 and stepping by 2. This is more efficient than filtering with a modulo operation inside the loop."
     }
+  ],
+  "unit_num": 6,
+  "learning_objectives": [
+    "Explain the technical concepts and mechanics of range()",
+    "Apply idiomatic Python patterns when working with range()",
+    "Debug common runtime exceptions and logic errors associated with range()",
+    "Implement production-ready code utilizing range()"
+  ],
+  "prerequisites": [
+    "6.4"
   ]
 }

@@ -12,7 +12,9 @@
       "title": "What is requirements.txt?",
       "content": "The requirements.txt file is a plain-text file used to declare Python packages that a project depends on. It allows anyone to recreate the same environment by installing exactly those packages. When you share a project, including this file ensures that collaborators can run your code without missing libraries. The file is read by the pip package installer using the command: pip install -r requirements.txt. This centralizes dependency management and avoids version conflicts.",
       "difficulty": "easy",
-      "prerequisites": []
+      "prerequisites": [],
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of managing dependencies with requirementstxt basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "17.7_q2",
@@ -45,7 +47,9 @@
       "difficulty": "easy",
       "prerequisites": [
         "17.7_q2"
-      ]
+      ],
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of managing dependencies with requirementstxt syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "17.7_q4",
@@ -379,7 +383,7 @@
       "prompt": "The following script fails because a required package is missing from requirements.txt. Fix the requirements.txt so the script runs successfully.",
       "starter_code": "import json\n\n# requirements.txt (incomplete)\nwith open('requirements.txt', 'w') as f:\n    f.write('flask==2.0.0\\n')\n\n# This script uses the 'requests' library\nimport requests\n\nresponse = requests.get('https://api.github.com')\nprint('Status:', response.status_code)",
       "solution_code": "print('Managing Dependencies with requirements.txt')",
-      "explanation": "Python identifiers and built-ins are case-sensitive."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of managing dependencies with requirementstxt fix. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "17.7_q21",
@@ -583,5 +587,15 @@
       "hint": "Use shutil.move for atomic rollback; wrap installation in try/finally to ensure cleanup.",
       "explanation": "This mastery item combines automation, security auditing, and fault tolerance\u2014key competencies for maintaining production-grade Python projects."
     }
+  ],
+  "unit_num": 17,
+  "learning_objectives": [
+    "Explain the technical concepts and mechanics of Managing Dependencies with requirements.txt",
+    "Apply idiomatic Python patterns when working with Managing Dependencies with requirements.txt",
+    "Debug common runtime exceptions and logic errors associated with Managing Dependencies with requirements.txt",
+    "Implement production-ready code utilizing Managing Dependencies with requirements.txt"
+  ],
+  "prerequisites": [
+    "17.6"
   ]
 }

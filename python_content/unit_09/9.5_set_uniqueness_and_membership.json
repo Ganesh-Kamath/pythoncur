@@ -12,7 +12,9 @@
       "diff": "easy",
       "concept": "set_uniqueness_and_membership_basics",
       "prerequisites": [],
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of set uniqueness and membership basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "9.5_q2",
@@ -46,7 +48,9 @@
       "prerequisites": [
         "9.5_q2"
       ],
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of set uniqueness and membership syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "9.5_q4",
@@ -402,7 +406,7 @@
       "prompt": "Fix the bug in this code for set uniqueness and membership errors:",
       "starter_code": "# Fix this code\nPrint('Set Uniqueness and Membership')",
       "solution_code": "print('Set Uniqueness and Membership')",
-      "explanation": "Python identifiers and built-ins are case-sensitive."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of set uniqueness and membership errors. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "9.5_q20",
@@ -450,7 +454,7 @@
       "prompt": "Fix the bug in this code for set uniqueness and membership runtime:",
       "starter_code": "# Fix this code\nPrint('Set Uniqueness and Membership')",
       "solution_code": "print('Set Uniqueness and Membership')",
-      "explanation": "Python identifiers and built-ins are case-sensitive."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of set uniqueness and membership runtime. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "9.5_q23",
@@ -616,5 +620,15 @@
       "hint": "Iterate through the tuple, unpack each pair, check x-membership in the forbidden set, and accumulate y-values in a set to guarantee uniqueness.",
       "explanation": "Mastery here requires coordinating tuple unpacking, set membership for filtering, and set insertion for uniqueness. Duplicate coordinates are naturally collapsed by the output set, and the algorithm remains O(n) where n is the number of coordinate pairs."
     }
+  ],
+  "unit_num": 9,
+  "learning_objectives": [
+    "Initialize and manipulate Python Set Uniqueness and Membership collections",
+    "Access elements efficiently using keys, indices, or membership tests",
+    "Distinguish between mutable and immutable data behaviors",
+    "Select the optimal data structure to represent structured data"
+  ],
+  "prerequisites": [
+    "9.4"
   ]
 }

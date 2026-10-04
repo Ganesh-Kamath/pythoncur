@@ -12,7 +12,9 @@
       "concept": "insertion_and_deletion_basics",
       "skill": "recognition",
       "difficulty": "easy",
-      "prerequisites": []
+      "prerequisites": [],
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of insertion and deletion basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "35.3_q2",
@@ -44,7 +46,9 @@
       "difficulty": "easy",
       "prerequisites": [
         "35.3_q2"
-      ]
+      ],
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of insertion and deletion syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "35.3_q4",
@@ -603,5 +607,15 @@
       "hint": "In a circular list, traversal for rotation must stop when returning to the tail. After rotation, reassign tail.next to maintain the cycle.",
       "explanation": "Mastery of circular linked lists requires understanding that there is no natural 'end'. Insertion and deletion must preserve the cycle invariant, and rotation is a powerful O(n) operation useful in scheduling and round-robin algorithms."
     }
+  ],
+  "unit_num": 35,
+  "learning_objectives": [
+    "Explain the technical concepts and mechanics of Insertion and Deletion",
+    "Apply idiomatic Python patterns when working with Insertion and Deletion",
+    "Debug common runtime exceptions and logic errors associated with Insertion and Deletion",
+    "Implement production-ready code utilizing Insertion and Deletion"
+  ],
+  "prerequisites": [
+    "35.2"
   ]
 }

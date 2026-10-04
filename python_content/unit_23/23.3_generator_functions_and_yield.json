@@ -11,7 +11,9 @@
       "concept": "generator_functions_and_yield_basics",
       "title": "What is a Generator Function?",
       "content": "A generator function is a special kind of function that produces a sequence of values lazily, one at a time, instead of computing them all at once and returning a list. You create a generator function by using the yield keyword inside it. When the function is called, it does not run the code immediately; instead, it returns a generator object. The code inside the generator only executes when you ask for the next value using next() or by iterating over it with a for loop. This makes generators memory-efficient for large or infinite sequences.\n\nHere is a simple example:\n\n```python\ndef count_up_to(n):\n    i = 0\n    while i < n:\n        yield i\n        i += 1\n\ngen = count_up_to(3)\nprint(next(gen))  # 0\nprint(next(gen))  # 1\nprint(next(gen))  # 2\n```\n\nNotice that yield pauses the function, remembers its state, and resumes when next() is called again. This is the core idea behind generators.",
-      "skill": "recognition"
+      "skill": "recognition",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of generator functions and yield basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "23.3_q2",
@@ -42,7 +44,9 @@
       "concept": "generator_functions_and_yield_syntax",
       "title": "Syntax of yield and return",
       "content": "The yield keyword is used inside a generator function to send a value out and pause execution. A generator function can contain multiple yield statements, each producing a value in sequence. Unlike return, which exits a function entirely, yield suspends the function and keeps local variables alive. When the generator is exhausted, it raises StopIteration automatically. You can also use return in a generator to provide a final value via the StopIteration exception's value attribute, though this is less common in basic usage.\n\nBasic syntax:\n\n```python\ndef my_generator():\n    yield 10\n    yield 20\n    yield 30\n```\n\nWhen iterated:\n\n```python\nfor value in my_generator():\n    print(value)\n```\n\nOutput:\n\n```\n10\n20\n30\n```\n\nRemember: yield is not the same as return. return ends the function; yield pauses it.",
-      "skill": "understanding"
+      "skill": "understanding",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of generator functions and yield syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "23.3_q4",
@@ -485,7 +489,7 @@
       "prerequisites": [
         "23.3_q24"
       ],
-      "prompt": "Coding Challenge 25: Write a statement that prints 'Generator s and yield Result 25' to standard output.",
+      "prompt": "Write a statement that prints 'Generator s and yield Result 25' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Generator s and yield Result 25')",
       "test_cases": [
@@ -495,7 +499,7 @@
         }
       ],
       "hint": "Use print('Generator s and yield Result 25') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of generator functions and yield implementation. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "23.3_q26",
@@ -506,7 +510,7 @@
       "prerequisites": [
         "23.3_q25"
       ],
-      "prompt": "Coding Challenge 26: Write a statement that prints 'Generator s and yield Result 26' to standard output.",
+      "prompt": "Write a statement that prints 'Generator s and yield Result 26' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Generator s and yield Result 26')",
       "test_cases": [
@@ -516,7 +520,7 @@
         }
       ],
       "hint": "Use print('Generator s and yield Result 26') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of generator functions and yield practical. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "23.3_q27",
@@ -527,7 +531,7 @@
       "prerequisites": [
         "23.3_q26"
       ],
-      "prompt": "Coding Challenge 27: Write a statement that prints 'Generator s and yield Result 27' to standard output.",
+      "prompt": "Write a statement that prints 'Generator s and yield Result 27' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Generator s and yield Result 27')",
       "test_cases": [
@@ -537,7 +541,7 @@
         }
       ],
       "hint": "Use print('Generator s and yield Result 27') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of generator functions and yield advanced. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "23.3_q28",
@@ -548,7 +552,7 @@
       "prerequisites": [
         "23.3_q27"
       ],
-      "prompt": "Coding Challenge 28: Write a statement that prints 'Generator s and yield Result 28' to standard output.",
+      "prompt": "Write a statement that prints 'Generator s and yield Result 28' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Generator s and yield Result 28')",
       "test_cases": [
@@ -558,7 +562,7 @@
         }
       ],
       "hint": "Use print('Generator s and yield Result 28') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of generator functions and yield challenge. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "23.3_q29",
@@ -569,7 +573,7 @@
       "prerequisites": [
         "23.3_q28"
       ],
-      "prompt": "Coding Challenge 29: Write a statement that prints 'Generator s and yield Result 29' to standard output.",
+      "prompt": "Write a statement that prints 'Generator s and yield Result 29' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Generator s and yield Result 29')",
       "test_cases": [
@@ -579,7 +583,7 @@
         }
       ],
       "hint": "Use print('Generator s and yield Result 29') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of generator functions and yield scenario. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "23.3_q30",
@@ -590,7 +594,7 @@
       "prerequisites": [
         "23.3_q29"
       ],
-      "prompt": "Coding Challenge 30: Write a statement that prints 'Generator s and yield Result 30' to standard output.",
+      "prompt": "Write a statement that prints 'Generator s and yield Result 30' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Generator s and yield Result 30')",
       "test_cases": [
@@ -600,7 +604,17 @@
         }
       ],
       "hint": "Use print('Generator s and yield Result 30') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of generator functions and yield mastery. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     }
+  ],
+  "unit_num": 23,
+  "learning_objectives": [
+    "Explain the technical concepts and mechanics of Generator s and yield",
+    "Apply idiomatic Python patterns when working with Generator s and yield",
+    "Debug common runtime exceptions and logic errors associated with Generator s and yield",
+    "Implement production-ready code utilizing Generator s and yield"
+  ],
+  "prerequisites": [
+    "23.2"
   ]
 }

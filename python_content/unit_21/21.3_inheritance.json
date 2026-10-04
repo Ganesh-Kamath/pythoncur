@@ -11,7 +11,9 @@
       "difficulty": "easy",
       "prerequisites": [],
       "title": "What Is Inheritance?",
-      "content": "Inheritance is a core principle of object-oriented programming that allows a new class to reuse, extend, and modify the behavior of an existing class. The existing class is called the parent (or base) class, and the new class is called the child (or derived) class. In Python, you create a child class by placing the parent class name in parentheses after the child class name. This lets the child class automatically gain the attributes and methods of the parent class without rewriting them. Inheritance promotes code reuse and establishes a natural hierarchy between related concepts. For example, if you have a class Animal with a method speak(), a class Dog can inherit from Animal and reuse that method while adding its own bark() method."
+      "content": "Inheritance is a core principle of object-oriented programming that allows a new class to reuse, extend, and modify the behavior of an existing class. The existing class is called the parent (or base) class, and the new class is called the child (or derived) class. In Python, you create a child class by placing the parent class name in parentheses after the child class name. This lets the child class automatically gain the attributes and methods of the parent class without rewriting them. Inheritance promotes code reuse and establishes a natural hierarchy between related concepts. For example, if you have a class Animal with a method speak(), a class Dog can inherit from Animal and reuse that method while adding its own bark() method.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of inheritance basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "21.3_q2",
@@ -42,7 +44,9 @@
         "21.3_q2"
       ],
       "title": "Inheritance Syntax in Python",
-      "content": "To declare inheritance in Python, write the child class name followed by a parent class name in parentheses. The general syntax is: class ChildClassName(ParentClassName):. You can also inherit from multiple parent classes by listing them separated with commas, such as class Child(ParentA, ParentB):. Inside the child class, you can access parent attributes and methods directly. If the child defines a method with the same name as a parent method, it overrides the parent's version. Here is a simple example:\n\nclass Vehicle:\n    def start_engine(self):\n        print('engine started')\n\nclass Car(Vehicle):\n    def honk(self):\n        print('beep')\n\nc = Car()\nc.start_engine()  # inherited from Vehicle\nc.honk()          # defined in Car"
+      "content": "To declare inheritance in Python, write the child class name followed by a parent class name in parentheses. The general syntax is: class ChildClassName(ParentClassName):. You can also inherit from multiple parent classes by listing them separated with commas, such as class Child(ParentA, ParentB):. Inside the child class, you can access parent attributes and methods directly. If the child defines a method with the same name as a parent method, it overrides the parent's version. Here is a simple example:\n\nclass Vehicle:\n    def start_engine(self):\n        print('engine started')\n\nclass Car(Vehicle):\n    def honk(self):\n        print('beep')\n\nc = Car()\nc.start_engine()  # inherited from Vehicle\nc.honk()          # defined in Car",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of inheritance syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "21.3_q4",
@@ -409,7 +413,7 @@
       "prompt": "Fix the bug in this code for inheritance errors:",
       "starter_code": "# Fix this code\nPrint('Inheritance')",
       "solution_code": "print('Inheritance')",
-      "explanation": "Python identifiers and built-ins are case-sensitive."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of inheritance errors. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "21.3_q20",
@@ -457,7 +461,7 @@
       "prompt": "Fix the bug in this code for inheritance runtime:",
       "starter_code": "# Fix this code\nPrint('Inheritance')",
       "solution_code": "print('Inheritance')",
-      "explanation": "Python identifiers and built-ins are case-sensitive."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of inheritance runtime. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "21.3_q23",
@@ -654,5 +658,15 @@
       "hint": "Name mangling hides __salary as _ClassName__salary. Use @property for computed read-only access.",
       "explanation": "Mastery of inheritance includes controlling access with encapsulation, exposing computed data safely, and customizing object representation through dunder methods."
     }
+  ],
+  "unit_num": 21,
+  "learning_objectives": [
+    "Design and instantiate Python classes demonstrating Inheritance",
+    "Manage instance state using the __init__ constructor and self",
+    "Implement object-oriented principles including encapsulation and inheritance",
+    "Structure modular programs using classes and composition"
+  ],
+  "prerequisites": [
+    "21.2"
   ]
 }

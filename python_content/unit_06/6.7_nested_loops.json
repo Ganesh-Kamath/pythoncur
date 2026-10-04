@@ -11,26 +11,28 @@
       "difficulty": "easy",
       "prerequisites": [],
       "title": "Nested Loops Part 1: Nested Loops Basics",
-      "content": "In Python, **Nested Loops Basics** provides essential rules when working with nested loops.\n\nUnderstanding how `nested_loops_basics` functions in practice enables you to write clean, unambiguous code.\n\n```python\n# Step 1: nested_loops_basics\nstage_1 = True\n```"
+      "content": "In Python, **Nested Loops Basics** provides essential rules when working with nested loops.\n\nUnderstanding how `nested_loops_basics` functions in practice enables you to write clean, unambiguous code.\n\n```python\n# Step 1: nested_loops_basics\nstage_1 = True\n```",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of nested loops basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "6.7_q2",
-      "type": "multiple_choice",
+      "type": "output_prediction",
       "concept": "nested_loops_basics",
       "skill": "recall",
       "difficulty": "easy",
       "prerequisites": [
         "6.7_q1"
       ],
-      "prompt": "Review 2: What is the primary characteristic of Nested Loops Basics in Nested Loops?",
+      "prompt": "Consider the following Python snippet demonstrating Nested Loops Basics:\n\n```python\ndef calculate_2(value):\n    base = 8\n    return base + value * 11\n\nresult = calculate_2(2)\nprint(result)\n```\n\nWhat is the value printed to the console?",
       "options": [
-        "A. It defines specific rules for nested loops basics in Python programs",
-        "B. It forces hardware clock speeds to double automatically",
-        "C. It permanently deletes system configuration records",
-        "D. It removes the need for syntax parsing completely"
+        "30",
+        "19",
+        "110",
+        "TypeError"
       ],
-      "correct_answer": "A",
-      "explanation": "Nested Loops Basics defines specific semantics for nested loops basics in Python programs."
+      "correct_answer": "30",
+      "explanation": "Python evaluates arithmetic following standard operator precedence (multiplication before addition). First, `value * 11` evaluates to `2 * 11 = 22`. Then, adding `base` (8) yields `30`. The function returns this integer and `print()` outputs it."
     },
     {
       "id": "6.7_q3",
@@ -42,113 +44,115 @@
         "6.7_q2"
       ],
       "title": "Nested Loops Part 3: Nested Loops Syntax",
-      "content": "In Python, **Nested Loops Syntax** provides essential rules when working with nested loops.\n\nUnderstanding how `nested_loops_syntax` functions in practice enables you to write clean, unambiguous code.\n\n```python\n# Step 3: nested_loops_syntax\nstage_3 = True\n```"
+      "content": "In Python, **Nested Loops Syntax** provides essential rules when working with nested loops.\n\nUnderstanding how `nested_loops_syntax` functions in practice enables you to write clean, unambiguous code.\n\n```python\n# Step 3: nested_loops_syntax\nstage_3 = True\n```",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of nested loops syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "6.7_q4",
-      "type": "multiple_choice",
+      "type": "output_prediction",
       "concept": "nested_loops_syntax",
       "skill": "reasoning",
       "difficulty": "easy",
       "prerequisites": [
         "6.7_q3"
       ],
-      "prompt": "Review 4: What is the primary characteristic of Nested Loops Syntax in Nested Loops?",
+      "prompt": "Consider the following Python snippet demonstrating Nested Loops Syntax:\n\n```python\ndef calculate_4(value):\n    base = 14\n    return base + value * 6\n\nresult = calculate_4(2)\nprint(result)\n```\n\nWhat is the value printed to the console?",
       "options": [
-        "A. It defines specific rules for nested loops syntax in Python programs",
-        "B. It forces hardware clock speeds to double automatically",
-        "C. It permanently deletes system configuration records",
-        "D. It removes the need for syntax parsing completely"
+        "26",
+        "20",
+        "96",
+        "TypeError"
       ],
-      "correct_answer": "A",
-      "explanation": "Nested Loops Syntax defines specific semantics for nested loops syntax in Python programs."
+      "correct_answer": "26",
+      "explanation": "Python evaluates arithmetic following standard operator precedence (multiplication before addition). First, `value * 6` evaluates to `2 * 6 = 12`. Then, adding `base` (14) yields `26`. The function returns this integer and `print()` outputs it."
     },
     {
       "id": "6.7_q5",
-      "type": "multiple_choice",
+      "type": "output_prediction",
       "concept": "nested_loops_matching",
       "skill": "recognition",
       "difficulty": "easy",
       "prerequisites": [
         "6.7_q4"
       ],
-      "prompt": "Review 5: What is the primary characteristic of Nested Loops Matching in Nested Loops?",
+      "prompt": "Consider the following Python snippet demonstrating Nested Loops Matching:\n\n```python\ndef calculate_5(value):\n    base = 17\n    return base + value * 11\n\nresult = calculate_5(2)\nprint(result)\n```\n\nWhat is the value printed to the console?",
       "options": [
-        "A. It defines specific rules for nested loops matching in Python programs",
-        "B. It forces hardware clock speeds to double automatically",
-        "C. It permanently deletes system configuration records",
-        "D. It removes the need for syntax parsing completely"
+        "39",
+        "28",
+        "209",
+        "TypeError"
       ],
-      "correct_answer": "A",
-      "explanation": "Nested Loops Matching defines specific semantics for nested loops matching in Python programs."
+      "correct_answer": "39",
+      "explanation": "Python evaluates arithmetic following standard operator precedence (multiplication before addition). First, `value * 11` evaluates to `2 * 11 = 22`. Then, adding `base` (17) yields `39`. The function returns this integer and `print()` outputs it."
     },
     {
       "id": "6.7_q6",
-      "type": "multiple_choice",
+      "type": "output_prediction",
       "concept": "nested_loops_pitfalls",
       "skill": "comprehension",
       "difficulty": "easy",
       "prerequisites": [
         "6.7_q5"
       ],
-      "prompt": "Review 6: What is the primary characteristic of Nested Loops Pitfalls in Nested Loops?",
+      "prompt": "Consider the following Python snippet demonstrating Nested Loops Pitfalls:\n\n```python\ndef calculate_6(value):\n    base = 20\n    return base + value * 1\n\nresult = calculate_6(2)\nprint(result)\n```\n\nWhat is the value printed to the console?",
       "options": [
-        "A. It defines specific rules for nested loops pitfalls in Python programs",
-        "B. It forces hardware clock speeds to double automatically",
-        "C. It permanently deletes system configuration records",
-        "D. It removes the need for syntax parsing completely"
+        "22",
+        "21",
+        "22",
+        "TypeError"
       ],
-      "correct_answer": "A",
-      "explanation": "Nested Loops Pitfalls defines specific semantics for nested loops pitfalls in Python programs."
+      "correct_answer": "22",
+      "explanation": "Python evaluates arithmetic following standard operator precedence (multiplication before addition). First, `value * 1` evaluates to `2 * 1 = 2`. Then, adding `base` (20) yields `22`. The function returns this integer and `print()` outputs it."
     },
     {
       "id": "6.7_q7",
       "type": "code_prediction",
-      "concept": "nested_loops_execution",
-      "skill": "prediction",
-      "difficulty": "easy",
-      "prerequisites": [
-        "6.7_q6"
-      ],
-      "prompt": "Predict Output 7: What does this snippet output?\n```python\nvalue_7 = 35\nprint(value_7)\n```",
-      "options": [
-        "35",
-        "17",
-        "value_7",
-        "Error"
-      ],
-      "correct_answer": "35",
-      "explanation": "The variable value_7 stores 35, and print outputs it to the console."
-    },
-    {
-      "id": "6.7_q8",
-      "type": "output_prediction",
-      "concept": "nested_loops_execution",
+      "concept": "nested_loop_multiplication",
       "skill": "prediction",
       "difficulty": "medium",
       "prerequisites": [
+        "6.7_q6"
+      ],
+      "prompt": "How many total lines will be printed by this nested loop?\n```python\nfor i in range(3):\n    for j in range(2):\n        print(f'{i}:{j}')\n```",
+      "options": [
+        "6 lines",
+        "5 lines",
+        "3 lines",
+        "2 lines"
+      ],
+      "correct_answer": "6 lines",
+      "explanation": "The outer loop runs 3 times. For each outer iteration, the inner loop runs 2 times. Total iterations = 3 * 2 = 6."
+    },
+    {
+      "id": "6.7_q8",
+      "type": "multiple_choice",
+      "concept": "nested_loop_break_scope",
+      "skill": "reasoning",
+      "difficulty": "hard",
+      "prerequisites": [
         "6.7_q7"
       ],
-      "prompt": "Predict Output 8: What does this snippet output?\n```python\nvalue_8 = 40\nprint(value_8)\n```",
+      "prompt": "If a `break` statement executes inside the innermost of two nested loops, what happens?",
       "options": [
-        "40",
-        "20",
-        "value_8",
-        "Error"
+        "Only the innermost loop terminates; the outer loop continues its next iteration",
+        "Both loops terminate immediately",
+        "The outer loop resets to index 0",
+        "A LoopBreakException is raised"
       ],
-      "correct_answer": "40",
-      "explanation": "The variable value_8 stores 40, and print outputs it to the console."
+      "correct_answer": "Only the innermost loop terminates; the outer loop continues its next iteration",
+      "explanation": "In Python, `break` only exits the immediately enclosing loop construct."
     },
     {
       "id": "6.7_q9",
-      "type": "code_prediction",
-      "concept": "nested_loops_flow",
-      "skill": "prediction",
+      "type": "fix_the_code",
+      "concept": "nested_loop_counter_reset",
+      "skill": "debugging",
       "difficulty": "medium",
       "prerequisites": [
         "6.7_q8"
       ],
-      "prompt": "Predict Output 9: What does this snippet output?\n```python\nvalue_9 = 45\nprint(value_9)\n```",
+      "prompt": "Fix this code so `inner_count` is reset to 0 at the start of every outer iteration:",
       "options": [
         "45",
         "22",
@@ -156,56 +160,58 @@
         "Error"
       ],
       "correct_answer": "45",
-      "explanation": "The variable value_9 stores 45, and print outputs it to the console."
+      "explanation": "Variables scoped to an inner loop must be reinitialized inside the outer loop body, otherwise they retain their previous state.",
+      "starter_code": "inner_count = 0\nfor outer in range(3):\n    while inner_count < 2:\n        print(outer, inner_count)\n        inner_count += 1",
+      "solution_code": "for outer in range(3):\n    inner_count = 0\n    while inner_count < 2:\n        print(outer, inner_count)\n        inner_count += 1"
     },
     {
       "id": "6.7_q10",
-      "type": "multiple_choice",
+      "type": "output_prediction",
       "concept": "nested_loops_analysis",
       "skill": "analysis",
       "difficulty": "medium",
       "prerequisites": [
         "6.7_q9"
       ],
-      "prompt": "Review 10: What is the primary characteristic of Nested Loops Analysis in Nested Loops?",
+      "prompt": "Consider the following Python snippet demonstrating Nested Loops Analysis:\n\n```python\ndef calculate_10(value):\n    base = 12\n    return base + value * 6\n\nresult = calculate_10(2)\nprint(result)\n```\n\nWhat is the value printed to the console?",
       "options": [
-        "A. It defines specific rules for nested loops analysis in Python programs",
-        "B. It forces hardware clock speeds to double automatically",
-        "C. It permanently deletes system configuration records",
-        "D. It removes the need for syntax parsing completely"
+        "24",
+        "18",
+        "84",
+        "TypeError"
       ],
-      "correct_answer": "A",
-      "explanation": "Nested Loops Analysis defines specific semantics for nested loops analysis in Python programs."
+      "correct_answer": "24",
+      "explanation": "Python evaluates arithmetic following standard operator precedence (multiplication before addition). First, `value * 6` evaluates to `2 * 6 = 12`. Then, adding `base` (12) yields `24`. The function returns this integer and `print()` outputs it."
     },
     {
       "id": "6.7_q11",
       "type": "code_prediction",
-      "concept": "nested_loops_tracing",
-      "skill": "tracing",
+      "concept": "matrix_flattening_order",
+      "skill": "prediction",
       "difficulty": "medium",
       "prerequisites": [
         "6.7_q10"
       ],
-      "prompt": "Predict Output 11: What does this snippet output?\n```python\nvalue_11 = 55\nprint(value_11)\n```",
+      "prompt": "What does this code output?\n```python\ngrid = [[1, 2], [3, 4]]\nfor row in grid:\n    for val in row:\n        print(val, end=' ')\n```",
       "options": [
-        "55",
-        "27",
-        "value_11",
-        "Error"
+        "1 2 3 4 ",
+        "1 3 2 4 ",
+        "4 3 2 1 ",
+        "[[1, 2], [3, 4]]"
       ],
-      "correct_answer": "55",
-      "explanation": "The variable value_11 stores 55, and print outputs it to the console."
+      "correct_answer": "1 2 3 4 ",
+      "explanation": "Row-major traversal processes row [1, 2] first, then row [3, 4], printing '1 2 3 4 '."
     },
     {
       "id": "6.7_q12",
-      "type": "output_prediction",
-      "concept": "nested_loops_logic",
-      "skill": "prediction",
+      "type": "write_the_code",
+      "concept": "coordinate_pairs",
+      "skill": "implementation",
       "difficulty": "medium",
       "prerequisites": [
         "6.7_q11"
       ],
-      "prompt": "Predict Output 12: What does this snippet output?\n```python\nvalue_12 = 60\nprint(value_12)\n```",
+      "prompt": "Write a nested list comprehension to generate all pairs `(x, y)` for `x in range(2)` and `y in range(2)`:",
       "options": [
         "60",
         "30",
@@ -213,7 +219,9 @@
         "Error"
       ],
       "correct_answer": "60",
-      "explanation": "The variable value_12 stores 60, and print outputs it to the console."
+      "explanation": "In list comprehensions, multiple `for` clauses evaluate left-to-right from outer to inner.",
+      "starter_code": "# Generate pairs [(0, 0), (0, 1), (1, 0), (1, 1)]\npairs = ___",
+      "solution_code": "pairs = [(x, y) for x in range(2) for y in range(2)]"
     },
     {
       "id": "6.7_q13",
@@ -585,5 +593,15 @@
       "hint": "Use the property that each element is the sum of the two elements above it from the previous row. Store rows in a list to reuse values. Convert integers to strings before joining, and use str.center() with an appropriate width to align the triangle.",
       "explanation": "This mastery-level mini-challenge demands recursive-like reasoning within an iterative nested-loop framework. Students must maintain state across rows, compute combinatorial values, and handle string formatting, demonstrating full command of nested loops in a non-trivial mathematical context."
     }
+  ],
+  "unit_num": 6,
+  "learning_objectives": [
+    "Construct iterative loops using Nested Loops with proper loop bounds",
+    "Trace variable mutation across loop iterations",
+    "Prevent and debug infinite loop execution bugs",
+    "Apply loop control statements (break and continue) to control execution flow"
+  ],
+  "prerequisites": [
+    "6.6"
   ]
 }

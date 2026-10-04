@@ -11,7 +11,9 @@
       "difficulty": "easy",
       "prerequisites": [],
       "title": "What is a CSV File and Why Use It?",
-      "content": "A CSV (Comma-Separated Values) file is a plain text file that stores tabular data in rows and columns, where each value is separated by a comma. It is one of the most common formats for exchanging data between programs. In Python, you can read a CSV file into memory using the csv module or pandas, and write data back to a CSV file using csv.writer. This makes it easy to process datasets like survey results, sales records, or sensor logs. Here is a basic example of writing a CSV file:"
+      "content": "A CSV (Comma-Separated Values) file is a plain text file that stores tabular data in rows and columns, where each value is separated by a comma. It is one of the most common formats for exchanging data between programs. In Python, you can read a CSV file into memory using the csv module or pandas, and write data back to a CSV file using csv.writer. This makes it easy to process datasets like survey results, sales records, or sensor logs. Here is a basic example of writing a CSV file:",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of reading and writing csvs basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "14.2_q2",
@@ -36,12 +38,12 @@
       "prompt": "Which statement best applies to reading and writing csvs basics?",
       "options": [
         "A. Correct approach for reading and writing csvs basics",
-        "B. SyntaxError raised unconditionally",
-        "C. Unrelated system call",
-        "D. Halts Python interpreter"
+        "Raises a SyntaxError: invalid syntax at runtime",
+        "Raises an IndentationError: unexpected indent",
+        "Silently ignored by the Python parser"
       ],
       "correct_answer": "A. Correct approach for reading and writing csvs basics",
-      "explanation": "Demonstrates core usage of reading and writing csvs basics in Python."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of reading and writing csvs basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "14.2_q3",
@@ -53,7 +55,9 @@
         "14.2_q2"
       ],
       "title": "Opening and Writing a CSV with csv.writer",
-      "content": "To write a CSV file, you open a file in write mode ('w') and create a csv.writer object. You then pass a list of rows to writer.writerows(). Each row should itself be a list of values. It is important to specify newline='' when opening the file to prevent extra blank rows on some operating systems. Here is a complete example that writes student records to a file named students.csv:"
+      "content": "To write a CSV file, you open a file in write mode ('w') and create a csv.writer object. You then pass a list of rows to writer.writerows(). Each row should itself be a list of values. It is important to specify newline='' when opening the file to prevent extra blank rows on some operating systems. Here is a complete example that writes student records to a file named students.csv:",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of reading and writing csvs syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "14.2_q4",
@@ -78,12 +82,12 @@
       "prompt": "Which statement best applies to reading and writing csvs syntax?",
       "options": [
         "A. Correct approach for reading and writing csvs syntax",
-        "B. SyntaxError raised unconditionally",
-        "C. Unrelated system call",
-        "D. Halts Python interpreter"
+        "Raises a SyntaxError: invalid syntax at runtime",
+        "Raises an IndentationError: unexpected indent",
+        "Silently ignored by the Python parser"
       ],
       "correct_answer": "A. Correct approach for reading and writing csvs syntax",
-      "explanation": "Demonstrates core usage of reading and writing csvs syntax in Python."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of reading and writing csvs syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "14.2_q5",
@@ -108,12 +112,12 @@
       "prompt": "Which statement best applies to reading and writing csvs matching?",
       "options": [
         "A. Correct approach for reading and writing csvs matching",
-        "B. SyntaxError raised unconditionally",
-        "C. Unrelated system call",
-        "D. Halts Python interpreter"
+        "Raises a SyntaxError: invalid syntax at runtime",
+        "Raises an IndentationError: unexpected indent",
+        "Silently ignored by the Python parser"
       ],
       "correct_answer": "A. Correct approach for reading and writing csvs matching",
-      "explanation": "Demonstrates core usage of reading and writing csvs matching in Python."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of reading and writing csvs matching. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "14.2_q6",
@@ -138,12 +142,12 @@
       "prompt": "Which statement best applies to reading and writing csvs pitfalls?",
       "options": [
         "A. Correct approach for reading and writing csvs pitfalls",
-        "B. SyntaxError raised unconditionally",
-        "C. Unrelated system call",
-        "D. Halts Python interpreter"
+        "Raises a SyntaxError: invalid syntax at runtime",
+        "Raises an IndentationError: unexpected indent",
+        "Silently ignored by the Python parser"
       ],
       "correct_answer": "A. Correct approach for reading and writing csvs pitfalls",
-      "explanation": "Demonstrates core usage of reading and writing csvs pitfalls in Python."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of reading and writing csvs pitfalls. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "14.2_q7",
@@ -241,9 +245,9 @@
       "prompt": "Trace the execution and determine the final value of 'lines'.\n\n```python\nimport csv\n\nwith open('notes.csv', newline='') as f:\n    reader = csv.reader(f)\n    lines = [f'Line {i+1}: {row[0].strip()}' for i, row in enumerate(reader)]\nprint(lines)\n```\n\nAssume 'notes.csv' contains:\n  apple\nbanana\n  cherry",
       "options": [
         "['Line 1: apple', 'Line 2: banana', 'Line 3: cherry']",
-        "['Line 1:  apple', 'Line 2: banana', 'Line 3:  cherry']",
-        "['Line 1: apple', 'Line 2: banana', 'Line 3: cherry ']",
-        "['Line 1: apple', 'Line 2: banana', 'Line 3: cherry'] with extra newline"
+        "Raises a SyntaxError: invalid syntax at runtime",
+        "Raises an IndentationError: unexpected indent",
+        "Silently ignored by the Python parser"
       ],
       "correct_answer": "['Line 1: apple', 'Line 2: banana', 'Line 3: cherry']",
       "explanation": "enumerate yields index i starting at 0. row[0] is each first column. strip() removes leading and trailing whitespace, so '  apple' becomes 'apple'. The list comprehension builds three formatted strings in order."
@@ -600,5 +604,15 @@
       "hint": "Nest try-except blocks: one for file I/O and one for per-row numeric validation. Use continue to skip bad rows without stopping the whole script.",
       "explanation": "This mastery item requires defensive programming: validating input, handling missing files, skipping malformed data, and producing both a filtered CSV and a human-readable summary. It prepares learners for production-grade data processing tasks."
     }
+  ],
+  "unit_num": 14,
+  "learning_objectives": [
+    "Explain the technical concepts and mechanics of Reading and Writing CSVs",
+    "Apply idiomatic Python patterns when working with Reading and Writing CSVs",
+    "Debug common runtime exceptions and logic errors associated with Reading and Writing CSVs",
+    "Implement production-ready code utilizing Reading and Writing CSVs"
+  ],
+  "prerequisites": [
+    "14.1"
   ]
 }

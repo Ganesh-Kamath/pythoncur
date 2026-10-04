@@ -11,7 +11,9 @@
       "difficulty": "easy",
       "prerequisites": [],
       "title": "What Is a Greedy Algorithm?",
-      "content": "A greedy algorithm is a problem-solving approach that makes the locally optimal choice at each step with the hope of finding a global optimum. In other words, it never reconsiders a decision once it has been made. This pattern is useful when a problem has the 'greedy choice property' and optimal substructure. For example, to make change with coins, a greedy strategy picks the largest denomination that does not exceed the remaining amount. Here is a simple Python illustration:\n\n```python\ndef make_change(amount, coins):\n    change = []\n    for coin in coins:\n        while amount >= coin:\n            change.append(coin)\n            amount -= coin\n    return change\n\nprint(make_change(63, [25, 10, 5, 1]))\n```\n\nThis code repeatedly selects the biggest available coin, demonstrating the greedy mindset."
+      "content": "A greedy algorithm is a problem-solving approach that makes the locally optimal choice at each step with the hope of finding a global optimum. In other words, it never reconsiders a decision once it has been made. This pattern is useful when a problem has the 'greedy choice property' and optimal substructure. For example, to make change with coins, a greedy strategy picks the largest denomination that does not exceed the remaining amount. Here is a simple Python illustration:\n\n```python\ndef make_change(amount, coins):\n    change = []\n    for coin in coins:\n        while amount >= coin:\n            change.append(coin)\n            amount -= coin\n    return change\n\nprint(make_change(63, [25, 10, 5, 1]))\n```\n\nThis code repeatedly selects the biggest available coin, demonstrating the greedy mindset.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of greedy algorithms overview basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "41.6_q2",
@@ -42,7 +44,9 @@
         "41.6_q2"
       ],
       "title": "Greedy Syntax Patterns",
-      "content": "Implementing a greedy algorithm in Python usually involves sorting the input so that the most promising candidates appear first, then iterating through them and selecting whenever the current choice satisfies the remaining constraint. A common pattern is to maintain a running total and append valid items to a result list. Consider this skeleton:\n\n```python\ndef greedy_select(items, capacity):\n    items = sorted(items, reverse=True)\n    selected = []\n    current = 0\n    for item in items:\n        if current + item <= capacity:\n            selected.append(item)\n            current += item\n    return selected\n\nprint(greedy_select([4, 2, 7, 1], 8))\n```\n\nNotice how sorting in descending order lets the algorithm try the largest items first, which is the essence of the greedy step."
+      "content": "Implementing a greedy algorithm in Python usually involves sorting the input so that the most promising candidates appear first, then iterating through them and selecting whenever the current choice satisfies the remaining constraint. A common pattern is to maintain a running total and append valid items to a result list. Consider this skeleton:\n\n```python\ndef greedy_select(items, capacity):\n    items = sorted(items, reverse=True)\n    selected = []\n    current = 0\n    for item in items:\n        if current + item <= capacity:\n            selected.append(item)\n            current += item\n    return selected\n\nprint(greedy_select([4, 2, 7, 1], 8))\n```\n\nNotice how sorting in descending order lets the algorithm try the largest items first, which is the essence of the greedy step.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of greedy algorithms overview syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "41.6_q4",
@@ -104,51 +108,51 @@
     {
       "id": "41.6_q7",
       "type": "code_prediction",
-      "concept": "greedy_algorithms_overview_execution",
-      "skill": "prediction",
-      "difficulty": "easy",
+      "concept": "greedy_choice_property",
+      "skill": "understanding",
+      "difficulty": "medium",
       "prerequisites": [
         "41.6_q6"
       ],
-      "prompt": "Predict Output 7: What does this snippet output?\n```python\nvalue_7 = 35\nprint(value_7)\n```",
+      "prompt": "In the context of Greedy Algorithms Overview, what is the primary behavior demonstrated here?\n```python\n# Greedy Algorithms Overview\nprint('greedy_choice_property')\n```",
       "options": [
-        "35",
-        "17",
-        "value_7",
+        "greedy_choice_property",
+        "SyntaxError",
+        "None",
         "Error"
       ],
-      "correct_answer": "35",
-      "explanation": "The variable value_7 stores 35, and print outputs it to the console."
+      "correct_answer": "greedy_choice_property",
+      "explanation": "This directly illustrates the standard behavior of greedy_choice_property: greedy works when optimal substructure and greedy-choice properties hold."
     },
     {
       "id": "41.6_q8",
-      "type": "output_prediction",
-      "concept": "greedy_algorithms_overview_execution",
-      "skill": "prediction",
+      "type": "multiple_choice",
+      "concept": "greedy_choice_property_rules",
+      "skill": "reasoning",
       "difficulty": "medium",
       "prerequisites": [
         "41.6_q7"
       ],
-      "prompt": "Predict Output 8: What does this snippet output?\n```python\nvalue_8 = 40\nprint(value_8)\n```",
+      "prompt": "What is a core design principle when working with Greedy Algorithms Overview in Python?",
       "options": [
-        "40",
-        "20",
-        "value_8",
-        "Error"
+        "Greedy works when optimal substructure and greedy-choice properties hold",
+        "It bypasses all memory management constraints",
+        "It causes the interpreter to compile to C++ automatically",
+        "It can only be executed in interactive REPL mode"
       ],
-      "correct_answer": "40",
-      "explanation": "The variable value_8 stores 40, and print outputs it to the console."
+      "correct_answer": "Greedy works when optimal substructure and greedy-choice properties hold",
+      "explanation": "Understanding this rule is essential: greedy works when optimal substructure and greedy-choice properties hold."
     },
     {
       "id": "41.6_q9",
-      "type": "code_prediction",
-      "concept": "greedy_algorithms_overview_flow",
-      "skill": "prediction",
+      "type": "fix_the_code",
+      "concept": "greedy_choice_property_debugging",
+      "skill": "debugging",
       "difficulty": "medium",
       "prerequisites": [
         "41.6_q8"
       ],
-      "prompt": "Predict Output 9: What does this snippet output?\n```python\nvalue_9 = 45\nprint(value_9)\n```",
+      "prompt": "Fix this code snippet implementing Greedy Algorithms Overview correctly:",
       "options": [
         "45",
         "22",
@@ -156,7 +160,9 @@
         "Error"
       ],
       "correct_answer": "45",
-      "explanation": "The variable value_9 stores 45, and print outputs it to the console."
+      "explanation": "Applying standard Python idioms ensures correct behavior: greedy works when optimal substructure and greedy-choice properties hold.",
+      "starter_code": "# Greedy Algorithms Overview implementation\n___",
+      "solution_code": "# Greedy Algorithms Overview implementation\ndef min_coins(coins, amount):\n    coins.sort(reverse=True)\n    count = 0\n    for c in coins:\n        count += amount // c\n        amount %= c\n    return count"
     },
     {
       "id": "41.6_q10",
@@ -167,7 +173,7 @@
       "prerequisites": [
         "41.6_q9"
       ],
-      "prompt": "Coding Challenge 10: Write a statement that prints 'Greedy Algorithms Overview Result 10' to standard output.",
+      "prompt": "Write a statement that prints 'Greedy Algorithms Overview Result 10' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Greedy Algorithms Overview Result 10')",
       "test_cases": [
@@ -177,37 +183,37 @@
         }
       ],
       "hint": "Use print('Greedy Algorithms Overview Result 10') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of greedy algorithms overview analysis. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "41.6_q11",
-      "type": "code_prediction",
-      "concept": "greedy_algorithms_overview_tracing",
-      "skill": "tracing",
-      "difficulty": "medium",
+      "type": "multiple_choice",
+      "concept": "greedy_choice_property_tradeoffs",
+      "skill": "evaluation",
+      "difficulty": "hard",
       "prerequisites": [
         "41.6_q10"
       ],
-      "prompt": "Predict Output 11: What does this snippet output?\n```python\nvalue_11 = 55\nprint(value_11)\n```",
+      "prompt": "Which common pitfall must programmers avoid when using Greedy Algorithms Overview?",
       "options": [
-        "55",
-        "27",
-        "value_11",
-        "Error"
+        "Misunderstanding edge cases related to: greedy works when optimal substructure and greedy-choice properties hold",
+        "Forgetting that Python does not support functions",
+        "Assuming integers are capped at 32 bits",
+        "Using lowercase variable names"
       ],
-      "correct_answer": "55",
-      "explanation": "The variable value_11 stores 55, and print outputs it to the console."
+      "correct_answer": "Misunderstanding edge cases related to: greedy works when optimal substructure and greedy-choice properties hold",
+      "explanation": "Careful attention to requirements avoids common traps: greedy works when optimal substructure and greedy-choice properties hold."
     },
     {
       "id": "41.6_q12",
-      "type": "output_prediction",
-      "concept": "greedy_algorithms_overview_logic",
-      "skill": "prediction",
-      "difficulty": "medium",
+      "type": "write_the_code",
+      "concept": "greedy_choice_property_application",
+      "skill": "implementation",
+      "difficulty": "hard",
       "prerequisites": [
         "41.6_q11"
       ],
-      "prompt": "Predict Output 12: What does this snippet output?\n```python\nvalue_12 = 60\nprint(value_12)\n```",
+      "prompt": "Write the canonical Python code statement for Greedy Algorithms Overview:",
       "options": [
         "60",
         "30",
@@ -215,7 +221,9 @@
         "Error"
       ],
       "correct_answer": "60",
-      "explanation": "The variable value_12 stores 60, and print outputs it to the console."
+      "explanation": "Canonical implementation: def min_coins(coins, amount):\n    coins.sort(reverse=True)\n    count = 0\n    for c in coins:\n        count += amount // c\n        amount %= c\n    return count. Greedy works when optimal substructure and greedy-choice properties hold.",
+      "starter_code": "# Complete the statement\n___",
+      "solution_code": "def min_coins(coins, amount):\n    coins.sort(reverse=True)\n    count = 0\n    for c in coins:\n        count += amount // c\n        amount %= c\n    return count"
     },
     {
       "id": "41.6_q13",
@@ -325,7 +333,7 @@
       "prerequisites": [
         "41.6_q17"
       ],
-      "prompt": "Fill in the blank to express the greedy idiom of selecting the best element from a sorted list using a common Python idiom:\n\ndef greedy_select(data):\n    data = sorted(data)\n    return ____\n",
+      "prompt": "Fill in the blank to express the greedy idiom of selecting the best element from a sorted list using a common Python idiom:\n\ndef greedy_select(data):\n    data = sorted(data)\n    return ____",
       "correct_answer": "data[0]",
       "accepted_answers": [
         "data[0]",
@@ -351,7 +359,7 @@
       "prompt": "Fix the bug in this code for greedy algorithms overview errors:",
       "starter_code": "# Fix this code\nPrint('Greedy Algorithms Overview')",
       "solution_code": "print('Greedy Algorithms Overview')",
-      "explanation": "Python identifiers and built-ins are case-sensitive."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of greedy algorithms overview errors. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "41.6_q20",
@@ -399,7 +407,7 @@
       "prompt": "Fix the bug in this code for greedy algorithms overview runtime:",
       "starter_code": "# Fix this code\nPrint('Greedy Algorithms Overview')",
       "solution_code": "print('Greedy Algorithms Overview')",
-      "explanation": "Python identifiers and built-ins are case-sensitive."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of greedy algorithms overview runtime. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "41.6_q23",
@@ -607,5 +615,15 @@
       "hint": "Sort edges by weight. Use union-find to detect cycles. Add an edge only if it connects two different components.",
       "explanation": "Kruskal's algorithm is greedy because it considers edges in increasing weight order and adds the cheapest edge that doesn't create a cycle. The cut property guarantees optimality, making this a correct MST algorithm for any graph with non-negative weights."
     }
+  ],
+  "unit_num": 41,
+  "learning_objectives": [
+    "Implement the fundamental Greedy Algorithms Overview algorithm in idiomatic Python",
+    "Calculate time and space complexity using Big O notation",
+    "Trace edge-case performance and termination conditions",
+    "Apply the algorithmic pattern to solve practical data structure problems"
+  ],
+  "prerequisites": [
+    "41.5"
   ]
 }

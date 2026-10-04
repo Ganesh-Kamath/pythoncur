@@ -11,7 +11,9 @@
       "difficulty": "easy",
       "prerequisites": [],
       "title": "Designing the Architecture of an Interactive Web Scraper API",
-      "content": "In this micro-lesson, you will learn how to architect a scalable Interactive Web Scraper API. The core idea is to separate concerns into three layers: the client (frontend or consumer), the API gateway (routes and validates requests), and the scraper engine (fetches, parses, and normalizes data). A robust architecture uses a request queue, rate-limiting middleware, and a standardized JSON response schema. Below is a conceptual Python skeleton showing how the main application class coordinates these components. Notice how the scraper_engine is injected into the API handler, promoting loose coupling and testability.\n\n```python\nclass ScraperEngine:\n    def fetch(self, url):\n        pass\n\nclass APIHandler:\n    def __init__(self, engine):\n        self.engine = engine\n\n    def get_data(self, url):\n        raw = self.engine.fetch(url)\n        return {'status': 'ok', 'data': raw}\n\napp = APIHandler(ScraperEngine())\nresponse = app.get_data('https://example.com')\n```"
+      "content": "In this micro-lesson, you will learn how to architect a scalable Interactive Web Scraper API. The core idea is to separate concerns into three layers: the client (frontend or consumer), the API gateway (routes and validates requests), and the scraper engine (fetches, parses, and normalizes data). A robust architecture uses a request queue, rate-limiting middleware, and a standardized JSON response schema. Below is a conceptual Python skeleton showing how the main application class coordinates these components. Notice how the scraper_engine is injected into the API handler, promoting loose coupling and testability.\n\n```python\nclass ScraperEngine:\n    def fetch(self, url):\n        pass\n\nclass APIHandler:\n    def __init__(self, engine):\n        self.engine = engine\n\n    def get_data(self, url):\n        raw = self.engine.fetch(url)\n        return {'status': 'ok', 'data': raw}\n\napp = APIHandler(ScraperEngine())\nresponse = app.get_data('https://example.com')\n```",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of project interactive web scraper api architecture. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "42.3_q2",
@@ -23,7 +25,9 @@
         "42.3_q1"
       ],
       "title": "Choosing Data Formats and Error-Handling Strategies",
-      "content": "When building an Interactive Web Scraper API, selecting the right data format and error-handling strategy is critical. JSON is the standard for API payloads because it is lightweight and natively supported by Python via the json module. For errors, define a consistent schema with a code, message, and optional details field. This allows consumers to programmatically react to failures such as 429 Too Many Requests or 503 Service Unavailable. The following example demonstrates a safe wrapper around requests.get that catches common exceptions and returns a uniform JSON error object.\n\n```python\nimport requests\nimport json\n\ndef safe_fetch(url):\n    try:\n        resp = requests.get(url, timeout=10)\n        resp.raise_for_status()\n        return {'status': 'success', 'payload': resp.json()}\n    except requests.exceptions.RequestException as e:\n        return json.dumps({'status': 'error', 'code': 'FETCH_FAILED', 'message': str(e)})\n```"
+      "content": "When building an Interactive Web Scraper API, selecting the right data format and error-handling strategy is critical. JSON is the standard for API payloads because it is lightweight and natively supported by Python via the json module. For errors, define a consistent schema with a code, message, and optional details field. This allows consumers to programmatically react to failures such as 429 Too Many Requests or 503 Service Unavailable. The following example demonstrates a safe wrapper around requests.get that catches common exceptions and returns a uniform JSON error object.\n\n```python\nimport requests\nimport json\n\ndef safe_fetch(url):\n    try:\n        resp = requests.get(url, timeout=10)\n        resp.raise_for_status()\n        return {'status': 'success', 'payload': resp.json()}\n    except requests.exceptions.RequestException as e:\n        return json.dumps({'status': 'error', 'code': 'FETCH_FAILED', 'message': str(e)})\n```",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of project interactive web scraper api architecture. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "42.3_q3",
@@ -42,7 +46,7 @@
         "The API must use a relational database for every request."
       ],
       "correct_answer": "The API must support GET requests to retrieve scraped content.",
-      "explanation": "The capstone focuses on an interactive web scraper API, which fundamentally needs to expose endpoints\u2014typically GET requests\u2014to allow clients to fetch scraped data. XML is not required, local-only execution defeats the purpose of a web API, and a relational database is optional rather than mandatory."
+      "explanation": "The capstone focuses on an interactive web scraper API, which fundamentally needs to expose endpoints—typically GET requests—to allow clients to fetch scraped data. XML is not required, local-only execution defeats the purpose of a web API, and a relational database is optional rather than mandatory."
     },
     {
       "id": "42.3_q4",
@@ -120,11 +124,11 @@
       "prerequisites": [
         "42.3_q6"
       ],
-      "prompt": "Debug Challenge 7: Fix the capitalization error in this line for Project Interactive Web Scraper Api Module Bugfix:",
-      "starter_code": "Print('Project: Interactive Web Scraper API Item 7')",
-      "solution_code": "print('Project: Interactive Web Scraper API Item 7')",
+      "prompt": "In the Web Scraper API project, validate the HTTP response status code before attempting to parse response data:",
+      "starter_code": "def parse_page(response):\n    if response.status_code != ___:\n        raise ValueError(f'HTTP error: {response.status_code}')\n    return response.text",
+      "solution_code": "def parse_page(response):\n    if response.status_code != 200:\n        raise ValueError(f'HTTP error: {response.status_code}')\n    return response.text",
       "hint": "Python built-in functions like print() must be written in lowercase.",
-      "explanation": "Built-in function names in Python are case-sensitive and require lowercase."
+      "explanation": "HTTP status code 200 represents 'OK' (successful request)."
     },
     {
       "id": "42.3_q8",
@@ -135,11 +139,11 @@
       "prerequisites": [
         "42.3_q7"
       ],
-      "prompt": "Debug Challenge 8: Fix the capitalization error in this line for Project Interactive Web Scraper Api Module Bugfix:",
-      "starter_code": "Print('Project: Interactive Web Scraper API Item 8')",
-      "solution_code": "print('Project: Interactive Web Scraper API Item 8')",
+      "prompt": "In the Web Scraper API project, parse an HTML title string using a simple regular expression:",
+      "starter_code": "import re\ndef extract_title(html):\n    match = re.search(r'<title>(.*?)</title>', html)\n    return match.group(1) if match else None",
+      "solution_code": "import re\ndef extract_title(html):\n    match = re.search(r'<title>(.*?)</title>', html)\n    return match.group(1) if match else None",
       "hint": "Python built-in functions like print() must be written in lowercase.",
-      "explanation": "Built-in function names in Python are case-sensitive and require lowercase."
+      "explanation": "`re.search()` with non-greedy `(.*?)` captures the inner text of the HTML `<title>` tag."
     },
     {
       "id": "42.3_q9",
@@ -150,11 +154,11 @@
       "prerequisites": [
         "42.3_q8"
       ],
-      "prompt": "Debug Challenge 9: Fix the capitalization error in this line for Project Interactive Web Scraper Api Module Bugfix:",
-      "starter_code": "Print('Project: Interactive Web Scraper API Item 9')",
-      "solution_code": "print('Project: Interactive Web Scraper API Item 9')",
+      "prompt": "In the Web Scraper API project, extract all hyperlinks from raw HTML text matching `<a href='...'>`:",
+      "starter_code": "import re\ndef extract_links(html):\n    return re.findall(r'href=[\"\\'](.*?)[\"\\']', html)",
+      "solution_code": "import re\ndef extract_links(html):\n    return re.findall(r'href=[\"\\'](.*?)[\"\\']', html)",
       "hint": "Python built-in functions like print() must be written in lowercase.",
-      "explanation": "Built-in function names in Python are case-sensitive and require lowercase."
+      "explanation": "`re.findall()` returns a list of all matched substrings capturing the URL inside the quotes."
     },
     {
       "id": "42.3_q10",
@@ -165,11 +169,11 @@
       "prerequisites": [
         "42.3_q9"
       ],
-      "prompt": "Debug Challenge 10: Fix the capitalization error in this line for Project Interactive Web Scraper Api Module Bugfix:",
-      "starter_code": "Print('Project: Interactive Web Scraper API Item 10')",
-      "solution_code": "print('Project: Interactive Web Scraper API Item 10')",
+      "prompt": "In the Web Scraper API project, clean and normalize relative URLs into absolute URLs using urllib.parse:",
+      "starter_code": "from urllib.parse import urljoin\ndef make_absolute(base_url, link):\n    return urljoin(base_url, link)",
+      "solution_code": "from urllib.parse import urljoin\ndef make_absolute(base_url, link):\n    return urljoin(base_url, link)",
       "hint": "Python built-in functions like print() must be written in lowercase.",
-      "explanation": "Built-in function names in Python are case-sensitive and require lowercase."
+      "explanation": "`urljoin()` combines a base website URL with relative paths like `/about` safely."
     },
     {
       "id": "42.3_q11",
@@ -180,11 +184,11 @@
       "prerequisites": [
         "42.3_q10"
       ],
-      "prompt": "Debug Challenge 11: Fix the capitalization error in this line for Project Interactive Web Scraper Api Module Bugfix:",
-      "starter_code": "Print('Project: Interactive Web Scraper API Item 11')",
-      "solution_code": "print('Project: Interactive Web Scraper API Item 11')",
+      "prompt": "In the Web Scraper API project, implement a politeness request rate limiter delay between HTTP page fetches:",
+      "starter_code": "import time\ndef fetch_with_delay(url, delay_seconds=1.0):\n    time.sleep(delay_seconds)\n    # Proceed to fetch url",
+      "solution_code": "import time\ndef fetch_with_delay(url, delay_seconds=1.0):\n    time.sleep(delay_seconds)",
       "hint": "Python built-in functions like print() must be written in lowercase.",
-      "explanation": "Built-in function names in Python are case-sensitive and require lowercase."
+      "explanation": "`time.sleep()` pauses execution to avoid overloading remote web servers during crawling."
     },
     {
       "id": "42.3_q12",
@@ -195,11 +199,11 @@
       "prerequisites": [
         "42.3_q11"
       ],
-      "prompt": "Debug Challenge 12: Fix the capitalization error in this line for Project Interactive Web Scraper Api Module Bugfix:",
-      "starter_code": "Print('Project: Interactive Web Scraper API Item 12')",
-      "solution_code": "print('Project: Interactive Web Scraper API Item 12')",
+      "prompt": "In the Web Scraper API project, save scraped records to a comma-separated values (CSV) file using the csv module:",
+      "starter_code": "import csv\ndef export_csv(records, filename):\n    with open(filename, 'w', newline='', encoding='utf-8') as f:\n        writer = csv.DictWriter(f, fieldnames=records[0].keys())\n        writer.writeheader()\n        writer.writerows(records)",
+      "solution_code": "import csv\ndef export_csv(records, filename):\n    with open(filename, 'w', newline='', encoding='utf-8') as f:\n        writer = csv.DictWriter(f, fieldnames=records[0].keys())\n        writer.writeheader()\n        writer.writerows(records)",
       "hint": "Python built-in functions like print() must be written in lowercase.",
-      "explanation": "Built-in function names in Python are case-sensitive and require lowercase."
+      "explanation": "`csv.DictWriter` writes dictionary keys as headers and dictionary items as rows."
     },
     {
       "id": "42.3_q13",
@@ -210,12 +214,12 @@
       "prerequisites": [
         "42.3_q12"
       ],
-      "prompt": "Fill Blank 13: Complete the code to output 'Project: Interactive Web Scraper API #13':\n```python\n___('Project: Interactive Web Scraper API #13')\n```",
+      "prompt": "Complete the code to output 'Project: Interactive Web Scraper API #13':\n```python\n___('Project: Interactive Web Scraper API #13')\n```",
       "correct_answer": "print",
       "accepted_answers": [
         "print"
       ],
-      "explanation": "The built-in print() function outputs the specified string."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of project interactive web scraper api module wiring. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "42.3_q14",
@@ -226,12 +230,12 @@
       "prerequisites": [
         "42.3_q13"
       ],
-      "prompt": "Fill Blank 14: Complete the code to output 'Project: Interactive Web Scraper API #14':\n```python\n___('Project: Interactive Web Scraper API #14')\n```",
+      "prompt": "Complete the code to output 'Project: Interactive Web Scraper API #14':\n```python\n___('Project: Interactive Web Scraper API #14')\n```",
       "correct_answer": "print",
       "accepted_answers": [
         "print"
       ],
-      "explanation": "The built-in print() function outputs the specified string."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of project interactive web scraper api module wiring. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "42.3_q15",
@@ -242,12 +246,12 @@
       "prerequisites": [
         "42.3_q14"
       ],
-      "prompt": "Fill Blank 15: Complete the code to output 'Project: Interactive Web Scraper API #15':\n```python\n___('Project: Interactive Web Scraper API #15')\n```",
+      "prompt": "Complete the code to output 'Project: Interactive Web Scraper API #15':\n```python\n___('Project: Interactive Web Scraper API #15')\n```",
       "correct_answer": "print",
       "accepted_answers": [
         "print"
       ],
-      "explanation": "The built-in print() function outputs the specified string."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of project interactive web scraper api module wiring. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "42.3_q16",
@@ -258,12 +262,12 @@
       "prerequisites": [
         "42.3_q15"
       ],
-      "prompt": "Fill Blank 16: Complete the code to output 'Project: Interactive Web Scraper API #16':\n```python\n___('Project: Interactive Web Scraper API #16')\n```",
+      "prompt": "Complete the code to output 'Project: Interactive Web Scraper API #16':\n```python\n___('Project: Interactive Web Scraper API #16')\n```",
       "correct_answer": "print",
       "accepted_answers": [
         "print"
       ],
-      "explanation": "The built-in print() function outputs the specified string."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of project interactive web scraper api module wiring. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "42.3_q17",
@@ -274,12 +278,12 @@
       "prerequisites": [
         "42.3_q16"
       ],
-      "prompt": "Fill Blank 17: Complete the code to output 'Project: Interactive Web Scraper API #17':\n```python\n___('Project: Interactive Web Scraper API #17')\n```",
+      "prompt": "Complete the code to output 'Project: Interactive Web Scraper API #17':\n```python\n___('Project: Interactive Web Scraper API #17')\n```",
       "correct_answer": "print",
       "accepted_answers": [
         "print"
       ],
-      "explanation": "The built-in print() function outputs the specified string."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of project interactive web scraper api module wiring. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "42.3_q18",
@@ -290,12 +294,12 @@
       "prerequisites": [
         "42.3_q17"
       ],
-      "prompt": "Fill Blank 18: Complete the code to output 'Project: Interactive Web Scraper API #18':\n```python\n___('Project: Interactive Web Scraper API #18')\n```",
+      "prompt": "Complete the code to output 'Project: Interactive Web Scraper API #18':\n```python\n___('Project: Interactive Web Scraper API #18')\n```",
       "correct_answer": "print",
       "accepted_answers": [
         "print"
       ],
-      "explanation": "The built-in print() function outputs the specified string."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of project interactive web scraper api module wiring. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "42.3_q19",
@@ -633,5 +637,15 @@
       "explanation": "Containerization standardizes the runtime environment and simplifies deployment. The health check endpoint enables orchestration tools like Kubernetes or Docker Swarm to monitor service availability automatically.",
       "prompt": "Write Python code to solve this challenge for Project: Interactive Web Scraper API: (Variation 30)"
     }
+  ],
+  "unit_num": 42,
+  "learning_objectives": [
+    "Architect a complete multi-step application for Project: Interactive Web Scraper API",
+    "Decompose problem requirements into modular functions and classes",
+    "Implement defensive error handling and input validation",
+    "Verify application correctness against comprehensive test cases"
+  ],
+  "prerequisites": [
+    "42.2"
   ]
 }

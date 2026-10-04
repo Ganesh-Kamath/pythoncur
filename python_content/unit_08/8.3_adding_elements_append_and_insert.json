@@ -11,7 +11,9 @@
       "concept": "adding_elements_append_and_insert_basics",
       "title": "Introduction to Adding Elements in Lists",
       "content": "In Python, lists are mutable sequences that allow you to add new elements after they are created. Two fundamental methods for adding elements are append() and insert(). The append() method adds an element to the very end of the list. The insert() method adds an element at a specific position you choose. Understanding when to use each method is key to working with lists effectively.",
-      "skill": "recognition"
+      "skill": "recognition",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of adding elements append and insert basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "8.3_q2",
@@ -42,7 +44,9 @@
       "concept": "adding_elements_append_and_insert_syntax",
       "title": "Syntax for append() and insert()",
       "content": "To use append(), call it on a list object and pass the value you want to add as an argument. For insert(), provide two arguments: the index where you want to place the element, and the element itself. Here is the syntax:\n\n```python\nmy_list = [10, 20, 30]\nmy_list.append(40)\n# Result: [10, 20, 30, 40]\n\nmy_list.insert(1, 15)\n# Result: [10, 15, 20, 30, 40]\n```\n\nNote that insert() shifts existing elements to the right to make room for the new item at the given index.",
-      "skill": "understanding"
+      "skill": "understanding",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of adding elements append and insert syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "8.3_q4",
@@ -223,10 +227,10 @@
         "[2, 4, 3, 5]",
         "[2, 3, 4, 5]",
         "[2, 4, 5, 3]",
-        "[2, 3, 5, 4]"
+        "[3, 2, 4, 5]"
       ],
-      "correct_answer": "[2, 3, 4, 5]",
-      "explanation": "After insert(2, 3), the list becomes [2, 4, 3]. After append(5), 5 is added to the end, resulting in [2, 3, 4, 5].",
+      "correct_answer": "[2, 4, 3, 5]",
+      "explanation": "`lst.insert(2, 3)` on `[2, 4]` places 3 at index 2 (the current end), making `[2, 4, 3]`. `lst.append(5)` adds 5 to the end, giving `[2, 4, 3, 5]`.",
       "difficulty": "medium"
     },
     {
@@ -620,5 +624,15 @@
       "hint": "Avoid mutating the original list passed as an argument. Copy it first with `.copy()` or slicing, then apply `append()` and `insert()` on the copy.",
       "explanation": "The function copies the input list to preserve immutability of the caller's data. Appending `'meeting'` yields `['start', 'work', 'meeting']`. Inserting `'break'` at index `2` shifts `'meeting'` right, producing `['start', 'work', 'break', 'meeting']`. This pattern is essential when functions must return transformed collections without side effects."
     }
+  ],
+  "unit_num": 8,
+  "learning_objectives": [
+    "Explain the technical concepts and mechanics of Adding Elements: append() and insert()",
+    "Apply idiomatic Python patterns when working with Adding Elements: append() and insert()",
+    "Debug common runtime exceptions and logic errors associated with Adding Elements: append() and insert()",
+    "Implement production-ready code utilizing Adding Elements: append() and insert()"
+  ],
+  "prerequisites": [
+    "8.2"
   ]
 }

@@ -11,7 +11,9 @@
       "difficulty": "easy",
       "prerequisites": [],
       "title": "What Is Raising an Exception?",
-      "content": "In Python, exceptions can be triggered manually by using the raise statement. This is useful when a function detects an invalid state and needs to stop normal execution to signal an error. The raise keyword is followed by an exception class or an instance of an exception. When you raise an exception, Python looks for the nearest matching except block to handle it. If no handler is found, the program terminates with a traceback. Raising exceptions allows you to enforce constraints and communicate failures clearly to calling code."
+      "content": "In Python, exceptions can be triggered manually by using the raise statement. This is useful when a function detects an invalid state and needs to stop normal execution to signal an error. The raise keyword is followed by an exception class or an instance of an exception. When you raise an exception, Python looks for the nearest matching except block to handle it. If no handler is found, the program terminates with a traceback. Raising exceptions allows you to enforce constraints and communicate failures clearly to calling code.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of raising exceptions basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "18.3_q2",
@@ -42,7 +44,9 @@
         "18.3_q2"
       ],
       "title": "Syntax for Raising Exceptions",
-      "content": "There are two common ways to raise an exception in Python. First, you can raise an exception class directly and pass a message as an argument: raise ValueError('message'). Second, you can raise an existing exception instance: raise ValueError('message'). Both forms create an exception object and propagate it up the call stack. The raise statement can also be used without arguments to re-raise the currently handled exception inside an except block. Understanding this syntax is essential before writing your own error-handling logic."
+      "content": "There are two common ways to raise an exception in Python. First, you can raise an exception class directly and pass a message as an argument: raise ValueError('message'). Second, you can raise an existing exception instance: raise ValueError('message'). Both forms create an exception object and propagate it up the call stack. The raise statement can also be used without arguments to re-raise the currently handled exception inside an except block. Understanding this syntax is essential before writing your own error-handling logic.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of raising exceptions syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "18.3_q4",
@@ -112,13 +116,13 @@
       ],
       "prompt": "Predict the output of the following Python code:\n```python\nvalue = 10\nif value < 0:\n    raise ValueError('negative value')\nprint('done')\n```",
       "options": [
-        "ValueError: negative value",
         "done",
+        "ValueError: negative value",
         "ValueError: negative value\ndone",
         "No output"
       ],
-      "correct_answer": "ValueError: negative value",
-      "explanation": "The raise statement immediately stops normal execution and propagates the ValueError. The print('done') line is never reached because the exception is raised when the condition value < 0 is evaluated as False, but the exception is still raised before the print statement executes. Actually, since value is 10, the condition is False and no exception is raised, so 'done' is printed. Wait, correction: the condition is False, so no exception occurs and 'done' is printed. However, if the intent was to test raising, the correct behavior is that no exception is raised and 'done' prints. Re-evaluating: the code raises only when value < 0, which is False, so output is 'done'."
+      "correct_answer": "done",
+      "explanation": "`value` is 10, so the condition `value < 0` is False. The exception is never raised, and 'done' is printed."
     },
     {
       "id": "18.3_q8",
@@ -372,11 +376,11 @@
       "prerequisites": [
         "18.3_q18"
       ],
-      "prompt": "Debug Challenge 19: Fix the capitalization error in this line for Raising Exceptions Errors:",
+      "prompt": "Fix the capitalization error in this line for Raising Exceptions Errors:",
       "starter_code": "Print('Raising Exceptions Item 19')",
       "solution_code": "print('Raising Exceptions Item 19')",
       "hint": "Python built-in functions like print() must be written in lowercase.",
-      "explanation": "Built-in function names in Python are case-sensitive and require lowercase."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of raising exceptions errors. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "18.3_q20",
@@ -387,11 +391,11 @@
       "prerequisites": [
         "18.3_q19"
       ],
-      "prompt": "Debug Challenge 20: Fix the capitalization error in this line for Raising Exceptions Fix:",
+      "prompt": "Fix the capitalization error in this line for Raising Exceptions Fix:",
       "starter_code": "Print('Raising Exceptions Item 20')",
       "solution_code": "print('Raising Exceptions Item 20')",
       "hint": "Python built-in functions like print() must be written in lowercase.",
-      "explanation": "Built-in function names in Python are case-sensitive and require lowercase."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of raising exceptions fix. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "18.3_q21",
@@ -402,11 +406,11 @@
       "prerequisites": [
         "18.3_q20"
       ],
-      "prompt": "Debug Challenge 21: Fix the capitalization error in this line for Raising Exceptions Edge Cases:",
+      "prompt": "Fix the capitalization error in this line for Raising Exceptions Edge Cases:",
       "starter_code": "Print('Raising Exceptions Item 21')",
       "solution_code": "print('Raising Exceptions Item 21')",
       "hint": "Python built-in functions like print() must be written in lowercase.",
-      "explanation": "Built-in function names in Python are case-sensitive and require lowercase."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of raising exceptions edge cases. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "18.3_q22",
@@ -417,11 +421,11 @@
       "prerequisites": [
         "18.3_q21"
       ],
-      "prompt": "Debug Challenge 22: Fix the capitalization error in this line for Raising Exceptions Runtime:",
+      "prompt": "Fix the capitalization error in this line for Raising Exceptions Runtime:",
       "starter_code": "Print('Raising Exceptions Item 22')",
       "solution_code": "print('Raising Exceptions Item 22')",
       "hint": "Python built-in functions like print() must be written in lowercase.",
-      "explanation": "Built-in function names in Python are case-sensitive and require lowercase."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of raising exceptions runtime. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "18.3_q23",
@@ -432,11 +436,11 @@
       "prerequisites": [
         "18.3_q22"
       ],
-      "prompt": "Debug Challenge 23: Fix the capitalization error in this line for Raising Exceptions Logic Repair:",
+      "prompt": "Fix the capitalization error in this line for Raising Exceptions Logic Repair:",
       "starter_code": "Print('Raising Exceptions Item 23')",
       "solution_code": "print('Raising Exceptions Item 23')",
       "hint": "Python built-in functions like print() must be written in lowercase.",
-      "explanation": "Built-in function names in Python are case-sensitive and require lowercase."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of raising exceptions logic repair. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "18.3_q24",
@@ -447,7 +451,7 @@
       "prerequisites": [
         "18.3_q23"
       ],
-      "prompt": "Coding Challenge 24: Write a statement that prints 'Raising Exceptions Result 24' to standard output.",
+      "prompt": "Write a statement that prints 'Raising Exceptions Result 24' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Raising Exceptions Result 24')",
       "test_cases": [
@@ -457,7 +461,7 @@
         }
       ],
       "hint": "Use print('Raising Exceptions Result 24') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of raising exceptions optimization. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "18.3_q25",
@@ -468,7 +472,7 @@
       "prerequisites": [
         "18.3_q24"
       ],
-      "prompt": "Coding Challenge 25: Write a statement that prints 'Raising Exceptions Result 25' to standard output.",
+      "prompt": "Write a statement that prints 'Raising Exceptions Result 25' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Raising Exceptions Result 25')",
       "test_cases": [
@@ -478,7 +482,7 @@
         }
       ],
       "hint": "Use print('Raising Exceptions Result 25') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of raising exceptions implementation. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "18.3_q26",
@@ -489,7 +493,7 @@
       "prerequisites": [
         "18.3_q25"
       ],
-      "prompt": "Coding Challenge 26: Write a statement that prints 'Raising Exceptions Result 26' to standard output.",
+      "prompt": "Write a statement that prints 'Raising Exceptions Result 26' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Raising Exceptions Result 26')",
       "test_cases": [
@@ -499,7 +503,7 @@
         }
       ],
       "hint": "Use print('Raising Exceptions Result 26') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of raising exceptions practical. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "18.3_q27",
@@ -510,7 +514,7 @@
       "prerequisites": [
         "18.3_q26"
       ],
-      "prompt": "Coding Challenge 27: Write a statement that prints 'Raising Exceptions Result 27' to standard output.",
+      "prompt": "Write a statement that prints 'Raising Exceptions Result 27' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Raising Exceptions Result 27')",
       "test_cases": [
@@ -520,7 +524,7 @@
         }
       ],
       "hint": "Use print('Raising Exceptions Result 27') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of raising exceptions advanced. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "18.3_q28",
@@ -531,7 +535,7 @@
       "prerequisites": [
         "18.3_q27"
       ],
-      "prompt": "Coding Challenge 28: Write a statement that prints 'Raising Exceptions Result 28' to standard output.",
+      "prompt": "Write a statement that prints 'Raising Exceptions Result 28' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Raising Exceptions Result 28')",
       "test_cases": [
@@ -541,7 +545,7 @@
         }
       ],
       "hint": "Use print('Raising Exceptions Result 28') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of raising exceptions challenge. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "18.3_q29",
@@ -552,7 +556,7 @@
       "prerequisites": [
         "18.3_q28"
       ],
-      "prompt": "Coding Challenge 29: Write a statement that prints 'Raising Exceptions Result 29' to standard output.",
+      "prompt": "Write a statement that prints 'Raising Exceptions Result 29' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Raising Exceptions Result 29')",
       "test_cases": [
@@ -562,7 +566,7 @@
         }
       ],
       "hint": "Use print('Raising Exceptions Result 29') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of raising exceptions scenario. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "18.3_q30",
@@ -573,7 +577,7 @@
       "prerequisites": [
         "18.3_q29"
       ],
-      "prompt": "Coding Challenge 30: Write a statement that prints 'Raising Exceptions Result 30' to standard output.",
+      "prompt": "Write a statement that prints 'Raising Exceptions Result 30' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Raising Exceptions Result 30')",
       "test_cases": [
@@ -583,7 +587,17 @@
         }
       ],
       "hint": "Use print('Raising Exceptions Result 30') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of raising exceptions mastery. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     }
+  ],
+  "unit_num": 18,
+  "learning_objectives": [
+    "Explain the technical concepts and mechanics of Raising Exceptions",
+    "Apply idiomatic Python patterns when working with Raising Exceptions",
+    "Debug common runtime exceptions and logic errors associated with Raising Exceptions",
+    "Implement production-ready code utilizing Raising Exceptions"
+  ],
+  "prerequisites": [
+    "18.2"
   ]
 }

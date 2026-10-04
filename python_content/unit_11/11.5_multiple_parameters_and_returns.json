@@ -11,7 +11,9 @@
       "concept": "multiple_parameters_and_returns_basics",
       "skill": "recognition",
       "difficulty": "easy",
-      "prerequisites": []
+      "prerequisites": [],
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of multiple parameters and returns basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "11.5_q2",
@@ -42,7 +44,9 @@
       "difficulty": "easy",
       "prerequisites": [
         "11.5_q2"
-      ]
+      ],
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of multiple parameters and returns syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "11.5_q4",
@@ -236,7 +240,7 @@
         "title": "Defining Functions with Multiple Parameters and Returns",
         "content": "In Python, a function can accept more than one parameter by listing them separated with commas inside the parentheses. The return statement sends a value back to the caller. When a function has multiple parameters, each argument is matched to the corresponding parameter positionally or by name."
       },
-      "prompt": "Complete the function definition: def calculate_area(w, h): return w * h\n\nThe function above takes two parameters and returns their product. Fill in the missing keyword that starts the function block:",
+      "prompt": "def calculate_area(w, h):\n    return w * h\n\n# Call the function with width 5 and height 10\narea = calculate_area(___)",
       "correct_answer": "def",
       "accepted_answers": [
         "def"
@@ -644,5 +648,15 @@
       "hint": "Extract the last digit with n % 10, then reduce the number with integer division n // 10. Pass the running total through the accumulator on each recursive call.",
       "explanation": "This mastery item combines multiple parameters (one required, one with a default), recursion, and a return value that aggregates state across calls. It assesses deep fluency with parameter passing and return semantics."
     }
+  ],
+  "unit_num": 11,
+  "learning_objectives": [
+    "Explain the technical concepts and mechanics of Multiple Parameters and Returns",
+    "Apply idiomatic Python patterns when working with Multiple Parameters and Returns",
+    "Debug common runtime exceptions and logic errors associated with Multiple Parameters and Returns",
+    "Implement production-ready code utilizing Multiple Parameters and Returns"
+  ],
+  "prerequisites": [
+    "11.4"
   ]
 }

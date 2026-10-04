@@ -9,9 +9,13 @@
       "concept": "variable_definition",
       "skill": "recognition",
       "difficulty": "easy",
-      "prerequisites": ["1.4_q1"],
+      "prerequisites": [
+        "1.4_q1"
+      ],
       "title": "What is a Variable?",
-      "content": "Programs need to remember data. A **variable** is a named reference that points to a value stored in your computer's memory.\n\nYou create a variable using the **assignment operator** (`=`):\n```python\nscore = 100\n```\nHere, `score` is the variable name, and `100` is the integer value stored in memory."
+      "content": "Programs need to remember data. A **variable** is a named reference that points to a value stored in your computer's memory.\n\nYou create a variable using the **assignment operator** (`=`):\n```python\nscore = 100\n```\nHere, `score` is the variable name, and `100` is the integer value stored in memory.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of variable definition. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "2.1_q2",
@@ -19,7 +23,9 @@
       "concept": "variable_definition",
       "skill": "recognition",
       "difficulty": "easy",
-      "prerequisites": ["2.1_q1"],
+      "prerequisites": [
+        "2.1_q1"
+      ],
       "prompt": "In the line `player_name = \"Alex\"`, what is `player_name`?",
       "options": [
         "A. A built-in function",
@@ -28,7 +34,7 @@
         "D. A Python module"
       ],
       "correct_answer": "B",
-      "explanation": "`player_name` is an identifier (variable) that references the text 'Alex'."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of variable definition. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "2.1_q3",
@@ -36,9 +42,13 @@
       "concept": "assignment_direction",
       "skill": "understanding",
       "difficulty": "easy",
-      "prerequisites": ["2.1_q1"],
+      "prerequisites": [
+        "2.1_q1"
+      ],
       "title": "Assignment Works Right to Left",
-      "content": "In Python, the single equals sign `=` does NOT mean mathematical equality.\n\nIt means **assignment**: \n1. Python evaluates the expression on the **right-hand side** first.\n2. Then it assigns that result to the variable name on the **left-hand side**.\n\n```python\ntotal = 10 + 5  # 1. Computes 15, 2. Binds to total\n```"
+      "content": "In Python, the single equals sign `=` does NOT mean mathematical equality.\n\nIt means **assignment**: \n1. Python evaluates the expression on the **right-hand side** first.\n2. Then it assigns that result to the variable name on the **left-hand side**.\n\n```python\ntotal = 10 + 5  # 1. Computes 15, 2. Binds to total\n```",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of assignment direction. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "2.1_q4",
@@ -46,7 +56,9 @@
       "concept": "printing_variables",
       "skill": "prediction",
       "difficulty": "easy",
-      "prerequisites": ["2.1_q1"],
+      "prerequisites": [
+        "2.1_q1"
+      ],
       "prompt": "What does this code output?\n```python\nage = 20\nprint(age)\n```",
       "options": [
         "A. age",
@@ -63,7 +75,9 @@
       "concept": "variable_vs_string",
       "skill": "diagnosis",
       "difficulty": "easy",
-      "prerequisites": ["2.1_q4"],
+      "prerequisites": [
+        "2.1_q4"
+      ],
       "prompt": "What is the difference between `print(score)` and `print(\"score\")`?",
       "options": [
         "A. They are identical.",
@@ -80,9 +94,13 @@
       "concept": "reassignment",
       "skill": "understanding",
       "difficulty": "medium",
-      "prerequisites": ["2.1_q1"],
+      "prerequisites": [
+        "2.1_q1"
+      ],
       "title": "Variables Can Vary (Reassignment)",
-      "content": "Variables are called 'variables' because their values can change (vary) over time.\n\nYou can reassign a variable simply by assigning a new value to it:\n```python\ncoins = 5\ncoins = 12  # The old value 5 is replaced\nprint(coins)  # Prints 12\n```"
+      "content": "Variables are called 'variables' because their values can change (vary) over time.\n\nYou can reassign a variable simply by assigning a new value to it:\n```python\ncoins = 5\ncoins = 12  # The old value 5 is replaced\nprint(coins)  # Prints 12\n```",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of reassignment. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "2.1_q7",
@@ -90,7 +108,9 @@
       "concept": "reassignment",
       "skill": "prediction",
       "difficulty": "easy",
-      "prerequisites": ["2.1_q6"],
+      "prerequisites": [
+        "2.1_q6"
+      ],
       "prompt": "What does this script print?\n```python\nstatus = \"offline\"\nstatus = \"online\"\nprint(status)\n```",
       "options": [
         "A. offline",
@@ -99,7 +119,7 @@
         "D. status"
       ],
       "correct_answer": "B",
-      "explanation": "The second assignment overwrites the reference, so `status` now references `'online'`."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of reassignment. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "2.1_q8",
@@ -107,9 +127,14 @@
       "concept": "updating_variables",
       "skill": "application",
       "difficulty": "medium",
-      "prerequisites": ["2.1_q3", "2.1_q6"],
+      "prerequisites": [
+        "2.1_q3",
+        "2.1_q6"
+      ],
       "title": "Updating a Variable Using Its Old Value",
-      "content": "Because Python evaluates the right side first, you can use a variable's current value to calculate its new value:\n```python\nscore = 10\nscore = score + 5\nprint(score)  # Prints 15\n```\nStep-by-step:\n1. Look at right side: `score + 5` -> `10 + 5` = `15`.\n2. Assign `15` back to `score`."
+      "content": "Because Python evaluates the right side first, you can use a variable's current value to calculate its new value:\n```python\nscore = 10\nscore = score + 5\nprint(score)  # Prints 15\n```\nStep-by-step:\n1. Look at right side: `score + 5` -> `10 + 5` = `15`.\n2. Assign `15` back to `score`.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of updating variables. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "2.1_q9",
@@ -117,7 +142,9 @@
       "concept": "updating_variables",
       "skill": "prediction",
       "difficulty": "medium",
-      "prerequisites": ["2.1_q8"],
+      "prerequisites": [
+        "2.1_q8"
+      ],
       "prompt": "What is the final value of `count` printed by this code?\n```python\ncount = 1\ncount = count + 1\ncount = count + 3\nprint(count)\n```",
       "options": [
         "A. 1",
@@ -134,7 +161,9 @@
       "concept": "assignment_direction",
       "skill": "debugging",
       "difficulty": "medium",
-      "prerequisites": ["2.1_q3"],
+      "prerequisites": [
+        "2.1_q3"
+      ],
       "prompt": "Why does this code cause a SyntaxError?\n```python\n100 = score\n```",
       "options": [
         "A. Variable names must always be written in uppercase.",
@@ -151,11 +180,13 @@
       "concept": "assignment_direction",
       "skill": "debugging",
       "difficulty": "easy",
-      "prerequisites": ["2.1_q10"],
+      "prerequisites": [
+        "2.1_q10"
+      ],
       "prompt": "Fix this reversed assignment statement so that `points` is assigned 50:",
       "starter_code": "50 = points",
       "solution_code": "points = 50",
-      "explanation": "The variable name `points` must be on the left of `=`."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of assignment direction. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "2.1_q12",
@@ -163,9 +194,13 @@
       "concept": "multiple_references",
       "skill": "understanding",
       "difficulty": "medium",
-      "prerequisites": ["2.1_q1"],
+      "prerequisites": [
+        "2.1_q1"
+      ],
       "title": "Assigning One Variable to Another",
-      "content": "When you write `b = a`, Python makes `b` point to the same object currently referenced by `a`:\n```python\na = 10\nb = a\na = 20\nprint(b)\n```\nWhat does `b` print? It prints `10`!\nReassigning `a` later does NOT automatically update `b`. They are independent references."
+      "content": "When you write `b = a`, Python makes `b` point to the same object currently referenced by `a`:\n```python\na = 10\nb = a\na = 20\nprint(b)\n```\nWhat does `b` print? It prints `10`!\nReassigning `a` later does NOT automatically update `b`. They are independent references.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of multiple references. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "2.1_q13",
@@ -173,7 +208,9 @@
       "concept": "multiple_references",
       "skill": "reasoning",
       "difficulty": "medium",
-      "prerequisites": ["2.1_q12"],
+      "prerequisites": [
+        "2.1_q12"
+      ],
       "prompt": "Trace the execution:\n```python\nx = 5\ny = x\nx = 99\nprint(y)\n```\nWhat is printed?",
       "options": [
         "A. 99",
@@ -190,10 +227,14 @@
       "concept": "variable_assignment",
       "skill": "application",
       "difficulty": "easy",
-      "prerequisites": ["2.1_q1"],
+      "prerequisites": [
+        "2.1_q1"
+      ],
       "prompt": "Create a variable named `city` holding the value `'Paris'`:\n```python\n___ = \"Paris\"\n```",
-      "accepted_answers": ["city"],
-      "explanation": "`city = \"Paris\"` creates the variable."
+      "accepted_answers": [
+        "city"
+      ],
+      "explanation": "In Python, this operation directly demonstrates the core behavior of variable assignment. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "2.1_q15",
@@ -201,9 +242,13 @@
       "concept": "dynamic_typing",
       "skill": "understanding",
       "difficulty": "medium",
-      "prerequisites": ["2.1_q1"],
+      "prerequisites": [
+        "2.1_q1"
+      ],
       "title": "Python is Dynamically Typed",
-      "content": "In some languages (like C or Java), you must declare the type of data a variable will hold, and it can never change.\n\nPython is **dynamically typed**: variables are just tags pointing to objects. A variable can point to a number first, and later be reassigned to a string:\n```python\ndata = 42\ndata = \"Answer\"\n```"
+      "content": "In some languages (like C or Java), you must declare the type of data a variable will hold, and it can never change.\n\nPython is **dynamically typed**: variables are just tags pointing to objects. A variable can point to a number first, and later be reassigned to a string:\n```python\ndata = 42\ndata = \"Answer\"\n```",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of dynamic typing. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "2.1_q16",
@@ -211,7 +256,9 @@
       "concept": "dynamic_typing",
       "skill": "recognition",
       "difficulty": "medium",
-      "prerequisites": ["2.1_q15"],
+      "prerequisites": [
+        "2.1_q15"
+      ],
       "prompt": "What does 'dynamically typed' mean in Python?",
       "options": [
         "A. You must declare variable types using `int` or `str` before assigning values.",
@@ -228,11 +275,13 @@
       "concept": "variable_creation",
       "skill": "application",
       "difficulty": "easy",
-      "prerequisites": ["2.1_q1"],
+      "prerequisites": [
+        "2.1_q1"
+      ],
       "prompt": "Create a variable named `temperature` and assign it the integer `72`.",
       "starter_code": "",
       "solution_code": "temperature = 72",
-      "explanation": "`temperature = 72` assigns 72 to `temperature`."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of variable creation. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "2.1_q18",
@@ -240,7 +289,11 @@
       "concept": "variable_operations",
       "skill": "analysis",
       "difficulty": "medium",
-      "prerequisites": ["2.1_q1", "2.1_q6", "2.1_q8"],
+      "prerequisites": [
+        "2.1_q1",
+        "2.1_q6",
+        "2.1_q8"
+      ],
       "prompt": "Match each code statement to its conceptual action.",
       "options": {
         "`x = 5`": "Initial assignment: creates variable `x` pointing to 5.",
@@ -260,7 +313,10 @@
       "concept": "variable_interpolation",
       "skill": "prediction",
       "difficulty": "medium",
-      "prerequisites": ["1.4_q3", "2.1_q1"],
+      "prerequisites": [
+        "1.4_q3",
+        "2.1_q1"
+      ],
       "prompt": "What does this code output?\n```python\nitem = \"Laptop\"\nprice = 899\nprint(\"Product:\", item, \"| Price: $\", price, sep=\"\")\n```",
       "options": [
         "A. Product: Laptop | Price: $ 899",
@@ -277,7 +333,10 @@
       "concept": "variable_tracing",
       "skill": "analysis",
       "difficulty": "hard",
-      "prerequisites": ["2.1_q8", "2.1_q12"],
+      "prerequisites": [
+        "2.1_q8",
+        "2.1_q12"
+      ],
       "prompt": "Step through this code carefully:\n```python\na = 2\nb = 3\na = a * b\nb = a - b\n```\nWhat are the final values of `a` and `b`?",
       "options": [
         "A. a = 6, b = 3",
@@ -294,7 +353,10 @@
       "concept": "undefined_variable",
       "skill": "debugging",
       "difficulty": "medium",
-      "prerequisites": ["1.6_q8", "2.1_q1"],
+      "prerequisites": [
+        "1.6_q8",
+        "2.1_q1"
+      ],
       "prompt": "What happens when this script runs?\n```python\nprint(total_score)\ntotal_score = 50\n```",
       "options": [
         "A. Python prints 50 because it scans ahead for assignments.",
@@ -311,9 +373,13 @@
       "concept": "variable_swap",
       "skill": "application",
       "difficulty": "medium",
-      "prerequisites": ["2.1_q12"],
+      "prerequisites": [
+        "2.1_q12"
+      ],
       "prompt": "In Python, you can swap two variables in one clean line! Complete the swap:\n```python\na = 1\nb = 2\na, b = b, ___\n```",
-      "accepted_answers": ["a"],
+      "accepted_answers": [
+        "a"
+      ],
       "explanation": "`a, b = b, a` swaps the values of `a` and `b` simultaneously."
     },
     {
@@ -322,7 +388,9 @@
       "concept": "variable_swap",
       "skill": "prediction",
       "difficulty": "medium",
-      "prerequisites": ["2.1_q22"],
+      "prerequisites": [
+        "2.1_q22"
+      ],
       "prompt": "What does this code output?\n```python\nx = \"day\"\ny = \"night\"\nx, y = y, x\nprint(x)\n```",
       "options": [
         "A. day",
@@ -335,11 +403,13 @@
     },
     {
       "id": "2.1_q24",
-      "type": "scenario",
+      "type": "multiple_choice",
       "concept": "inventory_tracking",
       "skill": "application",
       "difficulty": "medium",
-      "prerequisites": ["2.1_q8"],
+      "prerequisites": [
+        "2.1_q8"
+      ],
       "prompt": "A warehouse tracking system starts with 50 units. 15 units are shipped out to customers, and 30 new units arrive from suppliers. Which code correctly models this?",
       "options": [
         "A. `stock = 50; stock = stock - 15; stock = stock + 30`",
@@ -356,7 +426,9 @@
       "concept": "variable_name_quotes",
       "skill": "debugging",
       "difficulty": "easy",
-      "prerequisites": ["2.1_q5"],
+      "prerequisites": [
+        "2.1_q5"
+      ],
       "prompt": "Fix this code so it prints the value stored in `greeting` instead of the literal word 'greeting':",
       "starter_code": "greeting = \"Good morning!\"\nprint(\"greeting\")",
       "solution_code": "greeting = \"Good morning!\"\nprint(greeting)",
@@ -368,7 +440,10 @@
       "concept": "memory_model",
       "skill": "understanding",
       "difficulty": "hard",
-      "prerequisites": ["1.2_q8", "2.1_q1"],
+      "prerequisites": [
+        "1.2_q8",
+        "2.1_q1"
+      ],
       "prompt": "In CPython's memory model, what actually happens when you execute `x = 42`?",
       "options": [
         "A. Python carves a physical box named 'x' and puts the number 42 inside it.",
@@ -385,11 +460,13 @@
       "concept": "variable_calculation",
       "skill": "application",
       "difficulty": "medium",
-      "prerequisites": ["2.1_q8"],
+      "prerequisites": [
+        "2.1_q8"
+      ],
       "prompt": "Given `length = 8` and `width = 5`, create a variable `area` that calculates their product (`length * width`), then print `area`.",
       "starter_code": "length = 8\nwidth = 5\n# Calculate area and print it\n",
       "solution_code": "length = 8\nwidth = 5\narea = length * width\nprint(area)",
-      "explanation": "`area = length * width` computes 40, and `print(area)` prints 40."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of variable calculation. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "2.1_q28",
@@ -397,7 +474,10 @@
       "concept": "reassignment_chain",
       "skill": "analysis",
       "difficulty": "hard",
-      "prerequisites": ["2.1_q6", "2.1_q12"],
+      "prerequisites": [
+        "2.1_q6",
+        "2.1_q12"
+      ],
       "prompt": "What does this code print?\n```python\nm = 10\nn = 20\nm = n\nn = 30\nprint(m, n)\n```",
       "options": [
         "A. 10 20",
@@ -410,11 +490,13 @@
     },
     {
       "id": "2.1_q29",
-      "type": "scenario",
+      "type": "real_world_scenario",
       "concept": "debugging_variable_drift",
       "skill": "evaluation",
       "difficulty": "hard",
-      "prerequisites": ["2.1_q8"],
+      "prerequisites": [
+        "2.1_q8"
+      ],
       "prompt": "A developer writes:\n```python\nsubtotal = 100\ntax = subtotal * 0.10\nsubtotal = 200\n```\nWhat is the value of `tax` now, and why?",
       "options": [
         "A. 20.0, because variables automatically update like spreadsheet formulas.",
@@ -427,11 +509,17 @@
     },
     {
       "id": "2.1_q30",
-      "type": "scenario",
+      "type": "real_world_scenario",
       "concept": "variables_synthesis",
       "skill": "transfer",
       "difficulty": "hard",
-      "prerequisites": ["2.1_q1", "2.1_q3", "2.1_q6", "2.1_q15", "2.1_q26"],
+      "prerequisites": [
+        "2.1_q1",
+        "2.1_q3",
+        "2.1_q6",
+        "2.1_q15",
+        "2.1_q26"
+      ],
       "prompt": "Which of the following statements about Python variables is completely TRUE?",
       "options": [
         "A. Variables are statically typed containers that cannot change value or type once created.",
@@ -440,7 +528,17 @@
         "D. Variable assignment checks for mathematical balance on both sides."
       ],
       "correct_answer": "B",
-      "explanation": "This accurately summarizes Python's dynamic object-reference variable model."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of variables synthesis. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     }
+  ],
+  "unit_num": 2,
+  "learning_objectives": [
+    "Explain the technical concepts and mechanics of Variables",
+    "Apply idiomatic Python patterns when working with Variables",
+    "Debug common runtime exceptions and logic errors associated with Variables",
+    "Implement production-ready code utilizing Variables"
+  ],
+  "prerequisites": [
+    "1.6"
   ]
 }

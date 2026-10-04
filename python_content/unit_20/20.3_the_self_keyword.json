@@ -11,26 +11,28 @@
       "difficulty": "easy",
       "prerequisites": [],
       "title": "self Keyword Part 1: The Self Keyword Basics",
-      "content": "In Python, **The Self Keyword Basics** provides essential rules when working with the self keyword.\n\nUnderstanding how `the_self_keyword_basics` functions in practice enables you to write clean, unambiguous code.\n\n```python\n# Step 1: the_self_keyword_basics\nstage_1 = True\n```"
+      "content": "In Python, **The Self Keyword Basics** provides essential rules when working with the self keyword.\n\nUnderstanding how `the_self_keyword_basics` functions in practice enables you to write clean, unambiguous code.\n\n```python\n# Step 1: the_self_keyword_basics\nstage_1 = True\n```",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of the self keyword basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "20.3_q2",
-      "type": "multiple_choice",
+      "type": "output_prediction",
       "concept": "the_self_keyword_basics",
       "skill": "recall",
       "difficulty": "easy",
       "prerequisites": [
         "20.3_q1"
       ],
-      "prompt": "Review 2: What is the primary characteristic of The Self Keyword Basics in self Keyword?",
+      "prompt": "Consider the following Python snippet demonstrating The Self Keyword Basics:\n\n```python\ndef calculate_2(value):\n    base = 8\n    return base + value * 11\n\nresult = calculate_2(2)\nprint(result)\n```\n\nWhat is the value printed to the console?",
       "options": [
-        "A. It defines specific rules for the self keyword basics in Python programs",
-        "B. It forces hardware clock speeds to double automatically",
-        "C. It permanently deletes system configuration records",
-        "D. It removes the need for syntax parsing completely"
+        "30",
+        "19",
+        "110",
+        "TypeError"
       ],
-      "correct_answer": "A",
-      "explanation": "The Self Keyword Basics defines specific semantics for the self keyword basics in Python programs."
+      "correct_answer": "30",
+      "explanation": "Python evaluates arithmetic following standard operator precedence (multiplication before addition). First, `value * 11` evaluates to `2 * 11 = 22`. Then, adding `base` (8) yields `30`. The function returns this integer and `print()` outputs it."
     },
     {
       "id": "20.3_q3",
@@ -42,64 +44,66 @@
         "20.3_q2"
       ],
       "title": "self Keyword Part 3: The Self Keyword Syntax",
-      "content": "In Python, **The Self Keyword Syntax** provides essential rules when working with the self keyword.\n\nUnderstanding how `the_self_keyword_syntax` functions in practice enables you to write clean, unambiguous code.\n\n```python\n# Step 3: the_self_keyword_syntax\nstage_3 = True\n```"
+      "content": "In Python, **The Self Keyword Syntax** provides essential rules when working with the self keyword.\n\nUnderstanding how `the_self_keyword_syntax` functions in practice enables you to write clean, unambiguous code.\n\n```python\n# Step 3: the_self_keyword_syntax\nstage_3 = True\n```",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of the self keyword syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "20.3_q4",
-      "type": "multiple_choice",
+      "type": "output_prediction",
       "concept": "the_self_keyword_syntax",
       "skill": "reasoning",
       "difficulty": "easy",
       "prerequisites": [
         "20.3_q3"
       ],
-      "prompt": "Review 4: What is the primary characteristic of The Self Keyword Syntax in self Keyword?",
+      "prompt": "Consider the following Python snippet demonstrating The Self Keyword Syntax:\n\n```python\ndef calculate_4(value):\n    base = 14\n    return base + value * 6\n\nresult = calculate_4(2)\nprint(result)\n```\n\nWhat is the value printed to the console?",
       "options": [
-        "A. It defines specific rules for the self keyword syntax in Python programs",
-        "B. It forces hardware clock speeds to double automatically",
-        "C. It permanently deletes system configuration records",
-        "D. It removes the need for syntax parsing completely"
+        "26",
+        "20",
+        "96",
+        "TypeError"
       ],
-      "correct_answer": "A",
-      "explanation": "The Self Keyword Syntax defines specific semantics for the self keyword syntax in Python programs."
+      "correct_answer": "26",
+      "explanation": "Python evaluates arithmetic following standard operator precedence (multiplication before addition). First, `value * 6` evaluates to `2 * 6 = 12`. Then, adding `base` (14) yields `26`. The function returns this integer and `print()` outputs it."
     },
     {
       "id": "20.3_q5",
-      "type": "multiple_choice",
+      "type": "output_prediction",
       "concept": "the_self_keyword_matching",
       "skill": "recognition",
       "difficulty": "easy",
       "prerequisites": [
         "20.3_q4"
       ],
-      "prompt": "Review 5: What is the primary characteristic of The Self Keyword Matching in self Keyword?",
+      "prompt": "Consider the following Python snippet demonstrating The Self Keyword Matching:\n\n```python\ndef calculate_5(value):\n    base = 17\n    return base + value * 11\n\nresult = calculate_5(2)\nprint(result)\n```\n\nWhat is the value printed to the console?",
       "options": [
-        "A. It defines specific rules for the self keyword matching in Python programs",
-        "B. It forces hardware clock speeds to double automatically",
-        "C. It permanently deletes system configuration records",
-        "D. It removes the need for syntax parsing completely"
+        "39",
+        "28",
+        "209",
+        "TypeError"
       ],
-      "correct_answer": "A",
-      "explanation": "The Self Keyword Matching defines specific semantics for the self keyword matching in Python programs."
+      "correct_answer": "39",
+      "explanation": "Python evaluates arithmetic following standard operator precedence (multiplication before addition). First, `value * 11` evaluates to `2 * 11 = 22`. Then, adding `base` (17) yields `39`. The function returns this integer and `print()` outputs it."
     },
     {
       "id": "20.3_q6",
-      "type": "multiple_choice",
+      "type": "output_prediction",
       "concept": "the_self_keyword_pitfalls",
       "skill": "comprehension",
       "difficulty": "easy",
       "prerequisites": [
         "20.3_q5"
       ],
-      "prompt": "Review 6: What is the primary characteristic of The Self Keyword Pitfalls in self Keyword?",
+      "prompt": "Consider the following Python snippet demonstrating The Self Keyword Pitfalls:\n\n```python\ndef calculate_6(value):\n    base = 20\n    return base + value * 1\n\nresult = calculate_6(2)\nprint(result)\n```\n\nWhat is the value printed to the console?",
       "options": [
-        "A. It defines specific rules for the self keyword pitfalls in Python programs",
-        "B. It forces hardware clock speeds to double automatically",
-        "C. It permanently deletes system configuration records",
-        "D. It removes the need for syntax parsing completely"
+        "22",
+        "21",
+        "22",
+        "TypeError"
       ],
-      "correct_answer": "A",
-      "explanation": "The Self Keyword Pitfalls defines specific semantics for the self keyword pitfalls in Python programs."
+      "correct_answer": "22",
+      "explanation": "Python evaluates arithmetic following standard operator precedence (multiplication before addition). First, `value * 1` evaluates to `2 * 1 = 2`. Then, adding `base` (20) yields `22`. The function returns this integer and `print()` outputs it."
     },
     {
       "id": "20.3_q7",
@@ -598,5 +602,15 @@
       "hint": "Every method that reads or changes instance data must reference `self` so the operation targets the correct object.",
       "explanation": "Mastery of `self` means consistently using it to isolate state per instance. This prevents unintended side effects and supports scalable, maintainable object-oriented designs."
     }
+  ],
+  "unit_num": 20,
+  "learning_objectives": [
+    "Explain the technical concepts and mechanics of self Keyword",
+    "Apply idiomatic Python patterns when working with self Keyword",
+    "Debug common runtime exceptions and logic errors associated with self Keyword",
+    "Implement production-ready code utilizing self Keyword"
+  ],
+  "prerequisites": [
+    "20.2"
   ]
 }

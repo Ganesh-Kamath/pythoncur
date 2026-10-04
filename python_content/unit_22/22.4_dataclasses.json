@@ -11,7 +11,9 @@
       "difficulty": "easy",
       "prerequisites": [],
       "title": "What Are Dataclasses?",
-      "content": "A dataclass is a Python class that primarily stores data. Instead of writing repetitive boilerplate code like __init__, __repr__, and __eq__, you can use the @dataclass decorator from the dataclasses module. This saves time and reduces errors. Here is a simple example:\n\n```python\nfrom dataclasses import dataclass\n\n@dataclass\nclass Point:\n    x: int\n    y: int\n\np = Point(1, 2)\nprint(p)\n```\n\nWhen you run this, Python automatically generates the __init__ method to accept x and y, and __repr__ to print a readable representation. Dataclasses are especially useful for data-centric objects such as records, configuration objects, or model instances."
+      "content": "A dataclass is a Python class that primarily stores data. Instead of writing repetitive boilerplate code like __init__, __repr__, and __eq__, you can use the @dataclass decorator from the dataclasses module. This saves time and reduces errors. Here is a simple example:\n\n```python\nfrom dataclasses import dataclass\n\n@dataclass\nclass Point:\n    x: int\n    y: int\n\np = Point(1, 2)\nprint(p)\n```\n\nWhen you run this, Python automatically generates the __init__ method to accept x and y, and __repr__ to print a readable representation. Dataclasses are especially useful for data-centric objects such as records, configuration objects, or model instances.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of dataclasses basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "22.4_q2",
@@ -36,12 +38,12 @@
       "prompt": "Which statement best applies to dataclasses basics?",
       "options": [
         "A. Correct approach for dataclasses basics",
-        "B. SyntaxError raised unconditionally",
-        "C. Unrelated system call",
-        "D. Halts Python interpreter"
+        "Raises a SyntaxError: invalid syntax at runtime",
+        "Raises an IndentationError: unexpected indent",
+        "Silently ignored by the Python parser"
       ],
       "correct_answer": "A. Correct approach for dataclasses basics",
-      "explanation": "Demonstrates core usage of dataclasses basics in Python."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of dataclasses basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "22.4_q3",
@@ -53,7 +55,9 @@
         "22.4_q2"
       ],
       "title": "Dataclass Syntax and Field Definitions",
-      "content": "To define a dataclass, you import dataclass from dataclasses and decorate your class. Each field is declared with a type annotation. You can optionally provide a default value. Here is the general pattern:\n\n```python\nfrom dataclasses import dataclass\n\n@dataclass\nclass Person:\n    name: str\n    age: int = 0\n\nperson = Person('Alice', 30)\nprint(person.age)\n```\n\nNotice that age has a default value of 0. When a default is provided, the corresponding parameter becomes optional in the generated __init__. Fields without defaults must come before fields with defaults. This ordering rule is enforced by Python."
+      "content": "To define a dataclass, you import dataclass from dataclasses and decorate your class. Each field is declared with a type annotation. You can optionally provide a default value. Here is the general pattern:\n\n```python\nfrom dataclasses import dataclass\n\n@dataclass\nclass Person:\n    name: str\n    age: int = 0\n\nperson = Person('Alice', 30)\nprint(person.age)\n```\n\nNotice that age has a default value of 0. When a default is provided, the corresponding parameter becomes optional in the generated __init__. Fields without defaults must come before fields with defaults. This ordering rule is enforced by Python.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of dataclasses syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "22.4_q4",
@@ -78,12 +82,12 @@
       "prompt": "Which statement best applies to dataclasses syntax?",
       "options": [
         "A. Correct approach for dataclasses syntax",
-        "B. SyntaxError raised unconditionally",
-        "C. Unrelated system call",
-        "D. Halts Python interpreter"
+        "Raises a SyntaxError: invalid syntax at runtime",
+        "Raises an IndentationError: unexpected indent",
+        "Silently ignored by the Python parser"
       ],
       "correct_answer": "A. Correct approach for dataclasses syntax",
-      "explanation": "Demonstrates core usage of dataclasses syntax in Python."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of dataclasses syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "22.4_q5",
@@ -108,12 +112,12 @@
       "prompt": "Which statement best applies to dataclasses matching?",
       "options": [
         "A. Correct approach for dataclasses matching",
-        "B. SyntaxError raised unconditionally",
-        "C. Unrelated system call",
-        "D. Halts Python interpreter"
+        "Raises a SyntaxError: invalid syntax at runtime",
+        "Raises an IndentationError: unexpected indent",
+        "Silently ignored by the Python parser"
       ],
       "correct_answer": "A. Correct approach for dataclasses matching",
-      "explanation": "Demonstrates core usage of dataclasses matching in Python."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of dataclasses matching. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "22.4_q6",
@@ -138,12 +142,12 @@
       "prompt": "Which statement best applies to dataclasses pitfalls?",
       "options": [
         "A. Correct approach for dataclasses pitfalls",
-        "B. SyntaxError raised unconditionally",
-        "C. Unrelated system call",
-        "D. Halts Python interpreter"
+        "Raises a SyntaxError: invalid syntax at runtime",
+        "Raises an IndentationError: unexpected indent",
+        "Silently ignored by the Python parser"
       ],
       "correct_answer": "A. Correct approach for dataclasses pitfalls",
-      "explanation": "Demonstrates core usage of dataclasses pitfalls in Python."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of dataclasses pitfalls. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "22.4_q7",
@@ -607,5 +611,15 @@
       "hint": "Override __eq__ to compare only the specified fields and use metadata to annotate field properties without affecting behavior.",
       "explanation": "Customizing equality lets you define domain-specific identity semantics. metadata enriches schema information for serializers or documentation generators while remaining invisible to core dataclass operations."
     }
+  ],
+  "unit_num": 22,
+  "learning_objectives": [
+    "Design and instantiate Python classes demonstrating Dataclasses",
+    "Manage instance state using the __init__ constructor and self",
+    "Implement object-oriented principles including encapsulation and inheritance",
+    "Structure modular programs using classes and composition"
+  ],
+  "prerequisites": [
+    "22.3"
   ]
 }

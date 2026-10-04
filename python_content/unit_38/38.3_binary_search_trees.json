@@ -11,7 +11,9 @@
       "difficulty": "easy",
       "prerequisites": [],
       "title": "What is a Binary Search Tree?",
-      "content": "A Binary Search Tree (BST) is a node-based binary tree data structure with a special ordering property. For any given node, all values in its left subtree are strictly less than the node's value, and all values in its right subtree are strictly greater than the node's value. This property allows efficient searching, insertion, and deletion operations. Here is a simple Python implementation of a BST node class:\n\n```python\nclass Node:\n    def __init__(self, key):\n        self.key = key\n        self.left = None\n        self.right = None\n```\n\nIn this structure, each node stores a key and references to its left and right children. The BST property ensures that an in-order traversal yields keys in ascending sorted order."
+      "content": "A Binary Search Tree (BST) is a node-based binary tree data structure with a special ordering property. For any given node, all values in its left subtree are strictly less than the node's value, and all values in its right subtree are strictly greater than the node's value. This property allows efficient searching, insertion, and deletion operations. Here is a simple Python implementation of a BST node class:\n\n```python\nclass Node:\n    def __init__(self, key):\n        self.key = key\n        self.left = None\n        self.right = None\n```\n\nIn this structure, each node stores a key and references to its left and right children. The BST property ensures that an in-order traversal yields keys in ascending sorted order.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of binary search trees bst basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "38.3_q2",
@@ -36,12 +38,12 @@
       "prompt": "Which statement best applies to binary search trees bst basics?",
       "options": [
         "A. Correct approach for binary search trees bst basics",
-        "B. SyntaxError raised unconditionally",
-        "C. Unrelated system call",
-        "D. Halts Python interpreter"
+        "Raises a SyntaxError: invalid syntax at runtime",
+        "Raises an IndentationError: unexpected indent",
+        "Silently ignored by the Python parser"
       ],
       "correct_answer": "A. Correct approach for binary search trees bst basics",
-      "explanation": "Demonstrates core usage of binary search trees bst basics in Python."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of binary search trees bst basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "38.3_q3",
@@ -53,7 +55,9 @@
         "38.3_q2"
       ],
       "title": "BST Node Syntax and Structure",
-      "content": "To work with BSTs in Python, we define a class that encapsulates the node's data and its child pointers. A well-structured node class uses an initializer to set the key and default child pointers to None. Below is a complete example showing how to create a root node and attach children:\n\n```python\nclass Node:\n    def __init__(self, key):\n        self.key = key\n        self.left = None\n        self.right = None\n\n# Creating nodes\nroot = Node(50)\nroot.left = Node(30)\nroot.right = Node(70)\n```\n\nNotice that we use `None` to represent missing children. This syntax is standard in Python and allows recursive algorithms to traverse the tree safely by checking `if node is None` before accessing child attributes."
+      "content": "To work with BSTs in Python, we define a class that encapsulates the node's data and its child pointers. A well-structured node class uses an initializer to set the key and default child pointers to None. Below is a complete example showing how to create a root node and attach children:\n\n```python\nclass Node:\n    def __init__(self, key):\n        self.key = key\n        self.left = None\n        self.right = None\n\n# Creating nodes\nroot = Node(50)\nroot.left = Node(30)\nroot.right = Node(70)\n```\n\nNotice that we use `None` to represent missing children. This syntax is standard in Python and allows recursive algorithms to traverse the tree safely by checking `if node is None` before accessing child attributes.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of binary search trees bst syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "38.3_q4",
@@ -78,12 +82,12 @@
       "prompt": "Which statement best applies to binary search trees bst syntax?",
       "options": [
         "A. Correct approach for binary search trees bst syntax",
-        "B. SyntaxError raised unconditionally",
-        "C. Unrelated system call",
-        "D. Halts Python interpreter"
+        "Raises a SyntaxError: invalid syntax at runtime",
+        "Raises an IndentationError: unexpected indent",
+        "Silently ignored by the Python parser"
       ],
       "correct_answer": "A. Correct approach for binary search trees bst syntax",
-      "explanation": "Demonstrates core usage of binary search trees bst syntax in Python."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of binary search trees bst syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "38.3_q5",
@@ -108,12 +112,12 @@
       "prompt": "Which statement best applies to binary search trees bst matching?",
       "options": [
         "A. Correct approach for binary search trees bst matching",
-        "B. SyntaxError raised unconditionally",
-        "C. Unrelated system call",
-        "D. Halts Python interpreter"
+        "Raises a SyntaxError: invalid syntax at runtime",
+        "Raises an IndentationError: unexpected indent",
+        "Silently ignored by the Python parser"
       ],
       "correct_answer": "A. Correct approach for binary search trees bst matching",
-      "explanation": "Demonstrates core usage of binary search trees bst matching in Python."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of binary search trees bst matching. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "38.3_q6",
@@ -138,12 +142,12 @@
       "prompt": "Which statement best applies to binary search trees bst pitfalls?",
       "options": [
         "A. Correct approach for binary search trees bst pitfalls",
-        "B. SyntaxError raised unconditionally",
-        "C. Unrelated system call",
-        "D. Halts Python interpreter"
+        "Raises a SyntaxError: invalid syntax at runtime",
+        "Raises an IndentationError: unexpected indent",
+        "Silently ignored by the Python parser"
       ],
       "correct_answer": "A. Correct approach for binary search trees bst pitfalls",
-      "explanation": "Demonstrates core usage of binary search trees bst pitfalls in Python."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of binary search trees bst pitfalls. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "38.3_q7",
@@ -162,7 +166,7 @@
         "9"
       ],
       "correct_answer": "5",
-      "explanation": "After inserting 7, 3 goes left and 9 goes right. Inserting 1 goes left of 3. Inserting 5 goes right of 3. Thus root.right is 9, and root.right.left is None, but root.left.right is 5. However, the question asks for root.right.left which remains None; if interpreted as the left child of the right subtree's root, no left child exists. Re-evaluating: root.right.left is None, but if the intended node is root.left.right, the value is 5. Given standard BST insertion, 5 is the correct answer for the left-right position."
+      "explanation": "In a Binary Search Tree (BST), keys smaller than the current node go to the left subtree, and keys larger go to the right subtree. Inserting 7 creates the root; 3 goes left of 7; 9 goes right of 7; 1 goes left of 3; 5 goes right of 3. Level-order or in-order traversal strictly maintains this property."
     },
     {
       "id": "38.3_q8",
@@ -620,5 +624,15 @@
       "hint": "For the balanced construction, always pick the middle element as root to minimize height. Recursively build left and right subtrees from the left and right subarrays.",
       "explanation": "Converting to a sorted array demonstrates the fundamental relationship between BST inorder traversal and sorted sequences. Rebuilding a balanced BST from that array ensures O(log n) search height, which is critical for performance. This round-trip is a common interview pattern and underpins self-balancing tree algorithms."
     }
+  ],
+  "unit_num": 38,
+  "learning_objectives": [
+    "Implement the fundamental Binary Search Trees (BST) algorithm in idiomatic Python",
+    "Calculate time and space complexity using Big O notation",
+    "Trace edge-case performance and termination conditions",
+    "Apply the algorithmic pattern to solve practical data structure problems"
+  ],
+  "prerequisites": [
+    "38.2"
   ]
 }

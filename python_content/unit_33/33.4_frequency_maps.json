@@ -11,7 +11,9 @@
       "difficulty": "easy",
       "prerequisites": [],
       "title": "What is a Frequency Map?",
-      "content": "A frequency map is a data structure that stores how many times each unique element appears in a collection. In Python, the most common way to build a frequency map is by using a dictionary, where keys are the elements and values are their counts. For example, given the list [1, 2, 2, 3, 3, 3], the frequency map is {1: 1, 2: 2, 3: 3}. This structure is extremely useful in data analysis, counting characters in a string, and solving problems involving duplicates. The core idea is simple: iterate through the input, and for each item, increment its count in the dictionary. If the item is not yet present, initialize it to 1. This approach runs in O(n) time, making it efficient for large datasets."
+      "content": "A frequency map is a data structure that stores how many times each unique element appears in a collection. In Python, the most common way to build a frequency map is by using a dictionary, where keys are the elements and values are their counts. For example, given the list [1, 2, 2, 3, 3, 3], the frequency map is {1: 1, 2: 2, 3: 3}. This structure is extremely useful in data analysis, counting characters in a string, and solving problems involving duplicates. The core idea is simple: iterate through the input, and for each item, increment its count in the dictionary. If the item is not yet present, initialize it to 1. This approach runs in O(n) time, making it efficient for large datasets.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of frequency maps basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "33.4_q2",
@@ -42,7 +44,9 @@
         "33.4_q2"
       ],
       "title": "Building a Frequency Map with Python",
-      "content": "To create a frequency map in Python, you initialize an empty dictionary and loop through your data. For each element, check if it already exists as a key; if so, increment its value, otherwise set it to 1. Here is the standard pattern:\n\n```python\ndef build_frequency_map(items):\n    freq = {}\n    for item in items:\n        if item in freq:\n            freq[item] = freq[item] + 1\n        else:\n            freq[item] = 1\n    return freq\n```\n\nYou can also use the `dict.get()` method to simplify the logic:\n\n```python\ndef build_frequency_map_get(items):\n    freq = {}\n    for item in items:\n        freq[item] = freq.get(item, 0) + 1\n    return freq\n```\n\nBoth versions produce identical results. Understanding this syntax is essential because it forms the foundation for more advanced counting techniques, such as using `collections.Counter` for brevity."
+      "content": "To create a frequency map in Python, you initialize an empty dictionary and loop through your data. For each element, check if it already exists as a key; if so, increment its value, otherwise set it to 1. Here is the standard pattern:\n\n```python\ndef build_frequency_map(items):\n    freq = {}\n    for item in items:\n        if item in freq:\n            freq[item] = freq[item] + 1\n        else:\n            freq[item] = 1\n    return freq\n```\n\nYou can also use the `dict.get()` method to simplify the logic:\n\n```python\ndef build_frequency_map_get(items):\n    freq = {}\n    for item in items:\n        freq[item] = freq.get(item, 0) + 1\n    return freq\n```\n\nBoth versions produce identical results. Understanding this syntax is essential because it forms the foundation for more advanced counting techniques, such as using `collections.Counter` for brevity.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of frequency maps syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "33.4_q4",
@@ -113,9 +117,9 @@
       "prompt": "Given the following Python code, what will be the final contents of the dictionary `freq` after execution?\n\n```python\nitems = ['apple', 'banana', 'apple', 'orange', 'banana', 'apple']\nfreq = {}\nfor item in items:\n    if item in freq:\n        freq[item] += 1\n    else:\n        freq[item] = 1\nprint(freq)\n```",
       "options": [
         "{'apple': 3, 'banana': 2, 'orange': 1}",
-        "{'apple': 1, 'banana': 1, 'orange': 1}",
-        "{'apple': 3, 'banana': 1, 'orange': 2}",
-        "{'apple': 2, 'banana': 2, 'orange': 1}"
+        "Raises a SyntaxError: invalid syntax at runtime",
+        "Raises an IndentationError: unexpected indent",
+        "Silently ignored by the Python parser"
       ],
       "correct_answer": "{'apple': 3, 'banana': 2, 'orange': 1}",
       "explanation": "The loop iterates over each element in `items`. For each element, it checks if the element already exists as a key in `freq`. If yes, it increments the count; if no, it initializes the count to 1. After processing all elements, 'apple' appears 3 times, 'banana' 2 times, and 'orange' 1 time."
@@ -382,11 +386,11 @@
       "prerequisites": [
         "33.4_q18"
       ],
-      "prompt": "Debug Challenge 19: Fix the capitalization error in this line for Frequency Maps Errors:",
+      "prompt": "Fix the capitalization error in this line for Frequency Maps Errors:",
       "starter_code": "Print('Frequency Maps Item 19')",
       "solution_code": "print('Frequency Maps Item 19')",
       "hint": "Python built-in functions like print() must be written in lowercase.",
-      "explanation": "Built-in function names in Python are case-sensitive and require lowercase."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of frequency maps errors. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "33.4_q20",
@@ -397,11 +401,11 @@
       "prerequisites": [
         "33.4_q19"
       ],
-      "prompt": "Debug Challenge 20: Fix the capitalization error in this line for Frequency Maps Fix:",
+      "prompt": "Fix the capitalization error in this line for Frequency Maps Fix:",
       "starter_code": "Print('Frequency Maps Item 20')",
       "solution_code": "print('Frequency Maps Item 20')",
       "hint": "Python built-in functions like print() must be written in lowercase.",
-      "explanation": "Built-in function names in Python are case-sensitive and require lowercase."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of frequency maps fix. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "33.4_q21",
@@ -412,11 +416,11 @@
       "prerequisites": [
         "33.4_q20"
       ],
-      "prompt": "Debug Challenge 21: Fix the capitalization error in this line for Frequency Maps Edge Cases:",
+      "prompt": "Fix the capitalization error in this line for Frequency Maps Edge Cases:",
       "starter_code": "Print('Frequency Maps Item 21')",
       "solution_code": "print('Frequency Maps Item 21')",
       "hint": "Python built-in functions like print() must be written in lowercase.",
-      "explanation": "Built-in function names in Python are case-sensitive and require lowercase."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of frequency maps edge cases. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "33.4_q22",
@@ -427,11 +431,11 @@
       "prerequisites": [
         "33.4_q21"
       ],
-      "prompt": "Debug Challenge 22: Fix the capitalization error in this line for Frequency Maps Runtime:",
+      "prompt": "Fix the capitalization error in this line for Frequency Maps Runtime:",
       "starter_code": "Print('Frequency Maps Item 22')",
       "solution_code": "print('Frequency Maps Item 22')",
       "hint": "Python built-in functions like print() must be written in lowercase.",
-      "explanation": "Built-in function names in Python are case-sensitive and require lowercase."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of frequency maps runtime. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "33.4_q23",
@@ -442,11 +446,11 @@
       "prerequisites": [
         "33.4_q22"
       ],
-      "prompt": "Debug Challenge 23: Fix the capitalization error in this line for Frequency Maps Logic Repair:",
+      "prompt": "Fix the capitalization error in this line for Frequency Maps Logic Repair:",
       "starter_code": "Print('Frequency Maps Item 23')",
       "solution_code": "print('Frequency Maps Item 23')",
       "hint": "Python built-in functions like print() must be written in lowercase.",
-      "explanation": "Built-in function names in Python are case-sensitive and require lowercase."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of frequency maps logic repair. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "33.4_q24",
@@ -457,7 +461,7 @@
       "prerequisites": [
         "33.4_q23"
       ],
-      "prompt": "Coding Challenge 24: Write a statement that prints 'Frequency Maps Result 24' to standard output.",
+      "prompt": "Write a statement that prints 'Frequency Maps Result 24' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Frequency Maps Result 24')",
       "test_cases": [
@@ -467,7 +471,7 @@
         }
       ],
       "hint": "Use print('Frequency Maps Result 24') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of frequency maps optimization. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "33.4_q25",
@@ -589,5 +593,15 @@
       "hint": "Store (-value) in the heap to break ties by favoring smaller original values when frequencies are equal.",
       "explanation": "A min-heap of size k ensures O(n log k) time, superior to full sorting when k << n. The tuple (count, -value) leverages Python's lexicographic comparison to satisfy the tie-breaking rule."
     }
+  ],
+  "unit_num": 33,
+  "learning_objectives": [
+    "Explain the technical concepts and mechanics of Frequency Maps",
+    "Apply idiomatic Python patterns when working with Frequency Maps",
+    "Debug common runtime exceptions and logic errors associated with Frequency Maps",
+    "Implement production-ready code utilizing Frequency Maps"
+  ],
+  "prerequisites": [
+    "33.3"
   ]
 }

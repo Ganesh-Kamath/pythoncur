@@ -11,7 +11,9 @@
       "difficulty": "easy",
       "prerequisites": [],
       "title": "Introduction to Writing Data to Files",
-      "content": "Writing to a file means saving data from your Python program into a file on your computer so it persists even after the program closes. The most common way is using the open() function with a mode that allows writing, typically 'w' for write mode. When you use 'w', the file is created if it does not exist, or its contents are erased if it does exist. You then use the write() method to add text, and finally close() the file to save changes. Here is a simple example:\n\n```python\n# Open a file in write mode\nfile = open('output.txt', 'w')\n\n# Write some text into the file\nfile.write('Hello, Codolingo!')\n\n# Close the file to ensure data is saved\nfile.close()\n```\n\nKey points: always close the file when done, or use a with statement for automatic cleanup. The write() method does not add a newline automatically, so include '\\n' if you want line breaks."
+      "content": "Writing to a file means saving data from your Python program into a file on your computer so it persists even after the program closes. The most common way is using the open() function with a mode that allows writing, typically 'w' for write mode. When you use 'w', the file is created if it does not exist, or its contents are erased if it does exist. You then use the write() method to add text, and finally close() the file to save changes. Here is a simple example:\n\n```python\n# Open a file in write mode\nfile = open('output.txt', 'w')\n\n# Write some text into the file\nfile.write('Hello, Codolingo!')\n\n# Close the file to ensure data is saved\nfile.close()\n```\n\nKey points: always close the file when done, or use a with statement for automatic cleanup. The write() method does not add a newline automatically, so include '\\n' if you want line breaks.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of writing to files basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "13.4_q2",
@@ -42,7 +44,9 @@
         "13.4_q2"
       ],
       "title": "Essential Syntax for Writing to Files",
-      "content": "The standard syntax for writing to a file involves three main steps: open the file, write content, and close the file. A safer and preferred approach is using a with statement, which automatically handles closing the file even if an error occurs. The write() method accepts a string and writes it directly. If you need to write multiple lines, you can call write() repeatedly or include newline characters. Here is the recommended pattern:\n\n```python\nwith open('log.txt', 'w') as file:\n    file.write('Session started\\n')\n    file.write('User logged in\\n')\n\n# File is automatically closed here\n```\n\nRemember that write() does not return the written string; it returns the number of characters written, which can be useful for verification."
+      "content": "The standard syntax for writing to a file involves three main steps: open the file, write content, and close the file. A safer and preferred approach is using a with statement, which automatically handles closing the file even if an error occurs. The write() method accepts a string and writes it directly. If you need to write multiple lines, you can call write() repeatedly or include newline characters. Here is the recommended pattern:\n\n```python\nwith open('log.txt', 'w') as file:\n    file.write('Session started\\n')\n    file.write('User logged in\\n')\n\n# File is automatically closed here\n```\n\nRemember that write() does not return the written string; it returns the number of characters written, which can be useful for verification.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of writing to files syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "13.4_q4",
@@ -256,12 +260,12 @@
       "prerequisites": [
         "13.4_q12"
       ],
-      "prompt": "Fill Blank 13: Complete the code to output 'Writing to Files #13':\n```python\n___('Writing to Files #13')\n```",
+      "prompt": "Complete the code to output 'Writing to Files #13':\n```python\n___('Writing to Files #13')\n```",
       "correct_answer": "print",
       "accepted_answers": [
         "print"
       ],
-      "explanation": "The built-in print() function outputs the specified string."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of writing to files syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "13.4_q14",
@@ -272,12 +276,12 @@
       "prerequisites": [
         "13.4_q13"
       ],
-      "prompt": "Fill Blank 14: Complete the code to output 'Writing to Files #14':\n```python\n___('Writing to Files #14')\n```",
+      "prompt": "Complete the code to output 'Writing to Files #14':\n```python\n___('Writing to Files #14')\n```",
       "correct_answer": "print",
       "accepted_answers": [
         "print"
       ],
-      "explanation": "The built-in print() function outputs the specified string."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of writing to files keywords. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "13.4_q15",
@@ -288,7 +292,7 @@
       "prerequisites": [
         "13.4_q14"
       ],
-      "prompt": "Algorithm Sequence 15: Arrange the lines in correct logical order for Writing To Files Sequence:",
+      "prompt": "Arrange the lines in correct logical order for Writing To Files Sequence:",
       "options": [
         "a_15 = 10",
         "b_15 = 20",
@@ -312,12 +316,12 @@
       "prerequisites": [
         "13.4_q15"
       ],
-      "prompt": "Fill Blank 16: Complete the code to output 'Writing to Files #16':\n```python\n___('Writing to Files #16')\n```",
+      "prompt": "Complete the code to output 'Writing to Files #16':\n```python\n___('Writing to Files #16')\n```",
       "correct_answer": "print",
       "accepted_answers": [
         "print"
       ],
-      "explanation": "The built-in print() function outputs the specified string."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of writing to files patterns. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "13.4_q17",
@@ -328,7 +332,7 @@
       "prerequisites": [
         "13.4_q16"
       ],
-      "prompt": "Algorithm Sequence 17: Arrange the lines in correct logical order for Writing To Files Algorithm:",
+      "prompt": "Arrange the lines in correct logical order for Writing To Files Algorithm:",
       "options": [
         "a_17 = 10",
         "b_17 = 20",
@@ -352,12 +356,12 @@
       "prerequisites": [
         "13.4_q17"
       ],
-      "prompt": "Fill Blank 18: Complete the code to output 'Writing to Files #18':\n```python\n___('Writing to Files #18')\n```",
+      "prompt": "Complete the code to output 'Writing to Files #18':\n```python\n___('Writing to Files #18')\n```",
       "correct_answer": "print",
       "accepted_answers": [
         "print"
       ],
-      "explanation": "The built-in print() function outputs the specified string."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of writing to files idioms. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "13.4_q19",
@@ -368,11 +372,11 @@
       "prerequisites": [
         "13.4_q18"
       ],
-      "prompt": "Debug Challenge 19: Fix the capitalization error in this line for Writing To Files Errors:",
+      "prompt": "Fix the capitalization error in this line for Writing To Files Errors:",
       "starter_code": "Print('Writing to Files Item 19')",
       "solution_code": "print('Writing to Files Item 19')",
       "hint": "Python built-in functions like print() must be written in lowercase.",
-      "explanation": "Built-in function names in Python are case-sensitive and require lowercase."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of writing to files errors. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "13.4_q20",
@@ -383,11 +387,11 @@
       "prerequisites": [
         "13.4_q19"
       ],
-      "prompt": "Debug Challenge 20: Fix the capitalization error in this line for Writing To Files Fix:",
+      "prompt": "Fix the capitalization error in this line for Writing To Files Fix:",
       "starter_code": "Print('Writing to Files Item 20')",
       "solution_code": "print('Writing to Files Item 20')",
       "hint": "Python built-in functions like print() must be written in lowercase.",
-      "explanation": "Built-in function names in Python are case-sensitive and require lowercase."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of writing to files fix. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "13.4_q21",
@@ -398,11 +402,11 @@
       "prerequisites": [
         "13.4_q20"
       ],
-      "prompt": "Debug Challenge 21: Fix the capitalization error in this line for Writing To Files Edge Cases:",
+      "prompt": "Fix the capitalization error in this line for Writing To Files Edge Cases:",
       "starter_code": "Print('Writing to Files Item 21')",
       "solution_code": "print('Writing to Files Item 21')",
       "hint": "Python built-in functions like print() must be written in lowercase.",
-      "explanation": "Built-in function names in Python are case-sensitive and require lowercase."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of writing to files edge cases. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "13.4_q22",
@@ -413,11 +417,11 @@
       "prerequisites": [
         "13.4_q21"
       ],
-      "prompt": "Debug Challenge 22: Fix the capitalization error in this line for Writing To Files Runtime:",
+      "prompt": "Fix the capitalization error in this line for Writing To Files Runtime:",
       "starter_code": "Print('Writing to Files Item 22')",
       "solution_code": "print('Writing to Files Item 22')",
       "hint": "Python built-in functions like print() must be written in lowercase.",
-      "explanation": "Built-in function names in Python are case-sensitive and require lowercase."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of writing to files runtime. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "13.4_q23",
@@ -428,11 +432,11 @@
       "prerequisites": [
         "13.4_q22"
       ],
-      "prompt": "Debug Challenge 23: Fix the capitalization error in this line for Writing To Files Logic Repair:",
+      "prompt": "Fix the capitalization error in this line for Writing To Files Logic Repair:",
       "starter_code": "Print('Writing to Files Item 23')",
       "solution_code": "print('Writing to Files Item 23')",
       "hint": "Python built-in functions like print() must be written in lowercase.",
-      "explanation": "Built-in function names in Python are case-sensitive and require lowercase."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of writing to files logic repair. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "13.4_q24",
@@ -443,7 +447,7 @@
       "prerequisites": [
         "13.4_q23"
       ],
-      "prompt": "Coding Challenge 24: Write a statement that prints 'Writing to Files Result 24' to standard output.",
+      "prompt": "Write a statement that prints 'Writing to Files Result 24' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Writing to Files Result 24')",
       "test_cases": [
@@ -453,7 +457,7 @@
         }
       ],
       "hint": "Use print('Writing to Files Result 24') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of writing to files optimization. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "13.4_q25",
@@ -576,5 +580,15 @@
       "hint": "Iterate through the list, check that price and quantity are numbers and non-negative, then write valid entries using f-string CSV formatting. Maintain a counter for valid entries and print it after the loop.",
       "explanation": "This mastery mini-challenge integrates data validation, type checking, conditional filtering, CSV-style string generation, and file output. It demands full command of file handling in a realistic data-processing context, confirming the learner can independently synthesize and apply all prior skills."
     }
+  ],
+  "unit_num": 13,
+  "learning_objectives": [
+    "Explain the technical concepts and mechanics of Writing to Files",
+    "Apply idiomatic Python patterns when working with Writing to Files",
+    "Debug common runtime exceptions and logic errors associated with Writing to Files",
+    "Implement production-ready code utilizing Writing to Files"
+  ],
+  "prerequisites": [
+    "13.3"
   ]
 }

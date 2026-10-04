@@ -11,7 +11,9 @@
       "difficulty": "easy",
       "prerequisites": [],
       "title": "What Is Large-Scale Refactoring?",
-      "content": "Large-scale refactoring is the systematic process of restructuring existing code to improve its internal structure without changing its external behavior. When a codebase grows, duplicated logic, unclear naming, and tangled dependencies make maintenance difficult. Refactoring at scale involves applying consistent patterns across many files or modules. A key principle is to refactor in small, testable steps so that each change can be verified. For example, consider a function that calculates discounts for many product types. Instead of repeating conditional logic, you can extract shared behavior into helper functions. Here is a simple illustration:\n\n```python\ndef apply_discount(price, discount_rate):\n    return price * (1 - discount_rate)\n\ndef calculate_total(items, discount_rate):\n    total = 0\n    for item in items:\n        total += apply_discount(item['price'], discount_rate)\n    return total\n\nproducts = [{'price': 100}, {'price': 200}, {'price': 300}]\nfinal = calculate_total(products, 0.1)\nprint(final)\n```\n\nIn this example, extracting `apply_discount` makes the code easier to test and reuse. Recognizing where duplication exists is the first step toward large-scale refactoring."
+      "content": "Large-scale refactoring is the systematic process of restructuring existing code to improve its internal structure without changing its external behavior. When a codebase grows, duplicated logic, unclear naming, and tangled dependencies make maintenance difficult. Refactoring at scale involves applying consistent patterns across many files or modules. A key principle is to refactor in small, testable steps so that each change can be verified. For example, consider a function that calculates discounts for many product types. Instead of repeating conditional logic, you can extract shared behavior into helper functions. Here is a simple illustration:\n\n```python\ndef apply_discount(price, discount_rate):\n    return price * (1 - discount_rate)\n\ndef calculate_total(items, discount_rate):\n    total = 0\n    for item in items:\n        total += apply_discount(item['price'], discount_rate)\n    return total\n\nproducts = [{'price': 100}, {'price': 200}, {'price': 300}]\nfinal = calculate_total(products, 0.1)\nprint(final)\n```\n\nIn this example, extracting `apply_discount` makes the code easier to test and reuse. Recognizing where duplication exists is the first step toward large-scale refactoring.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of largescale refactoring basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "43.3_q2",
@@ -42,7 +44,9 @@
         "43.3_q2"
       ],
       "title": "Syntax Patterns for Extracting Methods",
-      "content": "A common refactoring syntax pattern is extracting a method. When you notice a block of code doing one clear job, you can move it into a function. This improves readability and reuse. Consider the following pattern:\n\n```python\ndef validate_user(user):\n    if not user:\n        return False\n    if len(user['name']) < 2:\n        return False\n    if user['age'] < 0:\n        return False\n    return True\n\ndef process_users(users):\n    valid = []\n    for u in users:\n        if validate_user(u):\n            valid.append(u)\n    return valid\n\nusers = [{'name': 'Ana', 'age': 30}, {'name': 'B', 'age': 25}]\nprint(process_users(users))\n```\n\nHere, `validate_user` isolates validation logic. Notice the syntax: a clear name, a single responsibility, and a return value. When refactoring at scale, apply this pattern consistently across modules so that each function has one purpose."
+      "content": "A common refactoring syntax pattern is extracting a method. When you notice a block of code doing one clear job, you can move it into a function. This improves readability and reuse. Consider the following pattern:\n\n```python\ndef validate_user(user):\n    if not user:\n        return False\n    if len(user['name']) < 2:\n        return False\n    if user['age'] < 0:\n        return False\n    return True\n\ndef process_users(users):\n    valid = []\n    for u in users:\n        if validate_user(u):\n            valid.append(u)\n    return valid\n\nusers = [{'name': 'Ana', 'age': 30}, {'name': 'B', 'age': 25}]\nprint(process_users(users))\n```\n\nHere, `validate_user` isolates validation logic. Notice the syntax: a clear name, a single responsibility, and a return value. When refactoring at scale, apply this pattern consistently across modules so that each function has one purpose.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of largescale refactoring syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "43.3_q4",
@@ -589,5 +593,15 @@
       "hint": "Use a metaclass to automatically register subclasses that define a 'plugin_name' attribute. This removes the need for explicit factory registration calls and scales to dozens of plugins.",
       "explanation": "Mastery-level refactoring leverages metaprogramming to create self-registering plugin architectures. The metaclass intercepts class creation, enabling zero-boilerplate extension and ensuring the core system remains untouched when new report formats are introduced."
     }
+  ],
+  "unit_num": 43,
+  "learning_objectives": [
+    "Explain the technical concepts and mechanics of Large-Scale Refactoring",
+    "Apply idiomatic Python patterns when working with Large-Scale Refactoring",
+    "Debug common runtime exceptions and logic errors associated with Large-Scale Refactoring",
+    "Implement production-ready code utilizing Large-Scale Refactoring"
+  ],
+  "prerequisites": [
+    "43.2"
   ]
 }

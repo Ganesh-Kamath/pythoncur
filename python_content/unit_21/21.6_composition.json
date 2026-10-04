@@ -11,7 +11,9 @@
       "difficulty": "easy",
       "prerequisites": [],
       "title": "What Is Composition?",
-      "content": "Composition is a design principle where a class contains an instance of another class as a member, representing a 'has-a' relationship. Instead of inheriting behavior, the containing class delegates tasks to its composed object. This promotes flexibility because components can be swapped without changing the outer class. For example, a Car class can have an Engine object inside it, rather than inheriting from Engine."
+      "content": "Composition is a design principle where a class contains an instance of another class as a member, representing a 'has-a' relationship. Instead of inheriting behavior, the containing class delegates tasks to its composed object. This promotes flexibility because components can be swapped without changing the outer class. For example, a Car class can have an Engine object inside it, rather than inheriting from Engine.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of composition basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "21.6_q2",
@@ -42,7 +44,9 @@
         "21.6_q2"
       ],
       "title": "Writing Composition in Python",
-      "content": "To use composition, define a class and create an instance of another class as an attribute. Initialize the composed object inside the constructor. Then, delegate method calls to that instance. Here is an example:\n\n```python\nclass Engine:\n    def start(self):\n        return 'Engine started'\n\nclass Car:\n    def __init__(self):\n        self.engine = Engine()\n\n    def drive(self):\n        return self.engine.start() + ' - Car moving'\n```\n\nThe Car class holds an Engine object and forwards the start action to it."
+      "content": "To use composition, define a class and create an instance of another class as an attribute. Initialize the composed object inside the constructor. Then, delegate method calls to that instance. Here is an example:\n\n```python\nclass Engine:\n    def start(self):\n        return 'Engine started'\n\nclass Car:\n    def __init__(self):\n        self.engine = Engine()\n\n    def drive(self):\n        return self.engine.start() + ' - Car moving'\n```\n\nThe Car class holds an Engine object and forwards the start action to it.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of composition syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "21.6_q4",
@@ -287,7 +291,7 @@
         "y = 20",
         "print(x + y)"
       ],
-      "explanation": "The correct order is: first define the Screen class with its __init__ method and resolution attribute (A, B, C), then define the Laptop class with its brand attribute (D, F), and finally initialize the Screen instance inside Laptop's __init__ (E). Option D, F, A, B, C, E is correct because classes can be defined in any order, but the composition initialization must occur inside the Laptop's __init__ method."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of composition sequence. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "21.6_q16",
@@ -595,5 +599,15 @@
       "hint": "Use generator expressions with next() to locate members and books efficiently. Maintain availability and borrowed list consistency.",
       "explanation": "Mastery of composition requires managing shared mutable state across composed objects. The Library coordinates Book and Member instances, demonstrating how composition supports encapsulation, flexibility, and clean separation of concerns in object-oriented design."
     }
+  ],
+  "unit_num": 21,
+  "learning_objectives": [
+    "Explain the technical concepts and mechanics of Composition",
+    "Apply idiomatic Python patterns when working with Composition",
+    "Debug common runtime exceptions and logic errors associated with Composition",
+    "Implement production-ready code utilizing Composition"
+  ],
+  "prerequisites": [
+    "21.5"
   ]
 }

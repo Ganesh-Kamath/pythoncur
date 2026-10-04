@@ -11,7 +11,9 @@
       "concept": "the_call_stack_basics",
       "prerequisites": [],
       "title": "What Is the Call Stack?",
-      "content": "The call stack is a data structure that keeps track of active function calls in a program. When a function is called, a new frame is pushed onto the stack. This frame stores the function's local variables, arguments, and the return address. When the function finishes, its frame is popped off the stack and control returns to the caller. Think of it like a stack of plates: the last plate placed is the first one removed (LIFO). In Python, the call stack grows as functions call other functions, and it shrinks as those functions return. Understanding this helps you trace execution flow and debug recursive algorithms."
+      "content": "The call stack is a data structure that keeps track of active function calls in a program. When a function is called, a new frame is pushed onto the stack. This frame stores the function's local variables, arguments, and the return address. When the function finishes, its frame is popped off the stack and control returns to the caller. Think of it like a stack of plates: the last plate placed is the first one removed (LIFO). In Python, the call stack grows as functions call other functions, and it shrinks as those functions return. Understanding this helps you trace execution flow and debug recursive algorithms.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of the call stack basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "36.3_q2",
@@ -42,7 +44,9 @@
         "36.3_q2"
       ],
       "title": "Syntax of Function Calls and Stack Frames",
-      "content": "Every time you call a function in Python, the interpreter creates a stack frame. The syntax is straightforward: write the function name followed by parentheses containing any arguments. For example, `factorial(5)` pushes a new frame for `factorial` onto the call stack. Inside that frame, `n` is bound to `5`. If `factorial` calls itself recursively, each call gets its own frame with its own `n`. The stack grows downward in memory, and frames are popped in reverse order of creation. Here is a simple illustration:\n\n```python\ndef greet(name):\n    print('Hello, ' + name + '!')\n\ngreet('Alice')\n```\n\nWhen `greet('Alice')` is executed, the call stack temporarily contains one frame: `greet` with `name = 'Alice'`. After the function returns, that frame is removed."
+      "content": "Every time you call a function in Python, the interpreter creates a stack frame. The syntax is straightforward: write the function name followed by parentheses containing any arguments. For example, `factorial(5)` pushes a new frame for `factorial` onto the call stack. Inside that frame, `n` is bound to `5`. If `factorial` calls itself recursively, each call gets its own frame with its own `n`. The stack grows downward in memory, and frames are popped in reverse order of creation. Here is a simple illustration:\n\n```python\ndef greet(name):\n    print('Hello, ' + name + '!')\n\ngreet('Alice')\n```\n\nWhen `greet('Alice')` is executed, the call stack temporarily contains one frame: `greet` with `name = 'Alice'`. After the function returns, that frame is removed.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of the call stack syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "36.3_q4",
@@ -352,7 +356,7 @@
       "prompt": "Fix the bug in this code for the call stack errors:",
       "starter_code": "# Fix this code\nPrint('The Call Stack')",
       "solution_code": "print('The Call Stack')",
-      "explanation": "Python identifiers and built-ins are case-sensitive."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of the call stack errors. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "36.3_q20",
@@ -403,7 +407,7 @@
       "prompt": "Fix the bug in this code for the call stack runtime:",
       "starter_code": "# Fix this code\nPrint('The Call Stack')",
       "solution_code": "print('The Call Stack')",
-      "explanation": "Python identifiers and built-ins are case-sensitive."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of the call stack runtime. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "36.3_q23",
@@ -557,5 +561,15 @@
       "hint": "Maintain a `path` list alongside the call stack; push on entry and pop on backtrack to reconstruct the final tour.",
       "explanation": "The call stack depth equals the number of moves made. Each frame stores the current position. Backtracking pops the position and resets the board, allowing exhaustive search. The `path` list mirrors the stack to yield the solution."
     }
+  ],
+  "unit_num": 36,
+  "learning_objectives": [
+    "Explain the technical concepts and mechanics of Call Stack",
+    "Apply idiomatic Python patterns when working with Call Stack",
+    "Debug common runtime exceptions and logic errors associated with Call Stack",
+    "Implement production-ready code utilizing Call Stack"
+  ],
+  "prerequisites": [
+    "36.2"
   ]
 }

@@ -11,7 +11,9 @@
       "difficulty": "easy",
       "prerequisites": [],
       "title": "What Are Enums?",
-      "content": "An Enum (enumeration) is a special class that represents a group of named constants. Instead of using magic strings or integers, you define a fixed set of allowed values. This makes code more readable and less error-prone.\n\nFor example, instead of writing status = 0 or status = 'active', you can define an enum where Active and Inactive are explicit members.\n\nHere is how you create a basic enum in Python:\n\n```python\nfrom enum import Enum\n\nclass Color(Enum):\n    RED = 1\n    GREEN = 2\n    BLUE = 3\n\nprint(Color.RED)\n# Output: Color.RED\n\nprint(Color.RED.name)\n# Output: RED\n\nprint(Color.RED.value)\n# Output: 1\n```\n\nEnums are useful when a variable can only take one of a small, fixed set of values."
+      "content": "An Enum (enumeration) is a special class that represents a group of named constants. Instead of using magic strings or integers, you define a fixed set of allowed values. This makes code more readable and less error-prone.\n\nFor example, instead of writing status = 0 or status = 'active', you can define an enum where Active and Inactive are explicit members.\n\nHere is how you create a basic enum in Python:\n\n```python\nfrom enum import Enum\n\nclass Color(Enum):\n    RED = 1\n    GREEN = 2\n    BLUE = 3\n\nprint(Color.RED)\n# Output: Color.RED\n\nprint(Color.RED.name)\n# Output: RED\n\nprint(Color.RED.value)\n# Output: 1\n```\n\nEnums are useful when a variable can only take one of a small, fixed set of values.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of enums basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "22.5_q2",
@@ -36,12 +38,12 @@
       "prompt": "Which statement best applies to enums basics?",
       "options": [
         "A. Correct approach for enums basics",
-        "B. SyntaxError raised unconditionally",
-        "C. Unrelated system call",
-        "D. Halts Python interpreter"
+        "Raises a SyntaxError: invalid syntax at runtime",
+        "Raises an IndentationError: unexpected indent",
+        "Silently ignored by the Python parser"
       ],
       "correct_answer": "A. Correct approach for enums basics",
-      "explanation": "Demonstrates core usage of enums basics in Python."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of enums basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "22.5_q3",
@@ -53,7 +55,9 @@
         "22.5_q2"
       ],
       "title": "Enum Syntax and Member Access",
-      "content": "To create an enum, you import Enum from the enum module and subclass it. Each member is assigned a value. You access members using dot notation.\n\nKey points:\n- Member names are uppercase by convention.\n- The value can be any type, but integers are common.\n- You can iterate over members using Color.\n\n```python\nfrom enum import Enum\n\nclass Status(Enum):\n    PENDING = 0\n    APPROVED = 1\n    REJECTED = 2\n\nfor s in Status:\n    print(s, s.value)\n\n# Output:\n# Status.PENDING 0\n# Status.APPROVED 1\n# Status.REJECTED 2\n```\n\nNote that members are singletons: `Status.PENDING is Status('PENDING')` evaluates to True."
+      "content": "To create an enum, you import Enum from the enum module and subclass it. Each member is assigned a value. You access members using dot notation.\n\nKey points:\n- Member names are uppercase by convention.\n- The value can be any type, but integers are common.\n- You can iterate over members using Color.\n\n```python\nfrom enum import Enum\n\nclass Status(Enum):\n    PENDING = 0\n    APPROVED = 1\n    REJECTED = 2\n\nfor s in Status:\n    print(s, s.value)\n\n# Output:\n# Status.PENDING 0\n# Status.APPROVED 1\n# Status.REJECTED 2\n```\n\nNote that members are singletons: `Status.PENDING is Status('PENDING')` evaluates to True.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of enums syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "22.5_q4",
@@ -78,12 +82,12 @@
       "prompt": "Which statement best applies to enums syntax?",
       "options": [
         "A. Correct approach for enums syntax",
-        "B. SyntaxError raised unconditionally",
-        "C. Unrelated system call",
-        "D. Halts Python interpreter"
+        "Raises a SyntaxError: invalid syntax at runtime",
+        "Raises an IndentationError: unexpected indent",
+        "Silently ignored by the Python parser"
       ],
       "correct_answer": "A. Correct approach for enums syntax",
-      "explanation": "Demonstrates core usage of enums syntax in Python."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of enums syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "22.5_q5",
@@ -108,12 +112,12 @@
       "prompt": "Which statement best applies to enums matching?",
       "options": [
         "A. Correct approach for enums matching",
-        "B. SyntaxError raised unconditionally",
-        "C. Unrelated system call",
-        "D. Halts Python interpreter"
+        "Raises a SyntaxError: invalid syntax at runtime",
+        "Raises an IndentationError: unexpected indent",
+        "Silently ignored by the Python parser"
       ],
       "correct_answer": "A. Correct approach for enums matching",
-      "explanation": "Demonstrates core usage of enums matching in Python."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of enums matching. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "22.5_q6",
@@ -138,12 +142,12 @@
       "prompt": "Which statement best applies to enums pitfalls?",
       "options": [
         "A. Correct approach for enums pitfalls",
-        "B. SyntaxError raised unconditionally",
-        "C. Unrelated system call",
-        "D. Halts Python interpreter"
+        "Raises a SyntaxError: invalid syntax at runtime",
+        "Raises an IndentationError: unexpected indent",
+        "Silently ignored by the Python parser"
       ],
       "correct_answer": "A. Correct approach for enums pitfalls",
-      "explanation": "Demonstrates core usage of enums pitfalls in Python."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of enums pitfalls. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "22.5_q7",
@@ -222,7 +226,7 @@
           "expected_output": "Enums"
         }
       ],
-      "explanation": "The solution fulfills all functional requirements."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of enums analysis. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "22.5_q11",
@@ -598,5 +602,15 @@
       "hint": "Use auto() to let Python assign sequential integers. Compare values with >= in has_permission. In check_access, look up the user and call the method on the stored permission.",
       "explanation": "enum.auto() simplifies definition when values are sequential. Mixing behavior into an Enum via methods creates a rich domain model. The check_access function demonstrates authorization logic: a user can perform an action only if their permission value is greater than or equal to the required threshold. This pattern is common in role-based access control systems."
     }
+  ],
+  "unit_num": 22,
+  "learning_objectives": [
+    "Explain the technical concepts and mechanics of Enums",
+    "Apply idiomatic Python patterns when working with Enums",
+    "Debug common runtime exceptions and logic errors associated with Enums",
+    "Implement production-ready code utilizing Enums"
+  ],
+  "prerequisites": [
+    "22.4"
   ]
 }

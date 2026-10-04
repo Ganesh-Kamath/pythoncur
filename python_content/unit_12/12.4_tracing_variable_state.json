@@ -12,7 +12,9 @@
       "title": "What Is Tracing a Variable?",
       "content": "Tracing a variable means following its value as your program runs, line by line. When you trace, you ask: 'What is stored in this variable right now?' This skill is essential for spotting bugs early. Consider this example:\n\n```python\nx = 5\nprint(x)\nx = x + 3\nprint(x)\n```\n\nOn the first line, x holds 5. After the second line, x still holds 5. After the third line, x becomes 8. By tracing each assignment, you can predict outputs and catch mistakes before they cause errors.",
       "difficulty": "easy",
-      "prerequisites": []
+      "prerequisites": [],
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of tracing variable state basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "12.4_q2",
@@ -45,7 +47,9 @@
       "difficulty": "easy",
       "prerequisites": [
         "12.4_q2"
-      ]
+      ],
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of tracing variable state syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "12.4_q4",
@@ -388,7 +392,7 @@
       "prompt": "Fix the bug in this code for tracing variable state errors:",
       "starter_code": "# Fix this code\nPrint('Tracing Variable State')",
       "solution_code": "print('Tracing Variable State')",
-      "explanation": "Python identifiers and built-ins are case-sensitive."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of tracing variable state errors. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "12.4_q20",
@@ -436,7 +440,7 @@
       "prompt": "Fix the bug in this code for tracing variable state runtime:",
       "starter_code": "# Fix this code\nPrint('Tracing Variable State')",
       "solution_code": "print('Tracing Variable State')",
-      "explanation": "Python identifiers and built-ins are case-sensitive."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of tracing variable state runtime. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "12.4_q23",
@@ -711,5 +715,15 @@
       "hint": "The loop starts at index 0, so `prev` and `current` compare the same element initially. Start the loop at index 1 and initialize `prev` with the first element.",
       "explanation": "This mastery challenge requires precise tracing of loop indices and variable assignments across edge cases. Students must diagnose an off-by-one error by comparing intended behavior against actual state transitions, demonstrating expert-level debugging."
     }
+  ],
+  "unit_num": 12,
+  "learning_objectives": [
+    "Explain the technical concepts and mechanics of Tracing Variable State",
+    "Apply idiomatic Python patterns when working with Tracing Variable State",
+    "Debug common runtime exceptions and logic errors associated with Tracing Variable State",
+    "Implement production-ready code utilizing Tracing Variable State"
+  ],
+  "prerequisites": [
+    "12.3"
   ]
 }

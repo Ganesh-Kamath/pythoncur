@@ -11,7 +11,9 @@
       "difficulty": "easy",
       "prerequisites": [],
       "title": "What is an Object?",
-      "content": "In Python, an object is an instance of a class. A class is a blueprint that defines attributes (data) and methods (behavior). For example, a class named Car can be used to create objects like my_car. Each object stores its own state. Here is a simple example:\n\n```python\nclass Car:\n    pass\n\nmy_car = Car()\nprint('my_car is an object of type', type(my_car))\n```\n\nNotice that my_car is created from the Car class, making it an object."
+      "content": "In Python, an object is an instance of a class. A class is a blueprint that defines attributes (data) and methods (behavior). For example, a class named Car can be used to create objects like my_car. Each object stores its own state. Here is a simple example:\n\n```python\nclass Car:\n    pass\n\nmy_car = Car()\nprint('my_car is an object of type', type(my_car))\n```\n\nNotice that my_car is created from the Car class, making it an object.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of objects and classes basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "20.1_q2",
@@ -42,7 +44,9 @@
         "20.1_q2"
       ],
       "title": "Defining a Class and Creating an Object",
-      "content": "To define a class, use the class keyword followed by the class name. By convention, class names use PascalCase. After defining the class, you create an object by calling the class name as if it were a function. Here is a complete example:\n\n```python\nclass Dog:\n    pass\n\nbuddy = Dog()\nprint('buddy is an instance of', type(buddy).__name__)\n```\n\nThe line `buddy = Dog()` creates an object named buddy. The `pass` statement is a placeholder when the class body is empty."
+      "content": "To define a class, use the class keyword followed by the class name. By convention, class names use PascalCase. After defining the class, you create an object by calling the class name as if it were a function. Here is a complete example:\n\n```python\nclass Dog:\n    pass\n\nbuddy = Dog()\nprint('buddy is an instance of', type(buddy).__name__)\n```\n\nThe line `buddy = Dog()` creates an object named buddy. The `pass` statement is a placeholder when the class body is empty.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of objects and classes syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "20.1_q4",
@@ -581,5 +585,15 @@
       "hint": "In __add__, check isinstance(other, BankAccount), access __balance via name mangling, and return a new instance. In __str__, construct the string representation manually.",
       "explanation": "Operator overloading via magic methods like __add__ and __str__ enables intuitive syntax and clean output. Mastery here means combining encapsulation, validation, inheritance awareness, and protocol-based design into a cohesive, reusable class."
     }
+  ],
+  "unit_num": 20,
+  "learning_objectives": [
+    "Design and instantiate Python classes demonstrating Objects and Classes",
+    "Manage instance state using the __init__ constructor and self",
+    "Implement object-oriented principles including encapsulation and inheritance",
+    "Structure modular programs using classes and composition"
+  ],
+  "prerequisites": [
+    "19.6"
   ]
 }

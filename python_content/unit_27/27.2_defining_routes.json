@@ -11,7 +11,9 @@
       "difficulty": "easy",
       "prerequisites": [],
       "title": "What Is a Route?",
-      "content": "In web backend development, a route is a URL pattern that the server listens for, and it maps that URL to a specific function that handles the request. When a client sends a request to a URL, the web framework checks which route matches that URL and then executes the associated function. For example, in Flask, you use the @app.route decorator to define a route. A simple route might look like this:\n\n```python\nfrom flask import Flask\n\napp = Flask(__name__)\n\n@app.route('/')\ndef home():\n    return 'Welcome to my site!'\n```\n\nHere, the route '/' is mapped to the home function. Whenever a user visits the root URL of the site, the home function runs and returns a response."
+      "content": "In web backend development, a route is a URL pattern that the server listens for, and it maps that URL to a specific function that handles the request. When a client sends a request to a URL, the web framework checks which route matches that URL and then executes the associated function. For example, in Flask, you use the @app.route decorator to define a route. A simple route might look like this:\n\n```python\nfrom flask import Flask\n\napp = Flask(__name__)\n\n@app.route('/')\ndef home():\n    return 'Welcome to my site!'\n```\n\nHere, the route '/' is mapped to the home function. Whenever a user visits the root URL of the site, the home function runs and returns a response.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of defining routes basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "27.2_q2",
@@ -42,7 +44,9 @@
         "27.2_q2"
       ],
       "title": "Route Syntax and Parameters",
-      "content": "Routes in Flask can include dynamic segments using angle brackets. For example, @app.route('/user/<username>') tells Flask to match any URL that starts with '/user/' followed by a value, and that value is passed to the function as a parameter. Here is a complete example:\n\n```python\nfrom flask import Flask\n\napp = Flask(__name__)\n\n@app.route('/user/<username>')\ndef show_user_profile(username):\n    return f'Profile for {username}'\n```\n\nWhen a client requests '/user/alice', Flask extracts 'alice' and passes it as the username argument to show_user_profile. You can also specify allowed HTTP methods using the methods parameter, such as methods=['GET', 'POST']. This flexibility allows a single URL pattern to handle different kinds of requests."
+      "content": "Routes in Flask can include dynamic segments using angle brackets. For example, @app.route('/user/<username>') tells Flask to match any URL that starts with '/user/' followed by a value, and that value is passed to the function as a parameter. Here is a complete example:\n\n```python\nfrom flask import Flask\n\napp = Flask(__name__)\n\n@app.route('/user/<username>')\ndef show_user_profile(username):\n    return f'Profile for {username}'\n```\n\nWhen a client requests '/user/alice', Flask extracts 'alice' and passes it as the username argument to show_user_profile. You can also specify allowed HTTP methods using the methods parameter, such as methods=['GET', 'POST']. This flexibility allows a single URL pattern to handle different kinds of requests.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of defining routes syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "27.2_q4",
@@ -264,12 +268,12 @@
       "prerequisites": [
         "27.2_q12"
       ],
-      "prompt": "Fill Blank 13: Complete the code to output 'Defining Routes #13':\n```python\n___('Defining Routes #13')\n```",
+      "prompt": "Complete the code to output 'Defining Routes #13':\n```python\n___('Defining Routes #13')\n```",
       "correct_answer": "print",
       "accepted_answers": [
         "print"
       ],
-      "explanation": "The built-in print() function outputs the specified string."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of defining routes syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "27.2_q14",
@@ -280,12 +284,12 @@
       "prerequisites": [
         "27.2_q13"
       ],
-      "prompt": "Fill Blank 14: Complete the code to output 'Defining Routes #14':\n```python\n___('Defining Routes #14')\n```",
+      "prompt": "Complete the code to output 'Defining Routes #14':\n```python\n___('Defining Routes #14')\n```",
       "correct_answer": "print",
       "accepted_answers": [
         "print"
       ],
-      "explanation": "The built-in print() function outputs the specified string."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of defining routes keywords. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "27.2_q15",
@@ -296,7 +300,7 @@
       "prerequisites": [
         "27.2_q14"
       ],
-      "prompt": "Algorithm Sequence 15: Arrange the lines in correct logical order for Defining Routes Sequence:",
+      "prompt": "Arrange the lines in correct logical order for Defining Routes Sequence:",
       "options": [
         "a_15 = 10",
         "b_15 = 20",
@@ -320,12 +324,12 @@
       "prerequisites": [
         "27.2_q15"
       ],
-      "prompt": "Fill Blank 16: Complete the code to output 'Defining Routes #16':\n```python\n___('Defining Routes #16')\n```",
+      "prompt": "Complete the code to output 'Defining Routes #16':\n```python\n___('Defining Routes #16')\n```",
       "correct_answer": "print",
       "accepted_answers": [
         "print"
       ],
-      "explanation": "The built-in print() function outputs the specified string."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of defining routes patterns. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "27.2_q17",
@@ -336,7 +340,7 @@
       "prerequisites": [
         "27.2_q16"
       ],
-      "prompt": "Algorithm Sequence 17: Arrange the lines in correct logical order for Defining Routes Algorithm:",
+      "prompt": "Arrange the lines in correct logical order for Defining Routes Algorithm:",
       "options": [
         "a_17 = 10",
         "b_17 = 20",
@@ -360,12 +364,12 @@
       "prerequisites": [
         "27.2_q17"
       ],
-      "prompt": "Fill Blank 18: Complete the code to output 'Defining Routes #18':\n```python\n___('Defining Routes #18')\n```",
+      "prompt": "Complete the code to output 'Defining Routes #18':\n```python\n___('Defining Routes #18')\n```",
       "correct_answer": "print",
       "accepted_answers": [
         "print"
       ],
-      "explanation": "The built-in print() function outputs the specified string."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of defining routes idioms. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "27.2_q19",
@@ -625,5 +629,15 @@
       "hint": "Import Blueprint from flask, define a url_prefix, register the blueprint with app.register_blueprint(), and place registration before the catch-all route to avoid shadowing.",
       "explanation": "Blueprints modularize large applications by grouping related routes. url_prefix prepends a base path to all blueprint routes. Registration order matters: blueprints should be registered before generic fallback routes to ensure specific endpoints are matched first."
     }
+  ],
+  "unit_num": 27,
+  "learning_objectives": [
+    "Explain the technical concepts and mechanics of Defining Routes",
+    "Apply idiomatic Python patterns when working with Defining Routes",
+    "Debug common runtime exceptions and logic errors associated with Defining Routes",
+    "Implement production-ready code utilizing Defining Routes"
+  ],
+  "prerequisites": [
+    "27.1"
   ]
 }

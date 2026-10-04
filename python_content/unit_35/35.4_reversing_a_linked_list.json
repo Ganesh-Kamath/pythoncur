@@ -11,7 +11,9 @@
       "prerequisites": [],
       "title": "What Is Reversing a Linked List?",
       "content": "In a singly linked list, each node points to the next node using a next pointer. Reversing the list means changing these pointers so that every node points to its previous node instead of its next node. After reversal, the original head becomes the new tail, and the original tail becomes the new head. This operation is useful when you need to process data in reverse order without using extra memory for an array. For example, consider the list 1 -> 2 -> 3 -> None. After reversing, it becomes 3 -> 2 -> 1 -> None. You typically use three pointers\u2014prev, current, and next_node\u2014to walk through the list and rewire the links safely.",
-      "concept": "reversing_a_linked_list_basics"
+      "concept": "reversing_a_linked_list_basics",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of reversing a linked list basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "35.4_q2",
@@ -42,7 +44,9 @@
       ],
       "concept": "reversing_a_linked_list_syntax",
       "title": "Reversing a Linked List in Python",
-      "content": "Here is the standard iterative approach in Python. First, initialize prev to None and current to head. Then, while current is not None, store current.next in next_node, set current.next to prev, advance prev to current, and advance current to next_node. Finally, return prev as the new head. This loop runs in O(n) time and O(1) extra space. Example implementation:\n\n```python\nclass Node:\n    def __init__(self, data):\n        self.data = data\n        self.next = None\n\ndef reverse_linked_list(head):\n    prev = None\n    current = head\n    while current is not None:\n        next_node = current.next\n        current.next = prev\n        prev = current\n        current = next_node\n    return prev\n```\nNotice how each assignment updates the chain step by step without losing any nodes."
+      "content": "Here is the standard iterative approach in Python. First, initialize prev to None and current to head. Then, while current is not None, store current.next in next_node, set current.next to prev, advance prev to current, and advance current to next_node. Finally, return prev as the new head. This loop runs in O(n) time and O(1) extra space. Example implementation:\n\n```python\nclass Node:\n    def __init__(self, data):\n        self.data = data\n        self.next = None\n\ndef reverse_linked_list(head):\n    prev = None\n    current = head\n    while current is not None:\n        next_node = current.next\n        current.next = prev\n        prev = current\n        current = next_node\n    return prev\n```\nNotice how each assignment updates the chain step by step without losing any nodes.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of reversing a linked list syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "35.4_q4",
@@ -592,5 +596,15 @@
       "hint": "Use Floyd's cycle detection first. If a cycle exists, find its start, then reverse only the acyclic prefix and sever the cycle.",
       "explanation": "This mastery problem combines cycle detection with in-place reversal. It tests deep understanding of pointer manipulation, edge cases, and algorithmic composition under constraints."
     }
+  ],
+  "unit_num": 35,
+  "learning_objectives": [
+    "Initialize and manipulate Python Reversing a Linked List collections",
+    "Access elements efficiently using keys, indices, or membership tests",
+    "Distinguish between mutable and immutable data behaviors",
+    "Select the optimal data structure to represent structured data"
+  ],
+  "prerequisites": [
+    "35.3"
   ]
 }

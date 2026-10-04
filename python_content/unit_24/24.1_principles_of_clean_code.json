@@ -11,7 +11,9 @@
       "difficulty": "easy",
       "prerequisites": [],
       "title": "What is DRY and Why Naming Matters",
-      "content": "The DRY principle stands for 'Don't Repeat Yourself.' In Python, this means writing reusable code instead of duplicating logic. Good naming is the first step toward readable, maintainable code. A well-named variable or function tells the reader what it does without needing extra comments. For example, instead of naming a variable x, use total_price or user_count. When you repeat the same expression in multiple places, you risk inconsistency and bugs. Refactoring repeated code into a function is the standard DRY approach. Consider this:\n\n```python\ndef calculate_total(items):\n    total = 0\n    for item in items:\n        total = total + item['price']\n    return total\n\nprices = [10, 20, 30]\nprint(calculate_total(prices))\n```\n\nHere, calculate_total encapsulates the repeated summation logic. The name clearly describes the purpose, and the code is easier to test and reuse."
+      "content": "The DRY principle stands for 'Don't Repeat Yourself.' In Python, this means writing reusable code instead of duplicating logic. Good naming is the first step toward readable, maintainable code. A well-named variable or function tells the reader what it does without needing extra comments. For example, instead of naming a variable x, use total_price or user_count. When you repeat the same expression in multiple places, you risk inconsistency and bugs. Refactoring repeated code into a function is the standard DRY approach. Consider this:\n\n```python\ndef calculate_total(items):\n    total = 0\n    for item in items:\n        total = total + item['price']\n    return total\n\nprices = [10, 20, 30]\nprint(calculate_total(prices))\n```\n\nHere, calculate_total encapsulates the repeated summation logic. The name clearly describes the purpose, and the code is easier to test and reuse.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of principles of clean code dry naming basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "24.1_q2",
@@ -42,7 +44,9 @@
         "24.1_q2"
       ],
       "title": "Syntax Rules for Clean Naming in Python",
-      "content": "Python naming conventions follow PEP 8. Use lowercase_with_underscores for variables and functions, and UpperCamelCase for classes. Avoid abbreviations unless they are universally understood. A name should be pronounceable and descriptive. When applying DRY, create functions with clear names that describe the action. For instance, instead of writing the same list comprehension in two places, define a function like get_active_users. Here is a syntax-focused example:\n\n```python\ndef get_active_users(users):\n    return [user for user in users if user['status'] == 'active']\n\nall_users = [{'name': 'Alice', 'status': 'active'}, {'name': 'Bob', 'status': 'inactive'}]\nactive = get_active_users(all_users)\nprint(active)\n```\n\nNotice how get_active_users replaces repeated filtering logic. The function name follows snake_case, and the code remains readable."
+      "content": "Python naming conventions follow PEP 8. Use lowercase_with_underscores for variables and functions, and UpperCamelCase for classes. Avoid abbreviations unless they are universally understood. A name should be pronounceable and descriptive. When applying DRY, create functions with clear names that describe the action. For instance, instead of writing the same list comprehension in two places, define a function like get_active_users. Here is a syntax-focused example:\n\n```python\ndef get_active_users(users):\n    return [user for user in users if user['status'] == 'active']\n\nall_users = [{'name': 'Alice', 'status': 'active'}, {'name': 'Bob', 'status': 'inactive'}]\nactive = get_active_users(all_users)\nprint(active)\n```\n\nNotice how get_active_users replaces repeated filtering logic. The function name follows snake_case, and the code remains readable.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of principles of clean code dry naming syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "24.1_q4",
@@ -244,7 +248,7 @@
       "prerequisites": [
         "24.1_q12"
       ],
-      "prompt": "Complete the statement to follow the DRY principle by assigning the repeated value to a variable: print('hello') and print('hello') can be rewritten as name = 'hello' and then print(name).",
+      "prompt": "Complete the statement to follow the DRY principle:\n\n___ = 0.08  # TAX_RATE\ntotal = price + (price * ___)",
       "correct_answer": "name = 'hello'",
       "accepted_answers": [
         "name = 'hello'",
@@ -366,11 +370,11 @@
       "prerequisites": [
         "24.1_q18"
       ],
-      "prompt": "Debug Challenge 19: Fix the capitalization error in this line for Principles Of Clean Code Dry Naming Errors:",
+      "prompt": "Fix the capitalization error in this line for Principles Of Clean Code Dry Naming Errors:",
       "starter_code": "Print('Principles of Clean Code (DRY, Naming) Item 19')",
       "solution_code": "print('Principles of Clean Code (DRY, Naming) Item 19')",
       "hint": "Python built-in functions like print() must be written in lowercase.",
-      "explanation": "Built-in function names in Python are case-sensitive and require lowercase."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of principles of clean code dry naming errors. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "24.1_q20",
@@ -381,11 +385,11 @@
       "prerequisites": [
         "24.1_q19"
       ],
-      "prompt": "Debug Challenge 20: Fix the capitalization error in this line for Principles Of Clean Code Dry Naming Fix:",
+      "prompt": "Fix the capitalization error in this line for Principles Of Clean Code Dry Naming Fix:",
       "starter_code": "Print('Principles of Clean Code (DRY, Naming) Item 20')",
       "solution_code": "print('Principles of Clean Code (DRY, Naming) Item 20')",
       "hint": "Python built-in functions like print() must be written in lowercase.",
-      "explanation": "Built-in function names in Python are case-sensitive and require lowercase."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of principles of clean code dry naming fix. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "24.1_q21",
@@ -396,11 +400,11 @@
       "prerequisites": [
         "24.1_q20"
       ],
-      "prompt": "Debug Challenge 21: Fix the capitalization error in this line for Principles Of Clean Code Dry Naming Edge Cases:",
+      "prompt": "Fix the capitalization error in this line for Principles Of Clean Code Dry Naming Edge Cases:",
       "starter_code": "Print('Principles of Clean Code (DRY, Naming) Item 21')",
       "solution_code": "print('Principles of Clean Code (DRY, Naming) Item 21')",
       "hint": "Python built-in functions like print() must be written in lowercase.",
-      "explanation": "Built-in function names in Python are case-sensitive and require lowercase."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of principles of clean code dry naming edge cases. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "24.1_q22",
@@ -411,11 +415,11 @@
       "prerequisites": [
         "24.1_q21"
       ],
-      "prompt": "Debug Challenge 22: Fix the capitalization error in this line for Principles Of Clean Code Dry Naming Runtime:",
+      "prompt": "Fix the capitalization error in this line for Principles Of Clean Code Dry Naming Runtime:",
       "starter_code": "Print('Principles of Clean Code (DRY, Naming) Item 22')",
       "solution_code": "print('Principles of Clean Code (DRY, Naming) Item 22')",
       "hint": "Python built-in functions like print() must be written in lowercase.",
-      "explanation": "Built-in function names in Python are case-sensitive and require lowercase."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of principles of clean code dry naming runtime. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "24.1_q23",
@@ -426,11 +430,11 @@
       "prerequisites": [
         "24.1_q22"
       ],
-      "prompt": "Debug Challenge 23: Fix the capitalization error in this line for Principles Of Clean Code Dry Naming Logic Repair:",
+      "prompt": "Fix the capitalization error in this line for Principles Of Clean Code Dry Naming Logic Repair:",
       "starter_code": "Print('Principles of Clean Code (DRY, Naming) Item 23')",
       "solution_code": "print('Principles of Clean Code (DRY, Naming) Item 23')",
       "hint": "Python built-in functions like print() must be written in lowercase.",
-      "explanation": "Built-in function names in Python are case-sensitive and require lowercase."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of principles of clean code dry naming logic repair. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "24.1_q24",
@@ -441,7 +445,7 @@
       "prerequisites": [
         "24.1_q23"
       ],
-      "prompt": "Coding Challenge 24: Write a statement that prints 'Principles of Clean Code (DRY, Naming) Result 24' to standard output.",
+      "prompt": "Write a statement that prints 'Principles of Clean Code (DRY, Naming) Result 24' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Principles of Clean Code (DRY, Naming) Result 24')",
       "test_cases": [
@@ -451,7 +455,7 @@
         }
       ],
       "hint": "Use print('Principles of Clean Code (DRY, Naming) Result 24') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of principles of clean code dry naming optimization. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "24.1_q25",
@@ -623,5 +627,15 @@
       "hint": "Use @property for derived state. Ensure the class name and attributes describe the domain. Remove any repeated multiplication of price and quantity.",
       "explanation": "Mastery requires combining DRY, precise naming, and encapsulation. The property total_value centralizes the calculation, while generate_report uses an f-string for clarity."
     }
+  ],
+  "unit_num": 24,
+  "learning_objectives": [
+    "Explain the technical concepts and mechanics of Principles of Clean Code (DRY, Naming)",
+    "Apply idiomatic Python patterns when working with Principles of Clean Code (DRY, Naming)",
+    "Debug common runtime exceptions and logic errors associated with Principles of Clean Code (DRY, Naming)",
+    "Implement production-ready code utilizing Principles of Clean Code (DRY, Naming)"
+  ],
+  "prerequisites": [
+    "23.5"
   ]
 }

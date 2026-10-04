@@ -11,7 +11,9 @@
       "difficulty": "easy",
       "prerequisites": [],
       "title": "What Is a Traceback?",
-      "content": "When Python encounters an error, it prints a traceback to help you locate the problem. A traceback shows the sequence of function calls that led to the error, ending with the line that raised the exception. The top of the traceback points to the most recent call, while the bottom shows where the error originated. Understanding this structure is the first step in debugging. For example, if you divide by zero, Python raises a ZeroDivisionError and displays a traceback like:\n\nTraceback (most recent call last):\n  File \"script.py\", line 3, in <module>\n    result = 10 / 0\nZeroDivisionError: division by zero\n\nThe file name, line number, and error type together tell you exactly where to look."
+      "content": "When Python encounters an error, it prints a traceback to help you locate the problem. A traceback shows the sequence of function calls that led to the error, ending with the line that raised the exception. The top of the traceback points to the most recent call, while the bottom shows where the error originated. Understanding this structure is the first step in debugging. For example, if you divide by zero, Python raises a ZeroDivisionError and displays a traceback like:\n\nTraceback (most recent call last):\n  File \"script.py\", line 3, in <module>\n    result = 10 / 0\nZeroDivisionError: division by zero\n\nThe file name, line number, and error type together tell you exactly where to look.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of reading tracebacks basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "12.2_q2",
@@ -42,7 +44,9 @@
         "12.2_q2"
       ],
       "title": "Reading Traceback Syntax",
-      "content": "A traceback follows a predictable pattern. Each frame begins with 'File \"filename\", line N, in <function_name>'. This tells you which file and which line were active when Python called that function. The final frame shows '<module>', which means the error happened at the top level of your script. After the frames, Python prints the exception type and the message. For instance:\n\nTraceback (most recent call last):\n  File \"app.py\", line 5, in calculate\n    value = x / y\n  File \"app.py\", line 10, in <module>\n    calculate(4, 2)\nZeroDivisionError: division by zero\n\nNotice how the innermost call (calculate) appears first, and the script entry point appears last. This ordering helps you trace the error backward from where it was noticed to where it started."
+      "content": "A traceback follows a predictable pattern. Each frame begins with 'File \"filename\", line N, in <function_name>'. This tells you which file and which line were active when Python called that function. The final frame shows '<module>', which means the error happened at the top level of your script. After the frames, Python prints the exception type and the message. For instance:\n\nTraceback (most recent call last):\n  File \"app.py\", line 5, in calculate\n    value = x / y\n  File \"app.py\", line 10, in <module>\n    calculate(4, 2)\nZeroDivisionError: division by zero\n\nNotice how the innermost call (calculate) appears first, and the script entry point appears last. This ordering helps you trace the error backward from where it was noticed to where it started.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of reading tracebacks syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "12.2_q4",
@@ -400,7 +404,7 @@
       "prompt": "Fix the bug in this code for reading tracebacks errors:",
       "starter_code": "# Fix this code\nPrint('Reading Tracebacks')",
       "solution_code": "print('Reading Tracebacks')",
-      "explanation": "Python identifiers and built-ins are case-sensitive."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of reading tracebacks errors. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "12.2_q20",
@@ -448,7 +452,7 @@
       "prompt": "Fix the bug in this code for reading tracebacks runtime:",
       "starter_code": "# Fix this code\nPrint('Reading Tracebacks')",
       "solution_code": "print('Reading Tracebacks')",
-      "explanation": "Python identifiers and built-ins are case-sensitive."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of reading tracebacks runtime. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "12.2_q23",
@@ -614,5 +618,15 @@
       "hint": "The traceback shows the call stack growing without bound because there is no base case to stop recursion.",
       "explanation": "A `RecursionError` traceback reveals that the function called itself repeatedly without reaching a terminating condition. Adding `if n <= 0: return` creates a base case, so the call stack unwinds safely after printing the sequence."
     }
+  ],
+  "unit_num": 12,
+  "learning_objectives": [
+    "Explain the technical concepts and mechanics of Reading Tracebacks",
+    "Apply idiomatic Python patterns when working with Reading Tracebacks",
+    "Debug common runtime exceptions and logic errors associated with Reading Tracebacks",
+    "Implement production-ready code utilizing Reading Tracebacks"
+  ],
+  "prerequisites": [
+    "12.1"
   ]
 }

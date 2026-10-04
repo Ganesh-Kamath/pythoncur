@@ -11,7 +11,9 @@
       "concept": "hash_tables_concepts_basics",
       "prerequisites": [],
       "title": "What is a Hash Table?",
-      "content": "A hash table is a data structure that maps keys to values using a hash function. The hash function computes an index into an array of buckets or slots, from which the desired value can be found. This allows for average-case constant time O(1) for insertions, deletions, and lookups. In Python, dictionaries are implemented using hash tables. For example, consider the following code:\n\n```python\ndef simple_hash(key):\n    return hash(key) % 10\n\nmy_dict = {}\nmy_dict['apple'] = 5\nmy_dict['banana'] = 3\nindex = simple_hash('apple')\nprint(index)  # Output depends on Python's hash, but demonstrates the idea\n```\n\nUnderstanding that a hash table uses a hash function to quickly locate data is the foundation for working with dictionaries and sets in Python."
+      "content": "A hash table is a data structure that maps keys to values using a hash function. The hash function computes an index into an array of buckets or slots, from which the desired value can be found. This allows for average-case constant time O(1) for insertions, deletions, and lookups. In Python, dictionaries are implemented using hash tables. For example, consider the following code:\n\n```python\ndef simple_hash(key):\n    return hash(key) % 10\n\nmy_dict = {}\nmy_dict['apple'] = 5\nmy_dict['banana'] = 3\nindex = simple_hash('apple')\nprint(index)  # Output depends on Python's hash, but demonstrates the idea\n```\n\nUnderstanding that a hash table uses a hash function to quickly locate data is the foundation for working with dictionaries and sets in Python.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of hash tables concepts basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "33.1_q2",
@@ -42,7 +44,9 @@
         "33.1_q2"
       ],
       "title": "Python Dictionary Syntax for Hash Tables",
-      "content": "In Python, you create and use a hash table using a dictionary. The syntax involves curly braces {}, colons :, and commas between key-value pairs. Keys must be hashable, meaning they must have a fixed value during their lifetime in the dictionary. Strings, numbers, and tuples are hashable, while lists and dictionaries are not. Here is a valid example:\n\n```python\nstudent_scores = {\n    'alice': 88,\n    'bob': 92,\n    'charlie': 76\n}\n\n# Accessing a value\nprint(student_scores['alice'])\n\n# Adding a new key-value pair\nstudent_scores['diana'] = 95\n\n# Removing a key-value pair\ndel student_scores['bob']\n```\n\nNotice how string literals use single quotes, which is the preferred style in Python for simple strings."
+      "content": "In Python, you create and use a hash table using a dictionary. The syntax involves curly braces {}, colons :, and commas between key-value pairs. Keys must be hashable, meaning they must have a fixed value during their lifetime in the dictionary. Strings, numbers, and tuples are hashable, while lists and dictionaries are not. Here is a valid example:\n\n```python\nstudent_scores = {\n    'alice': 88,\n    'bob': 92,\n    'charlie': 76\n}\n\n# Accessing a value\nprint(student_scores['alice'])\n\n# Adding a new key-value pair\nstudent_scores['diana'] = 95\n\n# Removing a key-value pair\ndel student_scores['bob']\n```\n\nNotice how string literals use single quotes, which is the preferred style in Python for simple strings.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of hash tables concepts syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "33.1_q4",
@@ -114,9 +118,9 @@
       "prompt": "What is the output of the following code?\n\n```python\nht = {}\nht['apple'] = 5\nht['banana'] = 3\nprint(ht.get('apple'))\nprint(ht['banana'])\nprint(len(ht))\n```",
       "options": [
         "5\n3\n2",
-        "5\n3\n1",
-        "5\n3\n0",
-        "apple\nbanana\n2"
+        "Raises a SyntaxError: invalid syntax at runtime",
+        "Raises an IndentationError: unexpected indent",
+        "Silently ignored by the Python parser"
       ],
       "correct_answer": "5\n3\n2",
       "explanation": "The dictionary stores 'apple': 5 and 'banana': 3. `get('apple')` returns 5, direct indexing returns 3, and `len(ht)` counts 2 key-value pairs.",
@@ -133,12 +137,12 @@
       "id": "33.1_q8",
       "prompt": "What is the output of the following code?\n\n```python\nht = {}\nht[10] = 'ten'\nht[20] = 'twenty'\nht[30] = 'thirty'\nprint(ht[20])\nprint('Key 20 exists:', 20 in ht)\nprint('Key 40 exists:', 40 in ht)\n```",
       "options": [
-        "'twenty'\n'Key 20 exists: True'\n'Key 40 exists: False'",
-        "'twenty'\n'Key 20 exists: False'\n'Key 40 exists: True'",
-        "'ten'\n'Key 20 exists: True'\n'Key 40 exists: False'",
-        "'twenty'\n'Key 20 exists: True'\n'Key 40 exists: True'"
+        "twenty\nKey 20 exists: True\nKey 40 exists: False",
+        "twenty\nKey 20 exists: False\nKey 40 exists: True",
+        "missing\nKey 20 exists: True\nKey 40 exists: False",
+        "Error"
       ],
-      "correct_answer": "'twenty'\n'Key 20 exists: True'\n'Key 40 exists: False'",
+      "correct_answer": "twenty\nKey 20 exists: True\nKey 40 exists: False",
       "explanation": "Indexing with key 20 retrieves 'twenty'. The `in` operator checks for key existence, so 20 is present and 40 is not.",
       "difficulty": "medium",
       "prerequisites": [
@@ -152,14 +156,14 @@
       "diff": "medium",
       "concept": "hash_tables_concepts_flow",
       "id": "33.1_q9",
-      "prompt": "What is the output of the following code?\n\n```python\nht = {}\nht['x'] = 1\nht['y'] = 2\nht['z'] = 3\ndelete ht['y']\nprint(ht)\nprint(ht.get('y', 'missing'))\n```",
+      "prompt": "What is the output of the following code?\n\n```python\nht = {}\nht['x'] = 1\nht['y'] = 2\nht['z'] = 3\ndel ht['y']\nprint(ht)\nprint(ht.get('y', 'missing'))\n```",
       "options": [
-        "{'x': 1, 'z': 3}\n'missing'",
-        "{'x': 1, 'y': 2, 'z': 3}\n'missing'",
+        "{'x': 1, 'z': 3}\nmissing",
+        "{'x': 1, 'y': 2, 'z': 3}\nmissing",
         "{'x': 1, 'z': 3}\n2",
-        "{'x': 1, 'z': 3}\n'y'"
+        "{'x': 1, 'z': 3}\ny"
       ],
-      "correct_answer": "{'x': 1, 'z': 3}\n'missing'",
+      "correct_answer": "{'x': 1, 'z': 3}\nmissing",
       "explanation": "The `del` statement removes the key 'y' from the dictionary. After deletion, `ht` contains only 'x' and 'z'. `get('y', 'missing')` returns the default value 'missing' because 'y' no longer exists.",
       "difficulty": "medium",
       "prerequisites": [
@@ -233,12 +237,12 @@
       "id": "33.1_q12",
       "prompt": "What is the output of the following code?\n\n```python\nht = {}\nht[0] = 'zero'\nht[1] = 'one'\nht[2] = 'two'\nht[0] = 'zero_again'\nprint(ht[0])\nprint(list(ht.keys()))\nprint(list(ht.values()))\n```",
       "options": [
-        "'zero_again'\n[0, 1, 2]\n['zero_again', 'one', 'two']",
-        "'zero'\n[0, 1, 2]\n['zero', 'one', 'two']",
-        "'zero_again'\n[0, 1, 2]\n['zero', 'one', 'two']",
-        "'zero'\n[0, 1, 2]\n['zero_again', 'one', 'two']"
+        "zero_again\n[0, 1, 2]\n['zero_again', 'one', 'two']",
+        "zero\n[0, 1, 2]\n['zero', 'one', 'two']",
+        "zero_again\n[0, 1, 2]\n['zero', 'one', 'two']",
+        "Error"
       ],
-      "correct_answer": "'zero_again'\n[0, 1, 2]\n['zero_again', 'one', 'two']",
+      "correct_answer": "zero_again\n[0, 1, 2]\n['zero_again', 'one', 'two']",
       "explanation": "The key 0 is updated to 'zero_again'. The keys remain [0, 1, 2] in insertion order (Python 3.7+). The values reflect the current mapping: 'zero_again', 'one', 'two'.",
       "difficulty": "medium",
       "prerequisites": [
@@ -629,5 +633,15 @@
       "hint": "Mark deleted slots as tombstones so future probes continue past them; re-hash remaining entries during resize to clear tombstones.",
       "explanation": "Deletion in open addressing breaks probe chains if a slot is simply cleared. Tombstones maintain chain integrity, and periodic re-hashing during resize restores compactness and correctness."
     }
+  ],
+  "unit_num": 33,
+  "learning_objectives": [
+    "Explain the technical concepts and mechanics of Hash Tables Concepts",
+    "Apply idiomatic Python patterns when working with Hash Tables Concepts",
+    "Debug common runtime exceptions and logic errors associated with Hash Tables Concepts",
+    "Implement production-ready code utilizing Hash Tables Concepts"
+  ],
+  "prerequisites": [
+    "32.5"
   ]
 }

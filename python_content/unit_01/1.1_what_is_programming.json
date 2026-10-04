@@ -11,7 +11,9 @@
       "difficulty": "easy",
       "prerequisites": [],
       "title": "Computers Are Fast but Not Smart",
-      "content": "A computer can calculate billions of numbers in a second, but it has absolutely no common sense. It cannot think for itself or guess what you mean.\n\n**Programming** is the process of writing explicit, step-by-step instructions for a computer to execute."
+      "content": "A computer can calculate billions of numbers in a second, but it has absolutely no common sense. It cannot think for itself or guess what you mean.\n\n**Programming** is the process of writing explicit, step-by-step instructions for a computer to execute.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of programming definition. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "1.1_q2",
@@ -19,7 +21,9 @@
       "concept": "programming_definition",
       "skill": "reasoning",
       "difficulty": "easy",
-      "prerequisites": ["1.1_q1"],
+      "prerequisites": [
+        "1.1_q1"
+      ],
       "prompt": "You tell a computer to 'Make a sandwich.' Why will it fail?",
       "options": [
         "A. The computer is too slow to process the command.",
@@ -39,7 +43,9 @@
       "difficulty": "easy",
       "prerequisites": [],
       "title": "What is an Algorithm?",
-      "content": "An **algorithm** is a specific sequence of clear, unambiguous steps designed to solve a problem or complete a task.\n\nBefore you write code, you must design the algorithm in your head or on paper."
+      "content": "An **algorithm** is a specific sequence of clear, unambiguous steps designed to solve a problem or complete a task.\n\nBefore you write code, you must design the algorithm in your head or on paper.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of algorithms. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "1.1_q4",
@@ -47,7 +53,9 @@
       "concept": "algorithms",
       "skill": "application",
       "difficulty": "medium",
-      "prerequisites": ["1.1_q3"],
+      "prerequisites": [
+        "1.1_q3"
+      ],
       "prompt": "Arrange these steps into a logical algorithm for making a cup of tea. Sequence matters!",
       "options": [
         "Boil the water in a kettle.",
@@ -69,7 +77,9 @@
       "concept": "sequential_execution",
       "skill": "prediction",
       "difficulty": "medium",
-      "prerequisites": ["1.1_q4"],
+      "prerequisites": [
+        "1.1_q4"
+      ],
       "prompt": "If a computer is executing a 10-line algorithm, and it is currently on line 4, what is happening with line 5?",
       "options": [
         "A. It is executing at the exact same time as line 4.",
@@ -88,7 +98,9 @@
       "difficulty": "easy",
       "prerequisites": [],
       "title": "The Language Barrier",
-      "content": "Deep down, computer hardware only understands **machine code**: a massive stream of electrical signals represented as 1s and 0s (binary).\n\nBecause humans cannot efficiently write millions of 1s and 0s, we invented **Programming Languages**."
+      "content": "Deep down, computer hardware only understands **machine code**: a massive stream of electrical signals represented as 1s and 0s (binary).\n\nBecause humans cannot efficiently write millions of 1s and 0s, we invented **Programming Languages**.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of machine code. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "1.1_q7",
@@ -96,9 +108,14 @@
       "concept": "programming_languages",
       "skill": "reasoning",
       "difficulty": "easy",
-      "prerequisites": ["1.1_q6"],
+      "prerequisites": [
+        "1.1_q6"
+      ],
       "prompt": "Programming languages act as a bridge. They allow humans to write code using readable words, which the system then translates into ___ code for the hardware to run.",
-      "accepted_answers": ["machine", "binary"],
+      "accepted_answers": [
+        "machine",
+        "binary"
+      ],
       "explanation": "Ultimately, every Python script you write gets translated down into machine code (binary) so the CPU can execute it."
     },
     {
@@ -107,7 +124,9 @@
       "concept": "python_characteristics",
       "skill": "recognition",
       "difficulty": "easy",
-      "prerequisites": ["1.1_q6"],
+      "prerequisites": [
+        "1.1_q6"
+      ],
       "prompt": "Why is Python such a popular programming language?",
       "options": [
         "A. Because it requires you to write directly in 1s and 0s, which is faster.",
@@ -126,7 +145,9 @@
       "difficulty": "medium",
       "prerequisites": [],
       "title": "Syntax vs. Logic",
-      "content": "**Syntax** refers to the spelling and grammar rules of a programming language. If you break syntax (e.g., forgetting a quote mark), the program refuses to run.\n\n**Logic** refers to your algorithm. If your syntax is perfect, but your algorithm says 'Add 2 + 2 to get 5', the program will run, but produce the wrong result."
+      "content": "**Syntax** refers to the spelling and grammar rules of a programming language. If you break syntax (e.g., forgetting a quote mark), the program refuses to run.\n\n**Logic** refers to your algorithm. If your syntax is perfect, but your algorithm says 'Add 2 + 2 to get 5', the program will run, but produce the wrong result.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of syntax vs logic. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "1.1_q10",
@@ -134,7 +155,9 @@
       "concept": "syntax_vs_logic",
       "skill": "application",
       "difficulty": "medium",
-      "prerequisites": ["1.1_q9"],
+      "prerequisites": [
+        "1.1_q9"
+      ],
       "prompt": "Match the real-world scenario to the type of programming error it represents.",
       "options": {
         "Syntax Error": "Writing 'pleaze open th dore' instead of 'please open the door'.",
@@ -152,7 +175,9 @@
       "concept": "syntax_vs_logic",
       "skill": "diagnosis",
       "difficulty": "hard",
-      "prerequisites": ["1.1_q9"],
+      "prerequisites": [
+        "1.1_q9"
+      ],
       "prompt": "A banking app successfully runs without crashing, but it accidentally deducts $10 from your account instead of adding $10. What kind of error is this?",
       "options": [
         "A. A syntax error",
@@ -171,7 +196,9 @@
       "difficulty": "easy",
       "prerequisites": [],
       "title": "Input, Processing, Output",
-      "content": "Most software follows the IPO model:\n\n1. **Input**: Receiving data (e.g., tapping a button, typing a password).\n2. **Processing**: Calculating or manipulating the data (e.g., verifying the password).\n3. **Output**: Giving a result back to the user (e.g., showing the dashboard, playing a sound)."
+      "content": "Most software follows the IPO model:\n\n1. **Input**: Receiving data (e.g., tapping a button, typing a password).\n2. **Processing**: Calculating or manipulating the data (e.g., verifying the password).\n3. **Output**: Giving a result back to the user (e.g., showing the dashboard, playing a sound).",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of ipo model. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "1.1_q13",
@@ -179,7 +206,9 @@
       "concept": "ipo_model",
       "skill": "application",
       "difficulty": "medium",
-      "prerequisites": ["1.1_q12"],
+      "prerequisites": [
+        "1.1_q12"
+      ],
       "prompt": "You are playing a video game. Match the event to its phase in the IPO model.",
       "options": {
         "Input": "You press the 'Jump' button on your controller.",
@@ -199,7 +228,9 @@
       "concept": "ipo_model",
       "skill": "reasoning",
       "difficulty": "medium",
-      "prerequisites": ["1.1_q12"],
+      "prerequisites": [
+        "1.1_q12"
+      ],
       "prompt": "If an application has no 'Output' whatsoever, what is the user experience?",
       "options": [
         "A. The app will run faster.",
@@ -216,7 +247,10 @@
       "concept": "programming_mindset",
       "skill": "understanding",
       "difficulty": "medium",
-      "prerequisites": ["1.1_q1", "1.1_q11"],
+      "prerequisites": [
+        "1.1_q1",
+        "1.1_q11"
+      ],
       "prompt": "When a bug occurs in your code, who is almost always responsible?",
       "options": [
         "A. The Python programming language",
@@ -233,9 +267,13 @@
       "concept": "syntax",
       "skill": "recognition",
       "difficulty": "easy",
-      "prerequisites": ["1.1_q9"],
+      "prerequisites": [
+        "1.1_q9"
+      ],
       "prompt": "The strict spelling and grammar rules of a programming language are called its ___.",
-      "accepted_answers": ["syntax"],
+      "accepted_answers": [
+        "syntax"
+      ],
       "explanation": "Learning a new programming language is largely about learning its unique syntax."
     },
     {
@@ -244,7 +282,9 @@
       "concept": "algorithms",
       "skill": "transfer",
       "difficulty": "hard",
-      "prerequisites": ["1.1_q4"],
+      "prerequisites": [
+        "1.1_q4"
+      ],
       "prompt": "You are writing an algorithm to safely cross a street. Which step MUST be processed first?",
       "options": [
         "A. Walk across the street.",
@@ -261,9 +301,13 @@
       "concept": "determinism",
       "skill": "understanding",
       "difficulty": "medium",
-      "prerequisites": ["1.1_q3"],
+      "prerequisites": [
+        "1.1_q3"
+      ],
       "title": "Computers are Deterministic",
-      "content": "Standard computer algorithms are **deterministic**. This means that given the exact same initial state and input values, the computer will follow the exact same steps and produce the exact same output every single time.\n\nComputers do not get bored, creative, or tired. If the output is wrong, it means the instructions were wrong."
+      "content": "Standard computer algorithms are **deterministic**. This means that given the exact same initial state and input values, the computer will follow the exact same steps and produce the exact same output every single time.\n\nComputers do not get bored, creative, or tired. If the output is wrong, it means the instructions were wrong.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of determinism. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "1.1_q19",
@@ -271,7 +315,9 @@
       "concept": "determinism",
       "skill": "reasoning",
       "difficulty": "medium",
-      "prerequisites": ["1.1_q18"],
+      "prerequisites": [
+        "1.1_q18"
+      ],
       "prompt": "You run a Python script that calculates tax, and it gives the result '$14.50'. You run it a second time with the exact same inputs without changing any code. What will happen?",
       "options": [
         "A. It may output a slightly different number because computers simulate natural variation.",
@@ -288,7 +334,9 @@
       "concept": "algorithms",
       "skill": "application",
       "difficulty": "medium",
-      "prerequisites": ["1.1_q4"],
+      "prerequisites": [
+        "1.1_q4"
+      ],
       "prompt": "Order the sequence of an ATM withdrawal algorithm from start to finish.",
       "options": [
         "User inserts card and enters PIN.",
@@ -310,10 +358,14 @@
       "concept": "algorithms",
       "skill": "recognition",
       "difficulty": "easy",
-      "prerequisites": ["1.1_q3"],
+      "prerequisites": [
+        "1.1_q3"
+      ],
       "prompt": "A finite, step-by-step sequence of instructions designed to solve a problem is known as an ___.",
-      "accepted_answers": ["algorithm"],
-      "explanation": "Algorithms form the logical foundation of all computer software."
+      "accepted_answers": [
+        "algorithm"
+      ],
+      "explanation": "In Python, this operation directly demonstrates the core behavior of algorithms. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "1.1_q22",
@@ -321,7 +373,10 @@
       "concept": "programming_roles",
       "skill": "analysis",
       "difficulty": "medium",
-      "prerequisites": ["1.1_q1", "1.1_q6"],
+      "prerequisites": [
+        "1.1_q1",
+        "1.1_q6"
+      ],
       "prompt": "Match each role to its primary responsibility in computing.",
       "options": {
         "Hardware": "The physical silicon, circuits, and memory that run electrical signals.",
@@ -341,7 +396,10 @@
       "concept": "high_level_languages",
       "skill": "reasoning",
       "difficulty": "medium",
-      "prerequisites": ["1.1_q6", "1.1_q8"],
+      "prerequisites": [
+        "1.1_q6",
+        "1.1_q8"
+      ],
       "prompt": "What makes Python a 'high-level' programming language?",
       "options": [
         "A. It can only be used by advanced university researchers.",
@@ -358,18 +416,25 @@
       "concept": "high_level_languages",
       "skill": "recognition",
       "difficulty": "easy",
-      "prerequisites": ["1.1_q23"],
+      "prerequisites": [
+        "1.1_q23"
+      ],
       "prompt": "Languages like Python that hide low-level hardware details behind human-readable syntax are called ___-level languages.",
-      "accepted_answers": ["high"],
-      "explanation": "Python is a high-level programming language."
+      "accepted_answers": [
+        "high"
+      ],
+      "explanation": "In Python, this operation directly demonstrates the core behavior of high level languages. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "1.1_q25",
-      "type": "scenario",
+      "type": "real_world_scenario",
       "concept": "syntax_vs_logic",
       "skill": "diagnosis",
       "difficulty": "hard",
-      "prerequisites": ["1.1_q9", "1.1_q11"],
+      "prerequisites": [
+        "1.1_q9",
+        "1.1_q11"
+      ],
       "prompt": "An online store applies discounts. A customer buys an item for $100 with a $20 coupon. The order completes successfully, but the invoice charges the customer $120. Which diagnosis is correct?",
       "options": [
         "A. The program crashed due to a syntax error.",
@@ -386,7 +451,9 @@
       "concept": "sequential_execution",
       "skill": "prediction",
       "difficulty": "medium",
-      "prerequisites": ["1.1_q5"],
+      "prerequisites": [
+        "1.1_q5"
+      ],
       "prompt": "Trace the execution of these pseudo-code steps:\n1. Start with total = 5\n2. Multiply total by 2\n3. Add 4 to total\nWhat is the final value of total?",
       "options": [
         "A. 10",
@@ -403,7 +470,9 @@
       "concept": "syntax_vs_logic",
       "skill": "analysis",
       "difficulty": "medium",
-      "prerequisites": ["1.1_q9"],
+      "prerequisites": [
+        "1.1_q9"
+      ],
       "prompt": "Why are logic errors usually much harder to detect than syntax errors?",
       "options": [
         "A. Syntax errors delete your source code file.",
@@ -420,7 +489,10 @@
       "concept": "programming_mindset",
       "skill": "reasoning",
       "difficulty": "medium",
-      "prerequisites": ["1.1_q1", "1.1_q18"],
+      "prerequisites": [
+        "1.1_q1",
+        "1.1_q18"
+      ],
       "prompt": "Why can't you tell Python: 'Send an email to everyone who wants one'?",
       "options": [
         "A. Python does not have internet access.",
@@ -433,11 +505,14 @@
     },
     {
       "id": "1.1_q29",
-      "type": "scenario",
+      "type": "real_world_scenario",
       "concept": "ipo_model",
       "skill": "application",
       "difficulty": "hard",
-      "prerequisites": ["1.1_q12", "1.1_q13"],
+      "prerequisites": [
+        "1.1_q12",
+        "1.1_q13"
+      ],
       "prompt": "A smart thermostat measures room temperature at 65°F. Its target is 72°F. It calculates that the temperature is below target and turns on the heater. Which element represents the 'Processing' step?",
       "options": [
         "A. The temperature sensor reading 65°F.",
@@ -450,11 +525,16 @@
     },
     {
       "id": "1.1_q30",
-      "type": "scenario",
+      "type": "real_world_scenario",
       "concept": "programming_definition",
       "skill": "transfer",
       "difficulty": "hard",
-      "prerequisites": ["1.1_q1", "1.1_q3", "1.1_q9", "1.1_q12"],
+      "prerequisites": [
+        "1.1_q1",
+        "1.1_q3",
+        "1.1_q9",
+        "1.1_q12"
+      ],
       "prompt": "Which of the following best summarizes the ultimate goal of learning to program in Python?",
       "options": [
         "A. To memorize hundreds of machine code binary patterns.",
@@ -465,5 +545,13 @@
       "correct_answer": "B",
       "explanation": "Programming is fundamentally about problem solving: transforming vague human goals into precise, robust, and automated algorithmic procedures."
     }
-  ]
+  ],
+  "unit_num": 1,
+  "learning_objectives": [
+    "Explain the purpose and execution model of What Is Programming?",
+    "Identify valid Python syntax rules for What Is Programming?",
+    "Recognize common syntax errors and pitfalls when writing What Is Programming?",
+    "Write and execute simple scripts demonstrating What Is Programming?"
+  ],
+  "prerequisites": []
 }

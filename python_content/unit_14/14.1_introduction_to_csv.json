@@ -12,7 +12,9 @@
       "title": "What Is a CSV File?",
       "content": "A CSV (Comma-Separated Values) file is a plain text file used to store tabular data, such as spreadsheet rows and columns. Each line in a CSV represents a row, and values within a row are separated by commas. CSV files are widely used because they are simple, human-readable, and supported by many tools. In Python, you can read and write CSV files using the built-in csv module or the pandas library. Here is a basic example of reading a CSV file using Python's csv module:\n\nimport csv\n\nwith open('data.csv', mode='r') as file:\n    reader = csv.reader(file)\n    for row in reader:\n        print(row)",
       "difficulty": "easy",
-      "prerequisites": []
+      "prerequisites": [],
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of introduction to csv basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "14.1_q2",
@@ -45,7 +47,9 @@
       "difficulty": "easy",
       "prerequisites": [
         "14.1_q2"
-      ]
+      ],
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of introduction to csv syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "14.1_q4",
@@ -559,5 +563,15 @@
       "hint": "Always copy row dictionaries with dict(row) to avoid shared mutable state, and clean up temporary files in tearDown.",
       "explanation": "This mastery challenge requires building a reusable, tested CSV utility. Key improvements include defensive copying of rows, explicit fieldnames in save_csv, existence checks in merge_csvs, and proper test lifecycle management with setUp and tearDown. These practices ensure reliability when integrating CSV handling into larger data-processing workflows."
     }
+  ],
+  "unit_num": 14,
+  "learning_objectives": [
+    "Explain the technical concepts and mechanics of Introduction to CSV",
+    "Apply idiomatic Python patterns when working with Introduction to CSV",
+    "Debug common runtime exceptions and logic errors associated with Introduction to CSV",
+    "Implement production-ready code utilizing Introduction to CSV"
+  ],
+  "prerequisites": [
+    "13.5"
   ]
 }

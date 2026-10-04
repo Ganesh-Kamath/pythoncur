@@ -11,7 +11,9 @@
       "difficulty": "easy",
       "prerequisites": [],
       "title": "What is Breadth-First Search?",
-      "content": "Breadth-First Search (BFS) is a graph traversal algorithm that explores all neighbors of a node before moving to the next level of nodes. It uses a queue to keep track of nodes to visit. BFS is ideal for finding the shortest path in an unweighted graph. Here is a simple Python implementation using a queue:\n\n```python\nfrom collections import deque\n\ndef bfs(graph, start):\n    visited = set()\n    queue = deque([start])\n    visited.add(start)\n\n    while queue:\n        node = queue.popleft()\n        print('Visiting:', node)\n\n        for neighbor in graph.get(node, []):\n            if neighbor not in visited:\n                visited.add(neighbor)\n                queue.append(neighbor)\n\n# Example graph\ngraph = {\n    'A': ['B', 'C'],\n    'B': ['D', 'E'],\n    'C': ['F'],\n    'D': [],\n    'E': [],\n    'F': []\n}\n\nbfs(graph, 'A')\n```\n\nIn this code, we initialize a queue with the starting node, mark it as visited, and repeatedly dequeue a node, process it, and enqueue any unvisited neighbors. This ensures we explore the graph level by level."
+      "content": "Breadth-First Search (BFS) is a graph traversal algorithm that explores all neighbors of a node before moving to the next level of nodes. It uses a queue to keep track of nodes to visit. BFS is ideal for finding the shortest path in an unweighted graph. Here is a simple Python implementation using a queue:\n\n```python\nfrom collections import deque\n\ndef bfs(graph, start):\n    visited = set()\n    queue = deque([start])\n    visited.add(start)\n\n    while queue:\n        node = queue.popleft()\n        print('Visiting:', node)\n\n        for neighbor in graph.get(node, []):\n            if neighbor not in visited:\n                visited.add(neighbor)\n                queue.append(neighbor)\n\n# Example graph\ngraph = {\n    'A': ['B', 'C'],\n    'B': ['D', 'E'],\n    'C': ['F'],\n    'D': [],\n    'E': [],\n    'F': []\n}\n\nbfs(graph, 'A')\n```\n\nIn this code, we initialize a queue with the starting node, mark it as visited, and repeatedly dequeue a node, process it, and enqueue any unvisited neighbors. This ensures we explore the graph level by level.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of breadthfirst search bfs basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "39.3_q2",
@@ -36,12 +38,12 @@
       "prompt": "Which statement best applies to breadthfirst search bfs basics?",
       "options": [
         "A. Correct approach for breadthfirst search bfs basics",
-        "B. SyntaxError raised unconditionally",
-        "C. Unrelated system call",
-        "D. Halts Python interpreter"
+        "Raises a SyntaxError: invalid syntax at runtime",
+        "Raises an IndentationError: unexpected indent",
+        "Silently ignored by the Python parser"
       ],
       "correct_answer": "A. Correct approach for breadthfirst search bfs basics",
-      "explanation": "Demonstrates core usage of breadthfirst search bfs basics in Python."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of breadthfirst search bfs basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "39.3_q3",
@@ -53,7 +55,9 @@
         "39.3_q2"
       ],
       "title": "BFS Syntax and Key Methods",
-      "content": "When writing BFS in Python, the key operations are queue initialization, popping from the front, and appending to the back. The `collections.deque` class is preferred over a list for efficient pops from the left. Here is the core syntax pattern:\n\n```python\nfrom collections import deque\n\ndef bfs_syntax_example(graph, start):\n    queue = deque([start])\n    visited = {start}\n\n    while queue:\n        current = queue.popleft()\n        for neighbor in graph.get(current, []):\n            if neighbor not in visited:\n                visited.add(neighbor)\n                queue.append(neighbor)\n    return visited\n\n# Using the same graph as before\nresult = bfs_syntax_example(graph, 'A')\nprint('Visited nodes:', result)\n```\n\nNotice that `popleft()` removes and returns the leftmost element, while `append()` adds an element to the right. The `visited` set prevents revisiting nodes and avoids infinite loops in cyclic graphs."
+      "content": "When writing BFS in Python, the key operations are queue initialization, popping from the front, and appending to the back. The `collections.deque` class is preferred over a list for efficient pops from the left. Here is the core syntax pattern:\n\n```python\nfrom collections import deque\n\ndef bfs_syntax_example(graph, start):\n    queue = deque([start])\n    visited = {start}\n\n    while queue:\n        current = queue.popleft()\n        for neighbor in graph.get(current, []):\n            if neighbor not in visited:\n                visited.add(neighbor)\n                queue.append(neighbor)\n    return visited\n\n# Using the same graph as before\nresult = bfs_syntax_example(graph, 'A')\nprint('Visited nodes:', result)\n```\n\nNotice that `popleft()` removes and returns the leftmost element, while `append()` adds an element to the right. The `visited` set prevents revisiting nodes and avoids infinite loops in cyclic graphs.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of breadthfirst search bfs syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "39.3_q4",
@@ -78,12 +82,12 @@
       "prompt": "Which statement best applies to breadthfirst search bfs syntax?",
       "options": [
         "A. Correct approach for breadthfirst search bfs syntax",
-        "B. SyntaxError raised unconditionally",
-        "C. Unrelated system call",
-        "D. Halts Python interpreter"
+        "Raises a SyntaxError: invalid syntax at runtime",
+        "Raises an IndentationError: unexpected indent",
+        "Silently ignored by the Python parser"
       ],
       "correct_answer": "A. Correct approach for breadthfirst search bfs syntax",
-      "explanation": "Demonstrates core usage of breadthfirst search bfs syntax in Python."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of breadthfirst search bfs syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "39.3_q5",
@@ -108,12 +112,12 @@
       "prompt": "Which statement best applies to breadthfirst search bfs matching?",
       "options": [
         "A. Correct approach for breadthfirst search bfs matching",
-        "B. SyntaxError raised unconditionally",
-        "C. Unrelated system call",
-        "D. Halts Python interpreter"
+        "Raises a SyntaxError: invalid syntax at runtime",
+        "Raises an IndentationError: unexpected indent",
+        "Silently ignored by the Python parser"
       ],
       "correct_answer": "A. Correct approach for breadthfirst search bfs matching",
-      "explanation": "Demonstrates core usage of breadthfirst search bfs matching in Python."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of breadthfirst search bfs matching. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "39.3_q6",
@@ -138,12 +142,12 @@
       "prompt": "Which statement best applies to breadthfirst search bfs pitfalls?",
       "options": [
         "A. Correct approach for breadthfirst search bfs pitfalls",
-        "B. SyntaxError raised unconditionally",
-        "C. Unrelated system call",
-        "D. Halts Python interpreter"
+        "Raises a SyntaxError: invalid syntax at runtime",
+        "Raises an IndentationError: unexpected indent",
+        "Silently ignored by the Python parser"
       ],
       "correct_answer": "A. Correct approach for breadthfirst search bfs pitfalls",
-      "explanation": "Demonstrates core usage of breadthfirst search bfs pitfalls in Python."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of breadthfirst search bfs pitfalls. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "39.3_q7",
@@ -300,12 +304,12 @@
       "prerequisites": [
         "39.3_q12"
       ],
-      "prompt": "Fill Blank 13: Complete the code to output 'Breadth-First Search (BFS) #13':\n```python\n___('Breadth-First Search (BFS) #13')\n```",
+      "prompt": "Complete the code to output 'Breadth-First Search (BFS) #13':\n```python\n___('Breadth-First Search (BFS) #13')\n```",
       "correct_answer": "print",
       "accepted_answers": [
         "print"
       ],
-      "explanation": "The built-in print() function outputs the specified string."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of breadthfirst search bfs syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "39.3_q14",
@@ -316,12 +320,12 @@
       "prerequisites": [
         "39.3_q13"
       ],
-      "prompt": "Fill Blank 14: Complete the code to output 'Breadth-First Search (BFS) #14':\n```python\n___('Breadth-First Search (BFS) #14')\n```",
+      "prompt": "Complete the code to output 'Breadth-First Search (BFS) #14':\n```python\n___('Breadth-First Search (BFS) #14')\n```",
       "correct_answer": "print",
       "accepted_answers": [
         "print"
       ],
-      "explanation": "The built-in print() function outputs the specified string."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of breadthfirst search bfs keywords. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "39.3_q15",
@@ -332,7 +336,7 @@
       "prerequisites": [
         "39.3_q14"
       ],
-      "prompt": "Algorithm Sequence 15: Arrange the lines in correct logical order for Breadthfirst Search Bfs Sequence:",
+      "prompt": "Arrange the lines in correct logical order for Breadthfirst Search Bfs Sequence:",
       "options": [
         "a_15 = 10",
         "b_15 = 20",
@@ -356,12 +360,12 @@
       "prerequisites": [
         "39.3_q15"
       ],
-      "prompt": "Fill Blank 16: Complete the code to output 'Breadth-First Search (BFS) #16':\n```python\n___('Breadth-First Search (BFS) #16')\n```",
+      "prompt": "Complete the code to output 'Breadth-First Search (BFS) #16':\n```python\n___('Breadth-First Search (BFS) #16')\n```",
       "correct_answer": "print",
       "accepted_answers": [
         "print"
       ],
-      "explanation": "The built-in print() function outputs the specified string."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of breadthfirst search bfs patterns. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "39.3_q17",
@@ -372,7 +376,7 @@
       "prerequisites": [
         "39.3_q16"
       ],
-      "prompt": "Algorithm Sequence 17: Arrange the lines in correct logical order for Breadthfirst Search Bfs Algorithm:",
+      "prompt": "Arrange the lines in correct logical order for Breadthfirst Search Bfs Algorithm:",
       "options": [
         "a_17 = 10",
         "b_17 = 20",
@@ -396,12 +400,12 @@
       "prerequisites": [
         "39.3_q17"
       ],
-      "prompt": "Fill Blank 18: Complete the code to output 'Breadth-First Search (BFS) #18':\n```python\n___('Breadth-First Search (BFS) #18')\n```",
+      "prompt": "Complete the code to output 'Breadth-First Search (BFS) #18':\n```python\n___('Breadth-First Search (BFS) #18')\n```",
       "correct_answer": "print",
       "accepted_answers": [
         "print"
       ],
-      "explanation": "The built-in print() function outputs the specified string."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of breadthfirst search bfs idioms. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "39.3_q19",
@@ -516,7 +520,7 @@
       "prerequisites": [
         "39.3_q24"
       ],
-      "prompt": "Coding Challenge 25: Write a statement that prints 'Breadth-First Search (BFS) Result 25' to standard output.",
+      "prompt": "Write a statement that prints 'Breadth-First Search (BFS) Result 25' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Breadth-First Search (BFS) Result 25')",
       "test_cases": [
@@ -526,7 +530,7 @@
         }
       ],
       "hint": "Use print('Breadth-First Search (BFS) Result 25') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of breadthfirst search bfs implementation. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "39.3_q26",
@@ -537,7 +541,7 @@
       "prerequisites": [
         "39.3_q25"
       ],
-      "prompt": "Coding Challenge 26: Write a statement that prints 'Breadth-First Search (BFS) Result 26' to standard output.",
+      "prompt": "Write a statement that prints 'Breadth-First Search (BFS) Result 26' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Breadth-First Search (BFS) Result 26')",
       "test_cases": [
@@ -547,7 +551,7 @@
         }
       ],
       "hint": "Use print('Breadth-First Search (BFS) Result 26') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of breadthfirst search bfs practical. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "39.3_q27",
@@ -558,7 +562,7 @@
       "prerequisites": [
         "39.3_q26"
       ],
-      "prompt": "Coding Challenge 27: Write a statement that prints 'Breadth-First Search (BFS) Result 27' to standard output.",
+      "prompt": "Write a statement that prints 'Breadth-First Search (BFS) Result 27' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Breadth-First Search (BFS) Result 27')",
       "test_cases": [
@@ -568,7 +572,7 @@
         }
       ],
       "hint": "Use print('Breadth-First Search (BFS) Result 27') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of breadthfirst search bfs advanced. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "39.3_q28",
@@ -579,7 +583,7 @@
       "prerequisites": [
         "39.3_q27"
       ],
-      "prompt": "Coding Challenge 28: Write a statement that prints 'Breadth-First Search (BFS) Result 28' to standard output.",
+      "prompt": "Write a statement that prints 'Breadth-First Search (BFS) Result 28' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Breadth-First Search (BFS) Result 28')",
       "test_cases": [
@@ -589,7 +593,7 @@
         }
       ],
       "hint": "Use print('Breadth-First Search (BFS) Result 28') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of breadthfirst search bfs challenge. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "39.3_q29",
@@ -600,7 +604,7 @@
       "prerequisites": [
         "39.3_q28"
       ],
-      "prompt": "Coding Challenge 29: Write a statement that prints 'Breadth-First Search (BFS) Result 29' to standard output.",
+      "prompt": "Write a statement that prints 'Breadth-First Search (BFS) Result 29' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Breadth-First Search (BFS) Result 29')",
       "test_cases": [
@@ -610,7 +614,7 @@
         }
       ],
       "hint": "Use print('Breadth-First Search (BFS) Result 29') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of breadthfirst search bfs scenario. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "39.3_q30",
@@ -621,7 +625,7 @@
       "prerequisites": [
         "39.3_q29"
       ],
-      "prompt": "Coding Challenge 30: Write a statement that prints 'Breadth-First Search (BFS) Result 30' to standard output.",
+      "prompt": "Write a statement that prints 'Breadth-First Search (BFS) Result 30' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Breadth-First Search (BFS) Result 30')",
       "test_cases": [
@@ -631,7 +635,17 @@
         }
       ],
       "hint": "Use print('Breadth-First Search (BFS) Result 30') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of breadthfirst search bfs mastery. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     }
+  ],
+  "unit_num": 39,
+  "learning_objectives": [
+    "Implement the fundamental Breadth-First Search (BFS) algorithm in idiomatic Python",
+    "Calculate time and space complexity using Big O notation",
+    "Trace edge-case performance and termination conditions",
+    "Apply the algorithmic pattern to solve practical data structure problems"
+  ],
+  "prerequisites": [
+    "39.2"
   ]
 }

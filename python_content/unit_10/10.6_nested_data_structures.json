@@ -12,7 +12,9 @@
       "title": "What Is a Nested Dictionary?",
       "content": "A nested dictionary is a dictionary whose values can themselves be dictionaries. This allows you to organize related data in a hierarchical way. For example, instead of storing flat key-value pairs, you can group information under a common key. Consider this example:\n\n```python\nstudent = {\n    'name': 'Aisha',\n    'age': 14,\n    'subjects': {\n        'math': 92,\n        'science': 88\n    }\n}\n```\n\nHere, the value associated with the key 'subjects' is another dictionary. You access nested values using chained square brackets, like `student['subjects']['math']`, which returns `92`. Recognizing nested structures helps you read and interpret complex data in real-world programs.",
       "difficulty": "easy",
-      "prerequisites": []
+      "prerequisites": [],
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of nested data structures basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "10.6_q2",
@@ -45,7 +47,9 @@
       "difficulty": "easy",
       "prerequisites": [
         "10.6_q2"
-      ]
+      ],
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of nested data structures syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "10.6_q4",
@@ -358,7 +362,7 @@
       "prompt": "Fix the bug in this code for nested data structures errors:",
       "starter_code": "# Fix this code\nPrint('Nested Data Structures')",
       "solution_code": "print('Nested Data Structures')",
-      "explanation": "Python identifiers and built-ins are case-sensitive."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of nested data structures errors. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "10.6_q20",
@@ -406,7 +410,7 @@
       "prompt": "Fix the bug in this code for nested data structures runtime:",
       "starter_code": "# Fix this code\nPrint('Nested Data Structures')",
       "solution_code": "print('Nested Data Structures')",
-      "explanation": "Python identifiers and built-ins are case-sensitive."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of nested data structures runtime. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "10.6_q23",
@@ -586,5 +590,15 @@
       "hint": "Use nested loops to reach every employee dictionary, then use `sum()` on the values of that inner dictionary. Missing skills are simply absent from the dictionary, so `sum()` naturally ignores them.",
       "explanation": "This mastery item requires complete fluency with nested dictionaries, including handling missing keys gracefully and aggregating values across multiple dimensions. It models organizational data and prepares learners for complex data analysis tasks."
     }
+  ],
+  "unit_num": 10,
+  "learning_objectives": [
+    "Explain the technical concepts and mechanics of Nested Data Structures",
+    "Apply idiomatic Python patterns when working with Nested Data Structures",
+    "Debug common runtime exceptions and logic errors associated with Nested Data Structures",
+    "Implement production-ready code utilizing Nested Data Structures"
+  ],
+  "prerequisites": [
+    "10.5"
   ]
 }

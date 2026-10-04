@@ -11,26 +11,28 @@
       "difficulty": "easy",
       "prerequisites": [],
       "title": "Class Attributes vs Instance Attributes Part 1: Class Attributes Vs Instance Attributes Basics",
-      "content": "In Python, **Class Attributes Vs Instance Attributes Basics** provides essential rules when working with class attributes vs instance attributes.\n\nUnderstanding how `class_attributes_vs_instance_attributes_basics` functions in practice enables you to write clean, unambiguous code.\n\n```python\n# Step 1: class_attributes_vs_instance_attributes_basics\nstage_1 = True\n```"
+      "content": "In Python, **Class Attributes Vs Instance Attributes Basics** provides essential rules when working with class attributes vs instance attributes.\n\nUnderstanding how `class_attributes_vs_instance_attributes_basics` functions in practice enables you to write clean, unambiguous code.\n\n```python\n# Step 1: class_attributes_vs_instance_attributes_basics\nstage_1 = True\n```",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of class attributes vs instance attributes basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "21.1_q2",
-      "type": "multiple_choice",
+      "type": "output_prediction",
       "concept": "class_attributes_vs_instance_attributes_basics",
       "skill": "recall",
       "difficulty": "easy",
       "prerequisites": [
         "21.1_q1"
       ],
-      "prompt": "Review 2: What is the primary characteristic of Class Attributes Vs Instance Attributes Basics in Class Attributes vs Instance Attributes?",
+      "prompt": "Consider the following Python snippet demonstrating Class Attributes Vs Instance Attributes Basics:\n\n```python\ndef calculate_2(value):\n    base = 8\n    return base + value * 11\n\nresult = calculate_2(2)\nprint(result)\n```\n\nWhat is the value printed to the console?",
       "options": [
-        "A. It defines specific rules for class attributes vs instance attributes basics in Python programs",
-        "B. It forces hardware clock speeds to double automatically",
-        "C. It permanently deletes system configuration records",
-        "D. It removes the need for syntax parsing completely"
+        "30",
+        "19",
+        "110",
+        "TypeError"
       ],
-      "correct_answer": "A",
-      "explanation": "Class Attributes Vs Instance Attributes Basics defines specific semantics for class attributes vs instance attributes basics in Python programs."
+      "correct_answer": "30",
+      "explanation": "Python evaluates arithmetic following standard operator precedence (multiplication before addition). First, `value * 11` evaluates to `2 * 11 = 22`. Then, adding `base` (8) yields `30`. The function returns this integer and `print()` outputs it."
     },
     {
       "id": "21.1_q3",
@@ -42,113 +44,115 @@
         "21.1_q2"
       ],
       "title": "Class Attributes vs Instance Attributes Part 3: Class Attributes Vs Instance Attributes Syntax",
-      "content": "In Python, **Class Attributes Vs Instance Attributes Syntax** provides essential rules when working with class attributes vs instance attributes.\n\nUnderstanding how `class_attributes_vs_instance_attributes_syntax` functions in practice enables you to write clean, unambiguous code.\n\n```python\n# Step 3: class_attributes_vs_instance_attributes_syntax\nstage_3 = True\n```"
+      "content": "In Python, **Class Attributes Vs Instance Attributes Syntax** provides essential rules when working with class attributes vs instance attributes.\n\nUnderstanding how `class_attributes_vs_instance_attributes_syntax` functions in practice enables you to write clean, unambiguous code.\n\n```python\n# Step 3: class_attributes_vs_instance_attributes_syntax\nstage_3 = True\n```",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of class attributes vs instance attributes syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "21.1_q4",
-      "type": "multiple_choice",
+      "type": "output_prediction",
       "concept": "class_attributes_vs_instance_attributes_syntax",
       "skill": "reasoning",
       "difficulty": "easy",
       "prerequisites": [
         "21.1_q3"
       ],
-      "prompt": "Review 4: What is the primary characteristic of Class Attributes Vs Instance Attributes Syntax in Class Attributes vs Instance Attributes?",
+      "prompt": "Consider the following Python snippet demonstrating Class Attributes Vs Instance Attributes Syntax:\n\n```python\ndef calculate_4(value):\n    base = 14\n    return base + value * 6\n\nresult = calculate_4(2)\nprint(result)\n```\n\nWhat is the value printed to the console?",
       "options": [
-        "A. It defines specific rules for class attributes vs instance attributes syntax in Python programs",
-        "B. It forces hardware clock speeds to double automatically",
-        "C. It permanently deletes system configuration records",
-        "D. It removes the need for syntax parsing completely"
+        "26",
+        "20",
+        "96",
+        "TypeError"
       ],
-      "correct_answer": "A",
-      "explanation": "Class Attributes Vs Instance Attributes Syntax defines specific semantics for class attributes vs instance attributes syntax in Python programs."
+      "correct_answer": "26",
+      "explanation": "Python evaluates arithmetic following standard operator precedence (multiplication before addition). First, `value * 6` evaluates to `2 * 6 = 12`. Then, adding `base` (14) yields `26`. The function returns this integer and `print()` outputs it."
     },
     {
       "id": "21.1_q5",
-      "type": "multiple_choice",
+      "type": "output_prediction",
       "concept": "class_attributes_vs_instance_attributes_matching",
       "skill": "recognition",
       "difficulty": "easy",
       "prerequisites": [
         "21.1_q4"
       ],
-      "prompt": "Review 5: What is the primary characteristic of Class Attributes Vs Instance Attributes Matching in Class Attributes vs Instance Attributes?",
+      "prompt": "Consider the following Python snippet demonstrating Class Attributes Vs Instance Attributes Matching:\n\n```python\ndef calculate_5(value):\n    base = 17\n    return base + value * 11\n\nresult = calculate_5(2)\nprint(result)\n```\n\nWhat is the value printed to the console?",
       "options": [
-        "A. It defines specific rules for class attributes vs instance attributes matching in Python programs",
-        "B. It forces hardware clock speeds to double automatically",
-        "C. It permanently deletes system configuration records",
-        "D. It removes the need for syntax parsing completely"
+        "39",
+        "28",
+        "209",
+        "TypeError"
       ],
-      "correct_answer": "A",
-      "explanation": "Class Attributes Vs Instance Attributes Matching defines specific semantics for class attributes vs instance attributes matching in Python programs."
+      "correct_answer": "39",
+      "explanation": "Python evaluates arithmetic following standard operator precedence (multiplication before addition). First, `value * 11` evaluates to `2 * 11 = 22`. Then, adding `base` (17) yields `39`. The function returns this integer and `print()` outputs it."
     },
     {
       "id": "21.1_q6",
-      "type": "multiple_choice",
+      "type": "output_prediction",
       "concept": "class_attributes_vs_instance_attributes_pitfalls",
       "skill": "comprehension",
       "difficulty": "easy",
       "prerequisites": [
         "21.1_q5"
       ],
-      "prompt": "Review 6: What is the primary characteristic of Class Attributes Vs Instance Attributes Pitfalls in Class Attributes vs Instance Attributes?",
+      "prompt": "Consider the following Python snippet demonstrating Class Attributes Vs Instance Attributes Pitfalls:\n\n```python\ndef calculate_6(value):\n    base = 20\n    return base + value * 1\n\nresult = calculate_6(2)\nprint(result)\n```\n\nWhat is the value printed to the console?",
       "options": [
-        "A. It defines specific rules for class attributes vs instance attributes pitfalls in Python programs",
-        "B. It forces hardware clock speeds to double automatically",
-        "C. It permanently deletes system configuration records",
-        "D. It removes the need for syntax parsing completely"
+        "22",
+        "21",
+        "22",
+        "TypeError"
       ],
-      "correct_answer": "A",
-      "explanation": "Class Attributes Vs Instance Attributes Pitfalls defines specific semantics for class attributes vs instance attributes pitfalls in Python programs."
+      "correct_answer": "22",
+      "explanation": "Python evaluates arithmetic following standard operator precedence (multiplication before addition). First, `value * 1` evaluates to `2 * 1 = 2`. Then, adding `base` (20) yields `22`. The function returns this integer and `print()` outputs it."
     },
     {
       "id": "21.1_q7",
       "type": "code_prediction",
-      "concept": "class_attributes_vs_instance_attributes_execution",
-      "skill": "prediction",
-      "difficulty": "easy",
+      "concept": "class_vs_instance_attrs",
+      "skill": "understanding",
+      "difficulty": "medium",
       "prerequisites": [
         "21.1_q6"
       ],
-      "prompt": "Predict Output 7: What does this snippet output?\n```python\nvalue_7 = 35\nprint(value_7)\n```",
+      "prompt": "In the context of Class Attributes vs Instance Attributes, what is the primary behavior demonstrated here?\n```python\n# Class Attributes vs Instance Attributes\nprint('class_vs_instance_attrs')\n```",
       "options": [
-        "35",
-        "17",
-        "value_7",
+        "class_vs_instance_attrs",
+        "SyntaxError",
+        "None",
         "Error"
       ],
-      "correct_answer": "35",
-      "explanation": "The variable value_7 stores 35, and print outputs it to the console."
+      "correct_answer": "class_vs_instance_attrs",
+      "explanation": "This directly illustrates the standard behavior of class_vs_instance_attrs: class attributes are shared across all instances; instance attributes are unique per instance."
     },
     {
       "id": "21.1_q8",
-      "type": "output_prediction",
-      "concept": "class_attributes_vs_instance_attributes_execution",
-      "skill": "prediction",
+      "type": "multiple_choice",
+      "concept": "class_vs_instance_attrs_rules",
+      "skill": "reasoning",
       "difficulty": "medium",
       "prerequisites": [
         "21.1_q7"
       ],
-      "prompt": "Predict Output 8: What does this snippet output?\n```python\nvalue_8 = 40\nprint(value_8)\n```",
+      "prompt": "What is a core design principle when working with Class Attributes vs Instance Attributes in Python?",
       "options": [
-        "40",
-        "20",
-        "value_8",
-        "Error"
+        "Class attributes are shared across all instances; instance attributes are unique per instance",
+        "It bypasses all memory management constraints",
+        "It causes the interpreter to compile to C++ automatically",
+        "It can only be executed in interactive REPL mode"
       ],
-      "correct_answer": "40",
-      "explanation": "The variable value_8 stores 40, and print outputs it to the console."
+      "correct_answer": "Class attributes are shared across all instances; instance attributes are unique per instance",
+      "explanation": "Understanding this rule is essential: class attributes are shared across all instances; instance attributes are unique per instance."
     },
     {
       "id": "21.1_q9",
-      "type": "code_prediction",
-      "concept": "class_attributes_vs_instance_attributes_flow",
-      "skill": "prediction",
+      "type": "fix_the_code",
+      "concept": "class_vs_instance_attrs_debugging",
+      "skill": "debugging",
       "difficulty": "medium",
       "prerequisites": [
         "21.1_q8"
       ],
-      "prompt": "Predict Output 9: What does this snippet output?\n```python\nvalue_9 = 45\nprint(value_9)\n```",
+      "prompt": "Fix this code snippet implementing Class Attributes vs Instance Attributes correctly:",
       "options": [
         "45",
         "22",
@@ -156,7 +160,9 @@
         "Error"
       ],
       "correct_answer": "45",
-      "explanation": "The variable value_9 stores 45, and print outputs it to the console."
+      "explanation": "Applying standard Python idioms ensures correct behavior: class attributes are shared across all instances; instance attributes are unique per instance.",
+      "starter_code": "# Class Attributes vs Instance Attributes implementation\n___",
+      "solution_code": "# Class Attributes vs Instance Attributes implementation\nclass Dog:\n    species = 'Canis familiaris'\n    def __init__(self, name):\n        self.name = name"
     },
     {
       "id": "21.1_q10",
@@ -167,7 +173,7 @@
       "prerequisites": [
         "21.1_q9"
       ],
-      "prompt": "Coding Challenge 10: Write a statement that prints 'Class Attributes vs Instance Attributes Result 10' to standard output.",
+      "prompt": "Write a statement that prints 'Class Attributes vs Instance Attributes Result 10' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Class Attributes vs Instance Attributes Result 10')",
       "test_cases": [
@@ -177,18 +183,18 @@
         }
       ],
       "hint": "Use print('Class Attributes vs Instance Attributes Result 10') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of class attributes vs instance attributes analysis. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "21.1_q11",
-      "type": "trace_execution",
-      "concept": "class_attributes_vs_instance_attributes_tracing",
-      "skill": "tracing",
-      "difficulty": "medium",
+      "type": "multiple_choice",
+      "concept": "class_vs_instance_attrs_tradeoffs",
+      "skill": "evaluation",
+      "difficulty": "hard",
       "prerequisites": [
         "21.1_q10"
       ],
-      "prompt": "Coding Challenge 11: Write a statement that prints 'Class Attributes vs Instance Attributes Result 11' to standard output.",
+      "prompt": "Which common pitfall must programmers avoid when using Class Attributes vs Instance Attributes?",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Class Attributes vs Instance Attributes Result 11')",
       "test_cases": [
@@ -198,18 +204,25 @@
         }
       ],
       "hint": "Use print('Class Attributes vs Instance Attributes Result 11') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "Careful attention to requirements avoids common traps: class attributes are shared across all instances; instance attributes are unique per instance.",
+      "options": [
+        "Misunderstanding edge cases related to: class attributes are shared across all instances; instance attributes are unique per instance",
+        "Forgetting that Python does not support functions",
+        "Assuming integers are capped at 32 bits",
+        "Using lowercase variable names"
+      ],
+      "correct_answer": "Misunderstanding edge cases related to: class attributes are shared across all instances; instance attributes are unique per instance"
     },
     {
       "id": "21.1_q12",
-      "type": "output_prediction",
-      "concept": "class_attributes_vs_instance_attributes_logic",
-      "skill": "prediction",
-      "difficulty": "medium",
+      "type": "write_the_code",
+      "concept": "class_vs_instance_attrs_application",
+      "skill": "implementation",
+      "difficulty": "hard",
       "prerequisites": [
         "21.1_q11"
       ],
-      "prompt": "Predict Output 12: What does this snippet output?\n```python\nvalue_12 = 60\nprint(value_12)\n```",
+      "prompt": "Write the canonical Python code statement for Class Attributes vs Instance Attributes:",
       "options": [
         "60",
         "30",
@@ -217,7 +230,9 @@
         "Error"
       ],
       "correct_answer": "60",
-      "explanation": "The variable value_12 stores 60, and print outputs it to the console."
+      "explanation": "Canonical implementation: class Dog:\n    species = 'Canis familiaris'\n    def __init__(self, name):\n        self.name = name. Class attributes are shared across all instances; instance attributes are unique per instance.",
+      "starter_code": "# Complete the statement\n___",
+      "solution_code": "class Dog:\n    species = 'Canis familiaris'\n    def __init__(self, name):\n        self.name = name"
     },
     {
       "id": "21.1_q13",
@@ -228,12 +243,12 @@
       "prerequisites": [
         "21.1_q12"
       ],
-      "prompt": "Fill Blank 13: Complete the code to output 'Class Attributes vs Instance Attributes #13':\n```python\n___('Class Attributes vs Instance Attributes #13')\n```",
+      "prompt": "Complete the code to output 'Class Attributes vs Instance Attributes #13':\n```python\n___('Class Attributes vs Instance Attributes #13')\n```",
       "correct_answer": "print",
       "accepted_answers": [
         "print"
       ],
-      "explanation": "The built-in print() function outputs the specified string."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of class attributes vs instance attributes syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "21.1_q14",
@@ -244,12 +259,12 @@
       "prerequisites": [
         "21.1_q13"
       ],
-      "prompt": "Fill Blank 14: Complete the code to output 'Class Attributes vs Instance Attributes #14':\n```python\n___('Class Attributes vs Instance Attributes #14')\n```",
+      "prompt": "Complete the code to output 'Class Attributes vs Instance Attributes #14':\n```python\n___('Class Attributes vs Instance Attributes #14')\n```",
       "correct_answer": "print",
       "accepted_answers": [
         "print"
       ],
-      "explanation": "The built-in print() function outputs the specified string."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of class attributes vs instance attributes keywords. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "21.1_q15",
@@ -260,7 +275,7 @@
       "prerequisites": [
         "21.1_q14"
       ],
-      "prompt": "Algorithm Sequence 15: Arrange the lines in correct logical order for Class Attributes Vs Instance Attributes Sequence:",
+      "prompt": "Arrange the lines in correct logical order for Class Attributes Vs Instance Attributes Sequence:",
       "options": [
         "a_15 = 10",
         "b_15 = 20",
@@ -284,12 +299,12 @@
       "prerequisites": [
         "21.1_q15"
       ],
-      "prompt": "Fill Blank 16: Complete the code to output 'Class Attributes vs Instance Attributes #16':\n```python\n___('Class Attributes vs Instance Attributes #16')\n```",
+      "prompt": "Complete the code to output 'Class Attributes vs Instance Attributes #16':\n```python\n___('Class Attributes vs Instance Attributes #16')\n```",
       "correct_answer": "print",
       "accepted_answers": [
         "print"
       ],
-      "explanation": "The built-in print() function outputs the specified string."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of class attributes vs instance attributes patterns. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "21.1_q17",
@@ -300,7 +315,7 @@
       "prerequisites": [
         "21.1_q16"
       ],
-      "prompt": "Algorithm Sequence 17: Arrange the lines in correct logical order for Class Attributes Vs Instance Attributes Algorithm:",
+      "prompt": "Arrange the lines in correct logical order for Class Attributes Vs Instance Attributes Algorithm:",
       "options": [
         "a_17 = 10",
         "b_17 = 20",
@@ -324,12 +339,12 @@
       "prerequisites": [
         "21.1_q17"
       ],
-      "prompt": "Fill Blank 18: Complete the code to output 'Class Attributes vs Instance Attributes #18':\n```python\n___('Class Attributes vs Instance Attributes #18')\n```",
+      "prompt": "Complete the code to output 'Class Attributes vs Instance Attributes #18':\n```python\n___('Class Attributes vs Instance Attributes #18')\n```",
       "correct_answer": "print",
       "accepted_answers": [
         "print"
       ],
-      "explanation": "The built-in print() function outputs the specified string."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of class attributes vs instance attributes idioms. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "21.1_q19",
@@ -340,11 +355,11 @@
       "prerequisites": [
         "21.1_q18"
       ],
-      "prompt": "Debug Challenge 19: Fix the capitalization error in this line for Class Attributes Vs Instance Attributes Errors:",
+      "prompt": "Fix the capitalization error in this line for Class Attributes Vs Instance Attributes Errors:",
       "starter_code": "Print('Class Attributes vs Instance Attributes Item 19')",
       "solution_code": "print('Class Attributes vs Instance Attributes Item 19')",
       "hint": "Python built-in functions like print() must be written in lowercase.",
-      "explanation": "Built-in function names in Python are case-sensitive and require lowercase."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of class attributes vs instance attributes errors. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "21.1_q20",
@@ -355,11 +370,11 @@
       "prerequisites": [
         "21.1_q19"
       ],
-      "prompt": "Debug Challenge 20: Fix the capitalization error in this line for Class Attributes Vs Instance Attributes Fix:",
+      "prompt": "Fix the capitalization error in this line for Class Attributes Vs Instance Attributes Fix:",
       "starter_code": "Print('Class Attributes vs Instance Attributes Item 20')",
       "solution_code": "print('Class Attributes vs Instance Attributes Item 20')",
       "hint": "Python built-in functions like print() must be written in lowercase.",
-      "explanation": "Built-in function names in Python are case-sensitive and require lowercase."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of class attributes vs instance attributes fix. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "21.1_q21",
@@ -370,11 +385,11 @@
       "prerequisites": [
         "21.1_q20"
       ],
-      "prompt": "Debug Challenge 21: Fix the capitalization error in this line for Class Attributes Vs Instance Attributes Edge Cases:",
+      "prompt": "Fix the capitalization error in this line for Class Attributes Vs Instance Attributes Edge Cases:",
       "starter_code": "Print('Class Attributes vs Instance Attributes Item 21')",
       "solution_code": "print('Class Attributes vs Instance Attributes Item 21')",
       "hint": "Python built-in functions like print() must be written in lowercase.",
-      "explanation": "Built-in function names in Python are case-sensitive and require lowercase."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of class attributes vs instance attributes edge cases. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "21.1_q22",
@@ -385,11 +400,11 @@
       "prerequisites": [
         "21.1_q21"
       ],
-      "prompt": "Debug Challenge 22: Fix the capitalization error in this line for Class Attributes Vs Instance Attributes Runtime:",
+      "prompt": "Fix the capitalization error in this line for Class Attributes Vs Instance Attributes Runtime:",
       "starter_code": "Print('Class Attributes vs Instance Attributes Item 22')",
       "solution_code": "print('Class Attributes vs Instance Attributes Item 22')",
       "hint": "Python built-in functions like print() must be written in lowercase.",
-      "explanation": "Built-in function names in Python are case-sensitive and require lowercase."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of class attributes vs instance attributes runtime. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "21.1_q23",
@@ -400,11 +415,11 @@
       "prerequisites": [
         "21.1_q22"
       ],
-      "prompt": "Debug Challenge 23: Fix the capitalization error in this line for Class Attributes Vs Instance Attributes Logic Repair:",
+      "prompt": "Fix the capitalization error in this line for Class Attributes Vs Instance Attributes Logic Repair:",
       "starter_code": "Print('Class Attributes vs Instance Attributes Item 23')",
       "solution_code": "print('Class Attributes vs Instance Attributes Item 23')",
       "hint": "Python built-in functions like print() must be written in lowercase.",
-      "explanation": "Built-in function names in Python are case-sensitive and require lowercase."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of class attributes vs instance attributes logic repair. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "21.1_q24",
@@ -415,7 +430,7 @@
       "prerequisites": [
         "21.1_q23"
       ],
-      "prompt": "Coding Challenge 24: Write a statement that prints 'Class Attributes vs Instance Attributes Result 24' to standard output.",
+      "prompt": "Write a statement that prints 'Class Attributes vs Instance Attributes Result 24' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Class Attributes vs Instance Attributes Result 24')",
       "test_cases": [
@@ -425,7 +440,7 @@
         }
       ],
       "hint": "Use print('Class Attributes vs Instance Attributes Result 24') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of class attributes vs instance attributes optimization. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "21.1_q25",
@@ -436,7 +451,7 @@
       "prerequisites": [
         "21.1_q24"
       ],
-      "prompt": "Coding Challenge 25: Write a statement that prints 'Class Attributes vs Instance Attributes Result 25' to standard output.",
+      "prompt": "Write a statement that prints 'Class Attributes vs Instance Attributes Result 25' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Class Attributes vs Instance Attributes Result 25')",
       "test_cases": [
@@ -446,7 +461,7 @@
         }
       ],
       "hint": "Use print('Class Attributes vs Instance Attributes Result 25') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of class attributes vs instance attributes implementation. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "21.1_q26",
@@ -457,7 +472,7 @@
       "prerequisites": [
         "21.1_q25"
       ],
-      "prompt": "Coding Challenge 26: Write a statement that prints 'Class Attributes vs Instance Attributes Result 26' to standard output.",
+      "prompt": "Write a statement that prints 'Class Attributes vs Instance Attributes Result 26' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Class Attributes vs Instance Attributes Result 26')",
       "test_cases": [
@@ -467,7 +482,7 @@
         }
       ],
       "hint": "Use print('Class Attributes vs Instance Attributes Result 26') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of class attributes vs instance attributes practical. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "21.1_q27",
@@ -478,7 +493,7 @@
       "prerequisites": [
         "21.1_q26"
       ],
-      "prompt": "Coding Challenge 27: Write a statement that prints 'Class Attributes vs Instance Attributes Result 27' to standard output.",
+      "prompt": "Write a statement that prints 'Class Attributes vs Instance Attributes Result 27' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Class Attributes vs Instance Attributes Result 27')",
       "test_cases": [
@@ -488,7 +503,7 @@
         }
       ],
       "hint": "Use print('Class Attributes vs Instance Attributes Result 27') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of class attributes vs instance attributes advanced. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "21.1_q28",
@@ -499,7 +514,7 @@
       "prerequisites": [
         "21.1_q27"
       ],
-      "prompt": "Coding Challenge 28: Write a statement that prints 'Class Attributes vs Instance Attributes Result 28' to standard output.",
+      "prompt": "Write a statement that prints 'Class Attributes vs Instance Attributes Result 28' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Class Attributes vs Instance Attributes Result 28')",
       "test_cases": [
@@ -509,7 +524,7 @@
         }
       ],
       "hint": "Use print('Class Attributes vs Instance Attributes Result 28') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of class attributes vs instance attributes challenge. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "21.1_q29",
@@ -520,7 +535,7 @@
       "prerequisites": [
         "21.1_q28"
       ],
-      "prompt": "Coding Challenge 29: Write a statement that prints 'Class Attributes vs Instance Attributes Result 29' to standard output.",
+      "prompt": "Write a statement that prints 'Class Attributes vs Instance Attributes Result 29' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Class Attributes vs Instance Attributes Result 29')",
       "test_cases": [
@@ -530,7 +545,7 @@
         }
       ],
       "hint": "Use print('Class Attributes vs Instance Attributes Result 29') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of class attributes vs instance attributes scenario. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "21.1_q30",
@@ -541,7 +556,7 @@
       "prerequisites": [
         "21.1_q29"
       ],
-      "prompt": "Coding Challenge 30: Write a statement that prints 'Class Attributes vs Instance Attributes Result 30' to standard output.",
+      "prompt": "Write a statement that prints 'Class Attributes vs Instance Attributes Result 30' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Class Attributes vs Instance Attributes Result 30')",
       "test_cases": [
@@ -551,7 +566,17 @@
         }
       ],
       "hint": "Use print('Class Attributes vs Instance Attributes Result 30') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of class attributes vs instance attributes mastery. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     }
+  ],
+  "unit_num": 21,
+  "learning_objectives": [
+    "Design and instantiate Python classes demonstrating Class Attributes vs Instance Attributes",
+    "Manage instance state using the __init__ constructor and self",
+    "Implement object-oriented principles including encapsulation and inheritance",
+    "Structure modular programs using classes and composition"
+  ],
+  "prerequisites": [
+    "20.5"
   ]
 }

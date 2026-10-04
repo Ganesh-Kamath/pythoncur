@@ -11,7 +11,9 @@
       "difficulty": "easy",
       "prerequisites": [],
       "title": "What is a Heap?",
-      "content": "A heap is a specialized tree-based data structure that satisfies the heap property. In a min-heap, every parent node is less than or equal to its children, ensuring the smallest element is always at the root. In a max-heap, every parent node is greater than or equal to its children, ensuring the largest element is always at the root. Heaps are typically implemented using arrays, where for a node at index i, its left child is at 2*i+1 and its right child is at 2*i+2. This array representation makes heaps memory-efficient and allows O(1) access to the root element. Common use cases include priority queues, Dijkstra's shortest path algorithm, and heap sort. Python's `heapq` module provides a min-heap implementation using a list. Here is a basic example:\n\n```python\nimport heapq\n\n# Initialize an empty min-heap\nmin_heap = []\n\n# Push elements onto the heap\nheapq.heappush(min_heap, 5)\nheapq.heappush(min_heap, 3)\nheapq.heappush(min_heap, 7)\n\nprint(min_heap)  # Output: [3, 5, 7]\n\n# Pop the smallest element\nsmallest = heapq.heappop(min_heap)\nprint(smallest)  # Output: 3\nprint(min_heap)  # Output: [5, 7]\n```\n\nNotice how the smallest element is always at index 0, which is the root of the implicit binary tree."
+      "content": "A heap is a specialized tree-based data structure that satisfies the heap property. In a min-heap, every parent node is less than or equal to its children, ensuring the smallest element is always at the root. In a max-heap, every parent node is greater than or equal to its children, ensuring the largest element is always at the root. Heaps are typically implemented using arrays, where for a node at index i, its left child is at 2*i+1 and its right child is at 2*i+2. This array representation makes heaps memory-efficient and allows O(1) access to the root element. Common use cases include priority queues, Dijkstra's shortest path algorithm, and heap sort. Python's `heapq` module provides a min-heap implementation using a list. Here is a basic example:\n\n```python\nimport heapq\n\n# Initialize an empty min-heap\nmin_heap = []\n\n# Push elements onto the heap\nheapq.heappush(min_heap, 5)\nheapq.heappush(min_heap, 3)\nheapq.heappush(min_heap, 7)\n\nprint(min_heap)  # Output: [3, 5, 7]\n\n# Pop the smallest element\nsmallest = heapq.heappop(min_heap)\nprint(smallest)  # Output: 3\nprint(min_heap)  # Output: [5, 7]\n```\n\nNotice how the smallest element is always at index 0, which is the root of the implicit binary tree.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of heap concepts basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "40.1_q2",
@@ -42,7 +44,9 @@
         "40.1_q2"
       ],
       "title": "Python Heap Syntax with heapq",
-      "content": "Python's built-in `heapq` module implements a min-heap using a standard list. The key functions are `heappush(heap, item)`, which adds an item while maintaining the heap property, and `heappop(heap)`, which removes and returns the smallest item. To peek at the smallest element without removing it, use `heap[0]`. If you need to remove an arbitrary element, use `heap.remove(item)` followed by `heapq.heapify(heap)`. The `heapify` function transforms a regular list into a heap in O(n) time. Here is a detailed example:\n\n```python\nimport heapq\n\n# Start with an unsorted list\nnumbers = [9, 1, 4, 2, 8, 5]\n\n# Convert it into a heap in-place\nheapq.heapify(numbers)\nprint(numbers)  # Output: [1, 2, 4, 9, 8, 5]\n\n# Peek at the minimum\nprint(numbers[0])  # Output: 1\n\n# Push a new element\nheapq.heappush(numbers, 0)\nprint(numbers)  # Output: [0, 1, 4, 9, 8, 5, 2]\n\n# Pop the minimum\nprint(heapq.heappop(numbers))  # Output: 0\nprint(numbers)  # Output: [1, 2, 4, 9, 8, 5]\n```\n\nNote that `heapify` is more efficient than pushing elements one by one when starting from a full list."
+      "content": "Python's built-in `heapq` module implements a min-heap using a standard list. The key functions are `heappush(heap, item)`, which adds an item while maintaining the heap property, and `heappop(heap)`, which removes and returns the smallest item. To peek at the smallest element without removing it, use `heap[0]`. If you need to remove an arbitrary element, use `heap.remove(item)` followed by `heapq.heapify(heap)`. The `heapify` function transforms a regular list into a heap in O(n) time. Here is a detailed example:\n\n```python\nimport heapq\n\n# Start with an unsorted list\nnumbers = [9, 1, 4, 2, 8, 5]\n\n# Convert it into a heap in-place\nheapq.heapify(numbers)\nprint(numbers)  # Output: [1, 2, 4, 9, 8, 5]\n\n# Peek at the minimum\nprint(numbers[0])  # Output: 1\n\n# Push a new element\nheapq.heappush(numbers, 0)\nprint(numbers)  # Output: [0, 1, 4, 9, 8, 5, 2]\n\n# Pop the minimum\nprint(heapq.heappop(numbers))  # Output: 0\nprint(numbers)  # Output: [1, 2, 4, 9, 8, 5]\n```\n\nNote that `heapify` is more efficient than pushing elements one by one when starting from a full list.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of heap concepts syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "40.1_q4",
@@ -586,5 +590,15 @@
       "hint": "Build the max heap by heapifying from the last non-leaf node upward. Then repeatedly swap the root with the last element, reduce the heap size, and heapify the root.",
       "explanation": "Heap sort uses the same heapify logic as a max-heap but performs it in-place. Building the heap is O(n), and each of the n-1 extractions costs O(log n), yielding overall O(n log n) time and O(1) auxiliary space."
     }
+  ],
+  "unit_num": 40,
+  "learning_objectives": [
+    "Explain the technical concepts and mechanics of Heap Concepts",
+    "Apply idiomatic Python patterns when working with Heap Concepts",
+    "Debug common runtime exceptions and logic errors associated with Heap Concepts",
+    "Implement production-ready code utilizing Heap Concepts"
+  ],
+  "prerequisites": [
+    "39.5"
   ]
 }

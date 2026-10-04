@@ -11,7 +11,9 @@
       "difficulty": "easy",
       "prerequisites": [],
       "title": "What Is JSON and Why Do We Use It?",
-      "content": "JSON stands for JavaScript Object Notation. It is a lightweight text-based format for storing and transporting data. In Python, we often work with JSON when reading data from web APIs, configuration files, or databases. JSON represents data in key-value pairs, similar to Python dictionaries. The two most common data structures in JSON are objects (dictionaries) and arrays (lists). Keys in JSON must be strings enclosed in double quotes. Values can be strings, numbers, booleans, arrays, or nested objects. Python's built-in json module allows us to parse JSON text into Python objects and convert Python objects into JSON strings. Understanding JSON is essential for data processing tasks because it is the standard format for data exchange on the web."
+      "content": "JSON stands for JavaScript Object Notation. It is a lightweight text-based format for storing and transporting data. In Python, we often work with JSON when reading data from web APIs, configuration files, or databases. JSON represents data in key-value pairs, similar to Python dictionaries. The two most common data structures in JSON are objects (dictionaries) and arrays (lists). Keys in JSON must be strings enclosed in double quotes. Values can be strings, numbers, booleans, arrays, or nested objects. Python's built-in json module allows us to parse JSON text into Python objects and convert Python objects into JSON strings. Understanding JSON is essential for data processing tasks because it is the standard format for data exchange on the web.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of introduction to json basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "14.3_q2",
@@ -42,7 +44,9 @@
         "14.3_q2"
       ],
       "title": "JSON Syntax Rules",
-      "content": "JSON has strict syntax rules. Objects are enclosed in curly braces {} and consist of key-value pairs separated by commas. Keys must be strings in double quotes. String values are also in double quotes. Numbers and booleans are written without quotes. Arrays are enclosed in square brackets [] and hold ordered lists of values separated by commas. Nested structures are allowed. In Python, the json module's loads() function parses a JSON string into a Python dictionary, while dumps() converts a Python dictionary into a JSON string. Here is an example:\n\nimport json\n\njson_text = '{\"name\": \"Alice\", \"age\": 30, \"active\": true, \"scores\": [95, 87, 92]}'\n\npython_dict = json.loads(json_text)\nprint(python_dict)\n# Output: {'name': 'Alice', 'age': 30, 'active': True, 'scores': [95, 87, 92]}\n\nNotice that JSON keys and string values use double quotes, but Python represents them as strings with single quotes when printed. The json module handles this conversion automatically."
+      "content": "JSON has strict syntax rules. Objects are enclosed in curly braces {} and consist of key-value pairs separated by commas. Keys must be strings in double quotes. String values are also in double quotes. Numbers and booleans are written without quotes. Arrays are enclosed in square brackets [] and hold ordered lists of values separated by commas. Nested structures are allowed. In Python, the json module's loads() function parses a JSON string into a Python dictionary, while dumps() converts a Python dictionary into a JSON string. Here is an example:\n\nimport json\n\njson_text = '{\"name\": \"Alice\", \"age\": 30, \"active\": true, \"scores\": [95, 87, 92]}'\n\npython_dict = json.loads(json_text)\nprint(python_dict)\n# Output: {'name': 'Alice', 'age': 30, 'active': True, 'scores': [95, 87, 92]}\n\nNotice that JSON keys and string values use double quotes, but Python represents them as strings with single quotes when printed. The json module handles this conversion automatically.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of introduction to json syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "14.3_q4",
@@ -590,5 +594,15 @@
       "hint": "Import json.JSONDecodeError explicitly to catch parsing failures. Use a conditional check for the 'name' key after successful parsing, and return a uniform error structure when decoding fails.",
       "explanation": "Robust JSON processing requires defensive programming: validating input, handling malformed data gracefully, and normalizing output. This pattern is critical when integrating with external systems where data quality cannot be guaranteed."
     }
+  ],
+  "unit_num": 14,
+  "learning_objectives": [
+    "Explain the technical concepts and mechanics of Introduction to JSON",
+    "Apply idiomatic Python patterns when working with Introduction to JSON",
+    "Debug common runtime exceptions and logic errors associated with Introduction to JSON",
+    "Implement production-ready code utilizing Introduction to JSON"
+  ],
+  "prerequisites": [
+    "14.2"
   ]
 }

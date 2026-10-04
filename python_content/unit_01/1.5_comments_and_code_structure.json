@@ -9,9 +9,13 @@
       "concept": "comments_definition",
       "skill": "recognition",
       "difficulty": "easy",
-      "prerequisites": ["1.3_q1"],
+      "prerequisites": [
+        "1.3_q1"
+      ],
       "title": "What is a Comment?",
-      "content": "A **comment** is a note written in the source code specifically for human readers. \n\nIn Python, any text following the hash symbol `#` on a line is completely ignored by the Python interpreter.\n```python\n# This is a comment. Python skips this entirely.\nprint(\"Hello!\")\n```"
+      "content": "A **comment** is a note written in the source code specifically for human readers. \n\nIn Python, any text following the hash symbol `#` on a line is completely ignored by the Python interpreter.\n```python\n# This is a comment. Python skips this entirely.\nprint(\"Hello!\")\n```",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of comments definition. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "1.5_q2",
@@ -19,7 +23,9 @@
       "concept": "comments_definition",
       "skill": "recognition",
       "difficulty": "easy",
-      "prerequisites": ["1.5_q1"],
+      "prerequisites": [
+        "1.5_q1"
+      ],
       "prompt": "Which character begins a single-line comment in Python?",
       "options": [
         "A. `//`",
@@ -28,7 +34,7 @@
         "D. `/*`"
       ],
       "correct_answer": "B",
-      "explanation": "Python uses the `#` (hash/pound) symbol for single-line comments."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of comments definition. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "1.5_q3",
@@ -36,13 +42,15 @@
       "concept": "comments_execution",
       "skill": "prediction",
       "difficulty": "easy",
-      "prerequisites": ["1.5_q1"],
+      "prerequisites": [
+        "1.5_q1"
+      ],
       "prompt": "What does this script print when run?\n```python\n# print(\"Apple\")\nprint(\"Banana\")\n# print(\"Cherry\")\n```",
       "options": [
-        "A. Apple Banana Cherry",
-        "B. Banana",
-        "C. # Banana",
-        "D. Nothing"
+        "B",
+        "Raises a SyntaxError: invalid syntax at runtime",
+        "Raises an IndentationError: unexpected indent",
+        "Silently ignored by the Python parser"
       ],
       "correct_answer": "B",
       "explanation": "Lines starting with `#` are ignored by the Python interpreter, so only `print(\"Banana\")` executes."
@@ -53,9 +61,13 @@
       "concept": "inline_comments",
       "skill": "understanding",
       "difficulty": "easy",
-      "prerequisites": ["1.5_q1"],
+      "prerequisites": [
+        "1.5_q1"
+      ],
       "title": "Inline Comments",
-      "content": "You can place a comment on the same line after executable code. This is called an **inline comment**:\n```python\nprint(\"Game Over\")  # Display final status to user\n```\nPython executes the code on the left first, and ignores everything after the `#`."
+      "content": "You can place a comment on the same line after executable code. This is called an **inline comment**:\n```python\nprint(\"Game Over\")  # Display final status to user\n```\nPython executes the code on the left first, and ignores everything after the `#`.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of inline comments. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "1.5_q5",
@@ -63,10 +75,14 @@
       "concept": "inline_comments",
       "skill": "application",
       "difficulty": "easy",
-      "prerequisites": ["1.5_q4"],
+      "prerequisites": [
+        "1.5_q4"
+      ],
       "prompt": "Add a comment symbol to make the note valid Python:\n```python\nprint(100) ___ Print maximum points\n```",
-      "accepted_answers": ["#"],
-      "explanation": "The `#` symbol marks the start of the comment."
+      "accepted_answers": [
+        "#"
+      ],
+      "explanation": "In Python, this operation directly demonstrates the core behavior of inline comments. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "1.5_q6",
@@ -74,9 +90,14 @@
       "concept": "hash_in_strings",
       "skill": "understanding",
       "difficulty": "medium",
-      "prerequisites": ["1.4_q1", "1.5_q1"],
+      "prerequisites": [
+        "1.4_q1",
+        "1.5_q1"
+      ],
       "title": "The Hash Symbol Inside Strings",
-      "content": "A `#` symbol that appears **inside quotes** is NOT a comment. It is treated as normal text (a character in a string):\n```python\nprint(\"Order #1042\")  # This is a comment\n```\nOutput:\n`Order #1042`"
+      "content": "A `#` symbol that appears **inside quotes** is NOT a comment. It is treated as normal text (a character in a string):\n```python\nprint(\"Order #1042\")  # This is a comment\n```\nOutput:\n`Order #1042`",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of hash in strings. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "1.5_q7",
@@ -84,7 +105,9 @@
       "concept": "hash_in_strings",
       "skill": "prediction",
       "difficulty": "medium",
-      "prerequisites": ["1.5_q6"],
+      "prerequisites": [
+        "1.5_q6"
+      ],
       "prompt": "What does this code output?\n```python\nprint(\"#1 Python Fan\")\n```",
       "options": [
         "A. Nothing, because the line is commented out.",
@@ -101,9 +124,13 @@
       "concept": "purpose_of_comments",
       "skill": "reasoning",
       "difficulty": "medium",
-      "prerequisites": ["1.5_q1"],
+      "prerequisites": [
+        "1.5_q1"
+      ],
       "title": "Why vs. What in Comments",
-      "content": "Good comments explain **why** code is written, not **what** the code obviously does.\n\n❌ Bad:\n```python\nprint(\"Hello\")  # Prints Hello\n```\n(This adds clutter without new information.)\n\n✅ Good:\n```python\n# Wait 5 seconds to prevent exceeding the third-party API rate limit\n```\n(This explains non-obvious business logic or intent.)"
+      "content": "Good comments explain **why** code is written, not **what** the code obviously does.\n\n\u274c Bad:\n```python\nprint(\"Hello\")  # Prints Hello\n```\n(This adds clutter without new information.)\n\n\u2705 Good:\n```python\n# Wait 5 seconds to prevent exceeding the third-party API rate limit\n```\n(This explains non-obvious business logic or intent.)",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of purpose of comments. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "1.5_q9",
@@ -111,7 +138,9 @@
       "concept": "purpose_of_comments",
       "skill": "evaluation",
       "difficulty": "medium",
-      "prerequisites": ["1.5_q8"],
+      "prerequisites": [
+        "1.5_q8"
+      ],
       "prompt": "Which of the following is considered a high-quality, professional comment?",
       "options": [
         "A. `print(5) # Print the number five`",
@@ -128,9 +157,13 @@
       "concept": "commenting_out",
       "skill": "application",
       "difficulty": "easy",
-      "prerequisites": ["1.5_q1"],
+      "prerequisites": [
+        "1.5_q1"
+      ],
       "title": "Commenting Out Code to Debug",
-      "content": "When troubleshooting a bug, developers often prefix code with `#` to temporarily disable it without deleting it. This is known as **commenting out** code.\n\nMost code editors allow you to toggle comments on highlighted lines using `Ctrl + /` (or `Cmd + /` on Mac)."
+      "content": "When troubleshooting a bug, developers often prefix code with `#` to temporarily disable it without deleting it. This is known as **commenting out** code.\n\nMost code editors allow you to toggle comments on highlighted lines using `Ctrl + /` (or `Cmd + /` on Mac).",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of commenting out. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "1.5_q11",
@@ -138,11 +171,13 @@
       "concept": "commenting_out",
       "skill": "debugging",
       "difficulty": "easy",
-      "prerequisites": ["1.5_q10"],
+      "prerequisites": [
+        "1.5_q10"
+      ],
       "prompt": "Comment out the broken print call so the script runs cleanly without an error:",
       "starter_code": "print(\"Start\")\nprint(\"Error\"\nprint(\"End\")",
       "solution_code": "print(\"Start\")\n# print(\"Error\"\nprint(\"End\")",
-      "explanation": "Adding `#` to the broken line instructs Python to skip it."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of commenting out. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "1.5_q12",
@@ -150,9 +185,13 @@
       "concept": "multiline_comments",
       "skill": "understanding",
       "difficulty": "medium",
-      "prerequisites": ["1.5_q1"],
+      "prerequisites": [
+        "1.5_q1"
+      ],
       "title": "Multi-Line Comments",
-      "content": "Python does not have a dedicated `/* ... */` syntax like C or Java.\n\nTo write multi-line comments in Python, you can either:\n1. Place a `#` at the start of each line (PEP 8 recommended).\n2. Use a triple-quoted string (`\"\"\"...\"\"\"` or `'''...'''`) not assigned to any variable. When unassigned, Python evaluates it as an expression and discards it."
+      "content": "Python does not have a dedicated `/* ... */` syntax like C or Java.\n\nTo write multi-line comments in Python, you can either:\n1. Place a `#` at the start of each line (PEP 8 recommended).\n2. Use a triple-quoted string (`\"\"\"...\"\"\"` or `'''...'''`) not assigned to any variable. When unassigned, Python evaluates it as an expression and discards it.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of multiline comments. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "1.5_q13",
@@ -160,7 +199,9 @@
       "concept": "multiline_comments",
       "skill": "prediction",
       "difficulty": "medium",
-      "prerequisites": ["1.5_q12"],
+      "prerequisites": [
+        "1.5_q12"
+      ],
       "prompt": "What does this code output?\n```python\n\"\"\"\nThis script handles\nuser notifications.\n\"\"\"\nprint(\"Active\")\n```",
       "options": [
         "A. Displays the multi-line text followed by 'Active'",
@@ -177,9 +218,13 @@
       "concept": "pep8_whitespace",
       "skill": "recognition",
       "difficulty": "easy",
-      "prerequisites": ["1.3_q1"],
+      "prerequisites": [
+        "1.3_q1"
+      ],
       "title": "Code Readability and Whitespace",
-      "content": "**PEP 8** is the official style guide for Python code.\n\nOne of its key principles is that code should be easy to scan:\n* Use blank lines sparingly to separate logical sections.\n* Put two spaces before an inline comment, and one space after the `#`.\n```python\n# Correct formatting\nprint(\"Status: OK\")  # Two spaces before hash, one after\n```"
+      "content": "**PEP 8** is the official style guide for Python code.\n\nOne of its key principles is that code should be easy to scan:\n* Use blank lines sparingly to separate logical sections.\n* Put two spaces before an inline comment, and one space after the `#`.\n```python\n# Correct formatting\nprint(\"Status: OK\")  # Two spaces before hash, one after\n```",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of pep8 whitespace. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "1.5_q15",
@@ -187,7 +232,9 @@
       "concept": "pep8_whitespace",
       "skill": "recognition",
       "difficulty": "easy",
-      "prerequisites": ["1.5_q14"],
+      "prerequisites": [
+        "1.5_q14"
+      ],
       "prompt": "What is 'PEP 8' in the Python community?",
       "options": [
         "A. The 8th version of Python released in 2020.",
@@ -196,7 +243,7 @@
         "D. A hardware accelerator for loops."
       ],
       "correct_answer": "B",
-      "explanation": "PEP 8 is the official style guide for Python code authoring."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of pep8 whitespace. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "1.5_q16",
@@ -204,7 +251,10 @@
       "concept": "comments_performance",
       "skill": "reasoning",
       "difficulty": "medium",
-      "prerequisites": ["1.2_q8", "1.5_q1"],
+      "prerequisites": [
+        "1.2_q8",
+        "1.5_q1"
+      ],
       "prompt": "If you write 500 lines of descriptive comments in your Python script, how will it impact execution speed?",
       "options": [
         "A. It will make the program 500 times slower during execution.",
@@ -221,7 +271,10 @@
       "concept": "comment_styles",
       "skill": "analysis",
       "difficulty": "medium",
-      "prerequisites": ["1.5_q4", "1.5_q12"],
+      "prerequisites": [
+        "1.5_q4",
+        "1.5_q12"
+      ],
       "prompt": "Match the comment style to its code representation.",
       "options": {
         "Block Comment": "`# First step\\n# Second step`",
@@ -241,7 +294,9 @@
       "concept": "writing_comments",
       "skill": "application",
       "difficulty": "easy",
-      "prerequisites": ["1.5_q1"],
+      "prerequisites": [
+        "1.5_q1"
+      ],
       "prompt": "Write a single-line comment containing the exact text: `TODO: Refactor later`",
       "starter_code": "",
       "solution_code": "# TODO: Refactor later",
@@ -253,7 +308,9 @@
       "concept": "hash_in_code",
       "skill": "prediction",
       "difficulty": "medium",
-      "prerequisites": ["1.5_q6"],
+      "prerequisites": [
+        "1.5_q6"
+      ],
       "prompt": "What does this code print?\n```python\nprint(\"#\")\n# print(\"*\")\nprint(\"#\")\n```",
       "options": [
         "A. #\\n*\\n#",
@@ -270,9 +327,13 @@
       "concept": "indentation_intro",
       "skill": "understanding",
       "difficulty": "medium",
-      "prerequisites": ["1.3_q1"],
+      "prerequisites": [
+        "1.3_q1"
+      ],
       "title": "Python's Golden Rule: Indentation",
-      "content": "Unlike languages like C++, Java, or JavaScript that use curly braces `{}` to group code, Python uses **indentation** (leading whitespace).\n\nTop-level statements in a script must have NO leading spaces. If you add unexpected spaces at the beginning of a line, Python raises an `IndentationError`."
+      "content": "Unlike languages like C++, Java, or JavaScript that use curly braces `{}` to group code, Python uses **indentation** (leading whitespace).\n\nTop-level statements in a script must have NO leading spaces. If you add unexpected spaces at the beginning of a line, Python raises an `IndentationError`.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of indentation intro. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "1.5_q21",
@@ -280,7 +341,9 @@
       "concept": "indentation_intro",
       "skill": "debugging",
       "difficulty": "medium",
-      "prerequisites": ["1.5_q20"],
+      "prerequisites": [
+        "1.5_q20"
+      ],
       "prompt": "What error will Python produce when trying to run this file?\n```python\nprint(\"Hello\")\n  print(\"World\")\n```",
       "options": [
         "A. NameError",
@@ -297,11 +360,13 @@
       "concept": "indentation_fix",
       "skill": "debugging",
       "difficulty": "easy",
-      "prerequisites": ["1.5_q21"],
+      "prerequisites": [
+        "1.5_q21"
+      ],
       "prompt": "Remove the unwanted indentation so this script runs without error:",
       "starter_code": "print(\"One\")\n  print(\"Two\")",
       "solution_code": "print(\"One\")\nprint(\"Two\")",
-      "explanation": "Both lines must start flush at the left margin (column 0)."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of indentation fix. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "1.5_q23",
@@ -309,7 +374,9 @@
       "concept": "zen_of_python",
       "skill": "recognition",
       "difficulty": "easy",
-      "prerequisites": ["1.5_q14"],
+      "prerequisites": [
+        "1.5_q14"
+      ],
       "prompt": "The Zen of Python states: 'Readability counts.' What does this mean for developers?",
       "options": [
         "A. Code is read by humans far more often than it is written, so writing clear, structured code with helpful comments is essential.",
@@ -326,18 +393,26 @@
       "concept": "pep8_indentation",
       "skill": "recognition",
       "difficulty": "easy",
-      "prerequisites": ["1.5_q14", "1.5_q20"],
+      "prerequisites": [
+        "1.5_q14",
+        "1.5_q20"
+      ],
       "prompt": "PEP 8 specifies that standard Python indentation should consist of ___ spaces per indentation level.",
-      "accepted_answers": ["4", "four"],
-      "explanation": "4 spaces per indent level is the universal Python standard."
+      "accepted_answers": [
+        "4",
+        "four"
+      ],
+      "explanation": "In Python, this operation directly demonstrates the core behavior of pep8 indentation. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "1.5_q25",
-      "type": "scenario",
+      "type": "real_world_scenario",
       "concept": "outdated_comments",
       "skill": "reasoning",
       "difficulty": "hard",
-      "prerequisites": ["1.5_q8"],
+      "prerequisites": [
+        "1.5_q8"
+      ],
       "prompt": "A developer updates an algorithm to calculate a 15% discount, but leaves an old comment saying `# Calculate 10% discount`. Why is this worse than having no comment at all?",
       "options": [
         "A. It causes Python to crash with a SyntaxError.",
@@ -354,7 +429,10 @@
       "concept": "mixed_comments_code",
       "skill": "prediction",
       "difficulty": "medium",
-      "prerequisites": ["1.5_q4", "1.5_q6"],
+      "prerequisites": [
+        "1.5_q4",
+        "1.5_q6"
+      ],
       "prompt": "What is the output of this code?\n```python\n# print(\"A\")\nprint(\"# B\")  # print(\"C\")\n# print(\"D\")\n```",
       "options": [
         "A. # B",
@@ -371,7 +449,9 @@
       "concept": "keyboard_shortcut",
       "skill": "application",
       "difficulty": "easy",
-      "prerequisites": ["1.5_q10"],
+      "prerequisites": [
+        "1.5_q10"
+      ],
       "prompt": "In most modern code editors (like VS Code, PyCharm, and Cursor), what is the universal shortcut to toggle a comment on the current line?",
       "options": [
         "A. Ctrl + Z (or Cmd + Z)",
@@ -388,7 +468,11 @@
       "concept": "code_organization",
       "skill": "synthesis",
       "difficulty": "medium",
-      "prerequisites": ["1.5_q1", "1.5_q4", "1.5_q14"],
+      "prerequisites": [
+        "1.5_q1",
+        "1.5_q4",
+        "1.5_q14"
+      ],
       "prompt": "Write two lines of code: a comment saying `# Application start`, followed by a print statement that prints 'Running'.",
       "starter_code": "",
       "solution_code": "# Application start\nprint(\"Running\")",
@@ -396,11 +480,14 @@
     },
     {
       "id": "1.5_q29",
-      "type": "scenario",
+      "type": "real_world_scenario",
       "concept": "code_review_comments",
       "skill": "evaluation",
       "difficulty": "hard",
-      "prerequisites": ["1.5_q8", "1.5_q14"],
+      "prerequisites": [
+        "1.5_q8",
+        "1.5_q14"
+      ],
       "prompt": "You are reviewing code from a teammate:\n```python\na = 0.0825  # Sales tax rate for Travis County, TX\n```\nIs this a good comment, and why?",
       "options": [
         "A. No, comments should never be placed next to numbers.",
@@ -413,11 +500,16 @@
     },
     {
       "id": "1.5_q30",
-      "type": "scenario",
+      "type": "real_world_scenario",
       "concept": "structure_synthesis",
       "skill": "transfer",
       "difficulty": "hard",
-      "prerequisites": ["1.5_q1", "1.5_q8", "1.5_q14", "1.5_q20"],
+      "prerequisites": [
+        "1.5_q1",
+        "1.5_q8",
+        "1.5_q14",
+        "1.5_q20"
+      ],
       "prompt": "Which of the following summarizes the best practices for Python comments and code structure?",
       "options": [
         "A. Comment every single line with its literal syntax, and use random tab spacing.",
@@ -428,5 +520,15 @@
       "correct_answer": "B",
       "explanation": "This encapsulates clean Python code structure according to PEP 8 and professional engineering standards."
     }
+  ],
+  "unit_num": 1,
+  "learning_objectives": [
+    "Explain the technical concepts and mechanics of Comments and Code Structure",
+    "Apply idiomatic Python patterns when working with Comments and Code Structure",
+    "Debug common runtime exceptions and logic errors associated with Comments and Code Structure",
+    "Implement production-ready code utilizing Comments and Code Structure"
+  ],
+  "prerequisites": [
+    "1.4"
   ]
 }

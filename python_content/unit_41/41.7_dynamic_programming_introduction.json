@@ -12,7 +12,9 @@
       "title": "What is Dynamic Programming?",
       "content": "Dynamic Programming (DP) is a method for solving complex problems by breaking them down into simpler overlapping subproblems. The key idea is to store the results of subproblems so that each subproblem is solved only once. This avoids redundant computations and improves efficiency. Two essential properties define a problem as suitable for DP: (1) optimal substructure \u2014 the optimal solution to the problem can be constructed from optimal solutions to its subproblems; and (2) overlapping subproblems \u2014 the same subproblems are solved multiple times. A classic example is computing Fibonacci numbers. A naive recursive approach recalculates the same values repeatedly, whereas DP stores intermediate results in a table or array. Here is a simple Python implementation of Fibonacci using DP:\n\n```python\ndef fibonacci(n):\n    if n <= 1:\n        return n\n    dp = [0] * (n + 1)\n    dp[0] = 0\n    dp[1] = 1\n    for i in range(2, n + 1):\n        dp[i] = dp[i - 1] + dp[i - 2]\n    return dp[n]\n\nprint(fibonacci(6))\n```\n\nIn this code, the list `dp` acts as a memoization table. Each entry `dp[i]` stores the result for the subproblem of size `i`, ensuring we never recompute it.",
       "difficulty": "easy",
-      "prerequisites": []
+      "prerequisites": [],
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of dynamic programming introduction basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "41.7_q2",
@@ -45,7 +47,9 @@
       "difficulty": "easy",
       "prerequisites": [
         "41.7_q2"
-      ]
+      ],
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of dynamic programming introduction syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "41.7_q4",
@@ -668,5 +672,15 @@
       "hint": "After filling the DP table, backtrack from dp[m][n] by following equal-character matches and preferring the direction of larger predecessor values.",
       "explanation": "LCS is a canonical 2D DP problem demonstrating mastery: state definition (dp[i][j] = LCS length of prefixes), recurrence (match or max of left/top), and backtracking to recover the actual subsequence. The time complexity is O(m*n) and space is O(m*n); space can be optimized to O(min(m,n)) for length-only queries, but reconstruction requires the full table or careful parent-pointer storage."
     }
+  ],
+  "unit_num": 41,
+  "learning_objectives": [
+    "Explain the technical concepts and mechanics of Dynamic Programming Introduction",
+    "Apply idiomatic Python patterns when working with Dynamic Programming Introduction",
+    "Debug common runtime exceptions and logic errors associated with Dynamic Programming Introduction",
+    "Implement production-ready code utilizing Dynamic Programming Introduction"
+  ],
+  "prerequisites": [
+    "41.6"
   ]
 }

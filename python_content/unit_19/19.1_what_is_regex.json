@@ -12,7 +12,9 @@
       "title": "What is a Regular Expression?",
       "content": "A regular expression, often abbreviated as regex, is a sequence of characters that defines a search pattern. Programmers use regex to check if a string contains a match, to find and replace text, or to validate input formats such as emails or phone numbers. In Python, the built-in `re` module provides full support for regular expressions. Unlike literal string matching, regex allows you to describe patterns using special symbols rather than exact characters. For example, the pattern `a` matches any string containing the letter 'a', while `a+` matches one or more consecutive 'a' characters. Understanding regex is essential because it saves time when working with text data compared to manual string inspection.",
       "difficulty": "easy",
-      "prerequisites": []
+      "prerequisites": [],
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of what is regex basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "19.1_q2",
@@ -45,7 +47,9 @@
       "difficulty": "easy",
       "prerequisites": [
         "19.1_q2"
-      ]
+      ],
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of what is regex syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "19.1_q4",
@@ -625,5 +629,15 @@
       "hint": "Use (?>...) for atomic grouping to prevent backtracking on repeated patterns. Each octet must be 0-255.",
       "explanation": "Mastery of regex involves not only correctness but also efficiency. Atomic groups and careful pattern design prevent exponential backtracking, which is critical when processing large datasets. This challenge integrates extraction, deduplication, sorting, and performance optimization."
     }
+  ],
+  "unit_num": 19,
+  "learning_objectives": [
+    "Explain the purpose and execution model of What is Regex?",
+    "Identify valid Python syntax rules for What is Regex?",
+    "Recognize common syntax errors and pitfalls when writing What is Regex?",
+    "Write and execute simple scripts demonstrating What is Regex?"
+  ],
+  "prerequisites": [
+    "18.5"
   ]
 }

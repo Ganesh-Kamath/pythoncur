@@ -11,7 +11,9 @@
       "difficulty": "easy",
       "prerequisites": [],
       "title": "What is Linear Search?",
-      "content": "Linear search is the simplest searching algorithm. It checks each element in a list one by one, from the beginning, until it finds the target value or reaches the end of the list. If the target is found, the search stops and returns the index. If not, it returns a sentinel value such as -1. It works on both sorted and unsorted data, but it is not efficient for very large datasets because its worst-case time complexity is O(n). Here is a basic implementation:\n\n```python\ndef linear_search(arr, target):\n    for i in range(len(arr)):\n        if arr[i] == target:\n            return i\n    return -1\n\nmy_list = [10, 20, 30, 40]\nprint(linear_search(my_list, 30))  # Output: 2\n```"
+      "content": "Linear search is the simplest searching algorithm. It checks each element in a list one by one, from the beginning, until it finds the target value or reaches the end of the list. If the target is found, the search stops and returns the index. If not, it returns a sentinel value such as -1. It works on both sorted and unsorted data, but it is not efficient for very large datasets because its worst-case time complexity is O(n). Here is a basic implementation:\n\n```python\ndef linear_search(arr, target):\n    for i in range(len(arr)):\n        if arr[i] == target:\n            return i\n    return -1\n\nmy_list = [10, 20, 30, 40]\nprint(linear_search(my_list, 30))  # Output: 2\n```",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of linear search basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "idx": 2,
@@ -44,7 +46,9 @@
         "37.1_q2"
       ],
       "title": "Writing Linear Search in Python",
-      "content": "To implement linear search in Python, you iterate over the indices of the list using range(len(arr)). At each index i, you compare arr[i] with the target. If they match, you immediately return i. If the loop completes, you return -1. You can also use enumerate for a more Pythonic style, but the index-based version is easiest for beginners to understand. Example:\n\n```python\ndef linear_search(arr, target):\n    for i in range(len(arr)):\n        if arr[i] == target:\n            return i\n    return -1\n\nprint(linear_search([5, 8, 12], 8))  # Output: 1\nprint(linear_search([5, 8, 12], 7))   # Output: -1\n```\nNotice that the function stops at the first match, so duplicates are not an issue for finding one occurrence."
+      "content": "To implement linear search in Python, you iterate over the indices of the list using range(len(arr)). At each index i, you compare arr[i] with the target. If they match, you immediately return i. If the loop completes, you return -1. You can also use enumerate for a more Pythonic style, but the index-based version is easiest for beginners to understand. Example:\n\n```python\ndef linear_search(arr, target):\n    for i in range(len(arr)):\n        if arr[i] == target:\n            return i\n    return -1\n\nprint(linear_search([5, 8, 12], 8))  # Output: 1\nprint(linear_search([5, 8, 12], 7))   # Output: -1\n```\nNotice that the function stops at the first match, so duplicates are not an issue for finding one occurrence.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of linear search syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "idx": 4,
@@ -374,7 +378,7 @@
       "prompt": "Fix the bug in this code for linear search errors:",
       "starter_code": "# Fix this code\nPrint('Linear Search')",
       "solution_code": "print('Linear Search')",
-      "explanation": "Python identifiers and built-ins are case-sensitive."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of linear search errors. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "37.1_q20",
@@ -422,7 +426,7 @@
       "prompt": "Fix the bug in this code for linear search runtime:",
       "starter_code": "# Fix this code\nPrint('Linear Search')",
       "solution_code": "print('Linear Search')",
-      "explanation": "Python identifiers and built-ins are case-sensitive."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of linear search runtime. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "37.1_q23",
@@ -496,7 +500,7 @@
       "prerequisites": [
         "37.1_q24"
       ],
-      "prompt": "Coding Challenge 25: Write a statement that prints 'Linear Search Result 25' to standard output.",
+      "prompt": "Write a statement that prints 'Linear Search Result 25' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Linear Search Result 25')",
       "test_cases": [
@@ -506,7 +510,7 @@
         }
       ],
       "hint": "Use print('Linear Search Result 25') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of linear search implementation. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "37.1_q26",
@@ -517,7 +521,7 @@
       "prerequisites": [
         "37.1_q25"
       ],
-      "prompt": "Coding Challenge 26: Write a statement that prints 'Linear Search Result 26' to standard output.",
+      "prompt": "Write a statement that prints 'Linear Search Result 26' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Linear Search Result 26')",
       "test_cases": [
@@ -527,7 +531,7 @@
         }
       ],
       "hint": "Use print('Linear Search Result 26') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of linear search practical. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "37.1_q27",
@@ -538,7 +542,7 @@
       "prerequisites": [
         "37.1_q26"
       ],
-      "prompt": "Coding Challenge 27: Write a statement that prints 'Linear Search Result 27' to standard output.",
+      "prompt": "Write a statement that prints 'Linear Search Result 27' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Linear Search Result 27')",
       "test_cases": [
@@ -548,7 +552,7 @@
         }
       ],
       "hint": "Use print('Linear Search Result 27') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of linear search advanced. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "37.1_q28",
@@ -559,7 +563,7 @@
       "prerequisites": [
         "37.1_q27"
       ],
-      "prompt": "Coding Challenge 28: Write a statement that prints 'Linear Search Result 28' to standard output.",
+      "prompt": "Write a statement that prints 'Linear Search Result 28' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Linear Search Result 28')",
       "test_cases": [
@@ -569,7 +573,7 @@
         }
       ],
       "hint": "Use print('Linear Search Result 28') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of linear search challenge. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "37.1_q29",
@@ -580,7 +584,7 @@
       "prerequisites": [
         "37.1_q28"
       ],
-      "prompt": "Coding Challenge 29: Write a statement that prints 'Linear Search Result 29' to standard output.",
+      "prompt": "Write a statement that prints 'Linear Search Result 29' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Linear Search Result 29')",
       "test_cases": [
@@ -590,7 +594,7 @@
         }
       ],
       "hint": "Use print('Linear Search Result 29') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of linear search scenario. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "37.1_q30",
@@ -601,7 +605,7 @@
       "prerequisites": [
         "37.1_q29"
       ],
-      "prompt": "Coding Challenge 30: Write a statement that prints 'Linear Search Result 30' to standard output.",
+      "prompt": "Write a statement that prints 'Linear Search Result 30' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Linear Search Result 30')",
       "test_cases": [
@@ -611,7 +615,17 @@
         }
       ],
       "hint": "Use print('Linear Search Result 30') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of linear search mastery. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     }
+  ],
+  "unit_num": 37,
+  "learning_objectives": [
+    "Implement the fundamental Linear Search algorithm in idiomatic Python",
+    "Calculate time and space complexity using Big O notation",
+    "Trace edge-case performance and termination conditions",
+    "Apply the algorithmic pattern to solve practical data structure problems"
+  ],
+  "prerequisites": [
+    "36.6"
   ]
 }

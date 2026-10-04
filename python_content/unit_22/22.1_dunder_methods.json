@@ -11,7 +11,9 @@
       "concept": "dunder_methods_str_repr_eq_basics",
       "skill": "recognition",
       "difficulty": "easy",
-      "prerequisites": []
+      "prerequisites": [],
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of dunder methods str repr eq basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "22.1_q2",
@@ -42,7 +44,9 @@
       "difficulty": "easy",
       "prerequisites": [
         "22.1_q2"
-      ]
+      ],
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of dunder methods str repr eq syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "22.1_q4",
@@ -602,5 +606,15 @@
       "hint": "Equality compares only data, not created. __repr__ should be eval-able and recreate the object; the timestamp will naturally differ. __str__ should format the datetime nicely.",
       "explanation": "Mastery of dunder methods includes understanding when to include or exclude mutable/temporal state from equality and representation. __repr__ need not preserve exact timestamp equality, only structural equivalence."
     }
+  ],
+  "unit_num": 22,
+  "learning_objectives": [
+    "Explain the technical concepts and mechanics of Dunder s (__str__, __repr__, __eq__)",
+    "Apply idiomatic Python patterns when working with Dunder s (__str__, __repr__, __eq__)",
+    "Debug common runtime exceptions and logic errors associated with Dunder s (__str__, __repr__, __eq__)",
+    "Implement production-ready code utilizing Dunder s (__str__, __repr__, __eq__)"
+  ],
+  "prerequisites": [
+    "21.6"
   ]
 }

@@ -11,7 +11,9 @@
       "difficulty": "easy",
       "prerequisites": [],
       "title": "What Are Conditional Comprehensions?",
-      "content": "Conditional comprehensions allow you to include an if condition inside a comprehension to filter elements. The basic form is [expression for item in iterable if condition]. The if clause is evaluated for each item, and only items that satisfy the condition are included in the result. This is useful when you want to process only a subset of data. For example, given a list of numbers, you can keep only the even ones. Here is a code block demonstrating the concept:\n\n```python\nnumbers = [1, 2, 3, 4, 5, 6]\nevens = [n for n in numbers if n % 2 == 0]\nprint(evens)\n```\n\nOutput:\n```\n[2, 4, 6]\n```\n\nThe condition n % 2 == 0 filters out odd numbers, so only even values appear in the resulting list."
+      "content": "Conditional comprehensions allow you to include an if condition inside a comprehension to filter elements. The basic form is [expression for item in iterable if condition]. The if clause is evaluated for each item, and only items that satisfy the condition are included in the result. This is useful when you want to process only a subset of data. For example, given a list of numbers, you can keep only the even ones. Here is a code block demonstrating the concept:\n\n```python\nnumbers = [1, 2, 3, 4, 5, 6]\nevens = [n for n in numbers if n % 2 == 0]\nprint(evens)\n```\n\nOutput:\n```\n[2, 4, 6]\n```\n\nThe condition n % 2 == 0 filters out odd numbers, so only even values appear in the resulting list.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of conditional comprehensions basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "16.2_q2",
@@ -42,7 +44,9 @@
         "16.2_q2"
       ],
       "title": "Syntax of Conditional Comprehensions",
-      "content": "The syntax of a conditional comprehension follows this pattern: [expression for target in iterable if condition]. The expression defines what to include in the result. The target is the variable that holds each item during iteration. The iterable is the source collection. The optional if condition must come after the for clause and is separated by a space. You can also chain multiple if conditions, and they are evaluated left to right, with all conditions needing to be True. Here is a detailed example:\n\n```python\nwords = ['apple', 'bat', 'cat', 'dog', 'eel']\nshort_vowel_words = [w for w in words if len(w) <= 3 and w[0] in 'aeiou']\nprint(short_vowel_words)\n```\n\nOutput:\n```\n['eel']\n```\n\nIn this example, len(w) <= 3 keeps only short words, and w[0] in 'aeiou' keeps only those starting with a vowel. Both conditions must be satisfied, so only 'eel' remains."
+      "content": "The syntax of a conditional comprehension follows this pattern: [expression for target in iterable if condition]. The expression defines what to include in the result. The target is the variable that holds each item during iteration. The iterable is the source collection. The optional if condition must come after the for clause and is separated by a space. You can also chain multiple if conditions, and they are evaluated left to right, with all conditions needing to be True. Here is a detailed example:\n\n```python\nwords = ['apple', 'bat', 'cat', 'dog', 'eel']\nshort_vowel_words = [w for w in words if len(w) <= 3 and w[0] in 'aeiou']\nprint(short_vowel_words)\n```\n\nOutput:\n```\n['eel']\n```\n\nIn this example, len(w) <= 3 keeps only short words, and w[0] in 'aeiou' keeps only those starting with a vowel. Both conditions must be satisfied, so only 'eel' remains.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of conditional comprehensions syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "16.2_q4",
@@ -131,10 +135,10 @@
       ],
       "prompt": "What is the output of the following code?\n```python\nwords = ['apple', 'banana', 'cherry', 'date']\nshort = [w for w in words if len(w) > 5]\nprint(short)\n```",
       "options": [
-        "['apple', 'banana', 'cherry', 'date']",
         "['banana', 'cherry']",
-        "['apple', 'date']",
-        "[]"
+        "Raises a SyntaxError: invalid syntax at runtime",
+        "Raises an IndentationError: unexpected indent",
+        "Silently ignored by the Python parser"
       ],
       "correct_answer": "['banana', 'cherry']",
       "explanation": "The condition len(w) > 5 filters the list. 'apple' has length 5, 'banana' has length 6, 'cherry' has length 6, and 'date' has length 4. Only 'banana' and 'cherry' meet the condition, so the output is ['banana', 'cherry']."
@@ -360,7 +364,7 @@
       "prompt": "Fix the bug in this code for conditional comprehensions errors:",
       "starter_code": "# Fix this code\nPrint('Conditional Comprehensions')",
       "solution_code": "print('Conditional Comprehensions')",
-      "explanation": "Python identifiers and built-ins are case-sensitive."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of conditional comprehensions errors. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "16.2_q20",
@@ -408,7 +412,7 @@
       "prompt": "Fix the bug in this code for conditional comprehensions runtime:",
       "starter_code": "# Fix this code\nPrint('Conditional Comprehensions')",
       "solution_code": "print('Conditional Comprehensions')",
-      "explanation": "Python identifiers and built-ins are case-sensitive."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of conditional comprehensions runtime. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "16.2_q23",
@@ -572,5 +576,15 @@
       "hint": "Replace the explicit loop with a generator expression inside list() to preserve lazy evaluation until the final list conversion.",
       "explanation": "The generator expression (n for n in stream if n > 0 and n % 2 == 0) filters lazily, producing only 8 and 11 from the stream, and list() materializes just those two values before len() counts them."
     }
+  ],
+  "unit_num": 16,
+  "learning_objectives": [
+    "Explain the technical concepts and mechanics of Conditional Comprehensions",
+    "Apply idiomatic Python patterns when working with Conditional Comprehensions",
+    "Debug common runtime exceptions and logic errors associated with Conditional Comprehensions",
+    "Implement production-ready code utilizing Conditional Comprehensions"
+  ],
+  "prerequisites": [
+    "16.1"
   ]
 }

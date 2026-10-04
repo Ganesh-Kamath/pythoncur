@@ -11,7 +11,9 @@
       "difficulty": "easy",
       "prerequisites": [],
       "title": "What is Threading?",
-      "content": "Threading allows a program to execute multiple tasks concurrently within a single process. In Python, the `threading` module provides tools to create and manage threads. A thread is the smallest unit of execution, and threads share memory space, which makes communication between them fast but also requires care to avoid race conditions. For example, you can import the module and create a thread like this:\n\n```python\nimport threading\n\ndef task():\n    print('Task running')\n\nthread = threading.Thread(target=task)\nthread.start()\n```\n\nWhen `thread.start()` is called, the `task` function runs in a separate thread, allowing other code to continue executing at the same time."
+      "content": "Threading allows a program to execute multiple tasks concurrently within a single process. In Python, the `threading` module provides tools to create and manage threads. A thread is the smallest unit of execution, and threads share memory space, which makes communication between them fast but also requires care to avoid race conditions. For example, you can import the module and create a thread like this:\n\n```python\nimport threading\n\ndef task():\n    print('Task running')\n\nthread = threading.Thread(target=task)\nthread.start()\n```\n\nWhen `thread.start()` is called, the `task` function runs in a separate thread, allowing other code to continue executing at the same time.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of threading concepts basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "28.2_q2",
@@ -42,7 +44,9 @@
         "28.2_q2"
       ],
       "title": "Creating and Starting a Thread",
-      "content": "To create a thread in Python, you use `threading.Thread`. The most common parameters are `target`, which is the callable to run, and optionally `args`, which passes a tuple of arguments to that callable. After defining the thread object, call `start()` to begin execution. Here is a complete example:\n\n```python\nimport threading\n\ndef greet(name):\n    print('Hello, ' + name)\n\nthread = threading.Thread(target=greet, args=('Alice',))\nthread.start()\nprint('Thread started')\n```\n\nIn this snippet, `greet('Alice')` runs in a new thread. The main thread continues immediately after `thread.start()` and prints 'Thread started'. Note that `start()` begins the thread but does not wait for it to finish; use `join()` if you need to wait."
+      "content": "To create a thread in Python, you use `threading.Thread`. The most common parameters are `target`, which is the callable to run, and optionally `args`, which passes a tuple of arguments to that callable. After defining the thread object, call `start()` to begin execution. Here is a complete example:\n\n```python\nimport threading\n\ndef greet(name):\n    print('Hello, ' + name)\n\nthread = threading.Thread(target=greet, args=('Alice',))\nthread.start()\nprint('Thread started')\n```\n\nIn this snippet, `greet('Alice')` runs in a new thread. The main thread continues immediately after `thread.start()` and prints 'Thread started'. Note that `start()` begins the thread but does not wait for it to finish; use `join()` if you need to wait.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of threading concepts syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "28.2_q4",
@@ -295,7 +299,7 @@
       "prerequisites": [
         "28.2_q15"
       ],
-      "prompt": "Complete the pattern to make a thread run in the background: t = threading.Thread(target=worker, ____=True)\n",
+      "prompt": "Complete the pattern to make a thread run in the background: t = threading.Thread(target=worker, ____=True)",
       "correct_answer": "daemon",
       "accepted_answers": [
         "daemon",
@@ -558,5 +562,15 @@
       "hint": "Use a `while` loop with `condition.wait()` to handle spurious wakeups, and `notify_all()` to wake waiters after insertion or eviction.",
       "explanation": "A `Condition` combines a lock with a wait/notify mechanism. `wait()` atomically releases the lock and suspends the thread; it must be called inside a `while` loop checking the predicate to avoid missed signals. `notify_all()` wakes all waiting threads, which reacquire the lock before proceeding. This pattern is essential for building custom bounded buffers and producer-consumer systems without relying on `queue.Queue`."
     }
+  ],
+  "unit_num": 28,
+  "learning_objectives": [
+    "Explain the technical concepts and mechanics of Threading Concepts",
+    "Apply idiomatic Python patterns when working with Threading Concepts",
+    "Debug common runtime exceptions and logic errors associated with Threading Concepts",
+    "Implement production-ready code utilizing Threading Concepts"
+  ],
+  "prerequisites": [
+    "28.1"
   ]
 }

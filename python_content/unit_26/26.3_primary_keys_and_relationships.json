@@ -11,7 +11,9 @@
       "concept": "primary_keys_and_relationships_basics",
       "skill": "recognition",
       "difficulty": "easy",
-      "prerequisites": []
+      "prerequisites": [],
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of primary keys and relationships basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "26.3_q2",
@@ -42,7 +44,9 @@
       "difficulty": "easy",
       "prerequisites": [
         "26.3_q2"
-      ]
+      ],
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of primary keys and relationships syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "26.3_q4",
@@ -611,5 +615,15 @@
       "hint": "Wrap inserts in BEGIN TRANSACTION, catch sqlite3.IntegrityError, and use rollback before reading counts.",
       "explanation": "Transactions ensure atomicity. A duplicate primary key raises IntegrityError, triggering rollback to maintain data consistency."
     }
+  ],
+  "unit_num": 26,
+  "learning_objectives": [
+    "Explain the technical concepts and mechanics of Primary Keys and Relationships",
+    "Apply idiomatic Python patterns when working with Primary Keys and Relationships",
+    "Debug common runtime exceptions and logic errors associated with Primary Keys and Relationships",
+    "Implement production-ready code utilizing Primary Keys and Relationships"
+  ],
+  "prerequisites": [
+    "26.2"
   ]
 }

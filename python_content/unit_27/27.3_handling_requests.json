@@ -11,7 +11,9 @@
       "difficulty": "easy",
       "prerequisites": [],
       "title": "What Is a Web Request?",
-      "content": "When a user opens a URL in their browser or a program calls an API endpoint, the server receives a message called a request. In Python web development, we use frameworks like Flask or Django to listen for these requests and respond. A request contains information such as the HTTP method (GET, POST, etc.), headers, and optional data. Understanding that every interaction with a web server starts with a request is essential before writing any backend code. Here is a minimal Flask example that listens for requests:\n\n```python\nfrom flask import Flask\n\napp = Flask(__name__)\n\n@app.route('/')\ndef home():\n    return 'Hello, World!'\n\nif __name__ == '__main__':\n    app.run(debug=True)\n```\n\nThis snippet creates an application instance, defines a route for the root path, and returns a simple string when a GET request arrives."
+      "content": "When a user opens a URL in their browser or a program calls an API endpoint, the server receives a message called a request. In Python web development, we use frameworks like Flask or Django to listen for these requests and respond. A request contains information such as the HTTP method (GET, POST, etc.), headers, and optional data. Understanding that every interaction with a web server starts with a request is essential before writing any backend code. Here is a minimal Flask example that listens for requests:\n\n```python\nfrom flask import Flask\n\napp = Flask(__name__)\n\n@app.route('/')\ndef home():\n    return 'Hello, World!'\n\nif __name__ == '__main__':\n    app.run(debug=True)\n```\n\nThis snippet creates an application instance, defines a route for the root path, and returns a simple string when a GET request arrives.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of handling requests basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "27.3_q2",
@@ -36,12 +38,12 @@
       "prompt": "Which statement best applies to handling requests basics?",
       "options": [
         "A. Correct approach for handling requests basics",
-        "B. SyntaxError raised unconditionally",
-        "C. Unrelated system call",
-        "D. Halts Python interpreter"
+        "Raises a SyntaxError: invalid syntax at runtime",
+        "Raises an IndentationError: unexpected indent",
+        "Silently ignored by the Python parser"
       ],
       "correct_answer": "A. Correct approach for handling requests basics",
-      "explanation": "Demonstrates core usage of handling requests basics in Python."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of handling requests basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "27.3_q3",
@@ -53,7 +55,9 @@
         "27.3_q2"
       ],
       "title": "Defining Routes and Methods",
-      "content": "In a Python web framework such as Flask, you define how your application responds to a request by decorating a function with @app.route(...). The decorator can accept a path string and optionally a list of HTTP methods. By default, Flask assumes GET, but you can explicitly allow POST, PUT, DELETE, and others. Inside the function, you can access request data using request.args for query parameters or request.form for POST payloads. Below is a concise example showing multiple methods on one route:\n\n```python\nfrom flask import Flask, request\n\napp = Flask(__name__)\n\n@app.route('/data', methods=['GET', 'POST'])\ndef data():\n    if request.method == 'GET':\n        name = request.args.get('name', 'Guest')\n        return f'Hello, {name}'\n    if request.method == 'POST':\n        payload = request.form.get('message', '')\n        return f'Received: {payload}'\n    return 'Method not allowed', 405\n\nif __name__ == '__main__':\n    app.run(debug=True)\n```\n\nNotice how request.method lets you branch logic based on the HTTP verb, and request.args.get safely retrieves query parameters with a default value."
+      "content": "In a Python web framework such as Flask, you define how your application responds to a request by decorating a function with @app.route(...). The decorator can accept a path string and optionally a list of HTTP methods. By default, Flask assumes GET, but you can explicitly allow POST, PUT, DELETE, and others. Inside the function, you can access request data using request.args for query parameters or request.form for POST payloads. Below is a concise example showing multiple methods on one route:\n\n```python\nfrom flask import Flask, request\n\napp = Flask(__name__)\n\n@app.route('/data', methods=['GET', 'POST'])\ndef data():\n    if request.method == 'GET':\n        name = request.args.get('name', 'Guest')\n        return f'Hello, {name}'\n    if request.method == 'POST':\n        payload = request.form.get('message', '')\n        return f'Received: {payload}'\n    return 'Method not allowed', 405\n\nif __name__ == '__main__':\n    app.run(debug=True)\n```\n\nNotice how request.method lets you branch logic based on the HTTP verb, and request.args.get safely retrieves query parameters with a default value.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of handling requests syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "27.3_q4",
@@ -78,12 +82,12 @@
       "prompt": "Which statement best applies to handling requests syntax?",
       "options": [
         "A. Correct approach for handling requests syntax",
-        "B. SyntaxError raised unconditionally",
-        "C. Unrelated system call",
-        "D. Halts Python interpreter"
+        "Raises a SyntaxError: invalid syntax at runtime",
+        "Raises an IndentationError: unexpected indent",
+        "Silently ignored by the Python parser"
       ],
       "correct_answer": "A. Correct approach for handling requests syntax",
-      "explanation": "Demonstrates core usage of handling requests syntax in Python."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of handling requests syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "27.3_q5",
@@ -108,12 +112,12 @@
       "prompt": "Which statement best applies to handling requests matching?",
       "options": [
         "A. Correct approach for handling requests matching",
-        "B. SyntaxError raised unconditionally",
-        "C. Unrelated system call",
-        "D. Halts Python interpreter"
+        "Raises a SyntaxError: invalid syntax at runtime",
+        "Raises an IndentationError: unexpected indent",
+        "Silently ignored by the Python parser"
       ],
       "correct_answer": "A. Correct approach for handling requests matching",
-      "explanation": "Demonstrates core usage of handling requests matching in Python."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of handling requests matching. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "27.3_q6",
@@ -138,61 +142,61 @@
       "prompt": "Which statement best applies to handling requests pitfalls?",
       "options": [
         "A. Correct approach for handling requests pitfalls",
-        "B. SyntaxError raised unconditionally",
-        "C. Unrelated system call",
-        "D. Halts Python interpreter"
+        "Raises a SyntaxError: invalid syntax at runtime",
+        "Raises an IndentationError: unexpected indent",
+        "Silently ignored by the Python parser"
       ],
       "correct_answer": "A. Correct approach for handling requests pitfalls",
-      "explanation": "Demonstrates core usage of handling requests pitfalls in Python."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of handling requests pitfalls. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "27.3_q7",
       "type": "code_prediction",
-      "concept": "handling_requests_execution",
-      "skill": "prediction",
-      "difficulty": "easy",
+      "concept": "request_json_parsing",
+      "skill": "understanding",
+      "difficulty": "medium",
       "prerequisites": [
         "27.3_q6"
       ],
-      "prompt": "Predict Output 7: What does this snippet output?\n```python\nvalue_7 = 35\nprint(value_7)\n```",
+      "prompt": "In the context of Handling HTTP Requests, what is the primary behavior demonstrated here?\n```python\n# Handling HTTP Requests\nprint('request_json_parsing')\n```",
       "options": [
-        "35",
-        "17",
-        "value_7",
+        "request_json_parsing",
+        "SyntaxError",
+        "None",
         "Error"
       ],
-      "correct_answer": "35",
-      "explanation": "The variable value_7 stores 35, and print outputs it to the console."
+      "correct_answer": "request_json_parsing",
+      "explanation": "This directly illustrates the standard behavior of request_json_parsing: get_json() parses incoming HTTP request body into Python dictionary."
     },
     {
       "id": "27.3_q8",
-      "type": "output_prediction",
-      "concept": "handling_requests_execution",
-      "skill": "prediction",
+      "type": "multiple_choice",
+      "concept": "request_json_parsing_rules",
+      "skill": "reasoning",
       "difficulty": "medium",
       "prerequisites": [
         "27.3_q7"
       ],
-      "prompt": "Predict Output 8: What does this snippet output?\n```python\nvalue_8 = 40\nprint(value_8)\n```",
+      "prompt": "What is a core design principle when working with Handling HTTP Requests in Python?",
       "options": [
-        "40",
-        "20",
-        "value_8",
-        "Error"
+        "Get_json() parses incoming http request body into python dictionary",
+        "It bypasses all memory management constraints",
+        "It causes the interpreter to compile to C++ automatically",
+        "It can only be executed in interactive REPL mode"
       ],
-      "correct_answer": "40",
-      "explanation": "The variable value_8 stores 40, and print outputs it to the console."
+      "correct_answer": "Get_json() parses incoming http request body into python dictionary",
+      "explanation": "Understanding this rule is essential: get_json() parses incoming HTTP request body into Python dictionary."
     },
     {
       "id": "27.3_q9",
-      "type": "code_prediction",
-      "concept": "handling_requests_flow",
-      "skill": "prediction",
+      "type": "fix_the_code",
+      "concept": "request_json_parsing_debugging",
+      "skill": "debugging",
       "difficulty": "medium",
       "prerequisites": [
         "27.3_q8"
       ],
-      "prompt": "Predict Output 9: What does this snippet output?\n```python\nvalue_9 = 45\nprint(value_9)\n```",
+      "prompt": "Fix this code snippet implementing Handling HTTP Requests correctly:",
       "options": [
         "45",
         "22",
@@ -200,7 +204,9 @@
         "Error"
       ],
       "correct_answer": "45",
-      "explanation": "The variable value_9 stores 45, and print outputs it to the console."
+      "explanation": "Applying standard Python idioms ensures correct behavior: get_json() parses incoming HTTP request body into Python dictionary.",
+      "starter_code": "# Handling HTTP Requests implementation\n___",
+      "solution_code": "# Handling HTTP Requests implementation\npayload = request.get_json()\nuser_id = payload.get('user_id')"
     },
     {
       "id": "27.3_q10",
@@ -211,7 +217,7 @@
       "prerequisites": [
         "27.3_q9"
       ],
-      "prompt": "Coding Challenge 10: Write a statement that prints 'Handling Requests Result 10' to standard output.",
+      "prompt": "Write a statement that prints 'Handling Requests Result 10' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Handling Requests Result 10')",
       "test_cases": [
@@ -221,18 +227,18 @@
         }
       ],
       "hint": "Use print('Handling Requests Result 10') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of handling requests analysis. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "27.3_q11",
-      "type": "write_the_code",
-      "concept": "handling_requests_tracing",
-      "skill": "tracing",
-      "difficulty": "medium",
+      "type": "multiple_choice",
+      "concept": "request_json_parsing_tradeoffs",
+      "skill": "evaluation",
+      "difficulty": "hard",
       "prerequisites": [
         "27.3_q10"
       ],
-      "prompt": "Coding Challenge 11: Write a statement that prints 'Handling Requests Result 11' to standard output.",
+      "prompt": "Which common pitfall must programmers avoid when using Handling HTTP Requests?",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Handling Requests Result 11')",
       "test_cases": [
@@ -242,18 +248,25 @@
         }
       ],
       "hint": "Use print('Handling Requests Result 11') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "Careful attention to requirements avoids common traps: get_json() parses incoming HTTP request body into Python dictionary.",
+      "options": [
+        "Misunderstanding edge cases related to: get_json() parses incoming HTTP request body into Python dictionary",
+        "Forgetting that Python does not support functions",
+        "Assuming integers are capped at 32 bits",
+        "Using lowercase variable names"
+      ],
+      "correct_answer": "Misunderstanding edge cases related to: get_json() parses incoming HTTP request body into Python dictionary"
     },
     {
       "id": "27.3_q12",
-      "type": "output_prediction",
-      "concept": "handling_requests_logic",
-      "skill": "prediction",
-      "difficulty": "medium",
+      "type": "write_the_code",
+      "concept": "request_json_parsing_application",
+      "skill": "implementation",
+      "difficulty": "hard",
       "prerequisites": [
         "27.3_q11"
       ],
-      "prompt": "Predict Output 12: What does this snippet output?\n```python\nvalue_12 = 60\nprint(value_12)\n```",
+      "prompt": "Write the canonical Python code statement for Handling HTTP Requests:",
       "options": [
         "60",
         "30",
@@ -261,7 +274,9 @@
         "Error"
       ],
       "correct_answer": "60",
-      "explanation": "The variable value_12 stores 60, and print outputs it to the console."
+      "explanation": "Canonical implementation: payload = request.get_json()\nuser_id = payload.get('user_id'). Get_json() parses incoming http request body into python dictionary.",
+      "starter_code": "# Complete the statement\n___",
+      "solution_code": "payload = request.get_json()\nuser_id = payload.get('user_id')"
     },
     {
       "id": "27.3_q13",
@@ -421,7 +436,7 @@
       "prompt": "Fix the bug in this code for handling requests errors:",
       "starter_code": "# Fix this code\nPrint('Handling Requests')",
       "solution_code": "print('Handling Requests')",
-      "explanation": "Python identifiers and built-ins are case-sensitive."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of handling requests errors. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "27.3_q20",
@@ -469,7 +484,7 @@
       "prompt": "Fix the bug in this code for handling requests runtime:",
       "starter_code": "# Fix this code\nPrint('Handling Requests')",
       "solution_code": "print('Handling Requests')",
-      "explanation": "Python identifiers and built-ins are case-sensitive."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of handling requests runtime. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "27.3_q23",
@@ -625,5 +640,15 @@
       "hint": "Use @app.before_request to register a function that runs before each request. Inside the route, check isinstance(data, dict) after parsing JSON.",
       "explanation": "Mastery of request handling includes understanding Flask's request lifecycle. before_request hooks allow cross-cutting concerns like logging to be centralized, keeping route handlers focused on business logic and improving maintainability."
     }
+  ],
+  "unit_num": 27,
+  "learning_objectives": [
+    "Explain the technical concepts and mechanics of Handling Requests",
+    "Apply idiomatic Python patterns when working with Handling Requests",
+    "Debug common runtime exceptions and logic errors associated with Handling Requests",
+    "Implement production-ready code utilizing Handling Requests"
+  ],
+  "prerequisites": [
+    "27.2"
   ]
 }

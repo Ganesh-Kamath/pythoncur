@@ -11,7 +11,9 @@
       "difficulty": "easy",
       "prerequisites": [],
       "title": "What Are Custom Exception Classes?",
-      "content": "In Python, you can define your own exception classes to represent specific error conditions in your application. A custom exception class is simply a class that inherits from the built-in `Exception` class (or a subclass like `ValueError`). This allows you to raise and catch errors that are meaningful to your domain. For example, if you are building a banking application, a generic `Exception` does not clearly indicate a 'InsufficientFundsError'. By creating a custom class, you make your code more readable and your error handling more precise. To define one, use the `class` keyword followed by the class name ending with `Error`, and inherit from `Exception`. You can optionally add an `__init__` method to store additional context, such as an error message or an account balance."
+      "content": "In Python, you can define your own exception classes to represent specific error conditions in your application. A custom exception class is simply a class that inherits from the built-in `Exception` class (or a subclass like `ValueError`). This allows you to raise and catch errors that are meaningful to your domain. For example, if you are building a banking application, a generic `Exception` does not clearly indicate a 'InsufficientFundsError'. By creating a custom class, you make your code more readable and your error handling more precise. To define one, use the `class` keyword followed by the class name ending with `Error`, and inherit from `Exception`. You can optionally add an `__init__` method to store additional context, such as an error message or an account balance.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of custom exception classes basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "18.4_q2",
@@ -42,7 +44,9 @@
         "18.4_q2"
       ],
       "title": "Syntax for Defining and Using Custom Exceptions",
-      "content": "To create a custom exception with a custom message, define the `__init__` method inside your class. The `super().__init__(message)` call ensures the base `Exception` class is properly initialized with the provided message. Once defined, you can raise it using `raise InvalidAgeError('Age must be positive')` and catch it with `except InvalidAgeError as e:`. The `as e` binds the exception instance to a variable, allowing you to inspect its attributes, such as `e.args` or a custom `self.balance` if you stored one. This pattern keeps your error handling explicit and your debugging information rich."
+      "content": "To create a custom exception with a custom message, define the `__init__` method inside your class. The `super().__init__(message)` call ensures the base `Exception` class is properly initialized with the provided message. Once defined, you can raise it using `raise InvalidAgeError('Age must be positive')` and catch it with `except InvalidAgeError as e:`. The `as e` binds the exception instance to a variable, allowing you to inspect its attributes, such as `e.args` or a custom `self.balance` if you stored one. This pattern keeps your error handling explicit and your debugging information rich.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of custom exception classes syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "18.4_q4",
@@ -110,7 +114,7 @@
       "prerequisites": [
         "18.4_q6"
       ],
-      "prompt": "Predict the output of the following code:\n\nclass InvalidAgeError(Exception):\n    pass\n\ndef check_age(age):\n    if age < 0 or age > 120:\n        raise InvalidAgeError('Age must be between 0 and 120')\n    print('Valid age')\n\ntry:\n    check_age(250)\nexcept InvalidAgeError as e:\n    print('Caught:', e)\n",
+      "prompt": "Predict the output of the following code:\n\nclass InvalidAgeError(Exception):\n    pass\n\ndef check_age(age):\n    if age < 0 or age > 120:\n        raise InvalidAgeError('Age must be between 0 and 120')\n    print('Valid age')\n\ntry:\n    check_age(250)\nexcept InvalidAgeError as e:\n    print('Caught:', e)",
       "options": [
         "Caught: Age must be between 0 and 120\nValid age",
         "Caught: Age must be between 0 and 120",
@@ -129,7 +133,7 @@
       "prerequisites": [
         "18.4_q7"
       ],
-      "prompt": "What is the output of this code?\n\nclass NetworkError(Exception):\n    def __init__(self, message):\n        self.message = message\n\nclass ConnectionError(NetworkError):\n    pass\n\ntry:\n    raise ConnectionError('No internet')\nexcept NetworkError as e:\n    print('Handled:', e.message)\n",
+      "prompt": "What is the output of this code?\n\nclass NetworkError(Exception):\n    def __init__(self, message):\n        self.message = message\n\nclass ConnectionError(NetworkError):\n    pass\n\ntry:\n    raise ConnectionError('No internet')\nexcept NetworkError as e:\n    print('Handled:', e.message)",
       "options": [
         "Handled: No internet",
         "Handled: <__main__.ConnectionError object at 0x...>",
@@ -148,7 +152,7 @@
       "prerequisites": [
         "18.4_q8"
       ],
-      "prompt": "Predict the output of this code:\n\nclass EmptyListError(Exception):\n    def __str__(self):\n        return 'List cannot be empty'\n\ndef process(data):\n    if not data:\n        raise EmptyListError()\n    return sum(data) / len(data)\n\ntry:\n    result = process([])\n    print('Average:', result)\nexcept EmptyListError:\n    print('Error occurred')\n",
+      "prompt": "Predict the output of this code:\n\nclass EmptyListError(Exception):\n    def __str__(self):\n        return 'List cannot be empty'\n\ndef process(data):\n    if not data:\n        raise EmptyListError()\n    return sum(data) / len(data)\n\ntry:\n    result = process([])\n    print('Average:', result)\nexcept EmptyListError:\n    print('Error occurred')",
       "options": [
         "Error occurred",
         "Average: 0.0",
@@ -178,7 +182,7 @@
           "expected_output": "Custom Exception Classes"
         }
       ],
-      "explanation": "The solution fulfills all functional requirements."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of custom exception classes analysis. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "18.4_q11",
@@ -189,7 +193,7 @@
       "prerequisites": [
         "18.4_q10"
       ],
-      "prompt": "Trace the execution and predict the output of this code:\n\nclass ValidationError(Exception):\n    pass\n\ndef validate(value):\n    if value is None:\n        raise ValidationError('Missing value')\n    if value < 0:\n        raise ValidationError('Negative value')\n    return value * 2\n\ndef safe_call(val):\n    try:\n        return validate(val)\n    except ValidationError as e:\n        print('Validation failed:', e)\n        return None\n\nprint(safe_call(None))\nprint(safe_call(-5))\nprint(safe_call(10))\n",
+      "prompt": "Trace the execution and predict the output of this code:\n\nclass ValidationError(Exception):\n    pass\n\ndef validate(value):\n    if value is None:\n        raise ValidationError('Missing value')\n    if value < 0:\n        raise ValidationError('Negative value')\n    return value * 2\n\ndef safe_call(val):\n    try:\n        return validate(val)\n    except ValidationError as e:\n        print('Validation failed:', e)\n        return None\n\nprint(safe_call(None))\nprint(safe_call(-5))\nprint(safe_call(10))",
       "options": [
         "Validation failed: Missing value\nNone\nValidation failed: Negative value\nNone\n20",
         "Validation failed: Missing value\nNone\nValidation failed: Negative value\nNone\nNone",
@@ -208,7 +212,7 @@
       "prerequisites": [
         "18.4_q11"
       ],
-      "prompt": "What is the output of this program?\n\nclass DivisionError(Exception):\n    pass\n\ndef divide(a, b):\n    if b == 0:\n        raise DivisionError('Cannot divide by zero')\n    return a / b\n\ntry:\n    print(divide(8, 2))\n    print(divide(8, 0))\nexcept DivisionError as e:\n    print('Handled:', e)\n",
+      "prompt": "What is the output of this program?\n\nclass DivisionError(Exception):\n    pass\n\ndef divide(a, b):\n    if b == 0:\n        raise DivisionError('Cannot divide by zero')\n    return a / b\n\ntry:\n    print(divide(8, 2))\n    print(divide(8, 0))\nexcept DivisionError as e:\n    print('Handled:', e)",
       "options": [
         "4.0\nHandled: Cannot divide by zero",
         "4.0\nHandled: Cannot divide by zero\n4.0",
@@ -590,5 +594,15 @@
       "hint": "Use a for loop over the retry range, catch OrderProcessingError to allow retries, store the last exception, and raise MaxRetriesExceededError only after the loop completes without success.",
       "explanation": "Mastery here involves combining custom exceptions with control flow: retries, delays, and state tracking. By catching the base class, you avoid duplicating retry logic for every specific failure type. MaxRetriesExceededError provides a clear terminal signal when transient issues persist."
     }
+  ],
+  "unit_num": 18,
+  "learning_objectives": [
+    "Design and instantiate Python classes demonstrating Custom Exception Classes",
+    "Manage instance state using the __init__ constructor and self",
+    "Implement object-oriented principles including encapsulation and inheritance",
+    "Structure modular programs using classes and composition"
+  ],
+  "prerequisites": [
+    "18.3"
   ]
 }

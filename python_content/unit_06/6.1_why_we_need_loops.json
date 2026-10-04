@@ -12,7 +12,9 @@
       "prerequisites": [],
       "title": "What Is Repetition in Programming?",
       "content": "In programming, we often need to perform the same action many times. Writing the same code over and over is slow, hard to read, and easy to make mistakes. A loop lets us repeat a block of code without copying it again and again. For example, if you want to print the numbers 1 through 5, you could write five separate print statements, but a loop does it in one place. Here is a simple example:\n\n```python\nfor i in range(1, 6):\n    print('Number:', i)\n```\n\nThis loop runs five times. Instead of typing print five times, we use a loop to repeat the action cleanly and efficiently.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of why we need loops basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "6.1_q2",
@@ -45,7 +47,9 @@
       ],
       "title": "The Basic for Loop Syntax",
       "content": "A for loop in Python uses the for keyword, a variable that tracks each item, the in keyword, and a sequence such as range. The code inside the loop is indented. Here is the general pattern:\n\n```python\nfor item in sequence:\n    # do something with item\n```\n\nWhen you use range(3), the loop variable takes the values 0, 1, and 2. You can also start at a different number. For example, range(2, 6) gives 2, 3, 4, and 5. This lets you control exactly how many times the loop runs and which values are used inside the loop body.\n\n```python\nfor num in range(2, 6):\n    print('Current number:', num)\n```\n\nUnderstanding this syntax helps you write loops that perform repeated tasks in a predictable way.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of why we need loops syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "6.1_q4",
@@ -550,5 +554,15 @@
       "hint": "Use a for loop that runs count times. Inside the loop, print the greeting using the parameters passed to the function.",
       "explanation": "This mastery item demonstrates abstraction and reusability. By encapsulating repetition inside a function with parameters, you show that loops are the foundation of scalable, maintainable code. Hardcoding repetitions would make the function inflexible and violate the DRY (Don't Repeat Yourself) principle."
     }
+  ],
+  "unit_num": 6,
+  "learning_objectives": [
+    "Construct iterative loops using Why We Need Loops with proper loop bounds",
+    "Trace variable mutation across loop iterations",
+    "Prevent and debug infinite loop execution bugs",
+    "Apply loop control statements (break and continue) to control execution flow"
+  ],
+  "prerequisites": [
+    "5.6"
   ]
 }

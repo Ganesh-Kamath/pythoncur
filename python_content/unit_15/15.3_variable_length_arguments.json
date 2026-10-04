@@ -12,7 +12,9 @@
       "title": "What Are *args?",
       "content": "The *args syntax in Python allows a function to accept any number of positional arguments. When you define a parameter with an asterisk, Python collects all extra positional arguments into a tuple. For example, consider the function below:\n\n```python\ndef greet(*names):\n    for name in names:\n        print('Hello, ' + name)\n\ngreet('Alice')\ngreet('Bob', 'Charlie', 'Dana')\n```\n\nIn this example, `names` becomes a tuple. The first call produces `('Alice',)` and the second produces `('Bob', 'Charlie', 'Dana')`. This makes functions flexible when the number of inputs is unknown in advance.",
       "difficulty": "easy",
-      "prerequisites": []
+      "prerequisites": [],
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of variablelength arguments args basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "15.3_q2",
@@ -45,7 +47,9 @@
       "difficulty": "easy",
       "prerequisites": [
         "15.3_q2"
-      ]
+      ],
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of variablelength arguments args syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "15.3_q4",
@@ -118,10 +122,10 @@
       ],
       "prompt": "Given the following Python function and call, what is the output?\n\ndef show(*args):\n    for item in args:\n        print(item)\n\nshow('apple', 'banana', 'cherry')",
       "options": [
-        "apple banana cherry",
         "apple\nbanana\ncherry",
-        "Error: too many arguments",
-        "['apple', 'banana', 'cherry']"
+        "Raises a SyntaxError: invalid syntax at runtime",
+        "Raises an IndentationError: unexpected indent",
+        "Silently ignored by the Python parser"
       ],
       "correct_answer": "apple\nbanana\ncherry",
       "explanation": "The *args parameter collects all positional arguments into a tuple. The for loop iterates over each element and prints it on a separate line because print adds a newline by default.",
@@ -190,7 +194,7 @@
           "expected_output": "Variable-Length Arguments (*args)"
         }
       ],
-      "explanation": "The solution fulfills all functional requirements."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of variablelength arguments args analysis. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "15.3_q11",
@@ -673,5 +677,15 @@
       "hint": "Use `isinstance` to discriminate between numeric and string types. Be careful: `bool` is a subclass of `int`, so you may need an extra check if you want to exclude booleans.",
       "explanation": "This mastery item requires dispatching behavior based on the runtime type of each element in *args. It combines type checking, aggregation, and dictionary construction, illustrating how variable-length arguments enable flexible, data-agnostic utilities."
     }
+  ],
+  "unit_num": 15,
+  "learning_objectives": [
+    "Explain the technical concepts and mechanics of Variable-Length Arguments (*args)",
+    "Apply idiomatic Python patterns when working with Variable-Length Arguments (*args)",
+    "Debug common runtime exceptions and logic errors associated with Variable-Length Arguments (*args)",
+    "Implement production-ready code utilizing Variable-Length Arguments (*args)"
+  ],
+  "prerequisites": [
+    "15.2"
   ]
 }

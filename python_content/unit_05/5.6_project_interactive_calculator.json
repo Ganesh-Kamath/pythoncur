@@ -11,7 +11,9 @@
       "difficulty": "easy",
       "prerequisites": [],
       "title": "Project: Interactive Calculator Part 1: Project Interactive Calculator Architecture",
-      "content": "In Python, **Project Interactive Calculator Architecture** provides essential rules when working with project: interactive calculator.\n\nUnderstanding how `project_interactive_calculator_architecture` functions in practice enables you to write clean, unambiguous code.\n\n```python\n# Step 1: project_interactive_calculator_architecture\nstage_1 = True\n```"
+      "content": "In Python, **Project Interactive Calculator Architecture** provides essential rules when working with project: interactive calculator.\n\nUnderstanding how `project_interactive_calculator_architecture` functions in practice enables you to write clean, unambiguous code.\n\n```python\n# Step 1: project_interactive_calculator_architecture\nstage_1 = True\n```",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of project interactive calculator architecture. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "5.6_q2",
@@ -23,45 +25,47 @@
         "5.6_q1"
       ],
       "title": "Project: Interactive Calculator Part 2: Project Interactive Calculator Architecture",
-      "content": "In Python, **Project Interactive Calculator Architecture** provides essential rules when working with project: interactive calculator.\n\nUnderstanding how `project_interactive_calculator_architecture` functions in practice enables you to write clean, unambiguous code.\n\n```python\n# Step 2: project_interactive_calculator_architecture\nstage_2 = True\n```"
+      "content": "In Python, **Project Interactive Calculator Architecture** provides essential rules when working with project: interactive calculator.\n\nUnderstanding how `project_interactive_calculator_architecture` functions in practice enables you to write clean, unambiguous code.\n\n```python\n# Step 2: project_interactive_calculator_architecture\nstage_2 = True\n```",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of project interactive calculator architecture. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "5.6_q3",
-      "type": "multiple_choice",
+      "type": "output_prediction",
       "concept": "project_interactive_calculator_requirements",
       "skill": "design",
       "difficulty": "easy",
       "prerequisites": [
         "5.6_q2"
       ],
-      "prompt": "Review 3: What is the primary characteristic of Project Interactive Calculator Requirements in Project: Interactive Calculator?",
+      "prompt": "Consider the following Python snippet demonstrating Project Interactive Calculator Requirements:\n\n```python\ndef calculate_3(value):\n    base = 11\n    return base + value * 1\n\nresult = calculate_3(2)\nprint(result)\n```\n\nWhat is the value printed to the console?",
       "options": [
-        "A. It defines specific rules for project interactive calculator requirements in Python programs",
-        "B. It forces hardware clock speeds to double automatically",
-        "C. It permanently deletes system configuration records",
-        "D. It removes the need for syntax parsing completely"
+        "13",
+        "12",
+        "13",
+        "TypeError"
       ],
-      "correct_answer": "A",
-      "explanation": "Project Interactive Calculator Requirements defines specific semantics for project interactive calculator requirements in Python programs."
+      "correct_answer": "13",
+      "explanation": "Python evaluates arithmetic following standard operator precedence (multiplication before addition). First, `value * 1` evaluates to `2 * 1 = 2`. Then, adding `base` (11) yields `13`. The function returns this integer and `print()` outputs it."
     },
     {
       "id": "5.6_q4",
-      "type": "multiple_choice",
+      "type": "output_prediction",
       "concept": "project_interactive_calculator_requirements",
       "skill": "design",
       "difficulty": "easy",
       "prerequisites": [
         "5.6_q3"
       ],
-      "prompt": "Review 4: What is the primary characteristic of Project Interactive Calculator Requirements in Project: Interactive Calculator?",
+      "prompt": "Consider the following Python snippet demonstrating Project Interactive Calculator Requirements:\n\n```python\ndef calculate_4(value):\n    base = 14\n    return base + value * 6\n\nresult = calculate_4(2)\nprint(result)\n```\n\nWhat is the value printed to the console?",
       "options": [
-        "A. It defines specific rules for project interactive calculator requirements in Python programs",
-        "B. It forces hardware clock speeds to double automatically",
-        "C. It permanently deletes system configuration records",
-        "D. It removes the need for syntax parsing completely"
+        "26",
+        "20",
+        "96",
+        "TypeError"
       ],
-      "correct_answer": "A",
-      "explanation": "Project Interactive Calculator Requirements defines specific semantics for project interactive calculator requirements in Python programs."
+      "correct_answer": "26",
+      "explanation": "Python evaluates arithmetic following standard operator precedence (multiplication before addition). First, `value * 6` evaluates to `2 * 6 = 12`. Then, adding `base` (14) yields `26`. The function returns this integer and `print()` outputs it."
     },
     {
       "id": "5.6_q5",
@@ -72,7 +76,7 @@
       "prerequisites": [
         "5.6_q4"
       ],
-      "prompt": "Algorithm Sequence 5: Arrange the lines in correct logical order for Project Interactive Calculator Milestone Flow:",
+      "prompt": "Arrange the lines in correct logical order for Project Interactive Calculator Milestone Flow:",
       "options": [
         "a_5 = 10",
         "b_5 = 20",
@@ -96,7 +100,7 @@
       "prerequisites": [
         "5.6_q5"
       ],
-      "prompt": "Algorithm Sequence 6: Arrange the lines in correct logical order for Project Interactive Calculator Milestone Flow:",
+      "prompt": "Arrange the lines in correct logical order for Project Interactive Calculator Milestone Flow:",
       "options": [
         "a_6 = 10",
         "b_6 = 20",
@@ -120,11 +124,11 @@
       "prerequisites": [
         "5.6_q6"
       ],
-      "prompt": "Debug Challenge 7: Fix the capitalization error in this line for Project Interactive Calculator Module Bugfix:",
-      "starter_code": "Print('Project: Interactive Calculator Item 7')",
-      "solution_code": "print('Project: Interactive Calculator Item 7')",
+      "prompt": "In the Interactive Calculator project, implement input validation so entering 'exit' halts the main calculation loop:",
+      "starter_code": "user_input = input('Calc> ')\nif user_input.lower() == 'exit':\n    # Halt the loop\n    ___",
+      "solution_code": "user_input = input('Calc> ')\nif user_input.lower() == 'exit':\n    break",
       "hint": "Python built-in functions like print() must be written in lowercase.",
-      "explanation": "Built-in function names in Python are case-sensitive and require lowercase."
+      "explanation": "The `break` statement immediately terminates the active `while` loop, allowing clean exit."
     },
     {
       "id": "5.6_q8",
@@ -135,11 +139,11 @@
       "prerequisites": [
         "5.6_q7"
       ],
-      "prompt": "Debug Challenge 8: Fix the capitalization error in this line for Project Interactive Calculator Module Bugfix:",
-      "starter_code": "Print('Project: Interactive Calculator Item 8')",
-      "solution_code": "print('Project: Interactive Calculator Item 8')",
+      "prompt": "In the Interactive Calculator project, implement division by zero protection in the division operation handler:",
+      "starter_code": "def safe_divide(a, b):\n    if b == 0:\n        return 'Error: Division by zero'\n    return a / b",
+      "solution_code": "def safe_divide(a, b):\n    if b == 0:\n        return 'Error: Division by zero'\n    return a / b",
       "hint": "Python built-in functions like print() must be written in lowercase.",
-      "explanation": "Built-in function names in Python are case-sensitive and require lowercase."
+      "explanation": "Checking `if b == 0` guards against raising ZeroDivisionError before attempting division."
     },
     {
       "id": "5.6_q9",
@@ -150,11 +154,11 @@
       "prerequisites": [
         "5.6_q8"
       ],
-      "prompt": "Debug Challenge 9: Fix the capitalization error in this line for Project Interactive Calculator Module Bugfix:",
-      "starter_code": "Print('Project: Interactive Calculator Item 9')",
-      "solution_code": "print('Project: Interactive Calculator Item 9')",
+      "prompt": "In the Interactive Calculator project, implement addition and multiplication operations based on an operator string:",
+      "starter_code": "def calculate(a, b, op):\n    if op == '+':\n        return a + b\n    elif op == '*':\n        return a * b\n    return None",
+      "solution_code": "def calculate(a, b, op):\n    if op == '+':\n        return a + b\n    elif op == '*':\n        return a * b\n    return None",
       "hint": "Python built-in functions like print() must be written in lowercase.",
-      "explanation": "Built-in function names in Python are case-sensitive and require lowercase."
+      "explanation": "An `if/elif` chain routes calculation to the matching arithmetic operator."
     },
     {
       "id": "5.6_q10",
@@ -165,11 +169,11 @@
       "prerequisites": [
         "5.6_q9"
       ],
-      "prompt": "Debug Challenge 10: Fix the capitalization error in this line for Project Interactive Calculator Module Bugfix:",
-      "starter_code": "Print('Project: Interactive Calculator Item 10')",
-      "solution_code": "print('Project: Interactive Calculator Item 10')",
+      "prompt": "In the Interactive Calculator project, implement exponential power calculation using the `**` operator:",
+      "starter_code": "def power(base, exponent):\n    return base ___ exponent",
+      "solution_code": "def power(base, exponent):\n    return base ** exponent",
       "hint": "Python built-in functions like print() must be written in lowercase.",
-      "explanation": "Built-in function names in Python are case-sensitive and require lowercase."
+      "explanation": "Python uses the double asterisk `**` for exponentiation."
     },
     {
       "id": "5.6_q11",
@@ -180,11 +184,11 @@
       "prerequisites": [
         "5.6_q10"
       ],
-      "prompt": "Debug Challenge 11: Fix the capitalization error in this line for Project Interactive Calculator Module Bugfix:",
-      "starter_code": "Print('Project: Interactive Calculator Item 11')",
-      "solution_code": "print('Project: Interactive Calculator Item 11')",
+      "prompt": "In the Interactive Calculator project, format a floating-point calculation result to exactly 2 decimal places:",
+      "starter_code": "def format_result(val):\n    return f'{val:___}'",
+      "solution_code": "def format_result(val):\n    return f'{val:.2f}'",
       "hint": "Python built-in functions like print() must be written in lowercase.",
-      "explanation": "Built-in function names in Python are case-sensitive and require lowercase."
+      "explanation": "The format specifier `:.2f` formats floats with 2 fixed decimal digits."
     },
     {
       "id": "5.6_q12",
@@ -195,11 +199,11 @@
       "prerequisites": [
         "5.6_q11"
       ],
-      "prompt": "Debug Challenge 12: Fix the capitalization error in this line for Project Interactive Calculator Module Bugfix:",
-      "starter_code": "Print('Project: Interactive Calculator Item 12')",
-      "solution_code": "print('Project: Interactive Calculator Item 12')",
+      "prompt": "In the Interactive Calculator project, append a completed calculation string to the calculation history list:",
+      "starter_code": "history = []\ndef log_calc(record):\n    history.___(record)",
+      "solution_code": "history = []\ndef log_calc(record):\n    history.append(record)",
       "hint": "Python built-in functions like print() must be written in lowercase.",
-      "explanation": "Built-in function names in Python are case-sensitive and require lowercase."
+      "explanation": "`history.append(record)` appends the newly computed entry to the end of the history list."
     },
     {
       "id": "5.6_q13",
@@ -210,12 +214,12 @@
       "prerequisites": [
         "5.6_q12"
       ],
-      "prompt": "Fill Blank 13: Complete the code to output 'Project: Interactive Calculator #13':\n```python\n___('Project: Interactive Calculator #13')\n```",
+      "prompt": "Complete the code to output 'Project: Interactive Calculator #13':\n```python\n___('Project: Interactive Calculator #13')\n```",
       "correct_answer": "print",
       "accepted_answers": [
         "print"
       ],
-      "explanation": "The built-in print() function outputs the specified string."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of project interactive calculator module wiring. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "5.6_q14",
@@ -226,12 +230,12 @@
       "prerequisites": [
         "5.6_q13"
       ],
-      "prompt": "Fill Blank 14: Complete the code to output 'Project: Interactive Calculator #14':\n```python\n___('Project: Interactive Calculator #14')\n```",
+      "prompt": "Complete the code to output 'Project: Interactive Calculator #14':\n```python\n___('Project: Interactive Calculator #14')\n```",
       "correct_answer": "print",
       "accepted_answers": [
         "print"
       ],
-      "explanation": "The built-in print() function outputs the specified string."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of project interactive calculator module wiring. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "5.6_q15",
@@ -242,12 +246,12 @@
       "prerequisites": [
         "5.6_q14"
       ],
-      "prompt": "Fill Blank 15: Complete the code to output 'Project: Interactive Calculator #15':\n```python\n___('Project: Interactive Calculator #15')\n```",
+      "prompt": "Complete the code to output 'Project: Interactive Calculator #15':\n```python\n___('Project: Interactive Calculator #15')\n```",
       "correct_answer": "print",
       "accepted_answers": [
         "print"
       ],
-      "explanation": "The built-in print() function outputs the specified string."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of project interactive calculator module wiring. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "5.6_q16",
@@ -258,12 +262,12 @@
       "prerequisites": [
         "5.6_q15"
       ],
-      "prompt": "Fill Blank 16: Complete the code to output 'Project: Interactive Calculator #16':\n```python\n___('Project: Interactive Calculator #16')\n```",
+      "prompt": "Complete the code to output 'Project: Interactive Calculator #16':\n```python\n___('Project: Interactive Calculator #16')\n```",
       "correct_answer": "print",
       "accepted_answers": [
         "print"
       ],
-      "explanation": "The built-in print() function outputs the specified string."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of project interactive calculator module wiring. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "5.6_q17",
@@ -274,12 +278,12 @@
       "prerequisites": [
         "5.6_q16"
       ],
-      "prompt": "Fill Blank 17: Complete the code to output 'Project: Interactive Calculator #17':\n```python\n___('Project: Interactive Calculator #17')\n```",
+      "prompt": "Complete the code to output 'Project: Interactive Calculator #17':\n```python\n___('Project: Interactive Calculator #17')\n```",
       "correct_answer": "print",
       "accepted_answers": [
         "print"
       ],
-      "explanation": "The built-in print() function outputs the specified string."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of project interactive calculator module wiring. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "5.6_q18",
@@ -290,12 +294,12 @@
       "prerequisites": [
         "5.6_q17"
       ],
-      "prompt": "Fill Blank 18: Complete the code to output 'Project: Interactive Calculator #18':\n```python\n___('Project: Interactive Calculator #18')\n```",
+      "prompt": "Complete the code to output 'Project: Interactive Calculator #18':\n```python\n___('Project: Interactive Calculator #18')\n```",
       "correct_answer": "print",
       "accepted_answers": [
         "print"
       ],
-      "explanation": "The built-in print() function outputs the specified string."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of project interactive calculator module wiring. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "5.6_q19",
@@ -306,7 +310,7 @@
       "prerequisites": [
         "5.6_q18"
       ],
-      "prompt": "Coding Challenge 19: Write a statement that prints 'Project: Interactive Calculator Result 19' to standard output.",
+      "prompt": "Write a statement that prints 'Project: Interactive Calculator Result 19' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Project: Interactive Calculator Result 19')",
       "test_cases": [
@@ -316,7 +320,7 @@
         }
       ],
       "hint": "Use print('Project: Interactive Calculator Result 19') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of project interactive calculator component. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "5.6_q20",
@@ -327,7 +331,7 @@
       "prerequisites": [
         "5.6_q19"
       ],
-      "prompt": "Coding Challenge 20: Write a statement that prints 'Project: Interactive Calculator Result 20' to standard output.",
+      "prompt": "Write a statement that prints 'Project: Interactive Calculator Result 20' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Project: Interactive Calculator Result 20')",
       "test_cases": [
@@ -337,7 +341,7 @@
         }
       ],
       "hint": "Use print('Project: Interactive Calculator Result 20') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of project interactive calculator component. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "5.6_q21",
@@ -348,7 +352,7 @@
       "prerequisites": [
         "5.6_q20"
       ],
-      "prompt": "Coding Challenge 21: Write a statement that prints 'Project: Interactive Calculator Result 21' to standard output.",
+      "prompt": "Write a statement that prints 'Project: Interactive Calculator Result 21' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Project: Interactive Calculator Result 21')",
       "test_cases": [
@@ -358,7 +362,7 @@
         }
       ],
       "hint": "Use print('Project: Interactive Calculator Result 21') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of project interactive calculator component. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "5.6_q22",
@@ -369,7 +373,7 @@
       "prerequisites": [
         "5.6_q21"
       ],
-      "prompt": "Coding Challenge 22: Write a statement that prints 'Project: Interactive Calculator Result 22' to standard output.",
+      "prompt": "Write a statement that prints 'Project: Interactive Calculator Result 22' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Project: Interactive Calculator Result 22')",
       "test_cases": [
@@ -379,7 +383,7 @@
         }
       ],
       "hint": "Use print('Project: Interactive Calculator Result 22') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of project interactive calculator component. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "5.6_q23",
@@ -390,7 +394,7 @@
       "prerequisites": [
         "5.6_q22"
       ],
-      "prompt": "Coding Challenge 23: Write a statement that prints 'Project: Interactive Calculator Result 23' to standard output.",
+      "prompt": "Write a statement that prints 'Project: Interactive Calculator Result 23' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Project: Interactive Calculator Result 23')",
       "test_cases": [
@@ -400,7 +404,7 @@
         }
       ],
       "hint": "Use print('Project: Interactive Calculator Result 23') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of project interactive calculator milestone. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "5.6_q24",
@@ -411,7 +415,7 @@
       "prerequisites": [
         "5.6_q23"
       ],
-      "prompt": "Coding Challenge 24: Write a statement that prints 'Project: Interactive Calculator Result 24' to standard output.",
+      "prompt": "Write a statement that prints 'Project: Interactive Calculator Result 24' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Project: Interactive Calculator Result 24')",
       "test_cases": [
@@ -421,7 +425,7 @@
         }
       ],
       "hint": "Use print('Project: Interactive Calculator Result 24') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of project interactive calculator milestone. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "5.6_q25",
@@ -432,7 +436,7 @@
       "prerequisites": [
         "5.6_q24"
       ],
-      "prompt": "Coding Challenge 25: Write a statement that prints 'Project: Interactive Calculator Result 25' to standard output.",
+      "prompt": "Write a statement that prints 'Project: Interactive Calculator Result 25' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Project: Interactive Calculator Result 25')",
       "test_cases": [
@@ -442,7 +446,7 @@
         }
       ],
       "hint": "Use print('Project: Interactive Calculator Result 25') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of project interactive calculator milestone. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "5.6_q26",
@@ -453,7 +457,7 @@
       "prerequisites": [
         "5.6_q25"
       ],
-      "prompt": "Coding Challenge 26: Write a statement that prints 'Project: Interactive Calculator Result 26' to standard output.",
+      "prompt": "Write a statement that prints 'Project: Interactive Calculator Result 26' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Project: Interactive Calculator Result 26')",
       "test_cases": [
@@ -463,7 +467,7 @@
         }
       ],
       "hint": "Use print('Project: Interactive Calculator Result 26') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of project interactive calculator milestone. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "5.6_q27",
@@ -474,7 +478,7 @@
       "prerequisites": [
         "5.6_q26"
       ],
-      "prompt": "Coding Challenge 27: Write a statement that prints 'Project: Interactive Calculator Result 27' to standard output.",
+      "prompt": "Write a statement that prints 'Project: Interactive Calculator Result 27' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Project: Interactive Calculator Result 27')",
       "test_cases": [
@@ -484,7 +488,7 @@
         }
       ],
       "hint": "Use print('Project: Interactive Calculator Result 27') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of project interactive calculator extension. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "5.6_q28",
@@ -495,7 +499,7 @@
       "prerequisites": [
         "5.6_q27"
       ],
-      "prompt": "Coding Challenge 28: Write a statement that prints 'Project: Interactive Calculator Result 28' to standard output.",
+      "prompt": "Write a statement that prints 'Project: Interactive Calculator Result 28' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Project: Interactive Calculator Result 28')",
       "test_cases": [
@@ -505,7 +509,7 @@
         }
       ],
       "hint": "Use print('Project: Interactive Calculator Result 28') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of project interactive calculator extension. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "5.6_q29",
@@ -516,7 +520,7 @@
       "prerequisites": [
         "5.6_q28"
       ],
-      "prompt": "Coding Challenge 29: Write a statement that prints 'Project: Interactive Calculator Result 29' to standard output.",
+      "prompt": "Write a statement that prints 'Project: Interactive Calculator Result 29' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Project: Interactive Calculator Result 29')",
       "test_cases": [
@@ -526,7 +530,7 @@
         }
       ],
       "hint": "Use print('Project: Interactive Calculator Result 29') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of project interactive calculator extension. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "5.6_q30",
@@ -537,7 +541,7 @@
       "prerequisites": [
         "5.6_q29"
       ],
-      "prompt": "Coding Challenge 30: Write a statement that prints 'Project: Interactive Calculator Result 30' to standard output.",
+      "prompt": "Write a statement that prints 'Project: Interactive Calculator Result 30' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Project: Interactive Calculator Result 30')",
       "test_cases": [
@@ -547,7 +551,17 @@
         }
       ],
       "hint": "Use print('Project: Interactive Calculator Result 30') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of project interactive calculator extension. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     }
+  ],
+  "unit_num": 5,
+  "learning_objectives": [
+    "Architect a complete multi-step application for Project: Interactive Calculator",
+    "Decompose problem requirements into modular functions and classes",
+    "Implement defensive error handling and input validation",
+    "Verify application correctness against comprehensive test cases"
+  ],
+  "prerequisites": [
+    "5.5"
   ]
 }

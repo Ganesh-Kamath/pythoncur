@@ -12,7 +12,9 @@
       "title": "Introduction to async and await",
       "content": "In Python, the async and await keywords are used to write asynchronous code. The async keyword declares a function as a coroutine, meaning it can be paused and resumed. The await keyword is used inside an async function to pause execution until a coroutine completes, without blocking the entire program. This is useful for I/O-bound tasks like network requests or file operations. For example, when you await a coroutine, Python can switch to another task while waiting for the result.",
       "difficulty": "easy",
-      "prerequisites": []
+      "prerequisites": [],
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of the async and await keywords basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "28.4_q2",
@@ -45,7 +47,9 @@
       "difficulty": "easy",
       "prerequisites": [
         "28.4_q2"
-      ]
+      ],
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of the async and await keywords syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "28.4_q4",
@@ -184,7 +188,7 @@
           "expected_output": "The async and await Keywords"
         }
       ],
-      "explanation": "The solution fulfills all functional requirements."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of the async and await keywords analysis. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "28.4_q11",
@@ -585,5 +589,15 @@
       "hint": "asyncio.TaskGroup provides structured concurrency: exiting the group cancels remaining tasks automatically. Set queue maxsize to enforce backpressure.",
       "explanation": "TaskGroup enforces structured concurrency, guaranteeing that no child task outlives its parent group. Combined with a bounded queue, this prevents memory bloat and ensures cancellation is reliable, which is the hallmark of production-grade async code."
     }
+  ],
+  "unit_num": 28,
+  "learning_objectives": [
+    "Explain the technical concepts and mechanics of async and await Keywords",
+    "Apply idiomatic Python patterns when working with async and await Keywords",
+    "Debug common runtime exceptions and logic errors associated with async and await Keywords",
+    "Implement production-ready code utilizing async and await Keywords"
+  ],
+  "prerequisites": [
+    "28.3"
   ]
 }

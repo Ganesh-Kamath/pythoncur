@@ -11,7 +11,9 @@
       "difficulty": "easy",
       "prerequisites": [],
       "title": "What Is Recursion?",
-      "content": "Recursion is a problem-solving technique where a function calls itself to break a problem into smaller, similar sub-problems until a simple base case is reached. Think of it like a set of Russian nesting dolls: each doll opens to reveal a smaller doll inside, until you reach the smallest one. In programming, a recursive function must have two parts: a base case that stops the recursion, and a recursive step that reduces the problem. For example, computing a factorial can be expressed recursively: n! = n * (n-1)!. Here is a simple Python implementation:\n\n```python\ndef factorial(n):\n    if n == 0:\n        return 1\n    return n * factorial(n - 1)\n```\n\nNotice how `factorial(n - 1)` is a smaller version of the same problem. Recursion is useful for tasks like traversing trees, generating permutations, and solving divide-and-conquer algorithms."
+      "content": "Recursion is a problem-solving technique where a function calls itself to break a problem into smaller, similar sub-problems until a simple base case is reached. Think of it like a set of Russian nesting dolls: each doll opens to reveal a smaller doll inside, until you reach the smallest one. In programming, a recursive function must have two parts: a base case that stops the recursion, and a recursive step that reduces the problem. For example, computing a factorial can be expressed recursively: n! = n * (n-1)!. Here is a simple Python implementation:\n\n```python\ndef factorial(n):\n    if n == 0:\n        return 1\n    return n * factorial(n - 1)\n```\n\nNotice how `factorial(n - 1)` is a smaller version of the same problem. Recursion is useful for tasks like traversing trees, generating permutations, and solving divide-and-conquer algorithms.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of recursive thinking basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "36.1_q2",
@@ -42,7 +44,9 @@
         "36.1_q2"
       ],
       "title": "Recursive Syntax and Structure",
-      "content": "Every recursive function in Python follows a clear pattern. First, identify the base case: the condition under which the function stops calling itself. Second, define the recursive case: the part where the function calls itself with modified arguments. Without a base case, recursion leads to infinite calls and eventually a `RecursionError`. Consider a countdown function:\n\n```python\ndef countdown(n):\n    if n <= 0:\n        print('Blastoff!')\n        return\n    print(n)\n    countdown(n - 1)\n```\n\nHere, `n <= 0` is the base case. When `n` becomes 0 or negative, the function prints the final message and returns without further recursion. Otherwise, it prints the current number and delegates to `countdown(n - 1)`, shrinking the problem by one each time. Always ensure that each recursive call moves closer to the base case; otherwise, the recursion will never terminate."
+      "content": "Every recursive function in Python follows a clear pattern. First, identify the base case: the condition under which the function stops calling itself. Second, define the recursive case: the part where the function calls itself with modified arguments. Without a base case, recursion leads to infinite calls and eventually a `RecursionError`. Consider a countdown function:\n\n```python\ndef countdown(n):\n    if n <= 0:\n        print('Blastoff!')\n        return\n    print(n)\n    countdown(n - 1)\n```\n\nHere, `n <= 0` is the base case. When `n` becomes 0 or negative, the function prints the final message and returns without further recursion. Otherwise, it prints the current number and delegates to `countdown(n - 1)`, shrinking the problem by one each time. Always ensure that each recursive call moves closer to the base case; otherwise, the recursion will never terminate.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of recursive thinking syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "36.1_q4",
@@ -671,5 +675,15 @@
       "hint": "Use a helper to check if placing a queen at `(row, col)` is safe, then try each column and backtrack on failure.",
       "explanation": "Backtracking explores all valid partial solutions and abandons branches that violate constraints. The recursive `backtrack` function builds the solution row by row, undoing choices when no valid column remains."
     }
+  ],
+  "unit_num": 36,
+  "learning_objectives": [
+    "Explain the technical concepts and mechanics of Recursive Thinking",
+    "Apply idiomatic Python patterns when working with Recursive Thinking",
+    "Debug common runtime exceptions and logic errors associated with Recursive Thinking",
+    "Implement production-ready code utilizing Recursive Thinking"
+  ],
+  "prerequisites": [
+    "35.5"
   ]
 }

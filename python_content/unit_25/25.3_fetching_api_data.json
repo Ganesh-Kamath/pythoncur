@@ -11,7 +11,9 @@
       "difficulty": "easy",
       "prerequisites": [],
       "title": "What Is an API and Why Fetch Data?",
-      "content": "An API (Application Programming Interface) is a way for programs to talk to each other over the internet. When you fetch API data, your Python script sends a request to a remote server and receives information, usually in JSON format. The most common tool for this in Python is the `requests` library. To begin, you must install it with `pip install requests`. Once installed, you use `requests.get(url)` to retrieve data. The response object contains the server's reply. You can check if the request succeeded using `response.status_code == 200`. Always remember to import the library at the top of your file: `import requests`. This foundational step lets you bring real-world data into your programs."
+      "content": "An API (Application Programming Interface) is a way for programs to talk to each other over the internet. When you fetch API data, your Python script sends a request to a remote server and receives information, usually in JSON format. The most common tool for this in Python is the `requests` library. To begin, you must install it with `pip install requests`. Once installed, you use `requests.get(url)` to retrieve data. The response object contains the server's reply. You can check if the request succeeded using `response.status_code == 200`. Always remember to import the library at the top of your file: `import requests`. This foundational step lets you bring real-world data into your programs.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of fetching api data basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "25.3_q2",
@@ -36,12 +38,12 @@
       "prompt": "Which statement best applies to fetching api data basics?",
       "options": [
         "A. Correct approach for fetching api data basics",
-        "B. SyntaxError raised unconditionally",
-        "C. Unrelated system call",
-        "D. Halts Python interpreter"
+        "Raises a SyntaxError: invalid syntax at runtime",
+        "Raises an IndentationError: unexpected indent",
+        "Silently ignored by the Python parser"
       ],
       "correct_answer": "A. Correct approach for fetching api data basics",
-      "explanation": "Demonstrates core usage of fetching api data basics in Python."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of fetching api data basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "25.3_q3",
@@ -53,7 +55,9 @@
         "25.3_q2"
       ],
       "title": "Parsing JSON from a Response",
-      "content": "When a server returns data, it often comes as a JSON string. The `requests` library helps you convert this into a Python dictionary using `response.json()`. Here is the typical workflow: first, call `requests.get(url)` to get a response object. Second, call `response.json()` to parse the body into a Python dictionary. Third, access nested values using standard dictionary key notation. For example, if the JSON contains `{'name': 'Alice', 'age': 30}`, you retrieve the name with `data['name']`. Always handle potential network errors with a `try` block. Below is a complete example:\n\n```python\nimport requests\n\ntry:\n    url = 'https://jsonplaceholder.typicode.com/users/1'\n    response = requests.get(url)\n    data = response.json()\n    print(data['name'])\nexcept Exception as e:\n    print('Error:', e)\n```\n\nThis pattern ensures your program safely extracts values from the fetched API payload."
+      "content": "When a server returns data, it often comes as a JSON string. The `requests` library helps you convert this into a Python dictionary using `response.json()`. Here is the typical workflow: first, call `requests.get(url)` to get a response object. Second, call `response.json()` to parse the body into a Python dictionary. Third, access nested values using standard dictionary key notation. For example, if the JSON contains `{'name': 'Alice', 'age': 30}`, you retrieve the name with `data['name']`. Always handle potential network errors with a `try` block. Below is a complete example:\n\n```python\nimport requests\n\ntry:\n    url = 'https://jsonplaceholder.typicode.com/users/1'\n    response = requests.get(url)\n    data = response.json()\n    print(data['name'])\nexcept Exception as e:\n    print('Error:', e)\n```\n\nThis pattern ensures your program safely extracts values from the fetched API payload.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of fetching api data syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "25.3_q4",
@@ -78,12 +82,12 @@
       "prompt": "Which statement best applies to fetching api data syntax?",
       "options": [
         "A. Correct approach for fetching api data syntax",
-        "B. SyntaxError raised unconditionally",
-        "C. Unrelated system call",
-        "D. Halts Python interpreter"
+        "Raises a SyntaxError: invalid syntax at runtime",
+        "Raises an IndentationError: unexpected indent",
+        "Silently ignored by the Python parser"
       ],
       "correct_answer": "A. Correct approach for fetching api data syntax",
-      "explanation": "Demonstrates core usage of fetching api data syntax in Python."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of fetching api data syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "25.3_q5",
@@ -108,12 +112,12 @@
       "prompt": "Which statement best applies to fetching api data matching?",
       "options": [
         "A. Correct approach for fetching api data matching",
-        "B. SyntaxError raised unconditionally",
-        "C. Unrelated system call",
-        "D. Halts Python interpreter"
+        "Raises a SyntaxError: invalid syntax at runtime",
+        "Raises an IndentationError: unexpected indent",
+        "Silently ignored by the Python parser"
       ],
       "correct_answer": "A. Correct approach for fetching api data matching",
-      "explanation": "Demonstrates core usage of fetching api data matching in Python."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of fetching api data matching. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "25.3_q6",
@@ -138,12 +142,12 @@
       "prompt": "Which statement best applies to fetching api data pitfalls?",
       "options": [
         "A. Correct approach for fetching api data pitfalls",
-        "B. SyntaxError raised unconditionally",
-        "C. Unrelated system call",
-        "D. Halts Python interpreter"
+        "Raises a SyntaxError: invalid syntax at runtime",
+        "Raises an IndentationError: unexpected indent",
+        "Silently ignored by the Python parser"
       ],
       "correct_answer": "A. Correct approach for fetching api data pitfalls",
-      "explanation": "Demonstrates core usage of fetching api data pitfalls in Python."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of fetching api data pitfalls. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "25.3_q7",
@@ -411,7 +415,7 @@
       "prompt": "Fix the bug in this code for fetching api data errors:",
       "starter_code": "# Fix this code\nPrint('Fetching API Data')",
       "solution_code": "print('Fetching API Data')",
-      "explanation": "Python identifiers and built-ins are case-sensitive."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of fetching api data errors. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "25.3_q20",
@@ -459,7 +463,7 @@
       "prompt": "Fix the bug in this code for fetching api data runtime:",
       "starter_code": "# Fix this code\nPrint('Fetching API Data')",
       "solution_code": "print('Fetching API Data')",
-      "explanation": "Python identifiers and built-ins are case-sensitive."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of fetching api data runtime. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "25.3_q23",
@@ -630,5 +634,15 @@
       "hint": "Wrap the request in a try-except block, check for HTTP errors with raise_for_status(), and safely access nested keys with KeyError handling.",
       "explanation": "This mastery mini-challenge demands production-quality thinking: timeout configuration, multi-level exception handling for network and parsing failures, and precise string formatting. It ensures students can write resilient client code that behaves predictably when external services misbehave."
     }
+  ],
+  "unit_num": 25,
+  "learning_objectives": [
+    "Explain the technical concepts and mechanics of Fetching API Data",
+    "Apply idiomatic Python patterns when working with Fetching API Data",
+    "Debug common runtime exceptions and logic errors associated with Fetching API Data",
+    "Implement production-ready code utilizing Fetching API Data"
+  ],
+  "prerequisites": [
+    "25.2"
   ]
 }

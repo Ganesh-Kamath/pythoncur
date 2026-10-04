@@ -11,7 +11,9 @@
       "difficulty": "easy",
       "prerequisites": [],
       "title": "What is Binary Search?",
-      "content": "Binary search is an efficient algorithm for finding an item from a sorted list of items. It works by repeatedly dividing the search interval in half. If the value of the search key is less than the item in the middle of the interval, narrow the interval to the lower half. Otherwise, narrow it to the upper half. This process continues until the value is found or the interval is empty.\n\nKey idea: The list must be sorted before applying binary search. This allows us to eliminate half of the remaining elements with each comparison.\n\nHere is a simple Python implementation:\n\n```python\ndef binary_search(arr, target):\n    left = 0\n    right = len(arr) - 1\n    while left <= right:\n        mid = (left + right) // 2\n        if arr[mid] == target:\n            return mid\n        elif arr[mid] < target:\n            left = mid + 1\n        else:\n            right = mid - 1\n    return -1\n```\n\nIn this code, `left` and `right` mark the current search boundaries, `mid` is the middle index, and we adjust the boundaries based on whether `target` is greater than or less than `arr[mid]`."
+      "content": "Binary search is an efficient algorithm for finding an item from a sorted list of items. It works by repeatedly dividing the search interval in half. If the value of the search key is less than the item in the middle of the interval, narrow the interval to the lower half. Otherwise, narrow it to the upper half. This process continues until the value is found or the interval is empty.\n\nKey idea: The list must be sorted before applying binary search. This allows us to eliminate half of the remaining elements with each comparison.\n\nHere is a simple Python implementation:\n\n```python\ndef binary_search(arr, target):\n    left = 0\n    right = len(arr) - 1\n    while left <= right:\n        mid = (left + right) // 2\n        if arr[mid] == target:\n            return mid\n        elif arr[mid] < target:\n            left = mid + 1\n        else:\n            right = mid - 1\n    return -1\n```\n\nIn this code, `left` and `right` mark the current search boundaries, `mid` is the middle index, and we adjust the boundaries based on whether `target` is greater than or less than `arr[mid]`.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of binary search basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "37.2_q2",
@@ -42,7 +44,9 @@
         "37.2_q2"
       ],
       "title": "Binary Search Syntax and Loop Structure",
-      "content": "The core of binary search is a `while` loop that maintains the invariant `left <= right`. Inside the loop, compute `mid = (left + right) // 2`. Then compare `arr[mid]` with `target`.\n\n- If they match, return `mid` (found).\n- If `arr[mid] < target`, move `left` past `mid`: `left = mid + 1`.\n- If `arr[mid] > target`, move `right` before `mid`: `right = mid - 1`.\n\nIf the loop exits without a match, return `-1` to indicate absence.\n\nExample walkthrough on `arr = [2, 5, 8, 12, 16]` with `target = 8`:\n1. `left = 0`, `right = 4`, `mid = 2`, `arr[2] == 8` -> return `2`.\n\nExample on `target = 7`:\n1. `left = 0`, `right = 4`, `mid = 2`, `arr[2] = 8 > 7` -> `right = 1`.\n2. `left = 0`, `right = 1`, `mid = 0`, `arr[0] = 2 < 7` -> `left = 1`.\n3. `left = 1`, `right = 1`, `mid = 1`, `arr[1] = 5 < 7` -> `left = 2`.\n4. `left = 2`, `right = 1`, loop ends, return `-1`.\n\n```python\ndef binary_search(arr, target):\n    left = 0\n    right = len(arr) - 1\n    while left <= right:\n        mid = (left + right) // 2\n        if arr[mid] == target:\n            return mid\n        elif arr[mid] < target:\n            left = mid + 1\n        else:\n            right = mid - 1\n    return -1\n```"
+      "content": "The core of binary search is a `while` loop that maintains the invariant `left <= right`. Inside the loop, compute `mid = (left + right) // 2`. Then compare `arr[mid]` with `target`.\n\n- If they match, return `mid` (found).\n- If `arr[mid] < target`, move `left` past `mid`: `left = mid + 1`.\n- If `arr[mid] > target`, move `right` before `mid`: `right = mid - 1`.\n\nIf the loop exits without a match, return `-1` to indicate absence.\n\nExample walkthrough on `arr = [2, 5, 8, 12, 16]` with `target = 8`:\n1. `left = 0`, `right = 4`, `mid = 2`, `arr[2] == 8` -> return `2`.\n\nExample on `target = 7`:\n1. `left = 0`, `right = 4`, `mid = 2`, `arr[2] = 8 > 7` -> `right = 1`.\n2. `left = 0`, `right = 1`, `mid = 0`, `arr[0] = 2 < 7` -> `left = 1`.\n3. `left = 1`, `right = 1`, `mid = 1`, `arr[1] = 5 < 7` -> `left = 2`.\n4. `left = 2`, `right = 1`, loop ends, return `-1`.\n\n```python\ndef binary_search(arr, target):\n    left = 0\n    right = len(arr) - 1\n    while left <= right:\n        mid = (left + right) // 2\n        if arr[mid] == target:\n            return mid\n        elif arr[mid] < target:\n            left = mid + 1\n        else:\n            right = mid - 1\n    return -1\n```",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of binary search syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "37.2_q4",
@@ -473,7 +477,7 @@
       "prerequisites": [
         "37.2_q24"
       ],
-      "prompt": "Coding Challenge 25: Write a statement that prints 'Binary Search Result 25' to standard output.",
+      "prompt": "Write a statement that prints 'Binary Search Result 25' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Binary Search Result 25')",
       "test_cases": [
@@ -483,7 +487,7 @@
         }
       ],
       "hint": "Use print('Binary Search Result 25') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of binary search implementation. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "37.2_q26",
@@ -494,7 +498,7 @@
       "prerequisites": [
         "37.2_q25"
       ],
-      "prompt": "Coding Challenge 26: Write a statement that prints 'Binary Search Result 26' to standard output.",
+      "prompt": "Write a statement that prints 'Binary Search Result 26' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Binary Search Result 26')",
       "test_cases": [
@@ -504,7 +508,7 @@
         }
       ],
       "hint": "Use print('Binary Search Result 26') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of binary search practical. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "37.2_q27",
@@ -515,7 +519,7 @@
       "prerequisites": [
         "37.2_q26"
       ],
-      "prompt": "Coding Challenge 27: Write a statement that prints 'Binary Search Result 27' to standard output.",
+      "prompt": "Write a statement that prints 'Binary Search Result 27' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Binary Search Result 27')",
       "test_cases": [
@@ -525,7 +529,7 @@
         }
       ],
       "hint": "Use print('Binary Search Result 27') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of binary search advanced. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "37.2_q28",
@@ -536,7 +540,7 @@
       "prerequisites": [
         "37.2_q27"
       ],
-      "prompt": "Coding Challenge 28: Write a statement that prints 'Binary Search Result 28' to standard output.",
+      "prompt": "Write a statement that prints 'Binary Search Result 28' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Binary Search Result 28')",
       "test_cases": [
@@ -546,7 +550,7 @@
         }
       ],
       "hint": "Use print('Binary Search Result 28') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of binary search challenge. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "37.2_q29",
@@ -557,7 +561,7 @@
       "prerequisites": [
         "37.2_q28"
       ],
-      "prompt": "Coding Challenge 29: Write a statement that prints 'Binary Search Result 29' to standard output.",
+      "prompt": "Write a statement that prints 'Binary Search Result 29' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Binary Search Result 29')",
       "test_cases": [
@@ -567,7 +571,7 @@
         }
       ],
       "hint": "Use print('Binary Search Result 29') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of binary search scenario. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "37.2_q30",
@@ -578,7 +582,7 @@
       "prerequisites": [
         "37.2_q29"
       ],
-      "prompt": "Coding Challenge 30: Write a statement that prints 'Binary Search Result 30' to standard output.",
+      "prompt": "Write a statement that prints 'Binary Search Result 30' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Binary Search Result 30')",
       "test_cases": [
@@ -588,7 +592,17 @@
         }
       ],
       "hint": "Use print('Binary Search Result 30') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of binary search mastery. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     }
+  ],
+  "unit_num": 37,
+  "learning_objectives": [
+    "Implement the fundamental Binary Search algorithm in idiomatic Python",
+    "Calculate time and space complexity using Big O notation",
+    "Trace edge-case performance and termination conditions",
+    "Apply the algorithmic pattern to solve practical data structure problems"
+  ],
+  "prerequisites": [
+    "37.1"
   ]
 }

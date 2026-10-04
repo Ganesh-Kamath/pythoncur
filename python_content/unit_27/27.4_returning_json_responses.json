@@ -11,7 +11,9 @@
       "difficulty": "easy",
       "prerequisites": [],
       "title": "What Is a JSON Response?",
-      "content": "In web backend development, a JSON response is the data format sent from a server to a client after processing a request. JSON (JavaScript Object Notation) is lightweight and easy for both humans and machines to read. In Python, you typically use the json module to convert a Python dictionary into a JSON string before returning it. A common pattern in frameworks like Flask or FastAPI is to set the response body to a JSON-encoded string and specify the Content-Type header as application/json. This ensures the client knows how to interpret the data. For example:\n\n```python\nimport json\n\ndef get_user(user_id):\n    user = {'id': 42, 'name': 'Alice'}\n    response_body = json.dumps(user)\n    return response_body\n```\n\nNotice that json.dumps() serializes the Python dictionary into a JSON string. The server then sends this string back to the client, which can parse it into a native object."
+      "content": "In web backend development, a JSON response is the data format sent from a server to a client after processing a request. JSON (JavaScript Object Notation) is lightweight and easy for both humans and machines to read. In Python, you typically use the json module to convert a Python dictionary into a JSON string before returning it. A common pattern in frameworks like Flask or FastAPI is to set the response body to a JSON-encoded string and specify the Content-Type header as application/json. This ensures the client knows how to interpret the data. For example:\n\n```python\nimport json\n\ndef get_user(user_id):\n    user = {'id': 42, 'name': 'Alice'}\n    response_body = json.dumps(user)\n    return response_body\n```\n\nNotice that json.dumps() serializes the Python dictionary into a JSON string. The server then sends this string back to the client, which can parse it into a native object.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of returning json responses basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "27.4_q2",
@@ -42,7 +44,9 @@
         "27.4_q2"
       ],
       "title": "Syntax for Returning JSON from a Function",
-      "content": "When building a backend endpoint, you often return JSON directly from a view or route handler. In pure Python without a web framework, you can return the JSON string produced by json.dumps(). With a lightweight framework such as Flask, you use jsonify() to create a response object with the correct MIME type. Here is the syntax pattern:\n\n```python\nfrom flask import jsonify\n\n@app.route('/data')\ndef fetch_data():\n    payload = {'status': 'ok', 'value': 100}\n    return jsonify(payload)\n```\n\nThe jsonify() helper automatically serializes the dictionary and sets the Content-Type header to application/json. If you are not using a framework, manually calling json.dumps() and wrapping the result in a response object is also valid. Always ensure the data you pass to json.dumps() contains JSON-serializable types such as strings, numbers, lists, dictionaries, booleans, or None."
+      "content": "When building a backend endpoint, you often return JSON directly from a view or route handler. In pure Python without a web framework, you can return the JSON string produced by json.dumps(). With a lightweight framework such as Flask, you use jsonify() to create a response object with the correct MIME type. Here is the syntax pattern:\n\n```python\nfrom flask import jsonify\n\n@app.route('/data')\ndef fetch_data():\n    payload = {'status': 'ok', 'value': 100}\n    return jsonify(payload)\n```\n\nThe jsonify() helper automatically serializes the dictionary and sets the Content-Type header to application/json. If you are not using a framework, manually calling json.dumps() and wrapping the result in a response object is also valid. Always ensure the data you pass to json.dumps() contains JSON-serializable types such as strings, numbers, lists, dictionaries, booleans, or None.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of returning json responses syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "27.4_q4",
@@ -628,5 +632,15 @@
       "hint": "Use request.get_json() to parse the request body, then validate presence and type of the 'scores' key before computing statistics.",
       "explanation": "Robust APIs validate incoming payloads to avoid runtime errors. Returning a nested structure keeps related statistics grouped and easy for clients to consume."
     }
+  ],
+  "unit_num": 27,
+  "learning_objectives": [
+    "Explain the technical concepts and mechanics of Returning JSON Responses",
+    "Apply idiomatic Python patterns when working with Returning JSON Responses",
+    "Debug common runtime exceptions and logic errors associated with Returning JSON Responses",
+    "Implement production-ready code utilizing Returning JSON Responses"
+  ],
+  "prerequisites": [
+    "27.3"
   ]
 }

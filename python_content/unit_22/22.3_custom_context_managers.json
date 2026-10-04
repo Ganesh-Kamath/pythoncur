@@ -11,7 +11,9 @@
       "difficulty": "easy",
       "title": "What Is a Context Manager?",
       "content": "A context manager is an object that defines the runtime context for a block of code, typically used with the with statement. It ensures setup and cleanup actions are performed reliably, even if exceptions occur. The two key methods are __enter__ and __exit__. __enter__ runs when entering the with block and returns the resource (often self). __exit__ runs when leaving the block and handles cleanup. Python's built-in open() is a context manager, but you can create your own classes. This recognition item helps you identify when a custom class is acting as a context manager by looking for __enter__ and __exit__ methods.",
-      "prerequisites": []
+      "prerequisites": [],
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of custom context managers basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "22.3_q2",
@@ -42,7 +44,9 @@
       "content": "To use a custom context manager, instantiate the class and pass it to the with statement. The syntax is: with ClassName() as resource: ... The resource assigned to the as variable is the return value of __enter__. Inside the block, you can use the resource. When the block exits, __exit__ is called automatically. The __exit__ method receives three arguments: exc_type (the exception class, or None), exc_value (the exception instance, or None), and traceback (a traceback object, or None). You can suppress exceptions by returning True from __exit__.",
       "prerequisites": [
         "22.3_q2"
-      ]
+      ],
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of custom context managers syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "22.3_q4",
@@ -563,5 +567,15 @@
       "hint": "Use slice assignment (store[:] = ...) to replace the contents of the original list rather than reassigning the local variable. Return False from __exit__ when no exception occurred so the exception propagates if one was raised; return True only when you intentionally suppress an exception.",
       "explanation": "This pattern mirrors database transactions in memory. The snapshot captures the pre-transaction state, enabling atomic rollback. Returning False from __exit__ when no exception occurred is the default and correct behavior because it allows normal control flow. Only when an exception is present should rollback occur, and the exception should still propagate unless explicitly suppressed."
     }
+  ],
+  "unit_num": 22,
+  "learning_objectives": [
+    "Explain the technical concepts and mechanics of Custom Context Managers",
+    "Apply idiomatic Python patterns when working with Custom Context Managers",
+    "Debug common runtime exceptions and logic errors associated with Custom Context Managers",
+    "Implement production-ready code utilizing Custom Context Managers"
+  ],
+  "prerequisites": [
+    "22.2"
   ]
 }

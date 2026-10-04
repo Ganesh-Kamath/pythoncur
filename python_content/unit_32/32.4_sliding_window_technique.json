@@ -11,7 +11,9 @@
       "difficulty": "easy",
       "prerequisites": [],
       "title": "What Is a Sliding Window?",
-      "content": "A sliding window is a technique used to solve array or string problems efficiently. Instead of checking every possible subarray or substring from scratch, we maintain a 'window' of elements defined by two pointers: a left pointer and a right pointer. As we expand the window by moving the right pointer, we update our answer. When the window becomes invalid, we shrink it by moving the left pointer. This avoids redundant computations and reduces time complexity from O(n^2) to O(n). For example, to find the longest substring with at most k distinct characters, we slide the window across the string and adjust its size dynamically. Here is a simple Python illustration:\n\n```python\ndef window_demo(arr, k):\n    left = 0\n    count = {}\n    max_len = 0\n    for right in range(len(arr)):\n        count[arr[right]] = count.get(arr[right], 0) + 1\n        while len(count) > k:\n            count[arr[left]] -= 1\n            if count[arr[left]] == 0:\n                del count[arr[left]]\n            left += 1\n        max_len = max(max_len, right - left + 1)\n    return max_len\n```\n\nIn this code, `right` expands the window and `left` contracts it when the constraint is violated."
+      "content": "A sliding window is a technique used to solve array or string problems efficiently. Instead of checking every possible subarray or substring from scratch, we maintain a 'window' of elements defined by two pointers: a left pointer and a right pointer. As we expand the window by moving the right pointer, we update our answer. When the window becomes invalid, we shrink it by moving the left pointer. This avoids redundant computations and reduces time complexity from O(n^2) to O(n). For example, to find the longest substring with at most k distinct characters, we slide the window across the string and adjust its size dynamically. Here is a simple Python illustration:\n\n```python\ndef window_demo(arr, k):\n    left = 0\n    count = {}\n    max_len = 0\n    for right in range(len(arr)):\n        count[arr[right]] = count.get(arr[right], 0) + 1\n        while len(count) > k:\n            count[arr[left]] -= 1\n            if count[arr[left]] == 0:\n                del count[arr[left]]\n            left += 1\n        max_len = max(max_len, right - left + 1)\n    return max_len\n```\n\nIn this code, `right` expands the window and `left` contracts it when the constraint is violated.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of sliding window technique basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "32.4_q2",
@@ -42,7 +44,9 @@
         "32.4_q2"
       ],
       "title": "Common Sliding Window Syntax Patterns",
-      "content": "There are two primary patterns for implementing a sliding window in Python. The first is the fixed-size window, where the window length remains constant. In this case, you simply move both pointers forward together after processing each window. The second is the variable-size window, where the window size changes based on a condition, such as a sum exceeding a target or a character count exceeding k. Below is an example of a fixed-size window that computes the sum of every subarray of length k:\n\n```python\ndef fixed_window_sum(arr, k):\n    window_sum = sum(arr[:k])\n    result = [window_sum]\n    for i in range(k, len(arr)):\n        window_sum += arr[i] - arr[i - k]\n        result.append(window_sum)\n    return result\n```\n\nNotice how we subtract the element leaving the window and add the new element entering it, keeping the update O(1) per step."
+      "content": "There are two primary patterns for implementing a sliding window in Python. The first is the fixed-size window, where the window length remains constant. In this case, you simply move both pointers forward together after processing each window. The second is the variable-size window, where the window size changes based on a condition, such as a sum exceeding a target or a character count exceeding k. Below is an example of a fixed-size window that computes the sum of every subarray of length k:\n\n```python\ndef fixed_window_sum(arr, k):\n    window_sum = sum(arr[:k])\n    result = [window_sum]\n    for i in range(k, len(arr)):\n        window_sum += arr[i] - arr[i - k]\n        result.append(window_sum)\n    return result\n```\n\nNotice how we subtract the element leaving the window and add the new element entering it, keeping the update O(1) per step.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of sliding window technique syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "32.4_q4",
@@ -511,7 +515,7 @@
       "prerequisites": [
         "32.4_q24"
       ],
-      "prompt": "Coding Challenge 25: Write a statement that prints 'Sliding Window Technique Result 25' to standard output.",
+      "prompt": "Write a statement that prints 'Sliding Window Technique Result 25' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Sliding Window Technique Result 25')",
       "test_cases": [
@@ -521,7 +525,7 @@
         }
       ],
       "hint": "Use print('Sliding Window Technique Result 25') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of sliding window technique implementation. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "32.4_q26",
@@ -532,7 +536,7 @@
       "prerequisites": [
         "32.4_q25"
       ],
-      "prompt": "Coding Challenge 26: Write a statement that prints 'Sliding Window Technique Result 26' to standard output.",
+      "prompt": "Write a statement that prints 'Sliding Window Technique Result 26' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Sliding Window Technique Result 26')",
       "test_cases": [
@@ -542,7 +546,7 @@
         }
       ],
       "hint": "Use print('Sliding Window Technique Result 26') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of sliding window technique practical. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "32.4_q27",
@@ -553,7 +557,7 @@
       "prerequisites": [
         "32.4_q26"
       ],
-      "prompt": "Coding Challenge 27: Write a statement that prints 'Sliding Window Technique Result 27' to standard output.",
+      "prompt": "Write a statement that prints 'Sliding Window Technique Result 27' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Sliding Window Technique Result 27')",
       "test_cases": [
@@ -563,7 +567,7 @@
         }
       ],
       "hint": "Use print('Sliding Window Technique Result 27') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of sliding window technique advanced. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "32.4_q28",
@@ -574,7 +578,7 @@
       "prerequisites": [
         "32.4_q27"
       ],
-      "prompt": "Coding Challenge 28: Write a statement that prints 'Sliding Window Technique Result 28' to standard output.",
+      "prompt": "Write a statement that prints 'Sliding Window Technique Result 28' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Sliding Window Technique Result 28')",
       "test_cases": [
@@ -584,7 +588,7 @@
         }
       ],
       "hint": "Use print('Sliding Window Technique Result 28') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of sliding window technique challenge. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "32.4_q29",
@@ -595,7 +599,7 @@
       "prerequisites": [
         "32.4_q28"
       ],
-      "prompt": "Coding Challenge 29: Write a statement that prints 'Sliding Window Technique Result 29' to standard output.",
+      "prompt": "Write a statement that prints 'Sliding Window Technique Result 29' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Sliding Window Technique Result 29')",
       "test_cases": [
@@ -605,7 +609,7 @@
         }
       ],
       "hint": "Use print('Sliding Window Technique Result 29') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of sliding window technique scenario. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "32.4_q30",
@@ -616,7 +620,7 @@
       "prerequisites": [
         "32.4_q29"
       ],
-      "prompt": "Coding Challenge 30: Write a statement that prints 'Sliding Window Technique Result 30' to standard output.",
+      "prompt": "Write a statement that prints 'Sliding Window Technique Result 30' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Sliding Window Technique Result 30')",
       "test_cases": [
@@ -626,7 +630,17 @@
         }
       ],
       "hint": "Use print('Sliding Window Technique Result 30') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of sliding window technique mastery. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     }
+  ],
+  "unit_num": 32,
+  "learning_objectives": [
+    "Explain the technical concepts and mechanics of Sliding Window Technique",
+    "Apply idiomatic Python patterns when working with Sliding Window Technique",
+    "Debug common runtime exceptions and logic errors associated with Sliding Window Technique",
+    "Implement production-ready code utilizing Sliding Window Technique"
+  ],
+  "prerequisites": [
+    "32.3"
   ]
 }

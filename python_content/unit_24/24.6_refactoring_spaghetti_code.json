@@ -11,7 +11,9 @@
       "difficulty": "easy",
       "prerequisites": [],
       "title": "What Is Spaghetti Code and Why Refactor?",
-      "content": "Spaghetti code refers to source code that has a complex and tangled control flow, making it difficult to read, maintain, and debug. A common sign is long functions, repeated logic, and unclear variable names. Refactoring is the process of restructuring existing code without changing its external behavior, with the goal of improving readability and reducing technical debt. For example, instead of writing everything in one giant function, you can break logic into smaller, well-named functions. Consider this messy snippet:\n\n```python\ndef process(data):\n    x = data[0]\n    y = data[1]\n    z = data[2]\n    a = x + y * z\n    b = a - 5\n    if b > 10:\n        print('high')\n    else:\n        print('low')\n    return b\n```\n\nThis works, but the names x, y, z, a, and b give no meaning. Refactoring would involve renaming variables and extracting steps into helper functions so the code becomes self-documenting."
+      "content": "Spaghetti code refers to source code that has a complex and tangled control flow, making it difficult to read, maintain, and debug. A common sign is long functions, repeated logic, and unclear variable names. Refactoring is the process of restructuring existing code without changing its external behavior, with the goal of improving readability and reducing technical debt. For example, instead of writing everything in one giant function, you can break logic into smaller, well-named functions. Consider this messy snippet:\n\n```python\ndef process(data):\n    x = data[0]\n    y = data[1]\n    z = data[2]\n    a = x + y * z\n    b = a - 5\n    if b > 10:\n        print('high')\n    else:\n        print('low')\n    return b\n```\n\nThis works, but the names x, y, z, a, and b give no meaning. Refactoring would involve renaming variables and extracting steps into helper functions so the code becomes self-documenting.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of refactoring spaghetti code basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "idx": 2,
@@ -44,7 +46,9 @@
       ],
       "title": "Syntax Patterns for Cleaner Code",
       "content": "When refactoring, use clear control structures and avoid deeply nested blocks. A common improvement is to replace multiple sequential assignments with a single descriptive function. For instance, instead of computing intermediate values inline, extract them into named variables or helper functions. Another useful pattern is using early returns to reduce nesting. Here is a before-and-after example:\n\nBefore:\n```python\ndef check(value):\n    if value is not None:\n        if value > 0:\n            return True\n        else:\n            return False\n    else:\n        return False\n```\n\nAfter refactoring:\n```python\ndef check(value):\n    if value is None:\n        return False\n    return value > 0\n```\n\nThe after version removes unnecessary nesting, making the logic easier to follow. Always ensure that refactored code remains syntactically valid and preserves the original outcome.",
-      "id": "24.6_q3"
+      "id": "24.6_q3",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of refactoring spaghetti code syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "idx": 4,
@@ -680,5 +684,15 @@
       "hint": "Replace the bare except with specific exception types. Use a context manager for the file. Decompose validation and aggregation into pure functions. Return the count instead of relying on side effects.",
       "explanation": "Master-level refactoring replaces implicit error handling with explicit, typed exceptions and resource-safe patterns. Decomposing into pure functions enables unit testing, while context managers guarantee cleanup. Returning a value rather than printing makes the function composable and reusable."
     }
+  ],
+  "unit_num": 24,
+  "learning_objectives": [
+    "Explain the technical concepts and mechanics of Refactoring Spaghetti Code",
+    "Apply idiomatic Python patterns when working with Refactoring Spaghetti Code",
+    "Debug common runtime exceptions and logic errors associated with Refactoring Spaghetti Code",
+    "Implement production-ready code utilizing Refactoring Spaghetti Code"
+  ],
+  "prerequisites": [
+    "24.5"
   ]
 }

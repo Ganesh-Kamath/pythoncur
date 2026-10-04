@@ -11,7 +11,9 @@
       "difficulty": "easy",
       "prerequisites": [],
       "title": "What is asyncio?",
-      "content": "The asyncio module in Python enables asynchronous programming, allowing a single thread to manage multiple tasks by switching between them when one task is waiting for an operation to complete, such as a network request or file read. Instead of blocking the program, asyncio uses an event loop to schedule and run coroutines. A coroutine is defined with the async def keyword and is executed with await. For example, consider a simple coroutine that simulates a delay:\n\n```python\nimport asyncio\n\nasync def greet():\n    print('Starting task')\n    await asyncio.sleep(1)\n    print('Task finished')\n```\n\nTo run it, you use asyncio.run(greet()). This starts the event loop, executes the coroutine until completion, and then closes the loop. asyncio is ideal for I/O-bound workloads, where the program spends much of its time waiting for external resources."
+      "content": "The asyncio module in Python enables asynchronous programming, allowing a single thread to manage multiple tasks by switching between them when one task is waiting for an operation to complete, such as a network request or file read. Instead of blocking the program, asyncio uses an event loop to schedule and run coroutines. A coroutine is defined with the async def keyword and is executed with await. For example, consider a simple coroutine that simulates a delay:\n\n```python\nimport asyncio\n\nasync def greet():\n    print('Starting task')\n    await asyncio.sleep(1)\n    print('Task finished')\n```\n\nTo run it, you use asyncio.run(greet()). This starts the event loop, executes the coroutine until completion, and then closes the loop. asyncio is ideal for I/O-bound workloads, where the program spends much of its time waiting for external resources.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of the asyncio module basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "idx": 2,
@@ -44,7 +46,9 @@
         "28.5_q2"
       ],
       "title": "async def and await Syntax",
-      "content": "To write asynchronous code, you define a coroutine with async def followed by the function name and parameters. Inside the coroutine, you call other coroutines or asyncio functions using await. If you need to call a regular synchronous function from within an async function, you can simply invoke it without await because it does not yield control. However, if the synchronous function performs blocking I/O, it is better to run it in a thread pool using loop.run_in_executor(). Consider this example:\n\n```python\nimport asyncio\n\nasync def compute_and_fetch():\n    result = await fetch_data()\n    print('Data:', result)\n    return result\n\nasync def fetch_data():\n    await asyncio.sleep(0.5)\n    return 'sample data'\n\nasync def main():\n    await compute_and_fetch()\n```\n\nThe await keyword pauses execution of the current coroutine until the awaited task completes, allowing the event loop to run other tasks in the meantime."
+      "content": "To write asynchronous code, you define a coroutine with async def followed by the function name and parameters. Inside the coroutine, you call other coroutines or asyncio functions using await. If you need to call a regular synchronous function from within an async function, you can simply invoke it without await because it does not yield control. However, if the synchronous function performs blocking I/O, it is better to run it in a thread pool using loop.run_in_executor(). Consider this example:\n\n```python\nimport asyncio\n\nasync def compute_and_fetch():\n    result = await fetch_data()\n    print('Data:', result)\n    return result\n\nasync def fetch_data():\n    await asyncio.sleep(0.5)\n    return 'sample data'\n\nasync def main():\n    await compute_and_fetch()\n```\n\nThe await keyword pauses execution of the current coroutine until the awaited task completes, allowing the event loop to run other tasks in the meantime.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of the asyncio module syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "idx": 4,
@@ -599,5 +603,15 @@
       "hint": "Use `async with asyncio.TaskGroup() as tg:` and `tg.create_task()` for each coroutine. Structured concurrency guarantees that exiting the context cancels any unfinished tasks, preventing leaks.",
       "explanation": "`asyncio.TaskGroup` introduces structured concurrency: all tasks created inside the group are tracked, and exiting the `async with` block cancels any still-running tasks. This makes async code safer and easier to reason about, especially in complex real-world applications."
     }
+  ],
+  "unit_num": 28,
+  "learning_objectives": [
+    "Explain the technical concepts and mechanics of asyncio Module",
+    "Apply idiomatic Python patterns when working with asyncio Module",
+    "Debug common runtime exceptions and logic errors associated with asyncio Module",
+    "Implement production-ready code utilizing asyncio Module"
+  ],
+  "prerequisites": [
+    "28.4"
   ]
 }

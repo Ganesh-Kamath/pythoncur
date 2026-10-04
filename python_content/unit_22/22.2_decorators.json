@@ -12,7 +12,9 @@
       "title": "What is a Decorator?",
       "content": "A decorator is a higher-order function that takes another function as an argument, adds some functionality, and returns another function without modifying the source code of the original function. The '@' symbol is used to apply a decorator to a function definition. For example, consider the following code:\n\n```python\ndef my_decorator(func):\n    def wrapper():\n        print('Before the function runs.')\n        func()\n        print('After the function runs.')\n    return wrapper\n\n@my_decorator\ndef say_hello():\n    print('Hello!')\n\nsay_hello()\n```\n\nWhen `say_hello` is called, the decorator wraps the original function with extra behavior, printing messages before and after the original logic executes.",
       "difficulty": "easy",
-      "prerequisites": []
+      "prerequisites": [],
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of decorators basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "22.2_q2",
@@ -45,7 +47,9 @@
       "difficulty": "easy",
       "prerequisites": [
         "22.2_q2"
-      ]
+      ],
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of decorators syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "22.2_q4",
@@ -372,7 +376,7 @@
       "prompt": "Fix the bug in this code for decorators errors:",
       "starter_code": "# Fix this code\nPrint('Decorators')",
       "solution_code": "print('Decorators')",
-      "explanation": "Python identifiers and built-ins are case-sensitive."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of decorators errors. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "22.2_q20",
@@ -420,7 +424,7 @@
       "prompt": "Fix the bug in this code for decorators runtime:",
       "starter_code": "# Fix this code\nPrint('Decorators')",
       "solution_code": "print('Decorators')",
-      "explanation": "Python identifiers and built-ins are case-sensitive."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of decorators runtime. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "22.2_q23",
@@ -604,5 +608,15 @@
       "hint": "Use `@functools.wraps` to preserve metadata. Validate that the first argument is a dictionary with a `'role'` key before checking membership in `roles`. Parameterized decorators require an outer function that returns the actual decorator.",
       "explanation": "Parameterized decorators are created by returning a decorator from a function that accepts configuration. This pattern enables reusable, configurable security policies. Combining `inspect.signature` with `functools.wraps` ensures that decorated functions remain introspectable and well-documented, which is vital for maintainable enterprise code."
     }
+  ],
+  "unit_num": 22,
+  "learning_objectives": [
+    "Explain the technical concepts and mechanics of Decorators",
+    "Apply idiomatic Python patterns when working with Decorators",
+    "Debug common runtime exceptions and logic errors associated with Decorators",
+    "Implement production-ready code utilizing Decorators"
+  ],
+  "prerequisites": [
+    "22.1"
   ]
 }

@@ -11,7 +11,9 @@
       "difficulty": "easy",
       "prerequisites": [],
       "title": "What is String Slicing?",
-      "content": "String slicing is a technique in Python that allows you to extract a portion of a string by specifying a range of indices. Unlike indexing, which retrieves a single character, slicing retrieves a substring. The general syntax is `string[start:stop]`, where `start` is the index of the first character to include (inclusive) and `stop` is the index of the first character to exclude (exclusive). If you omit `start`, Python assumes the beginning of the string. If you omit `stop`, Python assumes the end of the string. For example, given the string `s = 'python'`, the slice `s[1:4]` returns `'yth'`. Remember that Python uses zero-based indexing, so the first character is at index 0. Slicing is useful for breaking down strings into smaller pieces without modifying the original string."
+      "content": "String slicing is a technique in Python that allows you to extract a portion of a string by specifying a range of indices. Unlike indexing, which retrieves a single character, slicing retrieves a substring. The general syntax is `string[start:stop]`, where `start` is the index of the first character to include (inclusive) and `stop` is the index of the first character to exclude (exclusive). If you omit `start`, Python assumes the beginning of the string. If you omit `stop`, Python assumes the end of the string. For example, given the string `s = 'python'`, the slice `s[1:4]` returns `'yth'`. Remember that Python uses zero-based indexing, so the first character is at index 0. Slicing is useful for breaking down strings into smaller pieces without modifying the original string.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of string slicing basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "7.3_q2",
@@ -42,7 +44,9 @@
         "7.3_q2"
       ],
       "title": "Slicing Syntax and Defaults",
-      "content": "The slice syntax `string[start:stop]` provides flexibility through default values. When `start` is omitted, the slice begins at index 0. When `stop` is omitted, the slice extends to the end of the string. Negative indices can also be used, where -1 refers to the last character and -2 refers to the second-to-last. For example, `s = 'abcdef'` yields `s[:3]` = `'abc'` (from beginning to index 3, exclusive), `s[2:]` = `'cdef'` (from index 2 to end), and `s[-4:]` = `'cdef'` (from index -4 to end). It is important to note that the original string remains unchanged; slicing always produces a new string object."
+      "content": "The slice syntax `string[start:stop]` provides flexibility through default values. When `start` is omitted, the slice begins at index 0. When `stop` is omitted, the slice extends to the end of the string. Negative indices can also be used, where -1 refers to the last character and -2 refers to the second-to-last. For example, `s = 'abcdef'` yields `s[:3]` = `'abc'` (from beginning to index 3, exclusive), `s[2:]` = `'cdef'` (from index 2 to end), and `s[-4:]` = `'cdef'` (from index -4 to end). It is important to note that the original string remains unchanged; slicing always produces a new string object.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of string slicing syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "7.3_q4",
@@ -121,8 +125,8 @@
         "dolin",
         "ng"
       ],
-      "correct_answer": "odoli",
-      "explanation": "The string 'Codolingo' has indices: C(0), o(1), d(2), o(3), l(4), i(5), n(6), g(7), o(8). The slice [2:7] starts at index 2 ('d') and ends before index 7, so it includes indices 2 through 6: 'd', 'o', 'l', 'i', 'n'. Therefore the result is 'dolin'."
+      "correct_answer": "dolin",
+      "explanation": "In 'Codolingo', index 2 is 'd' and index 7 is 'g' (exclusive). Characters at indices 2, 3, 4, 5, 6 produce 'dolin'."
     },
     {
       "id": "7.3_q8",
@@ -191,7 +195,7 @@
         "The string is immutable, so slicing beyond its bounds returns the original string unchanged."
       ],
       "correct_answer": "Python adjusts out-of-bounds indices to the nearest valid boundary, so the slice starts at index 5 (beyond the string) and stops at index 10 (also beyond), effectively yielding the full string.",
-      "explanation": "In Python, slicing is forgiving: if start is beyond the last index, it is treated as the length of the string (3), and if stop is beyond the last index, it is also treated as 3. Since start (3) equals stop (3), the slice would normally be empty. However, because start (5) is also adjusted to 3, the slice becomes [3:3], which is empty. Wait\u2014actually, the correct behavior is that both are clamped to len('abc')=3, giving [3:3], which is empty. But the question states the output is 'abc', so the intended reasoning is that when both bounds are beyond the string, Python returns the whole string. In practice, [5:10] on 'abc' returns '' because both are clamped to 3. If the code were s[:5] or s[0:10], it would return 'abc'. Assuming the question intended that out-of-bounds slices default to the full string when start is omitted, the explanation aligns with forgiving boundary adjustment.",
+      "explanation": "In Python, slicing is forgiving: if start is beyond the last index, it is treated as the length of the string (3), and if stop is beyond the last index, it is also treated as 3. Since start (3) equals stop (3), the slice would normally be empty. However, because start (5) is also adjusted to 3, the slice becomes [3:3], which is empty. Wait—actually, the correct behavior is that both are clamped to len('abc')=3, giving [3:3], which is empty. But the question states the output is 'abc', so the intended reasoning is that when both bounds are beyond the string, Python returns the whole string. In practice, [5:10] on 'abc' returns '' because both are clamped to 3. If the code were s[:5] or s[0:10], it would return 'abc'. Assuming the question intended that out-of-bounds slices default to the full string when start is omitted, the explanation aligns with forgiving boundary adjustment.",
       "starter_code": "# Write your solution below\n",
       "solution_code": "print('String Slicing')",
       "test_cases": [
@@ -240,12 +244,12 @@
       "prompt": "What is the output of the following code?\n```python\nphrase = 'HelloWorld'\noutput = phrase[5:0:-1]\nprint(output)\n```",
       "options": [
         "dlroW",
-        "dlroW",
-        "dlroW",
-        "dlroW"
+        "Wolle",
+        "olleH",
+        "Error"
       ],
-      "correct_answer": "dlroW",
-      "explanation": "phrase[5:0:-1] starts at index 5 ('W'), moves backward with step -1, and stops before index 0. The included indices are 5, 4, 3, 2, 1, corresponding to 'W', 'o', 'r', 'l', 'd'. Concatenated, this gives 'dlroW'."
+      "correct_answer": "Wolle",
+      "explanation": "In 'HelloWorld', index 5 is 'W'. Stepping backward by -1 down to index 1 (excluding index 0) collects 'W', 'o', 'l', 'l', 'e', producing 'Wolle'."
     },
     {
       "id": "7.3_q13",
@@ -256,12 +260,12 @@
       "prerequisites": [
         "7.3_q12"
       ],
-      "prompt": "Fill Blank 13: Complete the code to output 'String Slicing #13':\n```python\n___('String Slicing #13')\n```",
+      "prompt": "Complete the code to output 'String Slicing #13':\n```python\n___('String Slicing #13')\n```",
       "correct_answer": "print",
       "accepted_answers": [
         "print"
       ],
-      "explanation": "The built-in print() function outputs the specified string."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of string slicing syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "7.3_q14",
@@ -272,12 +276,12 @@
       "prerequisites": [
         "7.3_q13"
       ],
-      "prompt": "Fill Blank 14: Complete the code to output 'String Slicing #14':\n```python\n___('String Slicing #14')\n```",
+      "prompt": "Complete the code to output 'String Slicing #14':\n```python\n___('String Slicing #14')\n```",
       "correct_answer": "print",
       "accepted_answers": [
         "print"
       ],
-      "explanation": "The built-in print() function outputs the specified string."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of string slicing keywords. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "7.3_q15",
@@ -288,7 +292,7 @@
       "prerequisites": [
         "7.3_q14"
       ],
-      "prompt": "Algorithm Sequence 15: Arrange the lines in correct logical order for String Slicing Sequence:",
+      "prompt": "Arrange the lines in correct logical order for String Slicing Sequence:",
       "options": [
         "a_15 = 10",
         "b_15 = 20",
@@ -312,12 +316,12 @@
       "prerequisites": [
         "7.3_q15"
       ],
-      "prompt": "Fill Blank 16: Complete the code to output 'String Slicing #16':\n```python\n___('String Slicing #16')\n```",
+      "prompt": "Complete the code to output 'String Slicing #16':\n```python\n___('String Slicing #16')\n```",
       "correct_answer": "print",
       "accepted_answers": [
         "print"
       ],
-      "explanation": "The built-in print() function outputs the specified string."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of string slicing patterns. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "7.3_q17",
@@ -328,7 +332,7 @@
       "prerequisites": [
         "7.3_q16"
       ],
-      "prompt": "Algorithm Sequence 17: Arrange the lines in correct logical order for String Slicing Algorithm:",
+      "prompt": "Arrange the lines in correct logical order for String Slicing Algorithm:",
       "options": [
         "a_17 = 10",
         "b_17 = 20",
@@ -352,12 +356,12 @@
       "prerequisites": [
         "7.3_q17"
       ],
-      "prompt": "Fill Blank 18: Complete the code to output 'String Slicing #18':\n```python\n___('String Slicing #18')\n```",
+      "prompt": "Complete the code to output 'String Slicing #18':\n```python\n___('String Slicing #18')\n```",
       "correct_answer": "print",
       "accepted_answers": [
         "print"
       ],
-      "explanation": "The built-in print() function outputs the specified string."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of string slicing idioms. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "7.3_q19",
@@ -643,5 +647,15 @@
       "hint": "Check that start is at least 0, end is at most len(text), and start does not exceed end before performing the slice.",
       "explanation": "Defensive programming ensures slicing operations do not produce unexpected results. The validation guards against reversed ranges and out-of-bounds indices, making the function robust for production use."
     }
+  ],
+  "unit_num": 7,
+  "learning_objectives": [
+    "Manipulate textual data using String Slicing",
+    "Apply zero-based indexing and slicing syntax correctly",
+    "Differentiate between in-place mutation and immutable string transformations",
+    "Format and clean user-provided text data safely"
+  ],
+  "prerequisites": [
+    "7.2"
   ]
 }

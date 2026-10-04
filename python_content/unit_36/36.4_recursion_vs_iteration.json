@@ -11,7 +11,9 @@
       "difficulty": "easy",
       "prerequisites": [],
       "title": "Recognizing Recursion and Iteration",
-      "content": "Recursion is a technique where a function calls itself to solve a smaller instance of the same problem. Iteration uses loops to repeat a block of code. Both approaches can solve the same problems, but they differ in structure and memory usage. A recursive solution breaks a problem into a base case and a recursive step, while an iterative solution updates state through loop variables. For example, calculating factorial can be done recursively or with a for loop. Recognizing which pattern is used is the first step in comparing them."
+      "content": "Recursion is a technique where a function calls itself to solve a smaller instance of the same problem. Iteration uses loops to repeat a block of code. Both approaches can solve the same problems, but they differ in structure and memory usage. A recursive solution breaks a problem into a base case and a recursive step, while an iterative solution updates state through loop variables. For example, calculating factorial can be done recursively or with a for loop. Recognizing which pattern is used is the first step in comparing them.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of recursion vs iteration basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "36.4_q2",
@@ -42,7 +44,9 @@
         "36.4_q2"
       ],
       "title": "Syntax of Recursion and Iteration",
-      "content": "In Python, recursion is expressed by a function that invokes itself, typically with a modified argument that moves toward a base case. Here is a recursive factorial:\n```python\ndef factorial(n):\n    if n <= 1:\n        return 1\n    return n * factorial(n - 1)\n```\nIn contrast, iteration uses a loop to accumulate a result. Here is an iterative factorial:\n```python\ndef factorial_iter(n):\n    result = 1\n    for i in range(2, n + 1):\n        result = result * i\n    return result\n```\nNotice that recursion uses a conditional check and a self-call, while iteration initializes a variable and updates it inside a loop. Understanding these syntax patterns helps you translate between the two approaches."
+      "content": "In Python, recursion is expressed by a function that invokes itself, typically with a modified argument that moves toward a base case. Here is a recursive factorial:\n```python\ndef factorial(n):\n    if n <= 1:\n        return 1\n    return n * factorial(n - 1)\n```\nIn contrast, iteration uses a loop to accumulate a result. Here is an iterative factorial:\n```python\ndef factorial_iter(n):\n    result = 1\n    for i in range(2, n + 1):\n        result = result * i\n    return result\n```\nNotice that recursion uses a conditional check and a self-call, while iteration initializes a variable and updates it inside a loop. Understanding these syntax patterns helps you translate between the two approaches.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of recursion vs iteration syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "36.4_q4",
@@ -104,51 +108,51 @@
     {
       "id": "36.4_q7",
       "type": "code_prediction",
-      "concept": "recursion_vs_iteration_execution",
-      "skill": "prediction",
-      "difficulty": "easy",
+      "concept": "call_stack_vs_loop",
+      "skill": "understanding",
+      "difficulty": "medium",
       "prerequisites": [
         "36.4_q6"
       ],
-      "prompt": "Predict Output 7: What does this snippet output?\n```python\nvalue_7 = 35\nprint(value_7)\n```",
+      "prompt": "In the context of Recursion vs Iteration, what is the primary behavior demonstrated here?\n```python\n# Recursion vs Iteration\nprint('call_stack_vs_loop')\n```",
       "options": [
-        "35",
-        "17",
-        "value_7",
+        "call_stack_vs_loop",
+        "SyntaxError",
+        "None",
         "Error"
       ],
-      "correct_answer": "35",
-      "explanation": "The variable value_7 stores 35, and print outputs it to the console."
+      "correct_answer": "call_stack_vs_loop",
+      "explanation": "This directly illustrates the standard behavior of call_stack_vs_loop: recursion risks RecursionError if base case is missing or depth exceeds limit."
     },
     {
       "id": "36.4_q8",
-      "type": "output_prediction",
-      "concept": "recursion_vs_iteration_execution",
-      "skill": "prediction",
+      "type": "multiple_choice",
+      "concept": "call_stack_vs_loop_rules",
+      "skill": "reasoning",
       "difficulty": "medium",
       "prerequisites": [
         "36.4_q7"
       ],
-      "prompt": "Predict Output 8: What does this snippet output?\n```python\nvalue_8 = 40\nprint(value_8)\n```",
+      "prompt": "What is a core design principle when working with Recursion vs Iteration in Python?",
       "options": [
-        "40",
-        "20",
-        "value_8",
-        "Error"
+        "Recursion risks recursionerror if base case is missing or depth exceeds limit",
+        "It bypasses all memory management constraints",
+        "It causes the interpreter to compile to C++ automatically",
+        "It can only be executed in interactive REPL mode"
       ],
-      "correct_answer": "40",
-      "explanation": "The variable value_8 stores 40, and print outputs it to the console."
+      "correct_answer": "Recursion risks recursionerror if base case is missing or depth exceeds limit",
+      "explanation": "Understanding this rule is essential: recursion risks RecursionError if base case is missing or depth exceeds limit."
     },
     {
       "id": "36.4_q9",
-      "type": "code_prediction",
-      "concept": "recursion_vs_iteration_flow",
-      "skill": "prediction",
+      "type": "fix_the_code",
+      "concept": "call_stack_vs_loop_debugging",
+      "skill": "debugging",
       "difficulty": "medium",
       "prerequisites": [
         "36.4_q8"
       ],
-      "prompt": "Predict Output 9: What does this snippet output?\n```python\nvalue_9 = 45\nprint(value_9)\n```",
+      "prompt": "Fix this code snippet implementing Recursion vs Iteration correctly:",
       "options": [
         "45",
         "22",
@@ -156,7 +160,9 @@
         "Error"
       ],
       "correct_answer": "45",
-      "explanation": "The variable value_9 stores 45, and print outputs it to the console."
+      "explanation": "Applying standard Python idioms ensures correct behavior: recursion risks RecursionError if base case is missing or depth exceeds limit.",
+      "starter_code": "# Recursion vs Iteration implementation\n___",
+      "solution_code": "# Recursion vs Iteration implementation\ndef factorial(n):\n    return 1 if n <= 1 else n * factorial(n - 1)"
     },
     {
       "id": "36.4_q10",
@@ -167,7 +173,7 @@
       "prerequisites": [
         "36.4_q9"
       ],
-      "prompt": "Coding Challenge 10: Write a statement that prints 'Recursion vs Iteration Result 10' to standard output.",
+      "prompt": "Write a statement that prints 'Recursion vs Iteration Result 10' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Recursion vs Iteration Result 10')",
       "test_cases": [
@@ -177,37 +183,37 @@
         }
       ],
       "hint": "Use print('Recursion vs Iteration Result 10') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of recursion vs iteration analysis. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "36.4_q11",
-      "type": "code_prediction",
-      "concept": "recursion_vs_iteration_tracing",
-      "skill": "tracing",
-      "difficulty": "medium",
+      "type": "multiple_choice",
+      "concept": "call_stack_vs_loop_tradeoffs",
+      "skill": "evaluation",
+      "difficulty": "hard",
       "prerequisites": [
         "36.4_q10"
       ],
-      "prompt": "Predict Output 11: What does this snippet output?\n```python\nvalue_11 = 55\nprint(value_11)\n```",
+      "prompt": "Which common pitfall must programmers avoid when using Recursion vs Iteration?",
       "options": [
-        "55",
-        "27",
-        "value_11",
-        "Error"
+        "Misunderstanding edge cases related to: recursion risks RecursionError if base case is missing or depth exceeds limit",
+        "Forgetting that Python does not support functions",
+        "Assuming integers are capped at 32 bits",
+        "Using lowercase variable names"
       ],
-      "correct_answer": "55",
-      "explanation": "The variable value_11 stores 55, and print outputs it to the console."
+      "correct_answer": "Misunderstanding edge cases related to: recursion risks RecursionError if base case is missing or depth exceeds limit",
+      "explanation": "Careful attention to requirements avoids common traps: recursion risks RecursionError if base case is missing or depth exceeds limit."
     },
     {
       "id": "36.4_q12",
-      "type": "output_prediction",
-      "concept": "recursion_vs_iteration_logic",
-      "skill": "prediction",
-      "difficulty": "medium",
+      "type": "write_the_code",
+      "concept": "call_stack_vs_loop_application",
+      "skill": "implementation",
+      "difficulty": "hard",
       "prerequisites": [
         "36.4_q11"
       ],
-      "prompt": "Predict Output 12: What does this snippet output?\n```python\nvalue_12 = 60\nprint(value_12)\n```",
+      "prompt": "Write the canonical Python code statement for Recursion vs Iteration:",
       "options": [
         "60",
         "30",
@@ -215,7 +221,9 @@
         "Error"
       ],
       "correct_answer": "60",
-      "explanation": "The variable value_12 stores 60, and print outputs it to the console."
+      "explanation": "Canonical implementation: def factorial(n):\n    return 1 if n <= 1 else n * factorial(n - 1). Recursion risks recursionerror if base case is missing or depth exceeds limit.",
+      "starter_code": "# Complete the statement\n___",
+      "solution_code": "def factorial(n):\n    return 1 if n <= 1 else n * factorial(n - 1)"
     },
     {
       "id": "36.4_q13",
@@ -368,7 +376,7 @@
       "prompt": "Fix the bug in this code for recursion vs iteration errors:",
       "starter_code": "# Fix this code\nPrint('Recursion vs Iteration')",
       "solution_code": "print('Recursion vs Iteration')",
-      "explanation": "Python identifiers and built-ins are case-sensitive."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of recursion vs iteration errors. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "36.4_q20",
@@ -416,7 +424,7 @@
       "prompt": "Fix the bug in this code for recursion vs iteration runtime:",
       "starter_code": "# Fix this code\nPrint('Recursion vs Iteration')",
       "solution_code": "print('Recursion vs Iteration')",
-      "explanation": "Python identifiers and built-ins are case-sensitive."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of recursion vs iteration runtime. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "36.4_q23",
@@ -475,7 +483,7 @@
       "prerequisites": [
         "36.4_q24"
       ],
-      "prompt": "Coding Challenge 25: Write a statement that prints 'Recursion vs Iteration Result 25' to standard output.",
+      "prompt": "Write a statement that prints 'Recursion vs Iteration Result 25' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Recursion vs Iteration Result 25')",
       "test_cases": [
@@ -485,7 +493,7 @@
         }
       ],
       "hint": "Use print('Recursion vs Iteration Result 25') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of recursion vs iteration implementation. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "36.4_q26",
@@ -496,7 +504,7 @@
       "prerequisites": [
         "36.4_q25"
       ],
-      "prompt": "Coding Challenge 26: Write a statement that prints 'Recursion vs Iteration Result 26' to standard output.",
+      "prompt": "Write a statement that prints 'Recursion vs Iteration Result 26' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Recursion vs Iteration Result 26')",
       "test_cases": [
@@ -506,7 +514,7 @@
         }
       ],
       "hint": "Use print('Recursion vs Iteration Result 26') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of recursion vs iteration practical. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "36.4_q27",
@@ -517,7 +525,7 @@
       "prerequisites": [
         "36.4_q26"
       ],
-      "prompt": "Coding Challenge 27: Write a statement that prints 'Recursion vs Iteration Result 27' to standard output.",
+      "prompt": "Write a statement that prints 'Recursion vs Iteration Result 27' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Recursion vs Iteration Result 27')",
       "test_cases": [
@@ -527,7 +535,7 @@
         }
       ],
       "hint": "Use print('Recursion vs Iteration Result 27') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of recursion vs iteration advanced. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "36.4_q28",
@@ -538,7 +546,7 @@
       "prerequisites": [
         "36.4_q27"
       ],
-      "prompt": "Coding Challenge 28: Write a statement that prints 'Recursion vs Iteration Result 28' to standard output.",
+      "prompt": "Write a statement that prints 'Recursion vs Iteration Result 28' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Recursion vs Iteration Result 28')",
       "test_cases": [
@@ -548,7 +556,7 @@
         }
       ],
       "hint": "Use print('Recursion vs Iteration Result 28') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of recursion vs iteration challenge. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "36.4_q29",
@@ -559,7 +567,7 @@
       "prerequisites": [
         "36.4_q28"
       ],
-      "prompt": "Coding Challenge 29: Write a statement that prints 'Recursion vs Iteration Result 29' to standard output.",
+      "prompt": "Write a statement that prints 'Recursion vs Iteration Result 29' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Recursion vs Iteration Result 29')",
       "test_cases": [
@@ -569,7 +577,7 @@
         }
       ],
       "hint": "Use print('Recursion vs Iteration Result 29') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of recursion vs iteration scenario. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "36.4_q30",
@@ -580,7 +588,7 @@
       "prerequisites": [
         "36.4_q29"
       ],
-      "prompt": "Coding Challenge 30: Write a statement that prints 'Recursion vs Iteration Result 30' to standard output.",
+      "prompt": "Write a statement that prints 'Recursion vs Iteration Result 30' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Recursion vs Iteration Result 30')",
       "test_cases": [
@@ -590,7 +598,17 @@
         }
       ],
       "hint": "Use print('Recursion vs Iteration Result 30') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of recursion vs iteration mastery. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     }
+  ],
+  "unit_num": 36,
+  "learning_objectives": [
+    "Explain the technical concepts and mechanics of Recursion vs Iteration",
+    "Apply idiomatic Python patterns when working with Recursion vs Iteration",
+    "Debug common runtime exceptions and logic errors associated with Recursion vs Iteration",
+    "Implement production-ready code utilizing Recursion vs Iteration"
+  ],
+  "prerequisites": [
+    "36.3"
   ]
 }

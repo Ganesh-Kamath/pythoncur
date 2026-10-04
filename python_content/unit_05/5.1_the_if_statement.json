@@ -11,26 +11,28 @@
       "difficulty": "easy",
       "prerequisites": [],
       "title": "if Statement Part 1: The If Statement Basics",
-      "content": "In Python, **The If Statement Basics** provides essential rules when working with the if statement.\n\nUnderstanding how `the_if_statement_basics` functions in practice enables you to write clean, unambiguous code.\n\n```python\n# Step 1: the_if_statement_basics\nstage_1 = True\n```"
+      "content": "In Python, **The If Statement Basics** provides essential rules when working with the if statement.\n\nUnderstanding how `the_if_statement_basics` functions in practice enables you to write clean, unambiguous code.\n\n```python\n# Step 1: the_if_statement_basics\nstage_1 = True\n```",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of the if statement basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "5.1_q2",
-      "type": "multiple_choice",
+      "type": "output_prediction",
       "concept": "the_if_statement_basics",
       "skill": "recall",
       "difficulty": "easy",
       "prerequisites": [
         "5.1_q1"
       ],
-      "prompt": "Review 2: What is the primary characteristic of The If Statement Basics in if Statement?",
+      "prompt": "Consider the following Python snippet demonstrating The If Statement Basics:\n\n```python\ndef calculate_2(value):\n    base = 8\n    return base + value * 11\n\nresult = calculate_2(2)\nprint(result)\n```\n\nWhat is the value printed to the console?",
       "options": [
-        "A. It defines specific rules for the if statement basics in Python programs",
-        "B. It forces hardware clock speeds to double automatically",
-        "C. It permanently deletes system configuration records",
-        "D. It removes the need for syntax parsing completely"
+        "30",
+        "19",
+        "110",
+        "TypeError"
       ],
-      "correct_answer": "A",
-      "explanation": "The If Statement Basics defines specific semantics for the if statement basics in Python programs."
+      "correct_answer": "30",
+      "explanation": "Python evaluates arithmetic following standard operator precedence (multiplication before addition). First, `value * 11` evaluates to `2 * 11 = 22`. Then, adding `base` (8) yields `30`. The function returns this integer and `print()` outputs it."
     },
     {
       "id": "5.1_q3",
@@ -42,64 +44,66 @@
         "5.1_q2"
       ],
       "title": "if Statement Part 3: The If Statement Syntax",
-      "content": "In Python, **The If Statement Syntax** provides essential rules when working with the if statement.\n\nUnderstanding how `the_if_statement_syntax` functions in practice enables you to write clean, unambiguous code.\n\n```python\n# Step 3: the_if_statement_syntax\nstage_3 = True\n```"
+      "content": "In Python, **The If Statement Syntax** provides essential rules when working with the if statement.\n\nUnderstanding how `the_if_statement_syntax` functions in practice enables you to write clean, unambiguous code.\n\n```python\n# Step 3: the_if_statement_syntax\nstage_3 = True\n```",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of the if statement syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "5.1_q4",
-      "type": "multiple_choice",
+      "type": "output_prediction",
       "concept": "the_if_statement_syntax",
       "skill": "reasoning",
       "difficulty": "easy",
       "prerequisites": [
         "5.1_q3"
       ],
-      "prompt": "Review 4: What is the primary characteristic of The If Statement Syntax in if Statement?",
+      "prompt": "Consider the following Python snippet demonstrating The If Statement Syntax:\n\n```python\ndef calculate_4(value):\n    base = 14\n    return base + value * 6\n\nresult = calculate_4(2)\nprint(result)\n```\n\nWhat is the value printed to the console?",
       "options": [
-        "A. It defines specific rules for the if statement syntax in Python programs",
-        "B. It forces hardware clock speeds to double automatically",
-        "C. It permanently deletes system configuration records",
-        "D. It removes the need for syntax parsing completely"
+        "26",
+        "20",
+        "96",
+        "TypeError"
       ],
-      "correct_answer": "A",
-      "explanation": "The If Statement Syntax defines specific semantics for the if statement syntax in Python programs."
+      "correct_answer": "26",
+      "explanation": "Python evaluates arithmetic following standard operator precedence (multiplication before addition). First, `value * 6` evaluates to `2 * 6 = 12`. Then, adding `base` (14) yields `26`. The function returns this integer and `print()` outputs it."
     },
     {
       "id": "5.1_q5",
-      "type": "multiple_choice",
+      "type": "output_prediction",
       "concept": "the_if_statement_matching",
       "skill": "recognition",
       "difficulty": "easy",
       "prerequisites": [
         "5.1_q4"
       ],
-      "prompt": "Review 5: What is the primary characteristic of The If Statement Matching in if Statement?",
+      "prompt": "Consider the following Python snippet demonstrating The If Statement Matching:\n\n```python\ndef calculate_5(value):\n    base = 17\n    return base + value * 11\n\nresult = calculate_5(2)\nprint(result)\n```\n\nWhat is the value printed to the console?",
       "options": [
-        "A. It defines specific rules for the if statement matching in Python programs",
-        "B. It forces hardware clock speeds to double automatically",
-        "C. It permanently deletes system configuration records",
-        "D. It removes the need for syntax parsing completely"
+        "39",
+        "28",
+        "209",
+        "TypeError"
       ],
-      "correct_answer": "A",
-      "explanation": "The If Statement Matching defines specific semantics for the if statement matching in Python programs."
+      "correct_answer": "39",
+      "explanation": "Python evaluates arithmetic following standard operator precedence (multiplication before addition). First, `value * 11` evaluates to `2 * 11 = 22`. Then, adding `base` (17) yields `39`. The function returns this integer and `print()` outputs it."
     },
     {
       "id": "5.1_q6",
-      "type": "multiple_choice",
+      "type": "output_prediction",
       "concept": "the_if_statement_pitfalls",
       "skill": "comprehension",
       "difficulty": "easy",
       "prerequisites": [
         "5.1_q5"
       ],
-      "prompt": "Review 6: What is the primary characteristic of The If Statement Pitfalls in if Statement?",
+      "prompt": "Consider the following Python snippet demonstrating The If Statement Pitfalls:\n\n```python\ndef calculate_6(value):\n    base = 20\n    return base + value * 1\n\nresult = calculate_6(2)\nprint(result)\n```\n\nWhat is the value printed to the console?",
       "options": [
-        "A. It defines specific rules for the if statement pitfalls in Python programs",
-        "B. It forces hardware clock speeds to double automatically",
-        "C. It permanently deletes system configuration records",
-        "D. It removes the need for syntax parsing completely"
+        "22",
+        "21",
+        "22",
+        "TypeError"
       ],
-      "correct_answer": "A",
-      "explanation": "The If Statement Pitfalls defines specific semantics for the if statement pitfalls in Python programs."
+      "correct_answer": "22",
+      "explanation": "Python evaluates arithmetic following standard operator precedence (multiplication before addition). First, `value * 1` evaluates to `2 * 1 = 2`. Then, adding `base` (20) yields `22`. The function returns this integer and `print()` outputs it."
     },
     {
       "id": "5.1_q7",
@@ -110,45 +114,45 @@
       "prerequisites": [
         "5.1_q6"
       ],
-      "prompt": "Predict Output 7: What does this snippet output?\n```python\nvalue_7 = 35\nprint(value_7)\n```",
+      "prompt": "What does this code output?\n```python\ntemperature = 35\nif temperature > 30:\n    print('Heat advisory')\nprint('Drive safely')\n```",
       "options": [
-        "35",
-        "17",
-        "value_7",
+        "Heat advisory\nDrive safely",
+        "Heat advisory",
+        "Drive safely",
         "Error"
       ],
-      "correct_answer": "35",
-      "explanation": "The variable value_7 stores 35, and print outputs it to the console."
+      "correct_answer": "Heat advisory\nDrive safely",
+      "explanation": "Since `temperature > 30` is True, 'Heat advisory' is printed. The following line is unindented, so it always runs, printing 'Drive safely'."
     },
     {
       "id": "5.1_q8",
-      "type": "output_prediction",
+      "type": "multiple_choice",
       "concept": "the_if_statement_execution",
       "skill": "prediction",
       "difficulty": "medium",
       "prerequisites": [
         "5.1_q7"
       ],
-      "prompt": "Predict Output 8: What does this snippet output?\n```python\nvalue_8 = 40\nprint(value_8)\n```",
+      "prompt": "What is the requirement for the indentation level of code inside an `if` block in Python?",
       "options": [
-        "40",
-        "20",
-        "value_8",
-        "Error"
+        "All statements in the block must be indented by the exact same amount (conventionally 4 spaces)",
+        "Indentation can vary freely line by line within the block",
+        "Indentation is only required for loops, not if statements",
+        "Python accepts either tabs or spaces intermixed within the same line"
       ],
-      "correct_answer": "40",
-      "explanation": "The variable value_8 stores 40, and print outputs it to the console."
+      "correct_answer": "All statements in the block must be indented by the exact same amount (conventionally 4 spaces)",
+      "explanation": "Python uses whitespace to denote blocks of code. All statements in the same block must have identical indentation."
     },
     {
       "id": "5.1_q9",
-      "type": "code_prediction",
+      "type": "fix_the_code",
       "concept": "the_if_statement_flow",
       "skill": "prediction",
       "difficulty": "medium",
       "prerequisites": [
         "5.1_q8"
       ],
-      "prompt": "Predict Output 9: What does this snippet output?\n```python\nvalue_9 = 45\nprint(value_9)\n```",
+      "prompt": "Fix this code by adding the missing colon `:` at the end of the `if` header:",
       "options": [
         "45",
         "22",
@@ -156,26 +160,28 @@
         "Error"
       ],
       "correct_answer": "45",
-      "explanation": "The variable value_9 stores 45, and print outputs it to the console."
+      "explanation": "Compound statements in Python such as `if`, `for`, and `def` must terminate their header line with a colon `:`.",
+      "starter_code": "is_logged_in = True\nif is_logged_in\n    print('Welcome back!')",
+      "solution_code": "is_logged_in = True\nif is_logged_in:\n    print('Welcome back!')"
     },
     {
       "id": "5.1_q10",
-      "type": "multiple_choice",
+      "type": "output_prediction",
       "concept": "the_if_statement_analysis",
       "skill": "analysis",
       "difficulty": "medium",
       "prerequisites": [
         "5.1_q9"
       ],
-      "prompt": "Review 10: What is the primary characteristic of The If Statement Analysis in if Statement?",
+      "prompt": "Consider the following Python snippet demonstrating The If Statement Analysis:\n\n```python\ndef calculate_10(value):\n    base = 12\n    return base + value * 6\n\nresult = calculate_10(2)\nprint(result)\n```\n\nWhat is the value printed to the console?",
       "options": [
-        "A. It defines specific rules for the if statement analysis in Python programs",
-        "B. It forces hardware clock speeds to double automatically",
-        "C. It permanently deletes system configuration records",
-        "D. It removes the need for syntax parsing completely"
+        "24",
+        "18",
+        "84",
+        "TypeError"
       ],
-      "correct_answer": "A",
-      "explanation": "The If Statement Analysis defines specific semantics for the if statement analysis in Python programs."
+      "correct_answer": "24",
+      "explanation": "Python evaluates arithmetic following standard operator precedence (multiplication before addition). First, `value * 6` evaluates to `2 * 6 = 12`. Then, adding `base` (12) yields `24`. The function returns this integer and `print()` outputs it."
     },
     {
       "id": "5.1_q11",
@@ -186,15 +192,15 @@
       "prerequisites": [
         "5.1_q10"
       ],
-      "prompt": "Predict Output 11: What does this snippet output?\n```python\nvalue_11 = 55\nprint(value_11)\n```",
+      "prompt": "What does this snippet display?\n```python\nscore = 45\nif score >= 50:\n    print('Passed')\nprint('Score recorded')\n```",
       "options": [
-        "55",
-        "27",
-        "value_11",
-        "Error"
+        "Score recorded",
+        "Passed\nScore recorded",
+        "Passed",
+        "Nothing"
       ],
-      "correct_answer": "55",
-      "explanation": "The variable value_11 stores 55, and print outputs it to the console."
+      "correct_answer": "Score recorded",
+      "explanation": "`score >= 50` is False (45 < 50), so the indented `print('Passed')` is skipped. The unindented line prints 'Score recorded'."
     },
     {
       "id": "5.1_q12",
@@ -205,15 +211,15 @@
       "prerequisites": [
         "5.1_q11"
       ],
-      "prompt": "Predict Output 12: What does this snippet output?\n```python\nvalue_12 = 60\nprint(value_12)\n```",
+      "prompt": "What will be printed when this script runs?\n```python\nitems = []\nif items:\n    print('Cart has items')\nif not items:\n    print('Cart is empty')\n```",
       "options": [
-        "60",
-        "30",
-        "value_12",
-        "Error"
+        "Cart is empty",
+        "Cart has items",
+        "Cart has items\nCart is empty",
+        "None"
       ],
-      "correct_answer": "60",
-      "explanation": "The variable value_12 stores 60, and print outputs it to the console."
+      "correct_answer": "Cart is empty",
+      "explanation": "In Python, empty collections (like empty lists `[]`) evaluate to False in a boolean context. Therefore, `not items` is True."
     },
     {
       "id": "5.1_q13",
@@ -224,12 +230,12 @@
       "prerequisites": [
         "5.1_q12"
       ],
-      "prompt": "Fill Blank 13: Complete the code to output 'if Statement #13':\n```python\n___('if Statement #13')\n```",
+      "prompt": "Complete the code to output 'if Statement #13':\n```python\n___('if Statement #13')\n```",
       "correct_answer": "print",
       "accepted_answers": [
         "print"
       ],
-      "explanation": "The built-in print() function outputs the specified string."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of the if statement syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "5.1_q14",
@@ -240,12 +246,12 @@
       "prerequisites": [
         "5.1_q13"
       ],
-      "prompt": "Fill Blank 14: Complete the code to output 'if Statement #14':\n```python\n___('if Statement #14')\n```",
+      "prompt": "Complete the code to output 'if Statement #14':\n```python\n___('if Statement #14')\n```",
       "correct_answer": "print",
       "accepted_answers": [
         "print"
       ],
-      "explanation": "The built-in print() function outputs the specified string."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of the if statement keywords. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "5.1_q15",
@@ -256,7 +262,7 @@
       "prerequisites": [
         "5.1_q14"
       ],
-      "prompt": "Algorithm Sequence 15: Arrange the lines in correct logical order for The If Statement Sequence:",
+      "prompt": "Arrange the lines in correct logical order for The If Statement Sequence:",
       "options": [
         "a_15 = 10",
         "b_15 = 20",
@@ -646,5 +652,15 @@
       "explanation": "The function leverages all() to verify universal passing, then any() to detect excellence. The order matters: all-passing takes precedence over top-performer, which mirrors typical grading hierarchies.",
       "difficulty": "hard"
     }
+  ],
+  "unit_num": 5,
+  "learning_objectives": [
+    "Explain the technical concepts and mechanics of if Statement",
+    "Apply idiomatic Python patterns when working with if Statement",
+    "Debug common runtime exceptions and logic errors associated with if Statement",
+    "Implement production-ready code utilizing if Statement"
+  ],
+  "prerequisites": [
+    "4.4"
   ]
 }

@@ -11,7 +11,9 @@
       "concept": "graph_representation_basics",
       "title": "What is a Graph in Python?",
       "content": "A graph is a data structure that models relationships between objects. In Python, we represent a graph using nodes (vertices) and edges. Common representations include adjacency lists and adjacency matrices. An adjacency list is a dictionary where each key is a node and its value is a list of connected neighbors. For example, a social network can be modeled where users are nodes and friendships are edges. Here is how you create a simple graph using a dictionary:\n\n```python\n# Define nodes and edges\ngraph = {\n    'A': ['B', 'C'],\n    'B': ['A', 'D'],\n    'C': ['A'],\n    'D': ['B']\n}\nprint(graph)\n```\n\nThis structure allows efficient traversal and is widely used in algorithms like BFS and DFS.",
-      "prerequisites": []
+      "prerequisites": [],
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of graph representation basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "39.1_q2",
@@ -42,7 +44,9 @@
       "content": "When building graphs in Python, you can use built-in types like dictionaries and lists. Always initialize a node before adding edges to avoid KeyError. You can also use the defaultdict from the collections module to simplify neighbor initialization. Here is a robust pattern:\n\n```python\nfrom collections import defaultdict\n\n# Create an empty graph\ngraph = defaultdict(list)\ngraph['X'].append('Y')\ngraph['Y'].append('X')\ngraph['X'].append('Z')\nprint(dict(graph))\n```\n\nThis ensures that even if a node has no neighbors yet, it defaults to an empty list, making edge insertion safe and concise.",
       "prerequisites": [
         "39.1_q2"
-      ]
+      ],
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of graph representation syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "39.1_q4",
@@ -131,12 +135,12 @@
       ],
       "prompt": "What is the output of the following Python code?\n\n```python\nneighbors = {'X': ['Y', 'Z'], 'Y': ['X']}\nif 'Z' in neighbors.get('X', []):\n    print('found')\nelse:\n    print('missing')\nprint(neighbors.get('Y', []))\n```",
       "options": [
-        "'found' then ['X']",
-        "'missing' then ['X']",
-        "'found' then ['X', 'Z']",
-        "'missing' then ['Y']"
+        "found\n['X']",
+        "found\n[]",
+        "not found\n['X']",
+        "Error"
       ],
-      "correct_answer": "'found' then ['X']",
+      "correct_answer": "found\n['X']",
       "explanation": "neighbors.get('X', []) returns ['Y', 'Z']. Since 'Z' is in that list, the if branch executes and prints 'found'. Then neighbors.get('Y', []) returns ['X'], so the final print outputs ['X']."
     },
     {
@@ -289,7 +293,7 @@
         "y = 20",
         "print(x + y)"
       ],
-      "explanation": "Option 3 is correct because it initializes the dictionary first, then safely checks and creates empty lists for both nodes before appending neighbors. Option 2 fails because it assumes nodes exist. Option 1 lacks initialization. Option 4 overwrites lists on every iteration instead of appending."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of graph representation sequence. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "39.1_q16",
@@ -374,7 +378,7 @@
       "prompt": "Fix the bug in this code for graph representation errors:",
       "starter_code": "# Fix this code\nPrint('Graph Representation')",
       "solution_code": "print('Graph Representation')",
-      "explanation": "Python identifiers and built-ins are case-sensitive."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of graph representation errors. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "39.1_q20",
@@ -422,7 +426,7 @@
       "prompt": "Fix the bug in this code for graph representation runtime:",
       "starter_code": "# Fix this code\nPrint('Graph Representation')",
       "solution_code": "print('Graph Representation')",
-      "explanation": "Python identifiers and built-ins are case-sensitive."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of graph representation runtime. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "39.1_q23",
@@ -621,5 +625,15 @@
       "hint": "Build the index map once to translate vertex labels to matrix indices. For connectivity, perform DFS or BFS from any vertex and verify all vertices are reached.",
       "explanation": "Converting between representations is essential for algorithmic compatibility. A graph is connected if a single DFS/BFS traversal from any vertex visits all vertices. The adjacency matrix enables O(1) edge existence checks but uses O(V^2) space."
     }
+  ],
+  "unit_num": 39,
+  "learning_objectives": [
+    "Implement the fundamental Graph Representation algorithm in idiomatic Python",
+    "Calculate time and space complexity using Big O notation",
+    "Trace edge-case performance and termination conditions",
+    "Apply the algorithmic pattern to solve practical data structure problems"
+  ],
+  "prerequisites": [
+    "38.5"
   ]
 }

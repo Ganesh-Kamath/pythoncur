@@ -11,7 +11,9 @@
       "difficulty": "easy",
       "title": "Recognizing When Comprehensions Hurt Readability",
       "content": "List comprehensions are concise, but clarity should come first. When a comprehension becomes too long or contains multiple nested conditions, it can confuse readers. A good rule of thumb: if you need more than one line to understand the logic, consider a standard for loop instead.\n\nExample of a readable comprehension:\n```python\nsquares = [x ** 2 for x in range(5)]\n```\n\nExample where readability suffers:\n```python\nfiltered = [x * 2 for x in data if x > 0 and x % 2 == 0 and x < 100]\n```\nThis single line packs filtering and transformation together. For beginners, a regular loop makes the intent clearer.",
-      "prerequisites": []
+      "prerequisites": [],
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of readability when not to use comprehensions basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "idx": 2,
@@ -44,7 +46,9 @@
       "id": "16.6_q3",
       "prerequisites": [
         "16.6_q2"
-      ]
+      ],
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of readability when not to use comprehensions syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "idx": 4,
@@ -259,7 +263,7 @@
       "prerequisites": [
         "16.6_q13"
       ],
-      "prompt": "Comprehensions cannot directly include assignment statements or multiple keywords. Which keyword cannot be used inside a list comprehension body?",
+      "prompt": "Complete the comprehension by filling in the filtering keyword:\n`[x * 2 for x in nums ___ x > 0]`",
       "correct_answer": "assignment",
       "accepted_answers": [
         "assignment",
@@ -299,7 +303,7 @@
       "prerequisites": [
         "16.6_q15"
       ],
-      "prompt": "A common anti-pattern is nesting comprehensions too deeply. Which pattern is a strong indicator that a comprehension should be replaced with an explicit loop?",
+      "prompt": "Fill in the syntax to create a set comprehension instead of a list comprehension:\n`unique_lens = ___[len(w) for w in words]___`",
       "correct_answer": "nested_comprehension",
       "accepted_answers": [
         "nested_comprehension",
@@ -598,5 +602,15 @@
       "hint": "Build an intermediate dictionary of lists first, then compute averages in a second loop.",
       "explanation": "Mastery means recognizing that even multi-pass aggregation is clearer when each pass has a single responsibility. Using explicit loops separates data collection from transformation, which prevents subtle bugs and makes the code accessible to teammates of varying skill levels."
     }
+  ],
+  "unit_num": 16,
+  "learning_objectives": [
+    "Explain the technical concepts and mechanics of Readability: When Not to Use Comprehensions",
+    "Apply idiomatic Python patterns when working with Readability: When Not to Use Comprehensions",
+    "Debug common runtime exceptions and logic errors associated with Readability: When Not to Use Comprehensions",
+    "Implement production-ready code utilizing Readability: When Not to Use Comprehensions"
+  ],
+  "prerequisites": [
+    "16.5"
   ]
 }

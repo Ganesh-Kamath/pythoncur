@@ -11,26 +11,28 @@
       "difficulty": "easy",
       "prerequisites": [],
       "title": "Processing Numeric Input Part 1: Processing Numeric Input Basics",
-      "content": "In Python, **Processing Numeric Input Basics** provides essential rules when working with processing numeric input.\n\nUnderstanding how `processing_numeric_input_basics` functions in practice enables you to write clean, unambiguous code.\n\n```python\n# Step 1: processing_numeric_input_basics\nstage_1 = True\n```"
+      "content": "In Python, **Processing Numeric Input Basics** provides essential rules when working with processing numeric input.\n\nUnderstanding how `processing_numeric_input_basics` functions in practice enables you to write clean, unambiguous code.\n\n```python\n# Step 1: processing_numeric_input_basics\nstage_1 = True\n```",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of processing numeric input basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "4.2_q2",
-      "type": "multiple_choice",
+      "type": "output_prediction",
       "concept": "processing_numeric_input_basics",
       "skill": "recall",
       "difficulty": "easy",
       "prerequisites": [
         "4.2_q1"
       ],
-      "prompt": "Review 2: What is the primary characteristic of Processing Numeric Input Basics in Processing Numeric Input?",
+      "prompt": "Consider the following Python snippet demonstrating Processing Numeric Input Basics:\n\n```python\ndef calculate_2(value):\n    base = 8\n    return base + value * 11\n\nresult = calculate_2(2)\nprint(result)\n```\n\nWhat is the value printed to the console?",
       "options": [
-        "A. It defines specific rules for processing numeric input basics in Python programs",
-        "B. It forces hardware clock speeds to double automatically",
-        "C. It permanently deletes system configuration records",
-        "D. It removes the need for syntax parsing completely"
+        "30",
+        "19",
+        "110",
+        "TypeError"
       ],
-      "correct_answer": "A",
-      "explanation": "Processing Numeric Input Basics defines specific semantics for processing numeric input basics in Python programs."
+      "correct_answer": "30",
+      "explanation": "Python evaluates arithmetic following standard operator precedence (multiplication before addition). First, `value * 11` evaluates to `2 * 11 = 22`. Then, adding `base` (8) yields `30`. The function returns this integer and `print()` outputs it."
     },
     {
       "id": "4.2_q3",
@@ -42,64 +44,66 @@
         "4.2_q2"
       ],
       "title": "Processing Numeric Input Part 3: Processing Numeric Input Syntax",
-      "content": "In Python, **Processing Numeric Input Syntax** provides essential rules when working with processing numeric input.\n\nUnderstanding how `processing_numeric_input_syntax` functions in practice enables you to write clean, unambiguous code.\n\n```python\n# Step 3: processing_numeric_input_syntax\nstage_3 = True\n```"
+      "content": "In Python, **Processing Numeric Input Syntax** provides essential rules when working with processing numeric input.\n\nUnderstanding how `processing_numeric_input_syntax` functions in practice enables you to write clean, unambiguous code.\n\n```python\n# Step 3: processing_numeric_input_syntax\nstage_3 = True\n```",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of processing numeric input syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "4.2_q4",
-      "type": "multiple_choice",
+      "type": "output_prediction",
       "concept": "processing_numeric_input_syntax",
       "skill": "reasoning",
       "difficulty": "easy",
       "prerequisites": [
         "4.2_q3"
       ],
-      "prompt": "Review 4: What is the primary characteristic of Processing Numeric Input Syntax in Processing Numeric Input?",
+      "prompt": "Consider the following Python snippet demonstrating Processing Numeric Input Syntax:\n\n```python\ndef calculate_4(value):\n    base = 14\n    return base + value * 6\n\nresult = calculate_4(2)\nprint(result)\n```\n\nWhat is the value printed to the console?",
       "options": [
-        "A. It defines specific rules for processing numeric input syntax in Python programs",
-        "B. It forces hardware clock speeds to double automatically",
-        "C. It permanently deletes system configuration records",
-        "D. It removes the need for syntax parsing completely"
+        "26",
+        "20",
+        "96",
+        "TypeError"
       ],
-      "correct_answer": "A",
-      "explanation": "Processing Numeric Input Syntax defines specific semantics for processing numeric input syntax in Python programs."
+      "correct_answer": "26",
+      "explanation": "Python evaluates arithmetic following standard operator precedence (multiplication before addition). First, `value * 6` evaluates to `2 * 6 = 12`. Then, adding `base` (14) yields `26`. The function returns this integer and `print()` outputs it."
     },
     {
       "id": "4.2_q5",
-      "type": "multiple_choice",
+      "type": "output_prediction",
       "concept": "processing_numeric_input_matching",
       "skill": "recognition",
       "difficulty": "easy",
       "prerequisites": [
         "4.2_q4"
       ],
-      "prompt": "Review 5: What is the primary characteristic of Processing Numeric Input Matching in Processing Numeric Input?",
+      "prompt": "Consider the following Python snippet demonstrating Processing Numeric Input Matching:\n\n```python\ndef calculate_5(value):\n    base = 17\n    return base + value * 11\n\nresult = calculate_5(2)\nprint(result)\n```\n\nWhat is the value printed to the console?",
       "options": [
-        "A. It defines specific rules for processing numeric input matching in Python programs",
-        "B. It forces hardware clock speeds to double automatically",
-        "C. It permanently deletes system configuration records",
-        "D. It removes the need for syntax parsing completely"
+        "39",
+        "28",
+        "209",
+        "TypeError"
       ],
-      "correct_answer": "A",
-      "explanation": "Processing Numeric Input Matching defines specific semantics for processing numeric input matching in Python programs."
+      "correct_answer": "39",
+      "explanation": "Python evaluates arithmetic following standard operator precedence (multiplication before addition). First, `value * 11` evaluates to `2 * 11 = 22`. Then, adding `base` (17) yields `39`. The function returns this integer and `print()` outputs it."
     },
     {
       "id": "4.2_q6",
-      "type": "multiple_choice",
+      "type": "output_prediction",
       "concept": "processing_numeric_input_pitfalls",
       "skill": "comprehension",
       "difficulty": "easy",
       "prerequisites": [
         "4.2_q5"
       ],
-      "prompt": "Review 6: What is the primary characteristic of Processing Numeric Input Pitfalls in Processing Numeric Input?",
+      "prompt": "Consider the following Python snippet demonstrating Processing Numeric Input Pitfalls:\n\n```python\ndef calculate_6(value):\n    base = 20\n    return base + value * 1\n\nresult = calculate_6(2)\nprint(result)\n```\n\nWhat is the value printed to the console?",
       "options": [
-        "A. It defines specific rules for processing numeric input pitfalls in Python programs",
-        "B. It forces hardware clock speeds to double automatically",
-        "C. It permanently deletes system configuration records",
-        "D. It removes the need for syntax parsing completely"
+        "22",
+        "21",
+        "22",
+        "TypeError"
       ],
-      "correct_answer": "A",
-      "explanation": "Processing Numeric Input Pitfalls defines specific semantics for processing numeric input pitfalls in Python programs."
+      "correct_answer": "22",
+      "explanation": "Python evaluates arithmetic following standard operator precedence (multiplication before addition). First, `value * 1` evaluates to `2 * 1 = 2`. Then, adding `base` (20) yields `22`. The function returns this integer and `print()` outputs it."
     },
     {
       "id": "4.2_q7",
@@ -110,45 +114,45 @@
       "prerequisites": [
         "4.2_q6"
       ],
-      "prompt": "Predict Output 7: What does this snippet output?\n```python\nvalue_7 = 35\nprint(value_7)\n```",
+      "prompt": "What happens when `int(' 42 \\n')` is evaluated?\n```python\nval = int(' 42 \\n')\nprint(val)\n```",
       "options": [
-        "35",
-        "17",
-        "value_7",
-        "Error"
+        "42",
+        "ValueError",
+        "'42'",
+        "None"
       ],
-      "correct_answer": "35",
-      "explanation": "The variable value_7 stores 35, and print outputs it to the console."
+      "correct_answer": "42",
+      "explanation": "Python's `int()` function automatically ignores leading and trailing whitespace characters, returning 42."
     },
     {
       "id": "4.2_q8",
-      "type": "output_prediction",
+      "type": "error_diagnosis",
       "concept": "processing_numeric_input_execution",
       "skill": "prediction",
       "difficulty": "medium",
       "prerequisites": [
         "4.2_q7"
       ],
-      "prompt": "Predict Output 8: What does this snippet output?\n```python\nvalue_8 = 40\nprint(value_8)\n```",
+      "prompt": "What exception occurs if a user enters 'ten' and the program runs `int(input())`?",
       "options": [
-        "40",
-        "20",
-        "value_8",
-        "Error"
+        "ValueError",
+        "TypeError",
+        "SyntaxError",
+        "NameError"
       ],
-      "correct_answer": "40",
-      "explanation": "The variable value_8 stores 40, and print outputs it to the console."
+      "correct_answer": "ValueError",
+      "explanation": "Attempting to parse a non-numeric string into an integer raises a ValueError."
     },
     {
       "id": "4.2_q9",
-      "type": "code_prediction",
+      "type": "fix_the_code",
       "concept": "processing_numeric_input_flow",
       "skill": "prediction",
       "difficulty": "medium",
       "prerequisites": [
         "4.2_q8"
       ],
-      "prompt": "Predict Output 9: What does this snippet output?\n```python\nvalue_9 = 45\nprint(value_9)\n```",
+      "prompt": "Fix this code so it safely calculates total price with a floating-point discount rate:",
       "options": [
         "45",
         "22",
@@ -156,56 +160,58 @@
         "Error"
       ],
       "correct_answer": "45",
-      "explanation": "The variable value_9 stores 45, and print outputs it to the console."
+      "explanation": "Converting '0.15' with `float()` parses the decimal fraction correctly.",
+      "starter_code": "price = 100\nrate = float('0.15')\ntotal = price - (price * rate)\nprint(int(total))",
+      "solution_code": "price = 100\nrate = float('0.15')\ntotal = price - (price * rate)\nprint(int(total))"
     },
     {
       "id": "4.2_q10",
-      "type": "multiple_choice",
+      "type": "output_prediction",
       "concept": "processing_numeric_input_analysis",
       "skill": "analysis",
       "difficulty": "medium",
       "prerequisites": [
         "4.2_q9"
       ],
-      "prompt": "Review 10: What is the primary characteristic of Processing Numeric Input Analysis in Processing Numeric Input?",
+      "prompt": "Consider the following Python snippet demonstrating Processing Numeric Input Analysis:\n\n```python\ndef calculate_10(value):\n    base = 12\n    return base + value * 6\n\nresult = calculate_10(2)\nprint(result)\n```\n\nWhat is the value printed to the console?",
       "options": [
-        "A. It defines specific rules for processing numeric input analysis in Python programs",
-        "B. It forces hardware clock speeds to double automatically",
-        "C. It permanently deletes system configuration records",
-        "D. It removes the need for syntax parsing completely"
+        "24",
+        "18",
+        "84",
+        "TypeError"
       ],
-      "correct_answer": "A",
-      "explanation": "Processing Numeric Input Analysis defines specific semantics for processing numeric input analysis in Python programs."
+      "correct_answer": "24",
+      "explanation": "Python evaluates arithmetic following standard operator precedence (multiplication before addition). First, `value * 6` evaluates to `2 * 6 = 12`. Then, adding `base` (12) yields `24`. The function returns this integer and `print()` outputs it."
     },
     {
       "id": "4.2_q11",
-      "type": "code_prediction",
+      "type": "multiple_choice",
       "concept": "processing_numeric_input_tracing",
       "skill": "tracing",
       "difficulty": "medium",
       "prerequisites": [
         "4.2_q10"
       ],
-      "prompt": "Predict Output 11: What does this snippet output?\n```python\nvalue_11 = 55\nprint(value_11)\n```",
+      "prompt": "Why does `int('3.14')` directly raise a `ValueError` in Python?",
       "options": [
-        "55",
-        "27",
-        "value_11",
-        "Error"
+        "int() requires a string representing an integer base-10 literal without a decimal point",
+        "Python does not support converting strings to numbers",
+        "Floats cannot be cast to integers",
+        "The string contains non-ASCII characters"
       ],
-      "correct_answer": "55",
-      "explanation": "The variable value_11 stores 55, and print outputs it to the console."
+      "correct_answer": "int() requires a string representing an integer base-10 literal without a decimal point",
+      "explanation": "`int()` only parses pure whole integer strings. To parse '3.14', first call `float('3.14')`."
     },
     {
       "id": "4.2_q12",
-      "type": "output_prediction",
+      "type": "write_the_code",
       "concept": "processing_numeric_input_logic",
       "skill": "prediction",
       "difficulty": "medium",
       "prerequisites": [
         "4.2_q11"
       ],
-      "prompt": "Predict Output 12: What does this snippet output?\n```python\nvalue_12 = 60\nprint(value_12)\n```",
+      "prompt": "Write code to convert the numeric string in `user_val` to a float and multiply it by 2:",
       "options": [
         "60",
         "30",
@@ -213,7 +219,9 @@
         "Error"
       ],
       "correct_answer": "60",
-      "explanation": "The variable value_12 stores 60, and print outputs it to the console."
+      "explanation": "Use `float(user_val)` to convert the string before performing numeric multiplication.",
+      "starter_code": "user_val = '14.5'\n# Convert and double\nresult = ___",
+      "solution_code": "user_val = '14.5'\nresult = float(user_val) * 2"
     },
     {
       "id": "4.2_q13",
@@ -224,12 +232,12 @@
       "prerequisites": [
         "4.2_q12"
       ],
-      "prompt": "Fill Blank 13: Complete the code to output 'Processing Numeric Input #13':\n```python\n___('Processing Numeric Input #13')\n```",
+      "prompt": "Complete the code to output 'Processing Numeric Input #13':\n```python\n___('Processing Numeric Input #13')\n```",
       "correct_answer": "print",
       "accepted_answers": [
         "print"
       ],
-      "explanation": "The built-in print() function outputs the specified string."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of processing numeric input syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "4.2_q14",
@@ -240,12 +248,12 @@
       "prerequisites": [
         "4.2_q13"
       ],
-      "prompt": "Fill Blank 14: Complete the code to output 'Processing Numeric Input #14':\n```python\n___('Processing Numeric Input #14')\n```",
+      "prompt": "Complete the code to output 'Processing Numeric Input #14':\n```python\n___('Processing Numeric Input #14')\n```",
       "correct_answer": "print",
       "accepted_answers": [
         "print"
       ],
-      "explanation": "The built-in print() function outputs the specified string."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of processing numeric input keywords. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "4.2_q15",
@@ -256,7 +264,7 @@
       "prerequisites": [
         "4.2_q14"
       ],
-      "prompt": "Algorithm Sequence 15: Arrange the lines in correct logical order for Processing Numeric Input Sequence:",
+      "prompt": "Arrange the lines in correct logical order for Processing Numeric Input Sequence:",
       "options": [
         "a_15 = 10",
         "b_15 = 20",
@@ -280,12 +288,12 @@
       "prerequisites": [
         "4.2_q15"
       ],
-      "prompt": "Fill Blank 16: Complete the code to output 'Processing Numeric Input #16':\n```python\n___('Processing Numeric Input #16')\n```",
+      "prompt": "Complete the code to output 'Processing Numeric Input #16':\n```python\n___('Processing Numeric Input #16')\n```",
       "correct_answer": "print",
       "accepted_answers": [
         "print"
       ],
-      "explanation": "The built-in print() function outputs the specified string."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of processing numeric input patterns. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "4.2_q17",
@@ -296,7 +304,7 @@
       "prerequisites": [
         "4.2_q16"
       ],
-      "prompt": "Algorithm Sequence 17: Arrange the lines in correct logical order for Processing Numeric Input Algorithm:",
+      "prompt": "Arrange the lines in correct logical order for Processing Numeric Input Algorithm:",
       "options": [
         "a_17 = 10",
         "b_17 = 20",
@@ -320,12 +328,12 @@
       "prerequisites": [
         "4.2_q17"
       ],
-      "prompt": "Fill Blank 18: Complete the code to output 'Processing Numeric Input #18':\n```python\n___('Processing Numeric Input #18')\n```",
+      "prompt": "Complete the code to output 'Processing Numeric Input #18':\n```python\n___('Processing Numeric Input #18')\n```",
       "correct_answer": "print",
       "accepted_answers": [
         "print"
       ],
-      "explanation": "The built-in print() function outputs the specified string."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of processing numeric input idioms. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "4.2_q19",
@@ -336,11 +344,11 @@
       "prerequisites": [
         "4.2_q18"
       ],
-      "prompt": "Debug Challenge 19: Fix the capitalization error in this line for Processing Numeric Input Errors:",
+      "prompt": "Fix the capitalization error in this line for Processing Numeric Input Errors:",
       "starter_code": "Print('Processing Numeric Input Item 19')",
       "solution_code": "print('Processing Numeric Input Item 19')",
       "hint": "Python built-in functions like print() must be written in lowercase.",
-      "explanation": "Built-in function names in Python are case-sensitive and require lowercase."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of processing numeric input errors. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "4.2_q20",
@@ -351,11 +359,11 @@
       "prerequisites": [
         "4.2_q19"
       ],
-      "prompt": "Debug Challenge 20: Fix the capitalization error in this line for Processing Numeric Input Fix:",
+      "prompt": "Fix the capitalization error in this line for Processing Numeric Input Fix:",
       "starter_code": "Print('Processing Numeric Input Item 20')",
       "solution_code": "print('Processing Numeric Input Item 20')",
       "hint": "Python built-in functions like print() must be written in lowercase.",
-      "explanation": "Built-in function names in Python are case-sensitive and require lowercase."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of processing numeric input fix. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "4.2_q21",
@@ -366,11 +374,11 @@
       "prerequisites": [
         "4.2_q20"
       ],
-      "prompt": "Debug Challenge 21: Fix the capitalization error in this line for Processing Numeric Input Edge Cases:",
+      "prompt": "Fix the capitalization error in this line for Processing Numeric Input Edge Cases:",
       "starter_code": "Print('Processing Numeric Input Item 21')",
       "solution_code": "print('Processing Numeric Input Item 21')",
       "hint": "Python built-in functions like print() must be written in lowercase.",
-      "explanation": "Built-in function names in Python are case-sensitive and require lowercase."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of processing numeric input edge cases. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "4.2_q22",
@@ -381,11 +389,11 @@
       "prerequisites": [
         "4.2_q21"
       ],
-      "prompt": "Debug Challenge 22: Fix the capitalization error in this line for Processing Numeric Input Runtime:",
+      "prompt": "Fix the capitalization error in this line for Processing Numeric Input Runtime:",
       "starter_code": "Print('Processing Numeric Input Item 22')",
       "solution_code": "print('Processing Numeric Input Item 22')",
       "hint": "Python built-in functions like print() must be written in lowercase.",
-      "explanation": "Built-in function names in Python are case-sensitive and require lowercase."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of processing numeric input runtime. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "4.2_q23",
@@ -396,11 +404,11 @@
       "prerequisites": [
         "4.2_q22"
       ],
-      "prompt": "Debug Challenge 23: Fix the capitalization error in this line for Processing Numeric Input Logic Repair:",
+      "prompt": "Fix the capitalization error in this line for Processing Numeric Input Logic Repair:",
       "starter_code": "Print('Processing Numeric Input Item 23')",
       "solution_code": "print('Processing Numeric Input Item 23')",
       "hint": "Python built-in functions like print() must be written in lowercase.",
-      "explanation": "Built-in function names in Python are case-sensitive and require lowercase."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of processing numeric input logic repair. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "4.2_q24",
@@ -411,11 +419,11 @@
       "prerequisites": [
         "4.2_q23"
       ],
-      "prompt": "Debug Challenge 24: Fix the capitalization error in this line for Processing Numeric Input Optimization:",
+      "prompt": "Fix the capitalization error in this line for Processing Numeric Input Optimization:",
       "starter_code": "Print('Processing Numeric Input Item 24')",
       "solution_code": "print('Processing Numeric Input Item 24')",
       "hint": "Python built-in functions like print() must be written in lowercase.",
-      "explanation": "Built-in function names in Python are case-sensitive and require lowercase."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of processing numeric input optimization. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "4.2_q25",
@@ -426,7 +434,7 @@
       "prerequisites": [
         "4.2_q24"
       ],
-      "prompt": "Coding Challenge 25: Write a statement that prints 'Processing Numeric Input Result 25' to standard output.",
+      "prompt": "Write a statement that prints 'Processing Numeric Input Result 25' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Processing Numeric Input Result 25')",
       "test_cases": [
@@ -436,7 +444,7 @@
         }
       ],
       "hint": "Use print('Processing Numeric Input Result 25') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of processing numeric input implementation. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "4.2_q26",
@@ -447,7 +455,7 @@
       "prerequisites": [
         "4.2_q25"
       ],
-      "prompt": "Coding Challenge 26: Write a statement that prints 'Processing Numeric Input Result 26' to standard output.",
+      "prompt": "Write a statement that prints 'Processing Numeric Input Result 26' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Processing Numeric Input Result 26')",
       "test_cases": [
@@ -457,7 +465,7 @@
         }
       ],
       "hint": "Use print('Processing Numeric Input Result 26') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of processing numeric input practical. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "4.2_q27",
@@ -468,7 +476,7 @@
       "prerequisites": [
         "4.2_q26"
       ],
-      "prompt": "Coding Challenge 27: Write a statement that prints 'Processing Numeric Input Result 27' to standard output.",
+      "prompt": "Write a statement that prints 'Processing Numeric Input Result 27' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Processing Numeric Input Result 27')",
       "test_cases": [
@@ -478,7 +486,7 @@
         }
       ],
       "hint": "Use print('Processing Numeric Input Result 27') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of processing numeric input advanced. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "4.2_q28",
@@ -489,7 +497,7 @@
       "prerequisites": [
         "4.2_q27"
       ],
-      "prompt": "Coding Challenge 28: Write a statement that prints 'Processing Numeric Input Result 28' to standard output.",
+      "prompt": "Write a statement that prints 'Processing Numeric Input Result 28' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Processing Numeric Input Result 28')",
       "test_cases": [
@@ -499,7 +507,7 @@
         }
       ],
       "hint": "Use print('Processing Numeric Input Result 28') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of processing numeric input challenge. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "4.2_q29",
@@ -510,7 +518,7 @@
       "prerequisites": [
         "4.2_q28"
       ],
-      "prompt": "Coding Challenge 29: Write a statement that prints 'Processing Numeric Input Result 29' to standard output.",
+      "prompt": "Write a statement that prints 'Processing Numeric Input Result 29' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Processing Numeric Input Result 29')",
       "test_cases": [
@@ -520,7 +528,7 @@
         }
       ],
       "hint": "Use print('Processing Numeric Input Result 29') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of processing numeric input scenario. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "4.2_q30",
@@ -531,7 +539,7 @@
       "prerequisites": [
         "4.2_q29"
       ],
-      "prompt": "Coding Challenge 30: Write a statement that prints 'Processing Numeric Input Result 30' to standard output.",
+      "prompt": "Write a statement that prints 'Processing Numeric Input Result 30' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Processing Numeric Input Result 30')",
       "test_cases": [
@@ -541,7 +549,17 @@
         }
       ],
       "hint": "Use print('Processing Numeric Input Result 30') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of processing numeric input mastery. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     }
+  ],
+  "unit_num": 4,
+  "learning_objectives": [
+    "Explain the technical concepts and mechanics of Processing Numeric Input",
+    "Apply idiomatic Python patterns when working with Processing Numeric Input",
+    "Debug common runtime exceptions and logic errors associated with Processing Numeric Input",
+    "Implement production-ready code utilizing Processing Numeric Input"
+  ],
+  "prerequisites": [
+    "4.1"
   ]
 }

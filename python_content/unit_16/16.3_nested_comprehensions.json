@@ -11,7 +11,9 @@
       "difficulty": "easy",
       "prerequisites": [],
       "title": "Introduction to Nested Comprehensions",
-      "content": "A nested comprehension places one comprehension inside another. It mirrors nested for-loops but in a compact form. For example, to pair every item from one list with every item from another, you write: [x + y for x in ['a', 'b'] for y in ['1', '2']]. This evaluates the outer loop variable x first, then the inner loop variable y, producing all combinations. Think of it as a flattened nested loop: the inner comprehension runs completely for each single iteration of the outer comprehension."
+      "content": "A nested comprehension places one comprehension inside another. It mirrors nested for-loops but in a compact form. For example, to pair every item from one list with every item from another, you write: [x + y for x in ['a', 'b'] for y in ['1', '2']]. This evaluates the outer loop variable x first, then the inner loop variable y, producing all combinations. Think of it as a flattened nested loop: the inner comprehension runs completely for each single iteration of the outer comprehension.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of nested comprehensions basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "16.3_q2",
@@ -42,7 +44,9 @@
         "16.3_q2"
       ],
       "title": "Syntax of Nested Comprehensions",
-      "content": "The general syntax is: [expression for outer_var in outer_iterable for inner_var in inner_iterable]. The expression is evaluated after both loop variables are bound. Order matters: the leftmost for belongs to the outermost loop. Example: [f'{x}{y}' for x in ['X', 'Y'] for y in ['1', '2']] yields ['X1', 'X2', 'Y1', 'Y2']. You can also include a condition at the end: [x * y for x in [1, 2] for y in [3, 4] if x + y > 4] produces [2 * 3, 2 * 4, 1 * 4]. Note that the condition applies after both variables are bound."
+      "content": "The general syntax is: [expression for outer_var in outer_iterable for inner_var in inner_iterable]. The expression is evaluated after both loop variables are bound. Order matters: the leftmost for belongs to the outermost loop. Example: [f'{x}{y}' for x in ['X', 'Y'] for y in ['1', '2']] yields ['X1', 'X2', 'Y1', 'Y2']. You can also include a condition at the end: [x * y for x in [1, 2] for y in [3, 4] if x + y > 4] produces [2 * 3, 2 * 4, 1 * 4]. Note that the condition applies after both variables are bound.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of nested comprehensions syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "16.3_q4",
@@ -371,7 +375,7 @@
       "prompt": "Fix the bug in this code for nested comprehensions errors:",
       "starter_code": "# Fix this code\nPrint('Nested Comprehensions')",
       "solution_code": "print('Nested Comprehensions')",
-      "explanation": "Python identifiers and built-ins are case-sensitive."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of nested comprehensions errors. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "16.3_q20",
@@ -419,7 +423,7 @@
       "prompt": "Fix the bug in this code for nested comprehensions runtime:",
       "starter_code": "# Fix this code\nPrint('Nested Comprehensions')",
       "solution_code": "print('Nested Comprehensions')",
-      "explanation": "Python identifiers and built-ins are case-sensitive."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of nested comprehensions runtime. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "16.3_q23",
@@ -591,5 +595,15 @@
       "hint": "The inner generator checks whether the current x has any associated y greater than 10; the outer set comprehension collects those x values.",
       "explanation": "This mastery-level item demands a nested comprehension where the inner expression is itself a generator that scans for a condition. Learners must correctly use tuple unpacking and set semantics to avoid duplicates."
     }
+  ],
+  "unit_num": 16,
+  "learning_objectives": [
+    "Explain the technical concepts and mechanics of Nested Comprehensions",
+    "Apply idiomatic Python patterns when working with Nested Comprehensions",
+    "Debug common runtime exceptions and logic errors associated with Nested Comprehensions",
+    "Implement production-ready code utilizing Nested Comprehensions"
+  ],
+  "prerequisites": [
+    "16.2"
   ]
 }

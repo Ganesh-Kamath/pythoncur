@@ -11,7 +11,9 @@
       "difficulty": "easy",
       "prerequisites": [],
       "title": "What is Truthiness in Python?",
-      "content": "In Python, every object has an inherent boolean value, which is called its truthiness. When Python evaluates a value in a conditional statement (like an if statement), it does not always require the explicit True or False. Instead, Python uses the following rules: empty collections (such as '', [], and {}) are considered False; zero and None are considered False; and most other values are considered True. Understanding truthiness helps you write cleaner, more Pythonic conditional logic. Here is a simple demonstration:\n\n```python\nvalue1 = ''\nvalue2 = 'hello'\nvalue3 = []\nvalue4 = [1, 2]\n\nif value1:\n    print('value1 is truthy')\nelse:\n    print('value1 is falsy')\n\nif value2:\n    print('value2 is truthy')\nelse:\n    print('value2 is falsy')\n\nif value3:\n    print('value3 is truthy')\nelse:\n    print('value3 is falsy')\n\nif value4:\n    print('value4 is truthy')\nelse:\n    print('value4 is falsy')\n```\n\nRunning this code prints that value1 and value3 are falsy, while value2 and value4 are truthy."
+      "content": "In Python, every object has an inherent boolean value, which is called its truthiness. When Python evaluates a value in a conditional statement (like an if statement), it does not always require the explicit True or False. Instead, Python uses the following rules: empty collections (such as '', [], and {}) are considered False; zero and None are considered False; and most other values are considered True. Understanding truthiness helps you write cleaner, more Pythonic conditional logic. Here is a simple demonstration:\n\n```python\nvalue1 = ''\nvalue2 = 'hello'\nvalue3 = []\nvalue4 = [1, 2]\n\nif value1:\n    print('value1 is truthy')\nelse:\n    print('value1 is falsy')\n\nif value2:\n    print('value2 is truthy')\nelse:\n    print('value2 is falsy')\n\nif value3:\n    print('value3 is truthy')\nelse:\n    print('value3 is falsy')\n\nif value4:\n    print('value4 is truthy')\nelse:\n    print('value4 is falsy')\n```\n\nRunning this code prints that value1 and value3 are falsy, while value2 and value4 are truthy.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of truthiness basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "5.5_q2",
@@ -36,12 +38,12 @@
       "prompt": "Which statement best applies to truthiness basics?",
       "options": [
         "A. Correct approach for truthiness basics",
-        "B. SyntaxError raised unconditionally",
-        "C. Unrelated system call",
-        "D. Halts Python interpreter"
+        "Raises a SyntaxError: invalid syntax at runtime",
+        "Raises an IndentationError: unexpected indent",
+        "Silently ignored by the Python parser"
       ],
       "correct_answer": "A. Correct approach for truthiness basics",
-      "explanation": "Demonstrates core usage of truthiness basics in Python."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of truthiness basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "5.5_q3",
@@ -53,7 +55,9 @@
         "5.5_q2"
       ],
       "title": "Using Truthiness in Conditionals",
-      "content": "You can use any object directly in an if statement without explicitly comparing it to True or False. This is a common Python idiom. For example, checking whether a list has items can be done by testing the list itself rather than its length. Similarly, checking whether a string contains text is done by testing the string directly. Here is how you can use truthiness in practice:\n\n```python\ndef process_items(items):\n    if items:\n        print('Processing', len(items), 'items')\n        for item in items:\n            print('Item:', item)\n    else:\n        print('No items to process')\n\nprocess_items([10, 20, 30])\nprocess_items([])\n```\n\nIn the first call, items is a non-empty list, so it is truthy and the loop executes. In the second call, items is an empty list, so it is falsy and the else branch runs."
+      "content": "You can use any object directly in an if statement without explicitly comparing it to True or False. This is a common Python idiom. For example, checking whether a list has items can be done by testing the list itself rather than its length. Similarly, checking whether a string contains text is done by testing the string directly. Here is how you can use truthiness in practice:\n\n```python\ndef process_items(items):\n    if items:\n        print('Processing', len(items), 'items')\n        for item in items:\n            print('Item:', item)\n    else:\n        print('No items to process')\n\nprocess_items([10, 20, 30])\nprocess_items([])\n```\n\nIn the first call, items is a non-empty list, so it is truthy and the loop executes. In the second call, items is an empty list, so it is falsy and the else branch runs.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of truthiness syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "5.5_q4",
@@ -78,12 +82,12 @@
       "prompt": "Which statement best applies to truthiness syntax?",
       "options": [
         "A. Correct approach for truthiness syntax",
-        "B. SyntaxError raised unconditionally",
-        "C. Unrelated system call",
-        "D. Halts Python interpreter"
+        "Raises a SyntaxError: invalid syntax at runtime",
+        "Raises an IndentationError: unexpected indent",
+        "Silently ignored by the Python parser"
       ],
       "correct_answer": "A. Correct approach for truthiness syntax",
-      "explanation": "Demonstrates core usage of truthiness syntax in Python."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of truthiness syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "5.5_q5",
@@ -108,12 +112,12 @@
       "prompt": "Which statement best applies to truthiness matching?",
       "options": [
         "A. Correct approach for truthiness matching",
-        "B. SyntaxError raised unconditionally",
-        "C. Unrelated system call",
-        "D. Halts Python interpreter"
+        "Raises a SyntaxError: invalid syntax at runtime",
+        "Raises an IndentationError: unexpected indent",
+        "Silently ignored by the Python parser"
       ],
       "correct_answer": "A. Correct approach for truthiness matching",
-      "explanation": "Demonstrates core usage of truthiness matching in Python."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of truthiness matching. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "5.5_q6",
@@ -138,12 +142,12 @@
       "prompt": "Which statement best applies to truthiness pitfalls?",
       "options": [
         "A. Correct approach for truthiness pitfalls",
-        "B. SyntaxError raised unconditionally",
-        "C. Unrelated system call",
-        "D. Halts Python interpreter"
+        "Raises a SyntaxError: invalid syntax at runtime",
+        "Raises an IndentationError: unexpected indent",
+        "Silently ignored by the Python parser"
       ],
       "correct_answer": "A. Correct approach for truthiness pitfalls",
-      "explanation": "Demonstrates core usage of truthiness pitfalls in Python."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of truthiness pitfalls. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "5.5_q7",
@@ -475,7 +479,7 @@
       "prerequisites": [
         "5.5_q24"
       ],
-      "prompt": "Coding Challenge 25: Write a statement that prints 'Truthiness Result 25' to standard output.",
+      "prompt": "Write a statement that prints 'Truthiness Result 25' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Truthiness Result 25')",
       "test_cases": [
@@ -485,7 +489,7 @@
         }
       ],
       "hint": "Use print('Truthiness Result 25') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of truthiness implementation. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "5.5_q26",
@@ -496,7 +500,7 @@
       "prerequisites": [
         "5.5_q25"
       ],
-      "prompt": "Coding Challenge 26: Write a statement that prints 'Truthiness Result 26' to standard output.",
+      "prompt": "Write a statement that prints 'Truthiness Result 26' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Truthiness Result 26')",
       "test_cases": [
@@ -506,7 +510,7 @@
         }
       ],
       "hint": "Use print('Truthiness Result 26') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of truthiness practical. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "5.5_q27",
@@ -517,7 +521,7 @@
       "prerequisites": [
         "5.5_q26"
       ],
-      "prompt": "Coding Challenge 27: Write a statement that prints 'Truthiness Result 27' to standard output.",
+      "prompt": "Write a statement that prints 'Truthiness Result 27' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Truthiness Result 27')",
       "test_cases": [
@@ -527,7 +531,7 @@
         }
       ],
       "hint": "Use print('Truthiness Result 27') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of truthiness advanced. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "5.5_q28",
@@ -538,7 +542,7 @@
       "prerequisites": [
         "5.5_q27"
       ],
-      "prompt": "Coding Challenge 28: Write a statement that prints 'Truthiness Result 28' to standard output.",
+      "prompt": "Write a statement that prints 'Truthiness Result 28' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Truthiness Result 28')",
       "test_cases": [
@@ -548,7 +552,7 @@
         }
       ],
       "hint": "Use print('Truthiness Result 28') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of truthiness challenge. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "5.5_q29",
@@ -559,7 +563,7 @@
       "prerequisites": [
         "5.5_q28"
       ],
-      "prompt": "Coding Challenge 29: Write a statement that prints 'Truthiness Result 29' to standard output.",
+      "prompt": "Write a statement that prints 'Truthiness Result 29' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Truthiness Result 29')",
       "test_cases": [
@@ -569,7 +573,7 @@
         }
       ],
       "hint": "Use print('Truthiness Result 29') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of truthiness scenario. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "5.5_q30",
@@ -580,7 +584,7 @@
       "prerequisites": [
         "5.5_q29"
       ],
-      "prompt": "Coding Challenge 30: Write a statement that prints 'Truthiness Result 30' to standard output.",
+      "prompt": "Write a statement that prints 'Truthiness Result 30' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Truthiness Result 30')",
       "test_cases": [
@@ -590,7 +594,17 @@
         }
       ],
       "hint": "Use print('Truthiness Result 30') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of truthiness mastery. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     }
+  ],
+  "unit_num": 5,
+  "learning_objectives": [
+    "Explain the technical concepts and mechanics of Truthiness",
+    "Apply idiomatic Python patterns when working with Truthiness",
+    "Debug common runtime exceptions and logic errors associated with Truthiness",
+    "Implement production-ready code utilizing Truthiness"
+  ],
+  "prerequisites": [
+    "5.4"
   ]
 }

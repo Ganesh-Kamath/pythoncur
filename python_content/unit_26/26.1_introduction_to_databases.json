@@ -12,7 +12,9 @@
       "difficulty": "easy",
       "prerequisites": [],
       "title": "What is a Database?",
-      "content": "A database is an organized collection of structured information, or data, typically stored electronically in a computer system. In Python, we often interact with databases to store, retrieve, update, and delete data persistently. Unlike in-memory data structures such as lists or dictionaries, databases allow data to survive after the program ends. Common database systems include SQLite, PostgreSQL, and MySQL. SQLite is especially popular for beginners because it is serverless and built into Python's standard library. You can import it using: import sqlite3. A basic workflow involves connecting to a database file, creating a cursor object, executing SQL commands, and committing changes. Here is a simple example: import sqlite3; conn = sqlite3.connect('school.db'); cursor = conn.cursor(); cursor.execute(\"CREATE TABLE IF NOT EXISTS students (id INTEGER PRIMARY KEY, name TEXT)\"); conn.commit(); conn.close(). This snippet creates a database file named school.db and a table called students if they do not already exist."
+      "content": "A database is an organized collection of structured information, or data, typically stored electronically in a computer system. In Python, we often interact with databases to store, retrieve, update, and delete data persistently. Unlike in-memory data structures such as lists or dictionaries, databases allow data to survive after the program ends. Common database systems include SQLite, PostgreSQL, and MySQL. SQLite is especially popular for beginners because it is serverless and built into Python's standard library. You can import it using: import sqlite3. A basic workflow involves connecting to a database file, creating a cursor object, executing SQL commands, and committing changes. Here is a simple example: import sqlite3; conn = sqlite3.connect('school.db'); cursor = conn.cursor(); cursor.execute(\"CREATE TABLE IF NOT EXISTS students (id INTEGER PRIMARY KEY, name TEXT)\"); conn.commit(); conn.close(). This snippet creates a database file named school.db and a table called students if they do not already exist.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of introduction to databases basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "26.1_q2",
@@ -45,7 +47,9 @@
         "26.1_q2"
       ],
       "title": "Basic SQL Syntax in Python",
-      "content": "SQL stands for Structured Query Language, and it uses specific keywords to manipulate data. The most common SQL commands are SELECT, INSERT, UPDATE, and DELETE. In Python, you run SQL commands through a cursor object using the execute method. For example, to insert a row into a table named products, you write: cursor.execute(\"INSERT INTO products (name, price) VALUES ('Apple', 1.5)\"). To retrieve data, you use SELECT: cursor.execute(\"SELECT * FROM products WHERE price < 2\"). After executing a query that returns rows, such as SELECT, you typically call cursor.fetchall() to get all results as a list of tuples. Remember to use parameterized queries to avoid SQL injection. Here is a safe pattern: cursor.execute(\"SELECT * FROM users WHERE age = ?\", (25,)). This binds the integer 25 safely into the query."
+      "content": "SQL stands for Structured Query Language, and it uses specific keywords to manipulate data. The most common SQL commands are SELECT, INSERT, UPDATE, and DELETE. In Python, you run SQL commands through a cursor object using the execute method. For example, to insert a row into a table named products, you write: cursor.execute(\"INSERT INTO products (name, price) VALUES ('Apple', 1.5)\"). To retrieve data, you use SELECT: cursor.execute(\"SELECT * FROM products WHERE price < 2\"). After executing a query that returns rows, such as SELECT, you typically call cursor.fetchall() to get all results as a list of tuples. Remember to use parameterized queries to avoid SQL injection. Here is a safe pattern: cursor.execute(\"SELECT * FROM users WHERE age = ?\", (25,)). This binds the integer 25 safely into the query.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of introduction to databases syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "26.1_q4",
@@ -60,9 +64,9 @@
       "prompt": "Given the following Python code, what is the result of the execute call?",
       "options": [
         "It inserts a row with name 'Banana' and price 0.8 into the products table",
-        "It creates a new table named products",
-        "It deletes all rows from the products table",
-        "It updates the price of an existing row to 0.8"
+        "Raises a SyntaxError: invalid syntax at runtime",
+        "Raises an IndentationError: unexpected indent",
+        "Silently ignored by the Python parser"
       ],
       "correct_answer": "It inserts a row with name 'Banana' and price 0.8 into the products table",
       "explanation": "The SQL statement is an INSERT INTO command with VALUES, which adds a new record. The cursor.execute method runs this command against the connected database."
@@ -630,5 +634,15 @@
       "hint": "Use COUNT, AVG, and a correlated subquery or nested SELECT for the most stocked product. Check for None after fetchone() and guard against division by zero implicitly handled by AVG.",
       "explanation": "This mastery item demands a single optimized query combining aggregation and subqueries, plus robust Python handling of NULL results. It reflects how analysts extract summary statistics directly from the database rather than transferring raw rows."
     }
+  ],
+  "unit_num": 26,
+  "learning_objectives": [
+    "Explain the technical concepts and mechanics of Introduction to Databases",
+    "Apply idiomatic Python patterns when working with Introduction to Databases",
+    "Debug common runtime exceptions and logic errors associated with Introduction to Databases",
+    "Implement production-ready code utilizing Introduction to Databases"
+  ],
+  "prerequisites": [
+    "25.6"
   ]
 }

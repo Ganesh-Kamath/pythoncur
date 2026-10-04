@@ -11,7 +11,9 @@
       "concept": "the_while_loop_basics",
       "skill": "recognition",
       "title": "What is a while Loop?",
-      "content": "A while loop is a control flow statement that repeatedly executes a block of code as long as a given condition is true. It is used when you do not know in advance how many times the loop should run. The basic idea is: check a condition, and if it evaluates to True, run the indented code; after the block finishes, check the condition again. When the condition becomes False, the loop stops and the program continues with the next statement after the loop.\n\nExample:\n```python\ncount = 0\nwhile count < 3:\n    print('count is', count)\n    count = count + 1\nprint('Done')\n```\nIn this example, the indented block runs three times because count starts at 0 and increases by 1 each iteration. Once count reaches 3, the condition count < 3 is False, so the loop exits."
+      "content": "A while loop is a control flow statement that repeatedly executes a block of code as long as a given condition is true. It is used when you do not know in advance how many times the loop should run. The basic idea is: check a condition, and if it evaluates to True, run the indented code; after the block finishes, check the condition again. When the condition becomes False, the loop stops and the program continues with the next statement after the loop.\n\nExample:\n```python\ncount = 0\nwhile count < 3:\n    print('count is', count)\n    count = count + 1\nprint('Done')\n```\nIn this example, the indented block runs three times because count starts at 0 and increases by 1 each iteration. Once count reaches 3, the condition count < 3 is False, so the loop exits.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of the while loop basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "6.2_q2",
@@ -42,7 +44,9 @@
       "concept": "the_while_loop_syntax",
       "skill": "understanding",
       "title": "while Loop Syntax",
-      "content": "The syntax of a while loop in Python has three main parts:\n\n1. The keyword `while`\n2. A condition that evaluates to True or False\n3. An indented block of code to execute\n\nThe condition is tested before every iteration. If the condition is True, Python executes the indented block. After the block finishes, Python returns to the `while` line and re-evaluates the condition. If it is still True, the block runs again. This continues until the condition becomes False, at which point the loop ends.\n\nImportant syntax rules:\n- The condition must be a boolean expression.\n- The code block must be indented consistently (usually 4 spaces).\n- Forgetting to indent the block causes an `IndentationError`.\n- Forgetting to update the condition inside the loop can create an infinite loop.\n\nExample:\n```python\nnumber = 1\nwhile number <= 4:\n    print('number:', number)\n    number = number + 1\n```\nHere, `number <= 4` is the condition, and the two indented lines form the loop body."
+      "content": "The syntax of a while loop in Python has three main parts:\n\n1. The keyword `while`\n2. A condition that evaluates to True or False\n3. An indented block of code to execute\n\nThe condition is tested before every iteration. If the condition is True, Python executes the indented block. After the block finishes, Python returns to the `while` line and re-evaluates the condition. If it is still True, the block runs again. This continues until the condition becomes False, at which point the loop ends.\n\nImportant syntax rules:\n- The condition must be a boolean expression.\n- The code block must be indented consistently (usually 4 spaces).\n- Forgetting to indent the block causes an `IndentationError`.\n- Forgetting to update the condition inside the loop can create an infinite loop.\n\nExample:\n```python\nnumber = 1\nwhile number <= 4:\n    print('number:', number)\n    number = number + 1\n```\nHere, `number <= 4` is the condition, and the two indented lines form the loop body.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of the while loop syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "6.2_q4",
@@ -339,7 +343,7 @@
       "prompt": "Fix the bug in this code for the while loop errors:",
       "starter_code": "# Fix this code\nPrint('The while Loop')",
       "solution_code": "print('The while Loop')",
-      "explanation": "Python identifiers and built-ins are case-sensitive."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of the while loop errors. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "6.2_q20",
@@ -387,7 +391,7 @@
       "prompt": "Fix the bug in this code for the while loop runtime:",
       "starter_code": "# Fix this code\nPrint('The while Loop')",
       "solution_code": "print('The while Loop')",
-      "explanation": "Python identifiers and built-ins are case-sensitive."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of the while loop runtime. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "6.2_q23",
@@ -428,7 +432,7 @@
       "prerequisites": [
         "6.2_q24"
       ],
-      "prompt": "Coding Challenge 25: Write a statement that prints 'while Loop Result 25' to standard output.",
+      "prompt": "Write a statement that prints 'while Loop Result 25' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('while Loop Result 25')",
       "test_cases": [
@@ -438,7 +442,7 @@
         }
       ],
       "hint": "Use print('while Loop Result 25') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of the while loop implementation. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "6.2_q26",
@@ -449,7 +453,7 @@
       "prerequisites": [
         "6.2_q25"
       ],
-      "prompt": "Coding Challenge 26: Write a statement that prints 'while Loop Result 26' to standard output.",
+      "prompt": "Write a statement that prints 'while Loop Result 26' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('while Loop Result 26')",
       "test_cases": [
@@ -459,7 +463,7 @@
         }
       ],
       "hint": "Use print('while Loop Result 26') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of the while loop practical. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "6.2_q27",
@@ -470,7 +474,7 @@
       "prerequisites": [
         "6.2_q26"
       ],
-      "prompt": "Coding Challenge 27: Write a statement that prints 'while Loop Result 27' to standard output.",
+      "prompt": "Write a statement that prints 'while Loop Result 27' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('while Loop Result 27')",
       "test_cases": [
@@ -480,7 +484,7 @@
         }
       ],
       "hint": "Use print('while Loop Result 27') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of the while loop advanced. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "6.2_q28",
@@ -491,7 +495,7 @@
       "prerequisites": [
         "6.2_q27"
       ],
-      "prompt": "Coding Challenge 28: Write a statement that prints 'while Loop Result 28' to standard output.",
+      "prompt": "Write a statement that prints 'while Loop Result 28' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('while Loop Result 28')",
       "test_cases": [
@@ -501,7 +505,7 @@
         }
       ],
       "hint": "Use print('while Loop Result 28') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of the while loop challenge. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "6.2_q29",
@@ -512,7 +516,7 @@
       "prerequisites": [
         "6.2_q28"
       ],
-      "prompt": "Coding Challenge 29: Write a statement that prints 'while Loop Result 29' to standard output.",
+      "prompt": "Write a statement that prints 'while Loop Result 29' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('while Loop Result 29')",
       "test_cases": [
@@ -522,7 +526,7 @@
         }
       ],
       "hint": "Use print('while Loop Result 29') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of the while loop scenario. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "6.2_q30",
@@ -533,7 +537,7 @@
       "prerequisites": [
         "6.2_q29"
       ],
-      "prompt": "Coding Challenge 30: Write a statement that prints 'while Loop Result 30' to standard output.",
+      "prompt": "Write a statement that prints 'while Loop Result 30' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('while Loop Result 30')",
       "test_cases": [
@@ -543,7 +547,17 @@
         }
       ],
       "hint": "Use print('while Loop Result 30') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of the while loop mastery. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     }
+  ],
+  "unit_num": 6,
+  "learning_objectives": [
+    "Construct iterative loops using while Loop with proper loop bounds",
+    "Trace variable mutation across loop iterations",
+    "Prevent and debug infinite loop execution bugs",
+    "Apply loop control statements (break and continue) to control execution flow"
+  ],
+  "prerequisites": [
+    "6.1"
   ]
 }

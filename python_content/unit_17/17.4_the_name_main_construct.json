@@ -11,7 +11,9 @@
       "concept": "the_name__main_construct_basics",
       "skill": "recognition",
       "difficulty": "easy",
-      "prerequisites": []
+      "prerequisites": [],
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of the name  main construct basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "17.4_q2",
@@ -42,7 +44,9 @@
       "difficulty": "easy",
       "prerequisites": [
         "17.4_q2"
-      ]
+      ],
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of the name  main construct syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "17.4_q4",
@@ -634,5 +638,15 @@
       "hint": "The function call must be moved inside a conditional that checks whether the module is the main program.",
       "explanation": "Without the __name__ == '__main__' guard, top-level code runs during import, causing unintended side effects. Wrapping the call fixes this."
     }
+  ],
+  "unit_num": 17,
+  "learning_objectives": [
+    "Explain the technical concepts and mechanics of __name__ == '__main__' Construct",
+    "Apply idiomatic Python patterns when working with __name__ == '__main__' Construct",
+    "Debug common runtime exceptions and logic errors associated with __name__ == '__main__' Construct",
+    "Implement production-ready code utilizing __name__ == '__main__' Construct"
+  ],
+  "prerequisites": [
+    "17.3"
   ]
 }

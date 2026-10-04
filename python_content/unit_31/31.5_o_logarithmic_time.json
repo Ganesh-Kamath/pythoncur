@@ -11,7 +11,9 @@
       "difficulty": "easy",
       "prerequisites": [],
       "title": "What is O(log N) Time?",
-      "content": "O(log N) describes an algorithm whose runtime grows logarithmically with the input size N. This usually happens when the problem size is halved at each step. A classic example is binary search on a sorted list. If N doubles, the number of steps increases by only one. This is much faster than linear O(N) and vastly faster than quadratic O(N^2).\n\nExample in Python:\n```python\ndef binary_search(arr, target):\n    left = 0\n    right = len(arr) - 1\n    while left <= right:\n        mid = (left + right) // 2\n        if arr[mid] == target:\n            return mid\n        elif arr[mid] < target:\n            left = mid + 1\n        else:\n            right = mid - 1\n    return -1\n```\nHere, each iteration discards half of the remaining elements, so the number of iterations is proportional to log2(N)."
+      "content": "O(log N) describes an algorithm whose runtime grows logarithmically with the input size N. This usually happens when the problem size is halved at each step. A classic example is binary search on a sorted list. If N doubles, the number of steps increases by only one. This is much faster than linear O(N) and vastly faster than quadratic O(N^2).\n\nExample in Python:\n```python\ndef binary_search(arr, target):\n    left = 0\n    right = len(arr) - 1\n    while left <= right:\n        mid = (left + right) // 2\n        if arr[mid] == target:\n            return mid\n        elif arr[mid] < target:\n            left = mid + 1\n        else:\n            right = mid - 1\n    return -1\n```\nHere, each iteration discards half of the remaining elements, so the number of iterations is proportional to log2(N).",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of olog n logarithmic time basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "31.5_q2",
@@ -36,12 +38,12 @@
       "prompt": "Which statement best applies to olog n logarithmic time basics?",
       "options": [
         "A. Correct approach for olog n logarithmic time basics",
-        "B. SyntaxError raised unconditionally",
-        "C. Unrelated system call",
-        "D. Halts Python interpreter"
+        "Raises a SyntaxError: invalid syntax at runtime",
+        "Raises an IndentationError: unexpected indent",
+        "Silently ignored by the Python parser"
       ],
       "correct_answer": "A. Correct approach for olog n logarithmic time basics",
-      "explanation": "Demonstrates core usage of olog n logarithmic time basics in Python."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of olog n logarithmic time basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "31.5_q3",
@@ -53,7 +55,9 @@
         "31.5_q2"
       ],
       "title": "Recognizing Logarithmic Patterns in Code",
-      "content": "You can spot O(log N) by looking for a loop or recursion where the variable controlling progress is multiplied or divided by a constant greater than one each iteration. In Python, this often appears as `i *= 2`, `i //= 2`, or `i = mid` in a binary-search-style update. The key is that the step size grows exponentially, so the total steps are logarithmic.\n\nExample:\n```python\ndef count_steps(n):\n    steps = 0\n    while n > 1:\n        n = n // 2\n        steps += 1\n    return steps\n```\nIf n = 16, the loop runs 4 times: 16 -> 8 -> 4 -> 2 -> 1. This is log2(16) = 4 steps, confirming O(log N)."
+      "content": "You can spot O(log N) by looking for a loop or recursion where the variable controlling progress is multiplied or divided by a constant greater than one each iteration. In Python, this often appears as `i *= 2`, `i //= 2`, or `i = mid` in a binary-search-style update. The key is that the step size grows exponentially, so the total steps are logarithmic.\n\nExample:\n```python\ndef count_steps(n):\n    steps = 0\n    while n > 1:\n        n = n // 2\n        steps += 1\n    return steps\n```\nIf n = 16, the loop runs 4 times: 16 -> 8 -> 4 -> 2 -> 1. This is log2(16) = 4 steps, confirming O(log N).",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of olog n logarithmic time syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "31.5_q4",
@@ -78,12 +82,12 @@
       "prompt": "Which statement best applies to olog n logarithmic time syntax?",
       "options": [
         "A. Correct approach for olog n logarithmic time syntax",
-        "B. SyntaxError raised unconditionally",
-        "C. Unrelated system call",
-        "D. Halts Python interpreter"
+        "Raises a SyntaxError: invalid syntax at runtime",
+        "Raises an IndentationError: unexpected indent",
+        "Silently ignored by the Python parser"
       ],
       "correct_answer": "A. Correct approach for olog n logarithmic time syntax",
-      "explanation": "Demonstrates core usage of olog n logarithmic time syntax in Python."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of olog n logarithmic time syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "31.5_q5",
@@ -108,12 +112,12 @@
       "prompt": "Which statement best applies to olog n logarithmic time matching?",
       "options": [
         "A. Correct approach for olog n logarithmic time matching",
-        "B. SyntaxError raised unconditionally",
-        "C. Unrelated system call",
-        "D. Halts Python interpreter"
+        "Raises a SyntaxError: invalid syntax at runtime",
+        "Raises an IndentationError: unexpected indent",
+        "Silently ignored by the Python parser"
       ],
       "correct_answer": "A. Correct approach for olog n logarithmic time matching",
-      "explanation": "Demonstrates core usage of olog n logarithmic time matching in Python."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of olog n logarithmic time matching. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "31.5_q6",
@@ -138,12 +142,12 @@
       "prompt": "Which statement best applies to olog n logarithmic time pitfalls?",
       "options": [
         "A. Correct approach for olog n logarithmic time pitfalls",
-        "B. SyntaxError raised unconditionally",
-        "C. Unrelated system call",
-        "D. Halts Python interpreter"
+        "Raises a SyntaxError: invalid syntax at runtime",
+        "Raises an IndentationError: unexpected indent",
+        "Silently ignored by the Python parser"
       ],
       "correct_answer": "A. Correct approach for olog n logarithmic time pitfalls",
-      "explanation": "Demonstrates core usage of olog n logarithmic time pitfalls in Python."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of olog n logarithmic time pitfalls. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "31.5_q7",
@@ -647,5 +651,15 @@
       "hint": "For a given mid value, if more than mid numbers are <= mid, the duplicate lies in the left half; otherwise, it lies in the right half.",
       "explanation": "By binary searching on the value domain (1 to N-1) and counting elements <= mid, we achieve O(log N) iterations, each taking O(N), for an overall O(N log N) time. However, the conceptual mastery here lies in recognizing that the search space is logarithmic in the value range, and with a Fenwick tree or prefix sums this can be optimized to true O(log N). This item challenges students to extend binary search beyond array indices to abstract value ranges."
     }
+  ],
+  "unit_num": 31,
+  "learning_objectives": [
+    "Explain the technical concepts and mechanics of O(log N) Logarithmic Time",
+    "Apply idiomatic Python patterns when working with O(log N) Logarithmic Time",
+    "Debug common runtime exceptions and logic errors associated with O(log N) Logarithmic Time",
+    "Implement production-ready code utilizing O(log N) Logarithmic Time"
+  ],
+  "prerequisites": [
+    "31.4"
   ]
 }

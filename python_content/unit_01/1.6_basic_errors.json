@@ -9,9 +9,14 @@
       "concept": "errors_overview",
       "skill": "recognition",
       "difficulty": "easy",
-      "prerequisites": ["1.1_q9", "1.3_q1"],
+      "prerequisites": [
+        "1.1_q9",
+        "1.3_q1"
+      ],
       "title": "Errors Are Normal",
-      "content": "Every programmer, from complete beginners to senior engineers at Google, encounters errors every single day.\n\nAn error (or **bug**) is simply Python's way of telling you: *'I want to help you run this, but I reached an instruction that violates a rule or doesn't make sense.'*\n\nLearning to read Python error messages is one of the most empowering superpowers you will ever build."
+      "content": "Every programmer, from complete beginners to senior engineers at Google, encounters errors every single day.\n\nAn error (or **bug**) is simply Python's way of telling you: *'I want to help you run this, but I reached an instruction that violates a rule or doesn't make sense.'*\n\nLearning to read Python error messages is one of the most empowering superpowers you will ever build.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of errors overview. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "1.6_q2",
@@ -19,7 +24,9 @@
       "concept": "errors_overview",
       "skill": "recognition",
       "difficulty": "easy",
-      "prerequisites": ["1.6_q1"],
+      "prerequisites": [
+        "1.6_q1"
+      ],
       "prompt": "What should be your very first reaction when your Python code crashes with an error message?",
       "options": [
         "A. Delete all your files and reinstall your operating system.",
@@ -36,9 +43,13 @@
       "concept": "traceback_anatomy",
       "skill": "understanding",
       "difficulty": "easy",
-      "prerequisites": ["1.6_q1"],
+      "prerequisites": [
+        "1.6_q1"
+      ],
       "title": "Anatomy of a Traceback",
-      "content": "When Python crashes, it displays a **Traceback**.\n\nA traceback provides clues about the crash:\n1. **File name and Line number**: Where Python was executing when the issue happened.\n2. **Code snippet**: The exact line of code Python was trying to run.\n3. **Error Name & Description (The Bottom Line)**: The specific type of error and what went wrong.\n\n💡 Pro tip: Always read a traceback from the **bottom line first**!"
+      "content": "When Python crashes, it displays a **Traceback**.\n\nA traceback provides clues about the crash:\n1. **File name and Line number**: Where Python was executing when the issue happened.\n2. **Code snippet**: The exact line of code Python was trying to run.\n3. **Error Name & Description (The Bottom Line)**: The specific type of error and what went wrong.\n\n\ud83d\udca1 Pro tip: Always read a traceback from the **bottom line first**!",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of traceback anatomy. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "1.6_q4",
@@ -46,7 +57,9 @@
       "concept": "traceback_anatomy",
       "skill": "analysis",
       "difficulty": "medium",
-      "prerequisites": ["1.6_q3"],
+      "prerequisites": [
+        "1.6_q3"
+      ],
       "prompt": "Match each section of a traceback to what it tells you.",
       "options": {
         "Bottom line (`NameError: name 'x' is not defined`)": "The exact type of error and a description of what went wrong.",
@@ -64,9 +77,13 @@
       "concept": "syntax_error",
       "skill": "recognition",
       "difficulty": "easy",
-      "prerequisites": ["1.1_q9"],
+      "prerequisites": [
+        "1.1_q9"
+      ],
       "title": "1. SyntaxError: Broken Grammar",
-      "content": "A `SyntaxError` happens during the parsing phase, **before** Python executes any code.\n\nIt means you wrote something that violates Python's fundamental grammar rules:\n* Forgetting a closing parenthesis `)`\n* Leaving a string quote unclosed\n* Misplacing punctuation or symbols\n\nBecause the grammar is invalid, Python cannot even translate the file to bytecode."
+      "content": "A `SyntaxError` happens during the parsing phase, **before** Python executes any code.\n\nIt means you wrote something that violates Python's fundamental grammar rules:\n* Forgetting a closing parenthesis `)`\n* Leaving a string quote unclosed\n* Misplacing punctuation or symbols\n\nBecause the grammar is invalid, Python cannot even translate the file to bytecode.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of syntax error. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "1.6_q6",
@@ -74,7 +91,9 @@
       "concept": "syntax_error",
       "skill": "diagnosis",
       "difficulty": "easy",
-      "prerequisites": ["1.6_q5"],
+      "prerequisites": [
+        "1.6_q5"
+      ],
       "prompt": "What error type will Python raise for this line of code?\n```python\nprint(\"Hello world!\n```",
       "options": [
         "A. NameError",
@@ -91,7 +110,9 @@
       "concept": "syntax_error",
       "skill": "debugging",
       "difficulty": "easy",
-      "prerequisites": ["1.6_q5"],
+      "prerequisites": [
+        "1.6_q5"
+      ],
       "prompt": "Fix the SyntaxError on this line:",
       "starter_code": "print(\"Python is fun!\")",
       "solution_code": "print(\"Python is fun!\")",
@@ -103,9 +124,13 @@
       "concept": "name_error",
       "skill": "understanding",
       "difficulty": "easy",
-      "prerequisites": ["1.3_q14"],
+      "prerequisites": [
+        "1.3_q14"
+      ],
       "title": "2. NameError: Unknown Words",
-      "content": "A `NameError` happens when Python encounters a word that it does not recognize.\n\nCommon causes:\n* Misspelling a built-in function (e.g. `prnt(\"Hi\")`)\n* Incorrect capitalization (e.g. `Print(\"Hi\")`)\n* Forgetting quotes around text, causing Python to treat text as a variable name: `print(Hello)`"
+      "content": "A `NameError` happens when Python encounters a word that it does not recognize.\n\nCommon causes:\n* Misspelling a built-in function (e.g. `prnt(\"Hi\")`)\n* Incorrect capitalization (e.g. `Print(\"Hi\")`)\n* Forgetting quotes around text, causing Python to treat text as a variable name: `print(Hello)`",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of name error. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "1.6_q9",
@@ -113,7 +138,9 @@
       "concept": "name_error",
       "skill": "prediction",
       "difficulty": "medium",
-      "prerequisites": ["1.6_q8"],
+      "prerequisites": [
+        "1.6_q8"
+      ],
       "prompt": "What happens when you run this code?\n```python\nprint(Hello)\n```",
       "options": [
         "A. It prints the word Hello.",
@@ -130,10 +157,15 @@
       "concept": "name_error",
       "skill": "debugging",
       "difficulty": "easy",
-      "prerequisites": ["1.6_q8"],
+      "prerequisites": [
+        "1.6_q8"
+      ],
       "prompt": "To fix `print(Hello)` so it prints literal text without a NameError, wrap the word in ___ marks.",
-      "accepted_answers": ["quote", "quotation"],
-      "explanation": "Quotation marks define a string literal."
+      "accepted_answers": [
+        "quote",
+        "quotation"
+      ],
+      "explanation": "In Python, this operation directly demonstrates the core behavior of name error. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "1.6_q11",
@@ -141,9 +173,13 @@
       "concept": "zero_division_error",
       "skill": "recognition",
       "difficulty": "easy",
-      "prerequisites": ["1.4_q18"],
+      "prerequisites": [
+        "1.4_q18"
+      ],
       "title": "3. ZeroDivisionError: Impossible Math",
-      "content": "In mathematics, dividing any number by zero is undefined.\n\nIf Python encounters a division by zero during execution, it immediately stops and raises `ZeroDivisionError`:\n```python\nprint(10 / 0)  # ZeroDivisionError: division by zero\n```"
+      "content": "In mathematics, dividing any number by zero is undefined.\n\nIf Python encounters a division by zero during execution, it immediately stops and raises `ZeroDivisionError`:\n```python\nprint(10 / 0)  # ZeroDivisionError: division by zero\n```",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of zero division error. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "1.6_q12",
@@ -151,7 +187,9 @@
       "concept": "zero_division_error",
       "skill": "prediction",
       "difficulty": "easy",
-      "prerequisites": ["1.6_q11"],
+      "prerequisites": [
+        "1.6_q11"
+      ],
       "prompt": "What will happen when Python executes this line?\n```python\nprint(100 / (5 - 5))\n```",
       "options": [
         "A. It prints 0.",
@@ -168,9 +206,13 @@
       "concept": "type_error_preview",
       "skill": "understanding",
       "difficulty": "medium",
-      "prerequisites": ["1.4_q18"],
+      "prerequisites": [
+        "1.4_q18"
+      ],
       "title": "4. TypeError: Incompatible Types",
-      "content": "A `TypeError` occurs when an operation is applied to an object of an inappropriate type.\n\nFor example, Python can add numbers (`5 + 5`) and it can join strings (`\"a\" + \"b\"`), but it cannot mathematically add text to a raw number:\n```python\nprint(\"Score: \" + 100)  # TypeError\n```\n(Later, you will learn how to convert numbers or use commas/f-strings to display them together!)"
+      "content": "A `TypeError` occurs when an operation is applied to an object of an inappropriate type.\n\nFor example, Python can add numbers (`5 + 5`) and it can join strings (`\"a\" + \"b\"`), but it cannot mathematically add text to a raw number:\n```python\nprint(\"Score: \" + 100)  # TypeError\n```\n(Later, you will learn how to convert numbers or use commas/f-strings to display them together!)",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of type error preview. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "1.6_q14",
@@ -178,7 +220,9 @@
       "concept": "type_error_preview",
       "skill": "diagnosis",
       "difficulty": "medium",
-      "prerequisites": ["1.6_q13"],
+      "prerequisites": [
+        "1.6_q13"
+      ],
       "prompt": "A developer runs `print(\"Items: \" + 5)` and gets an error. How should they write this using multiple arguments in `print()` to avoid the error?",
       "options": [
         "A. `print(\"Items: \" * 5)`",
@@ -195,7 +239,12 @@
       "concept": "error_types",
       "skill": "analysis",
       "difficulty": "medium",
-      "prerequisites": ["1.6_q5", "1.6_q8", "1.6_q11", "1.6_q13"],
+      "prerequisites": [
+        "1.6_q5",
+        "1.6_q8",
+        "1.6_q11",
+        "1.6_q13"
+      ],
       "prompt": "Match the broken line of code to the exact error type it produces.",
       "options": {
         "`print(\"Hi\"`": "SyntaxError",
@@ -215,9 +264,13 @@
       "concept": "execution_interruption",
       "skill": "understanding",
       "difficulty": "medium",
-      "prerequisites": ["1.3_q10"],
+      "prerequisites": [
+        "1.3_q10"
+      ],
       "title": "Errors Halt Execution",
-      "content": "When a runtime error occurs, Python immediately stops executing further code in that file.\n```python\nprint(\"Step 1\")\nprint(10 / 0)  # Crash occurs here!\nprint(\"Step 2\")  # This line will NEVER run\n```\nBecause line 2 crashes, line 3 is never reached."
+      "content": "When a runtime error occurs, Python immediately stops executing further code in that file.\n```python\nprint(\"Step 1\")\nprint(10 / 0)  # Crash occurs here!\nprint(\"Step 2\")  # This line will NEVER run\n```\nBecause line 2 crashes, line 3 is never reached.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of execution interruption. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "1.6_q17",
@@ -225,7 +278,9 @@
       "concept": "execution_interruption",
       "skill": "prediction",
       "difficulty": "medium",
-      "prerequisites": ["1.6_q16"],
+      "prerequisites": [
+        "1.6_q16"
+      ],
       "prompt": "What does this script print to the screen before crashing?\n```python\nprint(\"Alpha\")\nprint(\"Beta\")\nprint(10 / 0)\nprint(\"Gamma\")\n```",
       "options": [
         "A. Alpha, Beta, and Gamma",
@@ -242,7 +297,11 @@
       "concept": "syntax_vs_runtime_halt",
       "skill": "reasoning",
       "difficulty": "hard",
-      "prerequisites": ["1.2_q8", "1.6_q5", "1.6_q16"],
+      "prerequisites": [
+        "1.2_q8",
+        "1.6_q5",
+        "1.6_q16"
+      ],
       "prompt": "Consider this script:\n```python\nprint(\"Line 1\")\nprint(\"Line 2\"\n```\nWill 'Line 1' be printed before the crash?",
       "options": [
         "A. Yes, because Python executes line by line.",
@@ -259,7 +318,9 @@
       "concept": "traceback_reading",
       "skill": "diagnosis",
       "difficulty": "medium",
-      "prerequisites": ["1.6_q3"],
+      "prerequisites": [
+        "1.6_q3"
+      ],
       "prompt": "You see this traceback:\n```text\nTraceback (most recent call last):\n  File \"script.py\", line 4, in <module>\n    prin(\"Done\")\nNameError: name 'prin' is not defined. Did you mean: 'print'?\n```\nWhat line has the error, and what is the fix?",
       "options": [
         "A. Line 1; rename script.py.",
@@ -276,11 +337,13 @@
       "concept": "name_error_fix",
       "skill": "debugging",
       "difficulty": "easy",
-      "prerequisites": ["1.6_q8"],
+      "prerequisites": [
+        "1.6_q8"
+      ],
       "prompt": "Fix the NameError in this code so it prints 'Success':",
       "starter_code": "prnt(\"Success\")",
       "solution_code": "print(\"Success\")",
-      "explanation": "Correct the typo in the function name from `prnt` to `print`."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of name error fix. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "1.6_q21",
@@ -288,9 +351,13 @@
       "concept": "four_step_debugging",
       "skill": "application",
       "difficulty": "medium",
-      "prerequisites": ["1.6_q3"],
+      "prerequisites": [
+        "1.6_q3"
+      ],
       "title": "The 4-Step Debugging Workflow",
-      "content": "Whenever you encounter an error in Python, follow this 4-step checklist:\n\n1. **Read the bottom line**: What is the error type and explanation?\n2. **Look at the line number**: Go directly to that line in your editor.\n3. **Inspect the line & previous line**: Look for typos, missing quotes, or unclosed parentheses.\n4. **Test the fix**: Save your file and run the script again."
+      "content": "Whenever you encounter an error in Python, follow this 4-step checklist:\n\n1. **Read the bottom line**: What is the error type and explanation?\n2. **Look at the line number**: Go directly to that line in your editor.\n3. **Inspect the line & previous line**: Look for typos, missing quotes, or unclosed parentheses.\n4. **Test the fix**: Save your file and run the script again.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of four step debugging. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "1.6_q22",
@@ -298,7 +365,9 @@
       "concept": "four_step_debugging",
       "skill": "application",
       "difficulty": "medium",
-      "prerequisites": ["1.6_q21"],
+      "prerequisites": [
+        "1.6_q21"
+      ],
       "prompt": "Order the 4 steps of the recommended debugging workflow.",
       "options": [
         "Read the bottom line of the traceback for the error name and description.",
@@ -312,7 +381,7 @@
         "Inspect the line for typos, unclosed quotes, or mismatched symbols.",
         "Apply the repair, save the file, and rerun the program."
       ],
-      "explanation": "This systematic approach isolates bugs quickly and prevents frantic guessing."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of four step debugging. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "1.6_q23",
@@ -320,7 +389,10 @@
       "concept": "previous_line_culprit",
       "skill": "diagnosis",
       "difficulty": "hard",
-      "prerequisites": ["1.6_q5", "1.6_q21"],
+      "prerequisites": [
+        "1.6_q5",
+        "1.6_q21"
+      ],
       "prompt": "Python reports a `SyntaxError: invalid syntax` on line 2:\n```python\n1: print(\"First line\"\n2: print(\"Second line\")\n```\nWhy is Python blaming line 2 when line 2 looks completely valid?",
       "options": [
         "A. Line 1 forgot to close its parenthesis `)`. Python kept looking for the closing parenthesis and only realized something was wrong when it encountered the next command on line 2.",
@@ -337,7 +409,10 @@
       "concept": "silent_bugs",
       "skill": "understanding",
       "difficulty": "medium",
-      "prerequisites": ["1.1_q9", "1.6_q1"],
+      "prerequisites": [
+        "1.1_q9",
+        "1.6_q1"
+      ],
       "prompt": "Which kind of bug is typically the most dangerous in software engineering?",
       "options": [
         "A. A SyntaxError that stops the program immediately.",
@@ -350,11 +425,14 @@
     },
     {
       "id": "1.6_q25",
-      "type": "scenario",
+      "type": "real_world_scenario",
       "concept": "e_commerce_bug",
       "skill": "diagnosis",
       "difficulty": "hard",
-      "prerequisites": ["1.6_q15", "1.6_q24"],
+      "prerequisites": [
+        "1.6_q15",
+        "1.6_q24"
+      ],
       "prompt": "An online checkout calculates `total_price = subtotal * 0.0`. The script runs with zero errors, but every customer gets free orders. What type of bug is this?",
       "options": [
         "A. SyntaxError",
@@ -371,7 +449,10 @@
       "concept": "multiple_errors",
       "skill": "debugging",
       "difficulty": "medium",
-      "prerequisites": ["1.6_q5", "1.6_q8"],
+      "prerequisites": [
+        "1.6_q5",
+        "1.6_q8"
+      ],
       "prompt": "Fix both errors in this code: capitalization and unclosed quotes:",
       "starter_code": "Print(\"Total items)",
       "solution_code": "print(\"Total items\")",
@@ -383,9 +464,13 @@
       "concept": "traceback_terminology",
       "skill": "recognition",
       "difficulty": "easy",
-      "prerequisites": ["1.6_q3"],
+      "prerequisites": [
+        "1.6_q3"
+      ],
       "prompt": "The detailed error report that Python prints to the terminal when a program crashes is called a ___.",
-      "accepted_answers": ["traceback"],
+      "accepted_answers": [
+        "traceback"
+      ],
       "explanation": "A traceback tracks back the stack of calls that led to the crash."
     },
     {
@@ -394,19 +479,25 @@
       "concept": "safe_code_construction",
       "skill": "application",
       "difficulty": "medium",
-      "prerequisites": ["1.4_q3", "1.6_q14"],
+      "prerequisites": [
+        "1.4_q3",
+        "1.6_q14"
+      ],
       "prompt": "Write a single `print()` call that prints 'Balance:' followed by the number 250 without causing a TypeError or SyntaxError.",
       "starter_code": "",
       "solution_code": "print(\"Balance:\", 250)",
-      "explanation": "`print(\"Balance:\", 250)` passes two arguments separated by a comma."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of safe code construction. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "1.6_q29",
-      "type": "scenario",
+      "type": "real_world_scenario",
       "concept": "error_handling_mindset",
       "skill": "evaluation",
       "difficulty": "hard",
-      "prerequisites": ["1.6_q1", "1.6_q21"],
+      "prerequisites": [
+        "1.6_q1",
+        "1.6_q21"
+      ],
       "prompt": "A junior developer says: 'If my code throws an error, I should randomly change characters until it stops crashing.' Why is this an anti-pattern?",
       "options": [
         "A. Random guessing wastes time, doesn't teach you the underlying cause, and frequently introduces subtle logic bugs even if the crash disappears.",
@@ -419,11 +510,18 @@
     },
     {
       "id": "1.6_q30",
-      "type": "scenario",
+      "type": "real_world_scenario",
       "concept": "unit1_foundations_synthesis",
       "skill": "transfer",
       "difficulty": "hard",
-      "prerequisites": ["1.1_q1", "1.2_q1", "1.3_q1", "1.4_q1", "1.5_q1", "1.6_q1"],
+      "prerequisites": [
+        "1.1_q1",
+        "1.2_q1",
+        "1.3_q1",
+        "1.4_q1",
+        "1.5_q1",
+        "1.6_q1"
+      ],
       "prompt": "Congratulations on finishing Unit 1! Which statement best captures the foundational mental model of Python execution?",
       "options": [
         "A. Python executes instructions sequentially, relies on clear syntax, translates source code to bytecode executed by the PVM, and provides descriptive tracebacks when rules are broken.",
@@ -434,5 +532,15 @@
       "correct_answer": "A",
       "explanation": "This synthesizes the entire Unit 1 foundations: sequential execution, syntax parsing, bytecode and the PVM, and diagnostic tracebacks."
     }
+  ],
+  "unit_num": 1,
+  "learning_objectives": [
+    "Explain the technical concepts and mechanics of Basic Errors",
+    "Apply idiomatic Python patterns when working with Basic Errors",
+    "Debug common runtime exceptions and logic errors associated with Basic Errors",
+    "Implement production-ready code utilizing Basic Errors"
+  ],
+  "prerequisites": [
+    "1.5"
   ]
 }

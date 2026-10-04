@@ -11,7 +11,9 @@
       "difficulty": "easy",
       "prerequisites": [],
       "title": "Why Integrate a Database with Your Web Backend",
-      "content": "When building a web application, your backend needs a persistent place to store and retrieve data. A database fills this role. In Python, common choices include SQLite for lightweight projects and PostgreSQL or MySQL for production systems. To connect Python to a database, you typically install a driver such as sqlite3 (built-in) or psycopg2. The basic workflow is: import the driver, establish a connection, create a cursor, execute SQL statements, commit changes, and close the connection. For example:\n\n```python\nimport sqlite3\n\nconn = sqlite3.connect('example.db')\ncursor = conn.cursor()\ncursor.execute(\"CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY, name TEXT)\")\nconn.commit()\nconn.close()\n```\n\nRecognizing this pattern helps you understand how your web backend persists data beyond a single request."
+      "content": "When building a web application, your backend needs a persistent place to store and retrieve data. A database fills this role. In Python, common choices include SQLite for lightweight projects and PostgreSQL or MySQL for production systems. To connect Python to a database, you typically install a driver such as sqlite3 (built-in) or psycopg2. The basic workflow is: import the driver, establish a connection, create a cursor, execute SQL statements, commit changes, and close the connection. For example:\n\n```python\nimport sqlite3\n\nconn = sqlite3.connect('example.db')\ncursor = conn.cursor()\ncursor.execute(\"CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY, name TEXT)\")\nconn.commit()\nconn.close()\n```\n\nRecognizing this pattern helps you understand how your web backend persists data beyond a single request.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of integrating the database basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "27.5_q2",
@@ -42,7 +44,9 @@
         "27.5_q2"
       ],
       "title": "Writing SQL Through Python with Parameters",
-      "content": "To safely insert data into a database from Python, use parameterized queries with placeholders. This prevents SQL injection and ensures values are properly quoted. The placeholder style depends on the driver; for sqlite3, it is a question mark (?). Here is a complete example that inserts a new record and then reads it back:\n\n```python\nimport sqlite3\n\nconn = sqlite3.connect('school.db')\ncursor = conn.cursor()\n\ncursor.execute('INSERT INTO students (name, grade) VALUES (?, ?)', ('Aisha', 10))\nconn.commit()\n\ncursor.execute('SELECT * FROM students WHERE name = ?', ('Aisha',))\nrow = cursor.fetchone()\nprint(row)\n\nconn.close()\n```\n\nNotice how the values are passed as a separate tuple to the execute method. The driver handles escaping and quoting automatically."
+      "content": "To safely insert data into a database from Python, use parameterized queries with placeholders. This prevents SQL injection and ensures values are properly quoted. The placeholder style depends on the driver; for sqlite3, it is a question mark (?). Here is a complete example that inserts a new record and then reads it back:\n\n```python\nimport sqlite3\n\nconn = sqlite3.connect('school.db')\ncursor = conn.cursor()\n\ncursor.execute('INSERT INTO students (name, grade) VALUES (?, ?)', ('Aisha', 10))\nconn.commit()\n\ncursor.execute('SELECT * FROM students WHERE name = ?', ('Aisha',))\nrow = cursor.fetchone()\nprint(row)\n\nconn.close()\n```\n\nNotice how the values are passed as a separate tuple to the execute method. The driver handles escaping and quoting automatically.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of integrating the database syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "27.5_q4",
@@ -244,7 +248,7 @@
         "title": "Connecting to a Database with Python",
         "content": "To integrate a database with your web backend, you first need to import the appropriate library and establish a connection. In Python, the standard way to interact with SQL databases is through the `sqlite3` module, which is built into the standard library. You use `sqlite3.connect()` to create a connection object. Once connected, you can create a cursor to execute SQL commands. Always remember to close the connection when you are done to release resources."
       },
-      "prompt": "Complete the code to import sqlite3 and connect to a database file named 'app.db':\n\nimport ____\n\nconn = ____('app.db')\n\n",
+      "prompt": "Complete the code to import sqlite3 and connect to a database file named 'app.db':\n\nimport ____\n\nconn = ____('app.db')",
       "correct_answer": "sqlite3\nsqlite3.connect",
       "accepted_answers": [
         "sqlite3\nsqlite3.connect",
@@ -266,7 +270,7 @@
         "title": "Executing Queries and Managing Transactions",
         "content": "After obtaining a cursor from a connection, you use the `execute()` method to run SQL statements. For queries that retrieve data, use `SELECT`. For modifications, use `INSERT`, `UPDATE`, or `DELETE`. To make changes persistent, call `conn.commit()`. If an error occurs, you can roll back changes with `conn.rollback()`. The `close()` method releases the connection. Using `with` statements is a best practice for ensuring resources are cleaned up automatically."
       },
-      "prompt": "Fill in the missing keywords to run a query, commit changes, and close the connection:\n\ncursor.____('SELECT * FROM users')\nconn.____()\nconn.____()\n",
+      "prompt": "Fill in the missing keywords to run a query, commit changes, and close the connection:\n\ncursor.____('SELECT * FROM users')\nconn.____()\nconn.____()",
       "correct_answer": "execute\ncommit\nclose",
       "accepted_answers": [
         "execute\ncommit\nclose",
@@ -288,7 +292,7 @@
         "title": "Standard CRUD Workflow in Python",
         "content": "A typical database workflow involves: opening a connection, creating a cursor, executing an SQL command, committing the transaction if it modifies data, and finally closing the connection. For read-only operations, committing is optional but closing is still required. The order matters because you cannot execute commands before the cursor exists, and you should not close the connection while still using it."
       },
-      "prompt": "Arrange the following steps in the correct order to safely insert a record and clean up:\n\ncursor.execute('INSERT INTO tasks (name) VALUES (?)', ('Study',))\nconn.close()\nconn = sqlite3.connect('app.db')\ncursor = conn.cursor()\nconn.commit()\n",
+      "prompt": "Arrange the following steps in the correct order to safely insert a record and clean up:\n\ncursor.execute('INSERT INTO tasks (name) VALUES (?)', ('Study',))\nconn.close()\nconn = sqlite3.connect('app.db')\ncursor = conn.cursor()\nconn.commit()",
       "options": [
         "x = 10",
         "y = 20",
@@ -314,7 +318,7 @@
         "title": "Using Parameterized Queries to Prevent SQL Injection",
         "content": "When passing user input into SQL statements, never concatenate strings directly. Instead, use placeholders such as `?` for sqlite3 or `%s` for other adapters. The database driver safely escapes the values, preventing SQL injection attacks. A common pattern is to pass a tuple of values as the second argument to `execute()`."
       },
-      "prompt": "Complete the pattern for safely inserting a username and email into the 'accounts' table:\n\ncursor.execute('INSERT INTO accounts (username, email) VALUES (?, ?)', ____)\n\n",
+      "prompt": "Complete the pattern for safely inserting a username and email into the 'accounts' table:\n\ncursor.execute('INSERT INTO accounts (username, email) VALUES (?, ?)', ____)",
       "correct_answer": "('alice', 'alice@example.com')",
       "accepted_answers": [
         "('alice', 'alice@example.com')",
@@ -337,7 +341,7 @@
         "title": "Reading Data from a Database Safely",
         "content": "To fetch data, execute a `SELECT` query, then call `fetchall()`, `fetchone()`, or `fetchmany()`. It is important to iterate over the result set or store it in a list. After reading, close the connection. If you need to process rows, use a `for` loop or list comprehension. Always handle the connection within a `try...finally` block or a context manager to ensure cleanup even if an exception occurs."
       },
-      "prompt": "Arrange the steps to query all active users and print their names:\n\nfor row in cursor.fetchall():\n    print(row[0])\nconn.close()\nconn = sqlite3.connect('app.db')\ncursor = conn.cursor()\ncursor.execute('SELECT name FROM users WHERE active = 1')\n",
+      "prompt": "Arrange the steps to query all active users and print their names:\n\nfor row in cursor.fetchall():\n    print(row[0])\nconn.close()\nconn = sqlite3.connect('app.db')\ncursor = conn.cursor()\ncursor.execute('SELECT name FROM users WHERE active = 1')",
       "options": [
         "x = 10",
         "y = 20",
@@ -363,7 +367,7 @@
         "title": "Context Managers for Database Connections",
         "content": "A robust idiom in Python is to use a context manager (`with` statement) for database connections. The `sqlite3` module supports this via `conn = sqlite3.connect(...)` used as `with sqlite3.connect('app.db') as conn:`. Inside the block, you create a cursor and execute operations. When the block exits, the connection is automatically committed if no exception occurred, or rolled back if one did, and the connection is closed. This eliminates the need for explicit `close()` calls."
       },
-      "prompt": "Complete the context manager idiom to safely run a query and ensure cleanup:\n\nwith sqlite3.connect('app.db') as conn:\n    cursor = conn.cursor()\n    cursor.execute('SELECT id FROM logs')\n    results = ____\n",
+      "prompt": "Complete the context manager idiom to safely run a query and ensure cleanup:\n\nwith sqlite3.connect('app.db') as conn:\n    cursor = conn.cursor()\n    cursor.execute('SELECT id FROM logs')\n    results = ____",
       "correct_answer": "cursor.fetchall()",
       "accepted_answers": [
         "cursor.fetchall()",
@@ -590,5 +594,15 @@
       "hint": "Check the orders table before deleting. Use cursor.rowcount to confirm deletion. In tests, patch sqlite3.connect and simulate cursor.fetchone and cursor.rowcount values.",
       "explanation": "This mastery item combines referential integrity enforcement with automated testing. It ensures learners understand how backend logic protects data consistency and how to verify behavior safely using mocks, a critical skill in professional web development."
     }
+  ],
+  "unit_num": 27,
+  "learning_objectives": [
+    "Explain the technical concepts and mechanics of Integrating the Database",
+    "Apply idiomatic Python patterns when working with Integrating the Database",
+    "Debug common runtime exceptions and logic errors associated with Integrating the Database",
+    "Implement production-ready code utilizing Integrating the Database"
+  ],
+  "prerequisites": [
+    "27.4"
   ]
 }

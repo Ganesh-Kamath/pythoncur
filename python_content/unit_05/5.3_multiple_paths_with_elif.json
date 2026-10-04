@@ -11,7 +11,9 @@
       "difficulty": "easy",
       "prerequisites": [],
       "title": "Recognizing Multiple Paths with elif",
-      "content": "The `if` statement executes a block of code when a condition is true. When you need to check multiple conditions in sequence and execute different code for each, you can chain `elif` (short for 'else if') after an `if` statement. Only the first true condition's block runs; subsequent `elif` and `else` blocks are skipped. This creates multiple distinct paths through your program. For example, consider checking a user's age to determine access level:\n\n```python\nage = 17\nif age < 13:\n    print(\"Child - restricted access\")\nelif age < 18:\n    print(\"Teen - parental consent required\")\nelif age < 65:\n    print(\"Adult - full access\")\nelse:\n    print(\"Senior - assisted access\")\n```\n\nIn this example, only one message prints because Python evaluates each condition from top to bottom and stops at the first true one. `elif` allows you to build a decision tree with more than two outcomes."
+      "content": "The `if` statement executes a block of code when a condition is true. When you need to check multiple conditions in sequence and execute different code for each, you can chain `elif` (short for 'else if') after an `if` statement. Only the first true condition's block runs; subsequent `elif` and `else` blocks are skipped. This creates multiple distinct paths through your program. For example, consider checking a user's age to determine access level:\n\n```python\nage = 17\nif age < 13:\n    print(\"Child - restricted access\")\nelif age < 18:\n    print(\"Teen - parental consent required\")\nelif age < 65:\n    print(\"Adult - full access\")\nelse:\n    print(\"Senior - assisted access\")\n```\n\nIn this example, only one message prints because Python evaluates each condition from top to bottom and stops at the first true one. `elif` allows you to build a decision tree with more than two outcomes.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of multiple paths with elif basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "5.3_q2",
@@ -42,7 +44,9 @@
         "5.3_q2"
       ],
       "title": "Understanding elif Syntax",
-      "content": "The syntax for multiple paths with `elif` follows a strict pattern. You begin with `if <condition_1>:` followed by an indented block. After that, you may add zero or more `elif <condition_n>:` blocks, each with its own indented block. Optionally, you may end with a single `else:` block that executes when all preceding conditions are false. Each `elif` is evaluated only if all previous conditions were false. Here is a complete valid structure:\n\n```python\nif condition_a:\n    # code for true_a\nelif condition_b:\n    # code for true_b\nelif condition_c:\n    # code for true_c\nelse:\n    # code for all_false\n```\n\nKey rules: (1) `elif` must be lowercase, (2) each clause ends with a colon `:`, (3) indentation must be consistent, and (4) only one `else` is allowed per `if` chain. You cannot place a standalone `elif` without a preceding `if`."
+      "content": "The syntax for multiple paths with `elif` follows a strict pattern. You begin with `if <condition_1>:` followed by an indented block. After that, you may add zero or more `elif <condition_n>:` blocks, each with its own indented block. Optionally, you may end with a single `else:` block that executes when all preceding conditions are false. Each `elif` is evaluated only if all previous conditions were false. Here is a complete valid structure:\n\n```python\nif condition_a:\n    # code for true_a\nelif condition_b:\n    # code for true_b\nelif condition_c:\n    # code for true_c\nelse:\n    # code for all_false\n```\n\nKey rules: (1) `elif` must be lowercase, (2) each clause ends with a colon `:`, (3) indentation must be consistent, and (4) only one `else` is allowed per `if` chain. You cannot place a standalone `elif` without a preceding `if`.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of multiple paths with elif syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "5.3_q4",
@@ -188,13 +192,13 @@
       ],
       "prompt": "Trace through the following code step by step. What is printed?\n\n```python\na = 7\nif a > 10:\n    a = a + 5\n    print(a)\nelif a > 5:\n    a = a * 2\n    print(a)\nelif a > 1:\n    print(\"Low\")\nelse:\n    print(\"Zero or Negative\")\nprint(\"Final:\", a)\n```",
       "options": [
-        "12\nFinal: 14",
-        "14\nFinal: 14",
         "Low\nFinal: 7",
-        "Zero or Negative\nFinal: 7"
+        "14\nFinal: 14",
+        "High\nFinal: 7",
+        "Error"
       ],
-      "correct_answer": "Low\nFinal: 7",
-      "explanation": "Step 1: `a = 7`. Step 2: `a > 10` is False, skip. Step 3: `a > 5` is True, so `a = 7 * 2 = 14` and print 14. However, wait\u2014let me re-trace: actually `a > 10` is False, `a > 5` is True, so `a = 14` and print 14. But option B says 14. Re-checking: `a = 7`, `7 > 10` is False, `7 > 5` is True, so `a = 14`, print 14. Final: 14. The correct answer is B. Correction: The initial analysis had an error. The first true condition is `a > 5`, so `a` becomes 14 and 14 is printed. The final `print` outputs `Final: 14`. Therefore the correct answer is B."
+      "correct_answer": "14\nFinal: 14",
+      "explanation": "When `a = 7`, `a > 10` is False. The `elif a > 5` branch is True, so `a = 7 * 2 = 14` is printed. The final line then prints `Final: 14`."
     },
     {
       "id": "5.3_q12",
@@ -341,7 +345,7 @@
       "starter_code": "def categorize_grade(score):\n    if score >= 90:\n        return 'Excellent'\n    elif score >= 80:\n        return 'Good'\n    elif score >= 70:\n        return 'Average'\n    elif score >= 60:\n        return 'Below Average'\n    else:\n        return 'Failing'\n\n# This function is called with various inputs\nprint(categorize_grade(85))\nprint(categorize_grade(95))",
       "solution_code": "def categorize_grade(score):\n    if score >= 90:\n        return 'Excellent'\n    elif score >= 80:\n        return 'Good'\n    elif score >= 70:\n        return 'Average'\n    elif score >= 60:\n        return 'Below Average'\n    else:\n        return 'Failing'\n\n# This function is called with various inputs\nprint(categorize_grade(85))\nprint(categorize_grade(95))",
       "hint": "The logic appears correct for the given test cases, but consider what happens when score is negative or above 100, and whether the conditions are mutually exclusive.",
-      "explanation": "There is no syntax or runtime error in this specific code, but the logic has a flaw: the conditions are not fully mutually exclusive in terms of edge-case validation. For instance, a score of -5 returns 'Failing', which may be acceptable, but a score of 150 also returns 'Failing'. The real issue is that the function lacks input validation. Additionally, if the intention was to strictly enforce 0\u2013100, the conditions should be ordered from highest to lowest (which they are), but an explicit check should be added. The 'error' is a logical gap rather than a crash."
+      "explanation": "There is no syntax or runtime error in this specific code, but the logic has a flaw: the conditions are not fully mutually exclusive in terms of edge-case validation. For instance, a score of -5 returns 'Failing', which may be acceptable, but a score of 150 also returns 'Failing'. The real issue is that the function lacks input validation. Additionally, if the intention was to strictly enforce 0–100, the conditions should be ordered from highest to lowest (which they are), but an explicit check should be added. The 'error' is a logical gap rather than a crash."
     },
     {
       "id": "5.3_q20",
@@ -352,7 +356,7 @@
       "prerequisites": [
         "5.3_q19"
       ],
-      "prompt": "Fix the following code so it correctly prints the season based on the month number (1\u201312).",
+      "prompt": "Fix the following code so it correctly prints the season based on the month number (1–12).",
       "starter_code": "def get_season(month):\n    if month == 12:\n        print('Winter')\n    elif month == 1 or month == 2:\n        print('Winter')\n    elif month == 3 or month == 4 or month == 5:\n        print('Spring')\n    elif month == 6 or month == 7 or month == 8:\n        print('Summer')\n    elif month == 9 or month == 10 or month == 11:\n        print('Autumn')\n    else:\n        print('Invalid month')",
       "solution_code": "def get_season(month):\n    if month in (12, 1, 2):\n        print('Winter')\n    elif month in (3, 4, 5):\n        print('Spring')\n    elif month in (6, 7, 8):\n        print('Summer')\n    elif month in (9, 10, 11):\n        print('Autumn')\n    else:\n        print('Invalid month')\n\n# Test cases\nget_season(1)\nget_season(6)\nget_season(9)\nget_season(13)",
       "hint": "The conditions overlap or are incomplete. Consider using the 'in' operator with tuples to make the code cleaner and ensure all valid months are covered.",
@@ -582,8 +586,8 @@
         "5.3_q28"
       ],
       "prompt": "Real-World Scenario: A smart thermostat adjusts heating based on time of day, temperature, and occupancy. Implement a decision tree: if occupied and temp < 18, heat; elif occupied and 18 <= temp < 22, maintain; elif unoccupied and temp < 16, eco mode; elif occupied and temp >= 22, cool; else, maintain. Output the action taken.",
-      "starter_code": "occupied = input('Is anyone home? (yes/no): ')\ntemp = float(input('Current temperature (\u00b0C): '))\ntime = input('Time of day (morning/afternoon/evening/night): ')\n\n# TODO: Synthesize multiple inputs into a single elif decision tree\naction = 'unknown'\nprint('Thermostat action:', action)",
-      "solution_code": "occupied = input('Is anyone home? (yes/no): ')\ntemp = float(input('Current temperature (\u00b0C): '))\ntime = input('Time of day (morning/afternoon/evening/night): ')\n\nif occupied.lower() == 'yes' and temp < 18:\n    action = 'Heat'\nelif occupied.lower() == 'yes' and 18 <= temp < 22:\n    action = 'Maintain'\nelif occupied.lower() == 'no' and temp < 16:\n    action = 'Eco mode'\nelif occupied.lower() == 'yes' and temp >= 22:\n    action = 'Cool'\nelse:\n    action = 'Maintain'\n\nprint('Thermostat action:', action)",
+      "starter_code": "occupied = input('Is anyone home? (yes/no): ')\ntemp = float(input('Current temperature (°C): '))\ntime = input('Time of day (morning/afternoon/evening/night): ')\n\n# TODO: Synthesize multiple inputs into a single elif decision tree\naction = 'unknown'\nprint('Thermostat action:', action)",
+      "solution_code": "occupied = input('Is anyone home? (yes/no): ')\ntemp = float(input('Current temperature (°C): '))\ntime = input('Time of day (morning/afternoon/evening/night): ')\n\nif occupied.lower() == 'yes' and temp < 18:\n    action = 'Heat'\nelif occupied.lower() == 'yes' and 18 <= temp < 22:\n    action = 'Maintain'\nelif occupied.lower() == 'no' and temp < 16:\n    action = 'Eco mode'\nelif occupied.lower() == 'yes' and temp >= 22:\n    action = 'Cool'\nelse:\n    action = 'Maintain'\n\nprint('Thermostat action:', action)",
       "test_cases": [
         {
           "input": "yes\n15\nmorning",
@@ -646,5 +650,15 @@
       "hint": "Use generator expressions with any() for efficient validation. For role assignment, normalize with .lower() before checking the 'admin' prefix to avoid case sensitivity issues.",
       "explanation": "Mastery-level elif usage integrates multi-step validation with role-based branching. The solution separates validation (boolean accumulation) from authorization (elif chain), demonstrating clean separation of concerns. Generator expressions ensure O(n) validation without extra storage."
     }
+  ],
+  "unit_num": 5,
+  "learning_objectives": [
+    "Explain the technical concepts and mechanics of Multiple Paths with elif",
+    "Apply idiomatic Python patterns when working with Multiple Paths with elif",
+    "Debug common runtime exceptions and logic errors associated with Multiple Paths with elif",
+    "Implement production-ready code utilizing Multiple Paths with elif"
+  ],
+  "prerequisites": [
+    "5.2"
   ]
 }

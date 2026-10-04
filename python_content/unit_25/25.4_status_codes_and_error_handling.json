@@ -11,7 +11,9 @@
       "concept": "status_codes_and_error_handling_basics",
       "title": "What Are HTTP Status Codes?",
       "content": "HTTP status codes are three-digit numbers returned by a server to indicate the result of a client's request. They help you understand whether a request succeeded, failed due to a client error, or failed due to a server issue. Common categories include 2xx for success, 4xx for client errors, and 5xx for server errors. When working with APIs in Python, it is essential to inspect the status code before attempting to parse the response body. A status code of 200 means the request was successful. For example, you can retrieve a status code using the response object from the requests library: `import requests; r = requests.get('https://api.example.com/data'); print(r.status_code)`. If the code is not 200, you should handle the situation gracefully rather than letting your program crash.",
-      "skill": "recognition"
+      "skill": "recognition",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of status codes and error handling basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "25.4_q2",
@@ -42,7 +44,9 @@
       "concept": "status_codes_and_error_handling_syntax",
       "title": "Checking Status Codes in Python",
       "content": "In Python, you can use an if-statement to check the status code returned by a requests call. The typical pattern is to compare `response.status_code` against known values or ranges. Here is a practical example: `import requests; url = 'https://api.example.com/users'; response = requests.get(url); if response.status_code == 200: print('Data retrieved successfully'); else: print(f'Request failed with code {response.status_code}')`. You can also use the `raise_for_status()` method, which automatically raises an HTTPError for 4xx and 5xx responses. This is useful when you want to stop execution immediately on failure: `try: response.raise_for_status(); except requests.exceptions.HTTPError as e: print('HTTP error:', e)`. Remember to always handle exceptions so your program remains robust when APIs are unavailable.",
-      "skill": "understanding"
+      "skill": "understanding",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of status codes and error handling syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "25.4_q4",
@@ -360,7 +364,7 @@
       "prompt": "Fix the bug in this code for status codes and error handling errors:",
       "starter_code": "# Fix this code\nPrint('Status Codes and Error Handling')",
       "solution_code": "print('Status Codes and Error Handling')",
-      "explanation": "Python identifiers and built-ins are case-sensitive."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of status codes and error handling errors. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "25.4_q20",
@@ -408,7 +412,7 @@
       "prompt": "Fix the bug in this code for status codes and error handling runtime:",
       "starter_code": "# Fix this code\nPrint('Status Codes and Error Handling')",
       "solution_code": "print('Status Codes and Error Handling')",
-      "explanation": "Python identifiers and built-ins are case-sensitive."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of status codes and error handling runtime. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "25.4_q23",
@@ -611,5 +615,15 @@
       "hint": "The retry loop should allow `max_retries + 1` total attempts. Use `requests.request` to support any HTTP method.",
       "explanation": "Context managers encapsulate setup and teardown, making resource management explicit and exception-safe. Combining retries, custom exceptions, and proper cleanup demonstrates mastery of robust API client design."
     }
+  ],
+  "unit_num": 25,
+  "learning_objectives": [
+    "Explain the technical concepts and mechanics of Status Codes and Error Handling",
+    "Apply idiomatic Python patterns when working with Status Codes and Error Handling",
+    "Debug common runtime exceptions and logic errors associated with Status Codes and Error Handling",
+    "Implement production-ready code utilizing Status Codes and Error Handling"
+  ],
+  "prerequisites": [
+    "25.3"
   ]
 }

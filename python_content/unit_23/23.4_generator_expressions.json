@@ -11,7 +11,9 @@
       "difficulty": "easy",
       "prerequisites": [],
       "title": "What Is a Generator Expression?",
-      "content": "A generator expression is a concise way to create a generator object in Python. It looks like a list comprehension but uses parentheses () instead of square brackets []. Because it is lazy, it does not compute all values at once; instead, it yields one value at a time when iterated over. This makes generator expressions memory-efficient for large or infinite sequences.\n\nFor example, instead of writing:\n\n    numbers = [x * x for x in range(5)]\n\nYou can write:\n\n    numbers = (x * x for x in range(5))\n\nBoth produce the same sequence, but the generator expression does not store all results in memory immediately."
+      "content": "A generator expression is a concise way to create a generator object in Python. It looks like a list comprehension but uses parentheses () instead of square brackets []. Because it is lazy, it does not compute all values at once; instead, it yields one value at a time when iterated over. This makes generator expressions memory-efficient for large or infinite sequences.\n\nFor example, instead of writing:\n\n    numbers = [x * x for x in range(5)]\n\nYou can write:\n\n    numbers = (x * x for x in range(5))\n\nBoth produce the same sequence, but the generator expression does not store all results in memory immediately.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of generator expressions basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "23.4_q2",
@@ -42,7 +44,9 @@
         "23.4_q2"
       ],
       "title": "Syntax of Generator Expressions",
-      "content": "The general syntax of a generator expression is:\n\n    (expression for item in iterable if condition)\n\nThe expression is evaluated for each item in the iterable. You may include an optional if clause to filter items. Unlike list comprehensions, generator expressions do not require the entire result to be stored in memory.\n\nConsider this example:\n\n    evens = (x for x in range(10) if x % 2 == 0)\n\nThis creates a generator that yields 0, 2, 4, 6, and 8 one at a time. You can consume it with a for loop or the next() function."
+      "content": "The general syntax of a generator expression is:\n\n    (expression for item in iterable if condition)\n\nThe expression is evaluated for each item in the iterable. You may include an optional if clause to filter items. Unlike list comprehensions, generator expressions do not require the entire result to be stored in memory.\n\nConsider this example:\n\n    evens = (x for x in range(10) if x % 2 == 0)\n\nThis creates a generator that yields 0, 2, 4, 6, and 8 one at a time. You can consume it with a for loop or the next() function.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of generator expressions syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "23.4_q4",
@@ -150,10 +154,10 @@
       ],
       "prompt": "What happens when this code runs?\n\n```python\ndef process(data):\n    for item in (x.upper() for x in data):\n        print(item)\n        break\n\nprocess(['apple', 'banana'])\n```",
       "options": [
-        "Prints 'apple' and continues to 'banana'",
         "Prints 'APPLE' and stops after the first iteration",
-        "Prints nothing because the generator is empty",
-        "Raises a TypeError"
+        "Raises a SyntaxError: invalid syntax at runtime",
+        "Raises an IndentationError: unexpected indent",
+        "Silently ignored by the Python parser"
       ],
       "correct_answer": "Prints 'APPLE' and stops after the first iteration",
       "explanation": "The generator expression yields 'APPLE' and 'BANANA'. The for loop prints the first item, then break exits the loop immediately without consuming the rest of the generator."
@@ -560,5 +564,15 @@
       "hint": "The ternary operator 'a if condition else b' works inside generator expressions.",
       "explanation": "This mastery item combines conditional logic with generator expressions. The ternary operator evaluates per item, and the generator yields labels lazily, demonstrating full control over expression-based iteration."
     }
+  ],
+  "unit_num": 23,
+  "learning_objectives": [
+    "Explain the technical concepts and mechanics of Generator Expressions",
+    "Apply idiomatic Python patterns when working with Generator Expressions",
+    "Debug common runtime exceptions and logic errors associated with Generator Expressions",
+    "Implement production-ready code utilizing Generator Expressions"
+  ],
+  "prerequisites": [
+    "23.3"
   ]
 }

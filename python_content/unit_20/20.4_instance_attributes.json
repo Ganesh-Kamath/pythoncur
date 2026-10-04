@@ -11,7 +11,9 @@
       "difficulty": "easy",
       "prerequisites": [],
       "title": "What Are Instance Attributes?",
-      "content": "An instance attribute is a variable that belongs to a specific object created from a class. When you create an object, each object can have its own values for these attributes. For example, if you create a class Car, each Car object can have its own color and model. Instance attributes are defined inside the __init__ method using self. Here is a simple example:\n\n```python\nclass Car:\n    def __init__(self, color, model):\n        self.color = color\n        self.model = model\n\nmy_car = Car('red', 'sedan')\nprint(my_car.color)  # Output: red\n```\n\nNotice that self.color and self.model are instance attributes. They store data unique to each instance of Car."
+      "content": "An instance attribute is a variable that belongs to a specific object created from a class. When you create an object, each object can have its own values for these attributes. For example, if you create a class Car, each Car object can have its own color and model. Instance attributes are defined inside the __init__ method using self. Here is a simple example:\n\n```python\nclass Car:\n    def __init__(self, color, model):\n        self.color = color\n        self.model = model\n\nmy_car = Car('red', 'sedan')\nprint(my_car.color)  # Output: red\n```\n\nNotice that self.color and self.model are instance attributes. They store data unique to each instance of Car.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of instance attributes basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "20.4_q2",
@@ -36,12 +38,12 @@
       "prompt": "Which statement best applies to instance attributes basics?",
       "options": [
         "A. Correct approach for instance attributes basics",
-        "B. SyntaxError raised unconditionally",
-        "C. Unrelated system call",
-        "D. Halts Python interpreter"
+        "Raises a SyntaxError: invalid syntax at runtime",
+        "Raises an IndentationError: unexpected indent",
+        "Silently ignored by the Python parser"
       ],
       "correct_answer": "A. Correct approach for instance attributes basics",
-      "explanation": "Demonstrates core usage of instance attributes basics in Python."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of instance attributes basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "20.4_q3",
@@ -53,7 +55,9 @@
         "20.4_q2"
       ],
       "title": "Syntax for Defining Instance Attributes",
-      "content": "To define an instance attribute, you place the assignment inside the __init__ method and prefix the variable name with self. This syntax tells Python that the attribute belongs to the instance, not the class. Here is a detailed example:\n\n```python\nclass Dog:\n    def __init__(self, name, age):\n        self.name = name\n        self.age = age\n\nbuddy = Dog('Buddy', 5)\nprint(buddy.name)\nprint(buddy.age)\n```\n\nYou can also assign multiple attributes in one line or use default values. For example:\n\n```python\nclass Student:\n    def __init__(self, name, grade='A'):\n        self.name = name\n        self.grade = grade\n\nanna = Student('Anna')\nprint(anna.grade)  # Output: A\n```\n\nEach call to Dog or Student creates a new object with its own set of instance attributes."
+      "content": "To define an instance attribute, you place the assignment inside the __init__ method and prefix the variable name with self. This syntax tells Python that the attribute belongs to the instance, not the class. Here is a detailed example:\n\n```python\nclass Dog:\n    def __init__(self, name, age):\n        self.name = name\n        self.age = age\n\nbuddy = Dog('Buddy', 5)\nprint(buddy.name)\nprint(buddy.age)\n```\n\nYou can also assign multiple attributes in one line or use default values. For example:\n\n```python\nclass Student:\n    def __init__(self, name, grade='A'):\n        self.name = name\n        self.grade = grade\n\nanna = Student('Anna')\nprint(anna.grade)  # Output: A\n```\n\nEach call to Dog or Student creates a new object with its own set of instance attributes.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of instance attributes syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "20.4_q4",
@@ -78,12 +82,12 @@
       "prompt": "Which statement best applies to instance attributes syntax?",
       "options": [
         "A. Correct approach for instance attributes syntax",
-        "B. SyntaxError raised unconditionally",
-        "C. Unrelated system call",
-        "D. Halts Python interpreter"
+        "Raises a SyntaxError: invalid syntax at runtime",
+        "Raises an IndentationError: unexpected indent",
+        "Silently ignored by the Python parser"
       ],
       "correct_answer": "A. Correct approach for instance attributes syntax",
-      "explanation": "Demonstrates core usage of instance attributes syntax in Python."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of instance attributes syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "20.4_q5",
@@ -108,12 +112,12 @@
       "prompt": "Which statement best applies to instance attributes matching?",
       "options": [
         "A. Correct approach for instance attributes matching",
-        "B. SyntaxError raised unconditionally",
-        "C. Unrelated system call",
-        "D. Halts Python interpreter"
+        "Raises a SyntaxError: invalid syntax at runtime",
+        "Raises an IndentationError: unexpected indent",
+        "Silently ignored by the Python parser"
       ],
       "correct_answer": "A. Correct approach for instance attributes matching",
-      "explanation": "Demonstrates core usage of instance attributes matching in Python."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of instance attributes matching. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "20.4_q6",
@@ -138,61 +142,61 @@
       "prompt": "Which statement best applies to instance attributes pitfalls?",
       "options": [
         "A. Correct approach for instance attributes pitfalls",
-        "B. SyntaxError raised unconditionally",
-        "C. Unrelated system call",
-        "D. Halts Python interpreter"
+        "Raises a SyntaxError: invalid syntax at runtime",
+        "Raises an IndentationError: unexpected indent",
+        "Silently ignored by the Python parser"
       ],
       "correct_answer": "A. Correct approach for instance attributes pitfalls",
-      "explanation": "Demonstrates core usage of instance attributes pitfalls in Python."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of instance attributes pitfalls. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "20.4_q7",
       "type": "code_prediction",
-      "concept": "instance_attributes_execution",
-      "skill": "prediction",
-      "difficulty": "easy",
+      "concept": "instance_attr_assignment",
+      "skill": "understanding",
+      "difficulty": "medium",
       "prerequisites": [
         "20.4_q6"
       ],
-      "prompt": "Predict Output 7: What does this snippet output?\n```python\nvalue_7 = 35\nprint(value_7)\n```",
+      "prompt": "In the context of Instance Attributes, what is the primary behavior demonstrated here?\n```python\n# Instance Attributes\nprint('instance_attr_assignment')\n```",
       "options": [
-        "35",
-        "17",
-        "value_7",
+        "instance_attr_assignment",
+        "SyntaxError",
+        "None",
         "Error"
       ],
-      "correct_answer": "35",
-      "explanation": "The variable value_7 stores 35, and print outputs it to the console."
+      "correct_answer": "instance_attr_assignment",
+      "explanation": "This directly illustrates the standard behavior of instance_attr_assignment: instance attributes are bound to individual objects via self."
     },
     {
       "id": "20.4_q8",
-      "type": "output_prediction",
-      "concept": "instance_attributes_execution",
-      "skill": "prediction",
+      "type": "multiple_choice",
+      "concept": "instance_attr_assignment_rules",
+      "skill": "reasoning",
       "difficulty": "medium",
       "prerequisites": [
         "20.4_q7"
       ],
-      "prompt": "Predict Output 8: What does this snippet output?\n```python\nvalue_8 = 40\nprint(value_8)\n```",
+      "prompt": "What is a core design principle when working with Instance Attributes in Python?",
       "options": [
-        "40",
-        "20",
-        "value_8",
-        "Error"
+        "Instance attributes are bound to individual objects via self",
+        "It bypasses all memory management constraints",
+        "It causes the interpreter to compile to C++ automatically",
+        "It can only be executed in interactive REPL mode"
       ],
-      "correct_answer": "40",
-      "explanation": "The variable value_8 stores 40, and print outputs it to the console."
+      "correct_answer": "Instance attributes are bound to individual objects via self",
+      "explanation": "Understanding this rule is essential: instance attributes are bound to individual objects via self."
     },
     {
       "id": "20.4_q9",
-      "type": "code_prediction",
-      "concept": "instance_attributes_flow",
-      "skill": "prediction",
+      "type": "fix_the_code",
+      "concept": "instance_attr_assignment_debugging",
+      "skill": "debugging",
       "difficulty": "medium",
       "prerequisites": [
         "20.4_q8"
       ],
-      "prompt": "Predict Output 9: What does this snippet output?\n```python\nvalue_9 = 45\nprint(value_9)\n```",
+      "prompt": "Fix this code snippet implementing Instance Attributes correctly:",
       "options": [
         "45",
         "22",
@@ -200,7 +204,9 @@
         "Error"
       ],
       "correct_answer": "45",
-      "explanation": "The variable value_9 stores 45, and print outputs it to the console."
+      "explanation": "Applying standard Python idioms ensures correct behavior: instance attributes are bound to individual objects via self.",
+      "starter_code": "# Instance Attributes implementation\n___",
+      "solution_code": "# Instance Attributes implementation\nclass User:\n    def __init__(self, username):\n        self.username = username"
     },
     {
       "id": "20.4_q10",
@@ -211,7 +217,7 @@
       "prerequisites": [
         "20.4_q9"
       ],
-      "prompt": "Coding Challenge 10: Write a statement that prints 'Instance Attributes Result 10' to standard output.",
+      "prompt": "Write a statement that prints 'Instance Attributes Result 10' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Instance Attributes Result 10')",
       "test_cases": [
@@ -221,37 +227,37 @@
         }
       ],
       "hint": "Use print('Instance Attributes Result 10') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of instance attributes analysis. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "20.4_q11",
-      "type": "code_prediction",
-      "concept": "instance_attributes_tracing",
-      "skill": "tracing",
-      "difficulty": "medium",
+      "type": "multiple_choice",
+      "concept": "instance_attr_assignment_tradeoffs",
+      "skill": "evaluation",
+      "difficulty": "hard",
       "prerequisites": [
         "20.4_q10"
       ],
-      "prompt": "Predict Output 11: What does this snippet output?\n```python\nvalue_11 = 55\nprint(value_11)\n```",
+      "prompt": "Which common pitfall must programmers avoid when using Instance Attributes?",
       "options": [
-        "55",
-        "27",
-        "value_11",
-        "Error"
+        "Misunderstanding edge cases related to: instance attributes are bound to individual objects via self",
+        "Forgetting that Python does not support functions",
+        "Assuming integers are capped at 32 bits",
+        "Using lowercase variable names"
       ],
-      "correct_answer": "55",
-      "explanation": "The variable value_11 stores 55, and print outputs it to the console."
+      "correct_answer": "Misunderstanding edge cases related to: instance attributes are bound to individual objects via self",
+      "explanation": "Careful attention to requirements avoids common traps: instance attributes are bound to individual objects via self."
     },
     {
       "id": "20.4_q12",
-      "type": "output_prediction",
-      "concept": "instance_attributes_logic",
-      "skill": "prediction",
-      "difficulty": "medium",
+      "type": "write_the_code",
+      "concept": "instance_attr_assignment_application",
+      "skill": "implementation",
+      "difficulty": "hard",
       "prerequisites": [
         "20.4_q11"
       ],
-      "prompt": "Predict Output 12: What does this snippet output?\n```python\nvalue_12 = 60\nprint(value_12)\n```",
+      "prompt": "Write the canonical Python code statement for Instance Attributes:",
       "options": [
         "60",
         "30",
@@ -259,7 +265,9 @@
         "Error"
       ],
       "correct_answer": "60",
-      "explanation": "The variable value_12 stores 60, and print outputs it to the console."
+      "explanation": "Canonical implementation: class User:\n    def __init__(self, username):\n        self.username = username. Instance attributes are bound to individual objects via self.",
+      "starter_code": "# Complete the statement\n___",
+      "solution_code": "class User:\n    def __init__(self, username):\n        self.username = username"
     },
     {
       "id": "20.4_q13",
@@ -409,7 +417,7 @@
       "prompt": "Fix the bug in this code for instance attributes errors:",
       "starter_code": "# Fix this code\nPrint('Instance Attributes')",
       "solution_code": "print('Instance Attributes')",
-      "explanation": "Python identifiers and built-ins are case-sensitive."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of instance attributes errors. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "20.4_q20",
@@ -457,7 +465,7 @@
       "prompt": "Fix the bug in this code for instance attributes runtime:",
       "starter_code": "# Fix this code\nPrint('Instance Attributes')",
       "solution_code": "print('Instance Attributes')",
-      "explanation": "Python identifiers and built-ins are case-sensitive."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of instance attributes runtime. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "20.4_q23",
@@ -621,5 +629,15 @@
       "hint": "Guard clauses prevent invalid mutations of instance attributes; always validate inputs before assignment.",
       "explanation": "Mastery of instance attributes involves controlling access and mutation through methods, ensuring object integrity and encapsulating internal state."
     }
+  ],
+  "unit_num": 20,
+  "learning_objectives": [
+    "Explain the technical concepts and mechanics of Instance Attributes",
+    "Apply idiomatic Python patterns when working with Instance Attributes",
+    "Debug common runtime exceptions and logic errors associated with Instance Attributes",
+    "Implement production-ready code utilizing Instance Attributes"
+  ],
+  "prerequisites": [
+    "20.3"
   ]
 }

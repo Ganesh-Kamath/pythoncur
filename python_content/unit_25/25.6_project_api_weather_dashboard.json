@@ -11,7 +11,9 @@
       "difficulty": "easy",
       "prerequisites": [],
       "title": "Architecting a Weather Dashboard",
-      "content": "Before writing any code, you must plan how your Weather Dashboard will fetch data and display it. A typical architecture has three layers: the frontend (GUI) where the user interacts, the networking layer that calls the weather API, and the data layer that parses the JSON response. We will use the `requests` library to send a GET request to a public weather API such as OpenWeatherMap. The response arrives as JSON, which we convert into a Python dictionary using `.json()`. Your GUI will then extract fields like temperature, humidity, and description to update labels. Sketch this flow on paper: GUI button triggers function -> `requests.get(url)` -> `.json()` -> update labels. This separation keeps your code readable and debuggable."
+      "content": "Before writing any code, you must plan how your Weather Dashboard will fetch data and display it. A typical architecture has three layers: the frontend (GUI) where the user interacts, the networking layer that calls the weather API, and the data layer that parses the JSON response. We will use the `requests` library to send a GET request to a public weather API such as OpenWeatherMap. The response arrives as JSON, which we convert into a Python dictionary using `.json()`. Your GUI will then extract fields like temperature, humidity, and description to update labels. Sketch this flow on paper: GUI button triggers function -> `requests.get(url)` -> `.json()` -> update labels. This separation keeps your code readable and debuggable.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of project api weather dashboard architecture. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "idx": 2,
@@ -24,7 +26,9 @@
       ],
       "title": "Choosing API Endpoints and GUI Layout",
       "content": "Selecting the right API endpoint is critical. For example, the current weather endpoint usually returns data like `{'main': {'temp': 285.53}, 'weather': [{'description': 'clear sky'}]}`. Plan to store the API key securely, perhaps as an environment variable, rather than hard-coding it. For the GUI, a simple layout might use a `tkinter.Tk()` root window with a `Label` for the city, another for temperature, and a `Button` to refresh. Remember to handle network errors gracefully with a `try/except` block around the request. Here is a skeleton to guide your planning:\n\n```python\nimport requests\n\napi_key = 'YOUR_KEY'\nbase_url = 'https://api.openweathermap.org/data/2.5/weather'\nparams = {'q': 'London', 'appid': api_key, 'units': 'metric'}\n\ntry:\n    response = requests.get(base_url, params=params)\n    response.raise_for_status()\n    data = response.json()\nexcept requests.exceptions.RequestException as e:\n    print('Error:', e)\n```\n\nWith this structure, you can now wire the parsed values into your GUI widgets.",
-      "id": "25.6_q2"
+      "id": "25.6_q2",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of project api weather dashboard architecture. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "idx": 3,
@@ -135,7 +139,7 @@
       "prompt": "Fix the bug in this code for project api weather dashboard module bugfix:",
       "starter_code": "# Fix this code\nPrint('Project: API Weather Dashboard')",
       "solution_code": "print('Project: API Weather Dashboard')",
-      "explanation": "Python identifiers and built-ins are case-sensitive."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of project api weather dashboard module bugfix. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "25.6_q8",
@@ -156,7 +160,7 @@
       "prompt": "Fix the bug in this code for project api weather dashboard module bugfix: (Variation 8)",
       "starter_code": "# Fix this code\nPrint('Project: API Weather Dashboard')",
       "solution_code": "print('Project: API Weather Dashboard')",
-      "explanation": "Python identifiers and built-ins are case-sensitive."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of project api weather dashboard module bugfix. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "25.6_q9",
@@ -177,7 +181,7 @@
       "prompt": "Fix the bug in this code for project api weather dashboard module bugfix: (Variation 9)",
       "starter_code": "# Fix this code\nPrint('Project: API Weather Dashboard')",
       "solution_code": "print('Project: API Weather Dashboard')",
-      "explanation": "Python identifiers and built-ins are case-sensitive."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of project api weather dashboard module bugfix. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "25.6_q10",
@@ -198,7 +202,7 @@
       "prompt": "Fix the bug in this code for project api weather dashboard module bugfix: (Variation 10)",
       "starter_code": "# Fix this code\nPrint('Project: API Weather Dashboard')",
       "solution_code": "print('Project: API Weather Dashboard')",
-      "explanation": "Python identifiers and built-ins are case-sensitive."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of project api weather dashboard module bugfix. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "25.6_q11",
@@ -219,7 +223,7 @@
       "prompt": "Fix the bug in this code for project api weather dashboard module bugfix: (Variation 11)",
       "starter_code": "# Fix this code\nPrint('Project: API Weather Dashboard')",
       "solution_code": "print('Project: API Weather Dashboard')",
-      "explanation": "Python identifiers and built-ins are case-sensitive."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of project api weather dashboard module bugfix. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "25.6_q12",
@@ -240,7 +244,7 @@
       "prompt": "Fix the bug in this code for project api weather dashboard module bugfix: (Variation 12)",
       "starter_code": "# Fix this code\nPrint('Project: API Weather Dashboard')",
       "solution_code": "print('Project: API Weather Dashboard')",
-      "explanation": "Python identifiers and built-ins are case-sensitive."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of project api weather dashboard module bugfix. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "25.6_q13",
@@ -287,7 +291,7 @@
       "prerequisites": [
         "25.6_q14"
       ],
-      "prompt": "Inside your display function, use an f-string to print: print(f'Temperature: ___\u00b0C') where the variable holding the value is named temp.",
+      "prompt": "Inside your display function, use an f-string to print: print(f'Temperature: ___°C') where the variable holding the value is named temp.",
       "correct_answer": "temp",
       "accepted_answers": [
         "temp",
@@ -323,7 +327,7 @@
       "prerequisites": [
         "25.6_q16"
       ],
-      "prompt": "To ensure your script runs only when executed directly, place the main wiring logic inside: if __name__ == '__main__':.",
+      "prompt": "To ensure your script runs only when executed directly, place the main wiring logic inside:\n`if ___ == '__main__':`",
       "correct_answer": "__name__",
       "accepted_answers": [
         "__name__"
@@ -357,7 +361,7 @@
       "prerequisites": [
         "25.6_q18"
       ],
-      "prompt": "Coding Challenge 19: Write a statement that prints 'Project: API Weather Dashboard Result 19' to standard output.",
+      "prompt": "Write a statement that prints 'Project: API Weather Dashboard Result 19' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Project: API Weather Dashboard Result 19')",
       "test_cases": [
@@ -367,7 +371,7 @@
         }
       ],
       "hint": "Use print('Project: API Weather Dashboard Result 19') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of project api weather dashboard component. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "25.6_q20",
@@ -378,7 +382,7 @@
       "prerequisites": [
         "25.6_q19"
       ],
-      "prompt": "Coding Challenge 20: Write a statement that prints 'Project: API Weather Dashboard Result 20' to standard output.",
+      "prompt": "Write a statement that prints 'Project: API Weather Dashboard Result 20' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Project: API Weather Dashboard Result 20')",
       "test_cases": [
@@ -388,7 +392,7 @@
         }
       ],
       "hint": "Use print('Project: API Weather Dashboard Result 20') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of project api weather dashboard component. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "25.6_q21",
@@ -399,7 +403,7 @@
       "prerequisites": [
         "25.6_q20"
       ],
-      "prompt": "Coding Challenge 21: Write a statement that prints 'Project: API Weather Dashboard Result 21' to standard output.",
+      "prompt": "Write a statement that prints 'Project: API Weather Dashboard Result 21' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Project: API Weather Dashboard Result 21')",
       "test_cases": [
@@ -409,7 +413,7 @@
         }
       ],
       "hint": "Use print('Project: API Weather Dashboard Result 21') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of project api weather dashboard component. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "25.6_q22",
@@ -420,7 +424,7 @@
       "prerequisites": [
         "25.6_q21"
       ],
-      "prompt": "Coding Challenge 22: Write a statement that prints 'Project: API Weather Dashboard Result 22' to standard output.",
+      "prompt": "Write a statement that prints 'Project: API Weather Dashboard Result 22' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Project: API Weather Dashboard Result 22')",
       "test_cases": [
@@ -430,7 +434,7 @@
         }
       ],
       "hint": "Use print('Project: API Weather Dashboard Result 22') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of project api weather dashboard component. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "25.6_q23",
@@ -441,7 +445,7 @@
       "prerequisites": [
         "25.6_q22"
       ],
-      "prompt": "Coding Challenge 23: Write a statement that prints 'Project: API Weather Dashboard Result 23' to standard output.",
+      "prompt": "Write a statement that prints 'Project: API Weather Dashboard Result 23' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Project: API Weather Dashboard Result 23')",
       "test_cases": [
@@ -451,7 +455,7 @@
         }
       ],
       "hint": "Use print('Project: API Weather Dashboard Result 23') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of project api weather dashboard milestone. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "25.6_q24",
@@ -462,7 +466,7 @@
       "prerequisites": [
         "25.6_q23"
       ],
-      "prompt": "Coding Challenge 24: Write a statement that prints 'Project: API Weather Dashboard Result 24' to standard output.",
+      "prompt": "Write a statement that prints 'Project: API Weather Dashboard Result 24' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Project: API Weather Dashboard Result 24')",
       "test_cases": [
@@ -472,7 +476,7 @@
         }
       ],
       "hint": "Use print('Project: API Weather Dashboard Result 24') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of project api weather dashboard milestone. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "25.6_q25",
@@ -594,5 +598,15 @@
       "hint": "Use @patch to replace requests.get with a mock object. Verify label creation by inspecting root.winfo_children().",
       "explanation": "Testing network-dependent code requires mocking to isolate logic from external services. This ensures reliability and prevents flaky tests caused by API downtime."
     }
+  ],
+  "unit_num": 25,
+  "learning_objectives": [
+    "Architect a complete multi-step application for Project: API Weather Dashboard",
+    "Decompose problem requirements into modular functions and classes",
+    "Implement defensive error handling and input validation",
+    "Verify application correctness against comprehensive test cases"
+  ],
+  "prerequisites": [
+    "25.5"
   ]
 }

@@ -12,7 +12,9 @@
       "title": "What Are Iterables and Iterators?",
       "content": "An iterable is any object that can be looped over, such as a list, tuple, or string. It implements the `__iter__` method, which returns an iterator. An iterator is an object that keeps track of its position in a sequence and implements both `__iter__` and `__next__`. The `__next__` method returns the next item and raises `StopIteration` when exhausted. You can think of an iterable as a container and an iterator as a pointer moving through that container. For example:\n\n```python\nmy_list = [10, 20, 30]\nit = iter(my_list)\nprint(next(it))  # 10\nprint(next(it))  # 20\nprint(next(it))  # 30\n# print(next(it))  # raises StopIteration\n```\n\nKey takeaway: every iterator is an iterable, but not every iterable is an iterator (unless you call `iter()` on it).",
       "difficulty": "easy",
-      "prerequisites": []
+      "prerequisites": [],
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of iterables vs iterators basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "23.1_q2",
@@ -45,7 +47,9 @@
       "difficulty": "easy",
       "prerequisites": [
         "23.1_q2"
-      ]
+      ],
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of iterables vs iterators syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "23.1_q4",
@@ -591,5 +595,15 @@
       "hint": "The built-in `iter()` returns a fresh iterator over the list. For reversal, use the built-in `reversed()` function, which returns a reverse iterator.",
       "explanation": "A class can be both an iterable and provide additional iterator methods. `__iter__` makes the instance iterable by returning an iterator. `reversed_iter` demonstrates that multiple independent iterators can coexist on the same underlying data, each with its own traversal state."
     }
+  ],
+  "unit_num": 23,
+  "learning_objectives": [
+    "Explain the technical concepts and mechanics of Iterables vs Iterators",
+    "Apply idiomatic Python patterns when working with Iterables vs Iterators",
+    "Debug common runtime exceptions and logic errors associated with Iterables vs Iterators",
+    "Implement production-ready code utilizing Iterables vs Iterators"
+  ],
+  "prerequisites": [
+    "22.6"
   ]
 }

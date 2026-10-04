@@ -12,7 +12,9 @@
       "title": "Designing the CLI Expense Tracker Architecture",
       "content": "In this micro-lesson, we plan the overall structure of our Command-Line Interface (CLI) Expense Tracker. The application will allow users to add, view, and manage expenses stored in a JSON file. A clean architecture separates data handling, user input, and display logic. We will use a single main module with functions for loading and saving data, plus a loop that presents a menu to the user. The JSON file acts as our persistent storage, so we must handle file I/O carefully. Here is a high-level blueprint in Python:\n\n```python\ndef load_expenses(filename):\n    try:\n        with open(filename, 'r') as f:\n            return json.load(f)\n    except FileNotFoundError:\n        return []\n\ndef save_expenses(filename, expenses):\n    with open(filename, 'w') as f:\n        json.dump(expenses, f, indent=2)\n\ndef add_expense(expenses, desc, amount):\n    expenses.append({'description': desc, 'amount': amount, 'date': datetime.now().isoformat()})\n\ndef main():\n    expenses = load_expenses('expenses.json')\n    while True:\n        show_menu()\n        choice = input('Enter your choice: ')\n        if choice == '1':\n            add_expense_flow(expenses)\n        elif choice == '2':\n            display_expenses(expenses)\n        elif choice == '3':\n            break\n        save_expenses('expenses.json', expenses)\n```\n\nNotice how each function has one responsibility: loading, saving, adding, or orchestrating the menu. This modular design makes testing easier and keeps the codebase maintainable.",
       "difficulty": "easy",
-      "prerequisites": []
+      "prerequisites": [],
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of project cli expense tracker architecture. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "14.6_q2",
@@ -25,7 +27,9 @@
       "difficulty": "easy",
       "prerequisites": [
         "14.6_q1"
-      ]
+      ],
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of project cli expense tracker architecture. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "14.6_q3",
@@ -132,7 +136,7 @@
       "prompt": "Fix the bug in this code for project cli expense tracker module bugfix:",
       "starter_code": "# Fix this code\nPrint('Project: CLI Expense Tracker')",
       "solution_code": "print('Project: CLI Expense Tracker')",
-      "explanation": "Python identifiers and built-ins are case-sensitive."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of project cli expense tracker module bugfix. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "14.6_q8",
@@ -153,7 +157,7 @@
       "prompt": "Fix the bug in this code for project cli expense tracker module bugfix: (Variation 8)",
       "starter_code": "# Fix this code\nPrint('Project: CLI Expense Tracker')",
       "solution_code": "print('Project: CLI Expense Tracker')",
-      "explanation": "Python identifiers and built-ins are case-sensitive."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of project cli expense tracker module bugfix. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "14.6_q9",
@@ -174,7 +178,7 @@
       "prompt": "Fix the bug in this code for project cli expense tracker module bugfix: (Variation 9)",
       "starter_code": "# Fix this code\nPrint('Project: CLI Expense Tracker')",
       "solution_code": "print('Project: CLI Expense Tracker')",
-      "explanation": "Python identifiers and built-ins are case-sensitive."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of project cli expense tracker module bugfix. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "14.6_q10",
@@ -195,7 +199,7 @@
       "prompt": "Fix the bug in this code for project cli expense tracker module bugfix: (Variation 10)",
       "starter_code": "# Fix this code\nPrint('Project: CLI Expense Tracker')",
       "solution_code": "print('Project: CLI Expense Tracker')",
-      "explanation": "Python identifiers and built-ins are case-sensitive."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of project cli expense tracker module bugfix. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "14.6_q11",
@@ -216,7 +220,7 @@
       "prompt": "Fix the bug in this code for project cli expense tracker module bugfix: (Variation 11)",
       "starter_code": "# Fix this code\nPrint('Project: CLI Expense Tracker')",
       "solution_code": "print('Project: CLI Expense Tracker')",
-      "explanation": "Python identifiers and built-ins are case-sensitive."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of project cli expense tracker module bugfix. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "14.6_q12",
@@ -237,7 +241,7 @@
       "prompt": "Fix the bug in this code for project cli expense tracker module bugfix: (Variation 12)",
       "starter_code": "# Fix this code\nPrint('Project: CLI Expense Tracker')",
       "solution_code": "print('Project: CLI Expense Tracker')",
-      "explanation": "Python identifiers and built-ins are case-sensitive."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of project cli expense tracker module bugfix. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "14.6_q13",
@@ -654,5 +658,15 @@
         "14.6_q29"
       ]
     }
+  ],
+  "unit_num": 14,
+  "learning_objectives": [
+    "Architect a complete multi-step application for Project: CLI Expense Tracker",
+    "Decompose problem requirements into modular functions and classes",
+    "Implement defensive error handling and input validation",
+    "Verify application correctness against comprehensive test cases"
+  ],
+  "prerequisites": [
+    "14.5"
   ]
 }

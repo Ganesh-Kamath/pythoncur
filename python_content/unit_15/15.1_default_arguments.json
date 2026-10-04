@@ -11,7 +11,9 @@
       "difficulty": "easy",
       "prerequisites": [],
       "title": "What Are Default Arguments?",
-      "content": "A default argument is a parameter in a function definition that is assigned a default value. When a function is called, if the caller does not provide a value for that parameter, the default value is used instead. This makes functions more flexible by allowing optional inputs. For example, consider a function greet(name, greeting='Hello'). If you call greet('Alice'), Python uses the default 'Hello' for greeting. If you call greet('Alice', 'Hi'), it uses 'Hi'. Default arguments must appear after all parameters without default values to avoid ambiguity.\n\n```python\ndef greet(name, greeting='Hello'):\n    return greeting + ', ' + name + '!'\n\nprint(greet('Alice'))        # Output: Hello, Alice!\nprint(greet('Bob', 'Hi'))    # Output: Hi, Bob!\n```"
+      "content": "A default argument is a parameter in a function definition that is assigned a default value. When a function is called, if the caller does not provide a value for that parameter, the default value is used instead. This makes functions more flexible by allowing optional inputs. For example, consider a function greet(name, greeting='Hello'). If you call greet('Alice'), Python uses the default 'Hello' for greeting. If you call greet('Alice', 'Hi'), it uses 'Hi'. Default arguments must appear after all parameters without default values to avoid ambiguity.\n\n```python\ndef greet(name, greeting='Hello'):\n    return greeting + ', ' + name + '!'\n\nprint(greet('Alice'))        # Output: Hello, Alice!\nprint(greet('Bob', 'Hi'))    # Output: Hi, Bob!\n```",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of default arguments basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "15.1_q2",
@@ -42,7 +44,9 @@
         "15.1_q2"
       ],
       "title": "Syntax Rules for Default Arguments",
-      "content": "The syntax for default arguments places the default value after the parameter name using an equals sign (=). All parameters with defaults must be placed after parameters without defaults. This ordering is mandatory because Python matches arguments by position. You can also use mutable defaults such as lists or dictionaries, but be cautious: mutable defaults are evaluated only once when the function is defined, not on each call. For immutable types like strings, numbers, or tuples, this is safe and common.\n\n```python\ndef introduce(name, age=25, city='Unknown'):\n    return f'{name} is {age} years old and lives in {city}.'\n\nprint(introduce('Dana'))           # age=25, city='Unknown'\nprint(introduce('Dana', 30))        # age=30, city='Unknown'\nprint(introduce('Dana', 30, 'Paris'))  # age=30, city='Paris'\n```"
+      "content": "The syntax for default arguments places the default value after the parameter name using an equals sign (=). All parameters with defaults must be placed after parameters without defaults. This ordering is mandatory because Python matches arguments by position. You can also use mutable defaults such as lists or dictionaries, but be cautious: mutable defaults are evaluated only once when the function is defined, not on each call. For immutable types like strings, numbers, or tuples, this is safe and common.\n\n```python\ndef introduce(name, age=25, city='Unknown'):\n    return f'{name} is {age} years old and lives in {city}.'\n\nprint(introduce('Dana'))           # age=25, city='Unknown'\nprint(introduce('Dana', 30))        # age=30, city='Unknown'\nprint(introduce('Dana', 30, 'Paris'))  # age=30, city='Paris'\n```",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of default arguments syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "15.1_q4",
@@ -558,5 +562,15 @@
       "hint": "Define an inner function that captures discount_rate and returns the discounted amount. The outer function returns this inner function.",
       "explanation": "This mastery item combines default arguments with closures and higher-order functions. The default discount_rate of 0.1 provides a sensible baseline, while returning a callable lets callers reuse the configured discount logic efficiently."
     }
+  ],
+  "unit_num": 15,
+  "learning_objectives": [
+    "Explain the technical concepts and mechanics of Default Arguments",
+    "Apply idiomatic Python patterns when working with Default Arguments",
+    "Debug common runtime exceptions and logic errors associated with Default Arguments",
+    "Implement production-ready code utilizing Default Arguments"
+  ],
+  "prerequisites": [
+    "14.6"
   ]
 }

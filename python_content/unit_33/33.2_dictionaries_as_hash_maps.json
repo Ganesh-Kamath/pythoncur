@@ -11,7 +11,9 @@
       "difficulty": "easy",
       "prerequisites": [],
       "title": "Dictionaries as Hash Maps: The Core Idea",
-      "content": "A dictionary in Python is an implementation of a hash map, a data structure that stores key-value pairs. Under the hood, Python computes a hash of each key to determine where to store the corresponding value, enabling average O(1) lookup, insertion, and deletion. Unlike a list, which uses integer indices, a dictionary uses arbitrary immutable keys such as strings or tuples. This makes dictionaries ideal for modeling relationships like student IDs mapped to names. For example:\n\n```python\nstudent = {'id1': 'Alice', 'id2': 'Bob'}\nprint(student['id1'])  # Output: Alice\n```\n\nThe hash map property ensures that retrieving a value by its key is extremely fast because Python avoids scanning every element."
+      "content": "A dictionary in Python is an implementation of a hash map, a data structure that stores key-value pairs. Under the hood, Python computes a hash of each key to determine where to store the corresponding value, enabling average O(1) lookup, insertion, and deletion. Unlike a list, which uses integer indices, a dictionary uses arbitrary immutable keys such as strings or tuples. This makes dictionaries ideal for modeling relationships like student IDs mapped to names. For example:\n\n```python\nstudent = {'id1': 'Alice', 'id2': 'Bob'}\nprint(student['id1'])  # Output: Alice\n```\n\nThe hash map property ensures that retrieving a value by its key is extremely fast because Python avoids scanning every element.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of dictionaries as hash maps basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "33.2_q2",
@@ -42,7 +44,9 @@
         "33.2_q2"
       ],
       "title": "Creating and Accessing Dictionary Entries",
-      "content": "You create a dictionary using curly braces with comma-separated key: value pairs. Keys and values can be of different types, though keys must be hashable. To retrieve a value, place the key inside square brackets after the dictionary name. If the key does not exist, Python raises a KeyError.\n\n```python\nscores = {'math': 85, 'science': 92}\nprint(scores['math'])      # Access an existing key\nscores['english'] = 78    # Insert a new key-value pair\nprint(scores)              # Output: {'math': 85, 'science': 92, 'english': 78}\n```\n\nBecause the underlying structure is a hash map, the insertion and lookup shown above run in average O(1) time. Always ensure your keys are immutable types such as strings, numbers, or tuples when using them in a dictionary."
+      "content": "You create a dictionary using curly braces with comma-separated key: value pairs. Keys and values can be of different types, though keys must be hashable. To retrieve a value, place the key inside square brackets after the dictionary name. If the key does not exist, Python raises a KeyError.\n\n```python\nscores = {'math': 85, 'science': 92}\nprint(scores['math'])      # Access an existing key\nscores['english'] = 78    # Insert a new key-value pair\nprint(scores)              # Output: {'math': 85, 'science': 92, 'english': 78}\n```\n\nBecause the underlying structure is a hash map, the insertion and lookup shown above run in average O(1) time. Always ensure your keys are immutable types such as strings, numbers, or tuples when using them in a dictionary.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of dictionaries as hash maps syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "33.2_q4",
@@ -246,12 +250,12 @@
       "prerequisites": [
         "33.2_q12"
       ],
-      "prompt": "Fill Blank 13: Complete the code to output 'Dictionaries as Hash Maps #13':\n```python\n___('Dictionaries as Hash Maps #13')\n```",
+      "prompt": "Complete the code to output 'Dictionaries as Hash Maps #13':\n```python\n___('Dictionaries as Hash Maps #13')\n```",
       "correct_answer": "print",
       "accepted_answers": [
         "print"
       ],
-      "explanation": "The built-in print() function outputs the specified string."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of dictionaries as hash maps syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "33.2_q14",
@@ -262,12 +266,12 @@
       "prerequisites": [
         "33.2_q13"
       ],
-      "prompt": "Fill Blank 14: Complete the code to output 'Dictionaries as Hash Maps #14':\n```python\n___('Dictionaries as Hash Maps #14')\n```",
+      "prompt": "Complete the code to output 'Dictionaries as Hash Maps #14':\n```python\n___('Dictionaries as Hash Maps #14')\n```",
       "correct_answer": "print",
       "accepted_answers": [
         "print"
       ],
-      "explanation": "The built-in print() function outputs the specified string."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of dictionaries as hash maps keywords. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "33.2_q15",
@@ -278,7 +282,7 @@
       "prerequisites": [
         "33.2_q14"
       ],
-      "prompt": "Algorithm Sequence 15: Arrange the lines in correct logical order for Dictionaries As Hash Maps Sequence:",
+      "prompt": "Arrange the lines in correct logical order for Dictionaries As Hash Maps Sequence:",
       "options": [
         "a_15 = 10",
         "b_15 = 20",
@@ -302,12 +306,12 @@
       "prerequisites": [
         "33.2_q15"
       ],
-      "prompt": "Fill Blank 16: Complete the code to output 'Dictionaries as Hash Maps #16':\n```python\n___('Dictionaries as Hash Maps #16')\n```",
+      "prompt": "Complete the code to output 'Dictionaries as Hash Maps #16':\n```python\n___('Dictionaries as Hash Maps #16')\n```",
       "correct_answer": "print",
       "accepted_answers": [
         "print"
       ],
-      "explanation": "The built-in print() function outputs the specified string."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of dictionaries as hash maps patterns. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "33.2_q17",
@@ -318,7 +322,7 @@
       "prerequisites": [
         "33.2_q16"
       ],
-      "prompt": "Algorithm Sequence 17: Arrange the lines in correct logical order for Dictionaries As Hash Maps Algorithm:",
+      "prompt": "Arrange the lines in correct logical order for Dictionaries As Hash Maps Algorithm:",
       "options": [
         "a_17 = 10",
         "b_17 = 20",
@@ -342,12 +346,12 @@
       "prerequisites": [
         "33.2_q17"
       ],
-      "prompt": "Fill Blank 18: Complete the code to output 'Dictionaries as Hash Maps #18':\n```python\n___('Dictionaries as Hash Maps #18')\n```",
+      "prompt": "Complete the code to output 'Dictionaries as Hash Maps #18':\n```python\n___('Dictionaries as Hash Maps #18')\n```",
       "correct_answer": "print",
       "accepted_answers": [
         "print"
       ],
-      "explanation": "The built-in print() function outputs the specified string."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of dictionaries as hash maps idioms. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "33.2_q19",
@@ -477,7 +481,7 @@
       "prerequisites": [
         "33.2_q24"
       ],
-      "prompt": "Coding Challenge 25: Write a statement that prints 'Dictionaries as Hash Maps Result 25' to standard output.",
+      "prompt": "Write a statement that prints 'Dictionaries as Hash Maps Result 25' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Dictionaries as Hash Maps Result 25')",
       "test_cases": [
@@ -487,7 +491,7 @@
         }
       ],
       "hint": "Use print('Dictionaries as Hash Maps Result 25') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of dictionaries as hash maps implementation. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "33.2_q26",
@@ -498,7 +502,7 @@
       "prerequisites": [
         "33.2_q25"
       ],
-      "prompt": "Coding Challenge 26: Write a statement that prints 'Dictionaries as Hash Maps Result 26' to standard output.",
+      "prompt": "Write a statement that prints 'Dictionaries as Hash Maps Result 26' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Dictionaries as Hash Maps Result 26')",
       "test_cases": [
@@ -508,7 +512,7 @@
         }
       ],
       "hint": "Use print('Dictionaries as Hash Maps Result 26') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of dictionaries as hash maps practical. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "33.2_q27",
@@ -519,7 +523,7 @@
       "prerequisites": [
         "33.2_q26"
       ],
-      "prompt": "Coding Challenge 27: Write a statement that prints 'Dictionaries as Hash Maps Result 27' to standard output.",
+      "prompt": "Write a statement that prints 'Dictionaries as Hash Maps Result 27' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Dictionaries as Hash Maps Result 27')",
       "test_cases": [
@@ -529,7 +533,7 @@
         }
       ],
       "hint": "Use print('Dictionaries as Hash Maps Result 27') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of dictionaries as hash maps advanced. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "33.2_q28",
@@ -540,7 +544,7 @@
       "prerequisites": [
         "33.2_q27"
       ],
-      "prompt": "Coding Challenge 28: Write a statement that prints 'Dictionaries as Hash Maps Result 28' to standard output.",
+      "prompt": "Write a statement that prints 'Dictionaries as Hash Maps Result 28' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Dictionaries as Hash Maps Result 28')",
       "test_cases": [
@@ -550,7 +554,7 @@
         }
       ],
       "hint": "Use print('Dictionaries as Hash Maps Result 28') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of dictionaries as hash maps challenge. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "33.2_q29",
@@ -561,7 +565,7 @@
       "prerequisites": [
         "33.2_q28"
       ],
-      "prompt": "Coding Challenge 29: Write a statement that prints 'Dictionaries as Hash Maps Result 29' to standard output.",
+      "prompt": "Write a statement that prints 'Dictionaries as Hash Maps Result 29' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Dictionaries as Hash Maps Result 29')",
       "test_cases": [
@@ -571,7 +575,7 @@
         }
       ],
       "hint": "Use print('Dictionaries as Hash Maps Result 29') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of dictionaries as hash maps scenario. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "33.2_q30",
@@ -582,7 +586,7 @@
       "prerequisites": [
         "33.2_q29"
       ],
-      "prompt": "Coding Challenge 30: Write a statement that prints 'Dictionaries as Hash Maps Result 30' to standard output.",
+      "prompt": "Write a statement that prints 'Dictionaries as Hash Maps Result 30' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Dictionaries as Hash Maps Result 30')",
       "test_cases": [
@@ -592,7 +596,17 @@
         }
       ],
       "hint": "Use print('Dictionaries as Hash Maps Result 30') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of dictionaries as hash maps mastery. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     }
+  ],
+  "unit_num": 33,
+  "learning_objectives": [
+    "Initialize and manipulate Python Dictionaries as Hash Maps collections",
+    "Access elements efficiently using keys, indices, or membership tests",
+    "Distinguish between mutable and immutable data behaviors",
+    "Select the optimal data structure to represent structured data"
+  ],
+  "prerequisites": [
+    "33.1"
   ]
 }

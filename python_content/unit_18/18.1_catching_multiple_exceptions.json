@@ -11,7 +11,9 @@
       "difficulty": "easy",
       "prerequisites": [],
       "title": "Introduction to Catching Multiple Exceptions",
-      "content": "In Python, you can catch more than one exception in a single except block by separating exception names with commas. This is useful when different errors should trigger the same recovery logic. The syntax is:\n\n```\ntry:\n    # risky code\nexcept Exception1, Exception2 as e:\n    # handle both\n```\n\nIn modern Python (3.x), the comma syntax is replaced by a tuple of exceptions: `except (Exception1, Exception2) as e:`. When an exception occurs, Python checks if the raised exception is an instance of any class in the tuple. If so, the block executes. This avoids duplicating error-handling code for related failure modes."
+      "content": "In Python, you can catch more than one exception in a single except block by separating exception names with commas. This is useful when different errors should trigger the same recovery logic. The syntax is:\n\n```\ntry:\n    # risky code\nexcept Exception1, Exception2 as e:\n    # handle both\n```\n\nIn modern Python (3.x), the comma syntax is replaced by a tuple of exceptions: `except (Exception1, Exception2) as e:`. When an exception occurs, Python checks if the raised exception is an instance of any class in the tuple. If so, the block executes. This avoids duplicating error-handling code for related failure modes.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of catching multiple exceptions basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "18.1_q2",
@@ -42,7 +44,9 @@
         "18.1_q2"
       ],
       "title": "Syntax and Binding with Multiple Exceptions",
-      "content": "When catching multiple exceptions, you can bind the exception object to a variable using `as`. This allows you to inspect the exception later. The exception variable holds the most recently raised exception instance. Here is a detailed example:\n\n```\ntry:\n    result = int('abc') / 0\nexcept (ValueError, ZeroDivisionError) as e:\n    print('Caught an error:', type(e).__name__)\n    print('Error message:', e)\n```\n\nIn this example, `int('abc')` raises a `ValueError`, and the division by zero would raise `ZeroDivisionError`. Only the first matching exception matters; Python evaluates the tuple and matches the raised exception against each type. If you need to handle each exception differently, you must use separate except blocks. The `as e` clause is optional but highly recommended for debugging."
+      "content": "When catching multiple exceptions, you can bind the exception object to a variable using `as`. This allows you to inspect the exception later. The exception variable holds the most recently raised exception instance. Here is a detailed example:\n\n```\ntry:\n    result = int('abc') / 0\nexcept (ValueError, ZeroDivisionError) as e:\n    print('Caught an error:', type(e).__name__)\n    print('Error message:', e)\n```\n\nIn this example, `int('abc')` raises a `ValueError`, and the division by zero would raise `ZeroDivisionError`. Only the first matching exception matters; Python evaluates the tuple and matches the raised exception against each type. If you need to handle each exception differently, you must use separate except blocks. The `as e` clause is optional but highly recommended for debugging.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of catching multiple exceptions syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "18.1_q4",
@@ -493,7 +497,7 @@
       "prerequisites": [
         "18.1_q24"
       ],
-      "prompt": "Coding Challenge 25: Write a statement that prints 'Catching Multiple Exceptions Result 25' to standard output.",
+      "prompt": "Write a statement that prints 'Catching Multiple Exceptions Result 25' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Catching Multiple Exceptions Result 25')",
       "test_cases": [
@@ -503,7 +507,7 @@
         }
       ],
       "hint": "Use print('Catching Multiple Exceptions Result 25') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of catching multiple exceptions implementation. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "18.1_q26",
@@ -514,7 +518,7 @@
       "prerequisites": [
         "18.1_q25"
       ],
-      "prompt": "Coding Challenge 26: Write a statement that prints 'Catching Multiple Exceptions Result 26' to standard output.",
+      "prompt": "Write a statement that prints 'Catching Multiple Exceptions Result 26' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Catching Multiple Exceptions Result 26')",
       "test_cases": [
@@ -524,7 +528,7 @@
         }
       ],
       "hint": "Use print('Catching Multiple Exceptions Result 26') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of catching multiple exceptions practical. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "18.1_q27",
@@ -535,7 +539,7 @@
       "prerequisites": [
         "18.1_q26"
       ],
-      "prompt": "Coding Challenge 27: Write a statement that prints 'Catching Multiple Exceptions Result 27' to standard output.",
+      "prompt": "Write a statement that prints 'Catching Multiple Exceptions Result 27' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Catching Multiple Exceptions Result 27')",
       "test_cases": [
@@ -545,7 +549,7 @@
         }
       ],
       "hint": "Use print('Catching Multiple Exceptions Result 27') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of catching multiple exceptions advanced. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "18.1_q28",
@@ -556,7 +560,7 @@
       "prerequisites": [
         "18.1_q27"
       ],
-      "prompt": "Coding Challenge 28: Write a statement that prints 'Catching Multiple Exceptions Result 28' to standard output.",
+      "prompt": "Write a statement that prints 'Catching Multiple Exceptions Result 28' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Catching Multiple Exceptions Result 28')",
       "test_cases": [
@@ -566,7 +570,7 @@
         }
       ],
       "hint": "Use print('Catching Multiple Exceptions Result 28') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of catching multiple exceptions challenge. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "18.1_q29",
@@ -577,7 +581,7 @@
       "prerequisites": [
         "18.1_q28"
       ],
-      "prompt": "Coding Challenge 29: Write a statement that prints 'Catching Multiple Exceptions Result 29' to standard output.",
+      "prompt": "Write a statement that prints 'Catching Multiple Exceptions Result 29' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Catching Multiple Exceptions Result 29')",
       "test_cases": [
@@ -587,7 +591,7 @@
         }
       ],
       "hint": "Use print('Catching Multiple Exceptions Result 29') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of catching multiple exceptions scenario. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "18.1_q30",
@@ -598,7 +602,7 @@
       "prerequisites": [
         "18.1_q29"
       ],
-      "prompt": "Coding Challenge 30: Write a statement that prints 'Catching Multiple Exceptions Result 30' to standard output.",
+      "prompt": "Write a statement that prints 'Catching Multiple Exceptions Result 30' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Catching Multiple Exceptions Result 30')",
       "test_cases": [
@@ -608,7 +612,17 @@
         }
       ],
       "hint": "Use print('Catching Multiple Exceptions Result 30') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of catching multiple exceptions mastery. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     }
+  ],
+  "unit_num": 18,
+  "learning_objectives": [
+    "Explain the technical concepts and mechanics of Catching Multiple Exceptions",
+    "Apply idiomatic Python patterns when working with Catching Multiple Exceptions",
+    "Debug common runtime exceptions and logic errors associated with Catching Multiple Exceptions",
+    "Implement production-ready code utilizing Catching Multiple Exceptions"
+  ],
+  "prerequisites": [
+    "17.7"
   ]
 }

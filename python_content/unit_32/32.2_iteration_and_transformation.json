@@ -11,26 +11,28 @@
       "difficulty": "easy",
       "prerequisites": [],
       "title": "Iteration and Transformation Part 1: Iteration And Transformation Basics",
-      "content": "In Python, **Iteration And Transformation Basics** provides essential rules when working with iteration and transformation.\n\nUnderstanding how `iteration_and_transformation_basics` functions in practice enables you to write clean, unambiguous code.\n\n```python\n# Step 1: iteration_and_transformation_basics\nstage_1 = True\n```"
+      "content": "In Python, **Iteration And Transformation Basics** provides essential rules when working with iteration and transformation.\n\nUnderstanding how `iteration_and_transformation_basics` functions in practice enables you to write clean, unambiguous code.\n\n```python\n# Step 1: iteration_and_transformation_basics\nstage_1 = True\n```",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of iteration and transformation basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "32.2_q2",
-      "type": "multiple_choice",
+      "type": "output_prediction",
       "concept": "iteration_and_transformation_basics",
       "skill": "recall",
       "difficulty": "easy",
       "prerequisites": [
         "32.2_q1"
       ],
-      "prompt": "Review 2: What is the primary characteristic of Iteration And Transformation Basics in Iteration and Transformation?",
+      "prompt": "Consider the following Python snippet demonstrating Iteration And Transformation Basics:\n\n```python\ndef calculate_2(value):\n    base = 8\n    return base + value * 11\n\nresult = calculate_2(2)\nprint(result)\n```\n\nWhat is the value printed to the console?",
       "options": [
-        "A. It defines specific rules for iteration and transformation basics in Python programs",
-        "B. It forces hardware clock speeds to double automatically",
-        "C. It permanently deletes system configuration records",
-        "D. It removes the need for syntax parsing completely"
+        "30",
+        "19",
+        "110",
+        "TypeError"
       ],
-      "correct_answer": "A",
-      "explanation": "Iteration And Transformation Basics defines specific semantics for iteration and transformation basics in Python programs."
+      "correct_answer": "30",
+      "explanation": "Python evaluates arithmetic following standard operator precedence (multiplication before addition). First, `value * 11` evaluates to `2 * 11 = 22`. Then, adding `base` (8) yields `30`. The function returns this integer and `print()` outputs it."
     },
     {
       "id": "32.2_q3",
@@ -42,64 +44,66 @@
         "32.2_q2"
       ],
       "title": "Iteration and Transformation Part 3: Iteration And Transformation Syntax",
-      "content": "In Python, **Iteration And Transformation Syntax** provides essential rules when working with iteration and transformation.\n\nUnderstanding how `iteration_and_transformation_syntax` functions in practice enables you to write clean, unambiguous code.\n\n```python\n# Step 3: iteration_and_transformation_syntax\nstage_3 = True\n```"
+      "content": "In Python, **Iteration And Transformation Syntax** provides essential rules when working with iteration and transformation.\n\nUnderstanding how `iteration_and_transformation_syntax` functions in practice enables you to write clean, unambiguous code.\n\n```python\n# Step 3: iteration_and_transformation_syntax\nstage_3 = True\n```",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of iteration and transformation syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "32.2_q4",
-      "type": "multiple_choice",
+      "type": "output_prediction",
       "concept": "iteration_and_transformation_syntax",
       "skill": "reasoning",
       "difficulty": "easy",
       "prerequisites": [
         "32.2_q3"
       ],
-      "prompt": "Review 4: What is the primary characteristic of Iteration And Transformation Syntax in Iteration and Transformation?",
+      "prompt": "Consider the following Python snippet demonstrating Iteration And Transformation Syntax:\n\n```python\ndef calculate_4(value):\n    base = 14\n    return base + value * 6\n\nresult = calculate_4(2)\nprint(result)\n```\n\nWhat is the value printed to the console?",
       "options": [
-        "A. It defines specific rules for iteration and transformation syntax in Python programs",
-        "B. It forces hardware clock speeds to double automatically",
-        "C. It permanently deletes system configuration records",
-        "D. It removes the need for syntax parsing completely"
+        "26",
+        "20",
+        "96",
+        "TypeError"
       ],
-      "correct_answer": "A",
-      "explanation": "Iteration And Transformation Syntax defines specific semantics for iteration and transformation syntax in Python programs."
+      "correct_answer": "26",
+      "explanation": "Python evaluates arithmetic following standard operator precedence (multiplication before addition). First, `value * 6` evaluates to `2 * 6 = 12`. Then, adding `base` (14) yields `26`. The function returns this integer and `print()` outputs it."
     },
     {
       "id": "32.2_q5",
-      "type": "multiple_choice",
+      "type": "output_prediction",
       "concept": "iteration_and_transformation_matching",
       "skill": "recognition",
       "difficulty": "easy",
       "prerequisites": [
         "32.2_q4"
       ],
-      "prompt": "Review 5: What is the primary characteristic of Iteration And Transformation Matching in Iteration and Transformation?",
+      "prompt": "Consider the following Python snippet demonstrating Iteration And Transformation Matching:\n\n```python\ndef calculate_5(value):\n    base = 17\n    return base + value * 11\n\nresult = calculate_5(2)\nprint(result)\n```\n\nWhat is the value printed to the console?",
       "options": [
-        "A. It defines specific rules for iteration and transformation matching in Python programs",
-        "B. It forces hardware clock speeds to double automatically",
-        "C. It permanently deletes system configuration records",
-        "D. It removes the need for syntax parsing completely"
+        "39",
+        "28",
+        "209",
+        "TypeError"
       ],
-      "correct_answer": "A",
-      "explanation": "Iteration And Transformation Matching defines specific semantics for iteration and transformation matching in Python programs."
+      "correct_answer": "39",
+      "explanation": "Python evaluates arithmetic following standard operator precedence (multiplication before addition). First, `value * 11` evaluates to `2 * 11 = 22`. Then, adding `base` (17) yields `39`. The function returns this integer and `print()` outputs it."
     },
     {
       "id": "32.2_q6",
-      "type": "multiple_choice",
+      "type": "output_prediction",
       "concept": "iteration_and_transformation_pitfalls",
       "skill": "comprehension",
       "difficulty": "easy",
       "prerequisites": [
         "32.2_q5"
       ],
-      "prompt": "Review 6: What is the primary characteristic of Iteration And Transformation Pitfalls in Iteration and Transformation?",
+      "prompt": "Consider the following Python snippet demonstrating Iteration And Transformation Pitfalls:\n\n```python\ndef calculate_6(value):\n    base = 20\n    return base + value * 1\n\nresult = calculate_6(2)\nprint(result)\n```\n\nWhat is the value printed to the console?",
       "options": [
-        "A. It defines specific rules for iteration and transformation pitfalls in Python programs",
-        "B. It forces hardware clock speeds to double automatically",
-        "C. It permanently deletes system configuration records",
-        "D. It removes the need for syntax parsing completely"
+        "22",
+        "21",
+        "22",
+        "TypeError"
       ],
-      "correct_answer": "A",
-      "explanation": "Iteration And Transformation Pitfalls defines specific semantics for iteration and transformation pitfalls in Python programs."
+      "correct_answer": "22",
+      "explanation": "Python evaluates arithmetic following standard operator precedence (multiplication before addition). First, `value * 1` evaluates to `2 * 1 = 2`. Then, adding `base` (20) yields `22`. The function returns this integer and `print()` outputs it."
     },
     {
       "id": "32.2_q7",
@@ -140,10 +144,10 @@
       },
       "prompt": "What is printed by the following Python code?\n```python\nwords = ['apple', 'banana', 'cherry']\nprint([w.upper() for w in words])\n```",
       "options": [
-        "['apple', 'banana', 'cherry']",
         "['APPLE', 'BANANA', 'CHERRY']",
-        "['Apple', 'Banana', 'Cherry']",
-        "['APPLE', 'BANANA', 'CHERRY', 'APPLE']"
+        "Raises a SyntaxError: invalid syntax at runtime",
+        "Raises an IndentationError: unexpected indent",
+        "Silently ignored by the Python parser"
       ],
       "correct_answer": "['APPLE', 'BANANA', 'CHERRY']",
       "explanation": "The list comprehension applies the upper() method to each string in words. upper() converts all alphabetic characters to uppercase. Therefore, the resulting list is ['APPLE', 'BANANA', 'CHERRY'].",
@@ -611,5 +615,15 @@
       "hint": "Use a generator expression with a helper to test perfect squares, and filter for integers only.",
       "explanation": "Mastery here involves lazy evaluation and careful type checking during iteration. Returning a generator instead of a list demonstrates memory-efficient transformation, a critical skill when working with large arrays or streams of data."
     }
+  ],
+  "unit_num": 32,
+  "learning_objectives": [
+    "Construct iterative loops using Iteration and Transformation with proper loop bounds",
+    "Trace variable mutation across loop iterations",
+    "Prevent and debug infinite loop execution bugs",
+    "Apply loop control statements (break and continue) to control execution flow"
+  ],
+  "prerequisites": [
+    "32.1"
   ]
 }

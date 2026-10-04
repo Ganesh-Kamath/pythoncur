@@ -9,9 +9,13 @@
       "concept": "comparison_overview",
       "skill": "recognition",
       "difficulty": "easy",
-      "prerequisites": ["2.5_q8"],
+      "prerequisites": [
+        "2.5_q8"
+      ],
       "title": "The Six Comparison Operators",
-      "content": "Comparison operators test relationships between values and always produce a boolean (`True` or `False`):\n\n* `==` Equal to: `5 == 5` -> `True`\n* `!=` Not equal to: `5 != 3` -> `True`\n* `>` Greater than: `8 > 2` -> `True`\n* `<` Less than: `2 < 8` -> `True`\n* `>=` Greater than or equal to: `5 >= 5` -> `True`\n* `<=` Less than or equal to: `4 <= 5` -> `True`"
+      "content": "Comparison operators test relationships between values and always produce a boolean (`True` or `False`):\n\n* `==` Equal to: `5 == 5` -> `True`\n* `!=` Not equal to: `5 != 3` -> `True`\n* `>` Greater than: `8 > 2` -> `True`\n* `<` Less than: `2 < 8` -> `True`\n* `>=` Greater than or equal to: `5 >= 5` -> `True`\n* `<=` Less than or equal to: `4 <= 5` -> `True`",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of comparison overview. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "3.4_q2",
@@ -19,7 +23,9 @@
       "concept": "comparison_overview",
       "skill": "recognition",
       "difficulty": "easy",
-      "prerequisites": ["3.4_q1"],
+      "prerequisites": [
+        "3.4_q1"
+      ],
       "prompt": "Which operator checks if two values are equal in Python?",
       "options": [
         "A. `=`",
@@ -28,7 +34,7 @@
         "D. `equals`"
       ],
       "correct_answer": "B",
-      "explanation": "Double equals `==` checks for equality. Single `=` is assignment."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of comparison overview. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "3.4_q3",
@@ -36,7 +42,9 @@
       "concept": "inequality_operator",
       "skill": "prediction",
       "difficulty": "easy",
-      "prerequisites": ["3.4_q1"],
+      "prerequisites": [
+        "3.4_q1"
+      ],
       "prompt": "What does this code output?\n```python\nx = 10\nprint(x != 10)\n```",
       "options": [
         "A. True",
@@ -53,9 +61,14 @@
       "concept": "int_float_equality",
       "skill": "understanding",
       "difficulty": "easy",
-      "prerequisites": ["2.3_q4", "3.4_q1"],
+      "prerequisites": [
+        "2.3_q4",
+        "3.4_q1"
+      ],
       "title": "Comparing Ints and Floats",
-      "content": "Python compares numbers by their mathematical numeric value, not their type:\n\n```python\nprint(5 == 5.0)   # True! Both have the numerical value of 5\nprint(0 == 0.0)   # True!\n```\nEven though one is an `int` and the other is a `float`, their values are equal."
+      "content": "Python compares numbers by their mathematical numeric value, not their type:\n\n```python\nprint(5 == 5.0)   # True! Both have the numerical value of 5\nprint(0 == 0.0)   # True!\n```\nEven though one is an `int` and the other is a `float`, their values are equal.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of int float equality. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "3.4_q5",
@@ -63,7 +76,9 @@
       "concept": "int_float_equality",
       "skill": "prediction",
       "difficulty": "easy",
-      "prerequisites": ["3.4_q4"],
+      "prerequisites": [
+        "3.4_q4"
+      ],
       "prompt": "What does `100 == 100.0` evaluate to in Python?",
       "options": [
         "A. False, because one is int and one is float.",
@@ -72,7 +87,7 @@
         "D. None"
       ],
       "correct_answer": "B",
-      "explanation": "Python checks numerical equality, so `100 == 100.0` is `True`."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of int float equality. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "3.4_q6",
@@ -80,9 +95,14 @@
       "concept": "string_comparison",
       "skill": "understanding",
       "difficulty": "medium",
-      "prerequisites": ["2.4_q1", "3.4_q1"],
+      "prerequisites": [
+        "2.4_q1",
+        "3.4_q1"
+      ],
       "title": "Comparing Strings: Lexicographical Order",
-      "content": "When comparing strings with `<`, `>`, `<=`, or `>=`, Python compares them character-by-character according to their **Unicode / ASCII values** (dictionary order):\n\n* `'a'` comes after `'A'` (uppercase letters have smaller numbers: `'A'` is 65, `'a'` is 97):\n  `\"Apple\" < \"apple\"` is `True`!\n* `'banana' > 'apple'` is `True` because `'b'` comes after `'a'`."
+      "content": "When comparing strings with `<`, `>`, `<=`, or `>=`, Python compares them character-by-character according to their **Unicode / ASCII values** (dictionary order):\n\n* `'a'` comes after `'A'` (uppercase letters have smaller numbers: `'A'` is 65, `'a'` is 97):\n  `\"Apple\" < \"apple\"` is `True`!\n* `'banana' > 'apple'` is `True` because `'b'` comes after `'a'`.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of string comparison. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "3.4_q7",
@@ -90,16 +110,18 @@
       "concept": "string_comparison",
       "skill": "prediction",
       "difficulty": "medium",
-      "prerequisites": ["3.4_q6"],
+      "prerequisites": [
+        "3.4_q6"
+      ],
       "prompt": "What does this code output?\n```python\nprint(\"banana\" > \"apple\")\n```",
       "options": [
-        "A. True",
-        "B. False",
-        "C. TypeError",
-        "D. 'banana'"
+        "True",
+        "False",
+        "SyntaxError",
+        "TypeError"
       ],
-      "correct_answer": "A",
-      "explanation": "In alphabetical order, 'banana' comes after 'apple', so `'banana' > 'apple'` evaluates to `True`."
+      "correct_answer": "True",
+      "explanation": "In Python, string comparison is lexicographical (based on ASCII/Unicode code points). Since 'b' comes after 'a', 'banana' > 'apple' evaluates to True."
     },
     {
       "id": "3.4_q8",
@@ -107,7 +129,9 @@
       "concept": "string_case_precedence",
       "skill": "reasoning",
       "difficulty": "medium",
-      "prerequisites": ["3.4_q6"],
+      "prerequisites": [
+        "3.4_q6"
+      ],
       "prompt": "What does `\"Zebra\" < \"ant\"` evaluate to in Python?",
       "options": [
         "A. False, because Z comes after A in the alphabet.",
@@ -124,9 +148,13 @@
       "concept": "chained_comparisons",
       "skill": "application",
       "difficulty": "medium",
-      "prerequisites": ["3.4_q1"],
+      "prerequisites": [
+        "3.4_q1"
+      ],
       "title": "Chained Comparisons (Python's Superpower)",
-      "content": "In most languages, to test if `x` is between 10 and 20, you must write `x >= 10 && x <= 20`.\n\nPython supports natural mathematical chaining!\n```python\nx = 15\nprint(10 <= x <= 20)  # True!\n```\nPython translates this cleanly into `(10 <= x) and (x <= 20)`."
+      "content": "In most languages, to test if `x` is between 10 and 20, you must write `x >= 10 && x <= 20`.\n\nPython supports natural mathematical chaining!\n```python\nx = 15\nprint(10 <= x <= 20)  # True!\n```\nPython translates this cleanly into `(10 <= x) and (x <= 20)`.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of chained comparisons. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "3.4_q10",
@@ -134,7 +162,9 @@
       "concept": "chained_comparisons",
       "skill": "prediction",
       "difficulty": "easy",
-      "prerequisites": ["3.4_q9"],
+      "prerequisites": [
+        "3.4_q9"
+      ],
       "prompt": "What does this code output?\n```python\nage = 25\nprint(18 <= age < 65)\n```",
       "options": [
         "A. True",
@@ -151,10 +181,14 @@
       "concept": "chained_comparisons",
       "skill": "application",
       "difficulty": "easy",
-      "prerequisites": ["3.4_q9"],
+      "prerequisites": [
+        "3.4_q9"
+      ],
       "prompt": "Complete the chained comparison to verify that `score` is between 0 and 100 inclusive:\n```python\nis_valid = (0 <= score ___ 100)\n```",
-      "accepted_answers": ["<="],
-      "explanation": "`0 <= score <= 100` tests the inclusive range."
+      "accepted_answers": [
+        "<="
+      ],
+      "explanation": "In Python, this operation directly demonstrates the core behavior of chained comparisons. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "3.4_q12",
@@ -162,9 +196,14 @@
       "concept": "incompatible_type_comparison",
       "skill": "understanding",
       "difficulty": "medium",
-      "prerequisites": ["2.6_q26", "3.4_q1"],
+      "prerequisites": [
+        "2.6_q26",
+        "3.4_q1"
+      ],
       "title": "Cannot Compare Strings and Numbers with < or >",
-      "content": "Python is strongly typed. While you can check equality between any types (`\"10\" == 10` is `False`), you CANNOT use ordering operators (`<`, `>`, `<=`, `>=`) between a string and a number:\n```python\n# print(\"10\" > 5)  # TypeError: '>' not supported between instances of 'str' and 'int'\n```"
+      "content": "Python is strongly typed. While you can check equality between any types (`\"10\" == 10` is `False`), you CANNOT use ordering operators (`<`, `>`, `<=`, `>=`) between a string and a number:\n```python\n# print(\"10\" > 5)  # TypeError: '>' not supported between instances of 'str' and 'int'\n```",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of incompatible type comparison. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "3.4_q13",
@@ -172,7 +211,9 @@
       "concept": "incompatible_type_comparison",
       "skill": "debugging",
       "difficulty": "medium",
-      "prerequisites": ["3.4_q12"],
+      "prerequisites": [
+        "3.4_q12"
+      ],
       "prompt": "What error occurs when running this code?\n```python\nage = \"20\"\nprint(age >= 18)\n```",
       "options": [
         "A. NameError",
@@ -189,7 +230,10 @@
       "concept": "fix_type_comparison",
       "skill": "debugging",
       "difficulty": "easy",
-      "prerequisites": ["2.7_q2", "3.4_q13"],
+      "prerequisites": [
+        "2.7_q2",
+        "3.4_q13"
+      ],
       "prompt": "Fix this code by converting `age_str` to an integer before comparing:",
       "starter_code": "age_str = \"21\"\ncan_enter = age_str >= 21",
       "solution_code": "age_str = \"21\"\ncan_enter = int(age_str) >= 21",
@@ -201,9 +245,14 @@
       "concept": "equality_vs_identity",
       "skill": "understanding",
       "difficulty": "hard",
-      "prerequisites": ["2.1_q26", "3.4_q1"],
+      "prerequisites": [
+        "2.1_q26",
+        "3.4_q1"
+      ],
       "title": "Equality (==) vs. Identity (is)",
-      "content": "Python has two ways to compare objects:\n\n1. **`==` (Value Equality)**: Do these two objects have the same value?\n2. **`is` (Object Identity)**: Do these two variables point to the exact same object at the exact same memory address?\n\n💡 Rule of thumb: Always use `==` when comparing values (like numbers or strings). Use `is` only when checking singletons like `None` (`x is None`)."
+      "content": "Python has two ways to compare objects:\n\n1. **`==` (Value Equality)**: Do these two objects have the same value?\n2. **`is` (Object Identity)**: Do these two variables point to the exact same object at the exact same memory address?\n\n💡 Rule of thumb: Always use `==` when comparing values (like numbers or strings). Use `is` only when checking singletons like `None` (`x is None`).",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of equality vs identity. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "3.4_q16",
@@ -211,7 +260,9 @@
       "concept": "equality_vs_identity",
       "skill": "understanding",
       "difficulty": "hard",
-      "prerequisites": ["3.4_q15"],
+      "prerequisites": [
+        "3.4_q15"
+      ],
       "prompt": "What is the difference between `a == b` and `a is b`?",
       "options": [
         "A. They are identical synonyms.",
@@ -228,7 +279,11 @@
       "concept": "comparison_evaluations",
       "skill": "analysis",
       "difficulty": "medium",
-      "prerequisites": ["3.4_q1", "3.4_q4", "3.4_q6"],
+      "prerequisites": [
+        "3.4_q1",
+        "3.4_q4",
+        "3.4_q6"
+      ],
       "prompt": "Match each comparison to its boolean result.",
       "options": {
         "`15 <= 15`": "`True`",
@@ -250,7 +305,9 @@
       "concept": "multiple_chained_conditions",
       "skill": "prediction",
       "difficulty": "medium",
-      "prerequisites": ["3.4_q9"],
+      "prerequisites": [
+        "3.4_q9"
+      ],
       "prompt": "What does this code output?\n```python\nprint(1 < 2 < 3 < 4)\n```",
       "options": [
         "A. True",
@@ -267,7 +324,9 @@
       "concept": "chained_short_circuit_precedence",
       "skill": "analysis",
       "difficulty": "hard",
-      "prerequisites": ["3.4_q9"],
+      "prerequisites": [
+        "3.4_q9"
+      ],
       "prompt": "What does this code output?\n```python\nprint(5 == 5 > 2)\n```",
       "options": [
         "A. True",
@@ -284,11 +343,13 @@
       "concept": "temperature_check_expression",
       "skill": "application",
       "difficulty": "easy",
-      "prerequisites": ["3.4_q1"],
+      "prerequisites": [
+        "3.4_q1"
+      ],
       "prompt": "Write an expression checking if variable `temp` is strictly below `32` (freezing).",
       "starter_code": "",
       "solution_code": "temp < 32",
-      "explanation": "`temp < 32` checks if temperature is below freezing."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of temperature check expression. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "3.4_q21",
@@ -296,7 +357,10 @@
       "concept": "assignment_in_condition_trap",
       "skill": "debugging",
       "difficulty": "medium",
-      "prerequisites": ["2.1_q3", "3.4_q2"],
+      "prerequisites": [
+        "2.1_q3",
+        "3.4_q2"
+      ],
       "prompt": "A developer writes:\n```python\nif score = 100:\n    print(\"Perfect!\")\n```\nWhy does Python refuse to run this?",
       "options": [
         "A. Single `=` is an assignment statement, not an equality comparison. Python syntax prohibits statements inside conditions to prevent accidental assignment bugs.",
@@ -313,7 +377,10 @@
       "concept": "string_equality_spaces",
       "skill": "prediction",
       "difficulty": "medium",
-      "prerequisites": ["2.4_q1", "3.4_q1"],
+      "prerequisites": [
+        "2.4_q1",
+        "3.4_q1"
+      ],
       "prompt": "What does this code print?\n```python\nprint(\"admin \" == \"admin\")\n```",
       "options": [
         "A. True",
@@ -326,11 +393,13 @@
     },
     {
       "id": "3.4_q23",
-      "type": "scenario",
+      "type": "multiple_choice",
       "concept": "grade_boundary_check",
       "skill": "application",
       "difficulty": "medium",
-      "prerequisites": ["3.4_q9"],
+      "prerequisites": [
+        "3.4_q9"
+      ],
       "prompt": "A student receives an 'A' grade if their score is between 90 and 100 inclusive. Which chained comparison correctly tests this?",
       "options": [
         "A. `90 < score < 100`",
@@ -339,7 +408,7 @@
         "D. `90 <= score < 100`"
       ],
       "correct_answer": "B",
-      "explanation": "`90 <= score <= 100` includes both 90 and 100."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of grade boundary check. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "3.4_q24",
@@ -347,7 +416,10 @@
       "concept": "boolean_comparison",
       "skill": "reasoning",
       "difficulty": "medium",
-      "prerequisites": ["2.5_q16", "3.4_q4"],
+      "prerequisites": [
+        "2.5_q16",
+        "3.4_q4"
+      ],
       "prompt": "What does `False < True` evaluate to in Python?",
       "options": [
         "A. TypeError: cannot compare booleans with `<`",
@@ -364,11 +436,13 @@
       "concept": "inventory_threshold",
       "skill": "synthesis",
       "difficulty": "medium",
-      "prerequisites": ["3.4_q1"],
+      "prerequisites": [
+        "3.4_q1"
+      ],
       "prompt": "Given `stock = 12` and `MIN_THRESHOLD = 15`, write an expression that evaluates to `True` if stock is less than or equal to threshold, and print it.",
       "starter_code": "stock = 12\nMIN_THRESHOLD = 15\n# Check if stock <= MIN_THRESHOLD and print result\n",
       "solution_code": "stock = 12\nMIN_THRESHOLD = 15\nprint(stock <= MIN_THRESHOLD)",
-      "explanation": "`stock <= MIN_THRESHOLD` evaluates to `True`, which is printed."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of inventory threshold. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "3.4_q26",
@@ -376,7 +450,9 @@
       "concept": "chained_comparison_failure",
       "skill": "analysis",
       "difficulty": "medium",
-      "prerequisites": ["3.4_q9"],
+      "prerequisites": [
+        "3.4_q9"
+      ],
       "prompt": "What does this code output?\n```python\nx = 10\nprint(5 < x < 8)\n```",
       "options": [
         "A. True",
@@ -393,18 +469,24 @@
       "concept": "none_identity_check",
       "skill": "application",
       "difficulty": "medium",
-      "prerequisites": ["3.4_q15"],
+      "prerequisites": [
+        "3.4_q15"
+      ],
       "prompt": "PEP 8 states that comparisons to singletons like `None` should always use the identity operator: `if result ___ None:`",
-      "accepted_answers": ["is"],
-      "explanation": "Use `is None` or `is not None` according to PEP 8."
+      "accepted_answers": [
+        "is"
+      ],
+      "explanation": "In Python, this operation directly demonstrates the core behavior of none identity check. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "3.4_q28",
-      "type": "scenario",
+      "type": "real_world_scenario",
       "concept": "speed_limit_violation",
       "skill": "application",
       "difficulty": "easy",
-      "prerequisites": ["3.4_q1"],
+      "prerequisites": [
+        "3.4_q1"
+      ],
       "prompt": "A highway speed monitor triggers a fine if a vehicle's `speed` is strictly greater than `65`. What is the condition?",
       "options": [
         "A. `speed > 65`",
@@ -413,7 +495,7 @@
         "D. `speed >= 65`"
       ],
       "correct_answer": "A",
-      "explanation": "`speed > 65` tests strictly greater than."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of speed limit violation. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "3.4_q29",
@@ -421,7 +503,9 @@
       "concept": "digit_string_comparison",
       "skill": "reasoning",
       "difficulty": "hard",
-      "prerequisites": ["3.4_q6"],
+      "prerequisites": [
+        "3.4_q6"
+      ],
       "prompt": "What does this code output? (Careful!)\n```python\nprint(\"20\" < \"3\")\n```",
       "options": [
         "A. False, because 20 is greater than 3.",
@@ -434,11 +518,18 @@
     },
     {
       "id": "3.4_q30",
-      "type": "scenario",
+      "type": "real_world_scenario",
       "concept": "comparison_synthesis",
       "skill": "transfer",
       "difficulty": "hard",
-      "prerequisites": ["3.4_q1", "3.4_q4", "3.4_q6", "3.4_q9", "3.4_q12", "3.4_q15"],
+      "prerequisites": [
+        "3.4_q1",
+        "3.4_q4",
+        "3.4_q6",
+        "3.4_q9",
+        "3.4_q12",
+        "3.4_q15"
+      ],
       "prompt": "Which of the following summaries regarding Python comparison operators is completely TRUE?",
       "options": [
         "A. Python has 6 comparison operators producing booleans; numbers compare by value; strings compare by Unicode code points; Python supports chained comparisons (`a < b < c`); strings and numbers cannot be compared with `<`/`>`; `is` checks memory identity while `==` checks value equality.",
@@ -449,5 +540,15 @@
       "correct_answer": "A",
       "explanation": "This encapsulates all comparison operators, lexicographical string comparison, chaining, type restrictions, and identity vs equality."
     }
+  ],
+  "unit_num": 3,
+  "learning_objectives": [
+    "Apply Python Comparison Operators correctly in mathematical and logical expressions",
+    "Predict evaluation order using operator precedence rules",
+    "Diagnose subtle expression bugs caused by unintended precedence",
+    "Construct compound boolean or arithmetic expressions for real-world logic"
+  ],
+  "prerequisites": [
+    "3.3"
   ]
 }

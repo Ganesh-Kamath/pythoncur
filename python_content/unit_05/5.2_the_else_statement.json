@@ -11,26 +11,28 @@
       "difficulty": "easy",
       "prerequisites": [],
       "title": "else Statement Part 1: The Else Statement Basics",
-      "content": "In Python, **The Else Statement Basics** provides essential rules when working with the else statement.\n\nUnderstanding how `the_else_statement_basics` functions in practice enables you to write clean, unambiguous code.\n\n```python\n# Step 1: the_else_statement_basics\nstage_1 = True\n```"
+      "content": "In Python, **The Else Statement Basics** provides essential rules when working with the else statement.\n\nUnderstanding how `the_else_statement_basics` functions in practice enables you to write clean, unambiguous code.\n\n```python\n# Step 1: the_else_statement_basics\nstage_1 = True\n```",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of the else statement basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "5.2_q2",
-      "type": "multiple_choice",
+      "type": "output_prediction",
       "concept": "the_else_statement_basics",
       "skill": "recall",
       "difficulty": "easy",
       "prerequisites": [
         "5.2_q1"
       ],
-      "prompt": "Review 2: What is the primary characteristic of The Else Statement Basics in else Statement?",
+      "prompt": "Consider the following Python snippet demonstrating The Else Statement Basics:\n\n```python\ndef calculate_2(value):\n    base = 8\n    return base + value * 11\n\nresult = calculate_2(2)\nprint(result)\n```\n\nWhat is the value printed to the console?",
       "options": [
-        "A. It defines specific rules for the else statement basics in Python programs",
-        "B. It forces hardware clock speeds to double automatically",
-        "C. It permanently deletes system configuration records",
-        "D. It removes the need for syntax parsing completely"
+        "30",
+        "19",
+        "110",
+        "TypeError"
       ],
-      "correct_answer": "A",
-      "explanation": "The Else Statement Basics defines specific semantics for the else statement basics in Python programs."
+      "correct_answer": "30",
+      "explanation": "Python evaluates arithmetic following standard operator precedence (multiplication before addition). First, `value * 11` evaluates to `2 * 11 = 22`. Then, adding `base` (8) yields `30`. The function returns this integer and `print()` outputs it."
     },
     {
       "id": "5.2_q3",
@@ -42,64 +44,66 @@
         "5.2_q2"
       ],
       "title": "else Statement Part 3: The Else Statement Syntax",
-      "content": "In Python, **The Else Statement Syntax** provides essential rules when working with the else statement.\n\nUnderstanding how `the_else_statement_syntax` functions in practice enables you to write clean, unambiguous code.\n\n```python\n# Step 3: the_else_statement_syntax\nstage_3 = True\n```"
+      "content": "In Python, **The Else Statement Syntax** provides essential rules when working with the else statement.\n\nUnderstanding how `the_else_statement_syntax` functions in practice enables you to write clean, unambiguous code.\n\n```python\n# Step 3: the_else_statement_syntax\nstage_3 = True\n```",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of the else statement syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "5.2_q4",
-      "type": "multiple_choice",
+      "type": "output_prediction",
       "concept": "the_else_statement_syntax",
       "skill": "reasoning",
       "difficulty": "easy",
       "prerequisites": [
         "5.2_q3"
       ],
-      "prompt": "Review 4: What is the primary characteristic of The Else Statement Syntax in else Statement?",
+      "prompt": "Consider the following Python snippet demonstrating The Else Statement Syntax:\n\n```python\ndef calculate_4(value):\n    base = 14\n    return base + value * 6\n\nresult = calculate_4(2)\nprint(result)\n```\n\nWhat is the value printed to the console?",
       "options": [
-        "A. It defines specific rules for the else statement syntax in Python programs",
-        "B. It forces hardware clock speeds to double automatically",
-        "C. It permanently deletes system configuration records",
-        "D. It removes the need for syntax parsing completely"
+        "26",
+        "20",
+        "96",
+        "TypeError"
       ],
-      "correct_answer": "A",
-      "explanation": "The Else Statement Syntax defines specific semantics for the else statement syntax in Python programs."
+      "correct_answer": "26",
+      "explanation": "Python evaluates arithmetic following standard operator precedence (multiplication before addition). First, `value * 6` evaluates to `2 * 6 = 12`. Then, adding `base` (14) yields `26`. The function returns this integer and `print()` outputs it."
     },
     {
       "id": "5.2_q5",
-      "type": "multiple_choice",
+      "type": "output_prediction",
       "concept": "the_else_statement_matching",
       "skill": "recognition",
       "difficulty": "easy",
       "prerequisites": [
         "5.2_q4"
       ],
-      "prompt": "Review 5: What is the primary characteristic of The Else Statement Matching in else Statement?",
+      "prompt": "Consider the following Python snippet demonstrating The Else Statement Matching:\n\n```python\ndef calculate_5(value):\n    base = 17\n    return base + value * 11\n\nresult = calculate_5(2)\nprint(result)\n```\n\nWhat is the value printed to the console?",
       "options": [
-        "A. It defines specific rules for the else statement matching in Python programs",
-        "B. It forces hardware clock speeds to double automatically",
-        "C. It permanently deletes system configuration records",
-        "D. It removes the need for syntax parsing completely"
+        "39",
+        "28",
+        "209",
+        "TypeError"
       ],
-      "correct_answer": "A",
-      "explanation": "The Else Statement Matching defines specific semantics for the else statement matching in Python programs."
+      "correct_answer": "39",
+      "explanation": "Python evaluates arithmetic following standard operator precedence (multiplication before addition). First, `value * 11` evaluates to `2 * 11 = 22`. Then, adding `base` (17) yields `39`. The function returns this integer and `print()` outputs it."
     },
     {
       "id": "5.2_q6",
-      "type": "multiple_choice",
+      "type": "output_prediction",
       "concept": "the_else_statement_pitfalls",
       "skill": "comprehension",
       "difficulty": "easy",
       "prerequisites": [
         "5.2_q5"
       ],
-      "prompt": "Review 6: What is the primary characteristic of The Else Statement Pitfalls in else Statement?",
+      "prompt": "Consider the following Python snippet demonstrating The Else Statement Pitfalls:\n\n```python\ndef calculate_6(value):\n    base = 20\n    return base + value * 1\n\nresult = calculate_6(2)\nprint(result)\n```\n\nWhat is the value printed to the console?",
       "options": [
-        "A. It defines specific rules for the else statement pitfalls in Python programs",
-        "B. It forces hardware clock speeds to double automatically",
-        "C. It permanently deletes system configuration records",
-        "D. It removes the need for syntax parsing completely"
+        "22",
+        "21",
+        "22",
+        "TypeError"
       ],
-      "correct_answer": "A",
-      "explanation": "The Else Statement Pitfalls defines specific semantics for the else statement pitfalls in Python programs."
+      "correct_answer": "22",
+      "explanation": "Python evaluates arithmetic following standard operator precedence (multiplication before addition). First, `value * 1` evaluates to `2 * 1 = 2`. Then, adding `base` (20) yields `22`. The function returns this integer and `print()` outputs it."
     },
     {
       "id": "5.2_q7",
@@ -110,45 +114,45 @@
       "prerequisites": [
         "5.2_q6"
       ],
-      "prompt": "Predict Output 7: What does this snippet output?\n```python\nvalue_7 = 35\nprint(value_7)\n```",
+      "prompt": "What does this code output?\n```python\nbalance = -5\nif balance >= 0:\n    print('Positive')\nelse:\n    print('Overdrawn')\n```",
       "options": [
-        "35",
-        "17",
-        "value_7",
+        "Overdrawn",
+        "Positive",
+        "Positive\nOverdrawn",
         "Error"
       ],
-      "correct_answer": "35",
-      "explanation": "The variable value_7 stores 35, and print outputs it to the console."
+      "correct_answer": "Overdrawn",
+      "explanation": "Since `balance >= 0` evaluates to False (-5 is less than 0), Python executes the `else` block, printing 'Overdrawn'."
     },
     {
       "id": "5.2_q8",
-      "type": "output_prediction",
+      "type": "multiple_choice",
       "concept": "the_else_statement_execution",
       "skill": "prediction",
       "difficulty": "medium",
       "prerequisites": [
         "5.2_q7"
       ],
-      "prompt": "Predict Output 8: What does this snippet output?\n```python\nvalue_8 = 40\nprint(value_8)\n```",
+      "prompt": "Can an `else` block have its own condition like `else x > 5:` in Python?",
       "options": [
-        "40",
-        "20",
-        "value_8",
-        "Error"
+        "No, `else` takes no condition; use `elif x > 5:` if an additional condition is required",
+        "Yes, Python allows optional conditions after `else`",
+        "Yes, but only if enclosed in parentheses",
+        "No, `else` can only be used with loops, never with `if`"
       ],
-      "correct_answer": "40",
-      "explanation": "The variable value_8 stores 40, and print outputs it to the console."
+      "correct_answer": "No, `else` takes no condition; use `elif x > 5:` if an additional condition is required",
+      "explanation": "An `else` clause catches all remaining cases and cannot accept a condition. If you need a conditional branch, use `elif`."
     },
     {
       "id": "5.2_q9",
-      "type": "code_prediction",
+      "type": "fix_the_code",
       "concept": "the_else_statement_flow",
       "skill": "prediction",
       "difficulty": "medium",
       "prerequisites": [
         "5.2_q8"
       ],
-      "prompt": "Predict Output 9: What does this snippet output?\n```python\nvalue_9 = 45\nprint(value_9)\n```",
+      "prompt": "Fix this code so that the `else` keyword aligns properly with the `if` statement:",
       "options": [
         "45",
         "22",
@@ -156,26 +160,28 @@
         "Error"
       ],
       "correct_answer": "45",
-      "explanation": "The variable value_9 stores 45, and print outputs it to the console."
+      "explanation": "The `else` keyword must be at the same indentation level as its matching `if` statement.",
+      "starter_code": "user_role = 'guest'\nif user_role == 'admin':\n    print('Full Access')\n    else:\n        print('Guest Access')",
+      "solution_code": "user_role = 'guest'\nif user_role == 'admin':\n    print('Full Access')\nelse:\n    print('Guest Access')"
     },
     {
       "id": "5.2_q10",
-      "type": "multiple_choice",
+      "type": "output_prediction",
       "concept": "the_else_statement_analysis",
       "skill": "analysis",
       "difficulty": "medium",
       "prerequisites": [
         "5.2_q9"
       ],
-      "prompt": "Review 10: What is the primary characteristic of The Else Statement Analysis in else Statement?",
+      "prompt": "Consider the following Python snippet demonstrating The Else Statement Analysis:\n\n```python\ndef calculate_10(value):\n    base = 12\n    return base + value * 6\n\nresult = calculate_10(2)\nprint(result)\n```\n\nWhat is the value printed to the console?",
       "options": [
-        "A. It defines specific rules for the else statement analysis in Python programs",
-        "B. It forces hardware clock speeds to double automatically",
-        "C. It permanently deletes system configuration records",
-        "D. It removes the need for syntax parsing completely"
+        "24",
+        "18",
+        "84",
+        "TypeError"
       ],
-      "correct_answer": "A",
-      "explanation": "The Else Statement Analysis defines specific semantics for the else statement analysis in Python programs."
+      "correct_answer": "24",
+      "explanation": "Python evaluates arithmetic following standard operator precedence (multiplication before addition). First, `value * 6` evaluates to `2 * 6 = 12`. Then, adding `base` (12) yields `24`. The function returns this integer and `print()` outputs it."
     },
     {
       "id": "5.2_q11",
@@ -186,15 +192,15 @@
       "prerequisites": [
         "5.2_q10"
       ],
-      "prompt": "Predict Output 11: What does this snippet output?\n```python\nvalue_11 = 55\nprint(value_11)\n```",
+      "prompt": "What does this snippet display?\n```python\nis_weekend = False\nif is_weekend:\n    print('Rest')\nelse:\n    print('Work')\nprint('Done')\n```",
       "options": [
-        "55",
-        "27",
-        "value_11",
-        "Error"
+        "Work\nDone",
+        "Rest\nDone",
+        "Work",
+        "Rest"
       ],
-      "correct_answer": "55",
-      "explanation": "The variable value_11 stores 55, and print outputs it to the console."
+      "correct_answer": "Work\nDone",
+      "explanation": "Because `is_weekend` is False, the `else` branch prints 'Work'. Then, normal sequential execution prints 'Done'."
     },
     {
       "id": "5.2_q12",
@@ -205,15 +211,15 @@
       "prerequisites": [
         "5.2_q11"
       ],
-      "prompt": "Predict Output 12: What does this snippet output?\n```python\nvalue_12 = 60\nprint(value_12)\n```",
+      "prompt": "What will be printed when this script runs?\n```python\nnum = 14\nif num % 2 == 0:\n    print('Even')\nelse:\n    print('Odd')\n```",
       "options": [
-        "60",
-        "30",
-        "value_12",
-        "Error"
+        "Even",
+        "Odd",
+        "0",
+        "None"
       ],
-      "correct_answer": "60",
-      "explanation": "The variable value_12 stores 60, and print outputs it to the console."
+      "correct_answer": "Even",
+      "explanation": "14 % 2 equals 0, satisfying the `if` condition and printing 'Even'."
     },
     {
       "id": "5.2_q13",
@@ -224,12 +230,12 @@
       "prerequisites": [
         "5.2_q12"
       ],
-      "prompt": "Fill Blank 13: Complete the code to output 'else Statement #13':\n```python\n___('else Statement #13')\n```",
+      "prompt": "Complete the code to output 'else Statement #13':\n```python\n___('else Statement #13')\n```",
       "correct_answer": "print",
       "accepted_answers": [
         "print"
       ],
-      "explanation": "The built-in print() function outputs the specified string."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of the else statement syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "5.2_q14",
@@ -240,12 +246,12 @@
       "prerequisites": [
         "5.2_q13"
       ],
-      "prompt": "Fill Blank 14: Complete the code to output 'else Statement #14':\n```python\n___('else Statement #14')\n```",
+      "prompt": "Complete the code to output 'else Statement #14':\n```python\n___('else Statement #14')\n```",
       "correct_answer": "print",
       "accepted_answers": [
         "print"
       ],
-      "explanation": "The built-in print() function outputs the specified string."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of the else statement keywords. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "5.2_q15",
@@ -256,7 +262,7 @@
       "prerequisites": [
         "5.2_q14"
       ],
-      "prompt": "Algorithm Sequence 15: Arrange the lines in correct logical order for The Else Statement Sequence:",
+      "prompt": "Arrange the lines in correct logical order for The Else Statement Sequence:",
       "options": [
         "a_15 = 10",
         "b_15 = 20",
@@ -280,12 +286,12 @@
       "prerequisites": [
         "5.2_q15"
       ],
-      "prompt": "Fill Blank 16: Complete the code to output 'else Statement #16':\n```python\n___('else Statement #16')\n```",
+      "prompt": "Complete the code to output 'else Statement #16':\n```python\n___('else Statement #16')\n```",
       "correct_answer": "print",
       "accepted_answers": [
         "print"
       ],
-      "explanation": "The built-in print() function outputs the specified string."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of the else statement patterns. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "5.2_q17",
@@ -296,7 +302,7 @@
       "prerequisites": [
         "5.2_q16"
       ],
-      "prompt": "Algorithm Sequence 17: Arrange the lines in correct logical order for The Else Statement Algorithm:",
+      "prompt": "Arrange the lines in correct logical order for The Else Statement Algorithm:",
       "options": [
         "a_17 = 10",
         "b_17 = 20",
@@ -320,12 +326,12 @@
       "prerequisites": [
         "5.2_q17"
       ],
-      "prompt": "Fill Blank 18: Complete the code to output 'else Statement #18':\n```python\n___('else Statement #18')\n```",
+      "prompt": "Complete the code to output 'else Statement #18':\n```python\n___('else Statement #18')\n```",
       "correct_answer": "print",
       "accepted_answers": [
         "print"
       ],
-      "explanation": "The built-in print() function outputs the specified string."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of the else statement idioms. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "5.2_q19",
@@ -336,11 +342,11 @@
       "prerequisites": [
         "5.2_q18"
       ],
-      "prompt": "Debug Challenge 19: Fix the capitalization error in this line for The Else Statement Errors:",
+      "prompt": "Fix the capitalization error in this line for The Else Statement Errors:",
       "starter_code": "Print('else Statement Item 19')",
       "solution_code": "print('else Statement Item 19')",
       "hint": "Python built-in functions like print() must be written in lowercase.",
-      "explanation": "Built-in function names in Python are case-sensitive and require lowercase."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of the else statement errors. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "5.2_q20",
@@ -351,11 +357,11 @@
       "prerequisites": [
         "5.2_q19"
       ],
-      "prompt": "Debug Challenge 20: Fix the capitalization error in this line for The Else Statement Fix:",
+      "prompt": "Fix the capitalization error in this line for The Else Statement Fix:",
       "starter_code": "Print('else Statement Item 20')",
       "solution_code": "print('else Statement Item 20')",
       "hint": "Python built-in functions like print() must be written in lowercase.",
-      "explanation": "Built-in function names in Python are case-sensitive and require lowercase."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of the else statement fix. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "5.2_q21",
@@ -366,11 +372,11 @@
       "prerequisites": [
         "5.2_q20"
       ],
-      "prompt": "Debug Challenge 21: Fix the capitalization error in this line for The Else Statement Edge Cases:",
+      "prompt": "Fix the capitalization error in this line for The Else Statement Edge Cases:",
       "starter_code": "Print('else Statement Item 21')",
       "solution_code": "print('else Statement Item 21')",
       "hint": "Python built-in functions like print() must be written in lowercase.",
-      "explanation": "Built-in function names in Python are case-sensitive and require lowercase."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of the else statement edge cases. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "5.2_q22",
@@ -381,11 +387,11 @@
       "prerequisites": [
         "5.2_q21"
       ],
-      "prompt": "Debug Challenge 22: Fix the capitalization error in this line for The Else Statement Runtime:",
+      "prompt": "Fix the capitalization error in this line for The Else Statement Runtime:",
       "starter_code": "Print('else Statement Item 22')",
       "solution_code": "print('else Statement Item 22')",
       "hint": "Python built-in functions like print() must be written in lowercase.",
-      "explanation": "Built-in function names in Python are case-sensitive and require lowercase."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of the else statement runtime. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "5.2_q23",
@@ -396,11 +402,11 @@
       "prerequisites": [
         "5.2_q22"
       ],
-      "prompt": "Debug Challenge 23: Fix the capitalization error in this line for The Else Statement Logic Repair:",
+      "prompt": "Fix the capitalization error in this line for The Else Statement Logic Repair:",
       "starter_code": "Print('else Statement Item 23')",
       "solution_code": "print('else Statement Item 23')",
       "hint": "Python built-in functions like print() must be written in lowercase.",
-      "explanation": "Built-in function names in Python are case-sensitive and require lowercase."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of the else statement logic repair. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "5.2_q24",
@@ -411,11 +417,11 @@
       "prerequisites": [
         "5.2_q23"
       ],
-      "prompt": "Debug Challenge 24: Fix the capitalization error in this line for The Else Statement Optimization:",
+      "prompt": "Fix the capitalization error in this line for The Else Statement Optimization:",
       "starter_code": "Print('else Statement Item 24')",
       "solution_code": "print('else Statement Item 24')",
       "hint": "Python built-in functions like print() must be written in lowercase.",
-      "explanation": "Built-in function names in Python are case-sensitive and require lowercase."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of the else statement optimization. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "5.2_q25",
@@ -426,7 +432,7 @@
       "prerequisites": [
         "5.2_q24"
       ],
-      "prompt": "Coding Challenge 25: Write a statement that prints 'else Statement Result 25' to standard output.",
+      "prompt": "Write a statement that prints 'else Statement Result 25' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('else Statement Result 25')",
       "test_cases": [
@@ -436,7 +442,7 @@
         }
       ],
       "hint": "Use print('else Statement Result 25') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of the else statement implementation. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "5.2_q26",
@@ -447,7 +453,7 @@
       "prerequisites": [
         "5.2_q25"
       ],
-      "prompt": "Coding Challenge 26: Write a statement that prints 'else Statement Result 26' to standard output.",
+      "prompt": "Write a statement that prints 'else Statement Result 26' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('else Statement Result 26')",
       "test_cases": [
@@ -457,7 +463,7 @@
         }
       ],
       "hint": "Use print('else Statement Result 26') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of the else statement practical. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "5.2_q27",
@@ -468,7 +474,7 @@
       "prerequisites": [
         "5.2_q26"
       ],
-      "prompt": "Coding Challenge 27: Write a statement that prints 'else Statement Result 27' to standard output.",
+      "prompt": "Write a statement that prints 'else Statement Result 27' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('else Statement Result 27')",
       "test_cases": [
@@ -478,7 +484,7 @@
         }
       ],
       "hint": "Use print('else Statement Result 27') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of the else statement advanced. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "5.2_q28",
@@ -489,7 +495,7 @@
       "prerequisites": [
         "5.2_q27"
       ],
-      "prompt": "Coding Challenge 28: Write a statement that prints 'else Statement Result 28' to standard output.",
+      "prompt": "Write a statement that prints 'else Statement Result 28' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('else Statement Result 28')",
       "test_cases": [
@@ -499,7 +505,7 @@
         }
       ],
       "hint": "Use print('else Statement Result 28') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of the else statement challenge. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "5.2_q29",
@@ -510,7 +516,7 @@
       "prerequisites": [
         "5.2_q28"
       ],
-      "prompt": "Coding Challenge 29: Write a statement that prints 'else Statement Result 29' to standard output.",
+      "prompt": "Write a statement that prints 'else Statement Result 29' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('else Statement Result 29')",
       "test_cases": [
@@ -520,7 +526,7 @@
         }
       ],
       "hint": "Use print('else Statement Result 29') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of the else statement scenario. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "5.2_q30",
@@ -531,7 +537,7 @@
       "prerequisites": [
         "5.2_q29"
       ],
-      "prompt": "Coding Challenge 30: Write a statement that prints 'else Statement Result 30' to standard output.",
+      "prompt": "Write a statement that prints 'else Statement Result 30' to standard output.",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('else Statement Result 30')",
       "test_cases": [
@@ -541,7 +547,17 @@
         }
       ],
       "hint": "Use print('else Statement Result 30') to generate the required output.",
-      "explanation": "Calling print with the exact string produces the expected console output."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of the else statement mastery. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     }
+  ],
+  "unit_num": 5,
+  "learning_objectives": [
+    "Explain the technical concepts and mechanics of else Statement",
+    "Apply idiomatic Python patterns when working with else Statement",
+    "Debug common runtime exceptions and logic errors associated with else Statement",
+    "Implement production-ready code utilizing else Statement"
+  ],
+  "prerequisites": [
+    "5.1"
   ]
 }

@@ -12,7 +12,9 @@
       "title": "Introduction to Sorting and Reversing Lists",
       "content": "In Python, lists are ordered collections that can be modified. Two common operations are sorting (arranging elements in a specific order) and reversing (flipping the order of elements). Sorting arranges items from smallest to largest (ascending) or largest to smallest (descending). Reversing changes the sequence so the last element becomes first. Python provides built-in methods like sort() and reverse() to perform these operations directly on the list. Note that sort() modifies the list in place and returns None, while reversed() returns an iterator. Understanding these basics helps you organize data efficiently.",
       "difficulty": "easy",
-      "prerequisites": []
+      "prerequisites": [],
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of sorting and reversing lists basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "idx": 2,
@@ -47,7 +49,9 @@
       "difficulty": "easy",
       "prerequisites": [
         "8.5_q2"
-      ]
+      ],
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of sorting and reversing lists syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "idx": 4,
@@ -142,13 +146,13 @@
       ],
       "prompt": "What will be the output of the following Python code?\n```python\nnums = [7, 2, 8, 2, 9]\nnums.reverse()\nprint(nums)\n```",
       "options": [
-        "[2, 9, 8, 2, 7]",
+        "[9, 2, 8, 2, 7]",
         "[7, 2, 8, 2, 9]",
         "[2, 8, 2, 7, 9]",
         "None"
       ],
-      "correct_answer": "[2, 9, 8, 2, 7]",
-      "explanation": "The reverse() method reverses the elements of the list in place. The original list nums is mutated, so the printed result shows the elements in reverse order."
+      "correct_answer": "[9, 2, 8, 2, 7]",
+      "explanation": "`nums.reverse()` reverses the elements in place. The reversed sequence is [9, 2, 8, 2, 7]."
     },
     {
       "id": "8.5_q9",
@@ -189,7 +193,7 @@
           "expected_output": "Sorting and Reversing Lists"
         }
       ],
-      "explanation": "The solution fulfills all functional requirements."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of sorting and reversing lists analysis. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "8.5_q11",
@@ -202,13 +206,13 @@
       ],
       "prompt": "What is the final value of the variable result after executing the following code?\n```python\nitems = [5, 2, 8, 1]\nitems.sort()\nitems.reverse()\nresult = items[1] + items[2]\nprint(result)\n```",
       "options": [
+        "7",
         "9",
         "11",
-        "7",
         "3"
       ],
-      "correct_answer": "9",
-      "explanation": "After items.sort(), the list becomes [1, 2, 5, 8]. After items.reverse(), it becomes [8, 5, 2, 1]. The element at index 1 is 5 and the element at index 2 is 2, so 5 + 2 = 9."
+      "correct_answer": "7",
+      "explanation": "After `sort()`, `items` is `[1, 2, 5, 8]`. After `reverse()`, it is `[8, 5, 2, 1]`. `items[1]` is 5 and `items[2]` is 2. `5 + 2 = 7`."
     },
     {
       "id": "8.5_q12",
@@ -222,9 +226,9 @@
       "prompt": "What will be the output of the following Python code?\n```python\nwords = ['banana', 'Apple', 'cherry']\nwords.sort()\nprint(words)\n```",
       "options": [
         "['Apple', 'banana', 'cherry']",
-        "['Apple', 'cherry', 'banana']",
-        "['banana', 'Apple', 'cherry']",
-        "['cherry', 'banana', 'Apple']"
+        "Raises a SyntaxError: invalid syntax at runtime",
+        "Raises an IndentationError: unexpected indent",
+        "Silently ignored by the Python parser"
       ],
       "correct_answer": "['Apple', 'banana', 'cherry']",
       "explanation": "The default sort() uses lexicographical ordering based on Unicode code points. Uppercase letters have lower Unicode values than lowercase letters, so 'Apple' comes before 'banana' and 'cherry' in the sorted result."
@@ -382,7 +386,7 @@
       "prompt": "Fix the bug in this code for sorting and reversing lists errors:",
       "starter_code": "# Fix this code\nPrint('Sorting and Reversing Lists')",
       "solution_code": "print('Sorting and Reversing Lists')",
-      "explanation": "Python identifiers and built-ins are case-sensitive."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of sorting and reversing lists errors. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "8.5_q20",
@@ -430,7 +434,7 @@
       "prompt": "Fix the bug in this code for sorting and reversing lists runtime:",
       "starter_code": "# Fix this code\nPrint('Sorting and Reversing Lists')",
       "solution_code": "print('Sorting and Reversing Lists')",
-      "explanation": "Python identifiers and built-ins are case-sensitive."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of sorting and reversing lists runtime. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "8.5_q23",
@@ -610,5 +614,15 @@
       "hint": "After reversing, use slicing with indices that capture the middle 4 elements. For a list of length 10, indices 2 through 5 (exclusive) yield 4 elements.",
       "explanation": "sorted() returns a new sorted list. [::-1] creates a reversed copy. Slicing [2:6] extracts elements at indices 2, 3, 4, and 5, which are the middle 4 of a 10-element reversed list."
     }
+  ],
+  "unit_num": 8,
+  "learning_objectives": [
+    "Initialize and manipulate Python Sorting and Reversing Lists collections",
+    "Access elements efficiently using keys, indices, or membership tests",
+    "Distinguish between mutable and immutable data behaviors",
+    "Select the optimal data structure to represent structured data"
+  ],
+  "prerequisites": [
+    "8.4"
   ]
 }

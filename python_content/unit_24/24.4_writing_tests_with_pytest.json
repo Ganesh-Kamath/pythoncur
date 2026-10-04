@@ -11,7 +11,9 @@
       "difficulty": "easy",
       "prerequisites": [],
       "title": "What is pytest and Why Test?",
-      "content": "pytest is a popular testing framework for Python that makes writing and running tests simple. Instead of using the built-in assert statement manually, pytest provides a rich set of features like fixtures, parameterization, and detailed failure reports. Testing is a core part of clean code because it verifies that your functions behave as expected, prevents regressions, and documents intended behavior. To use pytest, install it with pip and then write test functions whose names start with test_. pytest automatically discovers and runs these functions. For example, consider a simple function that adds two numbers. Without tests, you might not notice if a future change breaks addition. With pytest, you write a test function that calls the function and uses assert to check the result. pytest will report a failure if the assertion does not hold. This lesson focuses on recognizing the basic structure of a pytest test."
+      "content": "pytest is a popular testing framework for Python that makes writing and running tests simple. Instead of using the built-in assert statement manually, pytest provides a rich set of features like fixtures, parameterization, and detailed failure reports. Testing is a core part of clean code because it verifies that your functions behave as expected, prevents regressions, and documents intended behavior. To use pytest, install it with pip and then write test functions whose names start with test_. pytest automatically discovers and runs these functions. For example, consider a simple function that adds two numbers. Without tests, you might not notice if a future change breaks addition. With pytest, you write a test function that calls the function and uses assert to check the result. pytest will report a failure if the assertion does not hold. This lesson focuses on recognizing the basic structure of a pytest test.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of writing tests with pytest basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "24.4_q2",
@@ -42,7 +44,9 @@
         "24.4_q2"
       ],
       "title": "Writing a Basic pytest Test",
-      "content": "To write a test in pytest, create a function that starts with test_, import the function or module you want to test, and use assert statements to verify outcomes. pytest treats any failed assert as a test failure and provides a clear traceback. Consider a module with a greet function. You can write a test that imports greet and asserts that calling greet('Alice') returns 'Hello, Alice'. It is important to keep tests independent and focused on one behavior. You can also use pytest.raises to check that an exception is raised. Here is a complete example. First, save the following code in greet.py: def greet(name): return 'Hello, ' + name. Then, create test_greet.py with: from greet import greet def test_greet_returns_hello(): result = greet('Bob') assert result == 'Hello, Bob'. Running pytest will execute test_greet_returns_hello and report success if the assertion passes. This syntax is the foundation for more advanced testing patterns."
+      "content": "To write a test in pytest, create a function that starts with test_, import the function or module you want to test, and use assert statements to verify outcomes. pytest treats any failed assert as a test failure and provides a clear traceback. Consider a module with a greet function. You can write a test that imports greet and asserts that calling greet('Alice') returns 'Hello, Alice'. It is important to keep tests independent and focused on one behavior. You can also use pytest.raises to check that an exception is raised. Here is a complete example. First, save the following code in greet.py: def greet(name): return 'Hello, ' + name. Then, create test_greet.py with: from greet import greet def test_greet_returns_hello(): result = greet('Bob') assert result == 'Hello, Bob'. Running pytest will execute test_greet_returns_hello and report success if the assertion passes. This syntax is the foundation for more advanced testing patterns.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of writing tests with pytest syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "24.4_q4",
@@ -249,7 +253,7 @@
       "accepted_answers": [
         "print"
       ],
-      "explanation": "The missing expression completes the valid Python statement."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of writing tests with pytest syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "idx": 14,
@@ -261,7 +265,7 @@
       "prerequisites": [
         "24.4_q13"
       ],
-      "prompt": "Complete the pytest function using the correct keyword to skip a test temporarily: def test_feature(): ____ test_database()\n",
+      "prompt": "Complete the pytest function using the correct keyword to skip a test temporarily: def test_feature(): ____ test_database()",
       "correct_answer": "skip",
       "accepted_answers": [
         "skip",
@@ -302,7 +306,7 @@
       "prerequisites": [
         "24.4_q15"
       ],
-      "prompt": "Fill in the blank to match any test file named with the pattern: test_*.py\n",
+      "prompt": "Fill in the blank to match any test file named with the pattern: test_*.py",
       "correct_answer": "test_",
       "accepted_answers": [
         "test_",
@@ -343,7 +347,7 @@
       "prerequisites": [
         "24.4_q17"
       ],
-      "prompt": "Use the common pytest idiom to parametrize a test with two inputs and expected output: @pytest.mark.parametrize('___', [(2, 3, 5), (1, 1, 2)])\ndef test_sum(a, b, expected):\n    assert a + b == expected\n",
+      "prompt": "Use the common pytest idiom to parametrize a test with two inputs and expected output: @pytest.mark.parametrize('___', [(2, 3, 5), (1, 1, 2)])\ndef test_sum(a, b, expected):\n    assert a + b == expected",
       "correct_answer": "argnames",
       "accepted_answers": [
         "argnames",
@@ -367,7 +371,7 @@
       "prompt": "Fix the bug in this code for writing tests with pytest errors:",
       "starter_code": "# Fix this code\nPrint('Writing Tests with pytest')",
       "solution_code": "print('Writing Tests with pytest')",
-      "explanation": "Python identifiers and built-ins are case-sensitive."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of writing tests with pytest errors. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "24.4_q20",
@@ -415,7 +419,7 @@
       "prompt": "Fix the bug in this code for writing tests with pytest runtime:",
       "starter_code": "# Fix this code\nPrint('Writing Tests with pytest')",
       "solution_code": "print('Writing Tests with pytest')",
-      "explanation": "Python identifiers and built-ins are case-sensitive."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of writing tests with pytest runtime. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "24.4_q23",
@@ -567,5 +571,15 @@
       "hint": "A custom assertion class can be instantiated and used inside a test. Register it via a fixture so multiple tests can reuse it.",
       "explanation": "Mastery of pytest involves extending the framework with reusable components. A custom assertion plugin encapsulates domain-specific checks, improving readability and reducing duplication across a large test suite."
     }
+  ],
+  "unit_num": 24,
+  "learning_objectives": [
+    "Explain the technical concepts and mechanics of Writing Tests with pytest",
+    "Apply idiomatic Python patterns when working with Writing Tests with pytest",
+    "Debug common runtime exceptions and logic errors associated with Writing Tests with pytest",
+    "Implement production-ready code utilizing Writing Tests with pytest"
+  ],
+  "prerequisites": [
+    "24.3"
   ]
 }

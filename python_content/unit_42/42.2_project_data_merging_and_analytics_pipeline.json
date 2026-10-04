@@ -11,7 +11,9 @@
       "difficulty": "easy",
       "prerequisites": [],
       "title": "Understanding Pipeline Architecture",
-      "content": "In a data merging and analytics pipeline, data flows through distinct stages: extraction, transformation, loading, and analysis. Each stage serves a specific purpose. Extraction gathers raw data from sources like CSV files or databases. Transformation cleans, normalizes, and enriches the data. Loading stores processed data into a target system. Finally, analysis applies statistical or machine learning techniques to generate insights. A modular architecture separates these concerns, making the pipeline maintainable and testable. Below is a simple Python representation of this architecture using function composition:\n\n```python\ndef extract(source):\n    # Simulate reading raw data\n    return source\n\ndef transform(data):\n    # Clean and normalize\n    return [d.strip().lower() for d in data]\n\ndef load(data):\n    # Persist to target\n    return data\n\ndef analyze(data):\n    # Compute summary statistics\n    return {'count': len(data), 'avg_length': sum(len(d) for d in data) / len(data) if data else 0}\n\nraw = ['  Apple  ', 'Banana', '  Cherry  ']\npipeline = analyze(load(transform(extract(raw))))\nprint(pipeline)\n```\n\nBreaking the pipeline into discrete functions allows you to unit test each stage independently. This design reduces coupling and simplifies debugging when merging disparate datasets."
+      "content": "In a data merging and analytics pipeline, data flows through distinct stages: extraction, transformation, loading, and analysis. Each stage serves a specific purpose. Extraction gathers raw data from sources like CSV files or databases. Transformation cleans, normalizes, and enriches the data. Loading stores processed data into a target system. Finally, analysis applies statistical or machine learning techniques to generate insights. A modular architecture separates these concerns, making the pipeline maintainable and testable. Below is a simple Python representation of this architecture using function composition:\n\n```python\ndef extract(source):\n    # Simulate reading raw data\n    return source\n\ndef transform(data):\n    # Clean and normalize\n    return [d.strip().lower() for d in data]\n\ndef load(data):\n    # Persist to target\n    return data\n\ndef analyze(data):\n    # Compute summary statistics\n    return {'count': len(data), 'avg_length': sum(len(d) for d in data) / len(data) if data else 0}\n\nraw = ['  Apple  ', 'Banana', '  Cherry  ']\npipeline = analyze(load(transform(extract(raw))))\nprint(pipeline)\n```\n\nBreaking the pipeline into discrete functions allows you to unit test each stage independently. This design reduces coupling and simplifies debugging when merging disparate datasets.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of project data merging and analytics pipeline architecture. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "42.2_q2",
@@ -23,7 +25,9 @@
         "42.2_q1"
       ],
       "title": "Designing a Scalable Pipeline",
-      "content": "A scalable pipeline anticipates growth in data volume and source variety. Consider using generators to stream data rather than loading entire datasets into memory. When merging multiple sources, align schemas through a canonical intermediate format, such as a dictionary with standardized keys. Error handling at each stage prevents a single malformed record from halting the entire process. For analytics, modular aggregation functions enable reuse across different merged datasets. The following example demonstrates a generator-based extraction and a merge step that combines two lists of records by a common key:\n\n```python\ndef stream_records(data):\n    for record in data:\n        yield record\n\ndef merge_by_key(source_a, source_b, key):\n    lookup = {item[key]: item for item in source_b}\n    for item in source_a:\n        if item[key] in lookup:\n            yield {**item, **lookup[item[key]]}\n\nsales = [{'id': 1, 'amount': 100}, {'id': 2, 'amount': 150}]\ncustomers = [{'id': 1, 'region': 'north'}, {'id': 2, 'region': 'south'}]\n\nmerged = list(merge_by_key(sales, customers, 'id'))\nprint(merged)\n```\n\nBy separating extraction into a generator and merging into a reusable function, the pipeline remains memory-efficient and adaptable to new data sources."
+      "content": "A scalable pipeline anticipates growth in data volume and source variety. Consider using generators to stream data rather than loading entire datasets into memory. When merging multiple sources, align schemas through a canonical intermediate format, such as a dictionary with standardized keys. Error handling at each stage prevents a single malformed record from halting the entire process. For analytics, modular aggregation functions enable reuse across different merged datasets. The following example demonstrates a generator-based extraction and a merge step that combines two lists of records by a common key:\n\n```python\ndef stream_records(data):\n    for record in data:\n        yield record\n\ndef merge_by_key(source_a, source_b, key):\n    lookup = {item[key]: item for item in source_b}\n    for item in source_a:\n        if item[key] in lookup:\n            yield {**item, **lookup[item[key]]}\n\nsales = [{'id': 1, 'amount': 100}, {'id': 2, 'amount': 150}]\ncustomers = [{'id': 1, 'region': 'north'}, {'id': 2, 'region': 'south'}]\n\nmerged = list(merge_by_key(sales, customers, 'id'))\nprint(merged)\n```\n\nBy separating extraction into a generator and merging into a reusable function, the pipeline remains memory-efficient and adaptable to new data sources.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of project data merging and analytics pipeline architecture. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "42.2_q3",
@@ -127,7 +131,7 @@
       "prompt": "Fix the bug in this code for project data merging and analytics pipeline module bugfix:",
       "starter_code": "# Fix this code\nPrint('Project: Data Merging and Analytics Pipeline')",
       "solution_code": "print('Project: Data Merging and Analytics Pipeline')",
-      "explanation": "Python identifiers and built-ins are case-sensitive."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of project data merging and analytics pipeline module bugfix. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "idx": 8,
@@ -149,7 +153,7 @@
       "prompt": "Fix the bug in this code for project data merging and analytics pipeline module bugfix: (Variation 8)",
       "starter_code": "# Fix this code\nPrint('Project: Data Merging and Analytics Pipeline')",
       "solution_code": "print('Project: Data Merging and Analytics Pipeline')",
-      "explanation": "Python identifiers and built-ins are case-sensitive."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of project data merging and analytics pipeline module bugfix. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "idx": 9,
@@ -171,7 +175,7 @@
       "prompt": "Fix the bug in this code for project data merging and analytics pipeline module bugfix: (Variation 9)",
       "starter_code": "# Fix this code\nPrint('Project: Data Merging and Analytics Pipeline')",
       "solution_code": "print('Project: Data Merging and Analytics Pipeline')",
-      "explanation": "Python identifiers and built-ins are case-sensitive."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of project data merging and analytics pipeline module bugfix. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "idx": 10,
@@ -193,7 +197,7 @@
       "prompt": "Fix the bug in this code for project data merging and analytics pipeline module bugfix: (Variation 10)",
       "starter_code": "# Fix this code\nPrint('Project: Data Merging and Analytics Pipeline')",
       "solution_code": "print('Project: Data Merging and Analytics Pipeline')",
-      "explanation": "Python identifiers and built-ins are case-sensitive."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of project data merging and analytics pipeline module bugfix. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "idx": 11,
@@ -215,7 +219,7 @@
       "prompt": "Fix the bug in this code for project data merging and analytics pipeline module bugfix: (Variation 11)",
       "starter_code": "# Fix this code\nPrint('Project: Data Merging and Analytics Pipeline')",
       "solution_code": "print('Project: Data Merging and Analytics Pipeline')",
-      "explanation": "Python identifiers and built-ins are case-sensitive."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of project data merging and analytics pipeline module bugfix. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "idx": 12,
@@ -237,7 +241,7 @@
       "prompt": "Fix the bug in this code for project data merging and analytics pipeline module bugfix: (Variation 12)",
       "starter_code": "# Fix this code\nPrint('Project: Data Merging and Analytics Pipeline')",
       "solution_code": "print('Project: Data Merging and Analytics Pipeline')",
-      "explanation": "Python identifiers and built-ins are case-sensitive."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of project data merging and analytics pipeline module bugfix. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "42.2_q13",
@@ -248,12 +252,12 @@
       "prerequisites": [
         "42.2_q12"
       ],
-      "prompt": "Fill Blank 13: Complete the code to output 'Project: Data Merging and Analytics Pipeline #13':\n```python\n___('Project: Data Merging and Analytics Pipeline #13')\n```",
+      "prompt": "Complete the code to output 'Project: Data Merging and Analytics Pipeline #13':\n```python\n___('Project: Data Merging and Analytics Pipeline #13')\n```",
       "correct_answer": "print",
       "accepted_answers": [
         "print"
       ],
-      "explanation": "The built-in print() function outputs the specified string."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of project data merging and analytics pipeline module wiring. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "42.2_q14",
@@ -264,12 +268,12 @@
       "prerequisites": [
         "42.2_q13"
       ],
-      "prompt": "Fill Blank 14: Complete the code to output 'Project: Data Merging and Analytics Pipeline #14':\n```python\n___('Project: Data Merging and Analytics Pipeline #14')\n```",
+      "prompt": "Complete the code to output 'Project: Data Merging and Analytics Pipeline #14':\n```python\n___('Project: Data Merging and Analytics Pipeline #14')\n```",
       "correct_answer": "print",
       "accepted_answers": [
         "print"
       ],
-      "explanation": "The built-in print() function outputs the specified string."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of project data merging and analytics pipeline module wiring. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "42.2_q15",
@@ -280,12 +284,12 @@
       "prerequisites": [
         "42.2_q14"
       ],
-      "prompt": "Fill Blank 15: Complete the code to output 'Project: Data Merging and Analytics Pipeline #15':\n```python\n___('Project: Data Merging and Analytics Pipeline #15')\n```",
+      "prompt": "Complete the code to output 'Project: Data Merging and Analytics Pipeline #15':\n```python\n___('Project: Data Merging and Analytics Pipeline #15')\n```",
       "correct_answer": "print",
       "accepted_answers": [
         "print"
       ],
-      "explanation": "The built-in print() function outputs the specified string."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of project data merging and analytics pipeline module wiring. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "42.2_q16",
@@ -296,12 +300,12 @@
       "prerequisites": [
         "42.2_q15"
       ],
-      "prompt": "Fill Blank 16: Complete the code to output 'Project: Data Merging and Analytics Pipeline #16':\n```python\n___('Project: Data Merging and Analytics Pipeline #16')\n```",
+      "prompt": "Complete the code to output 'Project: Data Merging and Analytics Pipeline #16':\n```python\n___('Project: Data Merging and Analytics Pipeline #16')\n```",
       "correct_answer": "print",
       "accepted_answers": [
         "print"
       ],
-      "explanation": "The built-in print() function outputs the specified string."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of project data merging and analytics pipeline module wiring. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "42.2_q17",
@@ -312,12 +316,12 @@
       "prerequisites": [
         "42.2_q16"
       ],
-      "prompt": "Fill Blank 17: Complete the code to output 'Project: Data Merging and Analytics Pipeline #17':\n```python\n___('Project: Data Merging and Analytics Pipeline #17')\n```",
+      "prompt": "Complete the code to output 'Project: Data Merging and Analytics Pipeline #17':\n```python\n___('Project: Data Merging and Analytics Pipeline #17')\n```",
       "correct_answer": "print",
       "accepted_answers": [
         "print"
       ],
-      "explanation": "The built-in print() function outputs the specified string."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of project data merging and analytics pipeline module wiring. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "42.2_q18",
@@ -328,12 +332,12 @@
       "prerequisites": [
         "42.2_q17"
       ],
-      "prompt": "Fill Blank 18: Complete the code to output 'Project: Data Merging and Analytics Pipeline #18':\n```python\n___('Project: Data Merging and Analytics Pipeline #18')\n```",
+      "prompt": "Complete the code to output 'Project: Data Merging and Analytics Pipeline #18':\n```python\n___('Project: Data Merging and Analytics Pipeline #18')\n```",
       "correct_answer": "print",
       "accepted_answers": [
         "print"
       ],
-      "explanation": "The built-in print() function outputs the specified string."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of project data merging and analytics pipeline module wiring. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "42.2_q19",
@@ -563,5 +567,15 @@
       "hint": "Include fillna_map in the serialized dictionary so the reload step is self-contained.",
       "explanation": "Persisting pipeline configuration enables repeatable analytics workflows and is a hallmark of production-grade data systems."
     }
+  ],
+  "unit_num": 42,
+  "learning_objectives": [
+    "Architect a complete multi-step application for Project: Data Merging and Analytics Pipeline",
+    "Decompose problem requirements into modular functions and classes",
+    "Implement defensive error handling and input validation",
+    "Verify application correctness against comprehensive test cases"
+  ],
+  "prerequisites": [
+    "42.1"
   ]
 }

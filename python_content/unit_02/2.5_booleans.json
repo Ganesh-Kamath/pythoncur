@@ -9,9 +9,13 @@
       "concept": "boolean_definition",
       "skill": "recognition",
       "difficulty": "easy",
-      "prerequisites": ["2.1_q1"],
+      "prerequisites": [
+        "2.1_q1"
+      ],
       "title": "What is a Boolean?",
-      "content": "Named after 19th-century mathematician George Boole, a **boolean** (`bool`) is a data type that can only have one of two possible values:\n\n* `True`\n* `False`\n\nBooleans form the backbone of all decision-making in computer programming: answering yes/no, on/off, and true/false questions."
+      "content": "Named after 19th-century mathematician George Boole, a **boolean** (`bool`) is a data type that can only have one of two possible values:\n\n* `True`\n* `False`\n\nBooleans form the backbone of all decision-making in computer programming: answering yes/no, on/off, and true/false questions.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of boolean definition. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "2.5_q2",
@@ -19,7 +23,9 @@
       "concept": "boolean_definition",
       "skill": "recognition",
       "difficulty": "easy",
-      "prerequisites": ["2.5_q1"],
+      "prerequisites": [
+        "2.5_q1"
+      ],
       "prompt": "What are the two valid boolean literals in Python?",
       "options": [
         "A. `YES` and `NO`",
@@ -28,7 +34,7 @@
         "D. `valid` and `invalid`"
       ],
       "correct_answer": "B",
-      "explanation": "Python's boolean literals are `True` and `False`."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of boolean definition. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "2.5_q3",
@@ -36,9 +42,14 @@
       "concept": "boolean_capitalization",
       "skill": "understanding",
       "difficulty": "easy",
-      "prerequisites": ["1.3_q14", "2.5_q1"],
+      "prerequisites": [
+        "1.3_q14",
+        "2.5_q1"
+      ],
       "title": "Capitalization Matters",
-      "content": "In Python, `True` and `False` **must** be capitalized with an uppercase 'T' and 'F'.\n\nIf you type lowercase `true` or `false` (like in JavaScript or C++), Python does not recognize them as booleans and raises a `NameError`:\n```python\nis_ready = True   # Valid boolean\n# is_ready = true  # NameError: name 'true' is not defined!\n```"
+      "content": "In Python, `True` and `False` **must** be capitalized with an uppercase 'T' and 'F'.\n\nIf you type lowercase `true` or `false` (like in JavaScript or C++), Python does not recognize them as booleans and raises a `NameError`:\n```python\nis_ready = True   # Valid boolean\n# is_ready = true  # NameError: name 'true' is not defined!\n```",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of boolean capitalization. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "2.5_q4",
@@ -46,7 +57,9 @@
       "concept": "boolean_capitalization",
       "skill": "debugging",
       "difficulty": "easy",
-      "prerequisites": ["2.5_q3"],
+      "prerequisites": [
+        "2.5_q3"
+      ],
       "prompt": "Why does this line crash with a `NameError`?\n```python\nlogged_in = false\n```",
       "options": [
         "A. Variable names cannot contain underscores.",
@@ -63,11 +76,13 @@
       "concept": "boolean_capitalization_fix",
       "skill": "debugging",
       "difficulty": "easy",
-      "prerequisites": ["2.5_q4"],
+      "prerequisites": [
+        "2.5_q4"
+      ],
       "prompt": "Fix the capitalization error in this boolean assignment:",
       "starter_code": "is_active = true",
       "solution_code": "is_active = True",
-      "explanation": "Capitalize the 'T' in `True`."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of boolean capitalization fix. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "2.5_q6",
@@ -75,9 +90,14 @@
       "concept": "boolean_vs_string",
       "skill": "understanding",
       "difficulty": "medium",
-      "prerequisites": ["2.4_q1", "2.5_q1"],
+      "prerequisites": [
+        "2.4_q1",
+        "2.5_q1"
+      ],
       "title": "Boolean vs. String",
-      "content": "Do NOT wrap booleans in quotation marks:\n\n```python\nis_valid = True    # bool: A genuine truth value\ntext = \"True\"      # str: Literal four-letter text string\n```\n`True` is an active logic value used in conditions. `\"True\"` is just words on a screen."
+      "content": "Do NOT wrap booleans in quotation marks:\n\n```python\nis_valid = True    # bool: A genuine truth value\ntext = \"True\"      # str: Literal four-letter text string\n```\n`True` is an active logic value used in conditions. `\"True\"` is just words on a screen.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of boolean vs string. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "2.5_q7",
@@ -85,7 +105,9 @@
       "concept": "boolean_vs_string",
       "skill": "analysis",
       "difficulty": "medium",
-      "prerequisites": ["2.5_q6"],
+      "prerequisites": [
+        "2.5_q6"
+      ],
       "prompt": "What is the data type of `x = \"False\"`?",
       "options": [
         "A. `bool`",
@@ -102,9 +124,13 @@
       "concept": "comparison_expressions",
       "skill": "understanding",
       "difficulty": "easy",
-      "prerequisites": ["2.5_q1"],
+      "prerequisites": [
+        "2.5_q1"
+      ],
       "title": "Comparisons Produce Booleans",
-      "content": "Whenever you compare values, Python evaluates the comparison and produces a boolean:\n\n```python\nprint(10 > 5)   # True (10 is greater than 5)\nprint(2 == 3)   # False (2 is not equal to 3)\nprint(4 <= 4)   # True (4 is less than or equal to 4)\n```\nNotice the double equals `==`: it tests equality, while a single `=` assigns."
+      "content": "Whenever you compare values, Python evaluates the comparison and produces a boolean:\n\n```python\nprint(10 > 5)   # True (10 is greater than 5)\nprint(2 == 3)   # False (2 is not equal to 3)\nprint(4 <= 4)   # True (4 is less than or equal to 4)\n```\nNotice the double equals `==`: it tests equality, while a single `=` assigns.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of comparison expressions. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "2.5_q9",
@@ -112,7 +138,9 @@
       "concept": "comparison_expressions",
       "skill": "prediction",
       "difficulty": "easy",
-      "prerequisites": ["2.5_q8"],
+      "prerequisites": [
+        "2.5_q8"
+      ],
       "prompt": "What does this code output?\n```python\nprint(7 > 12)\n```",
       "options": [
         "A. True",
@@ -129,7 +157,9 @@
       "concept": "equality_comparison",
       "skill": "prediction",
       "difficulty": "easy",
-      "prerequisites": ["2.5_q8"],
+      "prerequisites": [
+        "2.5_q8"
+      ],
       "prompt": "What does this code output?\n```python\nprint(5 == 5)\n```",
       "options": [
         "A. 5",
@@ -146,9 +176,13 @@
       "concept": "not_operator",
       "skill": "understanding",
       "difficulty": "medium",
-      "prerequisites": ["2.5_q1"],
+      "prerequisites": [
+        "2.5_q1"
+      ],
       "title": "The not Operator",
-      "content": "The `not` operator inverts (flips) a boolean value:\n\n* `not True` becomes `False`\n* `not False` becomes `True`\n\n```python\nis_raining = False\nsunny = not is_raining  # True\n```"
+      "content": "The `not` operator inverts (flips) a boolean value:\n\n* `not True` becomes `False`\n* `not False` becomes `True`\n\n```python\nis_raining = False\nsunny = not is_raining  # True\n```",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of not operator. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "2.5_q12",
@@ -156,7 +190,9 @@
       "concept": "not_operator",
       "skill": "prediction",
       "difficulty": "easy",
-      "prerequisites": ["2.5_q11"],
+      "prerequisites": [
+        "2.5_q11"
+      ],
       "prompt": "What does this code print?\n```python\ngame_over = False\nprint(not game_over)\n```",
       "options": [
         "A. False",
@@ -165,7 +201,7 @@
         "D. None"
       ],
       "correct_answer": "B",
-      "explanation": "`not False` inverts the boolean to `True`."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of not operator. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "2.5_q13",
@@ -173,7 +209,9 @@
       "concept": "double_not",
       "skill": "reasoning",
       "difficulty": "medium",
-      "prerequisites": ["2.5_q11"],
+      "prerequisites": [
+        "2.5_q11"
+      ],
       "prompt": "What does `not (not True)` evaluate to?",
       "options": [
         "A. True",
@@ -190,9 +228,14 @@
       "concept": "naming_booleans_pep8",
       "skill": "recognition",
       "difficulty": "medium",
-      "prerequisites": ["2.2_q7", "2.5_q1"],
+      "prerequisites": [
+        "2.2_q7",
+        "2.5_q1"
+      ],
       "title": "Naming Boolean Variables",
-      "content": "By convention, boolean variable names usually start with a helping verb like `is_`, `has_`, `can_`, or `should_`:\n\n* `is_authenticated = True`\n* `has_permission = False`\n* `can_jump = True`\n\nThis makes code read like natural English!"
+      "content": "By convention, boolean variable names usually start with a helping verb like `is_`, `has_`, `can_`, or `should_`:\n\n* `is_authenticated = True`\n* `has_permission = False`\n* `can_jump = True`\n\nThis makes code read like natural English!",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of naming booleans pep8. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "2.5_q15",
@@ -200,7 +243,9 @@
       "concept": "naming_booleans_pep8",
       "skill": "evaluation",
       "difficulty": "easy",
-      "prerequisites": ["2.5_q14"],
+      "prerequisites": [
+        "2.5_q14"
+      ],
       "prompt": "Which variable name is best practice for tracking whether an audio track is currently playing?",
       "options": [
         "A. `p`",
@@ -209,7 +254,7 @@
         "D. `audio1`"
       ],
       "correct_answer": "B",
-      "explanation": "`is_playing` is clean, descriptive, and follows Python conventions."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of naming booleans pep8. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "2.5_q16",
@@ -217,9 +262,14 @@
       "concept": "bool_is_int_subclass",
       "skill": "understanding",
       "difficulty": "hard",
-      "prerequisites": ["2.3_q1", "2.5_q1"],
+      "prerequisites": [
+        "2.3_q1",
+        "2.5_q1"
+      ],
       "title": "Booleans Are Integers Under the Hood",
-      "content": "In Python, `bool` is actually a direct subclass of `int`!\n\n* `True` has an integer value of `1`\n* `False` has an integer value of `0`\n\n```python\nprint(True + True)  # Prints: 2\nprint(False * 50)   # Prints: 0\nprint(True == 1)    # Prints: True\n```\nWhile you rarely do math with booleans on purpose, understanding this explains many Python behaviors."
+      "content": "In Python, `bool` is actually a direct subclass of `int`!\n\n* `True` has an integer value of `1`\n* `False` has an integer value of `0`\n\n```python\nprint(True + True)  # Prints: 2\nprint(False * 50)   # Prints: 0\nprint(True == 1)    # Prints: True\n```\nWhile you rarely do math with booleans on purpose, understanding this explains many Python behaviors.",
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of bool is int subclass. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "2.5_q17",
@@ -227,7 +277,9 @@
       "concept": "bool_is_int_subclass",
       "skill": "analysis",
       "difficulty": "hard",
-      "prerequisites": ["2.5_q16"],
+      "prerequisites": [
+        "2.5_q16"
+      ],
       "prompt": "What does this code output?\n```python\nprint(True + False + True)\n```",
       "options": [
         "A. True",
@@ -244,7 +296,11 @@
       "concept": "boolean_operations",
       "skill": "analysis",
       "difficulty": "medium",
-      "prerequisites": ["2.5_q1", "2.5_q8", "2.5_q11"],
+      "prerequisites": [
+        "2.5_q1",
+        "2.5_q8",
+        "2.5_q11"
+      ],
       "prompt": "Match each expression to its evaluated boolean result.",
       "options": {
         "`10 >= 10`": "`True`",
@@ -264,11 +320,13 @@
       "concept": "boolean_creation",
       "skill": "application",
       "difficulty": "easy",
-      "prerequisites": ["2.5_q1"],
+      "prerequisites": [
+        "2.5_q1"
+      ],
       "prompt": "Create a variable named `has_discount` and assign it the boolean `False`.",
       "starter_code": "",
       "solution_code": "has_discount = False",
-      "explanation": "`has_discount = False` assigns the boolean literal."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of boolean creation. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "2.5_q20",
@@ -276,9 +334,14 @@
       "concept": "boolean_toggle",
       "skill": "application",
       "difficulty": "medium",
-      "prerequisites": ["2.1_q8", "2.5_q11"],
+      "prerequisites": [
+        "2.1_q8",
+        "2.5_q11"
+      ],
       "prompt": "Complete the code to toggle (flip) the boolean value of `light_on`:\n```python\nlight_on = True\nlight_on = ___ light_on\n```",
-      "accepted_answers": ["not"],
+      "accepted_answers": [
+        "not"
+      ],
       "explanation": "`light_on = not light_on` toggles True to False or False to True."
     },
     {
@@ -287,7 +350,9 @@
       "concept": "boolean_toggle",
       "skill": "prediction",
       "difficulty": "medium",
-      "prerequisites": ["2.5_q20"],
+      "prerequisites": [
+        "2.5_q20"
+      ],
       "prompt": "What does this code print?\n```python\nis_muted = True\nis_muted = not is_muted\nis_muted = not is_muted\nprint(is_muted)\n```",
       "options": [
         "A. False",
@@ -300,11 +365,13 @@
     },
     {
       "id": "2.5_q22",
-      "type": "scenario",
+      "type": "multiple_choice",
       "concept": "feature_flag",
       "skill": "application",
       "difficulty": "medium",
-      "prerequisites": ["2.5_q14"],
+      "prerequisites": [
+        "2.5_q14"
+      ],
       "prompt": "In professional software development, what is a common use for a boolean variable like `ENABLE_BETA_UI = False`?",
       "options": [
         "A. To tell the CPU to operate in binary mode.",
@@ -321,7 +388,10 @@
       "concept": "comparison_vs_assignment",
       "skill": "debugging",
       "difficulty": "medium",
-      "prerequisites": ["2.1_q3", "2.5_q8"],
+      "prerequisites": [
+        "2.1_q3",
+        "2.5_q8"
+      ],
       "prompt": "What is the difference between `x = 5` and `x == 5`?",
       "options": [
         "A. `x = 5` assigns the value 5 to `x`, while `x == 5` checks whether `x` equals 5 and produces a boolean (`True` or `False`).",
@@ -330,7 +400,7 @@
         "D. `x = 5` only works for strings."
       ],
       "correct_answer": "A",
-      "explanation": "Single `=` is assignment. Double `==` is equality comparison."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of comparison vs assignment. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "2.5_q24",
@@ -338,7 +408,10 @@
       "concept": "string_equality",
       "skill": "prediction",
       "difficulty": "medium",
-      "prerequisites": ["2.4_q1", "2.5_q8"],
+      "prerequisites": [
+        "2.4_q1",
+        "2.5_q8"
+      ],
       "prompt": "What does this code output?\n```python\nprint(\"Python\" == \"python\")\n```",
       "options": [
         "A. True",
@@ -355,7 +428,9 @@
       "concept": "age_verification_expression",
       "skill": "application",
       "difficulty": "medium",
-      "prerequisites": ["2.5_q8"],
+      "prerequisites": [
+        "2.5_q8"
+      ],
       "prompt": "Given `user_age = 19`, create a boolean variable `can_vote` that checks if `user_age >= 18`, and print `can_vote`.",
       "starter_code": "user_age = 19\n# Check if user can vote and print result\n",
       "solution_code": "user_age = 19\ncan_vote = user_age >= 18\nprint(can_vote)",
@@ -367,7 +442,9 @@
       "concept": "boolean_str_comparison",
       "skill": "reasoning",
       "difficulty": "hard",
-      "prerequisites": ["2.5_q6"],
+      "prerequisites": [
+        "2.5_q6"
+      ],
       "prompt": "What does this expression evaluate to?\n```python\nprint(True == \"True\")\n```",
       "options": [
         "A. True",
@@ -384,11 +461,13 @@
       "concept": "remove_quotes_boolean",
       "skill": "debugging",
       "difficulty": "easy",
-      "prerequisites": ["2.5_q6"],
+      "prerequisites": [
+        "2.5_q6"
+      ],
       "prompt": "Fix this code so `is_verified` is a genuine boolean instead of a string:",
       "starter_code": "is_verified = \"True\"",
       "solution_code": "is_verified = True",
-      "explanation": "Remove the quotes to store the boolean literal `True`."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of remove quotes boolean. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "2.5_q28",
@@ -396,7 +475,9 @@
       "concept": "inequality_operator",
       "skill": "recognition",
       "difficulty": "easy",
-      "prerequisites": ["2.5_q8"],
+      "prerequisites": [
+        "2.5_q8"
+      ],
       "prompt": "Which operator checks if two values are NOT equal in Python?",
       "options": [
         "A. `<>`",
@@ -409,11 +490,14 @@
     },
     {
       "id": "2.5_q29",
-      "type": "scenario",
+      "type": "real_world_scenario",
       "concept": "access_control_logic",
       "skill": "synthesis",
       "difficulty": "hard",
-      "prerequisites": ["2.5_q8", "2.5_q11"],
+      "prerequisites": [
+        "2.5_q8",
+        "2.5_q11"
+      ],
       "prompt": "A door locks automatically unless an authorized badge is present. If `authorized_badge = True`, which expression evaluates whether the door should be locked?",
       "options": [
         "A. `locked = not authorized_badge`",
@@ -426,11 +510,18 @@
     },
     {
       "id": "2.5_q30",
-      "type": "scenario",
+      "type": "real_world_scenario",
       "concept": "boolean_synthesis",
       "skill": "transfer",
       "difficulty": "hard",
-      "prerequisites": ["2.5_q1", "2.5_q3", "2.5_q6", "2.5_q8", "2.5_q11", "2.5_q16"],
+      "prerequisites": [
+        "2.5_q1",
+        "2.5_q3",
+        "2.5_q6",
+        "2.5_q8",
+        "2.5_q11",
+        "2.5_q16"
+      ],
       "prompt": "Which of the following summaries regarding Python booleans is completely TRUE?",
       "options": [
         "A. Booleans are `True` and `False` (capitalized); comparisons produce booleans; `not` flips boolean values; booleans are a subclass of `int` (`1` and `0`); they must not be quoted.",
@@ -441,5 +532,15 @@
       "correct_answer": "A",
       "explanation": "This accurately summarizes all essential properties, semantics, and best practices of Python booleans."
     }
+  ],
+  "unit_num": 2,
+  "learning_objectives": [
+    "Explain the technical concepts and mechanics of Booleans",
+    "Apply idiomatic Python patterns when working with Booleans",
+    "Debug common runtime exceptions and logic errors associated with Booleans",
+    "Implement production-ready code utilizing Booleans"
+  ],
+  "prerequisites": [
+    "2.4"
   ]
 }

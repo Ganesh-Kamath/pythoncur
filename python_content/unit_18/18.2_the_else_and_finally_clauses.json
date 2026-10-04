@@ -12,7 +12,9 @@
       "title": "Introduction to else and finally in try-except",
       "content": "In Python exception handling, the try block contains code that might raise an error. If no exception occurs, the except block is skipped. The else clause runs only when the try block completes successfully without raising any exception. The finally clause always executes, whether an exception occurred or not, making it ideal for cleanup tasks such as closing files or network connections. Here is an example:\n\n```python\nfile = open('data.txt', 'r')\ntry:\n    data = file.read()\nexcept FileNotFoundError:\n    print('File not found.')\nelse:\n    print('Reading completed successfully.')\nfinally:\n    file.close()\n```\n\nNotice that the else block only prints when the file opens and reads without error. The finally block ensures the file is closed regardless of outcome.",
       "difficulty": "easy",
-      "prerequisites": []
+      "prerequisites": [],
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of the else and finally clauses basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "18.2_q2",
@@ -45,7 +47,9 @@
       "difficulty": "easy",
       "prerequisites": [
         "18.2_q2"
-      ]
+      ],
+      "prompt": "",
+      "explanation": "In Python, this operation directly demonstrates the core behavior of the else and finally clauses syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "18.2_q4",
@@ -184,7 +188,7 @@
           "expected_output": "The else and finally Clauses"
         }
       ],
-      "explanation": "The solution fulfills all functional requirements."
+      "explanation": "In Python, this operation directly demonstrates the core behavior of the else and finally clauses analysis. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "18.2_q11",
@@ -288,7 +292,7 @@
       "prerequisites": [
         "18.2_q15"
       ],
-      "prompt": "Identify the missing block in this common pattern for file operations:\n```python\nf = open('data.txt', 'r')\ntry:\n    content = f.read()\nelse:\n    print('File read successfully')\nfinally:\n    f.close()\n```\nWhat keyword must precede the print('File read successfully') line?",
+      "prompt": "Fill in the missing method call to ensure clean resource release:\n```python\nwith open('data.txt') as f:\n    data = f.___()\n```",
       "correct_answer": "except",
       "accepted_answers": [
         "except"
@@ -608,5 +612,15 @@
       "explanation": "Mastery of `else` and `finally` includes using `else` for success-only side effects, re-raising custom exceptions after logging, and guaranteeing cleanup in `finally` even when exceptions propagate.",
       "difficulty": "hard"
     }
+  ],
+  "unit_num": 18,
+  "learning_objectives": [
+    "Explain the technical concepts and mechanics of else and finally Clauses",
+    "Apply idiomatic Python patterns when working with else and finally Clauses",
+    "Debug common runtime exceptions and logic errors associated with else and finally Clauses",
+    "Implement production-ready code utilizing else and finally Clauses"
+  ],
+  "prerequisites": [
+    "18.1"
   ]
 }
