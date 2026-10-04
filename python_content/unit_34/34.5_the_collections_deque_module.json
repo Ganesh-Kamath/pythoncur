@@ -18,21 +18,19 @@
     {
       "id": "34.5_q2",
       "type": "multiple_choice",
-      "difficulty": "easy",
-      "prerequisites": [
-        "34.5_q1"
-      ],
-      "concept": "the_collectionsdeque_module_basics",
-      "prompt": "Which statement correctly describes the primary advantage of using collections.deque over a standard list for stack and queue implementations?",
+      "question": "Why is `collections.deque` strongly preferred over a standard Python `list` when implementing a First-In-First-Out (FIFO) queue?",
       "options": [
-        "It allows faster insertion and deletion at both ends.",
-        "It supports direct indexing with square brackets.",
-        "It automatically sorts elements upon insertion.",
-        "It can only store numeric data types."
+        "deque.popleft() is O(1) constant time, whereas list.pop(0) is O(N) linear time because all remaining elements must shift left in memory",
+        "deque can store infinite elements while list is capped at 1,000",
+        "Lists do not support string items when used as queues",
+        "deque operations run on separate CPU threads automatically"
       ],
-      "correct_answer": "It allows faster insertion and deletion at both ends.",
-      "explanation": "Deque is optimized for O(1) append and pop operations at both the left and right ends, whereas list operations at the front are O(n). Indexing is not the primary advantage, and deque does not sort elements or restrict data types.",
-      "skill": "recall"
+      "correct_answer": "deque.popleft() is O(1) constant time, whereas list.pop(0) is O(N) linear time because all remaining elements must shift left in memory",
+      "explanation": "A Python `list` is a dynamic array. Popping the first element (`list.pop(0)`) requires shifting every remaining element one index to the left in memory, making it O(N). `deque` is implemented as a doubly linked list of fixed blocks, allowing O(1) appends and pops from both ends.",
+      "difficulty": "easy",
+      "concept": "deque_vs_list_queue",
+      "skill": "dsa_tradeoffs",
+      "prerequisites": []
     },
     {
       "id": "34.5_q3",

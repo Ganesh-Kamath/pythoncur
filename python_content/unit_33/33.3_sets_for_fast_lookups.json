@@ -18,21 +18,19 @@
     {
       "id": "33.3_q2",
       "type": "multiple_choice",
-      "concept": "sets_for_fast_lookups_basics",
-      "skill": "recall",
-      "difficulty": "easy",
-      "prerequisites": [
-        "33.3_q1"
-      ],
-      "prompt": "Which of the following best describes why a set is faster than a list for checking membership?",
+      "question": "You have a dataset of 1,000,000 user IDs and need to verify if incoming requests come from authorized users. Why is `user_id in authorized_set` vastly superior to `user_id in authorized_list`?",
       "options": [
-        "Sets store elements in sorted order, so binary search is possible.",
-        "Sets use a hash table, giving average O(1) lookup time.",
-        "Sets are smaller in memory, so they are always faster.",
-        "Sets allow duplicate entries, which speeds up searches."
+        "Set membership check is O(1) average time via hash table indexing, whereas list membership check is O(N) linear scan through all 1,000,000 elements",
+        "Sets automatically sort integers in CPU cache lines",
+        "Lists can only store up to 65,536 elements in standard CPython",
+        "Set lookup is executed by the GPU while list lookup is CPU-bound"
       ],
-      "correct_answer": "Sets use a hash table, giving average O(1) lookup time.",
-      "explanation": "Sets are implemented using hash tables. This allows the interpreter to compute a hash of the element and jump directly to the relevant bucket, making membership tests average O(1). Lists must scan elements one by one, which is O(n). Sorting and binary search are not the reason sets are faster for this task."
+      "correct_answer": "Set membership check is O(1) average time via hash table indexing, whereas list membership check is O(N) linear scan through all 1,000,000 elements",
+      "explanation": "Python sets use hash tables. Checking `item in set` calculates `hash(item)` and looks up the bucket in O(1) average time. Checking `item in list` requires scanning elements from left to right (O(N) worst and average case), causing a massive performance degradation at scale.",
+      "difficulty": "easy",
+      "concept": "hash_lookup_complexity",
+      "skill": "algorithm_analysis",
+      "prerequisites": []
     },
     {
       "id": "33.3_q3",
@@ -480,25 +478,20 @@
     },
     {
       "id": "33.3_q26",
-      "type": "fix_the_code",
-      "concept": "sets_for_fast_lookups_debugging",
-      "skill": "debugging",
-      "difficulty": "medium",
-      "prerequisites": [
-        "33.3_q25"
+      "type": "multiple_choice",
+      "question": "In which scenario would using a `set` be INAPPROPRIATE or impossible?",
+      "options": [
+        "When you must preserve duplicate elements or when the items are unhashable mutable objects like lists or dictionaries",
+        "When you have more than 1,000 unique integers",
+        "When checking whether a string appears in a collection of strings",
+        "When eliminating duplicate entries from an imported CSV file"
       ],
-      "prompt": "Defensive Validation: Implement a verification helper for Sets for Fast Lookups that confirms preconditions and guards against invalid input.",
-      "starter_code": "def validate_33_3_input(val):\n    # Return True if val is valid, False otherwise\n    pass",
-      "solution_code": "def validate_33_3_input(val):\n    if val is None or val == '':\n        return False\n    return True",
-      "test_cases": [
-        {
-          "input": "'valid_token'",
-          "expected_output": "True",
-          "description": "valid input returns True"
-        }
-      ],
-      "hint": "Check the condition and return value carefully.",
-      "explanation": "Validating preconditions at the boundary prevents null pointer and type exceptions downstream."
+      "correct_answer": "When you must preserve duplicate elements or when the items are unhashable mutable objects like lists or dictionaries",
+      "explanation": "Sets require elements to be hashable (immutable, with `__hash__`). Mutable types like `list` and `dict` cannot be stored in sets (raising `TypeError: unhashable type`). Additionally, sets enforce element uniqueness, so they cannot store duplicate values.",
+      "difficulty": "hard",
+      "concept": "when_not_to_use_sets",
+      "skill": "engineering_judgment",
+      "prerequisites": []
     },
     {
       "id": "33.3_q27",

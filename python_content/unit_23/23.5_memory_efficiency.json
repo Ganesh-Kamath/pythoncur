@@ -18,21 +18,19 @@
     {
       "id": "23.5_q2",
       "type": "multiple_choice",
-      "concept": "memory_efficiency_basics",
-      "skill": "recall",
-      "difficulty": "easy",
-      "prerequisites": [
-        "23.5_q1"
-      ],
-      "prompt": "Which statement best describes a generator in Python?",
+      "question": "You need to parse a 20 GB server access log file on a machine with only 8 GB of RAM. Which Python approach is required to prevent an Out Of Memory (OOM) crash?",
       "options": [
-        "It stores all values in memory immediately when defined.",
-        "It computes and yields one value at a time, using less memory.",
-        "It can only be used with lists, not with loops.",
-        "It requires the `return` keyword to produce values."
+        "Use a generator function with `yield` to stream and process lines one by one, keeping memory usage constant O(1)",
+        "Call `file.readlines()` to load all lines into a Python list",
+        "Use a list comprehension: `[line for line in file]`",
+        "Convert the entire file to a JSON dictionary in memory"
       ],
-      "correct_answer": "It computes and yields one value at a time, using less memory.",
-      "explanation": "A generator produces values lazily via `yield`, so it does not keep the entire sequence in memory. This makes it memory-efficient compared to building a full list."
+      "correct_answer": "Use a generator function with `yield` to stream and process lines one by one, keeping memory usage constant O(1)",
+      "explanation": "Generators produce items lazily on demand. By streaming one line at a time with `yield`, memory consumption remains tiny and constant O(1) regardless of whether the log file is 1 MB or 100 GB.",
+      "difficulty": "easy",
+      "concept": "generators_for_large_data",
+      "skill": "system_design",
+      "prerequisites": []
     },
     {
       "id": "23.5_q3",
@@ -517,34 +515,20 @@
     {
       "id": "23.5_q27",
       "type": "write_the_code",
-      "concept": "memory_efficiency_advanced",
-      "skill": "application",
-      "difficulty": "hard",
-      "prerequisites": [
-        "23.5_q26"
-      ],
-      "prompt": "Implement a memoized generator that computes Fibonacci numbers lazily and caches only the last two values to avoid storing the entire sequence.",
-      "starter_code": "def fibonacci_memoized(n):\n    # TODO: yield fibonacci numbers up to n terms using minimal memory\n    pass\n\n# Test:\n# list(fibonacci_memoized(10))",
-      "solution_code": "def fibonacci_memoized(n):\n    a, b = 0, 1\n    count = 0\n    while count < n:\n        yield a\n        a, b = b, a + b\n        count += 1\n\n# Test:\n# list(fibonacci_memoized(10))",
+      "question": "Write a generator function `stream_error_logs(lines: list[str])` that yields only the stripped log messages that start with `\"[ERROR]\"`. It must be a generator (using `yield`), not a list accumulator.",
+      "starter_code": "from typing import Iterator\n\ndef stream_error_logs(lines: list[str]) -> Iterator[str]:\n    # Yield lines matching '[ERROR]' lazily\n    pass",
+      "solution_code": "from typing import Iterator\n\ndef stream_error_logs(lines: list[str]) -> Iterator[str]:\n    for line in lines:\n        cleaned = line.strip()\n        if cleaned.startswith(\"[ERROR]\"):\n            yield cleaned",
       "test_cases": [
         {
-          "input": "",
-          "expected_output": "fibonacci_memoized(0) yields nothing",
-          "description": "fibonacci_memoized(0) yields nothing"
-        },
-        {
-          "input": "",
-          "expected_output": "fibonacci_memoized(1) yields 0",
-          "description": "fibonacci_memoized(1) yields 0"
-        },
-        {
-          "input": "",
-          "expected_output": "fibonacci_memoized(6) yields 0, 1, 1, 2, 3, 5",
-          "description": "fibonacci_memoized(6) yields 0, 1, 1, 2, 3, 5"
+          "input": "list(stream_error_logs(['[INFO] boot', '[ERROR] timeout', '[ERROR] db fail']))",
+          "expected_output": "['[ERROR] timeout', '[ERROR] db fail']"
         }
       ],
-      "hint": "Track only the two most recent Fibonacci numbers and update them in each iteration.",
-      "explanation": "By maintaining only two state variables (a and b), the generator achieves O(1) space complexity regardless of n, which is optimal for sequential Fibonacci generation."
+      "explanation": "The generator uses `yield` to deliver each matching log entry as soon as it is encountered, allowing downstream consumers to process millions of records with constant memory footprint.",
+      "difficulty": "hard",
+      "concept": "generator_streaming",
+      "skill": "code_construction",
+      "prerequisites": []
     },
     {
       "id": "23.5_q28",

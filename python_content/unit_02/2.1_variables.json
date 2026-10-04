@@ -6,35 +6,29 @@
     {
       "id": "2.1_q1",
       "type": "micro_lesson",
-      "concept": "variable_definition",
-      "skill": "recognition",
+      "title": "Variables Are Labels, Not Boxes",
+      "content": "In Python, a variable is not a physical box that holds data. Instead, a variable is a **name tag** or **reference** attached to an object in memory.\n\nWhen you write `x = 42`, Python creates an integer object `42` in memory and binds the label `x` to it. If you later write `y = x`, Python does not make a copy of `42`; it simply binds a second label `y` to the very same object in memory.",
       "difficulty": "easy",
-      "prerequisites": [
-        "1.4_q1"
-      ],
-      "title": "What is a Variable?",
-      "content": "Programs need to remember data. A **variable** is a named reference that points to a value stored in your computer's memory.\n\nYou create a variable using the **assignment operator** (`=`):\n```python\nscore = 100\n```\nHere, `score` is the variable name, and `100` is the integer value stored in memory.",
-      "prompt": "",
-      "explanation": "In Python, variable names must begin with a letter or underscore, cannot start with a digit, and cannot contain spaces or special punctuation. Following PEP 8 snake_case conventions ensures identifiers remain clear, legal, and unambiguous."
+      "concept": "variable_references",
+      "skill": "mental_model",
+      "prerequisites": []
     },
     {
       "id": "2.1_q2",
       "type": "multiple_choice",
-      "concept": "variable_definition",
-      "skill": "recognition",
-      "difficulty": "easy",
-      "prerequisites": [
-        "2.1_q1"
-      ],
-      "prompt": "In the line `player_name = \"Alex\"`, what is `player_name`?",
+      "question": "Which statement best describes what happens in Python when you execute `score = 100`?",
       "options": [
-        "A. A built-in function",
-        "B. A variable name pointing to the string value 'Alex'",
-        "C. A syntax error",
-        "D. A Python module"
+        "Python creates an integer object 100 in memory and binds the name tag 'score' to refer to that object",
+        "Python allocates a fixed physical memory box named 'score' and stores the bits of 100 inside that box permanently",
+        "Python converts the string 'score' into an integer of value 100",
+        "Python creates two distinct copies of 100: one for the variable and one for the screen"
       ],
-      "correct_answer": "B",
-      "explanation": "This exercise tests `variable definition` in Variables. When Python validates this code, it applies the standard rules of variable definition. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
+      "correct_answer": "Python creates an integer object 100 in memory and binds the name tag 'score' to refer to that object",
+      "explanation": "In Python's execution model, variables are references (labels) pointing to objects. When you assign `score = 100`, Python allocates an int object with value 100 and points the identifier `score` to it.",
+      "difficulty": "easy",
+      "concept": "variable_references",
+      "skill": "mental_model",
+      "prerequisites": []
     },
     {
       "id": "2.1_q3",
@@ -90,17 +84,20 @@
     },
     {
       "id": "2.1_q6",
-      "type": "micro_lesson",
-      "concept": "reassignment",
-      "skill": "understanding",
-      "difficulty": "medium",
-      "prerequisites": [
-        "2.1_q1"
+      "type": "multiple_choice",
+      "question": "What happens in memory when this code executes?\n\n```python\na = 10\nb = a\na = 20\n```",
+      "options": [
+        "a is rebound to a new int object 20, while b still refers to the original int object 10",
+        "Both a and b now refer to 20 because changing a automatically changes b",
+        "Python raises a ReassignmentError because integers cannot be reassigned",
+        "b becomes None because a was overwritten"
       ],
-      "title": "Variables Can Vary (Reassignment)",
-      "content": "Variables are called 'variables' because their values can change (vary) over time.\n\nYou can reassign a variable simply by assigning a new value to it:\n```python\ncoins = 5\ncoins = 12  # The old value 5 is replaced\nprint(coins)  # Prints 12\n```",
-      "prompt": "",
-      "explanation": "In Python, variable names must begin with a letter or underscore, cannot start with a digit, and cannot contain spaces or special punctuation. Following PEP 8 snake_case conventions ensures identifiers remain clear, legal, and unambiguous."
+      "correct_answer": "a is rebound to a new int object 20, while b still refers to the original int object 10",
+      "explanation": "When `b = a` runs, `b` points to the object `10`. When `a = 20` runs, the label `a` is rebound to a new object `20`. The name `b` still points to `10`. Integers are immutable, so rebinding `a` has zero effect on `b`.",
+      "difficulty": "easy",
+      "concept": "variable_rebinding",
+      "skill": "memory_tracing",
+      "prerequisites": []
     },
     {
       "id": "2.1_q7",

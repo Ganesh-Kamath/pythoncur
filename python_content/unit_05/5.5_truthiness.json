@@ -6,14 +6,12 @@
     {
       "id": "5.5_q1",
       "type": "micro_lesson",
-      "concept": "truthiness_basics",
-      "skill": "recognition",
+      "title": "Truthiness: What Python Considers True and False",
+      "content": "In Python, any object can be tested for truth value inside an `if` or `while` condition.\n\nThe following are inherently **falsy**:\n- Constants: `None`, `False`\n- Numeric zeros: `0`, `0.0`, `0j`\n- Empty sequences and collections: `\"\"`, `()`, `[]`, `{}`, `set()`\n\nAll other values are **truthy**. This allows concise Pythonic checks like `if items:` instead of `if len(items) > 0:`.",
       "difficulty": "easy",
-      "prerequisites": [],
-      "title": "What is Truthiness in Python?",
-      "content": "In Python, every object has an inherent boolean value, which is called its truthiness. When Python evaluates a value in a conditional statement (like an if statement), it does not always require the explicit True or False. Instead, Python uses the following rules: empty collections (such as '', [], and {}) are considered False; zero and None are considered False; and most other values are considered True. Understanding truthiness helps you write cleaner, more Pythonic conditional logic. Here is a simple demonstration:\n\n```python\nvalue1 = ''\nvalue2 = 'hello'\nvalue3 = []\nvalue4 = [1, 2]\n\nif value1:\n    print('value1 is truthy')\nelse:\n    print('value1 is falsy')\n\nif value2:\n    print('value2 is truthy')\nelse:\n    print('value2 is falsy')\n\nif value3:\n    print('value3 is truthy')\nelse:\n    print('value3 is falsy')\n\nif value4:\n    print('value4 is truthy')\nelse:\n    print('value4 is falsy')\n```\n\nRunning this code prints that value1 and value3 are falsy, while value2 and value4 are truthy.",
-      "prompt": "",
-      "explanation": "In Python, every object has an inherent boolean value, which is called its truthiness. Mastering these rules prevents runtime errors and establishes robust programming foundations."
+      "concept": "truthiness_rules",
+      "skill": "mental_model",
+      "prerequisites": []
     },
     {
       "id": "5.5_q2",
@@ -297,25 +295,20 @@
     },
     {
       "id": "5.5_q17",
-      "type": "code_ordering",
-      "concept": "truthiness_algorithm",
-      "skill": "sequencing",
-      "difficulty": "medium",
-      "prerequisites": [
-        "5.5_q16"
-      ],
-      "prompt": "Arrange the following code lines to define a function that returns True only when the input number is non-zero.",
+      "type": "error_diagnosis",
+      "question": "A developer wrote this function to format a user's discount points:\n\n```python\ndef display_points(points):\n    if not points:\n        return 'No points available'\n    return f'You have {points} points'\n```\nWhat bug occurs when a user has exactly `0` points?",
       "options": [
-        "x = 10",
-        "y = 20",
-        "print(x + y)"
+        "0 is falsy, so display_points(0) returns 'No points available' instead of 'You have 0 points'",
+        "Python raises a ValueError because 0 cannot be interpolated in f-strings",
+        "The function returns None because not 0 is invalid syntax",
+        "The function enters an infinite loop"
       ],
-      "correct_answer": [
-        "x = 10",
-        "y = 20",
-        "print(x + y)"
-      ],
-      "explanation": "The function must first be defined with `def`, then evaluate the truthiness of `n` using `if n:`. If `n` is truthy (non-zero), it returns True; otherwise, it returns False. The `else` clause handles the falsy case, ensuring all paths return a boolean value."
+      "correct_answer": "0 is falsy, so display_points(0) returns 'No points available' instead of 'You have 0 points'",
+      "explanation": "Because `0` is falsy in Python, `not 0` evaluates to `True`. To distinguish between 'no value provided' (`None`) and 'zero points' (`0`), the code should explicitly check `if points is None:`.",
+      "difficulty": "medium",
+      "concept": "truthiness_zero_trap",
+      "skill": "debugging",
+      "prerequisites": []
     },
     {
       "id": "5.5_q18",

@@ -295,10 +295,11 @@
             "variable_assignment",
             "variable_calculation",
             "variable_creation",
-            "variable_definition",
             "variable_interpolation",
             "variable_name_quotes",
             "variable_operations",
+            "variable_rebinding",
+            "variable_references",
             "variable_swap",
             "variable_tracing",
             "variable_vs_string",
@@ -310,6 +311,8 @@
             "debugging",
             "diagnosis",
             "evaluation",
+            "memory_tracing",
+            "mental_model",
             "prediction",
             "reasoning",
             "recognition",
@@ -317,8 +320,8 @@
             "understanding"
           ],
           "difficulty_distribution": {
-            "easy": 10,
-            "medium": 15,
+            "easy": 11,
+            "medium": 14,
             "hard": 5
           }
         },
@@ -794,8 +797,8 @@
             "inequality_operator",
             "int_float_equality",
             "inventory_threshold",
-            "multiple_chained_conditions",
             "none_identity_check",
+            "none_identity_idiom",
             "speed_limit_violation",
             "string_case_precedence",
             "string_comparison",
@@ -806,6 +809,8 @@
             "analysis",
             "application",
             "debugging",
+            "idiomatic_python",
+            "mental_model",
             "prediction",
             "reasoning",
             "recognition",
@@ -1333,7 +1338,6 @@
           "item_count": 30,
           "is_project": false,
           "concepts": [
-            "truthiness_algorithm",
             "truthiness_analysis",
             "truthiness_basics",
             "truthiness_debugging",
@@ -1355,16 +1359,19 @@
             "truthiness_pitfalls",
             "truthiness_production_transfer",
             "truthiness_refactoring",
+            "truthiness_rules",
             "truthiness_runtime",
             "truthiness_sequence",
             "truthiness_syntax",
-            "truthiness_tracing"
+            "truthiness_tracing",
+            "truthiness_zero_trap"
           ],
           "skills": [
             "analysis",
             "comprehension",
             "debugging",
             "implementation",
+            "mental_model",
             "prediction",
             "reasoning",
             "recall",
@@ -2124,6 +2131,8 @@
           "item_count": 30,
           "is_project": false,
           "concepts": [
+            "string_immutability",
+            "string_immutability_reassignment",
             "string_methods_lower,_upper,_strip_debugging",
             "string_methods_lower,_upper,_strip_edge_case",
             "string_methods_lower,_upper,_strip_implementation",
@@ -2143,7 +2152,6 @@
             "string_methods_lower_upper_strip_logic",
             "string_methods_lower_upper_strip_logic_repair",
             "string_methods_lower_upper_strip_matching",
-            "string_methods_lower_upper_strip_patterns",
             "string_methods_lower_upper_strip_pitfalls",
             "string_methods_lower_upper_strip_runtime",
             "string_methods_lower_upper_strip_sequence",
@@ -2155,6 +2163,7 @@
             "comprehension",
             "debugging",
             "implementation",
+            "mental_model",
             "prediction",
             "reasoning",
             "recall",
@@ -2538,8 +2547,6 @@
             "adding_elements_append_and_insert_errors",
             "adding_elements_append_and_insert_execution",
             "adding_elements_append_and_insert_fix",
-            "adding_elements_append_and_insert_flow",
-            "adding_elements_append_and_insert_idioms",
             "adding_elements_append_and_insert_implementation",
             "adding_elements_append_and_insert_keywords",
             "adding_elements_append_and_insert_logic",
@@ -2549,12 +2556,15 @@
             "adding_elements_append_and_insert_optimization",
             "adding_elements_append_and_insert_patterns",
             "adding_elements_append_and_insert_pitfalls",
-            "adding_elements_append_and_insert_practical",
             "adding_elements_append_and_insert_runtime",
             "adding_elements_append_and_insert_scenario",
             "adding_elements_append_and_insert_sequence",
             "adding_elements_append_and_insert_syntax",
-            "adding_elements_append_and_insert_tracing"
+            "adding_elements_append_and_insert_tracing",
+            "aliasing_and_mutability",
+            "append_returns_none",
+            "mutation_vs_reassignment",
+            "shallow_copy_vs_alias"
           ],
           "skills": [
             "analysis",
@@ -2562,22 +2572,24 @@
             "comprehension",
             "debugging",
             "mastery",
+            "mental_model",
             "prediction",
             "problem_solving",
             "reasoning",
-            "recall",
             "recognition",
             "refactoring",
             "sequencing",
+            "state_tracing",
             "syntax",
             "synthesis",
+            "system_design",
             "tracing",
             "understanding"
           ],
           "difficulty_distribution": {
             "easy": 9,
-            "medium": 16,
-            "hard": 5
+            "medium": 15,
+            "hard": 6
           }
         },
         {
@@ -3196,18 +3208,19 @@
             "creating_and_accessing_dictionaries_optimization",
             "creating_and_accessing_dictionaries_patterns",
             "creating_and_accessing_dictionaries_pitfalls",
-            "creating_and_accessing_dictionaries_practical",
             "creating_and_accessing_dictionaries_runtime",
             "creating_and_accessing_dictionaries_scenario",
             "creating_and_accessing_dictionaries_sequence",
             "creating_and_accessing_dictionaries_syntax",
-            "creating_and_accessing_dictionaries_tracing"
+            "creating_and_accessing_dictionaries_tracing",
+            "safe_dict_get"
           ],
           "skills": [
             "analysis",
             "application",
             "comprehension",
             "debugging",
+            "engineering_judgment",
             "mastery",
             "prediction",
             "problem_solving",
@@ -3223,8 +3236,8 @@
           ],
           "difficulty_distribution": {
             "easy": 9,
-            "medium": 16,
-            "hard": 5
+            "medium": 15,
+            "hard": 6
           }
         },
         {
@@ -3684,13 +3697,12 @@
           "item_count": 30,
           "is_project": false,
           "concepts": [
-            "early_return_pattern",
+            "composable_functions",
             "mastery_parse_user_record",
             "print_vs_return",
             "return_multiple_values",
-            "returning_values_algorithm",
+            "return_vs_print",
             "returning_values_analysis",
-            "returning_values_basics",
             "returning_values_edge_cases",
             "returning_values_errors",
             "returning_values_execution",
@@ -3719,19 +3731,19 @@
             "mental_model",
             "prediction",
             "reasoning",
-            "recall",
             "recognition",
             "refactoring",
             "sequencing",
+            "software_architecture",
             "syntax",
             "tracing",
             "transfer",
             "understanding"
           ],
           "difficulty_distribution": {
-            "easy": 9,
+            "easy": 8,
             "medium": 19,
-            "hard": 2
+            "hard": 3
           }
         },
         {
@@ -4800,7 +4812,6 @@
             "default_arguments_basics",
             "default_arguments_challenge",
             "default_arguments_edge_cases",
-            "default_arguments_errors",
             "default_arguments_evaluation",
             "default_arguments_execution",
             "default_arguments_fix",
@@ -4814,17 +4825,19 @@
             "default_arguments_matching",
             "default_arguments_mutable_pitfall",
             "default_arguments_optimization",
-            "default_arguments_patterns",
             "default_arguments_pitfalls",
             "default_arguments_runtime",
             "default_arguments_scenario",
             "default_arguments_sequence",
             "default_arguments_syntax",
-            "default_arguments_tracing"
+            "default_arguments_tracing",
+            "mutable_default_trap",
+            "none_sentinel_pattern"
           ],
           "skills": [
             "analysis",
             "application",
+            "code_repair",
             "comprehension",
             "debugging",
             "mastery",
@@ -4843,8 +4856,8 @@
           ],
           "difficulty_distribution": {
             "easy": 9,
-            "medium": 15,
-            "hard": 6
+            "medium": 14,
+            "hard": 7
           }
         },
         {
@@ -6852,7 +6865,6 @@
             "class_attr_introspection",
             "class_attr_mutation_cleanup",
             "class_attribute_override_instance",
-            "class_attributes_vs_instance_attributes_algorithm",
             "class_attributes_vs_instance_attributes_basics",
             "class_attributes_vs_instance_attributes_debugging",
             "class_attributes_vs_instance_attributes_edge_case",
@@ -6872,7 +6884,8 @@
             "class_vs_instance_attrs_debugging",
             "class_vs_instance_attrs_rules",
             "class_vs_instance_attrs_tradeoffs",
-            "instance_counter_class_attr"
+            "instance_counter_class_attr",
+            "mutable_class_attribute_trap"
           ],
           "skills": [
             "attribute_resolution",
@@ -7138,17 +7151,16 @@
           "item_count": 30,
           "is_project": false,
           "concepts": [
-            "composition_advanced",
             "composition_algorithm",
             "composition_analysis",
             "composition_basics",
             "composition_challenge",
+            "composition_design_principles",
             "composition_edge_cases",
             "composition_errors",
             "composition_execution",
             "composition_fix",
             "composition_flow",
-            "composition_idioms",
             "composition_implementation",
             "composition_keywords",
             "composition_logic",
@@ -7163,21 +7175,25 @@
             "composition_scenario",
             "composition_sequence",
             "composition_syntax",
-            "composition_tracing"
+            "composition_tracing",
+            "composition_vs_inheritance",
+            "object_composition"
           ],
           "skills": [
             "analysis",
             "application",
+            "architectural_review",
+            "code_construction",
             "comprehension",
             "debugging",
             "mastery",
             "prediction",
             "problem_solving",
             "reasoning",
-            "recall",
             "recognition",
             "refactoring",
             "sequencing",
+            "software_architecture",
             "syntax",
             "synthesis",
             "tracing",
@@ -7786,7 +7802,8 @@
           "item_count": 30,
           "is_project": false,
           "concepts": [
-            "memory_efficiency_advanced",
+            "generator_streaming",
+            "generators_for_large_data",
             "memory_efficiency_algorithm",
             "memory_efficiency_analysis",
             "memory_efficiency_basics",
@@ -7816,18 +7833,19 @@
           "skills": [
             "analysis",
             "application",
+            "code_construction",
             "comprehension",
             "debugging",
             "mastery",
             "prediction",
             "problem_solving",
             "reasoning",
-            "recall",
             "recognition",
             "refactoring",
             "sequencing",
             "syntax",
             "synthesis",
+            "system_design",
             "tracing",
             "transfer",
             "understanding"
@@ -7971,6 +7989,7 @@
           "item_count": 30,
           "is_project": false,
           "concepts": [
+            "testing_return_values",
             "unit_testing_basics_algorithm",
             "unit_testing_basics_analysis",
             "unit_testing_basics_assert",
@@ -7982,7 +8001,6 @@
             "unit_testing_basics_execution",
             "unit_testing_basics_fix",
             "unit_testing_basics_flow",
-            "unit_testing_basics_idioms",
             "unit_testing_basics_implementation",
             "unit_testing_basics_keywords",
             "unit_testing_basics_logic",
@@ -8011,6 +8029,7 @@
             "sequencing",
             "syntax",
             "test_authoring",
+            "testing_methodology",
             "tracing",
             "transfer",
             "understanding"
@@ -8848,9 +8867,7 @@
             "named_sql_parameters",
             "parameterized_insert_query",
             "parameterized_queries_and_security_advanced",
-            "parameterized_queries_and_security_algorithm",
             "parameterized_queries_and_security_analysis",
-            "parameterized_queries_and_security_basics",
             "parameterized_queries_and_security_challenge",
             "parameterized_queries_and_security_edge_cases",
             "parameterized_queries_and_security_errors",
@@ -8872,6 +8889,8 @@
             "parameterized_queries_and_security_tracing",
             "parameterized_queries_and_security_tuple_pitfall",
             "parameterized_select_query",
+            "sql_injection_defense",
+            "sql_injection_flaw",
             "table_name_parameterization_limit"
           ],
           "skills": [
@@ -8889,6 +8908,8 @@
             "secure_coding",
             "security",
             "security_architecture",
+            "security_audit",
+            "security_engineering",
             "sequencing",
             "synthesis",
             "tracing"
@@ -9261,6 +9282,8 @@
           "item_count": 30,
           "is_project": false,
           "concepts": [
+            "blocking_event_loop",
+            "concurrency_model_selection",
             "synchronous_vs_asynchronous_execution_advanced",
             "synchronous_vs_asynchronous_execution_algorithm",
             "synchronous_vs_asynchronous_execution_analysis",
@@ -9281,7 +9304,6 @@
             "synchronous_vs_asynchronous_execution_optimization",
             "synchronous_vs_asynchronous_execution_patterns",
             "synchronous_vs_asynchronous_execution_pitfalls",
-            "synchronous_vs_asynchronous_execution_practical",
             "synchronous_vs_asynchronous_execution_runtime",
             "synchronous_vs_asynchronous_execution_scenario",
             "synchronous_vs_asynchronous_execution_sequence",
@@ -9292,7 +9314,9 @@
             "analysis",
             "application",
             "comprehension",
+            "concurrency_reasoning",
             "debugging",
+            "engineering_judgment",
             "mastery",
             "prediction",
             "problem_solving",
@@ -9308,8 +9332,8 @@
           ],
           "difficulty_distribution": {
             "easy": 9,
-            "medium": 16,
-            "hard": 5
+            "medium": 15,
+            "hard": 6
           }
         },
         {
@@ -10974,10 +10998,10 @@
           "item_count": 30,
           "is_project": false,
           "concepts": [
+            "hash_lookup_complexity",
             "sets_for_fast_lookups_algorithm",
             "sets_for_fast_lookups_analysis",
             "sets_for_fast_lookups_basics",
-            "sets_for_fast_lookups_debugging",
             "sets_for_fast_lookups_edge_case",
             "sets_for_fast_lookups_edge_cases",
             "sets_for_fast_lookups_errors",
@@ -10998,16 +11022,18 @@
             "sets_for_fast_lookups_runtime",
             "sets_for_fast_lookups_sequence",
             "sets_for_fast_lookups_syntax",
-            "sets_for_fast_lookups_tracing"
+            "sets_for_fast_lookups_tracing",
+            "when_not_to_use_sets"
           ],
           "skills": [
+            "algorithm_analysis",
             "analysis",
             "comprehension",
             "debugging",
+            "engineering_judgment",
             "implementation",
             "prediction",
             "reasoning",
-            "recall",
             "recognition",
             "refactoring",
             "sequencing",
@@ -11018,8 +11044,8 @@
           ],
           "difficulty_distribution": {
             "easy": 9,
-            "medium": 16,
-            "hard": 5
+            "medium": 15,
+            "hard": 6
           }
         },
         {
@@ -11382,6 +11408,7 @@
           "item_count": 30,
           "is_project": false,
           "concepts": [
+            "deque_vs_list_queue",
             "the_collectionsdeque_module_advanced",
             "the_collectionsdeque_module_algorithm",
             "the_collectionsdeque_module_analysis",
@@ -11414,11 +11441,11 @@
             "application",
             "comprehension",
             "debugging",
+            "dsa_tradeoffs",
             "mastery",
             "prediction",
             "problem_solving",
             "reasoning",
-            "recall",
             "recognition",
             "refactoring",
             "sequencing",
@@ -12164,6 +12191,7 @@
             "binary_search_optimization",
             "binary_search_patterns",
             "binary_search_pitfalls",
+            "binary_search_prerequisites",
             "binary_search_production_transfer",
             "binary_search_refactoring",
             "binary_search_runtime",
@@ -12175,10 +12203,10 @@
             "analysis",
             "comprehension",
             "debugging",
+            "dsa_tradeoffs",
             "implementation",
             "prediction",
             "reasoning",
-            "recall",
             "recognition",
             "refactoring",
             "sequencing",
@@ -13989,7 +14017,6 @@
             "final_open_ended_mastery_challenge_generator_memory",
             "final_open_ended_mastery_challenge_implementation",
             "final_open_ended_mastery_challenge_lru_cache",
-            "final_open_ended_mastery_challenge_mastery_challenge",
             "final_open_ended_mastery_challenge_multi_concept",
             "final_open_ended_mastery_challenge_production_readiness",
             "final_open_ended_mastery_challenge_production_transfer",
@@ -14005,11 +14032,13 @@
             "final_openended_mastery_challenge_logic_repair",
             "final_openended_mastery_challenge_optimization",
             "final_openended_mastery_challenge_runtime",
-            "final_openended_mastery_challenge_tracing"
+            "final_openended_mastery_challenge_tracing",
+            "full_system_synthesis"
           ],
           "skills": [
             "advanced_oop",
             "analysis",
+            "architectural_mastery",
             "caching_and_decorators",
             "composite_analysis",
             "concurrency",

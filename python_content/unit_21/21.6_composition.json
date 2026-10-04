@@ -18,21 +18,19 @@
     {
       "id": "21.6_q2",
       "type": "multiple_choice",
-      "concept": "composition_basics",
-      "skill": "recall",
-      "difficulty": "easy",
-      "prerequisites": [
-        "21.6_q1"
-      ],
-      "prompt": "Which statement best describes composition in object-oriented programming?",
+      "question": "When should an engineer prefer Composition over Inheritance ('Favor composition over inheritance')?",
       "options": [
-        "A class derives from another class using inheritance.",
-        "A class contains an instance of another class to reuse behavior.",
-        "A class overrides methods from its parent class.",
-        "A class implements an interface without storing objects."
+        "When the relationship is 'has-a' (e.g. Car has an Engine) rather than strict 'is-a', preventing fragile base classes and rigid hierarchies",
+        "Only when the classes are written in different programming languages",
+        "Whenever a class has fewer than three methods",
+        "Inheritance is always preferred over composition because subclasses run faster in Python"
       ],
-      "correct_answer": "A class contains an instance of another class to reuse behavior.",
-      "explanation": "Composition means embedding an object inside another class. This is different from inheritance, where one class extends another."
+      "correct_answer": "When the relationship is 'has-a' (e.g. Car has an Engine) rather than strict 'is-a', preventing fragile base classes and rigid hierarchies",
+      "explanation": "Inheritance couples subclasses tightly to their parent hierarchy ('is-a'). Composition ('has-a') allows independent, swappable components, reduces fragile base class bugs, and makes testing and mocking much easier.",
+      "difficulty": "easy",
+      "concept": "composition_vs_inheritance",
+      "skill": "software_architecture",
+      "prerequisites": []
     },
     {
       "id": "21.6_q3",
@@ -323,21 +321,20 @@
     },
     {
       "id": "21.6_q18",
-      "type": "fill_in_the_blank",
-      "concept": "composition_idioms",
-      "skill": "syntax",
+      "type": "error_diagnosis",
+      "question": "A developer implemented `class PaymentProcessor(DatabaseConnection)` so that payment logic could save transactions. Why is this considered poor object-oriented design?",
+      "options": [
+        "A PaymentProcessor is NOT a DatabaseConnection (violates 'is-a'); it should compose a DatabaseConnection as an attribute ('has-a') to avoid tight coupling and leaking connection internals",
+        "Database connections in Python cannot be subclassed due to C-level security locks",
+        "Payment processors are required by PEP 8 to be standalone module functions",
+        "Subclasses cannot execute SQL queries"
+      ],
+      "correct_answer": "A PaymentProcessor is NOT a DatabaseConnection (violates 'is-a'); it should compose a DatabaseConnection as an attribute ('has-a') to avoid tight coupling and leaking connection internals",
+      "explanation": "Inheriting from `DatabaseConnection` creates high coupling: changes to the DB class can break payments, and `PaymentProcessor` inherits irrelevant database methods. The correct design is composition: `self.db = db_connection`.",
       "difficulty": "medium",
-      "prerequisites": [
-        "21.6_q17"
-      ],
-      "prompt": "A Python idiom for composition is to store the component as a _____ attribute, allowing the container to control the component's lifecycle and behavior.\n\nclass Router:\n    def __init__(self):\n        self.____ = NetworkInterface()\n\nclass Computer:\n    def __init__(self):\n        self.router = Router()\n        print(self.router.____.status())",
-      "correct_answer": "self",
-      "accepted_answers": [
-        "self",
-        "instance",
-        "component"
-      ],
-      "explanation": "The idiomatic Python pattern requires storing the composed object as a 'self' attribute (self.network_interface = NetworkInterface()). This makes the component accessible throughout the container class. In the second line, self.router.network_interface.status() demonstrates accessing the nested component through chained self references. The blank should be 'self' for the Router's attribute and 'network_interface' for the final access, but the primary concept being tested is the use of 'self' to establish the composition link."
+      "concept": "composition_design_principles",
+      "skill": "architectural_review",
+      "prerequisites": []
     },
     {
       "id": "21.6_q19",
@@ -534,34 +531,20 @@
     {
       "id": "21.6_q27",
       "type": "write_the_code",
-      "concept": "composition_advanced",
-      "skill": "application",
-      "difficulty": "hard",
-      "prerequisites": [
-        "21.6_q26"
-      ],
-      "prompt": "Design a `Robot` class that uses composition with multiple independent components: `Motor`, `Sensor`, and `Controller`. The `Robot` should initialize all components in its constructor, delegate movement commands to the `Motor`, read data via the `Sensor`, and update behavior through the `Controller`.",
-      "starter_code": "class Motor:\n    def move(self, direction):\n        pass\n\nclass Sensor:\n    def read(self):\n        pass\n\nclass Controller:\n    def update(self, data):\n        pass\n\nclass Robot:\n    def __init__(self, motor, sensor, controller):\n        self.motor = motor\n        self.sensor = sensor\n        self.controller = controller\n\n    def move(self, direction):\n        pass\n\n    def sense(self):\n        pass\n\n    def control(self, data):\n        pass",
-      "solution_code": "class Motor:\n    def move(self, direction):\n        return f'Motor moving {direction}'\n\nclass Sensor:\n    def read(self):\n        return 'Sensor data: 42'\n\nclass Controller:\n    def update(self, data):\n        return f'Controller updated with {data}'\n\nclass Robot:\n    def __init__(self, motor, sensor, controller):\n        self.motor = motor\n        self.sensor = sensor\n        self.controller = controller\n\n    def move(self, direction):\n        return self.motor.move(direction)\n\n    def sense(self):\n        return self.sensor.read()\n\n    def control(self, data):\n        return self.controller.update(data)",
+      "question": "Implement an `Order` class that uses composition. The `Order` takes a list of `Item` objects (each having `price` and `quantity` attributes) and provides a `total_cost()` method that computes the grand total sum of `item.price * item.quantity`.",
+      "starter_code": "class Item:\n    def __init__(self, name: str, price: float, quantity: int):\n        self.name = name\n        self.price = price\n        self.quantity = quantity\n\nclass Order:\n    def __init__(self, items: list[Item] = None):\n        # Initialize items safely using composition\n        pass\n\n    def total_cost(self) -> float:\n        # Compute and return total cost\n        pass",
+      "solution_code": "class Item:\n    def __init__(self, name: str, price: float, quantity: int):\n        self.name = name\n        self.price = price\n        self.quantity = quantity\n\nclass Order:\n    def __init__(self, items: list[Item] = None):\n        self.items = list(items) if items is not None else []\n\n    def total_cost(self) -> float:\n        return sum(item.price * item.quantity for item in self.items)",
       "test_cases": [
         {
-          "input": "motor = Motor(); sensor = Sensor(); controller = Controller(); robot = Robot(motor, sensor, controller); assert robot.move('forward')",
-          "expected_output": "'Motor moving forward'",
-          "description": "Verifies: motor = Motor(); sensor = Sensor(); controller = Controller(); robot = Robot(motor, sensor, controller); assert robot.move('forward') == 'Motor moving forward'"
-        },
-        {
-          "input": "assert robot.sense()",
-          "expected_output": "'Sensor data: 42'",
-          "description": "Verifies: assert robot.sense() == 'Sensor data: 42'"
-        },
-        {
-          "input": "assert robot.control('obstacle')",
-          "expected_output": "'Controller updated with obstacle'",
-          "description": "Verifies: assert robot.control('obstacle') == 'Controller updated with obstacle'"
+          "input": "o = Order([Item('Book', 10.0, 2), Item('Pen', 2.5, 4)]); o.total_cost()",
+          "expected_output": "30.0"
         }
       ],
-      "hint": "Ensure the Robot constructor accepts composed objects and each public method delegates to the appropriate component.",
-      "explanation": "Advanced composition involves coordinating multiple heterogeneous components. The Robot aggregates Motor, Sensor, and Controller, delegating responsibilities to achieve complex behavior without inheritance."
+      "explanation": "`Order` composes `Item` instances via `self.items`. Calculating `total_cost()` iterates over composed objects without needing inheritance.",
+      "difficulty": "hard",
+      "concept": "object_composition",
+      "skill": "code_construction",
+      "prerequisites": []
     },
     {
       "id": "21.6_q28",

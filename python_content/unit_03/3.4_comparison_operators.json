@@ -91,18 +91,20 @@
     },
     {
       "id": "3.4_q6",
-      "type": "micro_lesson",
-      "concept": "string_comparison",
-      "skill": "understanding",
-      "difficulty": "medium",
-      "prerequisites": [
-        "2.4_q1",
-        "3.4_q1"
+      "type": "multiple_choice",
+      "question": "What is the critical distinction between `a == b` and `a is b`?",
+      "options": [
+        "`==` tests if the values are equal, while `is` tests if both variables point to the exact same object in memory (`id(a) == id(b)`)",
+        "`is` tests for value equality, while `==` tests for type equality",
+        "`==` is used exclusively for numbers, while `is` is used exclusively for strings",
+        "`==` modifies the variables to be equal, while `is` compares them"
       ],
-      "title": "Comparing Strings: Lexicographical Order",
-      "content": "When comparing strings with `<`, `>`, `<=`, or `>=`, Python compares them character-by-character according to their **Unicode / ASCII values** (dictionary order):\n\n* `'a'` comes after `'A'` (uppercase letters have smaller numbers: `'A'` is 65, `'a'` is 97):\n  `\"Apple\" < \"apple\"` is `True`!\n* `'banana' > 'apple'` is `True` because `'b'` comes after `'a'`.",
-      "prompt": "",
-      "explanation": "Strings in Python are immutable sequences of Unicode characters enclosed in single, double, or triple quotes. Because strings cannot be modified in place, all transformations return new string instances."
+      "correct_answer": "`==` tests if the values are equal, while `is` tests if both variables point to the exact same object in memory (`id(a) == id(b)`)",
+      "explanation": "`==` checks value equivalence (equality), whereas `is` checks reference identity (whether two identifiers refer to the identical memory address). For example, `[1, 2] == [1, 2]` is `True`, but `[1, 2] is [1, 2]` is `False` because they are separate objects.",
+      "difficulty": "medium",
+      "concept": "equality_vs_identity",
+      "skill": "mental_model",
+      "prerequisites": []
     },
     {
       "id": "3.4_q7",
@@ -301,22 +303,20 @@
     },
     {
       "id": "3.4_q18",
-      "type": "code_prediction",
-      "concept": "multiple_chained_conditions",
-      "skill": "prediction",
-      "difficulty": "medium",
-      "prerequisites": [
-        "3.4_q9"
-      ],
-      "prompt": "What does this code output?\n```python\nprint(1 < 2 < 3 < 4)\n```",
+      "type": "multiple_choice",
+      "question": "Why does PEP 8 mandate checking for `None` using `if value is None:` rather than `if value == None:`?",
       "options": [
-        "A. True",
-        "B. False",
-        "C. 4",
-        "D. SyntaxError"
+        "`None` is a unique singleton in Python; `is` directly checks identity in one fast CPU instruction and cannot be tricked by custom classes that override `__eq__`",
+        "`== None` raises a SyntaxError in modern Python 3",
+        "`is None` converts the value to a boolean before comparing",
+        "`== None` deletes the variable if it evaluates to False"
       ],
-      "correct_answer": "A",
-      "explanation": "Python chains all comparisons: `1 < 2` (True), `2 < 3` (True), and `3 < 4` (True). The entire expression is `True`."
+      "correct_answer": "`None` is a unique singleton in Python; `is` directly checks identity in one fast CPU instruction and cannot be tricked by custom classes that override `__eq__`",
+      "explanation": "`None` exists as a single unique singleton object in Python runtime. Comparing with `is None` is faster and prevents unintended side effects if a custom object defines an `__eq__` method that behaves unexpectedly.",
+      "difficulty": "medium",
+      "concept": "none_identity_idiom",
+      "skill": "idiomatic_python",
+      "prerequisites": []
     },
     {
       "id": "3.4_q19",

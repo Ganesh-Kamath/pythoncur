@@ -339,27 +339,20 @@
     },
     {
       "id": "21.1_q17",
-      "type": "code_ordering",
-      "concept": "class_attributes_vs_instance_attributes_algorithm",
-      "skill": "sequencing",
-      "difficulty": "medium",
-      "prerequisites": [
-        "21.1_q16"
-      ],
-      "prompt": "Arrange the lines in correct logical order for Class Attributes Vs Instance Attributes Algorithm:",
+      "type": "error_diagnosis",
+      "question": "A developer wrote this class to model accounts:\n\n```python\nclass UserAccount:\n    transactions = []\n\n    def add_transaction(self, amount):\n        self.transactions.append(amount)\n\nu1 = UserAccount()\nu1.add_transaction(100)\nu2 = UserAccount()\nprint(u2.transactions)\n```\nWhy does `u2.transactions` print `[100]`?",
       "options": [
-        "a_17 = 10",
-        "b_17 = 20",
-        "result_17 = a_17 + b_17",
-        "print(result_17)"
+        "`transactions` is defined as a class attribute, so all instances of UserAccount share the exact same list object in memory",
+        "Python automatically merges all lists created in the same second",
+        "u2 was instantiated as an alias of u1",
+        "append() writes to global module memory"
       ],
-      "correct_answer": [
-        "a_17 = 10",
-        "b_17 = 20",
-        "result_17 = a_17 + b_17",
-        "print(result_17)"
-      ],
-      "explanation": "Variables a_17 and b_17 must be defined before computing their sum and printing."
+      "correct_answer": "`transactions` is defined as a class attribute, so all instances of UserAccount share the exact same list object in memory",
+      "explanation": "Attributes declared directly in the class body are class attributes, shared across all instances. Mutable class attributes (like `[]` or `{}`) cause state leakage between instances. Mutable attributes should always be initialized in `__init__` via `self.transactions = []`.",
+      "difficulty": "medium",
+      "concept": "mutable_class_attribute_trap",
+      "skill": "debugging",
+      "prerequisites": []
     },
     {
       "id": "21.1_q18",

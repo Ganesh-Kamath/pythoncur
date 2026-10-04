@@ -6,18 +6,12 @@
     {
       "id": "26.6_q1",
       "type": "micro_lesson",
-      "concept": "parameterized_queries_and_security_basics",
-      "skill": "recognition",
+      "title": "SQL Injection & Parameterized Queries",
+      "content": "SQL Injection occurs when untrusted user input is directly concatenated or formatted into a SQL query string:\n\n```python\n# DANGEROUS: Vulnerable to SQL Injection!\nquery = f\"SELECT * FROM users WHERE username = '{user_input}'\"\n```\nIf an attacker inputs `' OR '1'='1`, the query alters its logic to bypass authentication entirely.\n\nTo prevent this, you **MUST always use parameterized queries**:\n```python\n# SAFE: The database driver escapes and types parameters\ncursor.execute(\"SELECT * FROM users WHERE username = ?\", (user_input,))\n```",
       "difficulty": "easy",
-      "prerequisites": [],
-      "title": "The Danger of SQL Injection",
-      "content": "Never construct SQL queries by interpolating strings or using f-strings with user input:\n\n```python\n# DANGEROUS SQL INJECTION VULNERABILITY:\nquery = f\"SELECT * FROM users WHERE email = '{user_email}'\"\n```\n\nIf a malicious user submits `' OR '1'='1`, the query structure is rewritten, allowing unauthorized data leaks or destructive deletions.",
-      "explanation": "String concatenation allows attacker inputs to alter SQL query syntax, causing SQL injection.",
-      "metadata": {
-        "concept": "sql_injection_threat",
-        "skill": "recognition",
-        "why_this_exercise_exists": "OWASP SQL injection awareness"
-      }
+      "concept": "sql_injection_defense",
+      "skill": "security_engineering",
+      "prerequisites": []
     },
     {
       "id": "26.6_q2",
@@ -343,27 +337,20 @@
     },
     {
       "id": "26.6_q17",
-      "type": "code_ordering",
-      "concept": "parameterized_queries_and_security_algorithm",
-      "skill": "sequencing",
-      "difficulty": "medium",
-      "prerequisites": [
-        "26.6_q16"
-      ],
-      "prompt": "Arrange the lines in correct logical order for Parameterized Queries And Security Algorithm:",
+      "type": "error_diagnosis",
+      "question": "Identify the catastrophic security flaw in this authentication query:\n\n```python\ndef login(cursor, user, password):\n    sql = f\"SELECT id FROM accounts WHERE user='{user}' AND pass='{password}'\"\n    return cursor.execute(sql).fetchone()\n```",
       "options": [
-        "a_17 = 10",
-        "b_17 = 20",
-        "result_17 = a_17 + b_17",
-        "print(result_17)"
+        "It uses f-string interpolation for SQL query parameters, enabling SQL Injection attacks that allow attackers to bypass login or drop tables",
+        "The function returns fetchone() instead of fetchall(), which crashes the database",
+        "Password strings in Python cannot be compared using single quotes",
+        "cursor.execute() requires a semicolon at the end of the query string"
       ],
-      "correct_answer": [
-        "a_17 = 10",
-        "b_17 = 20",
-        "result_17 = a_17 + b_17",
-        "print(result_17)"
-      ],
-      "explanation": "Variables a_17 and b_17 must be defined before computing their sum and printing."
+      "correct_answer": "It uses f-string interpolation for SQL query parameters, enabling SQL Injection attacks that allow attackers to bypass login or drop tables",
+      "explanation": "Never use Python f-strings, `%`, or `.format()` to assemble SQL queries. An attacker passing `admin' --` in `user` turns the query into `SELECT id FROM accounts WHERE user='admin' -- ...`, logging in as admin without knowing the password.",
+      "difficulty": "medium",
+      "concept": "sql_injection_flaw",
+      "skill": "security_audit",
+      "prerequisites": []
     },
     {
       "id": "26.6_q18",

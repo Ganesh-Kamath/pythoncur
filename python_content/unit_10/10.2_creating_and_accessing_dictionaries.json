@@ -520,26 +520,21 @@
       "explanation": "A dictionary stores data as key-value pairs. You create it with curly braces and access a value by passing its key inside square brackets."
     },
     {
-      "idx": 26,
       "id": "10.2_q26",
-      "type": "write_the_code",
-      "concept": "creating_and_accessing_dictionaries_practical",
-      "skill": "application",
-      "difficulty": "medium",
-      "prerequisites": [
-        "10.2_q25"
+      "type": "real_world_scenario",
+      "question": "You are processing 10,000 user profiles returned from an external JSON API. Some profiles contain a `'phone'` key, but others omit it entirely. Which pattern ensures your pipeline continues running without crashing?",
+      "options": [
+        "phone = profile.get('phone', 'Unspecified')",
+        "phone = profile['phone']",
+        "phone = profile.pop('phone')",
+        "phone = profile.phone if 'phone' in profile else None"
       ],
-      "prompt": "Create a dictionary called inventory that tracks the quantity of three items in a store. Then, add 5 more units to the quantity of 'pens' and print the updated inventory.",
-      "starter_code": "inventory = {'pens': 10, 'notebooks': 15, 'erasers': 8}\ninventory['pens'] += 5\nprint(inventory)",
-      "solution_code": "inventory = {'pens': 10, 'notebooks': 15, 'erasers': 8}\ninventory['pens'] = inventory['pens'] + 5\nprint(inventory)",
-      "test_cases": [
-        {
-          "input": "",
-          "expected_output": "{'pens': 15, 'notebooks': 15, 'erasers': 8}"
-        }
-      ],
-      "hint": "Use the existing value, add 5 to it, and reassign it to the same key. You can also use the += operator.",
-      "explanation": "Dictionaries are mutable, so you can update values by assigning a new value to an existing key. This is useful for tracking changing data like inventory counts."
+      "correct_answer": "phone = profile.get('phone', 'Unspecified')",
+      "explanation": "Direct indexing `profile['phone']` raises a fatal `KeyError` if the key does not exist. Using `.get('phone', 'Unspecified')` returns the provided default value safely without raising an exception.",
+      "difficulty": "hard",
+      "concept": "safe_dict_get",
+      "skill": "engineering_judgment",
+      "prerequisites": []
     },
     {
       "idx": 27,

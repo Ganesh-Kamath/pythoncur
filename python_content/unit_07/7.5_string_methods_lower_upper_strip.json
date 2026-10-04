@@ -6,14 +6,12 @@
     {
       "id": "7.5_q1",
       "type": "micro_lesson",
-      "concept": "string_methods_lower_upper_strip_basics",
-      "skill": "recognition",
+      "title": "Strings Are Immutable: Methods Return New Strings",
+      "content": "Unlike lists, Python strings are **immutable**—they can never be modified in-place once created.\n\nWhen you call a string method like `.lower()`, `.upper()`, or `.strip()`, Python does NOT modify the original string. Instead, it creates and returns a **brand-new string** with the modifications.\n\nTo preserve the changed string, you must rebind the variable: `text = text.strip()`.",
       "difficulty": "easy",
-      "prerequisites": [],
-      "title": "Recognizing lower(), upper(), and strip()",
-      "content": "In Python, strings are sequences of characters that can be modified using built-in methods. Three commonly used methods are lower(), upper(), and strip().\n\n- lower() converts all uppercase characters in a string to lowercase. It does not change the original string; instead, it returns a new string.\n- upper() converts all lowercase characters in a string to uppercase. Like lower(), it returns a new string.\n- strip() removes leading and trailing whitespace (spaces, tabs, newlines) from a string. It also returns a new string.\n\nExample:\n```python\ns = '  Hello WORLD  '\nprint(s.lower())\n# Output: '  hello world  '\nprint(s.upper())\n# Output: '  HELLO WORLD  '\nprint(s.strip())\n# Output: 'Hello WORLD'\n```\nNote that lower() and upper() do not remove whitespace, while strip() only removes whitespace from the beginning and end.",
-      "prompt": "",
-      "explanation": "In Python, strings are sequences of characters that can be modified using built-in methods. Mastering these rules prevents runtime errors and establishes robust programming foundations."
+      "concept": "string_immutability",
+      "skill": "mental_model",
+      "prerequisites": []
     },
     {
       "id": "7.5_q2",
@@ -313,23 +311,20 @@
     },
     {
       "id": "7.5_q16",
-      "type": "fill_in_the_blank",
-      "concept": "string_methods_lower_upper_strip_patterns",
-      "skill": "syntax",
+      "type": "error_diagnosis",
+      "question": "A developer attempts to sanitize a user input string:\n\n```python\nemail = '  User@Example.COM  '\nemail.strip()\nemail.lower()\nprint(email)\n```\nWhy does the output remain `'  User@Example.COM  '`?",
+      "options": [
+        "Strings are immutable in Python; .strip() and .lower() return new strings without mutating the original, so email must be reassigned (e.g. email = email.strip().lower())",
+        "strip() only removes trailing spaces, not leading spaces",
+        "lower() requires an encoding parameter to convert uppercase letters",
+        "The print function restores the original variable value"
+      ],
+      "correct_answer": "Strings are immutable in Python; .strip() and .lower() return new strings without mutating the original, so email must be reassigned (e.g. email = email.strip().lower())",
+      "explanation": "Because strings cannot be modified in place, string methods always return a new string. Calling `email.strip()` in isolation creates a new string and immediately discards it. The variable must be reassigned.",
       "difficulty": "medium",
-      "prerequisites": [
-        "7.5_q15"
-      ],
-      "micro_lesson": {
-        "title": "Common Patterns with lower(), upper(), and strip()",
-        "content": "A frequent pattern is to normalize user input by stripping whitespace and converting case. This ensures consistent comparison and display. For example:\n\n```python\nuser_input = '  Python  '\nnormalized = user_input.strip().lower()\nprint(normalized)  # 'python'\n```\n\nAnother pattern is to prepare a label by stripping and uppercasing:\n\n```python\nlabel = '  report  '\nprint(label.strip().upper())\n# 'REPORT'\n```\n\nBe careful: chaining `.strip()` with `.lower()` or `.upper()` works because each method returns a string object."
-      },
-      "prompt": "Complete the code by filling in the blank: `final = raw.___().lower()` first removes extra spaces.",
-      "correct_answer": "strip",
-      "accepted_answers": [
-        "strip"
-      ],
-      "explanation": "The `.strip()` method must come before `.lower()` in this pattern so that whitespace is removed before case conversion."
+      "concept": "string_immutability_reassignment",
+      "skill": "debugging",
+      "prerequisites": []
     },
     {
       "id": "7.5_q17",

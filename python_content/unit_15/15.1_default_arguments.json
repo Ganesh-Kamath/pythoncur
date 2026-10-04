@@ -290,20 +290,20 @@
     },
     {
       "id": "15.1_q16",
-      "type": "fill_in_the_blank",
-      "concept": "default_arguments_patterns",
-      "skill": "syntax",
+      "type": "error_diagnosis",
+      "question": "A developer wrote this user registration function:\n\n```python\ndef register_user(username, roles=[]):\n    roles.append('user')\n    return {'username': username, 'roles': roles}\n\nu1 = register_user('alice')\nu2 = register_user('bob')\n```\nWhy does `u2['roles']` unexpectedly contain `['user', 'user']`?",
+      "options": [
+        "Default argument expressions are evaluated once when the function is defined, so all invocations share the exact same list object in memory",
+        "The username 'bob' inherited properties from 'alice' due to global variable leakage",
+        "append() automatically duplicates items when the list length is under 5",
+        "Dictionary keys named 'roles' are automatically linked across instances"
+      ],
+      "correct_answer": "Default argument expressions are evaluated once when the function is defined, so all invocations share the exact same list object in memory",
+      "explanation": "Python evaluates default parameter expressions once at function definition time, NOT at invocation time. When a mutable object (like a list `[]` or dict `{}`) is used as a default, every call that omits the parameter shares that exact same object.",
       "difficulty": "medium",
-      "prerequisites": [
-        "15.1_q15"
-      ],
-      "prompt": "Fill in the blank to avoid a common pitfall: def append_item(items=None):\n    if items is None:\n        items = []\n    items.append('new')\n    return items\n\nresult = append_item() returns ___",
-      "correct_answer": "[ 'new' ]",
-      "accepted_answers": [
-        "[ 'new' ]",
-        "[ 'new' ]"
-      ],
-      "explanation": "Using a mutable default like [] directly in the parameter list causes the same list to persist across calls. The safe pattern is to use None as the default and initialize a new list inside the function."
+      "concept": "mutable_default_trap",
+      "skill": "debugging",
+      "prerequisites": []
     },
     {
       "id": "15.1_q17",
@@ -347,17 +347,20 @@
     {
       "id": "15.1_q19",
       "type": "fix_the_code",
-      "concept": "default_arguments_errors",
-      "skill": "debugging",
-      "difficulty": "medium",
-      "prerequisites": [
-        "15.1_q18"
+      "question": "Fix this function using the idiomatic Python sentinel pattern so that each call receives its own independent list:",
+      "starter_code": "def append_to_cache(key, value, cache=[]):\n    # Fix the mutable default trap\n    cache.append((key, value))\n    return cache",
+      "solution_code": "def append_to_cache(key, value, cache=None):\n    if cache is None:\n        cache = []\n    cache.append((key, value))\n    return cache",
+      "test_cases": [
+        {
+          "input": "append_to_cache('a', 1)",
+          "expected_output": "[('a', 1)]"
+        }
       ],
-      "prompt": "Analyze the following code and identify the error caused by incorrect use of default arguments.",
-      "starter_code": "def add_item(item, items=[]):\n    items.append(item)\n    return items\n\nresult1 = add_item(1)\nresult2 = add_item(2)\nprint(result1, result2)",
-      "solution_code": "def add_item(item, items=None):\n    if items is None:\n        items = []\n    items.append(item)\n    return items\n\nresult1 = add_item(1)\nresult2 = add_item(2)\nprint(result1, result2)",
-      "hint": "Mutable default arguments are evaluated once at function definition time, causing shared state across calls.",
-      "explanation": "Using a mutable object like a list as a default argument leads to unexpected behavior because the same list instance is reused across all function calls. The fix is to use None as the default and initialize the list inside the function."
+      "explanation": "The standard Python fix for mutable default arguments is to use `None` as the default sentinel value, and instantiate a fresh list inside the function body if `cache is None`.",
+      "difficulty": "hard",
+      "concept": "none_sentinel_pattern",
+      "skill": "code_repair",
+      "prerequisites": []
     },
     {
       "id": "15.1_q20",

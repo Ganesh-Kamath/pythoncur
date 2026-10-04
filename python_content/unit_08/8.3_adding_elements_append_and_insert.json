@@ -18,21 +18,19 @@
     {
       "id": "8.3_q2",
       "type": "multiple_choice",
-      "difficulty": "easy",
-      "prerequisites": [
-        "8.3_q1"
-      ],
-      "concept": "adding_elements_append_and_insert_basics",
-      "prompt": "Which of the following best describes what append() does to a list?",
+      "question": "What is the crucial difference between `numbers.append(4)` and `numbers = numbers + [4]`?",
       "options": [
-        "Adds an element at a specified index",
-        "Adds an element to the end of the list",
-        "Removes an element from the list",
-        "Sorts the list in ascending order"
+        "append(4) mutates the existing list in-place and returns None, whereas numbers + [4] creates a brand-new list object in memory",
+        "append(4) creates a new list and returns it, while + [4] modifies the list in place",
+        "Both operations create a new list, but append() is only allowed for integer elements",
+        "append(4) leaves the original list unchanged and prints the new item to the console"
       ],
-      "correct_answer": "Adds an element to the end of the list",
-      "explanation": "The append() method always places the new item at the last position of the list, increasing the list length by one.",
-      "skill": "recall"
+      "correct_answer": "append(4) mutates the existing list in-place and returns None, whereas numbers + [4] creates a brand-new list object in memory",
+      "explanation": "In Python, `.append()` is an in-place mutation: it adds the element directly to the existing list object and returns `None`. In contrast, concatenation `+` creates a brand-new list object containing all combined items and requires reassigning the variable.",
+      "difficulty": "easy",
+      "concept": "mutation_vs_reassignment",
+      "skill": "mental_model",
+      "prerequisites": []
     },
     {
       "id": "8.3_q3",
@@ -155,27 +153,20 @@
     },
     {
       "id": "8.3_q9",
-      "type": "code_prediction",
-      "concept": "adding_elements_append_and_insert_flow",
-      "skill": "prediction",
-      "diff": "medium",
-      "prerequisites": [
-        "8.3_q8"
-      ],
-      "micro_lesson": {
-        "title": "Combining append() and insert()",
-        "content": "You can mix append() and insert() in the same program. Because both methods modify the list in place, the order of operations matters. append() always affects the end, while insert() affects a specific position. After each call, the list state changes for the next operation."
-      },
-      "prompt": "Predict the final state of the list after running this code:\n```python\nnums = [5]\nnums.append(10)\nnums.insert(0, 1)\nprint(nums)\n```",
+      "type": "output_prediction",
+      "question": "What is the exact output of this code?\n\n```python\nfirst = [1, 2]\nsecond = first\nsecond.append(3)\nprint(first)\n```",
       "options": [
-        "[5, 10, 1]",
-        "[1, 5, 10]",
-        "[1, 10, 5]",
-        "[5, 1, 10]"
+        "[1, 2, 3]",
+        "[1, 2]",
+        "None",
+        "RuntimeError: aliased list modified"
       ],
-      "correct_answer": "[1, 5, 10]",
-      "explanation": "First, append(10) makes the list [5, 10]. Then insert(0, 1) places 1 at the start, shifting 5 and 10 right, giving [1, 5, 10].",
-      "difficulty": "medium"
+      "correct_answer": "[1, 2, 3]",
+      "explanation": "`second = first` does NOT create a copy of the list; both variables reference the exact same list object in memory (aliasing). When `second.append(3)` mutates the underlying list, viewing it via `first` reflects the change `[1, 2, 3]`.",
+      "difficulty": "medium",
+      "concept": "aliasing_and_mutability",
+      "skill": "state_tracing",
+      "prerequisites": []
     },
     {
       "id": "8.3_q10",
@@ -350,21 +341,20 @@
     },
     {
       "id": "8.3_q18",
-      "type": "fill_in_the_blank",
-      "concept": "adding_elements_append_and_insert_idioms",
-      "skill": "syntax",
+      "type": "error_diagnosis",
+      "question": "A developer wrote this code to add a score to their leaderboard:\n\n```python\nscores = [95, 88, 72]\nscores = scores.append(90)\nprint(len(scores))\n```\nWhy does line 3 raise a `TypeError: object of type 'NoneType' has no len()`?",
+      "options": [
+        "scores.append() mutates the list in place and returns None, so rebinding scores = scores.append(90) sets scores to None",
+        "append() can only accept strings, so passing 90 causes a silent conversion to None",
+        "len() cannot measure lists that have more than 3 elements",
+        "The list must be sorted before calling len()"
+      ],
+      "correct_answer": "scores.append() mutates the list in place and returns None, so rebinding scores = scores.append(90) sets scores to None",
+      "explanation": "This is one of the most frequent Python beginner bugs: `.append()` modifies the list in place and returns `None`. By assigning `scores = scores.append(90)`, the variable `scores` is overwritten with `None`, breaking subsequent operations.",
       "difficulty": "medium",
-      "prerequisites": [
-        "8.3_q17"
-      ],
-      "prompt": "A common Python idiom is: scores = [85, 90]. To add a new score at the end and immediately use it in a calculation, you can write: scores.append(___) followed by total = sum(scores). The blank should be replaced with ____.",
-      "correct_answer": "95",
-      "accepted_answers": [
-        "95",
-        "a numeric value",
-        "the score to add"
-      ],
-      "explanation": "append() modifies the list in place, so after scores.append(95), the list becomes [85, 90, 95] and sum(scores) will include the new value."
+      "concept": "append_returns_none",
+      "skill": "debugging",
+      "prerequisites": []
     },
     {
       "id": "8.3_q19",
@@ -511,24 +501,20 @@
     },
     {
       "id": "8.3_q26",
-      "type": "write_the_code",
-      "concept": "adding_elements_append_and_insert_practical",
-      "skill": "application",
-      "difficulty": "medium",
-      "prerequisites": [
-        "8.3_q25"
+      "type": "multiple_choice",
+      "question": "You are building an e-commerce checkout. You want to create a preview cart with a promotional item added, WITHOUT modifying the user's active shopping cart session. Which pattern safely achieves this?",
+      "options": [
+        "preview = user_cart.copy()\npreview.append(promo_item)",
+        "preview = user_cart\npreview.append(promo_item)",
+        "preview = user_cart.append(promo_item)",
+        "preview = list(user_cart.append(promo_item))"
       ],
-      "prompt": "Write a script that builds a list of daily temperatures. Start with `[20, 22, 19]` and append `21` as the new measurement. Then insert `23` at index 0 to represent a morning spike. Display the updated list.",
-      "starter_code": "temps = [20, 22, 19]\n# TODO: append 21 and insert 23 at index 0\nprint(temps)",
-      "solution_code": "temps = [20, 22, 19]\ntemps.append(21)\ntemps.insert(0, 23)\nprint(temps)",
-      "test_cases": [
-        {
-          "input": "",
-          "expected_output": "[23, 20, 22, 19, 21]"
-        }
-      ],
-      "hint": "Remember that `insert(0, value)` places the new value at the very beginning, pushing all original elements one position to the right.",
-      "explanation": "Appending `21` extends the list to `[20, 22, 19, 21]`. Inserting `23` at index `0` shifts every existing element rightward, yielding `[23, 20, 22, 19, 21]`. Both methods return `None`, so the list must be inspected after the calls."
+      "correct_answer": "preview = user_cart.copy()\npreview.append(promo_item)",
+      "explanation": "To prevent modifying the active session cart, you must create a shallow copy (`user_cart.copy()` or `list(user_cart)`). Simply doing `preview = user_cart` would alias the active cart, causing promo modifications to corrupt the live user session.",
+      "difficulty": "hard",
+      "concept": "shallow_copy_vs_alias",
+      "skill": "system_design",
+      "prerequisites": []
     },
     {
       "id": "8.3_q27",

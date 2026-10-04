@@ -126,22 +126,20 @@
     },
     {
       "id": "28.1_q8",
-      "type": "output_prediction",
-      "concept": "synchronous_vs_asynchronous_execution_execution",
-      "skill": "prediction",
-      "difficulty": "medium",
-      "prerequisites": [
-        "28.1_q7"
-      ],
-      "prompt": "Consider the following code using time.sleep():\n```python\nimport time\n\ndef wait_task(name, seconds):\n    print(name + ' start')\n    time.sleep(seconds)\n    print(name + ' end')\n\nwait_task('X', 2)\nwait_task('Y', 1)\n```\nWhat is the output?",
+      "type": "multiple_choice",
+      "question": "What happens if you call standard `time.sleep(5)` inside an `async def` coroutine instead of `await asyncio.sleep(5)`?",
       "options": [
-        "X start\\nX end\\nY start\\nY end",
-        "X start\\nY start\\nX end\\nY end",
-        "X start\\nY start\\nY end\\nX end",
-        "Y start\\nY end\\nX start\\nX end"
+        "It completely blocks Python's single-threaded event loop for 5 seconds, freezing all concurrent coroutines from executing",
+        "It automatically converts into an asynchronous non-blocking task behind the scenes",
+        "Python raises an AsyncBlockException immediately upon execution",
+        "The event loop spawns a background thread to handle the sleep"
       ],
-      "correct_answer": "X start\\nX end\\nY start\\nY end",
-      "explanation": "This is synchronous execution. The program blocks during time.sleep(), so wait_task('X', 2) fully completes (including the 2-second pause) before wait_task('Y', 1) even starts."
+      "correct_answer": "It completely blocks Python's single-threaded event loop for 5 seconds, freezing all concurrent coroutines from executing",
+      "explanation": "`time.sleep()` is a synchronous blocking syscall that halts the entire thread. Because `asyncio` runs on a single thread event loop, blocking the thread stops all other coroutines from running. Always use `await asyncio.sleep()` for non-blocking delays.",
+      "difficulty": "medium",
+      "concept": "blocking_event_loop",
+      "skill": "concurrency_reasoning",
+      "prerequisites": []
     },
     {
       "id": "28.1_q9",
@@ -475,28 +473,20 @@
     },
     {
       "id": "28.1_q26",
-      "type": "write_the_code",
-      "concept": "synchronous_vs_asynchronous_execution_practical",
-      "skill": "application",
-      "difficulty": "medium",
-      "prerequisites": [
-        "28.1_q25"
+      "type": "multiple_choice",
+      "question": "You are building a microservice that downloads 500 web pages over HTTP concurrently. Which concurrency model in Python provides high throughput with the lowest memory overhead?",
+      "options": [
+        "AsyncIO with an async HTTP library (like aiohttp or httpx), which handles thousands of concurrent I/O sockets on a single thread event loop",
+        "Multiprocessing with 500 OS processes, because each process gets its own CPU core",
+        "Subprocessing with 500 distinct Python interpreter subprocesses",
+        "Sequential synchronous execution with time.sleep() between requests"
       ],
-      "prompt": "You have a list of 5 filenames. Write a synchronous function `read_files_sync` that reads each file line-by-line and counts lines, taking 0.2 seconds per file to simulate disk latency. Then write an asynchronous function `read_files_async` that does the same using `aiofiles` (simulated with `asyncio.sleep(0.2)`), and compare total execution times for 5 files.",
-      "starter_code": "import asyncio\nimport time\n\nfilenames = ['f1.txt', 'f2.txt', 'f3.txt', 'f4.txt', 'f5.txt']\n\nasync def read_one(fname):\n    await asyncio.sleep(0.2)\n    return len([1 for _ in range(100)])\n\nasync def read_files_sync(files):\n    start = time.time()\n    counts = []\n    for f in files:\n        counts.append(await read_one(f))\n    end = time.time()\n    return end - start, counts\n\nasync def read_files_async(files):\n    start = time.time()\n    tasks = [read_one(f) for f in files]\n    counts = await asyncio.gather(*tasks)\n    end = time.time()\n    return end - start, counts\n\nif __name__ == '__main__':\n    t1, c1 = read_files_sync(filenames)\n    t2, c2 = asyncio.run(read_files_async(filenames))\n    print('Sync:', t1, c1)\n    print('Async:', t2, c2)",
-      "solution_code": "import asyncio\nimport time\n\nfilenames = ['f1.txt', 'f2.txt', 'f3.txt', 'f4.txt', 'f5.txt']\n\nasync def read_one(fname):\n    await asyncio.sleep(0.2)\n    return len([1 for _ in range(100)])\n\nasync def read_files_sync(files):\n    start = time.time()\n    counts = []\n    for f in files:\n        counts.append(await read_one(f))\n    end = time.time()\n    return end - start, counts\n\nasync def read_files_async(files):\n    start = time.time()\n    tasks = [read_one(f) for f in files]\n    counts = await asyncio.gather(*tasks)\n    end = time.time()\n    return end - start, counts\n\nif __name__ == '__main__':\n    t1, c1 = read_files_sync(filenames)\n    t2, c2 = asyncio.run(read_files_async(filenames))\n    print('Sync:', round(t1, 2), c1)\n    print('Async:', round(t2, 2), c2)\n    print('Faster:', 'Async' if t2 < t1 else 'Sync')",
-      "test_cases": [
-        {
-          "input": "filenames = ['a.txt', 'b.txt']",
-          "expected_output_contains": "Sync: ~0.4"
-        },
-        {
-          "input": "filenames = ['a.txt', 'b.txt', 'c.txt', 'd.txt', 'e.txt']",
-          "expected_output_contains": "Async: ~0.2"
-        }
-      ],
-      "hint": "Both functions are already async. Ensure `read_files_sync` is awaited properly when called from `__main__`. The synchronous version should take ~1.0 second for 5 files, while the async version should take ~0.2 seconds.",
-      "explanation": "This practical example mirrors real file-I/O workloads where latency dominates CPU work. Async concurrency reduces wall-clock time by overlapping I/O waits, whereas sync execution serializes them."
+      "correct_answer": "AsyncIO with an async HTTP library (like aiohttp or httpx), which handles thousands of concurrent I/O sockets on a single thread event loop",
+      "explanation": "HTTP requests are I/O-bound (waiting on network sockets). `asyncio` handles thousands of concurrent connections within a single process and thread with minimal memory overhead, whereas spawning 500 processes would exhaust RAM and CPU.",
+      "difficulty": "hard",
+      "concept": "concurrency_model_selection",
+      "skill": "engineering_judgment",
+      "prerequisites": []
     },
     {
       "id": "28.1_q27",

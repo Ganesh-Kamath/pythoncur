@@ -634,24 +634,20 @@
     {
       "id": "43.5_q30",
       "type": "write_the_code",
-      "concept": "final_open_ended_mastery_challenge_mastery_challenge",
-      "skill": "transfer",
-      "difficulty": "hard",
-      "prerequisites": [
-        "43.5_q29"
-      ],
-      "prompt": "Final Capstone Verification: Write a production-grade handler for Final Open-Ended Mastery Challenge that processes batches and handles empty inputs cleanly.",
-      "starter_code": "def execute_43_5_workflow(batch):\n    # Validate and transform batch\n    pass",
-      "solution_code": "def execute_43_5_workflow(batch):\n    if not batch:\n        return []\n    return [str(x).strip() for x in batch]",
+      "question": "Build a production-grade `DataPipeline` class synthesizing data structures, error handling, generator streaming, and type annotations:\n- `__init__(self, validators: list = None)`: initializes validators safely (None sentinel pattern).\n- `process_stream(self, records: list[dict])`: a generator yielding only records that pass all validators without raising exceptions.\n- If a validator raises an exception on a record, log or skip that record cleanly without terminating the generator.",
+      "starter_code": "from typing import Iterator, Callable, Any\n\nclass DataPipeline:\n    def __init__(self, validators: list[Callable[[dict], bool]] = None):\n        # Initialize safely\n        pass\n\n    def process_stream(self, records: list[dict[str, Any]]) -> Iterator[dict[str, Any]]:\n        # Yield valid records, handle exceptions cleanly\n        pass",
+      "solution_code": "from typing import Iterator, Callable, Any\n\nclass DataPipeline:\n    def __init__(self, validators: list[Callable[[dict], bool]] = None):\n        self.validators = list(validators) if validators is not None else []\n\n    def process_stream(self, records: list[dict[str, Any]]) -> Iterator[dict[str, Any]]:\n        for rec in records:\n            valid = True\n            for v in self.validators:\n                try:\n                    if not v(rec):\n                        valid = False\n                        break\n                except Exception:\n                    valid = False\n                    break\n            if valid:\n                yield rec",
       "test_cases": [
         {
-          "input": "[' a ', 'b ']",
-          "expected_output": "['a', 'b']",
-          "description": "batch processing workflow"
+          "input": "p = DataPipeline([lambda r: r.get('status') == 'active']); list(p.process_stream([{'id': 1, 'status': 'active'}, {'id': 2, 'status': 'inactive'}]))",
+          "expected_output": "[{'id': 1, 'status': 'active'}]"
         }
       ],
-      "hint": "Validate input first, then execute the transformation.",
-      "explanation": "Production workflows for Final Open-Ended Mastery Challenge must validate inputs, maintain immutability, and return deterministic results."
+      "explanation": "This capstone synthesis brings together OOP composition, safe sentinel default handling, defensive exception containment, and lazy generator streaming for high-throughput data processing.",
+      "difficulty": "hard",
+      "concept": "full_system_synthesis",
+      "skill": "architectural_mastery",
+      "prerequisites": []
     }
   ],
   "unit_num": 43,

@@ -6,34 +6,29 @@
     {
       "id": "11.4_q1",
       "type": "micro_lesson",
-      "title": "What Does return Do?",
-      "content": "When a function finishes running, it can send a value back to the code that called it using the return statement. Without return, a function gives back None by default. The return statement immediately stops the function and passes the specified value to the caller. For example, if you define a function that adds two numbers, you can use return to send the sum back. Here is a simple illustration:\n\n```python\ndef add(a, b):\n    result = a + b\n    return result\n\nsum_value = add(3, 5)\nprint(sum_value)\n```\n\nIn this example, add computes the sum and returns it. The variable sum_value stores the returned value, which is 8. Remember that return can only appear inside a function, and only one value (or a tuple) can be returned at a time.",
-      "skill": "recognition",
+      "title": "Return vs. Print: Output to Caller vs. Output to Screen",
+      "content": "A crucial distinction in Python programming is the difference between `print()` and `return`:\n\n- `print()` writes text to the terminal console so a human can read it. It returns `None`.\n- `return` sends a value back to the code that called the function, allowing that value to be stored in a variable, passed to another function, or used in math.\n\nIf a function finishes without encountering an explicit `return` statement, Python automatically returns `None`.",
       "difficulty": "easy",
-      "concept": "returning_values_basics",
-      "prerequisites": [],
-      "prompt": "",
-      "explanation": "When a function finishes running, it can send a value back to the code that called it using the return statement. Mastering these rules prevents runtime errors and establishes robust programming foundations."
+      "concept": "return_vs_print",
+      "skill": "mental_model",
+      "prerequisites": []
     },
     {
       "id": "11.4_q2",
       "type": "multiple_choice",
-      "prompt": "What is returned by a Python function that does not contain a return statement?",
+      "question": "Consider the following function:\n\n```python\ndef calculate_tax(subtotal):\n    print(subtotal * 0.08)\n\ntotal = 100 + calculate_tax(100)\n```\nWhat happens when this script is run?",
       "options": [
-        "An error is raised",
-        "None",
-        "0",
-        "The last evaluated expression"
+        "It prints 8.0 to the console and then raises TypeError: unsupported operand type(s) for +: 'int' and 'NoneType'",
+        "It calculates total as 108.0 without error",
+        "It prints 108.0 directly to the terminal",
+        "It raises a SyntaxError because print cannot appear inside a function"
       ],
-      "correct_answer": "None",
-      "explanation": "A Python function without an explicit return statement automatically returns the None object. It does not raise an error, and it does not return 0 or the last expression.",
-      "match_code_to_concept": true,
-      "concept": "returning_values_basics",
-      "skill": "recall",
-      "difficulty": "easy",
-      "prerequisites": [
-        "11.4_q1"
-      ]
+      "correct_answer": "It prints 8.0 to the console and then raises TypeError: unsupported operand type(s) for +: 'int' and 'NoneType'",
+      "explanation": "Because `calculate_tax` calls `print()` but has no `return` statement, it implicitly returns `None`. When Python tries to evaluate `100 + None`, it raises a `TypeError` because you cannot add an integer and `NoneType`.",
+      "difficulty": "medium",
+      "concept": "return_vs_print",
+      "skill": "debugging",
+      "prerequisites": []
     },
     {
       "id": "11.4_q3",
@@ -339,29 +334,20 @@
     },
     {
       "id": "11.4_q17",
-      "type": "code_ordering",
-      "micro_lesson": {
-        "title": "Algorithm: Returning a Computed Result",
-        "content": "When designing a function that returns a value, you should first define the function signature, then perform any necessary calculations, and finally return the result. This ensures clarity and correctness. For instance, to find the larger of two numbers, you compare them and return the appropriate one. The algorithm is:\n\n1. Accept two parameters.\n2. Compare the parameters.\n3. Return the greater value.\n4. Optionally, handle the case where they are equal.\n\n```python\ndef max_of_two(a, b):\n    if a > b:\n        return a\n    else:\n        return b\n```\n\nNotice how the comparison happens before either return statement, ensuring the correct value is chosen."
-      },
-      "prompt": "Order the steps to build a function that returns the larger of two numbers.",
+      "type": "error_diagnosis",
+      "question": "A developer wrote a helper to format usernames, but tests show that `greeting = f'Hello, {format_name(\"alice\")}'` results in `'Hello, None'`!\n\n```python\ndef format_name(raw_name):\n    clean = raw_name.strip().title()\n    print(clean)\n```\nHow should this bug be repaired?",
       "options": [
-        "x = 10",
-        "y = 20",
-        "print(x + y)"
+        "Replace `print(clean)` with `return clean` so the formatted string is returned to the caller instead of returning None",
+        "Change `clean = raw_name.strip().title()` to `raw_name = clean`",
+        "Wrap the call in `str(format_name('alice'))`",
+        "Call `format_name` twice in succession"
       ],
-      "correct_answer": [
-        "x = 10",
-        "y = 20",
-        "print(x + y)"
-      ],
-      "explanation": "The correct order checks the condition first, then returns the appropriate value. Reversing the return and condition, or returning the wrong branch, produces incorrect results.",
-      "concept": "returning_values_algorithm",
-      "skill": "sequencing",
+      "correct_answer": "Replace `print(clean)` with `return clean` so the formatted string is returned to the caller instead of returning None",
+      "explanation": "`print()` only displays characters in the terminal and returns `None`. Replacing `print(clean)` with `return clean` passes the formatted string back to the caller so it can be interpolated into strings or saved in variables.",
       "difficulty": "medium",
-      "prerequisites": [
-        "11.4_q16"
-      ]
+      "concept": "return_vs_print",
+      "skill": "debugging",
+      "prerequisites": []
     },
     {
       "id": "11.4_q18",
@@ -546,24 +532,20 @@
     },
     {
       "id": "11.4_q27",
-      "type": "write_the_code",
-      "concept": "early_return_pattern",
-      "skill": "implementation",
-      "difficulty": "medium",
-      "prerequisites": [
-        "11.4_q26"
+      "type": "real_world_scenario",
+      "question": "You are building a data ingestion pipeline where output from `clean_row(row)` is passed directly into `validate_schema(row)`. Why MUST `clean_row` use `return` rather than `print`?",
+      "options": [
+        "Downstream processing functions require the actual cleaned data object in memory; print() only outputs to stdout and supplies None to validate_schema()",
+        "print() is blocked by default in production Linux environments",
+        "return encrypts the data during transmission between functions",
+        "Functions that print cannot accept dictionaries as arguments"
       ],
-      "prompt": "Write a function `find_first_negative(nums)` that uses an early return to return the first negative number encountered, or `None` if all numbers are positive:",
-      "starter_code": "def find_first_negative(nums):\n    for n in nums:\n        if n < 0:\n            ___  # Return immediately\n    return None",
-      "solution_code": "def find_first_negative(nums):\n    for n in nums:\n        if n < 0:\n            return n\n    return None",
-      "test_cases": [
-        {
-          "input": "",
-          "expected_output": "Returning Values Result 27"
-        }
-      ],
-      "hint": "Use `return n` inside the `if` block to exit the function immediately.",
-      "explanation": "An early return exits the function immediately, avoiding unnecessary iterations and eliminating the need for complex flag variables."
+      "correct_answer": "Downstream processing functions require the actual cleaned data object in memory; print() only outputs to stdout and supplies None to validate_schema()",
+      "explanation": "In software architecture and data pipelines, functions must be composable. `return` delivers output objects to calling code, while `print` merely produces side-effect text on stdout and yields `None`.",
+      "difficulty": "hard",
+      "concept": "composable_functions",
+      "skill": "software_architecture",
+      "prerequisites": []
     },
     {
       "id": "11.4_q28",

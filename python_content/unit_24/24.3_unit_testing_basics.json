@@ -359,26 +359,21 @@
       "explanation": "The class must be defined first. Inside the test method, inputs are set, then the function is called, and finally the result is compared to the expected value."
     },
     {
-      "idx": 18,
       "id": "24.3_q18",
-      "type": "fill_in_the_blank",
-      "concept": "unit_testing_basics_idioms",
-      "skill": "syntax",
+      "type": "error_diagnosis",
+      "question": "A junior developer wrote a unit test for their tax calculation function:\n\n```python\ndef calculate_tax(amount):\n    print(round(amount * 0.1, 2))\n\ndef test_tax():\n    assert calculate_tax(100) == 10.0\n```\nWhy does `test_tax()` fail with `AssertionError: assert None == 10.0`?",
+      "options": [
+        "calculate_tax prints to stdout and returns None; unit test assertions evaluate return values, so functions under test must return their results",
+        "assert statements in Python can only compare integers, not floats",
+        "round() is not supported inside unit tests",
+        "The function name must begin with 'verify_' to return values"
+      ],
+      "correct_answer": "calculate_tax prints to stdout and returns None; unit test assertions evaluate return values, so functions under test must return their results",
+      "explanation": "Automated testing verifies return values and system state. Because `calculate_tax` called `print()` instead of `return`, its return value is `None`, causing `assert None == 10.0` to fail.",
       "difficulty": "medium",
-      "prerequisites": [
-        "24.3_q17"
-      ],
-      "micro_lesson": {
-        "title": "Idiomatic Test Naming and Discovery",
-        "content": "Python's unittest runner discovers test methods automatically based on naming conventions. A common idiom is to prefix every test method with test_ so the runner includes it. Additionally, descriptive names such as test_addition_returns_correct_sum improve readability and maintenance. When a test fails, the name tells you exactly what scenario broke. Here is an idiomatic example:\n\n```python\nimport unittest\n\nclass TestListOperations(unittest.TestCase):\n    def test_append_increases_length(self):\n        lst = [1, 2]\n        lst.append(3)\n        self.assertEqual(len(lst), 3)\n```\n\nUsing self. in every assertion is another idiom that signals you are inside a TestCase method. Forgetting self. causes an AttributeError because the method does not exist on the module level."
-      },
-      "prompt": "Every test method in a unittest.TestCase subclass should begin with: _____",
-      "correct_answer": "test_",
-      "accepted_answers": [
-        "test_",
-        "test_"
-      ],
-      "explanation": "The unittest discovery mechanism looks for methods whose names start with test_. This convention ensures only test code is executed by the test runner."
+      "concept": "testing_return_values",
+      "skill": "testing_methodology",
+      "prerequisites": []
     },
     {
       "id": "24.3_q19",

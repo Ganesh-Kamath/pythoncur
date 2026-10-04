@@ -18,21 +18,19 @@
     {
       "id": "37.2_q2",
       "type": "multiple_choice",
-      "concept": "binary_search_basics",
-      "skill": "recall",
-      "difficulty": "easy",
-      "prerequisites": [
-        "37.2_q1"
-      ],
-      "prompt": "What is a necessary precondition for using binary search on a list?",
+      "question": "What is the mandatory prerequisite for applying Binary Search, and what is its time complexity?",
       "options": [
-        "The list must contain only integers.",
-        "The list must be sorted.",
-        "The list must have an even number of elements.",
-        "The list must be stored in a dictionary."
+        "The collection must already be sorted; its time complexity is O(log N) because it halves the search space in each step",
+        "The collection must contain only positive integers; its time complexity is O(1)",
+        "The collection must be a linked list; its time complexity is O(N)",
+        "The collection must have an odd number of elements; its time complexity is O(N^2)"
       ],
-      "correct_answer": "The list must be sorted.",
-      "explanation": "Binary search relies on ordering to discard half of the remaining elements each step. Without a sorted list, the comparison logic cannot correctly eliminate portions of the search space."
+      "correct_answer": "The collection must already be sorted; its time complexity is O(log N) because it halves the search space in each step",
+      "explanation": "Binary Search relies on comparing the target with the middle element to eliminate half of the remaining elements. This halving logic is only valid if the collection is sorted in monotonic order. Its time complexity is O(log N).",
+      "difficulty": "easy",
+      "concept": "binary_search_prerequisites",
+      "skill": "dsa_tradeoffs",
+      "prerequisites": []
     },
     {
       "id": "37.2_q3",
