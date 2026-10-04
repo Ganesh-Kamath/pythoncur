@@ -15,7 +15,7 @@
       "title": "The Golden Rules of Variable Names",
       "content": "In Python, variable names (called **identifiers**) must follow strict syntax rules:\n\n1. Must begin with a letter (`a-z`, `A-Z`) or an underscore (`_`).\n2. CANNOT begin with a number (e.g. `2nd_place` is illegal).\n3. Can only contain alphanumeric characters and underscores (`a-z`, `A-Z`, `0-9`, and `_`).\n4. Cannot contain spaces or special symbols like `-`, `!`, `@`, `$`, or `%`.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of naming rules overview. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "In Python, variable names must begin with a letter or underscore, cannot start with a digit, and cannot contain spaces or special punctuation. Following PEP 8 snake_case conventions ensures identifiers remain clear, legal, and unambiguous."
     },
     {
       "id": "2.2_q2",
@@ -81,7 +81,7 @@
       "title": "No Spaces Allowed",
       "content": "Variable names cannot contain spaces. If you put a space in a name:\n```python\nuser name = \"Alice\"  # SyntaxError!\n```\nPython treats `user` and `name` as two separate disconnected words, causing an immediate SyntaxError.\n\nTo connect multiple words, Python uses the **underscore** `_`:\n```python\nuser_name = \"Alice\"  # Valid and clean!\n```",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of spaces in names. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Variable names cannot contain spaces. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "2.2_q6",
@@ -100,7 +100,7 @@
         "D. With dots (e.g. `final.score`)"
       ],
       "correct_answer": "C",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of spaces in names. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "According to PEP 8, variable names in Python should be written in snake_case (lowercase words separated by underscores, e.g. `user_account_balance`). This convention maximizes readability."
     },
     {
       "id": "2.2_q7",
@@ -115,7 +115,7 @@
       "title": "The Python Style: snake_case",
       "content": "Python's official style guide (PEP 8) mandates that variable and function names should use **snake_case**:\n\n* All lowercase letters\n* Words separated by underscores\n\nExamples:\n* `item_count`\n* `tax_rate`\n* `is_logged_in`\n\nOther languages frequently use `camelCase` (like `itemCount`), but Python strongly prefers `snake_case`.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of snake case pep8. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Python's official style guide (PEP 8) mandates that variable and function names should use **snake_case**:\n\n* All lowercase letters\n* Words separated by underscores\n\nExamples:\n* `item_count`\n* `tax_rate`\n* `is_logged_in`\n\nOther languages frequently use `camelCase` (like `itemCount`), but Python strongly prefers `snake_case`. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "2.2_q8",
@@ -152,7 +152,7 @@
       "title": "Variable Names are Case-Sensitive",
       "content": "Python distinguishes between uppercase and lowercase letters in identifiers:\n\n```python\nage = 25\nAge = 30\nAGE = 40\n```\nTo Python, `age`, `Age`, and `AGE` are **three completely different variables** in memory!\n\nMixing up your casing is a very common cause of `NameError`.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of case sensitivity. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "In Python, variable names must begin with a letter or underscore, cannot start with a digit, and cannot contain spaces or special punctuation. Following PEP 8 snake_case conventions ensures identifiers remain clear, legal, and unambiguous."
     },
     {
       "id": "2.2_q10",
@@ -171,7 +171,7 @@
         "D. A NameError"
       ],
       "correct_answer": "A",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of case sensitivity. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Python is strictly case-sensitive. `level` and `Level` are completely distinct identifiers stored in separate entries in the namespace dictionary. Printing `level` outputs `1`."
     },
     {
       "id": "2.2_q11",
@@ -204,7 +204,7 @@
       "title": "Reserved Keywords",
       "content": "Python reserves a special set of words for its own grammar (such as `for`, `if`, `else`, `while`, `def`, `class`, `return`, `True`, `False`, `None`).\n\nYou **cannot** use these reserved keywords as variable names:\n```python\nfor = 10  # SyntaxError: invalid syntax\n```\nBecause `for` is reserved for loops, Python refuses to allow it as a variable.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of reserved keywords. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Python reserves a special set of words for its own grammar (such as `for`, `if`, `else`, `while`, `def`, `class`, `return`, `True`, `False`, `None`). Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "2.2_q13",
@@ -223,7 +223,7 @@
         "D. `variable_1`"
       ],
       "correct_answer": "B",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of reserved keywords. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Python reserved keywords (such as `pass`, `def`, `class`, `if`, `while`) are part of Python's formal language grammar and cannot be used as variable identifiers. Attempting to assign to a keyword triggers a SyntaxError."
     },
     {
       "id": "2.2_q14",
@@ -253,7 +253,7 @@
       "title": "Danger: Shadowing Built-in Functions",
       "content": "Python technically allows you to assign to built-in function names like `print`, `str`, or `type`:\n```python\nprint = \"Hello\"  # DANGEROUS!\nprint(\"World\")   # TypeError: 'str' object is not callable!\n```\nBy assigning a string to `print`, you destroyed access to the `print()` function for the rest of your script!\n\nNever use built-in names as variables.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of overwriting builtins. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Python technically allows you to assign to built-in function names like `print`, `str`, or `type`:\n```python\nprint = \"Hello\"  # DANGEROUS!\nprint(\"World\")   # TypeError: 'str' object is not callable!\n```\nBy assigning a string to `print`, you destroyed access to the `print()` function for the rest of your script!\n\nNever use built-in names as variables. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "2.2_q16",
@@ -286,7 +286,7 @@
       "title": "Constants in Python (ALL_CAPS)",
       "content": "A **constant** is a value that is never meant to change while the program is running (like Pi, or a server timeout).\n\nWhile Python doesn't have a `const` keyword to physically prevent reassignment, PEP 8 convention is to write constants in **ALL_CAPS** with underscores:\n```python\nMAX_LOGIN_ATTEMPTS = 3\nDATABASE_PORT = 5432\n```\nThis signals to other programmers: *'Do not modify this value!'*",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of constants pep8. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "A **constant** is a value that is never meant to change while the program is running (like Pi, or a server timeout). Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "2.2_q18",
@@ -305,7 +305,7 @@
         "D. `max_file_size$`"
       ],
       "correct_answer": "B",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of constants pep8. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "According to PEP 8, variable names in Python should be written in snake_case (lowercase words separated by underscores, e.g. `user_account_balance`). This convention maximizes readability."
     },
     {
       "id": "2.2_q19",
@@ -319,7 +319,7 @@
       "title": "Descriptive vs Cryptic Names",
       "content": "Code should be self-documenting. A reader should know what data a variable holds without having to search through other files.\n\n❌ Poor:\n```python\nx = 86400\na = 0.07\n```\n\n✅ Excellent:\n```python\nSECONDS_PER_DAY = 86400\nsales_tax_rate = 0.07\n```",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of descriptive names. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Code should be self-documenting. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "2.2_q20",
@@ -338,7 +338,7 @@
         "D. `thing2`"
       ],
       "correct_answer": "C",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of descriptive names. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `descriptive names` in Naming Variables. When Python validates this code, it applies the standard rules of descriptive names. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "2.2_q21",
@@ -352,7 +352,7 @@
       "prompt": "Fix this variable assignment which uses an illegal hyphen `-`:",
       "starter_code": "user-email = \"alex@example.com\"",
       "solution_code": "user_email = \"alex@example.com\"",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of invalid characters. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Hyphens `-` are interpreted by Python's parser as subtraction operators, not identifier characters. In Python variable names, words must be joined using underscores `_`."
     },
     {
       "id": "2.2_q22",
@@ -368,7 +368,7 @@
         "underscore",
         "_"
       ],
-      "explanation": "In Python, this operation directly demonstrates the core behavior of legal identifier rules. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "In Python variable names, letters, numbers, and the underscore `_` are the only legal characters. The underscore is the sole allowed special punctuation mark."
     },
     {
       "id": "2.2_q23",
@@ -391,7 +391,7 @@
         "`2fast`": "Invalid (starts with a digit).",
         "`pass`": "Invalid (reserved Python keyword)."
       },
-      "explanation": "In Python, this operation directly demonstrates the core behavior of validity check. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `validity check` in Naming Variables. When Python validates this code, it applies the standard rules of validity check. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "2.2_q24",
@@ -437,7 +437,7 @@
       "prompt": "Create a variable in proper PEP 8 snake_case for a user's account balance, assigned to `350.75`.",
       "starter_code": "",
       "solution_code": "account_balance = 350.75",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of pep8 compliance. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "According to PEP 8, variable names in Python should be written in snake_case (lowercase words separated by underscores, e.g. `user_account_balance`). This convention maximizes readability."
     },
     {
       "id": "2.2_q27",

@@ -13,7 +13,7 @@
       "title": "Recognizing Multiple Paths with elif",
       "content": "The `if` statement executes a block of code when a condition is true. When you need to check multiple conditions in sequence and execute different code for each, you can chain `elif` (short for 'else if') after an `if` statement. Only the first true condition's block runs; subsequent `elif` and `else` blocks are skipped. This creates multiple distinct paths through your program. For example, consider checking a user's age to determine access level:\n\n```python\nage = 17\nif age < 13:\n    print(\"Child - restricted access\")\nelif age < 18:\n    print(\"Teen - parental consent required\")\nelif age < 65:\n    print(\"Adult - full access\")\nelse:\n    print(\"Senior - assisted access\")\n```\n\nIn this example, only one message prints because Python evaluates each condition from top to bottom and stops at the first true one. `elif` allows you to build a decision tree with more than two outcomes.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of multiple paths with elif basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Conditional branching with `if`, `elif`, and `else` controls program execution paths. Indentation defines the statement block that executes when a condition evaluates to True."
     },
     {
       "id": "5.3_q2",
@@ -46,7 +46,7 @@
       "title": "Understanding elif Syntax",
       "content": "The syntax for multiple paths with `elif` follows a strict pattern. You begin with `if <condition_1>:` followed by an indented block. After that, you may add zero or more `elif <condition_n>:` blocks, each with its own indented block. Optionally, you may end with a single `else:` block that executes when all preceding conditions are false. Each `elif` is evaluated only if all previous conditions were false. Here is a complete valid structure:\n\n```python\nif condition_a:\n    # code for true_a\nelif condition_b:\n    # code for true_b\nelif condition_c:\n    # code for true_c\nelse:\n    # code for all_false\n```\n\nKey rules: (1) `elif` must be lowercase, (2) each clause ends with a colon `:`, (3) indentation must be consistent, and (4) only one `else` is allowed per `if` chain. You cannot place a standalone `elif` without a preceding `if`.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of multiple paths with elif syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Conditional branching with `if`, `elif`, and `else` controls program execution paths. Indentation defines the statement block that executes when a condition evaluates to True."
     },
     {
       "id": "5.3_q4",

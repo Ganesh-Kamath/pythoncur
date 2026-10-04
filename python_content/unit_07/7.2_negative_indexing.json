@@ -13,7 +13,7 @@
       "title": "What is Negative Indexing?",
       "content": "In Python, strings are sequences of characters. While positive indices start at 0 from the left, negative indices count backward from the end. The last character of a string has index -1, the second-to-last has -2, and so on. This is useful when you do not know the exact length of the string or when you want to access characters from the right side. For example, given the string 'hello', 'hello'[-1] returns 'o', 'hello'[-2] returns 'l', and 'hello'[-5] returns 'h'. If the absolute value of the negative index exceeds the string length, Python raises an IndexError.\n\nHere is a Python code block demonstrating the idea:\n\n```python\ns = 'python'\nprint(s[-1])   # Output: n\nprint(s[-3])   # Output: h\nprint(s[-6])   # Output: p\n```\n\nRemember: negative_indexing_basics is about recognizing that -1 always points to the final character.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of negative indexing basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "In Python, strings are sequences of characters. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "idx": 2,
@@ -48,7 +48,7 @@
       "title": "Syntax of Negative Indexing",
       "content": "The syntax for negative indexing in Python is identical to positive indexing: you place the negative integer inside square brackets immediately after the string (or list) variable. The general form is object[-n], where n is a positive integer representing how many positions from the end you want to reach. It is important to use a single negative integer; you cannot use a range or a variable that evaluates to a non-integer inside the brackets for standard indexing. Slicing also supports negative indices: object[-3:] gives the last three characters, and object[:-2] gives everything except the last two. However, mixing negative and positive indices in a single slice can be confusing, so beginners should practice with simple cases first.\n\nExample Python code block:\n\n```python\nt = 'abcdef'\nprint(t[-2])   # Output: e\nprint(t[-3:])  # Output: def\nprint(t[:-1])  # Output: abcde\n```\n\nMastering negative_indexing_syntax means understanding that the brackets and the minus sign work exactly like their positive counterparts.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of negative indexing syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "The syntax for negative indexing in Python is identical to positive indexing: you place the negative integer inside square brackets immediately after the string (or list) variable. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "idx": 4,
@@ -165,7 +165,7 @@
         "'he'"
       ],
       "correct_answer": "'lo'",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of negative indexing flow. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Hyphens `-` are interpreted by Python's parser as subtraction operators, not identifier characters. In Python variable names, words must be joined using underscores `_`."
     },
     {
       "id": "7.2_q10",
@@ -189,7 +189,7 @@
           "expected_output": "Negative Indexing"
         }
       ],
-      "explanation": "In Python, this operation directly demonstrates the core behavior of negative indexing analysis. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `negative indexing analysis` in Negative Indexing. When Python validates this code, it applies the standard rules of negative indexing analysis. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "7.2_q11",
@@ -361,7 +361,7 @@
       "prompt": "Fix the bug in this code for negative indexing errors:",
       "starter_code": "# Fix this code\nPrint('Negative Indexing')",
       "solution_code": "print('Negative Indexing')",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of negative indexing errors. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `negative indexing errors` in Negative Indexing. When Python validates this code, it applies the standard rules of negative indexing errors. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "7.2_q20",
@@ -412,7 +412,7 @@
       "prompt": "Fix the bug in this code for negative indexing runtime:",
       "starter_code": "# Fix this code\nPrint('Negative Indexing')",
       "solution_code": "print('Negative Indexing')",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of negative indexing runtime. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `negative indexing runtime` in Negative Indexing. When Python validates this code, it applies the standard rules of negative indexing runtime. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "7.2_q23",

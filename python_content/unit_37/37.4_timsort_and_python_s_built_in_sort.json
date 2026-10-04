@@ -13,7 +13,7 @@
       "title": "What is Timsort and Why Does Python Use It?",
       "content": "Timsort is a hybrid stable sorting algorithm derived from merge sort and insertion sort. It was designed by Tim Peters in 2002 and is the default sorting algorithm used by Python's built-in `sort()` method and the `sorted()` function. Timsort is optimized for real-world data, which often contains already sorted or partially sorted subsequences called \"runs.\" It detects these runs and merges them efficiently. Because it is stable, equal elements retain their original relative order. Python's built-in `sort()` sorts a list in-place, while `sorted()` returns a new sorted list, both leveraging Timsort under the hood.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of timsort and pythons builtin sort basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Timsort is a hybrid stable sorting algorithm derived from merge sort and insertion sort. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "idx": 2,
@@ -48,7 +48,7 @@
       "title": "Using `sort()` and `sorted()` in Python",
       "content": "Python provides two primary ways to sort sequences. The `list.sort()` method sorts the list in-place and returns `None`, modifying the original list. Syntax: `my_list.sort()`. The `sorted()` built-in function returns a new sorted list, leaving the original unchanged. Syntax: `sorted(my_list)`. Both accept optional `key` and `reverse` arguments. For example, `my_list.sort(reverse=True)` sorts in descending order. Timsort handles these calls efficiently, with a worst-case time complexity of O(n log n) and best-case O(n) when the data is already sorted.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of timsort and pythons builtin sort syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Python provides two primary ways to sort sequences. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "idx": 4,
@@ -348,7 +348,7 @@
       "prompt": "Fix the bug in this code for timsort and pythons builtin sort errors:",
       "starter_code": "# Fix this code\nPrint('Timsort and Python's Built-in sort()')",
       "solution_code": "print('OK')",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of timsort and pythons builtin sort errors. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Python logical operators use short-circuit evaluation: `and` stops and returns the first falsy operand, while `or` stops and returns the first truthy operand without evaluating subsequent expressions."
     },
     {
       "id": "37.4_q20",
@@ -396,7 +396,7 @@
       "prompt": "Fix the bug in this code for timsort and pythons builtin sort runtime:",
       "starter_code": "# Fix this code\nPrint('Timsort and Python's Built-in sort()')",
       "solution_code": "print('OK')",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of timsort and pythons builtin sort runtime. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Python logical operators use short-circuit evaluation: `and` stops and returns the first falsy operand, while `or` stops and returns the first truthy operand without evaluating subsequent expressions."
     },
     {
       "id": "37.4_q23",

@@ -13,7 +13,7 @@
       "title": "What Are Assertions?",
       "content": "An assertion is a debugging aid that tests a condition you believe to be true. If the condition evaluates to True, the program continues normally. If it evaluates to False, Python raises an AssertionError. Assertions are typically used during development and testing to catch programmer errors early. Unlike exceptions, which handle expected runtime errors, assertions verify internal assumptions. You write an assertion using the assert keyword followed by a condition and optionally a message. For example: assert x > 0, 'x must be positive'. If x is not greater than 0, the program stops and displays the message. Assertions can be disabled globally by running Python with the -O (optimize) flag, so they should never be used for critical runtime validation.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of assertions basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "An assertion is a debugging aid that tests a condition you believe to be true. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "18.5_q2",
@@ -46,7 +46,7 @@
       "title": "Assertion Syntax and Optional Messages",
       "content": "The basic syntax of an assertion is assert <condition>. When the condition is False, Python raises an AssertionError. You can include an optional message after a comma to provide context when the assertion fails. The general form is: assert <condition>, <message>. The message is displayed only if the condition is False. For example: assert len(items) > 0, 'The list cannot be empty'. If len(items) is 0 or less, the assertion fails and prints the message. You can also use assert without a message: assert x is not None. Remember that the condition must be a valid Python expression that evaluates to True or False. Common patterns include checking types, non-empty collections, and valid ranges.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of assertions syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "The basic syntax of an assertion is assert <condition>. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "18.5_q4",
@@ -367,7 +367,7 @@
       "prompt": "Fix the bug in this code for assertions errors:",
       "starter_code": "# Fix this code\nPrint('Assertions')",
       "solution_code": "print('Assertions')",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of assertions errors. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Automated assertions verify code behavior against known expectations. If an assertion evaluates to False, Python immediately raises an AssertionError to alert developers to the regression."
     },
     {
       "id": "18.5_q20",
@@ -415,7 +415,7 @@
       "prompt": "Fix the bug in this code for assertions runtime:",
       "starter_code": "# Fix this code\nPrint('Assertions')",
       "solution_code": "print('Assertions')",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of assertions runtime. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Automated assertions verify code behavior against known expectations. If an assertion evaluates to False, Python immediately raises an AssertionError to alert developers to the regression."
     },
     {
       "id": "18.5_q23",

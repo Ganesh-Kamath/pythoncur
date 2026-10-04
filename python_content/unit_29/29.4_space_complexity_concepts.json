@@ -10,100 +10,136 @@
       "skill": "recognition",
       "difficulty": "easy",
       "prerequisites": [],
-      "title": "Space Complexity Concepts Part 1: Space Complexity Concepts Basics",
-      "content": "In Python, **Space Complexity Concepts Basics** provides essential rules when working with space complexity concepts.\n\nUnderstanding how `space_complexity_concepts_basics` functions in practice enables you to write clean, unambiguous code.\n\n```python\n# Step 1: space_complexity_concepts_basics\nstage_1 = True\n```",
-      "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of space complexity concepts basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "title": "Understanding Auxiliary Space Complexity",
+      "content": "Space complexity measures how much memory an algorithm requires as input size `n` grows:\n\n* **O(1) Constant Auxiliary Space:** Allocates a few scalar variables regardless of whether input has 10 or 10,000,000 items.\n* **O(n) Linear Space:** Creates a new list, dictionary, or recursive call stack proportional to input size.",
+      "explanation": "Space complexity quantifies auxiliary memory overhead scaling relative to input size.",
+      "metadata": {
+        "concept": "space_complexity_fundamentals",
+        "skill": "recognition",
+        "why_this_exercise_exists": "Foundational space complexity definitions"
+      }
     },
     {
       "id": "29.4_q2",
       "type": "output_prediction",
       "concept": "space_complexity_concepts_basics",
-      "skill": "recall",
+      "skill": "complexity_analysis",
       "difficulty": "easy",
       "prerequisites": [
         "29.4_q1"
       ],
-      "prompt": "Consider the following Python snippet demonstrating Space Complexity Concepts Basics:\n\n```python\ndef calculate_2(value):\n    base = 8\n    return base + value * 11\n\nresult = calculate_2(2)\nprint(result)\n```\n\nWhat is the value printed to the console?",
+      "prompt": "What is the auxiliary space complexity of this function that sums a list in-place?\n\n```python\ndef compute_sum(numbers):\n    total = 0\n    for n in numbers:\n        total += n\n    return total\n```",
       "options": [
-        "30",
-        "19",
-        "110",
-        "TypeError"
+        "O(1) auxiliary space (constant space beyond the input list)",
+        "O(n) auxiliary space",
+        "O(n^2) auxiliary space",
+        "O(log n) auxiliary space"
       ],
-      "correct_answer": "30",
-      "explanation": "Python evaluates arithmetic following standard operator precedence (multiplication before addition). First, `value * 11` evaluates to `2 * 11 = 22`. Then, adding `base` (8) yields `30`. The function returns this integer and `print()` outputs it."
+      "correct_answer": "O(1) auxiliary space (constant space beyond the input list)",
+      "explanation": "The function only allocates a single scalar variable `total`. It does not create any new lists, dictionaries, or recursive call stacks. Regardless of whether `numbers` has 10 or 10,000,000 items, memory usage remains constant O(1).",
+      "metadata": {
+        "concept": "constant_space_complexity",
+        "skill": "complexity_analysis",
+        "learning_objective": "Determine auxiliary space complexity of iterative accumulators",
+        "common_misconception": "Counting the input size as auxiliary space allocated by the function",
+        "why_this_exercise_exists": "Replaces template function with authentic Big-O space analysis"
+      }
     },
     {
       "id": "29.4_q3",
       "type": "micro_lesson",
-      "concept": "space_complexity_concepts_syntax",
-      "skill": "understanding",
+      "concept": "space_complexity_concepts_generators",
+      "skill": "recognition",
       "difficulty": "easy",
       "prerequisites": [
         "29.4_q2"
       ],
-      "title": "Space Complexity Concepts Part 3: Space Complexity Concepts Syntax",
-      "content": "In Python, **Space Complexity Concepts Syntax** provides essential rules when working with space complexity concepts.\n\nUnderstanding how `space_complexity_concepts_syntax` functions in practice enables you to write clean, unambiguous code.\n\n```python\n# Step 3: space_complexity_concepts_syntax\nstage_3 = True\n```",
-      "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of space complexity concepts syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "title": "Optimizing Space with Lazy Generators",
+      "content": "List comprehensions eagerly allocate memory for every element upfront (O(n) space).\n\nGenerator expressions evaluate items on-demand one by one:\n\n```python\n# O(1) space stream:\nsquares = (x * x for x in range(1_000_000))\n```\n\nGenerators allow processing datasets larger than available physical RAM.",
+      "explanation": "Generators stream items lazily in O(1) space, avoiding out-of-memory crashes on big data.",
+      "metadata": {
+        "concept": "generator_space_optimization",
+        "skill": "recognition",
+        "why_this_exercise_exists": "Teaches memory optimization with generators"
+      }
     },
     {
       "id": "29.4_q4",
-      "type": "output_prediction",
-      "concept": "space_complexity_concepts_syntax",
-      "skill": "reasoning",
-      "difficulty": "easy",
+      "type": "code_prediction",
+      "concept": "space_complexity_concepts_basics",
+      "skill": "complexity_analysis",
+      "difficulty": "medium",
       "prerequisites": [
         "29.4_q3"
       ],
-      "prompt": "Consider the following Python snippet demonstrating Space Complexity Concepts Syntax:\n\n```python\ndef calculate_4(value):\n    base = 14\n    return base + value * 6\n\nresult = calculate_4(2)\nprint(result)\n```\n\nWhat is the value printed to the console?",
+      "prompt": "What is the auxiliary space complexity of creating a duplicate list of squares?\n\n```python\ndef get_squares(numbers):\n    return [x * x for x in numbers]\n```",
       "options": [
-        "26",
-        "20",
-        "96",
-        "TypeError"
+        "O(n) auxiliary space",
+        "O(1) auxiliary space",
+        "O(n^2) auxiliary space",
+        "O(log n) auxiliary space"
       ],
-      "correct_answer": "26",
-      "explanation": "Python evaluates arithmetic following standard operator precedence (multiplication before addition). First, `value * 6` evaluates to `2 * 6 = 12`. Then, adding `base` (14) yields `26`. The function returns this integer and `print()` outputs it."
+      "correct_answer": "O(n) auxiliary space",
+      "explanation": "The list comprehension constructs a brand new list containing `n` elements in memory. Thus, auxiliary memory scales linearly with input size O(n).",
+      "metadata": {
+        "concept": "linear_space_complexity",
+        "skill": "complexity_analysis",
+        "learning_objective": "Recognize O(n) space allocation in comprehensions and copies",
+        "common_misconception": "Assuming list comprehensions don't consume memory",
+        "why_this_exercise_exists": "Replaces template function with linear space reasoning"
+      }
     },
     {
       "id": "29.4_q5",
       "type": "output_prediction",
-      "concept": "space_complexity_concepts_matching",
-      "skill": "recognition",
-      "difficulty": "easy",
+      "concept": "space_complexity_concepts_basics",
+      "skill": "generator_space_efficiency",
+      "difficulty": "medium",
       "prerequisites": [
         "29.4_q4"
       ],
-      "prompt": "Consider the following Python snippet demonstrating Space Complexity Concepts Matching:\n\n```python\ndef calculate_5(value):\n    base = 17\n    return base + value * 11\n\nresult = calculate_5(2)\nprint(result)\n```\n\nWhat is the value printed to the console?",
+      "prompt": "How does using a generator expression reduce memory consumption compared to a list comprehension?\n\n```python\n# Generator expression:\nsquares_gen = (x * x for x in range(1_000_000))\n```",
       "options": [
-        "39",
-        "28",
-        "209",
-        "TypeError"
+        "It yields items on-demand one by one in O(1) space instead of allocating all 1,000,000 items in memory at once.",
+        "It compresses numbers into 8-bit integers.",
+        "It stores items directly on disk.",
+        "It executes on multiple CPU cores."
       ],
-      "correct_answer": "39",
-      "explanation": "Python evaluates arithmetic following standard operator precedence (multiplication before addition). First, `value * 11` evaluates to `2 * 11 = 22`. Then, adding `base` (17) yields `39`. The function returns this integer and `print()` outputs it."
+      "correct_answer": "It yields items on-demand one by one in O(1) space instead of allocating all 1,000,000 items in memory at once.",
+      "explanation": "Generators evaluate lazily. Instead of allocating a 1,000,000-element list in RAM, a generator only keeps track of its current state and produces the next element when requested via `next()`, maintaining O(1) space.",
+      "metadata": {
+        "concept": "lazy_evaluation_space_optimization",
+        "skill": "optimization",
+        "learning_objective": "Optimize memory usage using lazy generator streams",
+        "common_misconception": "Thinking generator expressions immediately build collections in RAM",
+        "why_this_exercise_exists": "Replaces template function with production memory optimization techniques"
+      }
     },
     {
       "id": "29.4_q6",
-      "type": "output_prediction",
-      "concept": "space_complexity_concepts_pitfalls",
-      "skill": "comprehension",
-      "difficulty": "easy",
+      "type": "error_diagnosis",
+      "concept": "space_complexity_concepts_basics",
+      "skill": "call_stack_space",
+      "difficulty": "medium",
       "prerequisites": [
         "29.4_q5"
       ],
-      "prompt": "Consider the following Python snippet demonstrating Space Complexity Concepts Pitfalls:\n\n```python\ndef calculate_6(value):\n    base = 20\n    return base + value * 1\n\nresult = calculate_6(2)\nprint(result)\n```\n\nWhat is the value printed to the console?",
+      "prompt": "What hidden space complexity exists in deep recursive functions?\n\n```python\ndef countdown(n):\n    if n <= 0:\n        return\n    countdown(n - 1)\n```",
       "options": [
-        "22",
-        "21",
-        "22",
-        "TypeError"
+        "O(n) auxiliary space consumed by the call stack frames waiting to return.",
+        "O(1) space because no variables are created.",
+        "O(n^2) space due to garbage collection lag.",
+        "None; Python flattens all recursion automatically."
       ],
-      "correct_answer": "22",
-      "explanation": "Python evaluates arithmetic following standard operator precedence (multiplication before addition). First, `value * 1` evaluates to `2 * 1 = 2`. Then, adding `base` (20) yields `22`. The function returns this integer and `print()` outputs it."
+      "correct_answer": "O(n) auxiliary space consumed by the call stack frames waiting to return.",
+      "explanation": "Each recursive call pushes a new stack frame containing execution state and local variables onto the call stack. A recursion depth of `n` requires O(n) memory on the call stack. Exceeding Python's recursion limit triggers a `RecursionError`.",
+      "metadata": {
+        "concept": "recursive_call_stack_space",
+        "skill": "mental_model",
+        "learning_objective": "Analyze call stack space consumption in recursive algorithms",
+        "common_misconception": "Ignoring call stack memory when evaluating algorithm space",
+        "why_this_exercise_exists": "Replaces template function with call-stack memory analysis"
+      }
     },
     {
       "id": "29.4_q7",
@@ -351,7 +387,7 @@
       "prompt": "Fix the bug in this code for space complexity concepts errors:",
       "starter_code": "# Fix this code\nPrint('Space Complexity Concepts')",
       "solution_code": "print('Space Complexity Concepts')",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of space complexity concepts errors. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `space complexity concepts errors` in Space Complexity Concepts. When Python validates this code, it applies the standard rules of space complexity concepts errors. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "29.4_q20",
@@ -399,7 +435,7 @@
       "prompt": "Fix the bug in this code for space complexity concepts runtime:",
       "starter_code": "# Fix this code\nPrint('Space Complexity Concepts')",
       "solution_code": "print('Space Complexity Concepts')",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of space complexity concepts runtime. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `space complexity concepts runtime` in Space Complexity Concepts. When Python validates this code, it applies the standard rules of space complexity concepts runtime. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "29.4_q23",

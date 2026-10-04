@@ -13,7 +13,7 @@
       "title": "What is a Set in Python?",
       "content": "A set is an unordered collection of unique elements. Unlike lists, sets cannot contain duplicate values. You create a set by placing elements inside curly braces {} and separating them with commas. Sets are useful when you need to store distinct items and perform fast membership testing. For example, you can create a set of favorite colors. Here is a Python code block demonstrating how to create a set:\n\n```python\nfavorite_colors = {'red', 'green', 'blue'}\nprint(favorite_colors)\n```\n\nNotice that curly braces define the set, and each color appears only once. If you try to add a duplicate, the set will automatically keep only one copy.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of creating sets basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "A set is an unordered collection of unique elements. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "9.4_q2",
@@ -46,7 +46,7 @@
       "title": "Set Literal Syntax and Empty Sets",
       "content": "To create a set, you use the set literal syntax with curly braces. You can include strings, numbers, or a mix of types. However, there is an important distinction: an empty set must be created with set(), not with empty curly braces, because {} creates an empty dictionary. Here is a Python code block showing valid set creation:\n\n```python\nempty_set = set()\nprint(type(empty_set))\n\ncolors = {'yellow', 'purple'}\nprint(colors)\n\nmixed = {'apple', 42, True}\nprint(mixed)\n```\n\nIn this example, empty_set is truly empty and of type set. The colors set contains two distinct strings. The mixed set shows that sets can hold different data types, though in practice it is often clearer to keep elements of a similar type.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of creating sets syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "To create a set, you use the set literal syntax with curly braces. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "9.4_q4",
@@ -375,7 +375,7 @@
       "prompt": "Fix the bug in this code for creating sets errors:",
       "starter_code": "# Fix this code\nPrint('Creating Sets')",
       "solution_code": "print('Creating Sets')",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of creating sets errors. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `creating sets errors` in Creating Sets. When Python validates this code, it applies the standard rules of creating sets errors. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "9.4_q20",
@@ -423,7 +423,7 @@
       "prompt": "Fix the bug in this code for creating sets runtime:",
       "starter_code": "# Fix this code\nPrint('Creating Sets')",
       "solution_code": "print('Creating Sets')",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of creating sets runtime. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `creating sets runtime` in Creating Sets. When Python validates this code, it applies the standard rules of creating sets runtime. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "9.4_q23",

@@ -13,7 +13,7 @@
       "title": "What Are Nested Conditions?",
       "content": "Nested conditions occur when one conditional statement (like an if statement) is placed inside another conditional statement. This allows you to check multiple criteria in a specific order. For example, you might first check if a user is logged in, and only if they are, check if they have admin privileges. In Python, you simply indent the inner if block under the outer if block. Proper indentation is critical because Python uses indentation to define code blocks.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of nested conditions basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Conditional branching with `if`, `elif`, and `else` controls program execution paths. Indentation defines the statement block that executes when a condition evaluates to True."
     },
     {
       "id": "5.4_q2",
@@ -46,7 +46,7 @@
       "title": "Syntax and Indentation Rules",
       "content": "When writing nested conditions in Python, follow these syntax rules:\n1. Use the `if` keyword to start a condition.\n2. Indent the inner block (typically 4 spaces) so Python recognizes it as belonging to the outer block.\n3. You may use `elif` and `else` at the same indentation level as the outer `if`.\nHere is an example:\n```python\nage = 16\nhas_license = True\n\nif age >= 18:\n    print(\"Adult\")\nelse:\n    if has_license and age >= 16:\n        print(\"Can drive\")\n    else:\n        print(\"Cannot drive\")\n```\nNotice how the inner `if` is indented under the outer `else`. Without correct indentation, Python raises an `IndentationError`.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of nested conditions syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "When writing nested conditions in Python, follow these syntax rules:\n1. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "5.4_q4",
@@ -417,18 +417,24 @@
     },
     {
       "id": "5.4_q24",
-      "type": "fix_the_code",
-      "concept": "nested_conditions_optimization",
+      "type": "refactoring_challenge",
+      "concept": "nested_conditions_simplification",
       "skill": "refactoring",
       "difficulty": "hard",
       "prerequisites": [
         "5.4_q23"
       ],
-      "prompt": "Refactor the following deeply nested function into a flatter, more maintainable version without changing its behavior. The function evaluates a discount based on membership tier, purchase amount, and season.",
-      "starter_code": "def calculate_discount(tier, amount, season):\n    if tier == 'gold':\n        if amount > 100:\n            if season == 'summer':\n                discount = 0.25\n            else:\n                discount = 0.20\n        else:\n            if season == 'summer':\n                discount = 0.15\n            else:\n                discount = 0.10\n    elif tier == 'silver':\n        if amount > 100:\n            if season == 'summer':\n                discount = 0.15\n            else:\n                discount = 0.10\n        else:\n            if season == 'summer':\n                discount = 0.05\n            else:\n                discount = 0.03\n    else:\n        if amount > 100:\n            if season == 'summer':\n                discount = 0.05\n            else:\n                discount = 0.02\n        else:\n            if season == 'summer':\n                discount = 0.02\n            else:\n                discount = 0.01\n    return discount",
-      "solution_code": "def calculate_discount(tier, amount, season):\n    summer_multipliers = {'gold': 0.25, 'silver': 0.15, 'bronze': 0.05}\n    standard_multipliers = {'gold': 0.20, 'silver': 0.10, 'bronze': 0.02}\n    base_multipliers = {'gold': 0.15, 'silver': 0.05, 'bronze': 0.02}\n    \n    if season == 'summer':\n        if amount > 100:\n            return summer_multipliers.get(tier, 0.05)\n        return base_multipliers.get(tier, 0.02)\n    else:\n        if amount > 100:\n            return standard_multipliers.get(tier, 0.02)\n        return base_multipliers.get(tier, 0.01)",
-      "hint": "Extract repeated conditional logic into lookup tables. Use dictionary .get() to avoid deep nesting and handle unknown tiers gracefully.",
-      "explanation": "The original code uses four levels of nesting, making it hard to read and extend. The refactored version collapses the logic into a two-level structure by mapping tiers to discount rates in dictionaries. The outer if distinguishes season, and the inner if distinguishes amount tier. Using .get() with a default value prevents KeyError and simplifies maintenance. This approach reduces cyclomatic complexity, improves readability, and makes adding new tiers or seasons a one-line dictionary update rather than rewriting nested blocks."
+      "prompt": "The following nested conditional code handles venue admission, but is deeply nested and repetitive. Refactor it using clear guard clauses or boolean operators (`and`) to cleanly determine whether entry is allowed, requires ID, or is rejected for age.\n\n```python\nage = 20\nhas_id = False\n\n# Nested version:\nif age >= 18:\n    if has_id:\n        status = \"Allowed\"\n    else:\n        status = \"Requires ID\"\nelse:\n    status = \"Underage\"\nprint(status)\n```",
+      "starter_code": "age = 20\nhas_id = False\n# Refactor to clean, readable branching\nif age < 18:\n    status = \"Underage\"\nelif not has_id:\n    status = \"Requires ID\"\nelse:\n    status = \"Allowed\"\nprint(status)",
+      "solution_code": "age = 20\nhas_id = False\nif age < 18:\n    status = \"Underage\"\nelif not has_id:\n    status = \"Requires ID\"\nelse:\n    status = \"Allowed\"\nprint(status)",
+      "explanation": "Using guard clauses (`age < 18`, then `not has_id`, then fallback to `\"Allowed\"`) flattens the nested indentation pyramid, making conditions easier to read, test, and debug.",
+      "metadata": {
+        "concept": "guard_clauses_vs_nesting",
+        "skill": "architecture",
+        "learning_objective": "Flatten deeply nested conditionals using guard clauses and elif",
+        "common_misconception": "Assuming nested if blocks are always required for multi-factor decisions",
+        "why_this_exercise_exists": "Directly addresses the 'arrow anti-pattern' in nested logic"
+      }
     },
     {
       "id": "5.4_q25",

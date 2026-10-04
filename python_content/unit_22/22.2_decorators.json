@@ -14,7 +14,7 @@
       "difficulty": "easy",
       "prerequisites": [],
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of decorators basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "A decorator is a higher-order function that takes another function as an argument, adds some functionality, and returns another function without modifying the source code of the original function. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "22.2_q2",
@@ -49,7 +49,7 @@
         "22.2_q2"
       ],
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of decorators syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Decorators are evaluated from bottom to top. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "22.2_q4",
@@ -364,7 +364,7 @@
       "prompt": "Fix the bug in this code for decorators errors:",
       "starter_code": "# Fix this code\nPrint('Decorators')",
       "solution_code": "print('Decorators')",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of decorators errors. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `decorators errors` in Decorators. When Python validates this code, it applies the standard rules of decorators errors. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "22.2_q20",
@@ -412,7 +412,7 @@
       "prompt": "Fix the bug in this code for decorators runtime:",
       "starter_code": "# Fix this code\nPrint('Decorators')",
       "solution_code": "print('Decorators')",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of decorators runtime. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `decorators runtime` in Decorators. When Python validates this code, it applies the standard rules of decorators runtime. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "22.2_q23",
@@ -548,28 +548,29 @@
     },
     {
       "id": "22.2_q29",
-      "type": "write_the_code",
-      "concept": "decorators_scenario",
-      "skill": "synthesis",
+      "type": "output_prediction",
+      "concept": "decorators_wraps_metadata",
+      "skill": "mental_model",
       "difficulty": "hard",
       "prerequisites": [
         "22.2_q28"
       ],
-      "prompt": "You are building a data processing pipeline for a financial application. Implement a `@memoize` decorator that caches results based on hashable arguments to avoid redundant computation of expensive functions like `calculate_risk(portfolio_id, scenario)`. Ensure the cache is bounded to 128 entries using `functools.lru_cache` semantics manually.",
-      "starter_code": "class Memoize:\n    def __init__(self, maxsize=128):\n        self.maxsize = maxsize\n        self.cache = {}\n\n    def __call__(self, func):\n        def wrapper(*args, **kwargs):\n            key = (args, tuple(sorted(kwargs.items())))\n            if key in self.cache:\n                return self.cache[key]\n            result = func(*args, **kwargs)\n            if len(self.cache) >= self.maxsize:\n                oldest = next(iter(self.cache))\n                del self.cache[oldest]\n            self.cache[key] = result\n            return result\n        return wrapper",
-      "solution_code": "class Memoize:\n    def __init__(self, maxsize=128):\n        self.maxsize = maxsize\n        self.cache = {}\n\n    def __call__(self, func):\n        def wrapper(*args, **kwargs):\n            key = (args, tuple(sorted(kwargs.items())))\n            if key in self.cache:\n                return self.cache[key]\n            result = func(*args, **kwargs)\n            if len(self.cache) >= self.maxsize:\n                oldest = next(iter(self.cache))\n                del self.cache[oldest]\n            self.cache[key] = result\n            return result\n        return wrapper\n\ndef calculate_risk(portfolio_id, scenario):\n    # Simulate expensive computation\n    total = 0\n    for i in range(10000):\n        total += i * portfolio_id\n    return total / scenario",
-      "test_cases": [
-        {
-          "input": "@Memoize(maxsize=4)\ncalculate_risk(10, 2)",
-          "expected_output": "result cached and returned quickly"
-        },
-        {
-          "input": "calculate_risk(10, 2)",
-          "expected_output": "same result without recomputation"
-        }
+      "prompt": "Why is `functools.wraps` used when writing custom decorators?\n\n```python\nfrom functools import wraps\n\ndef my_decorator(f):\n    @wraps(f)\n    def wrapper(*args, **kwargs):\n        return f(*args, **kwargs)\n    return wrapper\n\n@my_decorator\ndef compute_cube(n):\n    \"\"\"Calculates n cubed.\"\"\"\n    return n ** 3\n\nprint(compute_cube.__name__)\n```",
+      "options": [
+        "compute_cube",
+        "wrapper",
+        "my_decorator",
+        "None"
       ],
-      "hint": "Use a tuple of sorted keyword items as the cache key. When the cache exceeds `maxsize`, remove the least recently inserted entry using `next(iter(self.cache))`.",
-      "explanation": "Memoization is a critical optimization in data-intensive applications. By caching deterministic function outputs, we reduce redundant computation. A bounded cache prevents unbounded memory growth, which is essential in production services handling many distinct input combinations."
+      "correct_answer": "compute_cube",
+      "explanation": "Without `@wraps(f)`, the decorated function would adopt the identity of the inner function (`compute_cube.__name__` would be `'wrapper'`), destroying docstrings and function names. `@wraps` copies original metadata back to the wrapper.",
+      "metadata": {
+        "concept": "decorator_metadata_preservation",
+        "skill": "meta_programming",
+        "learning_objective": "Preserve function docstrings and __name__ using functools.wraps",
+        "common_misconception": "Assuming decorators preserve function metadata automatically",
+        "why_this_exercise_exists": "Crucial requirement for building professional decorators"
+      }
     },
     {
       "id": "22.2_q30",

@@ -13,7 +13,7 @@
       "title": "Introduction to Catching Multiple Exceptions",
       "content": "In Python, you can catch more than one exception in a single except block by separating exception names with commas. This is useful when different errors should trigger the same recovery logic. The syntax is:\n\n```\ntry:\n    # risky code\nexcept Exception1, Exception2 as e:\n    # handle both\n```\n\nIn modern Python (3.x), the comma syntax is replaced by a tuple of exceptions: `except (Exception1, Exception2) as e:`. When an exception occurs, Python checks if the raised exception is an instance of any class in the tuple. If so, the block executes. This avoids duplicating error-handling code for related failure modes.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of catching multiple exceptions basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "In Python, you can catch more than one exception in a single except block by separating exception names with commas. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "18.1_q2",
@@ -46,7 +46,7 @@
       "title": "Syntax and Binding with Multiple Exceptions",
       "content": "When catching multiple exceptions, you can bind the exception object to a variable using `as`. This allows you to inspect the exception later. The exception variable holds the most recently raised exception instance. Here is a detailed example:\n\n```\ntry:\n    result = int('abc') / 0\nexcept (ValueError, ZeroDivisionError) as e:\n    print('Caught an error:', type(e).__name__)\n    print('Error message:', e)\n```\n\nIn this example, `int('abc')` raises a `ValueError`, and the division by zero would raise `ZeroDivisionError`. Only the first matching exception matters; Python evaluates the tuple and matches the raised exception against each type. If you need to handle each exception differently, you must use separate except blocks. The `as e` clause is optional but highly recommended for debugging.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of catching multiple exceptions syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "When catching multiple exceptions, you can bind the exception object to a variable using `as`. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "18.1_q4",

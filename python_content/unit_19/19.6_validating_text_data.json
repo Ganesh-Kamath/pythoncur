@@ -13,7 +13,7 @@
       "title": "Introduction to Text Validation",
       "content": "Text validation ensures that user input conforms to expected formats before processing. For example, checking that an email address contains an '@' symbol or that a phone number consists of digits only. Python's re module provides tools to define patterns and test strings against them. A common first step is using re.match() or re.search() to verify whether a pattern exists in the input. Consider the following example:\n\n```python\nimport re\n\nuser_input = 'hello@example.com'\npattern = r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2}$'\n\nif re.match(pattern, user_input):\n    print('Valid email format')\nelse:\n    print('Invalid email format')\n```\n\nIn this snippet, the raw string r'...' defines the pattern, and re.match() checks from the start of the string. Recognizing when and why to validate text is the foundation for building robust applications.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of validating text data basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Text validation ensures that user input conforms to expected formats before processing. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "19.6_q2",
@@ -46,7 +46,7 @@
       "title": "Common Regular Expression Syntax",
       "content": "Regular expressions use special characters to describe patterns. Some essential symbols include:\n- ^ anchors the pattern to the start of the string.\n- $ anchors the pattern to the end of the string.\n- \\d matches any digit (0-9).\n- \\w matches any word character (letters, digits, and underscore).\n- \\s matches any whitespace character.\n- + means one or more of the preceding element.\n- * means zero or more of the preceding element.\n- ? means zero or one of the preceding element.\n\nFor instance, to validate a simple 4-digit PIN, you can use the pattern r'^\\d{4}$'. Here is a demonstration:\n\n```python\nimport re\n\npin = '1234'\npattern = r'^\\d{4}$'\n\nif re.fullmatch(pattern, pin):\n    print('PIN is valid')\nelse:\n    print('PIN is invalid')\n```\n\nNote that re.fullmatch() ensures the entire string matches the pattern, which is often safer than re.match() when you want exact-length validation.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of validating text data syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Regular expressions use special characters to describe patterns. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "19.6_q4",
@@ -382,7 +382,7 @@
       "starter_code": "Print('Validating Text Data Item 19')",
       "solution_code": "print('Validating Text Data Item 19')",
       "hint": "Python built-in functions like print() must be written in lowercase.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of validating text data errors. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `validating text data errors` in Validating Text Data. When Python validates this code, it applies the standard rules of validating text data errors. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "19.6_q20",
@@ -397,7 +397,7 @@
       "starter_code": "Print('Validating Text Data Item 20')",
       "solution_code": "print('Validating Text Data Item 20')",
       "hint": "Python built-in functions like print() must be written in lowercase.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of validating text data fix. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `validating text data fix` in Validating Text Data. When Python validates this code, it applies the standard rules of validating text data fix. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "19.6_q21",
@@ -412,7 +412,7 @@
       "starter_code": "Print('Validating Text Data Item 21')",
       "solution_code": "print('Validating Text Data Item 21')",
       "hint": "Python built-in functions like print() must be written in lowercase.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of validating text data edge cases. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `validating text data edge cases` in Validating Text Data. When Python validates this code, it applies the standard rules of validating text data edge cases. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "19.6_q22",
@@ -427,7 +427,7 @@
       "starter_code": "Print('Validating Text Data Item 22')",
       "solution_code": "print('Validating Text Data Item 22')",
       "hint": "Python built-in functions like print() must be written in lowercase.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of validating text data runtime. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `validating text data runtime` in Validating Text Data. When Python validates this code, it applies the standard rules of validating text data runtime. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "19.6_q23",
@@ -442,7 +442,7 @@
       "starter_code": "Print('Validating Text Data Item 23')",
       "solution_code": "print('Validating Text Data Item 23')",
       "hint": "Python built-in functions like print() must be written in lowercase.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of validating text data logic repair. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `validating text data logic repair` in Validating Text Data. When Python validates this code, it applies the standard rules of validating text data logic repair. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "19.6_q24",

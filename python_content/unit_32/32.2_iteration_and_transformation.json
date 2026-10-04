@@ -10,100 +10,131 @@
       "skill": "recognition",
       "difficulty": "easy",
       "prerequisites": [],
-      "title": "Iteration and Transformation Part 1: Iteration And Transformation Basics",
-      "content": "In Python, **Iteration And Transformation Basics** provides essential rules when working with iteration and transformation.\n\nUnderstanding how `iteration_and_transformation_basics` functions in practice enables you to write clean, unambiguous code.\n\n```python\n# Step 1: iteration_and_transformation_basics\nstage_1 = True\n```",
-      "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of iteration and transformation basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "title": "Array Transformation Patterns",
+      "content": "Transforming sequences is central to algorithmic problem solving:\n\n1. **Mapping:** Apply an operation to every element (`[x * 2 for x in nums]`).\n2. **Filtering:** Select elements satisfying a condition (`[x for x in nums if x > 0]`).\n3. **Accumulation:** Compute running totals or prefix sums across the array.",
+      "explanation": "Transformation pipelines map, filter, and aggregate arrays into clean output structures.",
+      "metadata": {
+        "concept": "array_transformation_taxonomy",
+        "skill": "recognition",
+        "why_this_exercise_exists": "Overview of array transformation patterns"
+      }
     },
     {
       "id": "32.2_q2",
       "type": "output_prediction",
       "concept": "iteration_and_transformation_basics",
-      "skill": "recall",
+      "skill": "array_transformation",
       "difficulty": "easy",
       "prerequisites": [
         "32.2_q1"
       ],
-      "prompt": "Consider the following Python snippet demonstrating Iteration And Transformation Basics:\n\n```python\ndef calculate_2(value):\n    base = 8\n    return base + value * 11\n\nresult = calculate_2(2)\nprint(result)\n```\n\nWhat is the value printed to the console?",
+      "prompt": "What does this transformation loop output?\n\n```python\nnumbers = [1, 2, 3, 4]\ndoubled = [x * 2 for x in numbers if x % 2 == 0]\nprint(doubled)\n```",
       "options": [
-        "30",
-        "19",
-        "110",
-        "TypeError"
+        "[4, 8]",
+        "[2, 4, 6, 8]",
+        "[4]",
+        "[2, 4]"
       ],
-      "correct_answer": "30",
-      "explanation": "Python evaluates arithmetic following standard operator precedence (multiplication before addition). First, `value * 11` evaluates to `2 * 11 = 22`. Then, adding `base` (8) yields `30`. The function returns this integer and `print()` outputs it."
+      "correct_answer": "[4, 8]",
+      "explanation": "The condition `x % 2 == 0` filters only even numbers (`2` and `4`). The expression `x * 2` doubles each, yielding `[4, 8]`.",
+      "metadata": {
+        "concept": "filter_map_transformation",
+        "skill": "data_transformation",
+        "learning_objective": "Combine filtering and mapping in a single list comprehension",
+        "common_misconception": "Applying doubling before the filtering step",
+        "why_this_exercise_exists": "Replaces template function with array transformation logic"
+      }
     },
     {
       "id": "32.2_q3",
       "type": "micro_lesson",
-      "concept": "iteration_and_transformation_syntax",
-      "skill": "understanding",
+      "concept": "iteration_and_transformation_two_pointers",
+      "skill": "recognition",
       "difficulty": "easy",
       "prerequisites": [
         "32.2_q2"
       ],
-      "title": "Iteration and Transformation Part 3: Iteration And Transformation Syntax",
-      "content": "In Python, **Iteration And Transformation Syntax** provides essential rules when working with iteration and transformation.\n\nUnderstanding how `iteration_and_transformation_syntax` functions in practice enables you to write clean, unambiguous code.\n\n```python\n# Step 3: iteration_and_transformation_syntax\nstage_3 = True\n```",
-      "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of iteration and transformation syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "title": "In-Place Transformations with Two Pointers",
+      "content": "When modifying arrays without allocating extra memory, use two pointers:\n\n```python\nleft, right = 0, len(arr) - 1\nwhile left < right:\n    arr[left], arr[right] = arr[right], arr[left]\n    left += 1\n    right -= 1\n```\n\nThis reverses an array in-place in O(n) time and O(1) auxiliary space.",
+      "explanation": "Two-pointer in-place modifications eliminate auxiliary array allocations.",
+      "metadata": {
+        "concept": "two_pointer_in_place_mechanics",
+        "skill": "recognition",
+        "why_this_exercise_exists": "Teaches in-place two-pointer transformations"
+      }
     },
     {
       "id": "32.2_q4",
-      "type": "output_prediction",
-      "concept": "iteration_and_transformation_syntax",
-      "skill": "reasoning",
-      "difficulty": "easy",
+      "type": "code_prediction",
+      "concept": "iteration_and_transformation_basics",
+      "skill": "prefix_sums",
+      "difficulty": "medium",
       "prerequisites": [
         "32.2_q3"
       ],
-      "prompt": "Consider the following Python snippet demonstrating Iteration And Transformation Syntax:\n\n```python\ndef calculate_4(value):\n    base = 14\n    return base + value * 6\n\nresult = calculate_4(2)\nprint(result)\n```\n\nWhat is the value printed to the console?",
+      "prompt": "Trace the running prefix sum created by this loop:\n\n```python\nnums = [1, 2, 3, 4]\nprefix = []\ncurr = 0\nfor x in nums:\n    curr += x\n    prefix.append(curr)\nprint(prefix)\n```",
       "options": [
-        "26",
-        "20",
-        "96",
-        "TypeError"
+        "[1, 3, 6, 10]",
+        "[1, 2, 3, 4]",
+        "[10, 6, 3, 1]",
+        "[0, 1, 3, 6]"
       ],
-      "correct_answer": "26",
-      "explanation": "Python evaluates arithmetic following standard operator precedence (multiplication before addition). First, `value * 6` evaluates to `2 * 6 = 12`. Then, adding `base` (14) yields `26`. The function returns this integer and `print()` outputs it."
+      "correct_answer": "[1, 3, 6, 10]",
+      "explanation": "Prefix sums accumulate running totals: 1, 1+2=3, 3+3=6, 6+4=10. Prefix arrays allow answering range-sum queries in O(1) time.",
+      "metadata": {
+        "concept": "prefix_sum_pattern",
+        "skill": "algorithmic_patterns",
+        "learning_objective": "Construct prefix sum arrays for fast range queries",
+        "common_misconception": "Recalculating sums from index 0 on every query",
+        "why_this_exercise_exists": "Replaces template function with foundational DSA prefix sum pattern"
+      }
     },
     {
       "id": "32.2_q5",
       "type": "output_prediction",
-      "concept": "iteration_and_transformation_matching",
-      "skill": "recognition",
-      "difficulty": "easy",
+      "concept": "iteration_and_transformation_basics",
+      "skill": "two_pointers_reverse",
+      "difficulty": "medium",
       "prerequisites": [
         "32.2_q4"
       ],
-      "prompt": "Consider the following Python snippet demonstrating Iteration And Transformation Matching:\n\n```python\ndef calculate_5(value):\n    base = 17\n    return base + value * 11\n\nresult = calculate_5(2)\nprint(result)\n```\n\nWhat is the value printed to the console?",
+      "prompt": "What does in-place two-pointer reversal do to `arr = ['a', 'b', 'c', 'd']`?\n\n```python\narr = ['a', 'b', 'c', 'd']\nleft = 0\nright = len(arr) - 1\nwhile left < right:\n    arr[left], arr[right] = arr[right], arr[left]\n    left += 1\n    right -= 1\nprint(\"\".join(arr))\n```",
       "options": [
-        "39",
-        "28",
-        "209",
-        "TypeError"
+        "dcba",
+        "abcd",
+        "badc",
+        "cdba"
       ],
-      "correct_answer": "39",
-      "explanation": "Python evaluates arithmetic following standard operator precedence (multiplication before addition). First, `value * 11` evaluates to `2 * 11 = 22`. Then, adding `base` (17) yields `39`. The function returns this integer and `print()` outputs it."
+      "correct_answer": "dcba",
+      "explanation": "The two pointers swap opposite elements and move toward the center, reversing the array in O(n) time and O(1) auxiliary space.",
+      "metadata": {
+        "concept": "two_pointers_in_place_reversal",
+        "skill": "dsa_patterns",
+        "learning_objective": "Implement in-place array reversal using opposing two pointers",
+        "common_misconception": "Creating an extra list and wasting memory",
+        "why_this_exercise_exists": "Replaces template function with classic DSA two-pointer reversal"
+      }
     },
     {
       "id": "32.2_q6",
-      "type": "output_prediction",
-      "concept": "iteration_and_transformation_pitfalls",
-      "skill": "comprehension",
-      "difficulty": "easy",
+      "type": "fix_the_code",
+      "concept": "iteration_and_transformation_basics",
+      "skill": "debugging",
+      "difficulty": "medium",
       "prerequisites": [
         "32.2_q5"
       ],
-      "prompt": "Consider the following Python snippet demonstrating Iteration And Transformation Pitfalls:\n\n```python\ndef calculate_6(value):\n    base = 20\n    return base + value * 1\n\nresult = calculate_6(2)\nprint(result)\n```\n\nWhat is the value printed to the console?",
-      "options": [
-        "22",
-        "21",
-        "22",
-        "TypeError"
-      ],
-      "correct_answer": "22",
-      "explanation": "Python evaluates arithmetic following standard operator precedence (multiplication before addition). First, `value * 1` evaluates to `2 * 1 = 2`. Then, adding `base` (20) yields `22`. The function returns this integer and `print()` outputs it."
+      "prompt": "The code below intends to remove all zeros in-place or filter them out, but modifying a list while iterating over it causes it to skip elements! Fix the implementation using a clean list comprehension:\n\n```python\n# Buggy:\nnums = [0, 1, 0, 3, 12]\nfor x in nums:\n    if x == 0:\n        nums.remove(x)\n```",
+      "starter_code": "nums = [0, 1, 0, 3, 12]\n# Fix by creating filtered non-zero list\n",
+      "solution_code": "nums = [0, 1, 0, 3, 12]\nnon_zeros = [x for x in nums if x != 0]\nprint(non_zeros)",
+      "explanation": "Mutating a list while iterating over it with a `for` loop shifts internal indexes, causing elements to be silently skipped. Filtering into a new list or rebuilding avoids mutation bugs.",
+      "metadata": {
+        "concept": "iteration_mutation_hazard",
+        "skill": "debugging",
+        "learning_objective": "Avoid modifying lists in-place during standard for-loop iteration",
+        "common_misconception": "Assuming list.remove() inside for x in list works correctly",
+        "why_this_exercise_exists": "Replaces template function with a notorious Python iteration bug"
+      }
     },
     {
       "id": "32.2_q7",

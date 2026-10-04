@@ -10,100 +10,131 @@
       "skill": "recognition",
       "difficulty": "easy",
       "prerequisites": [],
-      "title": "input() Part 1: The Input Function Basics",
-      "content": "In Python, **The Input Function Basics** provides essential rules when working with the input() function.\n\nUnderstanding how `the_input_function_basics` functions in practice enables you to write clean, unambiguous code.\n\n```python\n# Step 1: the_input_function_basics\nstage_1 = True\n```",
-      "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of the input function basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "title": "How the input() Function Operates",
+      "content": "The `input()` function pauses program execution and waits for the user to type text into the terminal and press Enter.\n\nKey rules:\n1. `input()` ALWAYS returns a string (`str`), even if the user enters digits.\n2. To use the input as a number, it must be explicitly converted (cast) using `int()` or `float()`.\n\n```python\nname = input(\"What is your name? \")\nprint(f\"Hello, {name}!\")\n```",
+      "explanation": "Calling input() halts execution, captures user keystrokes from standard input, and always returns the captured text as a str object.",
+      "metadata": {
+        "concept": "input_fundamentals",
+        "skill": "recognition",
+        "why_this_exercise_exists": "Core teaching on input() return types"
+      }
     },
     {
       "id": "4.1_q2",
       "type": "output_prediction",
       "concept": "the_input_function_basics",
-      "skill": "recall",
+      "skill": "mental_model",
       "difficulty": "easy",
       "prerequisites": [
         "4.1_q1"
       ],
-      "prompt": "Consider the following Python snippet demonstrating The Input Function Basics:\n\n```python\ndef calculate_2(value):\n    base = 8\n    return base + value * 11\n\nresult = calculate_2(2)\nprint(result)\n```\n\nWhat is the value printed to the console?",
+      "prompt": "Consider the following code:\n\n```python\nage = input(\"Enter your age: \")\n# User types: 25\nprint(type(age))\n```\n\nWhat is printed to the console?",
       "options": [
-        "30",
-        "19",
-        "110",
+        "<class 'str'>",
+        "<class 'int'>",
+        "<class 'float'>",
         "TypeError"
       ],
-      "correct_answer": "30",
-      "explanation": "Python evaluates arithmetic following standard operator precedence (multiplication before addition). First, `value * 11` evaluates to `2 * 11 = 22`. Then, adding `base` (8) yields `30`. The function returns this integer and `print()` outputs it."
+      "correct_answer": "<class 'str'>",
+      "explanation": "In Python, the `input()` function ALWAYS returns user entry as a string (`str`), even if the user types digits. To treat the input as a number, it must be explicitly converted using `int()` or `float()`.",
+      "metadata": {
+        "concept": "input_return_type",
+        "skill": "type_awareness",
+        "learning_objective": "Understand that input() always produces a string",
+        "common_misconception": "Believing numeric keyboard input automatically becomes an int",
+        "why_this_exercise_exists": "Prevents catastrophic type errors when performing arithmetic on raw input"
+      }
     },
     {
       "id": "4.1_q3",
       "type": "micro_lesson",
-      "concept": "the_input_function_syntax",
-      "skill": "understanding",
+      "concept": "the_input_function_prompts_and_cleaning",
+      "skill": "recognition",
       "difficulty": "easy",
       "prerequisites": [
         "4.1_q2"
       ],
-      "title": "input() Part 3: The Input Function Syntax",
-      "content": "In Python, **The Input Function Syntax** provides essential rules when working with the input() function.\n\nUnderstanding how `the_input_function_syntax` functions in practice enables you to write clean, unambiguous code.\n\n```python\n# Step 3: the_input_function_syntax\nstage_3 = True\n```",
-      "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of the input function syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "title": "Prompts and Whitespace Hygiene",
+      "content": "You can pass an optional prompt string to `input(\"Enter age: \")` which displays on screen without a trailing newline.\n\nUsers often introduce accidental spaces when typing. Calling `.strip()` removes leading and trailing whitespace:\n\n```python\nuser_code = input(\"Enter code: \").strip()\n```",
+      "explanation": "Passing a prompt string keeps user entry on the same line, and strip() sanitizes extraneous surrounding whitespace.",
+      "metadata": {
+        "concept": "prompt_and_whitespace_hygiene",
+        "skill": "recognition",
+        "why_this_exercise_exists": "Teaches prompt design and input sanitization"
+      }
     },
     {
       "id": "4.1_q4",
-      "type": "output_prediction",
-      "concept": "the_input_function_syntax",
-      "skill": "reasoning",
+      "type": "code_prediction",
+      "concept": "the_input_function_basics",
+      "skill": "input_handling",
       "difficulty": "easy",
       "prerequisites": [
         "4.1_q3"
       ],
-      "prompt": "Consider the following Python snippet demonstrating The Input Function Syntax:\n\n```python\ndef calculate_4(value):\n    base = 14\n    return base + value * 6\n\nresult = calculate_4(2)\nprint(result)\n```\n\nWhat is the value printed to the console?",
+      "prompt": "Consider this code where the user enters their name with extra spaces around it:\n\n```python\nraw_name = \"  Aria  \"\ncleaned_name = raw_name.strip()\nprint(f\"Welcome, [{cleaned_name}]!\")\n```\n\nWhat is the exact output?",
       "options": [
-        "26",
-        "20",
-        "96",
-        "TypeError"
+        "Welcome, [Aria]!",
+        "Welcome, [  Aria  ]!",
+        "Welcome, [Aria ]!",
+        "SyntaxError"
       ],
-      "correct_answer": "26",
-      "explanation": "Python evaluates arithmetic following standard operator precedence (multiplication before addition). First, `value * 6` evaluates to `2 * 6 = 12`. Then, adding `base` (14) yields `26`. The function returns this integer and `print()` outputs it."
+      "correct_answer": "Welcome, [Aria]!",
+      "explanation": "User input frequently contains accidental leading or trailing whitespace. Calling `.strip()` returns a new string with surrounding whitespace removed, which is crucial for clean data processing.",
+      "metadata": {
+        "concept": "input_whitespace_cleaning",
+        "skill": "data_sanitization",
+        "learning_objective": "Sanitize user string input using strip()",
+        "common_misconception": "Assuming input() automatically trims surrounding spaces",
+        "why_this_exercise_exists": "Teaches fundamental input hygiene before storing or checking user strings"
+      }
     },
     {
       "id": "4.1_q5",
-      "type": "output_prediction",
-      "concept": "the_input_function_matching",
-      "skill": "recognition",
-      "difficulty": "easy",
+      "type": "fix_the_code",
+      "concept": "the_input_function_basics",
+      "skill": "debugging",
+      "difficulty": "medium",
       "prerequisites": [
         "4.1_q4"
       ],
-      "prompt": "Consider the following Python snippet demonstrating The Input Function Matching:\n\n```python\ndef calculate_5(value):\n    base = 17\n    return base + value * 11\n\nresult = calculate_5(2)\nprint(result)\n```\n\nWhat is the value printed to the console?",
-      "options": [
-        "39",
-        "28",
-        "209",
-        "TypeError"
-      ],
-      "correct_answer": "39",
-      "explanation": "Python evaluates arithmetic following standard operator precedence (multiplication before addition). First, `value * 11` evaluates to `2 * 11 = 22`. Then, adding `base` (17) yields `39`. The function returns this integer and `print()` outputs it."
+      "prompt": "The following program intends to greet the user with punctuation, but currently prints `Hello  Ganesh !` with awkward double spaces. Fix the concatenation or string formatting so it cleanly outputs `Hello Ganesh!` without extra spaces.\n\n```python\nname = \"Ganesh\"\n# Fix this line:\ngreeting = \"Hello \" + \" \" + name + \" !\"\nprint(greeting)\n```",
+      "starter_code": "name = \"Ganesh\"\ngreeting = \"Hello \" + \" \" + name + \" !\"\nprint(greeting)",
+      "solution_code": "name = \"Ganesh\"\ngreeting = f\"Hello {name}!\"\nprint(greeting)",
+      "explanation": "Using f-strings (`f\"Hello {name}!\"`) avoids fragile plus-operator concatenation and allows precise control over spacing and punctuation around injected variables.",
+      "metadata": {
+        "concept": "string_formatting_for_prompts",
+        "skill": "string_construction",
+        "learning_objective": "Construct clean greetings from user variables without spacing bugs",
+        "common_misconception": "Relying on manual plus concatenation leading to awkward spacing",
+        "why_this_exercise_exists": "Ensures polished CLI user interfaces"
+      }
     },
     {
       "id": "4.1_q6",
       "type": "output_prediction",
-      "concept": "the_input_function_pitfalls",
-      "skill": "comprehension",
-      "difficulty": "easy",
+      "concept": "the_input_function_basics",
+      "skill": "tracing",
+      "difficulty": "medium",
       "prerequisites": [
         "4.1_q5"
       ],
-      "prompt": "Consider the following Python snippet demonstrating The Input Function Pitfalls:\n\n```python\ndef calculate_6(value):\n    base = 20\n    return base + value * 1\n\nresult = calculate_6(2)\nprint(result)\n```\n\nWhat is the value printed to the console?",
+      "prompt": "What does the following snippet output when the user provides `\"Dev\"` for first name and `\"Roy\"` for last name?\n\n```python\nfirst = \"Dev\"\nlast = \"Roy\"\nfull_greeting = f\"User: {last.upper()}, {first.capitalize()}\"\nprint(full_greeting)\n```",
       "options": [
-        "22",
-        "21",
-        "22",
-        "TypeError"
+        "User: ROY, Dev",
+        "User: Roy, Dev",
+        "User: ROY, DEV",
+        "User: Dev, Roy"
       ],
-      "correct_answer": "22",
-      "explanation": "Python evaluates arithmetic following standard operator precedence (multiplication before addition). First, `value * 1` evaluates to `2 * 1 = 2`. Then, adding `base` (20) yields `22`. The function returns this integer and `print()` outputs it."
+      "correct_answer": "User: ROY, Dev",
+      "explanation": "`last.upper()` transforms `'Roy'` to `'ROY'`, while `first.capitalize()` ensures `'Dev'` starts with an uppercase letter and the rest lowercase. The f-string formats them as `'User: ROY, Dev'`.",
+      "metadata": {
+        "concept": "input_formatting_pipeline",
+        "skill": "string_transformation",
+        "learning_objective": "Combine input variables with case normalization methods",
+        "common_misconception": "Confusing upper() and capitalize()",
+        "why_this_exercise_exists": "Shows how raw input strings are normalized for display or indexing"
+      }
     },
     {
       "id": "4.1_q7",
@@ -160,22 +191,24 @@
     },
     {
       "id": "4.1_q10",
-      "type": "output_prediction",
-      "concept": "the_input_function_analysis",
-      "skill": "analysis",
+      "type": "write_the_code",
+      "concept": "the_input_function_basics",
+      "skill": "construction",
       "difficulty": "medium",
       "prerequisites": [
         "4.1_q9"
       ],
-      "prompt": "Consider the following Python snippet demonstrating The Input Function Analysis:\n\n```python\ndef calculate_10(value):\n    base = 12\n    return base + value * 6\n\nresult = calculate_10(2)\nprint(result)\n```\n\nWhat is the value printed to the console?",
-      "options": [
-        "24",
-        "18",
-        "84",
-        "TypeError"
-      ],
-      "correct_answer": "24",
-      "explanation": "Python evaluates arithmetic following standard operator precedence (multiplication before addition). First, `value * 6` evaluates to `2 * 6 = 12`. Then, adding `base` (12) yields `24`. The function returns this integer and `print()` outputs it."
+      "prompt": "Write a complete program snippet that stores a first name `'Maya'` and a last name `'Lin'`, strips any whitespace, and constructs a clean greeting string `'Greetings, Maya Lin!'` stored in a variable called `greeting`.",
+      "starter_code": "first = \"  Maya \"\nlast = \" Lin  \"\n# Strip whitespace and build greeting\n",
+      "solution_code": "first = \"  Maya \"\nlast = \" Lin  \"\ngreeting = f\"Greetings, {first.strip()} {last.strip()}!\"\nprint(greeting)",
+      "explanation": "Calling `.strip()` on both `first` and `last` removes unintentional leading/trailing whitespace before interpolating them into the formatted greeting.",
+      "metadata": {
+        "concept": "input_sanitization_and_assembly",
+        "skill": "implementation",
+        "learning_objective": "Implement an end-to-end user input normalization routine",
+        "common_misconception": "Overlooking whitespace inside user inputs",
+        "why_this_exercise_exists": "Builds authentic CLI data collection skills"
+      }
     },
     {
       "id": "4.1_q11",
@@ -218,34 +251,42 @@
     {
       "id": "4.1_q13",
       "type": "fill_in_the_blank",
-      "concept": "the_input_function_syntax",
+      "concept": "input_prompt_formatting",
       "skill": "syntax",
       "difficulty": "easy",
       "prerequisites": [
         "4.1_q12"
       ],
-      "prompt": "Complete the code to output 'input() #13':\n```python\n___('input() #13')\n```",
-      "correct_answer": "print",
+      "prompt": "Fill in the blank to prompt the user with `\"Enter city: \"` and store the result in `city`:\n\n```python\ncity = ___(\"Enter city: \")\n```",
+      "correct_answer": "input",
       "accepted_answers": [
-        "print"
+        "input"
       ],
-      "explanation": "In Python, this operation directly demonstrates the core behavior of the input function syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Passing a prompt string argument to `input(\"Enter city: \")` prints the prompt text to standard output without adding a trailing newline, keeping the user's cursor on the same line.",
+      "metadata": {
+        "concept": "input_prompt",
+        "skill": "syntax",
+        "why_this_exercise_exists": "Replaces filler with practical prompt syntax"
+      }
     },
     {
       "id": "4.1_q14",
-      "type": "fill_in_the_blank",
-      "concept": "the_input_function_keywords",
-      "skill": "syntax",
+      "type": "write_the_code",
+      "concept": "input_normalization_upper",
+      "skill": "transformation",
       "difficulty": "medium",
       "prerequisites": [
         "4.1_q13"
       ],
-      "prompt": "Complete the code to output 'input() #14':\n```python\n___('input() #14')\n```",
-      "correct_answer": "print",
-      "accepted_answers": [
-        "print"
-      ],
-      "explanation": "In Python, this operation directly demonstrates the core behavior of the input function keywords. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "prompt": "Given `code = 'ny'`, convert the input code to uppercase `'NY'` and print `f'State: {code.upper()}'`.",
+      "starter_code": "code = \"ny\"\n# Convert to uppercase and print\n",
+      "solution_code": "code = \"ny\"\nstate_code = code.upper()\nprint(f\"State: {state_code}\")",
+      "explanation": "Normalizing user input with `.upper()` ensures case-insensitive matching across database records and lookups.",
+      "metadata": {
+        "concept": "case_normalization",
+        "skill": "transformation",
+        "why_this_exercise_exists": "Replaces filler with practical input normalization"
+      }
     },
     {
       "id": "4.1_q15",
@@ -273,19 +314,27 @@
     },
     {
       "id": "4.1_q16",
-      "type": "fill_in_the_blank",
-      "concept": "the_input_function_patterns",
-      "skill": "syntax",
+      "type": "code_prediction",
+      "concept": "input_isdigit_validation",
+      "skill": "validation",
       "difficulty": "medium",
       "prerequisites": [
         "4.1_q15"
       ],
-      "prompt": "Complete the code to output 'input() #16':\n```python\n___('input() #16')\n```",
-      "correct_answer": "print",
-      "accepted_answers": [
-        "print"
+      "prompt": "What does `\"42\".isdigit()` return when validating user input?",
+      "options": [
+        "True",
+        "False",
+        "TypeError",
+        "42"
       ],
-      "explanation": "In Python, this operation directly demonstrates the core behavior of the input function patterns. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "correct_answer": "True",
+      "explanation": "`.isdigit()` checks if all characters in the string are digits (0-9). For `\"42\"`, it returns `True`, making it an effective pre-check before calling `int()`.",
+      "metadata": {
+        "concept": "input_digit_validation",
+        "skill": "validation",
+        "why_this_exercise_exists": "Replaces filler with input validation"
+      }
     },
     {
       "id": "4.1_q17",
@@ -313,19 +362,22 @@
     },
     {
       "id": "4.1_q18",
-      "type": "fill_in_the_blank",
-      "concept": "the_input_function_idioms",
-      "skill": "syntax",
+      "type": "fix_the_code",
+      "concept": "input_cleaning_strip",
+      "skill": "sanitization",
       "difficulty": "medium",
       "prerequisites": [
         "4.1_q17"
       ],
-      "prompt": "Complete the code to output 'input() #18':\n```python\n___('input() #18')\n```",
-      "correct_answer": "print",
-      "accepted_answers": [
-        "print"
-      ],
-      "explanation": "In Python, this operation directly demonstrates the core behavior of the input function idioms. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "prompt": "Fix the line below to strip surrounding quotation marks from user input `raw_tag = '\"science\"'`:\n\n```python\nraw_tag = '\"science\"'\n# Fix using strip:\nclean_tag = raw_tag.strip('\"')\nprint(clean_tag)\n```",
+      "starter_code": "raw_tag = '\"science\"'\nclean_tag = raw_tag.strip('\"')\nprint(clean_tag)",
+      "solution_code": "raw_tag = '\"science\"'\nclean_tag = raw_tag.strip('\"')\nprint(clean_tag)",
+      "explanation": "Passing characters to `.strip('\"')` instructs Python to strip double quote characters from the start and end of the string, yielding `'science'`.",
+      "metadata": {
+        "concept": "custom_character_stripping",
+        "skill": "sanitization",
+        "why_this_exercise_exists": "Replaces filler with custom stripping"
+      }
     },
     {
       "id": "4.1_q19",
@@ -340,7 +392,7 @@
       "starter_code": "Print('input() Item 19')",
       "solution_code": "print('input() Item 19')",
       "hint": "Python built-in functions like print() must be written in lowercase.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of the input function errors. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `the input function errors` in The input() Function. When Python validates this code, it applies the standard rules of the input function errors. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "4.1_q20",
@@ -355,7 +407,7 @@
       "starter_code": "Print('input() Item 20')",
       "solution_code": "print('input() Item 20')",
       "hint": "Python built-in functions like print() must be written in lowercase.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of the input function fix. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `the input function fix` in The input() Function. When Python validates this code, it applies the standard rules of the input function fix. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "4.1_q21",
@@ -370,7 +422,7 @@
       "starter_code": "Print('input() Item 21')",
       "solution_code": "print('input() Item 21')",
       "hint": "Python built-in functions like print() must be written in lowercase.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of the input function edge cases. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `the input function edge cases` in The input() Function. When Python validates this code, it applies the standard rules of the input function edge cases. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "4.1_q22",
@@ -385,7 +437,7 @@
       "starter_code": "Print('input() Item 22')",
       "solution_code": "print('input() Item 22')",
       "hint": "Python built-in functions like print() must be written in lowercase.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of the input function runtime. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `the input function runtime` in The input() Function. When Python validates this code, it applies the standard rules of the input function runtime. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "4.1_q23",
@@ -400,7 +452,7 @@
       "starter_code": "Print('input() Item 23')",
       "solution_code": "print('input() Item 23')",
       "hint": "Python built-in functions like print() must be written in lowercase.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of the input function logic repair. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `the input function logic repair` in The input() Function. When Python validates this code, it applies the standard rules of the input function logic repair. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "4.1_q24",
@@ -415,7 +467,7 @@
       "starter_code": "Print('input() Item 24')",
       "solution_code": "print('input() Item 24')",
       "hint": "Python built-in functions like print() must be written in lowercase.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of the input function optimization. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `the input function optimization` in The input() Function. When Python validates this code, it applies the standard rules of the input function optimization. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "4.1_q25",

@@ -13,7 +13,7 @@
       "difficulty": "easy",
       "prerequisites": [],
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of set comprehensions basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "A set comprehension is a concise way to create a set by iterating over an iterable and applying an expression to each element. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "idx": 2,
@@ -48,7 +48,7 @@
         "16.5_q2"
       ],
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of set comprehensions syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "The general syntax for a set comprehension is `{expression for target in iterable}`. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "idx": 4,
@@ -188,7 +188,7 @@
           "expected_output": "Set Comprehensions"
         }
       ],
-      "explanation": "In Python, this operation directly demonstrates the core behavior of set comprehensions analysis. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `set comprehensions analysis` in Set Comprehensions. When Python validates this code, it applies the standard rules of set comprehensions analysis. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "16.5_q11",
@@ -419,31 +419,21 @@
     {
       "id": "16.5_q24",
       "type": "write_the_code",
-      "concept": "set_comprehensions_optimization",
-      "skill": "refactoring",
-      "difficulty": "hard",
+      "concept": "set_comprehensions_extension_dedup",
+      "skill": "comprehensions",
+      "difficulty": "medium",
       "prerequisites": [
         "16.5_q23"
       ],
-      "starter_code": "def get_unique_lengths(strings):\n    lengths = []\n    for s in strings:\n        lengths.append(len(s))\n    return set(lengths)\n\nitems = ['alpha', 'beta', 'gamma', 'delta', 'epsilon']\nprint(get_unique_lengths(items))",
-      "solution_code": "def get_unique_lengths(strings):\n    return {len(s) for s in strings}\n\nitems = ['alpha', 'beta', 'gamma', 'delta', 'epsilon']\nprint(get_unique_lengths(items))",
-      "test_cases": [
-        {
-          "input": "['a', 'bb', 'ccc', 'bb', 'a']",
-          "expected": "{1, 2, 3}"
-        },
-        {
-          "input": "[]",
-          "expected": "{}"
-        },
-        {
-          "input": "['same', 'same', 'same']",
-          "expected": "{4}"
-        }
-      ],
-      "hint": "Eliminate the intermediate list and perform the length calculation directly inside the set comprehension.",
-      "explanation": "The original implementation builds an intermediate list and then converts it to a set, which uses extra memory. The refactored version uses a set comprehension {len(s) for s in strings} to compute lengths and deduplicate in a single pass, improving both time and space complexity.",
-      "prompt": "Write Python code to solve this challenge for Set Comprehensions: (Variation 24)"
+      "prompt": "Write a set comprehension to extract the unique file extensions (in lowercase) from `filenames = ['doc.PDF', 'img.png', 'notes.pdf', 'table.csv']`.",
+      "starter_code": "filenames = [\"doc.PDF\", \"img.png\", \"notes.pdf\", \"table.csv\"]\n# Build set of unique lowercase extensions\n",
+      "solution_code": "filenames = [\"doc.PDF\", \"img.png\", \"notes.pdf\", \"table.csv\"]\nextensions = {f.split(\".\")[-1].lower() for f in filenames}\nprint(sorted(extensions))",
+      "explanation": "Set comprehensions `{...}` automatically deduplicate items. Slicing with `.split('.')[-1].lower()` creates `{'csv', 'pdf', 'png'}`.",
+      "metadata": {
+        "concept": "set_comprehension_deduplication",
+        "skill": "comprehensions",
+        "why_this_exercise_exists": "Replaces variation with practical set comprehension"
+      }
     },
     {
       "id": "16.5_q25",

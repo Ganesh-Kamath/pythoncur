@@ -13,7 +13,7 @@
       "title": "Valid Parentheses and History Problems: The Basics",
       "content": "In this micro-lesson, we explore two classic algorithmic problems that rely heavily on stacks and queues. First, Valid Parentheses asks whether a string of brackets is properly balanced: every opening symbol must have a corresponding closing symbol in the correct order. Second, History Problems often involve tracking events in chronological order, where a queue naturally models the sequence of arrivals. To solve Valid Parentheses, we use a stack: push opening brackets and pop when a matching closing bracket appears. If the stack is empty at the end and no mismatches occurred, the string is valid. For History Problems, we enqueue events as they happen and dequeue them in order to process or query past states. These two patterns are foundational for more complex data structure applications.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of valid parentheses and history problems basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "In this micro-lesson, we explore two classic algorithmic problems that rely heavily on stacks and queues. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "34.3_q2",
@@ -46,7 +46,7 @@
       "title": "Syntax and Implementation of Parentheses Checking",
       "content": "To implement Valid Parentheses in Python, we use a list as a stack. We iterate through each character in the string. If the character is an opening bracket ('(', '{', or '['), we append it to our stack. If it is a closing bracket, we check whether the stack is non-empty and whether the top element matches the corresponding opening bracket. We use a mapping dictionary to relate closing to opening brackets. After processing all characters, the string is valid only if the stack is empty. Here is a concise implementation:\n\n```python\ndef is_valid(s):\n    stack = []\n    mapping = {\n        ')': '(',\n        '}': '{',\n        ']': '['\n    }\n    for char in s:\n        if char in mapping.values():\n            stack.append(char)\n        elif char in mapping:\n            if not stack or stack[-1] != mapping[char]:\n                return False\n            stack.pop()\n        else:\n            return False\n    return not stack\n```\n\nFor History Problems, a queue can be simulated with `collections.deque`. Events are appended to the right and removed from the left, preserving chronological order.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of valid parentheses and history problems syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "To implement Valid Parentheses in Python, we use a list as a stack. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "34.3_q4",
@@ -362,7 +362,7 @@
       "starter_code": "Print('Valid Parentheses and History Problems Item 19')",
       "solution_code": "print('Valid Parentheses and History Problems Item 19')",
       "hint": "Python built-in functions like print() must be written in lowercase.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of valid parentheses and history problems errors. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `valid parentheses and history problems errors` in Valid Parentheses and History Problems. When Python validates this code, it applies the standard rules of valid parentheses and history problems errors. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "34.3_q20",
@@ -377,7 +377,7 @@
       "starter_code": "Print('Valid Parentheses and History Problems Item 20')",
       "solution_code": "print('Valid Parentheses and History Problems Item 20')",
       "hint": "Python built-in functions like print() must be written in lowercase.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of valid parentheses and history problems fix. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `valid parentheses and history problems fix` in Valid Parentheses and History Problems. When Python validates this code, it applies the standard rules of valid parentheses and history problems fix. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "34.3_q21",
@@ -392,7 +392,7 @@
       "starter_code": "Print('Valid Parentheses and History Problems Item 21')",
       "solution_code": "print('Valid Parentheses and History Problems Item 21')",
       "hint": "Python built-in functions like print() must be written in lowercase.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of valid parentheses and history problems edge cases. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `valid parentheses and history problems edge cases` in Valid Parentheses and History Problems. When Python validates this code, it applies the standard rules of valid parentheses and history problems edge cases. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "34.3_q22",
@@ -407,7 +407,7 @@
       "starter_code": "Print('Valid Parentheses and History Problems Item 22')",
       "solution_code": "print('Valid Parentheses and History Problems Item 22')",
       "hint": "Python built-in functions like print() must be written in lowercase.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of valid parentheses and history problems runtime. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `valid parentheses and history problems runtime` in Valid Parentheses and History Problems. When Python validates this code, it applies the standard rules of valid parentheses and history problems runtime. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "34.3_q23",
@@ -422,7 +422,7 @@
       "starter_code": "Print('Valid Parentheses and History Problems Item 23')",
       "solution_code": "print('Valid Parentheses and History Problems Item 23')",
       "hint": "Python built-in functions like print() must be written in lowercase.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of valid parentheses and history problems logic repair. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `valid parentheses and history problems logic repair` in Valid Parentheses and History Problems. When Python validates this code, it applies the standard rules of valid parentheses and history problems logic repair. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "34.3_q24",

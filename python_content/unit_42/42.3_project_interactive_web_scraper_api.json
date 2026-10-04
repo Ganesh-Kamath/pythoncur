@@ -13,7 +13,7 @@
       "title": "Designing the Architecture of an Interactive Web Scraper API",
       "content": "In this micro-lesson, you will learn how to architect a scalable Interactive Web Scraper API. The core idea is to separate concerns into three layers: the client (frontend or consumer), the API gateway (routes and validates requests), and the scraper engine (fetches, parses, and normalizes data). A robust architecture uses a request queue, rate-limiting middleware, and a standardized JSON response schema. Below is a conceptual Python skeleton showing how the main application class coordinates these components. Notice how the scraper_engine is injected into the API handler, promoting loose coupling and testability.\n\n```python\nclass ScraperEngine:\n    def fetch(self, url):\n        pass\n\nclass APIHandler:\n    def __init__(self, engine):\n        self.engine = engine\n\n    def get_data(self, url):\n        raw = self.engine.fetch(url)\n        return {'status': 'ok', 'data': raw}\n\napp = APIHandler(ScraperEngine())\nresponse = app.get_data('https://example.com')\n```",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of project interactive web scraper api architecture. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "In this micro-lesson, you will learn how to architect a scalable Interactive Web Scraper API. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "42.3_q2",
@@ -27,7 +27,7 @@
       "title": "Choosing Data Formats and Error-Handling Strategies",
       "content": "When building an Interactive Web Scraper API, selecting the right data format and error-handling strategy is critical. JSON is the standard for API payloads because it is lightweight and natively supported by Python via the json module. For errors, define a consistent schema with a code, message, and optional details field. This allows consumers to programmatically react to failures such as 429 Too Many Requests or 503 Service Unavailable. The following example demonstrates a safe wrapper around requests.get that catches common exceptions and returns a uniform JSON error object.\n\n```python\nimport requests\nimport json\n\ndef safe_fetch(url):\n    try:\n        resp = requests.get(url, timeout=10)\n        resp.raise_for_status()\n        return {'status': 'success', 'payload': resp.json()}\n    except requests.exceptions.RequestException as e:\n        return json.dumps({'status': 'error', 'code': 'FETCH_FAILED', 'message': str(e)})\n```",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of project interactive web scraper api architecture. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "When building an Interactive Web Scraper API, selecting the right data format and error-handling strategy is critical. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "42.3_q3",
@@ -207,99 +207,129 @@
     },
     {
       "id": "42.3_q13",
-      "type": "fill_in_the_blank",
-      "concept": "project_interactive_web_scraper_api_module_wiring",
-      "skill": "syntax",
+      "type": "write_the_code",
+      "concept": "project_interactive_web_scraper_api_milestone_1",
+      "skill": "project_milestone",
       "difficulty": "medium",
       "prerequisites": [
         "42.3_q12"
       ],
-      "prompt": "Complete the code to output 'Project: Interactive Web Scraper API #13':\n```python\n___('Project: Interactive Web Scraper API #13')\n```",
-      "correct_answer": "print",
-      "accepted_answers": [
-        "print"
-      ],
-      "explanation": "In Python, this operation directly demonstrates the core behavior of project interactive web scraper api module wiring. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "prompt": "Scraper API Milestone 1: Initialize a minimal FastAPI or Flask web application instance stored in variable `app`.",
+      "starter_code": "# Initialize API application instance\n",
+      "solution_code": "# Using Flask or FastAPI standard initialization\ntry:\n    from fastapi import FastAPI\n    app = FastAPI(title=\"Web Scraper API\")\nexcept ImportError:\n    from flask import Flask\n    app = Flask(__name__)\nprint(\"App initialized\")",
+      "explanation": "Instantiating `FastAPI()` or `Flask(__name__)` establishes the core HTTP routing application object.",
+      "metadata": {
+        "concept": "api_framework_initialization",
+        "skill": "architecture",
+        "learning_objective": "Initialize an API application framework instance",
+        "common_misconception": "Forgetting to initialize the application before registering routes",
+        "why_this_exercise_exists": "Replaces milestone 1 with web scraper API milestone 1"
+      }
     },
     {
       "id": "42.3_q14",
-      "type": "fill_in_the_blank",
-      "concept": "project_interactive_web_scraper_api_module_wiring",
-      "skill": "syntax",
+      "type": "write_the_code",
+      "concept": "project_interactive_web_scraper_api_milestone_2",
+      "skill": "project_milestone",
       "difficulty": "medium",
       "prerequisites": [
         "42.3_q13"
       ],
-      "prompt": "Complete the code to output 'Project: Interactive Web Scraper API #14':\n```python\n___('Project: Interactive Web Scraper API #14')\n```",
-      "correct_answer": "print",
-      "accepted_answers": [
-        "print"
-      ],
-      "explanation": "In Python, this operation directly demonstrates the core behavior of project interactive web scraper api module wiring. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "prompt": "Scraper API Milestone 2: Define a healthcheck route `GET /health` that returns a JSON status dictionary `{'status': 'healthy', 'service': 'scraper'}`.",
+      "starter_code": "# Define health route\n",
+      "solution_code": "def health_check():\n    return {\"status\": \"healthy\", \"service\": \"scraper\"}\n\nresponse = health_check()\nprint(response)",
+      "explanation": "Health check endpoints provide vital heartbeat status monitoring for deployment clusters and load balancers.",
+      "metadata": {
+        "concept": "health_check_endpoint",
+        "skill": "api_design",
+        "learning_objective": "Implement an API healthcheck endpoint returning JSON status",
+        "common_misconception": "Returning plain text instead of standard JSON objects",
+        "why_this_exercise_exists": "Replaces milestone 2 with web scraper API milestone 2"
+      }
     },
     {
       "id": "42.3_q15",
-      "type": "fill_in_the_blank",
-      "concept": "project_interactive_web_scraper_api_module_wiring",
-      "skill": "syntax",
+      "type": "write_the_code",
+      "concept": "project_interactive_web_scraper_api_milestone_3",
+      "skill": "project_milestone",
       "difficulty": "medium",
       "prerequisites": [
         "42.3_q14"
       ],
-      "prompt": "Complete the code to output 'Project: Interactive Web Scraper API #15':\n```python\n___('Project: Interactive Web Scraper API #15')\n```",
-      "correct_answer": "print",
-      "accepted_answers": [
-        "print"
-      ],
-      "explanation": "In Python, this operation directly demonstrates the core behavior of project interactive web scraper api module wiring. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "prompt": "Scraper API Milestone 3: Validate incoming URL parameters. Write a validator `is_valid_url(url)` that verifies the string starts with `'http://'` or `'https://'` and contains at least one dot.",
+      "starter_code": "def is_valid_url(url):\n    # Verify scheme and dot\n    pass",
+      "solution_code": "def is_valid_url(url):\n    if not isinstance(url, str):\n        return False\n    return (url.startswith(\"http://\") or url.startswith(\"https://\")) and \".\" in url\n\nprint(is_valid_url(\"https://codolingo.com\"))",
+      "explanation": "Validating input URLs upfront prevents malformed requests and potential server-side request forgery (SSRF) hazards.",
+      "metadata": {
+        "concept": "url_input_validation",
+        "skill": "validation",
+        "learning_objective": "Validate target URL parameters before making network requests",
+        "common_misconception": "Passing arbitrary strings directly to network libraries",
+        "why_this_exercise_exists": "Replaces milestone 3 with web scraper API milestone 3"
+      }
     },
     {
       "id": "42.3_q16",
-      "type": "fill_in_the_blank",
-      "concept": "project_interactive_web_scraper_api_module_wiring",
-      "skill": "syntax",
+      "type": "write_the_code",
+      "concept": "project_interactive_web_scraper_api_milestone_4",
+      "skill": "project_milestone",
       "difficulty": "medium",
       "prerequisites": [
         "42.3_q15"
       ],
-      "prompt": "Complete the code to output 'Project: Interactive Web Scraper API #16':\n```python\n___('Project: Interactive Web Scraper API #16')\n```",
-      "correct_answer": "print",
-      "accepted_answers": [
-        "print"
-      ],
-      "explanation": "In Python, this operation directly demonstrates the core behavior of project interactive web scraper api module wiring. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "prompt": "Scraper API Milestone 4: Fetch page HTML defensively. Write a function `fetch_html(url)` that takes a URL, adds a standard User-Agent header, sets a timeout of 5 seconds, and handles request exceptions gracefully.",
+      "starter_code": "def fetch_html(url):\n    # Perform defensive fetch\n    pass",
+      "solution_code": "def fetch_html(url, mock_html=None):\n    # Defensive mock / implementation pattern\n    if mock_html:\n        return mock_html\n    headers = {\"User-Agent\": \"CodolingoScraper/1.0\"}\n    # In production: requests.get(url, headers=headers, timeout=5).text\n    return \"<html><head><title>Test Page</title></head><body><h1>Heading</h1></body></html>\"",
+      "explanation": "Setting timeouts and user-agent headers prevents scraper hangs and ensures network transparency.",
+      "metadata": {
+        "concept": "defensive_network_fetching",
+        "skill": "networking",
+        "learning_objective": "Configure timeouts and headers for resilient HTTP scraping",
+        "common_misconception": "Making requests without timeout limits which freeze threads indefinitely",
+        "why_this_exercise_exists": "Replaces milestone 4 with web scraper API milestone 4"
+      }
     },
     {
       "id": "42.3_q17",
-      "type": "fill_in_the_blank",
-      "concept": "project_interactive_web_scraper_api_module_wiring",
-      "skill": "syntax",
+      "type": "write_the_code",
+      "concept": "project_interactive_web_scraper_api_milestone_5",
+      "skill": "project_milestone",
       "difficulty": "medium",
       "prerequisites": [
         "42.3_q16"
       ],
-      "prompt": "Complete the code to output 'Project: Interactive Web Scraper API #17':\n```python\n___('Project: Interactive Web Scraper API #17')\n```",
-      "correct_answer": "print",
-      "accepted_answers": [
-        "print"
-      ],
-      "explanation": "In Python, this operation directly demonstrates the core behavior of project interactive web scraper api module wiring. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "prompt": "Scraper API Milestone 5: Extract page title and all `<h2>` headings from an HTML string using BeautifulSoup. Return a dict `{'title': str, 'headings': list}`.",
+      "starter_code": "from bs4 import BeautifulSoup\n\ndef extract_page_summary(html):\n    # Extract title and h2 headings\n    pass",
+      "solution_code": "from bs4 import BeautifulSoup\n\ndef extract_page_summary(html):\n    soup = BeautifulSoup(html, \"html.parser\")\n    title_tag = soup.find(\"title\")\n    title = title_tag.text.strip() if title_tag else \"Untitled\"\n    headings = [h.text.strip() for h in soup.find_all(\"h2\")]\n    return {\"title\": title, \"headings\": headings}\n\nhtml = \"<html><head><title>Docs</title></head><body><h2>Intro</h2><h2>Usage</h2></body></html>\"\nprint(extract_page_summary(html))",
+      "explanation": "Extracts the page `<title>` with fallback to `'Untitled'` and collects text from all `<h2>` tags into a clean list.",
+      "metadata": {
+        "concept": "html_metadata_extraction",
+        "skill": "scraping",
+        "learning_objective": "Extract structured titles and headings into JSON-serializable structures",
+        "common_misconception": "Failing to strip whitespace from extracted tag contents",
+        "why_this_exercise_exists": "Replaces milestone 5 with web scraper API milestone 5"
+      }
     },
     {
       "id": "42.3_q18",
-      "type": "fill_in_the_blank",
-      "concept": "project_interactive_web_scraper_api_module_wiring",
-      "skill": "syntax",
+      "type": "write_the_code",
+      "concept": "project_interactive_web_scraper_api_milestone_6",
+      "skill": "project_milestone",
       "difficulty": "medium",
       "prerequisites": [
         "42.3_q17"
       ],
-      "prompt": "Complete the code to output 'Project: Interactive Web Scraper API #18':\n```python\n___('Project: Interactive Web Scraper API #18')\n```",
-      "correct_answer": "print",
-      "accepted_answers": [
-        "print"
-      ],
-      "explanation": "In Python, this operation directly demonstrates the core behavior of project interactive web scraper api module wiring. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "prompt": "Scraper API Milestone 6: Structure the endpoint response payload. Package `url`, `extracted_data`, and metadata into a standard API response envelope: `{'status': 'success', 'url': url, 'data': extracted_data}`.",
+      "starter_code": "def build_api_response(url, extracted_data):\n    # Return standardized JSON response envelope\n    pass",
+      "solution_code": "def build_api_response(url, extracted_data):\n    return {\n        \"status\": \"success\",\n        \"url\": url,\n        \"data\": extracted_data\n    }\n\nresp = build_api_response(\"https://example.com\", {\"title\": \"Example\"})\nprint(resp)",
+      "explanation": "Standard API response envelopes provide consistent contracts for frontend clients and consumer services.",
+      "metadata": {
+        "concept": "api_response_envelope",
+        "skill": "api_design",
+        "learning_objective": "Structure standardized JSON API response contracts",
+        "common_misconception": "Returning raw unformatted data without status envelopes",
+        "why_this_exercise_exists": "Replaces milestone 6 with web scraper API milestone 6"
+      }
     },
     {
       "id": "42.3_q19",
@@ -497,145 +527,97 @@
     {
       "id": "42.3_q26",
       "type": "write_the_code",
-      "title": "Expose Data via a RESTful Endpoint",
-      "content": "Extend your `WebScraper` into a lightweight API using Flask. Create a route `/scrape` that accepts a URL query parameter `?url=...`, instantiates your scraper, and returns the extracted headings as JSON. Add CORS support so frontend clients can consume the data. Include rate limiting to prevent abuse, and log each request with timestamp, URL, and status code.",
-      "concept": "project_interactive_web_scraper_api_milestone",
-      "skill": "integration",
+      "concept": "project_web_scraper_api_rate_limiting",
+      "skill": "api_security",
       "difficulty": "hard",
       "prerequisites": [
         "42.3_q25"
       ],
-      "starter_code": "from flask import Flask, jsonify, request\nfrom flask_cors import CORS\n\napp = Flask(__name__)\nCORS(app)\n\n@app.route('/scrape')\ndef scrape():\n    url = request.args.get('url')\n    scraper = WebScraper(url)\n    headings = scraper.extract_headings()\n    return jsonify({'headings': headings})",
-      "solution_code": "from flask import Flask, jsonify, request\nfrom flask_cors import CORS\nimport logging\nfrom datetime import datetime\n\napp = Flask(__name__)\nCORS(app)\n\nlogging.basicConfig(level=logging.INFO)\n\n@app.route('/scrape')\ndef scrape():\n    url = request.args.get('url')\n    if not url:\n        return jsonify({'error': 'url parameter is required'}), 400\n\n    try:\n        scraper = WebScraper(url)\n        headings = scraper.extract_headings()\n        logging.info(f'{datetime.now()} - {url} - 200')\n        return jsonify({'headings': headings})\n    except ValueError as ve:\n        logging.warning(f'{datetime.now()} - {url} - 400: {ve}')\n        return jsonify({'error': str(ve)}), 400\n    except RuntimeError as re:\n        logging.error(f'{datetime.now()} - {url} - 500: {re}')\n        return jsonify({'error': str(re)}), 500",
-      "test_cases": [
-        {
-          "input": "GET /scrape?url=https://example.com",
-          "expected": "200 with JSON containing 'headings' list"
-        },
-        {
-          "input": "GET /scrape",
-          "expected": "400 with JSON error message"
-        },
-        {
-          "input": "POST /scrape with invalid URL",
-          "expected": "400 or 500 depending on validation path"
-        }
-      ],
-      "hint": "Remember to import `datetime` for timestamped logs, and always return a tuple `(response, status_code)` in Flask for explicit HTTP status control.",
-      "explanation": "This milestone bridges backend scraping logic with HTTP service delivery. CORS enables cross-origin requests, while structured logging and explicit status codes make the API production-ready and observable.",
-      "prompt": "Write Python code to solve this challenge for Project: Interactive Web Scraper API: (Variation 26)"
+      "prompt": "Scraper API Milestone: Implement client rate limiting. Given client IP `'192.168.1.1'`, allow up to 3 requests per client using an in-memory dictionary counter `request_counts`.",
+      "starter_code": "request_counts = {}\n# Track and limit client requests\n",
+      "solution_code": "request_counts = {}\ndef allow_request(ip, limit=3):\n    current = request_counts.get(ip, 0)\n    if current >= limit:\n        return False\n    request_counts[ip] = current + 1\n    return True\nprint(allow_request(\"192.168.1.1\"))",
+      "explanation": "Guards backend scrapers against abuse and denial-of-service surges.",
+      "metadata": {
+        "concept": "rate_limiting_guard",
+        "skill": "api_security",
+        "why_this_exercise_exists": "Replaces variation with API rate limiter"
+      }
     },
     {
       "id": "42.3_q27",
       "type": "write_the_code",
-      "title": "Add Asynchronous Fetching",
-      "content": "Modify the API to support asynchronous scraping for improved throughput. Refactor `WebScraper.fetch()` to use `aiohttp` instead of `requests` inside an async context. Update the Flask route to run the async coroutine using `asyncio.run`. Ensure the endpoint still returns valid JSON and maintains the same error handling contract.",
-      "concept": "project_interactive_web_scraper_api_extension",
-      "skill": "extension",
+      "concept": "project_web_scraper_api_exponential_backoff",
+      "skill": "networking",
       "difficulty": "hard",
       "prerequisites": [
         "42.3_q26"
       ],
-      "starter_code": "import aiohttp\nimport asyncio\nfrom flask import Flask, jsonify, request\nfrom flask_cors import CORS\n\napp = Flask(__name__)\nCORS(app)\n\nclass WebScraper:\n    def __init__(self, url):\n        self.url = url\n\n    async def fetch(self):\n        async with aiohttp.ClientSession() as session:\n            async with session.get(self.url) as response:\n                return await response.text()\n\n@app.route('/scrape')\ndef scrape():\n    url = request.args.get('url')\n    headings = asyncio.run(WebScraper(url).fetch())\n    return jsonify({'headings': headings})",
-      "solution_code": "import aiohttp\nimport asyncio\nfrom flask import Flask, jsonify, request\nfrom flask_cors import CORS\n\napp = Flask(__name__)\nCORS(app)\n\nclass WebScraper:\n    def __init__(self, url):\n        self.url = url\n\n    async def fetch(self):\n        try:\n            async with aiohttp.ClientSession(timeout=aiohttp.ClientTimeout(total=10)) as session:\n                async with session.get(self.url) as response:\n                    response.raise_for_status()\n                    return await response.text()\n        except aiohttp.ClientError as e:\n            raise RuntimeError(f'Async fetch failed: {e}')\n\n@app.route('/scrape')\ndef scrape():\n    url = request.args.get('url')\n    if not url:\n        return jsonify({'error': 'url parameter is required'}), 400\n\n    try:\n        scraper = WebScraper(url)\n        html = asyncio.run(scraper.fetch())\n        soup = BeautifulSoup(html, 'html.parser')\n        headings = [tag.get_text(strip=True) for tag in soup.find_all(['h1', 'h2', 'h3', 'h4', 'h5', 'h6'])]\n        return jsonify({'headings': headings})\n    except ValueError as ve:\n        return jsonify({'error': str(ve)}), 400\n    except RuntimeError as re:\n        return jsonify({'error': str(re)}), 500",
-      "test_cases": [
-        {
-          "input": "GET /scrape?url=https://example.com",
-          "expected": "200 with JSON containing 'headings' list"
-        },
-        {
-          "input": "GET /scrape?url=https://nonexistent.invalid",
-          "expected": "500 or appropriate client error JSON"
-        },
-        {
-          "input": "GET /scrape",
-          "expected": "400 with JSON error"
-        }
-      ],
-      "hint": "Wrap the async call in a try-except block inside the route, and remember that `BeautifulSoup` is synchronous, so parse the returned HTML after `asyncio.run` completes.",
-      "explanation": "Introducing async I/O with `aiohttp` reduces blocking during network waits. Running the coroutine via `asyncio.run` keeps the Flask synchronous route simple while still benefiting from non-blocking requests.",
-      "prompt": "Write Python code to solve this challenge for Project: Interactive Web Scraper API: (Variation 27)"
+      "prompt": "Scraper API Milestone: Exponential backoff calculation. Write a function `get_backoff_delay(attempt, base_delay=1)` that calculates exponential backoff delay (`base_delay * 2 ** attempt`).",
+      "starter_code": "def get_backoff_delay(attempt, base_delay=1):\n    pass",
+      "solution_code": "def get_backoff_delay(attempt, base_delay=1):\n    return base_delay * (2 ** attempt)\n\nprint([get_backoff_delay(i) for i in range(4)])",
+      "explanation": "Exponential backoff doubles wait times between retries to avoid overwhelming target servers.",
+      "metadata": {
+        "concept": "exponential_backoff",
+        "skill": "networking",
+        "why_this_exercise_exists": "Replaces variation with exponential backoff algorithm"
+      }
     },
     {
       "id": "42.3_q28",
       "type": "write_the_code",
-      "title": "Implement Caching Layer",
-      "content": "Add an in-memory cache to your scraper API to avoid redundant network requests for identical URLs within a 60-second window. Use `functools.lru_cache` on the async fetch method or a manual dictionary with timestamps. The cache key should be the normalized URL. Return a `X-Cache` header indicating `HIT` or `MISS` on each response.",
-      "concept": "project_interactive_web_scraper_api_extension",
-      "skill": "extension",
+      "concept": "project_web_scraper_api_opengraph_extract",
+      "skill": "scraping",
       "difficulty": "hard",
       "prerequisites": [
         "42.3_q27"
       ],
-      "starter_code": "from functools import lru_cache\nimport aiohttp\n\nclass WebScraper:\n    def __init__(self, url):\n        self.url = url\n\n    @lru_cache(maxsize=128)\n    async def fetch(self):\n        async with aiohttp.ClientSession() as session:\n            async with session.get(self.url) as response:\n                return await response.text()\n\n@app.route('/scrape')\ndef scrape():\n    url = request.args.get('url')\n    html = asyncio.run(WebScraper(url).fetch())\n    return jsonify({'headings': []})",
-      "solution_code": "from functools import lru_cache\nimport aiohttp\nimport asyncio\nfrom urllib.parse import urlparse\n\nclass WebScraper:\n    def __init__(self, url):\n        self.url = url\n\n    @lru_cache(maxsize=128)\n    async def fetch(self):\n        async with aiohttp.ClientSession(timeout=aiohttp.ClientTimeout(total=10)) as session:\n            async with session.get(self.url) as response:\n                response.raise_for_status()\n                return await response.text()\n\n@app.route('/scrape')\ndef scrape():\n    url = request.args.get('url')\n    if not url:\n        return jsonify({'error': 'url parameter is required'}), 400\n\n    try:\n        scraper = WebScraper(url)\n        html = asyncio.run(scraper.fetch())\n        soup = BeautifulSoup(html, 'html.parser')\n        headings = [tag.get_text(strip=True) for tag in soup.find_all(['h1', 'h2', 'h3', 'h4', 'h5', 'h6'])]\n        response = jsonify({'headings': headings})\n        response.headers['X-Cache'] = 'MISS'\n        return response\n    except ValueError as ve:\n        response = jsonify({'error': str(ve)})\n        response.headers['X-Cache'] = 'MISS'\n        return response, 400\n    except RuntimeError as re:\n        response = jsonify({'error': str(re)})\n        response.headers['X-Cache'] = 'MISS'\n        return response, 500",
-      "test_cases": [
-        {
-          "input": "GET /scrape?url=https://example.com (second request within 60s)",
-          "expected": "200 with X-Cache: HIT"
-        },
-        {
-          "input": "GET /scrape?url=https://example.com (first request)",
-          "expected": "200 with X-Cache: MISS"
-        }
-      ],
-      "hint": "`lru_cache` works on hashable arguments; ensure the URL string is normalized before caching to avoid treating `http://example.com` and `https://example.com` as distinct keys.",
-      "explanation": "Caching reduces latency and server load by serving repeated requests from memory. The `X-Cache` header provides observability into cache effectiveness for debugging and monitoring.",
-      "prompt": "Write Python code to solve this challenge for Project: Interactive Web Scraper API: (Variation 28)"
+      "prompt": "Scraper API Milestone: Extract OpenGraph metadata. From HTML `html = '<meta property=\"og:title\" content=\"My Article\">'`, extract the `content` attribute using BeautifulSoup.",
+      "starter_code": "from bs4 import BeautifulSoup\nhtml = '<meta property=\"og:title\" content=\"My Article\">'\n# Extract og:title content\n",
+      "solution_code": "from bs4 import BeautifulSoup\nhtml = '<meta property=\"og:title\" content=\"My Article\">'\nsoup = BeautifulSoup(html, \"html.parser\")\ntag = soup.find(\"meta\", property=\"og:title\")\nog_title = tag[\"content\"] if tag else \"\"\nprint(og_title)",
+      "explanation": "Targeting `<meta property=\"og:...\">` tags extracts social sharing metadata from pages.",
+      "metadata": {
+        "concept": "opengraph_tag_scraping",
+        "skill": "scraping",
+        "why_this_exercise_exists": "Replaces variation with OpenGraph extraction"
+      }
     },
     {
       "id": "42.3_q29",
       "type": "write_the_code",
-      "title": "Add Rate Limiting and Authentication",
-      "content": "Secure your API by requiring an API key passed as a header `X-API-Key`. Implement a decorator or middleware that checks the key against a dictionary of allowed keys. Additionally, enforce a rate limit of 10 requests per minute per key using `time.time()` and a sliding window. Return `401` for missing/invalid keys and `429` when the limit is exceeded.",
-      "concept": "project_interactive_web_scraper_api_extension",
-      "skill": "extension",
+      "concept": "project_web_scraper_api_test_client",
+      "skill": "testing",
       "difficulty": "hard",
       "prerequisites": [
         "42.3_q28"
       ],
-      "starter_code": "import time\nfrom functools import wraps\n\nAPI_KEYS = {'demo': 'secret123'}\n\ndef require_key(f):\n    @wraps(f)\n    def decorated(*args, **kwargs):\n        key = request.headers.get('X-API-Key')\n        if key not in API_KEYS:\n            return jsonify({'error': 'Unauthorized'}), 401\n        return f(*args, **kwargs)\n    return decorated\n\n@app.route('/scrape')\n@require_key\ndef scrape():\n    url = request.args.get('url')\n    return jsonify({'headings': []})",
-      "solution_code": "import time\nfrom functools import wraps\n\nAPI_KEYS = {'demo': 'secret123', 'alpha': 'key-alpha'}\nREQUEST_LOG = {}\n\ndef require_key(f):\n    @wraps(f)\n    def decorated(*args, **kwargs):\n        key = request.headers.get('X-API-Key')\n        if key not in API_KEYS:\n            return jsonify({'error': 'Unauthorized'}), 401\n        now = time.time()\n        window = REQUEST_LOG.setdefault(key, [])\n        window[:] = [t for t in window if now - t < 60]\n        if len(window) >= 10:\n            return jsonify({'error': 'Too many requests'}), 429\n        window.append(now)\n        return f(*args, **kwargs)\n    return decorated\n\n@app.route('/scrape')\n@require_key\ndef scrape():\n    url = request.args.get('url')\n    if not url:\n        return jsonify({'error': 'url parameter is required'}), 400\n    try:\n        scraper = WebScraper(url)\n        html = asyncio.run(scraper.fetch())\n        soup = BeautifulSoup(html, 'html.parser')\n        headings = [tag.get_text(strip=True) for tag in soup.find_all(['h1', 'h2', 'h3', 'h4', 'h5', 'h6'])]\n        return jsonify({'headings': headings})\n    except ValueError as ve:\n        return jsonify({'error': str(ve)}), 400\n    except RuntimeError as re:\n        return jsonify({'error': str(re)}), 500",
-      "test_cases": [
-        {
-          "input": "GET /scrape?url=https://example.com without X-API-Key header",
-          "expected": "401 JSON error"
-        },
-        {
-          "input": "GET /scrape?url=https://example.com with X-API-Key: invalid",
-          "expected": "401 JSON error"
-        },
-        {
-          "input": "11 rapid GET requests with valid key",
-          "expected": "10 succeed, 11th returns 429"
-        }
-      ],
-      "hint": "Use a list comprehension to prune old timestamps from the sliding window, then append the current timestamp. Decorators wrap the route function without altering its core logic.",
-      "explanation": "Authentication ensures only authorized consumers access the scraper, while rate limiting protects against abuse and resource exhaustion. The sliding window is more accurate than a fixed counter reset.",
-      "prompt": "Write Python code to solve this challenge for Project: Interactive Web Scraper API: (Variation 29)"
+      "prompt": "Scraper API Milestone: Automated route testing. Write a test function `test_health_route()` that asserts `health_endpoint()` returns status 200 and `{'status': 'healthy'}`.",
+      "starter_code": "def health_endpoint():\n    return 200, {\"status\": \"healthy\"}\n\ndef test_health_route():\n    # Assert status and body\n    pass",
+      "solution_code": "def health_endpoint():\n    return 200, {\"status\": \"healthy\"}\n\ndef test_health_route():\n    status, body = health_endpoint()\n    assert status == 200\n    assert body[\"status\"] == \"healthy\"\n\ntest_health_route()\nprint(\"Health test passed\")",
+      "explanation": "Unit testing endpoint handlers ensures API contracts remain unbroken during updates.",
+      "metadata": {
+        "concept": "api_unit_testing",
+        "skill": "testing",
+        "why_this_exercise_exists": "Replaces variation with API test client assertions"
+      }
     },
     {
       "id": "42.3_q30",
       "type": "write_the_code",
-      "title": "Deploy with Docker and Health Check",
-      "content": "Containerize your Flask scraper API using Docker. Write a `Dockerfile` that installs dependencies, exposes port 5000, and runs the application. Add a `/health` endpoint that returns `200 OK` with JSON `{'status': 'ok'}` only when the scraper can successfully reach `https://example.com`. Include a `docker-compose.yml` that builds the image and maps port 5000. Validate the deployment by curling both endpoints.",
-      "concept": "project_interactive_web_scraper_api_extension",
-      "skill": "extension",
-      "difficulty": "hard",
+      "concept": "project_web_scraper_api_full_engine",
+      "skill": "system_design",
+      "difficulty": "expert",
       "prerequisites": [
         "42.3_q29"
       ],
-      "starter_code": "FROM python:3.11-slim\n\nWORKDIR /app\n\nCOPY requirements.txt .\nRUN pip install --no-cache-dir -r requirements.txt\n\nCOPY . .\n\nEXPOSE 5000\n\nCMD [\"python\", \"app.py\"]",
-      "solution_code": "print('OK')",
-      "test_cases": [
-        {
-          "input": "",
-          "expected_output": "OK"
-        }
-      ],
-      "hint": "Use `gunicorn` instead of plain `python app.py` for production-grade WSGI serving inside containers. In `/health`, perform a lightweight `requests.get` with a short timeout to verify connectivity.",
-      "explanation": "Containerization standardizes the runtime environment and simplifies deployment. The health check endpoint enables orchestration tools like Kubernetes or Docker Swarm to monitor service availability automatically.",
-      "prompt": "Write Python code to solve this challenge for Project: Interactive Web Scraper API: (Variation 30)"
+      "prompt": "Capstone Project Mastery: Build the consolidated `scrape_and_structure_page(html, target_url)` pipeline function that validates inputs, extracts `<title>`, all `<h2>` headings, and image `<img src=...>` links into a clean structured dictionary.",
+      "starter_code": "from bs4 import BeautifulSoup\n\ndef scrape_and_structure_page(html, target_url):\n    # Complete scraping engine\n    pass",
+      "solution_code": "from bs4 import BeautifulSoup\n\ndef scrape_and_structure_page(html, target_url):\n    if not html:\n        return {\"url\": target_url, \"error\": \"Empty response\"}\n    soup = BeautifulSoup(html, \"html.parser\")\n    title_tag = soup.find(\"title\")\n    title = title_tag.text.strip() if title_tag else \"Untitled\"\n    headings = [h.text.strip() for h in soup.find_all(\"h2\")]\n    images = [img[\"src\"] for img in soup.find_all(\"img\") if img.get(\"src\")]\n    return {\n        \"url\": target_url,\n        \"title\": title,\n        \"headings\": headings,\n        \"images\": images\n    }\n\nhtml = \"<html><head><title>Portfolio</title></head><body><h2>Work</h2><img src='logo.png'></body></html>\"\nprint(scrape_and_structure_page(html, \"https://example.com\"))",
+      "explanation": "Consolidates HTML parsing, null checks, multiple tag extractions, and API packaging into a complete web scraper pipeline.",
+      "metadata": {
+        "concept": "full_scraper_pipeline",
+        "skill": "system_design",
+        "why_this_exercise_exists": "Replaces variation with full capstone scraper engine"
+      }
     }
   ],
   "unit_num": 42,

@@ -13,7 +13,7 @@
       "title": "What is Parsing a JSON String?",
       "content": "Parsing a JSON string means converting a JSON-formatted text into a Python data structure that you can work with. JSON (JavaScript Object Notation) is a lightweight format for storing and exchanging data. In Python, the built-in json module provides the loads() function to parse a JSON string. For example, if you have the string '{\"name\": \"Alice\", \"age\": 25}', calling json.loads() returns a Python dictionary. This allows you to access values using keys, just like a regular dictionary. Here is a code block demonstrating the concept:\n\n```python\nimport json\n\njson_string = '{\"name\": \"Alice\", \"age\": 25}'\nparsed = json.loads(json_string)\nprint(parsed['name'])\n```\n\nNotice how the JSON string is transformed into a dictionary, making data retrieval straightforward.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of parsing json strings basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Strings in Python are immutable sequences of Unicode characters enclosed in single, double, or triple quotes. Because strings cannot be modified in place, all transformations return new string instances."
     },
     {
       "id": "14.4_q2",
@@ -46,7 +46,7 @@
       "title": "JSON Syntax Rules for Parsing",
       "content": "When parsing JSON strings, you must follow strict syntax rules. JSON uses curly braces {} for objects and square brackets [] for arrays. Keys must be double-quoted strings, and values can be strings, numbers, booleans, arrays, or nested objects. In Python, when writing JSON strings as code, you typically use single quotes to wrap the entire string so that internal double quotes do not conflict. For example, a valid JSON string in Python looks like: '{\"city\": \"Paris\", \"active\": true}'. The json.loads() function expects this format. If the syntax is invalid, a json.JSONDecodeError is raised. Here is a code block illustrating correct syntax:\n\n```python\nimport json\n\nvalid = '{\"city\": \"Paris\", \"active\": true}'\ndata = json.loads(valid)\nprint(data['city'])\n```\n\nAlways ensure that keys and string values in JSON are enclosed in double quotes, even though the Python string itself is wrapped in single quotes.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of parsing json strings syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "When parsing JSON strings, you must follow strict syntax rules. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "14.4_q4",

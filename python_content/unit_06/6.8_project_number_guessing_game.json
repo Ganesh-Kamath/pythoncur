@@ -13,7 +13,7 @@
       "title": "Designing the Number Guessing Game Structure",
       "content": "Before writing code, plan the architecture of your number guessing game. The program needs to store a secret number, repeatedly ask the player for guesses, compare each guess to the secret number, and provide feedback until the correct guess is made. A good architecture uses a while loop to keep the game running, an if-elif-else block to handle the three possible outcomes, and variables to track state. For example, you might start with a plan like: import random, generate a secret number between 1 and 100, initialize a guess counter, then loop while the guess is incorrect. Inside the loop, read user input, convert it to an integer, compare it to the secret number, print whether the guess is too high, too low, or correct, and increment the counter. Once the loop ends, print a success message with the number of attempts. This planning step prevents logic errors and makes coding smoother.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of project number guessing game architecture. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Before writing code, plan the architecture of your number guessing game. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "6.8_q2",
@@ -27,7 +27,7 @@
       "title": "Mapping Game Flow and Edge Cases",
       "content": "Refine your plan by considering edge cases and game flow. Think about what happens if the player enters text instead of a number; you can handle this with exception handling or by validating input. Also decide whether to limit the number of guesses or allow unlimited attempts. A robust plan includes: defining the range for the secret number, choosing a loop condition that exits on correct guess, ensuring user input is converted safely, and providing clear prompts. For example, your plan might look like this: set min_val = 1 and max_val = 100, use random.randint(min_val, max_val) to pick the secret number, initialize attempts = 0, and use while True to loop indefinitely until break. Inside, print a prompt, read input, check if it is numeric, convert to int, compare, print feedback, increment attempts, and break when correct. After the loop, print the final result. Writing this plan down helps you spot missing steps before coding.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of project number guessing game architecture. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Refine your plan by considering edge cases and game flow. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "6.8_q3",
@@ -131,117 +131,107 @@
       "prompt": "Fix the bug in this code for project number guessing game module bugfix:",
       "starter_code": "# Fix this code\nPrint('Project: Number Guessing Game')",
       "solution_code": "print('Project: Number Guessing Game')",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of project number guessing game module bugfix. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `project number guessing game module bugfix` in Project: Number Guessing Game. When Python validates this code, it applies the standard rules of project number guessing game module bugfix. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "6.8_q8",
-      "idx": 8,
-      "type": "fix_the_code",
-      "concept": "project_number_guessing_game_module_bugfix",
-      "skill": "debugging",
-      "difficulty": "medium",
+      "type": "write_the_code",
+      "concept": "project_number_guessing_game_secret_generation",
+      "skill": "project_milestone",
+      "difficulty": "easy",
       "prerequisites": [
         "6.8_q7"
       ],
-      "error_diagnosis": {
-        "prompt": "This snippet is meant to give hints after each guess in the Number Guessing Game. It currently always prints 'Too low' even when the guess is too high. Fix the logic so the correct hint appears.",
-        "starter_code": "import random\n\nsecret = random.randint(1, 20)\n\nguess = int(input('Enter your guess: '))\n\nif guess < secret:\n    print('Too low')\nelif guess > secret:\n    print('Too low')",
-        "solution_code": "import random\n\nsecret = random.randint(1, 20)\n\nguess = int(input('Enter your guess: '))\n\nif guess < secret:\n    print('Too low')\nelif guess > secret:\n    print('Too high')",
-        "hint": "Check the else-if branch. The message for a guess greater than the secret should indicate it is too high, not too low.",
-        "explanation": "The elif branch incorrectly printed 'Too low' when the guess exceeded the secret. The corrected branch prints 'Too high', ensuring accurate feedback for the player."
+      "prompt": "Guessing Game Milestone 1: Generate a random secret integer between 1 and 100 (inclusive) using `random.randint(1, 100)` and store in `secret_number`.",
+      "starter_code": "import random\n# Generate secret number between 1 and 100\n",
+      "solution_code": "import random\nsecret_number = random.randint(1, 100)\nprint(1 <= secret_number <= 100)",
+      "explanation": "`random.randint(a, b)` generates an integer N such that `a <= N <= b`.",
+      "metadata": {
+        "concept": "random_int_generation",
+        "skill": "project_milestone",
+        "why_this_exercise_exists": "Replaces variation with real game secret generation"
       },
-      "prompt": "Fix the bug in this code for project number guessing game module bugfix: (Variation 8)",
-      "starter_code": "# Fix this code\nPrint('Project: Number Guessing Game')",
-      "solution_code": "print('Project: Number Guessing Game')",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of project number guessing game module bugfix. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "idx": 8
     },
     {
       "id": "6.8_q9",
-      "idx": 9,
-      "type": "fix_the_code",
-      "concept": "project_number_guessing_game_module_bugfix",
-      "skill": "debugging",
+      "type": "write_the_code",
+      "concept": "project_number_guessing_game_hint_low",
+      "skill": "project_milestone",
       "difficulty": "medium",
       "prerequisites": [
         "6.8_q8"
       ],
-      "error_diagnosis": {
-        "prompt": "The Number Guessing Game should limit guesses to a maximum of 5 attempts. Currently, the attempt counter is never updated and the loop does not stop after 5 tries. Repair the code.",
-        "starter_code": "import random\n\nsecret = random.randint(1, 20)\n\nattempts = 0\n\nwhile attempts < 5:\n    guess = int(input('Guess: '))\n    if guess == secret:\n        print('You won!')\n        break\n    attempts += 1\n\nif guess != secret:\n    print('You lost!')",
-        "solution_code": "import random\n\nsecret = random.randint(1, 20)\n\nattempts = 0\n\nwhile attempts < 5:\n    guess = int(input('Guess: '))\n    if guess == secret:\n        print('You won!')\n        break\n    attempts += 1\nelse:\n    print('You lost!')",
-        "hint": "The loop should report a loss only when the player exhausts all attempts without guessing correctly. A for-else or a flag can help, but the simplest fix is to use a for loop or restructure the while-else.",
-        "explanation": "The original code used a while loop without an else clause, so 'You lost!' printed on every iteration after the first incorrect guess. The corrected version uses a while-else structure so the loss message appears only after all 5 attempts are used up without a correct guess."
+      "prompt": "Guessing Game Milestone 2: Given `secret = 42` and user `guess = 30`, write an `if` check that prints `'Too low!'` when `guess < secret`.",
+      "starter_code": "secret = 42\nguess = 30\n# Check if guess is too low\n",
+      "solution_code": "secret = 42\nguess = 30\nif guess < secret:\n    print(\"Too low!\")",
+      "explanation": "Comparing `guess < secret` provides low-guess feedback to guide the player's next attempt.",
+      "metadata": {
+        "concept": "game_hint_low",
+        "skill": "project_milestone",
+        "why_this_exercise_exists": "Replaces variation with low hint branch"
       },
-      "prompt": "Fix the bug in this code for project number guessing game module bugfix: (Variation 9)",
-      "starter_code": "# Fix this code\nPrint('Project: Number Guessing Game')",
-      "solution_code": "print('Project: Number Guessing Game')",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of project number guessing game module bugfix. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "idx": 9
     },
     {
       "id": "6.8_q10",
-      "idx": 10,
-      "type": "fix_the_code",
-      "concept": "project_number_guessing_game_module_bugfix",
-      "skill": "debugging",
+      "type": "write_the_code",
+      "concept": "project_number_guessing_game_hint_high",
+      "skill": "project_milestone",
       "difficulty": "medium",
       "prerequisites": [
         "6.8_q9"
       ],
-      "error_diagnosis": {
-        "prompt": "A player should be able to quit early by typing 'q'. The current implementation crashes when 'q' is entered because it tries to convert the string to an integer. Adjust the code to handle this gracefully.",
-        "starter_code": "import random\n\nsecret = random.randint(1, 20)\n\nwhile True:\n    user_input = input('Guess or type q to quit: ')\n    if user_input == 'q':\n        print('Goodbye!')\n        break\n    guess = int(user_input)\n    if guess == secret:\n        print('Correct!')\n        break",
-        "solution_code": "import random\n\nsecret = random.randint(1, 20)\n\nwhile True:\n    user_input = input('Guess or type q to quit: ')\n    if user_input == 'q':\n        print('Goodbye!')\n        break\n    guess = int(user_input)\n    if guess == secret:\n        print('Correct!')\n        break",
-        "hint": "The code already checks for 'q' before conversion. Ensure the conversion happens only after that check so ValueError is avoided.",
-        "explanation": "The starter code actually had the check after conversion in some variants, but in this version it is correctly placed before int(). The fix ensures that the quit command is handled before any numeric conversion, preventing a ValueError and allowing clean exit."
+      "prompt": "Guessing Game Milestone 3: Given `secret = 42` and user `guess = 55`, write an `if` check that prints `'Too high!'` when `guess > secret`.",
+      "starter_code": "secret = 42\nguess = 55\n# Check if guess is too high\n",
+      "solution_code": "secret = 42\nguess = 55\nif guess > secret:\n    print(\"Too high!\")",
+      "explanation": "Comparing `guess > secret` signals that the player must guess a smaller number.",
+      "metadata": {
+        "concept": "game_hint_high",
+        "skill": "project_milestone",
+        "why_this_exercise_exists": "Replaces variation with high hint branch"
       },
-      "prompt": "Fix the bug in this code for project number guessing game module bugfix: (Variation 10)",
-      "starter_code": "# Fix this code\nPrint('Project: Number Guessing Game')",
-      "solution_code": "print('Project: Number Guessing Game')",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of project number guessing game module bugfix. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "idx": 10
     },
     {
       "id": "6.8_q11",
-      "idx": 11,
-      "type": "fix_the_code",
-      "concept": "project_number_guessing_game_module_bugfix",
-      "skill": "debugging",
+      "type": "write_the_code",
+      "concept": "project_number_guessing_game_win_condition",
+      "skill": "project_milestone",
       "difficulty": "medium",
       "prerequisites": [
         "6.8_q10"
       ],
-      "error_diagnosis": {
-        "prompt": "The Number Guessing Game is supposed to tell the player whether their guess is close (within 2) or far (more than 2 away). Currently the distance check is missing. Add the missing logic inside the loop.",
-        "starter_code": "import random\n\nsecret = random.randint(1, 20)\n\nwhile True:\n    guess = int(input('Guess: '))\n    if guess == secret:\n        print('You got it!')\n        break\n    elif guess < secret:\n        print('Too low')",
-        "solution_code": "import random\n\nsecret = random.randint(1, 20)\n\nwhile True:\n    guess = int(input('Guess: '))\n    if guess == secret:\n        print('You got it!')\n        break\n    elif guess < secret:\n        distance = secret - guess\n        if distance <= 2:\n            print('Too low, but close!')\n        else:\n            print('Too low, far away')\n    else:\n        distance = guess - secret\n        if distance <= 2:\n            print('Too high, but close!')\n        else:\n            print('Too high, far away')",
-        "hint": "Compute the absolute difference between guess and secret. If that difference is 2 or less, print a close hint; otherwise print a far hint.",
-        "explanation": "The missing feature was the proximity feedback. By calculating the absolute difference, the game now gives richer hints, improving the player experience and reinforcing conditional logic with nested if statements."
+      "prompt": "Guessing Game Milestone 4: Given `secret = 42` and `guess = 42`, verify equality and set `has_won = True`.",
+      "starter_code": "secret = 42\nguess = 42\nhas_won = False\n# Verify win condition\n",
+      "solution_code": "secret = 42\nguess = 42\nhas_won = False\nif guess == secret:\n    has_won = True\nprint(f\"Won: {has_won}\")",
+      "explanation": "Testing `guess == secret` identifies the win state and terminates the round.",
+      "metadata": {
+        "concept": "game_win_condition",
+        "skill": "project_milestone",
+        "why_this_exercise_exists": "Replaces variation with win condition"
       },
-      "prompt": "Fix the bug in this code for project number guessing game module bugfix: (Variation 11)",
-      "starter_code": "# Fix this code\nPrint('Project: Number Guessing Game')",
-      "solution_code": "print('Project: Number Guessing Game')",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of project number guessing game module bugfix. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "idx": 11
     },
     {
       "id": "6.8_q12",
-      "idx": 12,
-      "type": "fix_the_code",
-      "concept": "project_number_guessing_game_module_bugfix",
-      "skill": "debugging",
+      "type": "write_the_code",
+      "concept": "project_number_guessing_game_attempt_tracker",
+      "skill": "project_milestone",
       "difficulty": "medium",
       "prerequisites": [
         "6.8_q11"
       ],
-      "error_diagnosis": {
-        "prompt": "After a correct guess, the game should reveal how many attempts were used. The current code does not track or display the attempt count. Fix the code to initialize attempts properly and print the total at the end.",
-        "starter_code": "import random\n\nsecret = random.randint(1, 20)\n\nattempts = 0\n\nwhile True:\n    guess = int(input('Guess: '))\n    if guess == secret:\n        print('You got it!')\n        break\n    attempts += 1",
-        "solution_code": "import random\n\nsecret = random.randint(1, 20)\n\nattempts = 0\n\nwhile True:\n    guess = int(input('Guess: '))\n    if guess == secret:\n        print('You got it!')\n        print('Attempts used:', attempts + 1)\n        break\n    attempts += 1",
-        "hint": "The counter starts at 0, so the first successful guess means 1 attempt has been made. Add 1 when printing the final count.",
-        "explanation": "The bug was that attempts was incremented only on incorrect guesses, so it never reflected the successful attempt. The corrected code prints attempts + 1 to show the total number of guesses, including the winning one."
+      "prompt": "Guessing Game Milestone 5: Track attempts. Start `attempts = 0`, simulate 3 guesses by incrementing `attempts += 1` inside a loop, and print the total attempts.",
+      "starter_code": "attempts = 0\nsimulated_guesses = [10, 50, 42]\n# Count attempts\n",
+      "solution_code": "attempts = 0\nsimulated_guesses = [10, 50, 42]\nfor g in simulated_guesses:\n    attempts += 1\nprint(f\"Total attempts: {attempts}\")",
+      "explanation": "Tracking attempt count provides score metrics and enforces maximum guess limits.",
+      "metadata": {
+        "concept": "attempt_counter",
+        "skill": "project_milestone",
+        "why_this_exercise_exists": "Replaces variation with attempt counting"
       },
-      "prompt": "Fix the bug in this code for project number guessing game module bugfix: (Variation 12)",
-      "starter_code": "# Fix this code\nPrint('Project: Number Guessing Game')",
-      "solution_code": "print('Project: Number Guessing Game')",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of project number guessing game module bugfix. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "idx": 12
     },
     {
       "id": "6.8_q13",
@@ -509,29 +499,26 @@
           "expected_output": "Project: Number Guessing Game"
         }
       ],
-      "explanation": "In Python, this operation directly demonstrates the core behavior of project number guessing game milestone. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `project number guessing game milestone` in Project: Number Guessing Game. When Python validates this code, it applies the standard rules of project number guessing game milestone. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "6.8_q26",
       "type": "write_the_code",
-      "title": "Add Guess Counting and Validation",
-      "content": "Extend your game by tracking how many guesses the player makes and validating that the input is a valid integer within the allowed range. Initialize a counter variable before the loop begins and increment it each time the player makes a guess. Use a try-except block to catch ValueError if the user enters non-numeric text. If the input is outside 1 to 100, print an error message and continue without incrementing the guess count. After the loop ends, display the total number of guesses taken. This milestone reinforces exception handling, counter variables, and robust input validation within a repetitive structure.",
-      "concept": "project_number_guessing_game_milestone",
-      "skill": "integration",
+      "concept": "project_number_guessing_game_full_loop",
+      "skill": "project_milestone",
       "difficulty": "hard",
       "prerequisites": [
         "6.8_q25"
       ],
-      "prompt": "Write Python code to solve this challenge for Project: Number Guessing Game: (Variation 26)",
-      "starter_code": "# Write your solution below\n",
-      "solution_code": "print('Project: Number Guessing Game')",
-      "test_cases": [
-        {
-          "input": "",
-          "expected_output": "Project: Number Guessing Game"
-        }
-      ],
-      "explanation": "In Python, this operation directly demonstrates the core behavior of project number guessing game milestone. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "prompt": "Guessing Game Challenge: Build a function `play_game(secret, guesses, max_attempts=5)` that processes guesses sequentially, returning `True` if the player guessed correctly within `max_attempts`, or `False` if attempts were exhausted.",
+      "starter_code": "def play_game(secret, guesses, max_attempts=5):\n    # Simulate complete game\n    pass",
+      "solution_code": "def play_game(secret, guesses, max_attempts=5):\n    attempts = 0\n    for g in guesses:\n        attempts += 1\n        if g == secret:\n            return True\n        if attempts >= max_attempts:\n            break\n    return False\n\nprint(play_game(42, [10, 20, 42], max_attempts=5))",
+      "explanation": "Assembles guess comparison, attempt incrementation, and early-exit conditions into a complete game engine function.",
+      "metadata": {
+        "concept": "complete_game_loop",
+        "skill": "project_integration",
+        "why_this_exercise_exists": "Replaces variation with complete game challenge"
+      }
     },
     {
       "id": "6.8_q27",
@@ -621,7 +608,7 @@
         }
       ],
       "hint": "Define play_round() to return guesses, show_menu() to print options, and main() to orchestrate input and branching while keeping the outer while True loop for continuous play.",
-      "explanation": "Refactoring into functions promotes code reuse, readability, and testability. This milestone consolidates all prior concepts\u2014loops, conditionals, input validation, file I/O, and user interaction\u2014into a maintainable, extensible architecture.",
+      "explanation": "Refactoring into functions promotes code reuse, readability, and testability. This milestone consolidates all prior concepts—loops, conditionals, input validation, file I/O, and user interaction—into a maintainable, extensible architecture.",
       "concept": "project_number_guessing_game_extension",
       "skill": "extension",
       "difficulty": "hard",

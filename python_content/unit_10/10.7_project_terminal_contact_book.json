@@ -14,7 +14,7 @@
       "difficulty": "easy",
       "prerequisites": [],
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of project terminal contact book architecture. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "In this micro-lesson, you will plan how to store contact information using Python dictionaries. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "10.7_q2",
@@ -29,7 +29,7 @@
         "10.7_q1"
       ],
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of project terminal contact book architecture. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Before writing the full program, plan how the user will interact with the terminal contact book. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "10.7_q3",
@@ -136,112 +136,102 @@
       "prompt": "Fix the bug in this code for project terminal contact book module bugfix:",
       "starter_code": "# Fix this code\nPrint('Project: Terminal Contact Book')",
       "solution_code": "print('Project: Terminal Contact Book')",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of project terminal contact book module bugfix. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `project terminal contact book module bugfix` in Project: Terminal Contact Book. When Python validates this code, it applies the standard rules of project terminal contact book module bugfix. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "10.7_q8",
-      "type": "fix_the_code",
-      "concept": "project_terminal_contact_book_module_bugfix",
-      "skill": "debugging",
-      "difficulty": "medium",
+      "type": "write_the_code",
+      "concept": "project_terminal_contact_book_init",
+      "skill": "project_milestone",
+      "difficulty": "easy",
       "prerequisites": [
         "10.7_q7"
       ],
-      "error_diagnosis": {
-        "prompt": "The search_contact function is supposed to return a phone number, but it returns None even when the contact exists. Fix the logic so it returns the correct phone number or a helpful message if the contact is not found.",
-        "starter_code": "def search_contact(contacts, name):\n    if name in contacts:\n        return None\n    return 'Not found'\n\ncontacts = {'Bob': '555-5678'}\nprint(search_contact(contacts, 'Bob'))",
-        "solution_code": "def search_contact(contacts, name):\n    if name in contacts:\n        return contacts[name]\n    return 'Not found'\n\ncontacts = {'Bob': '555-5678'}\nprint(search_contact(contacts, 'Bob'))",
-        "hint": "The conditional returns None when the contact exists and returns a string when it does not. Swap the return values.",
-        "explanation": "The bug was inverted logic: the function returned None when the name was present and a message when absent. Correcting the condition ensures the stored phone number is returned when the contact exists."
-      },
-      "prompt": "Fix the bug in this code for project terminal contact book module bugfix: (Variation 8)",
-      "starter_code": "# Fix this code\nPrint('Project: Terminal Contact Book')",
-      "solution_code": "print('Project: Terminal Contact Book')",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of project terminal contact book module bugfix. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "prompt": "Contact Book Milestone 1: Initialize an empty dictionary `contacts = {}` and add a contact `'Alice'` with phone number `'555-0101'`.",
+      "starter_code": "# Initialize and add Alice\n",
+      "solution_code": "contacts = {}\ncontacts[\"Alice\"] = \"555-0101\"\nprint(contacts)",
+      "explanation": "Dictionaries use unique keys (contact names) to store corresponding phone strings.",
+      "metadata": {
+        "concept": "contact_dict_insert",
+        "skill": "project_milestone",
+        "why_this_exercise_exists": "Replaces variation with contact book insertion"
+      }
     },
     {
       "id": "10.7_q9",
-      "type": "fix_the_code",
-      "concept": "project_terminal_contact_book_module_bugfix",
-      "skill": "debugging",
+      "type": "write_the_code",
+      "concept": "project_terminal_contact_book_search",
+      "skill": "project_milestone",
       "difficulty": "medium",
       "prerequisites": [
         "10.7_q8"
       ],
-      "error_diagnosis": {
-        "prompt": "The delete_contact function is supposed to remove a contact, but after deletion the program crashes with a KeyError when trying to access the removed entry. Fix the function so it safely removes the contact and handles missing names gracefully.",
-        "starter_code": "def delete_contact(contacts, name):\n    del contacts[name]\n\ncontacts = {'Carol': '555-9999'}\ndelete_contact(contacts, 'Carol')\nprint(contacts['Carol'])",
-        "solution_code": "def delete_contact(contacts, name):\n    if name in contacts:\n        del contacts[name]\n    else:\n        print('Contact not found.')\n\ncontacts = {'Carol': '555-9999'}\ndelete_contact(contacts, 'Carol')\nprint(contacts.get('Carol', 'Not found'))",
-        "hint": "Use a membership check before deletion and avoid accessing a key that may have been removed.",
-        "explanation": "The original code unconditionally deletes the key, causing a KeyError if the name does not exist. The fix checks for presence first and uses .get() for safe retrieval after deletion."
-      },
-      "prompt": "Fix the bug in this code for project terminal contact book module bugfix: (Variation 9)",
-      "starter_code": "# Fix this code\nPrint('Project: Terminal Contact Book')",
-      "solution_code": "print('Project: Terminal Contact Book')",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of project terminal contact book module bugfix. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "prompt": "Contact Book Milestone 2: Given `contacts = {'Bob': '555-0202'}`, safely look up `'Bob'` and `'Charlie'` using `contacts.get(name, 'Not found')`.",
+      "starter_code": "contacts = {\"Bob\": \"555-0202\"}\n# Safe lookup\n",
+      "solution_code": "contacts = {\"Bob\": \"555-0202\"}\nprint(contacts.get(\"Bob\", \"Not found\"))\nprint(contacts.get(\"Charlie\", \"Not found\"))",
+      "explanation": "`.get()` prevents `KeyError` crashes when searching for unregistered contacts.",
+      "metadata": {
+        "concept": "safe_dict_lookup",
+        "skill": "project_milestone",
+        "why_this_exercise_exists": "Replaces variation with safe contact lookup"
+      }
     },
     {
       "id": "10.7_q10",
-      "type": "fix_the_code",
-      "concept": "project_terminal_contact_book_module_bugfix",
-      "skill": "debugging",
+      "type": "write_the_code",
+      "concept": "project_terminal_contact_book_delete",
+      "skill": "project_milestone",
       "difficulty": "medium",
       "prerequisites": [
         "10.7_q9"
       ],
-      "error_diagnosis": {
-        "prompt": "The list_contacts function is supposed to display all contacts, but it prints only the last one repeatedly. Fix the loop so every contact is displayed exactly once.",
-        "starter_code": "def list_contacts(contacts):\n    for key in contacts:\n        print(key)\n\ncontacts = {'Dave': '555-1111', 'Eve': '555-2222'}\nlist_contacts(contacts)",
-        "solution_code": "def list_contacts(contacts):\n    for name, phone in contacts.items():\n        print(f'{name}: {phone}')\n\ncontacts = {'Dave': '555-1111', 'Eve': '555-2222'}\nlist_contacts(contacts)",
-        "hint": "Iterating over contacts directly gives keys only. To get both key and value, use .items().",
-        "explanation": "The original loop only printed keys. The corrected version unpacks each key-value pair from .items() and prints both the name and phone number."
-      },
-      "prompt": "Fix the bug in this code for project terminal contact book module bugfix: (Variation 10)",
-      "starter_code": "# Fix this code\nPrint('Project: Terminal Contact Book')",
-      "solution_code": "print('Project: Terminal Contact Book')",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of project terminal contact book module bugfix. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "prompt": "Contact Book Milestone 3: Given `contacts = {'Alice': '555-0101', 'Bob': '555-0202'}`, remove `'Alice'` using `contacts.pop(name, None)`.",
+      "starter_code": "contacts = {\"Alice\": \"555-0101\", \"Bob\": \"555-0202\"}\n# Delete Alice\n",
+      "solution_code": "contacts = {\"Alice\": \"555-0101\", \"Bob\": \"555-0202\"}\nremoved = contacts.pop(\"Alice\", None)\nprint(f\"Removed: {removed}, Remaining: {list(contacts.keys())}\")",
+      "explanation": "Calling `.pop(key, None)` deletes the key if present without raising an error if it doesn't exist.",
+      "metadata": {
+        "concept": "safe_dict_deletion",
+        "skill": "project_milestone",
+        "why_this_exercise_exists": "Replaces variation with safe contact deletion"
+      }
     },
     {
       "id": "10.7_q11",
-      "type": "fix_the_code",
-      "concept": "project_terminal_contact_book_module_bugfix",
-      "skill": "debugging",
+      "type": "write_the_code",
+      "concept": "project_terminal_contact_book_list_sorted",
+      "skill": "project_milestone",
       "difficulty": "medium",
       "prerequisites": [
         "10.7_q10"
       ],
-      "error_diagnosis": {
-        "prompt": "The save_contacts function is supposed to write the contact dictionary to a file, but it writes the string representation of the dictionary instead of valid Python dictionary syntax. Fix it so the file contains a valid Python dictionary string that can be loaded later.",
-        "starter_code": "def save_contacts(contacts, filename):\n    with open(filename, 'w') as f:\n        f.write(str(contacts))\n\ncontacts = {'Frank': '555-3333'}\nsave_contacts(contacts, 'contacts.txt')",
-        "solution_code": "def save_contacts(contacts, filename):\n    with open(filename, 'w') as f:\n        f.write(repr(contacts))\n\ncontacts = {'Frank': '555-3333'}\nsave_contacts(contacts, 'contacts.txt')",
-        "hint": "str() and repr() differ for containers. repr() produces a string that evaluates back to the same object.",
-        "explanation": "Using str() yields a compact but non-evaluable representation. repr() produces a valid Python literal string, making the saved file reloadable with eval() or ast.literal_eval()."
-      },
-      "prompt": "Fix the bug in this code for project terminal contact book module bugfix: (Variation 11)",
-      "starter_code": "# Fix this code\nPrint('Project: Terminal Contact Book')",
-      "solution_code": "print('Project: Terminal Contact Book')",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of project terminal contact book module bugfix. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "prompt": "Contact Book Milestone 4: Given `contacts = {'Zara': '555-9999', 'Adam': '555-1111'}`, print each contact formatted as `'Name: Phone'` sorted alphabetically by name.",
+      "starter_code": "contacts = {\"Zara\": \"555-9999\", \"Adam\": \"555-1111\"}\n# Print sorted\n",
+      "solution_code": "contacts = {\"Zara\": \"555-9999\", \"Adam\": \"555-1111\"}\nfor name in sorted(contacts.keys()):\n    print(f\"{name}: {contacts[name]}\")",
+      "explanation": "Iterating over `sorted(contacts.keys())` presents contact directories in clean alphabetical order.",
+      "metadata": {
+        "concept": "sorted_contact_listing",
+        "skill": "project_milestone",
+        "why_this_exercise_exists": "Replaces variation with sorted contact roster"
+      }
     },
     {
       "id": "10.7_q12",
-      "type": "fix_the_code",
-      "concept": "project_terminal_contact_book_module_bugfix",
-      "skill": "debugging",
+      "type": "write_the_code",
+      "concept": "project_terminal_contact_book_update",
+      "skill": "project_milestone",
       "difficulty": "medium",
       "prerequisites": [
         "10.7_q11"
       ],
-      "error_diagnosis": {
-        "prompt": "The load_contacts function fails because it tries to read a file that may not exist. Add error handling so the program creates an empty dictionary instead of crashing when the file is missing.",
-        "starter_code": "def load_contacts(filename):\n    with open(filename, 'r') as f:\n        return eval(f.read())\n\ncontacts = load_contacts('contacts.txt')",
-        "solution_code": "def load_contacts(filename):\n    try:\n        with open(filename, 'r') as f:\n            return eval(f.read())\n    except FileNotFoundError:\n        return {}\n\ncontacts = load_contacts('contacts.txt')",
-        "hint": "Wrap the file operation in a try-except block and return an empty dictionary on failure.",
-        "explanation": "The original code crashes with FileNotFoundError if the file does not exist. The fix catches the exception and returns an empty dictionary, allowing the program to continue gracefully."
-      },
-      "prompt": "Fix the bug in this code for project terminal contact book module bugfix: (Variation 12)",
-      "starter_code": "# Fix this code\nPrint('Project: Terminal Contact Book')",
-      "solution_code": "print('Project: Terminal Contact Book')",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of project terminal contact book module bugfix. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "prompt": "Contact Book Milestone 5: Update an existing contact's phone number or insert if new. Update `'Adam'` to `'555-2222'` in `contacts`.",
+      "starter_code": "contacts = {\"Adam\": \"555-1111\"}\n# Update phone number\n",
+      "solution_code": "contacts = {\"Adam\": \"555-1111\"}\ncontacts[\"Adam\"] = \"555-2222\"\nprint(contacts[\"Adam\"])",
+      "explanation": "Assigning to an existing dictionary key overwrites the old value in place.",
+      "metadata": {
+        "concept": "dict_in_place_update",
+        "skill": "project_milestone",
+        "why_this_exercise_exists": "Replaces variation with contact update"
+      }
     },
     {
       "id": "10.7_q13",

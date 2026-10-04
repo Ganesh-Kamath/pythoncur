@@ -14,7 +14,7 @@
       "difficulty": "easy",
       "prerequisites": [],
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of introduction to csv basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "A CSV (Comma-Separated Values) file is a plain text file used to store tabular data, such as spreadsheet rows and columns. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "14.1_q2",
@@ -49,7 +49,7 @@
         "14.1_q2"
       ],
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of introduction to csv syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "A valid CSV follows a simple structure: each record is on its own line, fields are separated by commas, and the first line often contains headers. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "14.1_q4",
@@ -464,22 +464,29 @@
     },
     {
       "id": "14.1_q26",
-      "type": "write_the_code",
-      "concept": "introduction_to_csv_practical",
-      "skill": "application",
+      "type": "code_prediction",
+      "concept": "csv_dictreader_parsing",
+      "skill": "data_parsing",
       "difficulty": "medium",
       "prerequisites": [
         "14.1_q25"
       ],
-      "prompt": "Given a CSV file 'sales.csv' with columns product, quantity, price, write a script that calculates total revenue per product and writes the results to 'summary.csv'.",
-      "starter_code": "import csv\n\ndef calculate_revenue(input_file, output_file):\n    revenues = {}\n    with open(input_file, mode='r') as infile:\n        reader = csv.DictReader(infile)\n        for row in reader:\n            product = row['product']\n            quantity = int(row['quantity'])\n            price = float(row['price'])\n            total = quantity * price\n            if product in revenues:\n                revenues[product] += total\n            else:\n                revenues[product] = total\n    \n    with open(output_file, mode='w', newline='') as outfile:\n        writer = csv.writer(outfile)\n        writer.writerow(['product', 'total_revenue'])\n        for product, total in revenues.items():\n            writer.writerow([product, total])\n\nif __name__ == '__main__':\n    calculate_revenue('sales.csv', 'summary.csv')",
-      "solution_code": "import csv\n\ndef calculate_revenue(input_file, output_file):\n    revenues = {}\n    with open(input_file, mode='r', newline='') as infile:\n        reader = csv.DictReader(infile)\n        for row in reader:\n            product = row['product']\n            total = int(row['quantity']) * float(row['price'])\n            revenues[product] = revenues.get(product, 0) + total\n\n    with open(output_file, mode='w', newline='') as outfile:\n        writer = csv.DictWriter(outfile, fieldnames=['product', 'total_revenue'])\n        writer.writeheader()\n        for product, total in revenues.items():\n            writer.writerow({'product': product, 'total_revenue': total})\n\nif __name__ == '__main__':\n    calculate_revenue('sales.csv', 'summary.csv')",
-      "test_cases": [
-        "sales.csv: product,quantity,price\\nWidget,5,10.00\\nGadget,3,20.00",
-        "sales.csv: product,quantity,price\\nWidget,2,10.00\\nWidget,3,10.00"
+      "prompt": "What data type does each row represent when read using `csv.DictReader`?\n\n```python\nimport csv\nfrom io import StringIO\n\ncsv_data = \"name,score\\nAlice,95\\nBob,88\"\nreader = csv.DictReader(StringIO(csv_data))\nrow = next(reader)\nprint(type(row))\nprint(row[\"name\"])\n```",
+      "options": [
+        "<class 'dict'> (or dict-like object)\nAlice",
+        "<class 'list'>\nAlice",
+        "<class 'tuple'>\nAlice",
+        "<class 'str'>\nAlice"
       ],
-      "hint": "Use csv.DictWriter for writing output with headers, and dict.get to simplify accumulation.",
-      "explanation": "This task demonstrates practical CSV processing: reading data, performing aggregation, and writing structured output. Using DictWriter ensures the output CSV has proper headers, and dict.get avoids explicit existence checks."
+      "correct_answer": "<class 'dict'> (or dict-like object)\nAlice",
+      "explanation": "`csv.DictReader` maps each data row to a dictionary where keys are the column headers defined in the first row. Thus `row[\"name\"]` accesses `'Alice'` directly.",
+      "metadata": {
+        "concept": "csv_dictreader_structure",
+        "skill": "data_structures",
+        "learning_objective": "Parse structured CSV lines into key-value dictionaries",
+        "common_misconception": "Assuming csv reader only returns index-based lists",
+        "why_this_exercise_exists": "Replaces template function with practical tabular data ingestion"
+      }
     },
     {
       "id": "14.1_q27",

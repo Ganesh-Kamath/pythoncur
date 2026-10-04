@@ -13,7 +13,7 @@
       "title": "Python: A High-Level Language",
       "content": "Python is a **high-level** programming language. This means it provides abstractions that let you express what you want the computer to do without manually managing hardware details like memory addresses or CPU registers.\n\nHigh-level languages use readable syntax that is closer to human thinking, while the complex low-level work is handled behind the scenes.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of high level language. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Python is a **high-level** programming language. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "1.2_q2",
@@ -45,7 +45,7 @@
       "title": "Source Code vs. Execution",
       "content": "The text files you write containing Python instructions are called **source code**. Source code is text containing the instructions written by the programmer.\n\nSimply storing that text in a file does not execute the program. To make the computer carry out your instructions, a separate piece of software (like CPython) must **execute** (run) your source code.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of source code. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "The text files you write containing Python instructions are called **source code**. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "1.2_q4",
@@ -136,7 +136,7 @@
       "title": "Python the Language vs. CPython the Software",
       "content": "**Python** is a programming language — a specification of syntax and rules.\n\nBut a language specification alone cannot run your code. You need a software **implementation** that understands those rules and carries them out.\n\nThe most widely used implementation is called **CPython**. It is written primarily in the C programming language. When you download and 'install Python' from python.org, you are typically installing CPython.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of cpython. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "**Python** is a programming language — a specification of syntax and rules. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "1.2_q9",
@@ -169,7 +169,7 @@
       "title": "Step 1: Parsing Your Code",
       "content": "When you run a Python script, CPython first **parses** your source code. Parsing means reading through the text and checking that it follows Python's grammar rules.\n\nIf the syntax is valid, CPython builds an internal representation of your code's structure (sometimes called an **Abstract Syntax Tree**, or AST). Think of it like diagramming a sentence to understand its grammar before acting on its meaning.\n\nIf the syntax is *not* valid, CPython raises a **SyntaxError** and stops — your program never begins executing.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of parsing. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "When you run a Python script, CPython first **parses** your source code. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "1.2_q11",
@@ -183,7 +183,7 @@
       "title": "Step 2: Compiling to Bytecode",
       "content": "After parsing succeeds, CPython **compiles** your code into **bytecode** — an intermediate, lower-level set of instructions.\n\nBytecode is not your source code, and it is not machine code either. It is a compact format specifically designed for CPython's runtime to process efficiently.\n\nCPython performs this compilation automatically when the source needs to be compiled. It can also cache compiled bytecode in `.pyc` files to avoid unnecessary recompilation later.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of bytecode. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "After parsing succeeds, CPython **compiles** your code into **bytecode** — an intermediate, lower-level set of instructions. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "1.2_q12",
@@ -216,7 +216,7 @@
       "title": "Step 3: The Python Virtual Machine (PVM)",
       "content": "Once bytecode is produced, it is handed to the **Python Virtual Machine (PVM)** — the runtime engine inside CPython.\n\nThe PVM is *software*, not a physical machine. It reads each bytecode instruction and carries out the corresponding operations, using the operating system and CPU to perform the actual work.\n\nThe PVM is what makes your Python program actually *do* things.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of pvm. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Once bytecode is produced, it is handed to the **Python Virtual Machine (PVM)** — the runtime engine inside CPython. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "1.2_q14",
@@ -297,7 +297,7 @@
       "title": "Why Python Is Called 'Interpreted'",
       "content": "Python is commonly described as an **interpreted language**. This is a useful high-level classification: Python programs are executed through a runtime (the PVM) rather than being distributed as standalone machine-code executables.\n\nHowever, 'interpreted' does **not** mean that CPython performs zero compilation, and it does **not** mean source code is sent directly to the CPU. As you have learned, CPython *does* compile your source code — into bytecode. The bytecode is then executed by the Python runtime.\n\nThe difference from traditionally compiled languages (like C) is not that one compiles and the other does not. Rather, C compilers produce native machine-code executables, while CPython compiles to bytecode that still requires the Python runtime to execute.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of interpreted language. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Python is commonly described as an **interpreted language**. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "1.2_q18",
@@ -350,7 +350,7 @@
       "title": "Cross-Platform Execution",
       "content": "Python is available on many operating systems — Windows, macOS, Linux, and more.\n\nPython source code can often run on different operating systems because compatible Python implementations are available for those systems. If your program uses portable Python features and its dependencies are available on the target system, the same `.py` file can often be reused with little or no change.\n\nHowever, perfect portability is not guaranteed. OS-specific file paths, platform-dependent libraries, native dependencies, or environment differences can sometimes require adjustments when moving code between systems.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of cross platform. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Python is available on many operating systems — Windows, macOS, Linux, and more. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "1.2_q21",
@@ -423,7 +423,7 @@
       "title": "Syntax Errors vs. Runtime Errors",
       "content": "In CPython, errors can occur at different stages of the pipeline:\n\n**Syntax Error**: Your source code violates Python's grammar rules. CPython catches this during the parsing/compilation stage. Because valid bytecode cannot be produced, the program **never starts executing**.\n\n**Runtime Error**: Your code has valid syntax, so bytecode is successfully generated and execution begins. But during execution, an error occurs (like dividing by zero). The program crashes at the point where the error happens.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of error timing. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "In CPython, errors can occur at different stages of the pipeline:\n\n**Syntax Error**: Your source code violates Python's grammar rules. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "1.2_q25",

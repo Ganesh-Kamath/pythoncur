@@ -13,7 +13,7 @@
       "title": "What Is Backtracking?",
       "content": "Backtracking is a general algorithmic technique for finding all (or some) solutions to a problem by exploring candidate solutions incrementally and abandoning a candidate ('backtracking') as soon as it determines that the candidate cannot possibly be completed to a valid solution.\n\nThink of it like exploring a maze. At each intersection, you choose a path. If you hit a dead end, you return to the last intersection and try a different path instead of starting over. This is exactly what backtracking does: it uses recursion to go deeper, and when a path fails, it unwinds and tries another option.\n\nIn Python, a backtracking function typically has three parts:\n1. Base case: when a solution is found or the search space is exhausted.\n2. Recursive case: try a choice, recurse, then undo the choice (backtrack).\n3. Undo step: remove the choice so other branches can use it.\n\nExample:\n```python\ndef find_paths(current, target):\n    if current == target:\n        print('Found a valid path!')\n        return True\n    for next_step in range(len(current) + 1):\n        if is_valid(current + [next_step]):\n            if find_paths(current + [next_step], target):\n                return True\n            # Backtrack: undo the choice to explore other branches\n    return False\n```\nNotice how we add a choice, recurse, and if it fails we simply return, letting the loop continue to the next option. This 'undo' is implicit in our data structure, but in problems like the N-Queens puzzle we explicitly remove a queen to backtrack.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of backtracking concepts basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Backtracking is a general algorithmic technique for finding all (or some) solutions to a problem by exploring candidate solutions incrementally and abandoning a candidate ('backtracking') as soon as it determines that the candidate cannot possibly be completed to a valid solution. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "idx": 2,
@@ -48,7 +48,7 @@
       "title": "Core Syntax of a Backtracking Function",
       "content": "A backtracking solution in Python usually follows a consistent pattern. Let's build a function that finds all subsets of a list.\n\nThe skeleton looks like this:\n```python\ndef backtrack(start, current):\n    # Base case: a complete subset is found\n    result.append(list(current))\n    \n    # Recursive case: try every remaining element\n    for i in range(start, len(nums)):\n        current.append(nums[i])       # Choose\n        backtrack(i + 1, current)     # Explore\n        current.pop()                   # Unchoose (backtrack)\n```\nKey syntax points:\n- `start` parameter prevents duplicate subsets by ensuring we only consider elements at or after the current index.\n- `list(current)` is used to store a *copy* of the current subset; otherwise later modifications would corrupt stored results.\n- The `for` loop iterates over remaining candidates, making one recursive call per candidate.\n- `current.pop()` removes the last added element, restoring the state for the next iteration.\n\nWithout the `pop()` step, the `current` list would grow indefinitely and never shrink, so the algorithm would not explore alternative branches correctly.\n\nHere is a complete runnable example:\n```python\ndef subsets(nums):\n    result = []\n    def backtrack(start, current):\n        result.append(list(current))\n        for i in range(start, len(nums)):\n            current.append(nums[i])\n            backtrack(i + 1, current)\n            current.pop()\n    backtrack(0, [])\n    return result\n\nprint(subsets([1, 2, 3]))\n# Output: [[], [1], [1, 2], [1, 2, 3], [1, 3], [2], [2, 3], [3]]\n```\nNotice how the output order depends on the loop, but every subset appears exactly once.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of backtracking concepts syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "A backtracking solution in Python usually follows a consistent pattern. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "idx": 4,
@@ -355,7 +355,7 @@
       "prompt": "Fix the bug in this code for backtracking concepts errors:",
       "starter_code": "# Fix this code\nPrint('Backtracking Concepts')",
       "solution_code": "print('Backtracking Concepts')",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of backtracking concepts errors. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `backtracking concepts errors` in Backtracking Concepts. When Python validates this code, it applies the standard rules of backtracking concepts errors. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "36.5_q20",
@@ -403,7 +403,7 @@
       "prompt": "Fix the bug in this code for backtracking concepts runtime:",
       "starter_code": "# Fix this code\nPrint('Backtracking Concepts')",
       "solution_code": "print('Backtracking Concepts')",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of backtracking concepts runtime. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `backtracking concepts runtime` in Backtracking Concepts. When Python validates this code, it applies the standard rules of backtracking concepts runtime. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "36.5_q23",

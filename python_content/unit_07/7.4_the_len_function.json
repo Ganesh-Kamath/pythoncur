@@ -13,7 +13,7 @@
       "title": "What Does len() Do?",
       "content": "The len() function is a built-in Python function that returns the number of items in an object. When you pass a string to len(), it counts how many characters are in that string. For example, the string 'cat' has 3 characters, so len('cat') returns 3. This includes letters, numbers, spaces, and punctuation. If you have an empty string '', len('') returns 0 because there are no characters. Remember that len() counts characters, not words.\n\nHere is a Python code example:\n\n```python\nmy_string = 'hello'\nprint(len(my_string))\n```\n\nIn this example, my_string stores the value 'hello', which has 5 characters. The len() function evaluates the string and returns the integer 5.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of the len function basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "The len() function is a built-in Python function that returns the number of items in an object. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "7.4_q2",
@@ -46,7 +46,7 @@
       "title": "Using len() with Variables and Expressions",
       "content": "You can use len() with a variable that holds a string, or you can pass a string literal directly inside the parentheses. The general syntax is len(string_object). The argument must be a string or an object that supports length measurement. If you try to use len() on a non-string such as an integer, Python will raise a TypeError. Always ensure the value you are measuring is a string.\n\nHere is a Python code example:\n\n```python\nname = 'Ada'\nlength = len(name)\nprint(length)\n```\n\nIn this example, the variable name stores the string 'Ada'. The len() function is called with name as its argument, which evaluates to 'Ada', and returns 3. The variable length is assigned 3, and print(length) outputs 3.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of the len function syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "In Python, variable names must begin with a letter or underscore, cannot start with a digit, and cannot contain spaces or special punctuation. Following PEP 8 snake_case conventions ensures identifiers remain clear, legal, and unambiguous."
     },
     {
       "id": "7.4_q4",

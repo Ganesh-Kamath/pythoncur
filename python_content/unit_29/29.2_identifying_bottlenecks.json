@@ -13,7 +13,7 @@
       "title": "What Is a Bottleneck?",
       "content": "A bottleneck is the part of your program that slows everything down. When a program runs, most of the time is often spent in just a few functions or operations. Identifying bottlenecks means finding those slow spots so you can improve them. For example, if you have a list with 1,000,000 items and you check every item for a match, that loop may become a bottleneck. You can spot bottlenecks by measuring how long different parts of your code take to execute. The goal is to reduce the total runtime by optimizing only the slowest sections.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of identifying bottlenecks basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "A bottleneck is the part of your program that slows everything down. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "29.2_q2",
@@ -46,7 +46,7 @@
       "title": "Using time.time() to Measure Execution",
       "content": "You can identify a bottleneck by timing how long a block of code runs. Python's time module provides time.time() to capture the current time in seconds. By recording the time before and after a block of code, you can compute the elapsed time. For example, if you want to check whether a loop is slow, wrap it with time.time() calls. A larger difference means more time spent, indicating a potential bottleneck. Remember to import time at the top of your script. Here is an example:\n\n```python\nimport time\n\ndef slow_function():\n    total = 0\n    for i in range(1000000):\n        total += i\n    return total\n\nstart = time.time()\nresult = slow_function()\nend = time.time()\nprint('Elapsed time:', end - start)\n```\n\nIn this example, the loop inside slow_function() is likely the bottleneck because it performs many repeated additions.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of identifying bottlenecks syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "You can identify a bottleneck by timing how long a block of code runs. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "29.2_q4",
@@ -399,7 +399,7 @@
       "prompt": "Fix the bug in this code for identifying bottlenecks errors:",
       "starter_code": "# Fix this code\nPrint('Identifying Bottlenecks')",
       "solution_code": "print('Identifying Bottlenecks')",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of identifying bottlenecks errors. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `identifying bottlenecks errors` in Identifying Bottlenecks. When Python validates this code, it applies the standard rules of identifying bottlenecks errors. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "29.2_q20",
@@ -447,7 +447,7 @@
       "prompt": "Fix the bug in this code for identifying bottlenecks runtime:",
       "starter_code": "# Fix this code\nPrint('Identifying Bottlenecks')",
       "solution_code": "print('Identifying Bottlenecks')",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of identifying bottlenecks runtime. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `identifying bottlenecks runtime` in Identifying Bottlenecks. When Python validates this code, it applies the standard rules of identifying bottlenecks runtime. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "29.2_q23",

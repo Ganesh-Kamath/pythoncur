@@ -13,7 +13,7 @@
       "title": "What is O(log N) Time?",
       "content": "O(log N) describes an algorithm whose runtime grows logarithmically with the input size N. This usually happens when the problem size is halved at each step. A classic example is binary search on a sorted list. If N doubles, the number of steps increases by only one. This is much faster than linear O(N) and vastly faster than quadratic O(N^2).\n\nExample in Python:\n```python\ndef binary_search(arr, target):\n    left = 0\n    right = len(arr) - 1\n    while left <= right:\n        mid = (left + right) // 2\n        if arr[mid] == target:\n            return mid\n        elif arr[mid] < target:\n            left = mid + 1\n        else:\n            right = mid - 1\n    return -1\n```\nHere, each iteration discards half of the remaining elements, so the number of iterations is proportional to log2(N).",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of olog n logarithmic time basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "O(log N) describes an algorithm whose runtime grows logarithmically with the input size N. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "31.5_q2",
@@ -46,7 +46,7 @@
       "title": "Recognizing Logarithmic Patterns in Code",
       "content": "You can spot O(log N) by looking for a loop or recursion where the variable controlling progress is multiplied or divided by a constant greater than one each iteration. In Python, this often appears as `i *= 2`, `i //= 2`, or `i = mid` in a binary-search-style update. The key is that the step size grows exponentially, so the total steps are logarithmic.\n\nExample:\n```python\ndef count_steps(n):\n    steps = 0\n    while n > 1:\n        n = n // 2\n        steps += 1\n    return steps\n```\nIf n = 16, the loop runs 4 times: 16 -> 8 -> 4 -> 2 -> 1. This is log2(16) = 4 steps, confirming O(log N).",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of olog n logarithmic time syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "You can spot O(log N) by looking for a loop or recursion where the variable controlling progress is multiplied or divided by a constant greater than one each iteration. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "31.5_q4",

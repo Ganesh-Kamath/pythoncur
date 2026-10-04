@@ -10,100 +10,131 @@
       "skill": "recognition",
       "difficulty": "easy",
       "prerequisites": [],
-      "title": "Syntax Errors vs Runtime Errors Part 1: Syntax Errors Vs Runtime Errors Basics",
-      "content": "In Python, **Syntax Errors Vs Runtime Errors Basics** provides essential rules when working with syntax errors vs runtime errors.\n\nUnderstanding how `syntax_errors_vs_runtime_errors_basics` functions in practice enables you to write clean, unambiguous code.\n\n```python\n# Step 1: syntax_errors_vs_runtime_errors_basics\nstage_1 = True\n```",
-      "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of syntax errors vs runtime errors basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "title": "Syntax Errors vs Runtime Exceptions",
+      "content": "Errors in Python fall into two fundamental categories:\n\n1. **Syntax Errors:** Detected by Python's parser *before* running any code. If a file has a missing colon or unmatched parenthesis, not a single line executes.\n2. **Runtime Errors (Exceptions):** Occur while the program is actively executing valid code (e.g. dividing by zero, accessing a missing key, or calling methods on `None`).",
+      "explanation": "Syntax errors halt execution at parse time before line 1 runs; runtime exceptions occur during execution.",
+      "metadata": {
+        "concept": "syntax_vs_runtime_error_distinction",
+        "skill": "recognition",
+        "why_this_exercise_exists": "Core mental model for debugging"
+      }
     },
     {
       "id": "12.1_q2",
-      "type": "output_prediction",
+      "type": "error_diagnosis",
       "concept": "syntax_errors_vs_runtime_errors_basics",
-      "skill": "recall",
+      "skill": "error_discrimination",
       "difficulty": "easy",
       "prerequisites": [
         "12.1_q1"
       ],
-      "prompt": "Consider the following Python snippet demonstrating Syntax Errors Vs Runtime Errors Basics:\n\n```python\ndef calculate_2(value):\n    base = 8\n    return base + value * 11\n\nresult = calculate_2(2)\nprint(result)\n```\n\nWhat is the value printed to the console?",
+      "prompt": "Consider the following line of code:\n\n```python\nif age > 18\n    print(\"Adult\")\n```\n\nWhat category of error does this represent?",
       "options": [
-        "30",
-        "19",
-        "110",
-        "TypeError"
+        "SyntaxError: invalid syntax (caught at parse time before any code runs)",
+        "RuntimeError: occurs while the program is actively executing",
+        "Logical Error: the program runs to completion but gives wrong answers",
+        "TypeError: incompatible data types"
       ],
-      "correct_answer": "30",
-      "explanation": "Python evaluates arithmetic following standard operator precedence (multiplication before addition). First, `value * 11` evaluates to `2 * 11 = 22`. Then, adding `base` (8) yields `30`. The function returns this integer and `print()` outputs it."
+      "correct_answer": "SyntaxError: invalid syntax (caught at parse time before any code runs)",
+      "explanation": "A missing colon `:` violates Python's formal grammatical rules. Python's parser detects this during compilation/parsing *before* executing even a single line of code, raising a `SyntaxError`.",
+      "metadata": {
+        "concept": "parse_time_syntax_error",
+        "skill": "error_classification",
+        "learning_objective": "Distinguish compile/parse-time SyntaxErrors from runtime exceptions",
+        "common_misconception": "Thinking Python executes lines up until the line with missing colon",
+        "why_this_exercise_exists": "Replaces template function with core compiler/interpreter mental model"
+      }
     },
     {
       "id": "12.1_q3",
       "type": "micro_lesson",
-      "concept": "syntax_errors_vs_runtime_errors_syntax",
-      "skill": "understanding",
+      "concept": "syntax_errors_vs_runtime_errors_traceback",
+      "skill": "recognition",
       "difficulty": "easy",
       "prerequisites": [
         "12.1_q2"
       ],
-      "title": "Syntax Errors vs Runtime Errors Part 3: Syntax Errors Vs Runtime Errors Syntax",
-      "content": "In Python, **Syntax Errors Vs Runtime Errors Syntax** provides essential rules when working with syntax errors vs runtime errors.\n\nUnderstanding how `syntax_errors_vs_runtime_errors_syntax` functions in practice enables you to write clean, unambiguous code.\n\n```python\n# Step 3: syntax_errors_vs_runtime_errors_syntax\nstage_3 = True\n```",
-      "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of syntax errors vs runtime errors syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "title": "Anatomy of a Traceback",
+      "content": "When a runtime exception occurs, Python prints a **traceback**.\n\nTo diagnose an error quickly, read from the bottom up:\n1. **Bottom Line:** The exception type and error message (e.g. `ValueError: invalid literal for int()`).\n2. **Line Above:** The exact file name and line number that failed.\n3. **Call Stack:** The chain of function calls leading up to the crash.",
+      "explanation": "Tracebacks display the failure chain; reading the bottom line reveals the exception type and root cause.",
+      "metadata": {
+        "concept": "traceback_anatomy",
+        "skill": "recognition",
+        "why_this_exercise_exists": "Teaches how to read Python tracebacks"
+      }
     },
     {
       "id": "12.1_q4",
-      "type": "output_prediction",
-      "concept": "syntax_errors_vs_runtime_errors_syntax",
-      "skill": "reasoning",
-      "difficulty": "easy",
+      "type": "error_diagnosis",
+      "concept": "syntax_errors_vs_runtime_errors_basics",
+      "skill": "error_discrimination",
+      "difficulty": "medium",
       "prerequisites": [
         "12.1_q3"
       ],
-      "prompt": "Consider the following Python snippet demonstrating Syntax Errors Vs Runtime Errors Syntax:\n\n```python\ndef calculate_4(value):\n    base = 14\n    return base + value * 6\n\nresult = calculate_4(2)\nprint(result)\n```\n\nWhat is the value printed to the console?",
+      "prompt": "Consider this code where `user_name` has not been initialized:\n\n```python\nprint(\"Welcome to our app!\")\nprint(user_name)\n```\n\nDoes Python print the welcome message before crashing?",
       "options": [
-        "26",
-        "20",
-        "96",
-        "TypeError"
+        "Yes; 'Welcome to our app!' prints first, then Python raises NameError at runtime on line 2.",
+        "No; Python crashes with SyntaxError before printing anything.",
+        "Yes; user_name defaults to None so no crash occurs.",
+        "No; Python does not support printing undefined variables."
       ],
-      "correct_answer": "26",
-      "explanation": "Python evaluates arithmetic following standard operator precedence (multiplication before addition). First, `value * 6` evaluates to `2 * 6 = 12`. Then, adding `base` (14) yields `26`. The function returns this integer and `print()` outputs it."
+      "correct_answer": "Yes; 'Welcome to our app!' prints first, then Python raises NameError at runtime on line 2.",
+      "explanation": "Because the code is syntactically valid, Python compiles it and begins execution. Line 1 runs successfully, printing the welcome string. When line 2 attempts to evaluate the undefined variable `user_name`, execution halts with a runtime `NameError`.",
+      "metadata": {
+        "concept": "runtime_exception_timing",
+        "skill": "tracing",
+        "learning_objective": "Understand that runtime errors occur during execution, after valid parsing",
+        "common_misconception": "Assuming runtime errors prevent prior valid statements from executing",
+        "why_this_exercise_exists": "Replaces template function with essential execution lifecycle understanding"
+      }
     },
     {
       "id": "12.1_q5",
-      "type": "output_prediction",
-      "concept": "syntax_errors_vs_runtime_errors_matching",
-      "skill": "recognition",
-      "difficulty": "easy",
+      "type": "code_prediction",
+      "concept": "syntax_errors_vs_runtime_errors_basics",
+      "skill": "error_discrimination",
+      "difficulty": "medium",
       "prerequisites": [
         "12.1_q4"
       ],
-      "prompt": "Consider the following Python snippet demonstrating Syntax Errors Vs Runtime Errors Matching:\n\n```python\ndef calculate_5(value):\n    base = 17\n    return base + value * 11\n\nresult = calculate_5(2)\nprint(result)\n```\n\nWhat is the value printed to the console?",
+      "prompt": "Which of the following mistakes will prevent the ENTIRE script from even starting execution?",
       "options": [
-        "39",
-        "28",
-        "209",
-        "TypeError"
+        "def calculate(x, y)  # Missing colon",
+        "result = 10 / 0      # ZeroDivisionError",
+        "items = [1, 2][5]     # IndexError",
+        "data = int(\"abc\")     # ValueError"
       ],
-      "correct_answer": "39",
-      "explanation": "Python evaluates arithmetic following standard operator precedence (multiplication before addition). First, `value * 11` evaluates to `2 * 11 = 22`. Then, adding `base` (17) yields `39`. The function returns this integer and `print()` outputs it."
+      "correct_answer": "def calculate(x, y)  # Missing colon",
+      "explanation": "The missing colon in `def calculate(x, y)` is a `SyntaxError`. Python checks grammar for the entire file before running; syntax errors stop execution completely before line 1 runs. The other options are runtime errors that only trigger when the interpreter reaches them.",
+      "metadata": {
+        "concept": "syntax_error_precedence",
+        "skill": "classification",
+        "learning_objective": "Identify errors that halt execution before runtime",
+        "common_misconception": "Treating all errors as runtime exceptions",
+        "why_this_exercise_exists": "Replaces template function with rigorous syntactic comprehension"
+      }
     },
     {
       "id": "12.1_q6",
-      "type": "output_prediction",
-      "concept": "syntax_errors_vs_runtime_errors_pitfalls",
-      "skill": "comprehension",
-      "difficulty": "easy",
+      "type": "fix_the_code",
+      "concept": "syntax_errors_vs_runtime_errors_basics",
+      "skill": "debugging",
+      "difficulty": "medium",
       "prerequisites": [
         "12.1_q5"
       ],
-      "prompt": "Consider the following Python snippet demonstrating Syntax Errors Vs Runtime Errors Pitfalls:\n\n```python\ndef calculate_6(value):\n    base = 20\n    return base + value * 1\n\nresult = calculate_6(2)\nprint(result)\n```\n\nWhat is the value printed to the console?",
-      "options": [
-        "22",
-        "21",
-        "22",
-        "TypeError"
-      ],
-      "correct_answer": "22",
-      "explanation": "Python evaluates arithmetic following standard operator precedence (multiplication before addition). First, `value * 1` evaluates to `2 * 1 = 2`. Then, adding `base` (20) yields `22`. The function returns this integer and `print()` outputs it."
+      "prompt": "The code below contains both a SyntaxError and a potential runtime TypeError. Fix both issues so it successfully prints `Double 10 is 20`:\n\n```python\n# Fix syntax and type conversion:\nval = \"10\"\nif val.isdigit()\n    print(f\"Double {val} is {val * 2}\")\n```",
+      "starter_code": "val = \"10\"\nif val.isdigit()\n    print(f\"Double {val} is {val * 2}\")",
+      "solution_code": "val = \"10\"\nif val.isdigit():\n    num = int(val)\n    print(f\"Double {val} is {num * 2}\")",
+      "explanation": "1. Added the missing colon `:` after `if val.isdigit()`. 2. Converted `val` to `int(val)` so `num * 2` performs mathematical multiplication (`20`) rather than string duplication (`'1010'`).",
+      "metadata": {
+        "concept": "syntax_and_semantic_repair",
+        "skill": "repair",
+        "learning_objective": "Repair parse-time syntax and runtime type mismatches in a single pass",
+        "common_misconception": "Thinking val * 2 doubles the numeric value when val is a string",
+        "why_this_exercise_exists": "Replaces template function with dual-stage debugging"
+      }
     },
     {
       "id": "12.1_q7",
@@ -219,35 +250,51 @@
     },
     {
       "id": "12.1_q13",
-      "type": "fill_in_the_blank",
-      "concept": "syntax_errors_vs_runtime_errors_syntax",
-      "skill": "syntax",
-      "difficulty": "easy",
+      "type": "error_diagnosis",
+      "concept": "unclosed_parenthesis_syntax_error",
+      "skill": "debugging",
+      "difficulty": "medium",
       "prerequisites": [
         "12.1_q12"
       ],
-      "prompt": "Complete the code to output 'Syntax Errors vs Runtime Errors #13':\n```python\n___('Syntax Errors vs Runtime Errors #13')\n```",
-      "correct_answer": "print",
-      "accepted_answers": [
-        "print"
+      "prompt": "What error occurs if you forget to close a parenthesis: `total = (10 + 20`?",
+      "options": [
+        "SyntaxError: '(' was never closed",
+        "RuntimeError: incomplete evaluation",
+        "TypeError: missing closing token",
+        "ValueError: unclosed expression"
       ],
-      "explanation": "In Python, this operation directly demonstrates the core behavior of syntax errors vs runtime errors syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "correct_answer": "SyntaxError: '(' was never closed",
+      "explanation": "Modern Python 3.10+ parsers explicitly report `SyntaxError: '(' was never closed` pointing directly to the unclosed bracket.",
+      "metadata": {
+        "concept": "unclosed_delimiter_syntax",
+        "skill": "debugging",
+        "why_this_exercise_exists": "Replaces filler with compiler error diagnostics"
+      }
     },
     {
       "id": "12.1_q14",
-      "type": "fill_in_the_blank",
-      "concept": "syntax_errors_vs_runtime_errors_keywords",
-      "skill": "syntax",
+      "type": "error_diagnosis",
+      "concept": "zerodivision_runtime_error",
+      "skill": "error_discrimination",
       "difficulty": "medium",
       "prerequisites": [
         "12.1_q13"
       ],
-      "prompt": "Complete the code to output 'Syntax Errors vs Runtime Errors #14':\n```python\n___('Syntax Errors vs Runtime Errors #14')\n```",
-      "correct_answer": "print",
-      "accepted_answers": [
-        "print"
+      "prompt": "Is `result = 10 / 0` a SyntaxError or a RuntimeError?",
+      "options": [
+        "RuntimeError (specifically ZeroDivisionError), because the syntax is grammatically valid and fails only during execution.",
+        "SyntaxError, because dividing by zero is forbidden by Python's grammar.",
+        "NameError, because zero is undefined.",
+        "TypeError, because 0 cannot be an operand."
       ],
-      "explanation": "In Python, this operation directly demonstrates the core behavior of syntax errors vs runtime errors keywords. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "correct_answer": "RuntimeError (specifically ZeroDivisionError), because the syntax is grammatically valid and fails only during execution.",
+      "explanation": "Grammatically, `10 / 0` is valid Python. The error only manifests at runtime when the CPU executes the division instruction.",
+      "metadata": {
+        "concept": "runtime_vs_syntax_classification",
+        "skill": "discrimination",
+        "why_this_exercise_exists": "Replaces filler with core error category distinction"
+      }
     },
     {
       "id": "12.1_q15",
@@ -275,19 +322,22 @@
     },
     {
       "id": "12.1_q16",
-      "type": "fill_in_the_blank",
-      "concept": "syntax_errors_vs_runtime_errors_patterns",
-      "skill": "syntax",
+      "type": "fix_the_code",
+      "concept": "name_error_typo_fix",
+      "skill": "repair",
       "difficulty": "medium",
       "prerequisites": [
         "12.1_q15"
       ],
-      "prompt": "Complete the code to output 'Syntax Errors vs Runtime Errors #16':\n```python\n___('Syntax Errors vs Runtime Errors #16')\n```",
-      "correct_answer": "print",
-      "accepted_answers": [
-        "print"
-      ],
-      "explanation": "In Python, this operation directly demonstrates the core behavior of syntax errors vs runtime errors patterns. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "prompt": "Fix the NameError typo in this calculation:\n\n```python\nsubtotal = 50.0\n# Fix typo in variable name:\ntotal = subtotl * 1.1\nprint(total)\n```",
+      "starter_code": "subtotal = 50.0\ntotal = subtotl * 1.1\nprint(total)",
+      "solution_code": "subtotal = 50.0\ntotal = subtotal * 1.1\nprint(total)",
+      "explanation": "Correcting the typo `subtotl` to `subtotal` resolves the runtime NameError.",
+      "metadata": {
+        "concept": "name_error_typo",
+        "skill": "repair",
+        "why_this_exercise_exists": "Replaces filler with real variable typo repair"
+      }
     },
     {
       "id": "12.1_q17",
@@ -315,19 +365,27 @@
     },
     {
       "id": "12.1_q18",
-      "type": "fill_in_the_blank",
-      "concept": "syntax_errors_vs_runtime_errors_idioms",
-      "skill": "syntax",
+      "type": "multiple_choice",
+      "concept": "logic_error_definition",
+      "skill": "classification",
       "difficulty": "medium",
       "prerequisites": [
         "12.1_q17"
       ],
-      "prompt": "Complete the code to output 'Syntax Errors vs Runtime Errors #18':\n```python\n___('Syntax Errors vs Runtime Errors #18')\n```",
-      "correct_answer": "print",
-      "accepted_answers": [
-        "print"
+      "prompt": "What defines a 'Logic Error' (semantic error) in Python?",
+      "options": [
+        "The program compiles and runs to completion without raising an exception, but produces incorrect output.",
+        "An error that stops Python from compiling the file.",
+        "An error that triggers a traceback immediately.",
+        "An error caused by insufficient RAM."
       ],
-      "explanation": "In Python, this operation directly demonstrates the core behavior of syntax errors vs runtime errors idioms. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "correct_answer": "The program compiles and runs to completion without raising an exception, but produces incorrect output.",
+      "explanation": "Logic errors are the most insidious bugs because Python does not crash; the algorithm simply produces flawed business results (e.g. calculating `price + discount` instead of `price - discount`).",
+      "metadata": {
+        "concept": "logic_error_nature",
+        "skill": "classification",
+        "why_this_exercise_exists": "Replaces filler with logic error awareness"
+      }
     },
     {
       "id": "12.1_q19",
@@ -342,7 +400,7 @@
       "starter_code": "Print('Syntax Errors vs Runtime Errors Item 19')",
       "solution_code": "print('Syntax Errors vs Runtime Errors Item 19')",
       "hint": "Python built-in functions like print() must be written in lowercase.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of syntax errors vs runtime errors errors. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `syntax errors vs runtime errors errors` in Syntax Errors vs Runtime Errors. When Python validates this code, it applies the standard rules of syntax errors vs runtime errors errors. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "12.1_q20",
@@ -357,7 +415,7 @@
       "starter_code": "Print('Syntax Errors vs Runtime Errors Item 20')",
       "solution_code": "print('Syntax Errors vs Runtime Errors Item 20')",
       "hint": "Python built-in functions like print() must be written in lowercase.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of syntax errors vs runtime errors fix. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `syntax errors vs runtime errors fix` in Syntax Errors vs Runtime Errors. When Python validates this code, it applies the standard rules of syntax errors vs runtime errors fix. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "12.1_q21",
@@ -372,7 +430,7 @@
       "starter_code": "Print('Syntax Errors vs Runtime Errors Item 21')",
       "solution_code": "print('Syntax Errors vs Runtime Errors Item 21')",
       "hint": "Python built-in functions like print() must be written in lowercase.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of syntax errors vs runtime errors edge cases. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `syntax errors vs runtime errors edge cases` in Syntax Errors vs Runtime Errors. When Python validates this code, it applies the standard rules of syntax errors vs runtime errors edge cases. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "12.1_q22",
@@ -387,7 +445,7 @@
       "starter_code": "Print('Syntax Errors vs Runtime Errors Item 22')",
       "solution_code": "print('Syntax Errors vs Runtime Errors Item 22')",
       "hint": "Python built-in functions like print() must be written in lowercase.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of syntax errors vs runtime errors runtime. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `syntax errors vs runtime errors runtime` in Syntax Errors vs Runtime Errors. When Python validates this code, it applies the standard rules of syntax errors vs runtime errors runtime. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "12.1_q23",
@@ -402,7 +460,7 @@
       "starter_code": "Print('Syntax Errors vs Runtime Errors Item 23')",
       "solution_code": "print('Syntax Errors vs Runtime Errors Item 23')",
       "hint": "Python built-in functions like print() must be written in lowercase.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of syntax errors vs runtime errors logic repair. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `syntax errors vs runtime errors logic repair` in Syntax Errors vs Runtime Errors. When Python validates this code, it applies the standard rules of syntax errors vs runtime errors logic repair. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "12.1_q24",

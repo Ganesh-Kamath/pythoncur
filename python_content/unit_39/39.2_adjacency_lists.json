@@ -13,7 +13,7 @@
       "title": "What Is an Adjacency List?",
       "content": "An adjacency list is a common way to represent a graph in Python. Instead of using a matrix, we store for each vertex a list of its neighboring vertices. This is efficient for sparse graphs, where the number of edges is much smaller than the number of possible edges. For an undirected graph, if vertex A is connected to vertex B, then B appears in A's list and A appears in B's list. In Python, a dictionary of lists is a natural choice: each key is a vertex, and its value is a list of adjacent vertices. For example, the graph with edges (0,1), (0,2), and (1,2) can be represented as {'0': ['1', '2'], '1': ['0', '2'], '2': ['0', '1']}. This representation makes it easy to iterate over neighbors of any given node.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of adjacency lists basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "An adjacency list is a common way to represent a graph in Python. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "39.2_q2",
@@ -46,7 +46,7 @@
       "title": "Building an Adjacency List in Python",
       "content": "To build an adjacency list in Python, initialize a dictionary and populate it by iterating over edges. Suppose we have edges = [(0, 1), (1, 2), (2, 0)]. We can use a defaultdict(list) from the collections module to avoid key errors when appending neighbors. Here is a complete example: from collections import defaultdict; graph = defaultdict(list); for u, v in edges: graph[u].append(v); graph[v].append(u). After this loop, graph[0] == [1, 2], graph[1] == [0, 2], and graph[2] == [0, 1]. If you prefer a plain dict, you can check whether a key exists before appending. Using defaultdict simplifies the code and is idiomatic in Python.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of adjacency lists syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "To build an adjacency list in Python, initialize a dictionary and populate it by iterating over edges. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "39.2_q4",

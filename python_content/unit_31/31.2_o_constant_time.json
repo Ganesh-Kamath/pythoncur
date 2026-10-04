@@ -13,7 +13,7 @@
       "title": "What is O(1) Constant Time?",
       "content": "O(1) Constant Time means that the execution time of an operation does not change as the input size grows. Whether you have 10 items or 10 million items, the operation takes the same amount of time. A classic example is accessing an element in a list by its index using square brackets, because Python can directly compute the memory address. Another example is adding an element to the end of a list when there is available capacity. These operations are fast and predictable. Consider the following Python code:\n\n```python\nitems = [10, 20, 30, 40, 50]\nvalue = items[2]  # Always one step, no matter how large 'items' becomes\nprint('Retrieved value:', value)\n```\n\nNotice that `items[2]` does not loop through the list; it jumps straight to the third position. This is why we classify it as O(1).",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of o1 constant time basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "O(1) Constant Time means that the execution time of an operation does not change as the input size grows. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "31.2_q2",
@@ -46,7 +46,7 @@
       "title": "Identifying O(1) Syntax in Python",
       "content": "In Python, certain built-in operations are O(1) because they do not iterate over collections. Direct indexing with square brackets is the most common example. Appending to a list is amortized O(1) when the list has spare capacity. Dictionary lookups by key are also O(1) on average because Python uses a hash table. Here is a syntax example to study:\n\n```python\nscores = {'alice': 85, 'bob': 92, 'charlie': 78}\nscore = scores['bob']  # Hash lookup, constant time\nprint('Bob\\'s score:', score)\n```\n\nKey syntax to remember: bracket notation for lists and dictionaries, and the `.append()` method for lists when space is available. These patterns signal O(1) behavior.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of o1 constant time syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Conditional branching with `if`, `elif`, and `else` controls program execution paths. Indentation defines the statement block that executes when a condition evaluates to True."
     },
     {
       "id": "31.2_q4",

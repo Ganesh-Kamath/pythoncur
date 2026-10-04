@@ -13,7 +13,7 @@
       "title": "What is a Binary Search Tree?",
       "content": "A Binary Search Tree (BST) is a node-based binary tree data structure with a special ordering property. For any given node, all values in its left subtree are strictly less than the node's value, and all values in its right subtree are strictly greater than the node's value. This property allows efficient searching, insertion, and deletion operations. Here is a simple Python implementation of a BST node class:\n\n```python\nclass Node:\n    def __init__(self, key):\n        self.key = key\n        self.left = None\n        self.right = None\n```\n\nIn this structure, each node stores a key and references to its left and right children. The BST property ensures that an in-order traversal yields keys in ascending sorted order.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of binary search trees bst basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "A Binary Search Tree (BST) is a node-based binary tree data structure with a special ordering property. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "38.3_q2",
@@ -46,7 +46,7 @@
       "title": "BST Node Syntax and Structure",
       "content": "To work with BSTs in Python, we define a class that encapsulates the node's data and its child pointers. A well-structured node class uses an initializer to set the key and default child pointers to None. Below is a complete example showing how to create a root node and attach children:\n\n```python\nclass Node:\n    def __init__(self, key):\n        self.key = key\n        self.left = None\n        self.right = None\n\n# Creating nodes\nroot = Node(50)\nroot.left = Node(30)\nroot.right = Node(70)\n```\n\nNotice that we use `None` to represent missing children. This syntax is standard in Python and allows recursive algorithms to traverse the tree safely by checking `if node is None` before accessing child attributes.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of binary search trees bst syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "To work with BSTs in Python, we define a class that encapsulates the node's data and its child pointers. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "38.3_q4",

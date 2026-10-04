@@ -13,7 +13,7 @@
       "title": "Introduction to Class and Static Methods",
       "content": "In Python, methods defined inside a class can behave differently depending on how they are declared. An instance method receives the instance itself as the first argument (conventionally named self). A class method, declared with the @classmethod decorator, receives the class itself as the first argument (conventionally named cls) rather than an instance. A static method, declared with the @staticmethod decorator, does not receive either self or cls automatically; it behaves like a regular function namespaced inside the class. Class methods are useful when you need to access or modify class-level state, such as factory methods or alternative constructors. Static methods are useful for utility functions that logically belong to the class but do not depend on instance or class state. For example:\n\n```python\nclass Animal:\n    species = 'mammal'\n\n    def __init__(self, name):\n        self.name = name\n\n    def speak(self):\n        return f'{self.name} makes a sound.'\n\n    @classmethod\n    def get_species(cls):\n        return cls.species\n\n    @staticmethod\n    def is_alive(status):\n        return status == 'alive'\n```\n\nHere, get_species is a class method because it uses cls to access the class attribute species. is_alive is a static method because it only uses its argument and does not reference self or cls.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of class methods and static methods basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "In Python, methods defined inside a class can behave differently depending on how they are declared. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "21.2_q2",
@@ -46,7 +46,7 @@
       "title": "Syntax and Declaration Rules",
       "content": "To declare a class method, place the @classmethod decorator directly above the method definition inside the class body. The first parameter must be cls, conventionally referring to the class. To declare a static method, place the @staticmethod decorator above the method definition. The static method can have any parameters, but it will not receive self or cls automatically. You can call a class method on both the class and an instance, but the class is passed explicitly when called on an instance. A static method can also be called on both the class and an instance, and it behaves like a regular function. Consider this syntax example:\n\n```python\nclass Calculator:\n    value = 0\n\n    @classmethod\n    def set_value(cls, new_value):\n        cls.value = new_value\n\n    @staticmethod\n    def add(a, b):\n        return a + b\n\n# Calling patterns\nCalculator.set_value(10)\nprint(Calculator.value)  # 10\n\nresult = Calculator.add(3, 4)\nprint(result)  # 7\n```\n\nNote that set_value modifies the class attribute value through cls, while add performs a simple computation without accessing class or instance state.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of class methods and static methods syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "To declare a class method, place the @classmethod decorator directly above the method definition inside the class body. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "21.2_q4",
@@ -371,7 +371,7 @@
       "prompt": "Fix the bug in this code for class methods and static methods errors:",
       "starter_code": "# Fix this code\nPrint('Class Methods and Static Methods')",
       "solution_code": "print('Class Methods and Static Methods')",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of class methods and static methods errors. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Python logical operators use short-circuit evaluation: `and` stops and returns the first falsy operand, while `or` stops and returns the first truthy operand without evaluating subsequent expressions."
     },
     {
       "id": "21.2_q20",
@@ -419,7 +419,7 @@
       "prompt": "Fix the bug in this code for class methods and static methods runtime:",
       "starter_code": "# Fix this code\nPrint('Class Methods and Static Methods')",
       "solution_code": "print('Class Methods and Static Methods')",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of class methods and static methods runtime. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Python logical operators use short-circuit evaluation: `and` stops and returns the first falsy operand, while `or` stops and returns the first truthy operand without evaluating subsequent expressions."
     },
     {
       "id": "21.2_q23",

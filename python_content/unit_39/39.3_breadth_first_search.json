@@ -13,7 +13,7 @@
       "title": "What is Breadth-First Search?",
       "content": "Breadth-First Search (BFS) is a graph traversal algorithm that explores all neighbors of a node before moving to the next level of nodes. It uses a queue to keep track of nodes to visit. BFS is ideal for finding the shortest path in an unweighted graph. Here is a simple Python implementation using a queue:\n\n```python\nfrom collections import deque\n\ndef bfs(graph, start):\n    visited = set()\n    queue = deque([start])\n    visited.add(start)\n\n    while queue:\n        node = queue.popleft()\n        print('Visiting:', node)\n\n        for neighbor in graph.get(node, []):\n            if neighbor not in visited:\n                visited.add(neighbor)\n                queue.append(neighbor)\n\n# Example graph\ngraph = {\n    'A': ['B', 'C'],\n    'B': ['D', 'E'],\n    'C': ['F'],\n    'D': [],\n    'E': [],\n    'F': []\n}\n\nbfs(graph, 'A')\n```\n\nIn this code, we initialize a queue with the starting node, mark it as visited, and repeatedly dequeue a node, process it, and enqueue any unvisited neighbors. This ensures we explore the graph level by level.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of breadthfirst search bfs basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Breadth-First Search (BFS) is a graph traversal algorithm that explores all neighbors of a node before moving to the next level of nodes. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "39.3_q2",
@@ -46,7 +46,7 @@
       "title": "BFS Syntax and Key Methods",
       "content": "When writing BFS in Python, the key operations are queue initialization, popping from the front, and appending to the back. The `collections.deque` class is preferred over a list for efficient pops from the left. Here is the core syntax pattern:\n\n```python\nfrom collections import deque\n\ndef bfs_syntax_example(graph, start):\n    queue = deque([start])\n    visited = {start}\n\n    while queue:\n        current = queue.popleft()\n        for neighbor in graph.get(current, []):\n            if neighbor not in visited:\n                visited.add(neighbor)\n                queue.append(neighbor)\n    return visited\n\n# Using the same graph as before\nresult = bfs_syntax_example(graph, 'A')\nprint('Visited nodes:', result)\n```\n\nNotice that `popleft()` removes and returns the leftmost element, while `append()` adds an element to the right. The `visited` set prevents revisiting nodes and avoids infinite loops in cyclic graphs.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of breadthfirst search bfs syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "When writing BFS in Python, the key operations are queue initialization, popping from the front, and appending to the back. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "39.3_q4",
@@ -247,35 +247,51 @@
     },
     {
       "id": "39.3_q13",
-      "type": "fill_in_the_blank",
-      "concept": "breadthfirst_search_bfs_syntax",
-      "skill": "syntax",
-      "difficulty": "easy",
+      "type": "code_prediction",
+      "concept": "bfs_queue_data_structure",
+      "skill": "data_structures",
+      "difficulty": "medium",
       "prerequisites": [
         "39.3_q12"
       ],
-      "prompt": "Complete the code to output 'Breadth-First Search (BFS) #13':\n```python\n___('Breadth-First Search (BFS) #13')\n```",
-      "correct_answer": "print",
-      "accepted_answers": [
-        "print"
+      "prompt": "Why should BFS use `collections.deque` instead of a standard Python `list` for its queue?",
+      "options": [
+        "deque.popleft() is O(1) constant time, whereas list.pop(0) is O(n) linear time because it shifts all remaining elements in memory.",
+        "deque sorts vertices automatically.",
+        "Python lists cannot store graph nodes.",
+        "deque uses recursive memory."
       ],
-      "explanation": "In Python, this operation directly demonstrates the core behavior of breadthfirst search bfs syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "correct_answer": "deque.popleft() is O(1) constant time, whereas list.pop(0) is O(n) linear time because it shifts all remaining elements in memory.",
+      "explanation": "Popping from the left of a standard list takes O(n) time, degrading BFS to O(V^2). A doubly linked `deque` performs `popleft()` in O(1) time.",
+      "metadata": {
+        "concept": "deque_popleft_efficiency",
+        "skill": "data_structures",
+        "why_this_exercise_exists": "Replaces filler with BFS deque performance"
+      }
     },
     {
       "id": "39.3_q14",
-      "type": "fill_in_the_blank",
-      "concept": "breadthfirst_search_bfs_keywords",
-      "skill": "syntax",
+      "type": "error_diagnosis",
+      "concept": "bfs_visited_set_necessity",
+      "skill": "graph_algorithms",
       "difficulty": "medium",
       "prerequisites": [
         "39.3_q13"
       ],
-      "prompt": "Complete the code to output 'Breadth-First Search (BFS) #14':\n```python\n___('Breadth-First Search (BFS) #14')\n```",
-      "correct_answer": "print",
-      "accepted_answers": [
-        "print"
+      "prompt": "What happens if a BFS traversal on a graph with cycles omits the `visited` set?",
+      "options": [
+        "It enters an infinite loop, cycling between connected nodes forever.",
+        "It crashes with IndexError.",
+        "It converts to DFS automatically.",
+        "It drops all directed edges."
       ],
-      "explanation": "In Python, this operation directly demonstrates the core behavior of breadthfirst search bfs keywords. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "correct_answer": "It enters an infinite loop, cycling between connected nodes forever.",
+      "explanation": "Without tracking visited nodes, BFS will re-add previously processed neighbors to the queue repeatedly in cyclic graphs, causing an infinite loop or memory exhaustion.",
+      "metadata": {
+        "concept": "visited_set_cycle_prevention",
+        "skill": "graph_algorithms",
+        "why_this_exercise_exists": "Replaces filler with cycle prevention in BFS"
+      }
     },
     {
       "id": "39.3_q15",
@@ -303,19 +319,22 @@
     },
     {
       "id": "39.3_q16",
-      "type": "fill_in_the_blank",
-      "concept": "breadthfirst_search_bfs_patterns",
-      "skill": "syntax",
-      "difficulty": "medium",
+      "type": "write_the_code",
+      "concept": "bfs_traversal_implementation",
+      "skill": "graph_traversal",
+      "difficulty": "hard",
       "prerequisites": [
         "39.3_q15"
       ],
-      "prompt": "Complete the code to output 'Breadth-First Search (BFS) #16':\n```python\n___('Breadth-First Search (BFS) #16')\n```",
-      "correct_answer": "print",
-      "accepted_answers": [
-        "print"
-      ],
-      "explanation": "In Python, this operation directly demonstrates the core behavior of breadthfirst search bfs patterns. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "prompt": "Implement a basic BFS traversal `bfs(graph, start)` using `collections.deque` and a `visited` set that returns the list of visited nodes in visitation order.",
+      "starter_code": "from collections import deque\n\ndef bfs(graph, start):\n    # Return list of visited nodes\n    pass",
+      "solution_code": "from collections import deque\n\ndef bfs(graph, start):\n    visited = set([start])\n    queue = deque([start])\n    order = []\n    while queue:\n        node = queue.popleft()\n        order.append(node)\n        for neighbor in graph.get(node, []):\n            if neighbor not in visited:\n                visited.add(neighbor)\n                queue.append(neighbor)\n    return order\n\ng = {'A': ['B', 'C'], 'B': ['D'], 'C': [], 'D': []}\nprint(bfs(g, 'A'))",
+      "explanation": "BFS initializes with the start node, visits level-by-level using a FIFO queue, and guards against cycles with `visited` set.",
+      "metadata": {
+        "concept": "bfs_queue_traversal",
+        "skill": "graph_traversal",
+        "why_this_exercise_exists": "Replaces filler with full BFS implementation"
+      }
     },
     {
       "id": "39.3_q17",
@@ -343,19 +362,27 @@
     },
     {
       "id": "39.3_q18",
-      "type": "fill_in_the_blank",
-      "concept": "breadthfirst_search_bfs_idioms",
-      "skill": "syntax",
+      "type": "multiple_choice",
+      "concept": "bfs_shortest_path_property",
+      "skill": "algorithm_properties",
       "difficulty": "medium",
       "prerequisites": [
         "39.3_q17"
       ],
-      "prompt": "Complete the code to output 'Breadth-First Search (BFS) #18':\n```python\n___('Breadth-First Search (BFS) #18')\n```",
-      "correct_answer": "print",
-      "accepted_answers": [
-        "print"
+      "prompt": "Why is BFS guaranteed to find the shortest path in an UNWEIGHTED graph?",
+      "options": [
+        "BFS explores nodes in order of their distance (edge count) from the start node, ensuring the first time a target is reached, it is via the fewest possible edges.",
+        "BFS evaluates edge weights greedily.",
+        "BFS backtracks using a stack.",
+        "BFS sorts the adjacency list."
       ],
-      "explanation": "In Python, this operation directly demonstrates the core behavior of breadthfirst search bfs idioms. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "correct_answer": "BFS explores nodes in order of their distance (edge count) from the start node, ensuring the first time a target is reached, it is via the fewest possible edges.",
+      "explanation": "Because BFS processes nodes layer by layer (distance 1, then distance 2, etc.), the first time the destination node is discovered is guaranteed to be the minimum edge distance.",
+      "metadata": {
+        "concept": "bfs_shortest_path_guarantee",
+        "skill": "algorithm_properties",
+        "why_this_exercise_exists": "Replaces filler with shortest path property"
+      }
     },
     {
       "id": "39.3_q19",

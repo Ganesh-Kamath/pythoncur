@@ -13,7 +13,7 @@
       "prerequisites": [],
       "content": "Recursion is a technique where a function calls itself to solve a problem by breaking it into smaller subproblems. Every recursive function must have two essential parts: the base case and the recursive case. The base case is the condition that stops the recursion, preventing infinite loops. The recursive case is where the function calls itself with a modified argument that moves closer to the base case. For example, in a factorial function, when n equals 0 or 1, we return 1 (base case). Otherwise, we return n multiplied by factorial(n - 1) (recursive case). Recognizing these two components is the first step in understanding how recursion works.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of base cases and recursive cases basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Conditional branching with `if`, `elif`, and `else` controls program execution paths. Indentation defines the statement block that executes when a condition evaluates to True."
     },
     {
       "id": "36.2_q2",
@@ -46,7 +46,7 @@
       ],
       "content": "In Python, a recursive function is defined using the def keyword, just like any regular function. The key is to include an if statement that checks for the base case first. If the base case is met, the function returns a value directly. If not, the function proceeds to the recursive case, which typically involves calling itself with a smaller or simpler input. Here is the standard structure:\n\n```python\ndef recursive_function(n):\n    if n == 0:  # base case\n        return 1\n    else:       # recursive case\n        return n * recursive_function(n - 1)\n```\n\nNotice that the base case is checked before the recursive case. This ordering is critical because it ensures that recursion terminates. The recursive call must modify the input (e.g., n - 1) so that it eventually reaches the base case.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of base cases and recursive cases syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "In Python, a recursive function is defined using the def keyword, just like any regular function. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "36.2_q4",

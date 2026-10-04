@@ -13,7 +13,7 @@
       "content": "List comprehensions are concise, but clarity should come first. When a comprehension becomes too long or contains multiple nested conditions, it can confuse readers. A good rule of thumb: if you need more than one line to understand the logic, consider a standard for loop instead.\n\nExample of a readable comprehension:\n```python\nsquares = [x ** 2 for x in range(5)]\n```\n\nExample where readability suffers:\n```python\nfiltered = [x * 2 for x in data if x > 0 and x % 2 == 0 and x < 100]\n```\nThis single line packs filtering and transformation together. For beginners, a regular loop makes the intent clearer.",
       "prerequisites": [],
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of readability when not to use comprehensions basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "List comprehensions are concise, but clarity should come first. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "idx": 2,
@@ -48,7 +48,7 @@
         "16.6_q2"
       ],
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of readability when not to use comprehensions syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Watch for syntax patterns that make a comprehension harder to parse. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "idx": 4,

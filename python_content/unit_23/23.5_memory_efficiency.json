@@ -13,7 +13,7 @@
       "title": "What Is Memory Efficiency?",
       "content": "When you create a large list in Python, the entire list is stored in memory at once. For example, `large_list = [i for i in range(1000000)]` allocates memory for one million integers simultaneously. This can cause high memory usage, especially on devices with limited resources. Memory efficiency means producing values one at a time without storing the whole sequence. Iterators and generators are Python's primary tools for this. An iterator is an object that implements the iterator protocol (`__iter__` and `__next__`). A generator is a special kind of iterator created using a function with `yield` or a generator expression. Both allow lazy evaluation: values are computed only when requested. This lesson introduces these ideas so you can recognize when memory-efficient code is preferable to eager list construction.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of memory efficiency basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "When you create a large list in Python, the entire list is stored in memory at once. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "23.5_q2",
@@ -46,7 +46,7 @@
       "title": "Generator Syntax with `yield`",
       "content": "You can turn a function into a generator by replacing `return` with `yield`. When the function is called, it returns a generator object without executing the body. Execution resumes on each call to `next()`, running until the next `yield` expression. Consider this example:\n\n```python\ndef count_up_to(n):\n    i = 1\n    while i <= n:\n        yield i\n        i += 1\n\ngen = count_up_to(5)\nprint(next(gen))  # 1\nprint(next(gen))  # 2\n```\n\nAlternatively, a generator expression uses parentheses and resembles a list comprehension:\n\n```python\nsquares = (x * x for x in range(4))\nprint(next(squares))  # 0\n```\n\nBoth forms create iterators that generate values on demand, avoiding the need to allocate a full list upfront.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of memory efficiency syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "You can turn a function into a generator by replacing `return` with `yield`. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "23.5_q4",
@@ -349,7 +349,7 @@
       "prompt": "Fix the bug in this code for memory efficiency errors:",
       "starter_code": "# Fix this code\nPrint('Memory Efficiency')",
       "solution_code": "print('Memory Efficiency')",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of memory efficiency errors. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `memory efficiency errors` in Memory Efficiency. When Python validates this code, it applies the standard rules of memory efficiency errors. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "23.5_q20",
@@ -397,7 +397,7 @@
       "prompt": "Fix the bug in this code for memory efficiency runtime:",
       "starter_code": "# Fix this code\nPrint('Memory Efficiency')",
       "solution_code": "print('Memory Efficiency')",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of memory efficiency runtime. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `memory efficiency runtime` in Memory Efficiency. When Python validates this code, it applies the standard rules of memory efficiency runtime. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "23.5_q23",

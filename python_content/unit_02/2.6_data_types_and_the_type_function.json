@@ -15,7 +15,7 @@
       "title": "Why Data Types Matter",
       "content": "In programming, a **data type** defines what kind of value an object holds and what operations you can perform on it.\n\nFor example:\n* You can multiply numbers: `5 * 4 = 20`\n* You can capitalize text: `\"hello\".upper()`\n* But you cannot calculate the square root of a paragraph of text!\n\nPython uses types to know how to store data in memory and how to process operations.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of data types concept. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Python uses explicit type casting (such as `int()`, `float()`, and `str()`) to convert data safely between types. Unintended type mixing triggers TypeError or ValueError if strings contain invalid literals."
     },
     {
       "id": "2.6_q2",
@@ -29,7 +29,7 @@
       "title": "The type() Function",
       "content": "Python has a built-in function named `type()` that tells you the exact data type of any value or variable:\n\n```python\nprint(type(42))        # <class 'int'>\nprint(type(3.14))      # <class 'float'>\nprint(type(\"Hello\"))  # <class 'str'>\nprint(type(True))      # <class 'bool'>\n```",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of type function. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Python uses explicit type casting (such as `int()`, `float()`, and `str()`) to convert data safely between types. Unintended type mixing triggers TypeError or ValueError if strings contain invalid literals."
     },
     {
       "id": "2.6_q3",
@@ -48,7 +48,7 @@
         "D. `100`"
       ],
       "correct_answer": "A",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of type function. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `type function` in Data Types and the type() Function. When Python validates this code, it applies the standard rules of type function. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "2.6_q4",
@@ -110,7 +110,7 @@
         "`\"99\"`": "`<class 'str'>`",
         "`False`": "`<class 'bool'>`"
       },
-      "explanation": "In Python, this operation directly demonstrates the core behavior of core scalar types. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `core scalar types` in Data Types and the type() Function. When Python validates this code, it applies the standard rules of core scalar types. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "2.6_q7",
@@ -125,7 +125,7 @@
       "title": "Objects Have Types, Variables Don't",
       "content": "A crucial mental model in Python:\n\n**Variables do NOT have types. Objects do.**\n\nA variable name is simply a sticky note (reference). When you inspect `type(x)`, you are actually asking: *'What is the type of the object that `x` is currently pointing to?'*\n\n```python\nx = 10       # x points to an int object\nprint(type(x))  # <class 'int'>\nx = \"ten\"    # x now points to a str object\nprint(type(x))  # <class 'str'>\n```",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of objects have types. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "In Python, variable names must begin with a letter or underscore, cannot start with a digit, and cannot contain spaces or special punctuation. Following PEP 8 snake_case conventions ensures identifiers remain clear, legal, and unambiguous."
     },
     {
       "id": "2.6_q8",
@@ -158,7 +158,7 @@
       "title": "Checking Types with isinstance()",
       "content": "While `type()` displays an object's type, the Pythonic way to test whether an object matches a specific type in code logic is **`isinstance(object, type)`**:\n\n```python\nage = 21\nprint(isinstance(age, int))    # True\nprint(isinstance(age, str))    # False\n```\n`isinstance()` returns a clean boolean (`True` or `False`).",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of isinstance function. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Python uses explicit type casting (such as `int()`, `float()`, and `str()`) to convert data safely between types. Unintended type mixing triggers TypeError or ValueError if strings contain invalid literals."
     },
     {
       "id": "2.6_q10",
@@ -177,7 +177,7 @@
         "D. 14.99"
       ],
       "correct_answer": "A",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of isinstance function. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `isinstance function` in Data Types and the type() Function. When Python evaluates this code, it applies the standard rules of isinstance function. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "2.6_q11",
@@ -192,7 +192,7 @@
       "accepted_answers": [
         "str"
       ],
-      "explanation": "In Python, this operation directly demonstrates the core behavior of isinstance function. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `isinstance function` in Data Types and the type() Function. When Python validates this code, it applies the standard rules of isinstance function. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "2.6_q12",
@@ -207,7 +207,7 @@
       "title": "Why Does type() Say `<class '...'>`?",
       "content": "In Python, **everything is an object**, and every object is an instance of a class.\n\nWhen `type(42)` returns `<class 'int'>`, it means the number 42 is an instance of the built-in `int` class.\n\nEven functions, modules, and types themselves are objects in memory in Python!",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of everything is an object. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Python uses explicit type casting (such as `int()`, `float()`, and `str()`) to convert data safely between types. Unintended type mixing triggers TypeError or ValueError if strings contain invalid literals."
     },
     {
       "id": "2.6_q13",
@@ -301,7 +301,7 @@
       "accepted_answers": [
         "bool"
       ],
-      "explanation": "In Python, this operation directly demonstrates the core behavior of type name shorthand. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Python logical operators use short-circuit evaluation: `and` stops and returns the first falsy operand, while `or` stops and returns the first truthy operand without evaluating subsequent expressions."
     },
     {
       "id": "2.6_q18",
@@ -335,7 +335,7 @@
       "prompt": "Given a variable `item = 50.0`, write a line of code that prints the type of `item`.",
       "starter_code": "item = 50.0\n",
       "solution_code": "item = 50.0\nprint(type(item))",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of inspect type. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `inspect type` in Data Types and the type() Function. When Python validates this code, it applies the standard rules of inspect type. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "2.6_q20",
@@ -395,7 +395,7 @@
         "`type(obj)`": "Returns the exact type/class of an object.",
         "`isinstance(obj, class_or_tuple)`": "Returns True/False checking if an object is an instance of a type or any of its subclasses."
       },
-      "explanation": "In Python, this operation directly demonstrates the core behavior of type inspection methods. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `type inspection methods` in Data Types and the type() Function. When Python validates this code, it applies the standard rules of type inspection methods. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "2.6_q23",
@@ -433,7 +433,7 @@
         "D. `is_valid = user_age is 100`"
       ],
       "correct_answer": "A",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of api data validation. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `api data validation` in Data Types and the type() Function. When Python validates this code, it applies the standard rules of api data validation. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "2.6_q25",
@@ -486,7 +486,7 @@
       "prompt": "Write a script that creates `flag = True`, and prints its type using `print(type(flag))`.",
       "starter_code": "",
       "solution_code": "flag = True\nprint(type(flag))",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of verify types script. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "In Python, `bool` is a subclass of `int`. `int(True)` evaluates to `1` and `int(False)` evaluates to `0`."
     },
     {
       "id": "2.6_q28",

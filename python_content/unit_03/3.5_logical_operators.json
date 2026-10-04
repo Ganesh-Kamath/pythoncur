@@ -15,7 +15,7 @@
       "title": "The Three Logical Operators",
       "content": "Logical operators combine or invert boolean values:\n\n* **`and`**: Returns `True` only if **BOTH** sides are true.\n* **`or`**: Returns `True` if **AT LEAST ONE** side is true.\n* **`not`**: Inverts (flips) the boolean value.\n\nPython uses plain English words (`and`, `or`, `not`), NOT symbols like `&&`, `||`, or `!`.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of logical operators overview. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Python operators follow standard mathematical precedence (PEMDAS). Division (`/`) always produces a float, while floor division (`//`) truncates to an integer."
     },
     {
       "id": "3.5_q2",
@@ -34,7 +34,7 @@
         "D. `&`"
       ],
       "correct_answer": "C",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of logical operators overview. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `logical operators overview` in Logical Operators. When Python validates this code, it applies the standard rules of logical operators overview. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "3.5_q3",
@@ -48,7 +48,7 @@
       "title": "The and Operator",
       "content": "Both conditions must be met for `and` to succeed:\n\n* `True and True` -> `True`\n* `True and False` -> `False`\n* `False and True` -> `False`\n* `False and False` -> `False`\n\n```python\nhas_ticket = True\nhas_id = True\ncan_enter = has_ticket and has_id  # True\n```",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of and operator. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Python operators follow standard mathematical precedence (PEMDAS). Division (`/`) always produces a float, while floor division (`//`) truncates to an integer."
     },
     {
       "id": "3.5_q4",
@@ -81,7 +81,7 @@
       "title": "The or Operator",
       "content": "Only one condition needs to be met for `or` to succeed:\n\n* `True or False` -> `True`\n* `False or True` -> `True`\n* `True or True` -> `True`\n* `False or False` -> `False`\n\n`or` only fails if BOTH sides are false.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of or operator. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Python operators follow standard mathematical precedence (PEMDAS). Division (`/`) always produces a float, while floor division (`//`) truncates to an integer."
     },
     {
       "id": "3.5_q6",
@@ -100,7 +100,7 @@
         "D. None"
       ],
       "correct_answer": "B",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of or operator. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "In Python, `bool` is a subclass of `int`. `int(True)` evaluates to `1` and `int(False)` evaluates to `0`."
     },
     {
       "id": "3.5_q7",
@@ -115,7 +115,7 @@
       "title": "Precedence: not > and > or",
       "content": "When combining multiple logical operators without parentheses, Python evaluates them in this strict order:\n\n1. **`not`** evaluates first (highest precedence)\n2. **`and`** evaluates second\n3. **`or`** evaluates last (lowest precedence)\n\n```python\nprint(True or False and False)  # Evaluates (False and False) first -> True or False -> True\n```",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of logical precedence. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "When combining multiple logical operators without parentheses, Python evaluates them in this strict order:\n\n1. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "3.5_q8",
@@ -175,7 +175,7 @@
         "`and`",
         "`or`"
       ],
-      "explanation": "In Python, this operation directly demonstrates the core behavior of logical precedence hierarchy. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `logical precedence hierarchy` in Logical Operators. When Python validates this code, it applies the standard rules of logical precedence hierarchy. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "3.5_q11",
@@ -190,7 +190,7 @@
       "title": "Short-Circuit Evaluation",
       "content": "Python uses **short-circuit evaluation** for performance and safety:\n\n* **`and` short-circuits**: If the left operand is `False`, the overall result MUST be `False`. Python does not even look at the right side!\n* **`or` short-circuits**: If the left operand is `True`, the overall result MUST be `True`. Python stops immediately without evaluating the right side.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of short circuit evaluation. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Python uses **short-circuit evaluation** for performance and safety:\n\n* **`and` short-circuits**: If the left operand is `False`, the overall result MUST be `False`. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "3.5_q12",
@@ -228,7 +228,7 @@
         "D. Outputs None."
       ],
       "correct_answer": "B",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of short circuit or. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "In Python, `bool` is a subclass of `int`. `int(True)` evaluates to `1` and `int(False)` evaluates to `0`."
     },
     {
       "id": "3.5_q14",
@@ -242,7 +242,7 @@
       "title": "The Guard Pattern",
       "content": "Short-circuit evaluation enables the **guard pattern**: using the left side to check whether it is safe before executing the right side:\n\n```python\ncount = 0\ntotal = 50\n# The left side guards against dividing by zero!\nif count > 0 and total / count > 5:\n    print(\"High average\")\n```\nBecause `count > 0` is `False`, the division on the right is never attempted.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of guard pattern. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Short-circuit evaluation enables the **guard pattern**: using the left side to check whether it is safe before executing the right side:\n\n```python\ncount = 0\ntotal = 50\n# The left side guards against dividing by zero!\nif count > 0 and total / count > 5:\n    print(\"High average\")\n```\nBecause `count > 0` is `False`, the division on the right is never attempted. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "3.5_q15",
@@ -281,7 +281,7 @@
         "`not (False or False)`": "`True`",
         "`not True or False`": "`False`"
       },
-      "explanation": "In Python, this operation directly demonstrates the core behavior of logical truth table. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `logical truth table` in Logical Operators. When Python validates this code, it applies the standard rules of logical truth table. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "3.5_q17",
@@ -296,7 +296,7 @@
       "title": "Logical Operators Return Values, Not Just Bools!",
       "content": "In Python, `or` and `and` actually return the **value of the deciding operand**, not just `True` or `False`!\n\n* **`A or B`**: If `A` is truthy, returns `A`. Otherwise, returns `B`.\n```python\nusername = \"\" or \"Guest\"  # \"\" is falsy, so returns \"Guest\"\nprint(username)  # \"Guest\"\n```\n* **`A and B`**: If `A` is falsy, returns `A`. Otherwise, returns `B`.\n```python\nprint(0 and \"Hello\")  # 0\nprint(42 and \"Hello\")  # \"Hello\"\n```",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of value returning operators. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Python operators follow standard mathematical precedence (PEMDAS). Division (`/`) always produces a float, while floor division (`//`) truncates to an integer."
     },
     {
       "id": "3.5_q18",
@@ -349,7 +349,7 @@
       "accepted_answers": [
         "or"
       ],
-      "explanation": "In Python, this operation directly demonstrates the core behavior of default fallback. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `default fallback` in Logical Operators. When Python validates this code, it applies the standard rules of default fallback. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "3.5_q21",
@@ -416,7 +416,7 @@
       "prompt": "Write an expression checking if `age >= 18` and `has_license == True` using variables `age` and `has_license`.",
       "starter_code": "",
       "solution_code": "age >= 18 and has_license",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of combined logical condition. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `combined logical condition` in Logical Operators. When Python validates this code, it applies the standard rules of combined logical condition. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "3.5_q25",
@@ -482,7 +482,7 @@
       "prompt": "Given `username = \"admin\"` and `password = \"secret123\"`, create a boolean variable `login_success` that checks if `username == \"admin\" and password == \"secret123\"`, and print `login_success`.",
       "starter_code": "username = \"admin\"\npassword = \"secret123\"\n# Check login_success and print it\n",
       "solution_code": "username = \"admin\"\npassword = \"secret123\"\nlogin_success = username == \"admin\" and password == \"secret123\"\nprint(login_success)",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of login validator. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Python logical operators use short-circuit evaluation: `and` stops and returns the first falsy operand, while `or` stops and returns the first truthy operand without evaluating subsequent expressions."
     },
     {
       "id": "3.5_q29",

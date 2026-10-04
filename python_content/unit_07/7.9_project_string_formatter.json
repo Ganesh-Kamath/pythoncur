@@ -6,66 +6,88 @@
     {
       "id": "7.9_q1",
       "type": "micro_lesson",
-      "concept": "project_string_formatter_architecture",
-      "skill": "planning",
+      "concept": "project_string_formatter_overview",
+      "skill": "recognition",
       "difficulty": "easy",
       "prerequisites": [],
-      "title": "Project: String Formatter Part 1: Project String Formatter Architecture",
-      "content": "In Python, **Project String Formatter Architecture** provides essential rules when working with project: string formatter.\n\nUnderstanding how `project_string_formatter_architecture` functions in practice enables you to write clean, unambiguous code.\n\n```python\n# Step 1: project_string_formatter_architecture\nstage_1 = True\n```",
-      "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of project string formatter architecture. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "title": "Building a Real-World String Formatter",
+      "content": "Raw string data from user entry, web scraping, and CSV files is often messy: inconsistent capitalization, trailing whitespace, and unformatted numbers.\n\nA string formatter pipeline systematically normalizes text:\n1. Strips extraneous whitespace (`.strip()`)\n2. Standardizes casing (`.title()`, `.lower()`)\n3. Replaces special characters (`.replace()`)\n4. Composes clean outputs with f-strings",
+      "explanation": "String formatters sanitize and assemble raw text fields into polished display strings.",
+      "metadata": {
+        "concept": "string_sanitization_pipeline",
+        "skill": "recognition",
+        "why_this_exercise_exists": "Roadmap for string formatter project"
+      }
     },
     {
       "id": "7.9_q2",
       "type": "micro_lesson",
-      "concept": "project_string_formatter_architecture",
-      "skill": "planning",
+      "concept": "project_string_formatter_fstrings",
+      "skill": "recognition",
       "difficulty": "easy",
       "prerequisites": [
         "7.9_q1"
       ],
-      "title": "Project: String Formatter Part 2: Project String Formatter Architecture",
-      "content": "In Python, **Project String Formatter Architecture** provides essential rules when working with project: string formatter.\n\nUnderstanding how `project_string_formatter_architecture` functions in practice enables you to write clean, unambiguous code.\n\n```python\n# Step 2: project_string_formatter_architecture\nstage_2 = True\n```",
-      "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of project string formatter architecture. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "title": "Precision Formatting with f-Strings",
+      "content": "Python f-strings provide powerful format specifiers inside `{value:specifier}`:\n\n* `f\"{price:.2f}\"`: Formats float to 2 decimal places (`19.50`).\n* `f\"{count:03d}\"`: Zero-pads integers to width 3 (`007`).\n* `f\"{name:>15}\"`: Right-aligns text in a 15-character column.",
+      "explanation": "Format specifiers provide fine-grained alignment, rounding, and padding within f-strings.",
+      "metadata": {
+        "concept": "fstring_format_specifiers",
+        "skill": "recognition",
+        "why_this_exercise_exists": "Teaches advanced f-string formatting"
+      }
     },
     {
       "id": "7.9_q3",
-      "type": "output_prediction",
-      "concept": "project_string_formatter_requirements",
-      "skill": "design",
-      "difficulty": "easy",
+      "type": "code_prediction",
+      "concept": "project_string_formatter_titlecase",
+      "skill": "string_methods",
+      "difficulty": "medium",
       "prerequisites": [
         "7.9_q2"
       ],
-      "prompt": "Consider the following Python snippet demonstrating Project String Formatter Requirements:\n\n```python\ndef calculate_3(value):\n    base = 11\n    return base + value * 1\n\nresult = calculate_3(2)\nprint(result)\n```\n\nWhat is the value printed to the console?",
+      "prompt": "What does `.title()` do when formatting a messy user name `\"ALICE smith-jones\"`?\n\n```python\nraw = \"ALICE smith-jones\"\nformatted = raw.title()\nprint(formatted)\n```",
       "options": [
-        "13",
-        "12",
-        "13",
-        "TypeError"
+        "Alice Smith-Jones",
+        "ALICE SMITH-JONES",
+        "Alice smith-jones",
+        "Alice Smith-jones"
       ],
-      "correct_answer": "13",
-      "explanation": "Python evaluates arithmetic following standard operator precedence (multiplication before addition). First, `value * 1` evaluates to `2 * 1 = 2`. Then, adding `base` (11) yields `13`. The function returns this integer and `print()` outputs it."
+      "correct_answer": "Alice Smith-Jones",
+      "explanation": "`title()` capitalizes the first character of each word (including words delimited by hyphens or spaces) and lowercases the remaining letters, yielding `'Alice Smith-Jones'`.",
+      "metadata": {
+        "concept": "title_case_normalization",
+        "skill": "string_transformation",
+        "learning_objective": "Apply title() for person and title capitalization",
+        "common_misconception": "Expecting title() to ignore hyphenated words",
+        "why_this_exercise_exists": "Replaces template function with real string formatter logic"
+      }
     },
     {
       "id": "7.9_q4",
-      "type": "output_prediction",
-      "concept": "project_string_formatter_requirements",
-      "skill": "design",
-      "difficulty": "easy",
+      "type": "error_diagnosis",
+      "concept": "project_string_formatter_immutability",
+      "skill": "debugging",
+      "difficulty": "medium",
       "prerequisites": [
         "7.9_q3"
       ],
-      "prompt": "Consider the following Python snippet demonstrating Project String Formatter Requirements:\n\n```python\ndef calculate_4(value):\n    base = 14\n    return base + value * 6\n\nresult = calculate_4(2)\nprint(result)\n```\n\nWhat is the value printed to the console?",
+      "prompt": "Why does `text` remain unchanged after calling `.strip()` in the snippet below?\n\n```python\ntext = \"  hello world  \"\ntext.strip()\nprint(f\"[{text}]\")\n```",
       "options": [
-        "26",
-        "20",
-        "96",
-        "TypeError"
+        "Strings in Python are immutable; methods return a new string rather than modifying in-place.",
+        "strip() only removes trailing whitespace.",
+        "print() re-adds whitespace automatically.",
+        "SyntaxError: strip() must take arguments."
       ],
-      "correct_answer": "26",
-      "explanation": "Python evaluates arithmetic following standard operator precedence (multiplication before addition). First, `value * 6` evaluates to `2 * 6 = 12`. Then, adding `base` (14) yields `26`. The function returns this integer and `print()` outputs it."
+      "correct_answer": "Strings in Python are immutable; methods return a new string rather than modifying in-place.",
+      "explanation": "Strings in Python cannot be mutated in place. Methods like `.strip()`, `.upper()`, and `.replace()` return *new* strings. To keep the result, you must reassign: `text = text.strip()`.",
+      "metadata": {
+        "concept": "string_immutability",
+        "skill": "mental_model",
+        "learning_objective": "Understand that string transformations produce new objects and require reassignment",
+        "common_misconception": "Expecting string methods to mutate strings in-place like list methods do",
+        "why_this_exercise_exists": "Replaces template function with one of Python's most fundamental string concepts"
+      }
     },
     {
       "id": "7.9_q5",
@@ -134,208 +156,228 @@
       "prompt": "Fix the bug in this code for project string formatter module bugfix:",
       "starter_code": "# Fix this code\nPrint('Project: String Formatter')",
       "solution_code": "print('Project: String Formatter')",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of project string formatter module bugfix. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `project string formatter module bugfix` in Project: String Formatter. When Python validates this code, it applies the standard rules of project string formatter module bugfix. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "7.9_q8",
-      "type": "fix_the_code",
-      "concept": "project_string_formatter_module_bugfix",
-      "skill": "debugging",
+      "type": "write_the_code",
+      "concept": "project_string_formatter_strip_punctuation",
+      "skill": "project_milestone",
       "difficulty": "medium",
       "prerequisites": [
         "7.9_q7"
       ],
-      "error_diagnosis": {
-        "prompt": "The clean_text function is supposed to remove all non-alphanumeric characters except spaces, but it currently removes spaces as well. Debug and correct the implementation.",
-        "starter_code": "import re\ndef clean_text(text):\n    return re.sub(r'[^a-zA-Z0-9]', '', text)",
-        "solution_code": "import re\ndef clean_text(text):\n    return re.sub(r'[^a-zA-Z0-9\\s]', '', text)",
-        "hint": "Review the character class inside the regex pattern and ensure spaces are preserved.",
-        "explanation": "The regex pattern '[^a-zA-Z0-9]' excludes only letters and digits, which also removes spaces. Adding '\\s' to the allowed characters ensures spaces remain. The corrected pattern '[^a-zA-Z0-9\\s]' keeps letters, digits, and whitespace while stripping punctuation and symbols."
-      },
-      "prompt": "Fix the bug in this code for project string formatter module bugfix: (Variation 8)",
-      "starter_code": "# Fix this code\nPrint('Project: String Formatter')",
-      "solution_code": "print('Project: String Formatter')",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of project string formatter module bugfix. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "prompt": "Formatter Milestone: Strip trailing punctuation. Given `raw_text = 'Hello, world!!!'`, strip trailing exclamation marks and commas using `raw_text.rstrip('!,')`.",
+      "starter_code": "raw_text = \"Hello, world!!!\"\n# Strip trailing punctuation\n",
+      "solution_code": "raw_text = \"Hello, world!!!\"\nclean_text = raw_text.rstrip(\"!,\")\nprint(clean_text)",
+      "explanation": "`rstrip('!,')` removes any trailing commas or exclamation points from the string's right end.",
+      "metadata": {
+        "concept": "punctuation_stripping",
+        "skill": "project_milestone",
+        "why_this_exercise_exists": "Replaces variation with punctuation stripping"
+      }
     },
     {
       "id": "7.9_q9",
-      "type": "fix_the_code",
-      "concept": "project_string_formatter_module_bugfix",
-      "skill": "debugging",
+      "type": "write_the_code",
+      "concept": "project_string_formatter_slug_to_text",
+      "skill": "project_milestone",
       "difficulty": "medium",
       "prerequisites": [
         "7.9_q8"
       ],
-      "error_diagnosis": {
-        "prompt": "The format_report function should return a string with the item name centered in 20 characters and the price formatted to 2 decimal places. Currently it raises a TypeError. Fix the code.",
-        "starter_code": "def format_report(name, price):\n    return f'{name:^20} {price:.2f}'\n\nprint(format_report('Widget', 12.5))",
-        "solution_code": "def format_report(name, price):\n    return f'{name:^20} {price:.2f}'\n\nprint(format_report('Widget', 12.5))",
-        "hint": "Check the types of name and price before formatting; ensure price is converted to a numeric type if necessary.",
-        "explanation": "The original code actually works for valid inputs, but fails if price is passed as a string like '12.5'. The robust solution casts price to float: f'{name:^20} {float(price):.2f}'. This guarantees numeric formatting regardless of input type."
-      },
-      "prompt": "Fix the bug in this code for project string formatter module bugfix: (Variation 9)",
-      "starter_code": "# Fix this code\nPrint('Project: String Formatter')",
-      "solution_code": "print('Project: String Formatter')",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of project string formatter module bugfix. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "prompt": "Formatter Milestone: Convert slug to title. Given `slug = 'python_programming_fundamentals'`, replace underscores with spaces and capitalize each word in Title Case.",
+      "starter_code": "slug = \"python_programming_fundamentals\"\n# Convert to title\n",
+      "solution_code": "slug = \"python_programming_fundamentals\"\ntitle = slug.replace(\"_\", \" \").title()\nprint(title)",
+      "explanation": "Chaining `.replace('_', ' ')` and `.title()` converts snake_case slugs into clean document titles.",
+      "metadata": {
+        "concept": "slug_conversion",
+        "skill": "project_milestone",
+        "why_this_exercise_exists": "Replaces variation with slug conversion"
+      }
     },
     {
       "id": "7.9_q10",
-      "type": "fix_the_code",
-      "concept": "project_string_formatter_module_bugfix",
-      "skill": "debugging",
+      "type": "write_the_code",
+      "concept": "project_string_formatter_currency_commas",
+      "skill": "project_milestone",
       "difficulty": "medium",
       "prerequisites": [
         "7.9_q9"
       ],
-      "error_diagnosis": {
-        "prompt": "The mask_ssn function is intended to hide the middle four digits of a Social Security Number, showing only the last four. It currently returns the full number unchanged. Correct the logic.",
-        "starter_code": "def mask_ssn(ssn):\n    return ssn[-4:]\n\nprint(mask_ssn('123-45-6789'))",
-        "solution_code": "def mask_ssn(ssn):\n    digits = ssn.replace('-', '')\n    if len(digits) != 9:\n        return ssn\n    return 'XXX-XX-' + digits[-4:]\n\nprint(mask_ssn('123-45-6789'))",
-        "hint": "First isolate the digits, then validate length before masking, and reconstruct with dashes.",
-        "explanation": "The starter only returned the last four digits without masking the rest or preserving the SSN structure. The solution strips dashes, checks for exactly 9 digits, then returns 'XXX-XX-' followed by the last four digits. This maintains format and protects privacy."
-      },
-      "prompt": "Fix the bug in this code for project string formatter module bugfix: (Variation 10)",
-      "starter_code": "# Fix this code\nPrint('Project: String Formatter')",
-      "solution_code": "print('Project: String Formatter')",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of project string formatter module bugfix. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "prompt": "Formatter Milestone: Format currency with comma thousand-separators. Given `amount = 1250000.75`, format into `f'${amount:,.2f}'`.",
+      "starter_code": "amount = 1250000.75\n# Format with comma separators\n",
+      "solution_code": "amount = 1250000.75\nformatted = f\"${amount:,.2f}\"\nprint(formatted)",
+      "explanation": "Format specifier `:,` adds comma separators every three digits, and `.2f` fixes two decimal places (`$1,250,000.75`).",
+      "metadata": {
+        "concept": "currency_formatting",
+        "skill": "project_milestone",
+        "why_this_exercise_exists": "Replaces variation with currency formatting"
+      }
     },
     {
       "id": "7.9_q11",
-      "type": "fix_the_code",
-      "concept": "project_string_formatter_module_bugfix",
-      "skill": "debugging",
+      "type": "write_the_code",
+      "concept": "project_string_formatter_pad_columns",
+      "skill": "project_milestone",
       "difficulty": "medium",
       "prerequisites": [
         "7.9_q10"
       ],
-      "error_diagnosis": {
-        "prompt": "The reverse_words function should reverse the order of words in a sentence while keeping each word intact. It currently reverses characters within each word instead. Fix the implementation.",
-        "starter_code": "def reverse_words(sentence):\n    words = sentence.split()\n    return ' '.join(words[::-1])\n\nprint(reverse_words('hello world python'))",
-        "solution_code": "def reverse_words(sentence):\n    words = sentence.split()\n    return ' '.join(words[::-1])\n\nprint(reverse_words('hello world python'))",
-        "hint": "The current logic is already correct for reversing word order; verify whether the intended behavior was character-level reversal and adjust accordingly if needed.",
-        "explanation": "Upon inspection, the starter code already correctly reverses word order. However, if the expected behavior was to reverse each word's characters while keeping word order, the fix would be: ' '.join(word[::-1] for word in words). Since the prompt specifies reversing word order, the original implementation is valid, but a defensive version also trims extra spaces: return ' '.join(words[::-1]).strip()."
-      },
-      "prompt": "Fix the bug in this code for project string formatter module bugfix: (Variation 11)",
-      "starter_code": "# Fix this code\nPrint('Project: String Formatter')",
-      "solution_code": "print('Project: String Formatter')",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of project string formatter module bugfix. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "prompt": "Formatter Milestone: Align text into tabular columns. Pad string `'Invoice'` to width 15 left-aligned using `.ljust(15)` and append amount `'$450.00'`.",
+      "starter_code": "label = \"Invoice\"\namount = \"$450.00\"\n# Left-align label to width 15\n",
+      "solution_code": "label = \"Invoice\"\namount = \"$450.00\"\nline = f\"{label.ljust(15)}{amount}\"\nprint(line)",
+      "explanation": "`.ljust(15)` pads spaces to the right, creating clean columnar terminal tables.",
+      "metadata": {
+        "concept": "columnar_padding",
+        "skill": "project_milestone",
+        "why_this_exercise_exists": "Replaces variation with column alignment"
+      }
     },
     {
       "id": "7.9_q12",
-      "type": "fix_the_code",
-      "concept": "project_string_formatter_module_bugfix",
-      "skill": "debugging",
+      "type": "write_the_code",
+      "concept": "project_string_formatter_percentage_display",
+      "skill": "project_milestone",
       "difficulty": "medium",
       "prerequisites": [
         "7.9_q11"
       ],
-      "error_diagnosis": {
-        "prompt": "The pad_id function should left-pad an ID string with zeros to a total width of 8 characters. It currently returns the original string when length is already 8 or more. Ensure consistent behavior.",
-        "starter_code": "def pad_id(identifier):\n    return identifier.zfill(8)\n\nprint(pad_id('12345'))",
-        "solution_code": "def pad_id(identifier):\n    return str(identifier).zfill(8)\n\nprint(pad_id('12345'))",
-        "hint": "Consider what happens if the input is an integer or already longer than 8 characters.",
-        "explanation": "The zfill method works on strings, so passing a non-string like an integer raises an AttributeError. Converting with str() ensures safe usage. Additionally, zfill does not truncate strings longer than the width, which is usually acceptable; if truncation is required, slice the result: str(identifier)[:8].zfill(8). The corrected version guarantees valid string input."
-      },
-      "prompt": "Fix the bug in this code for project string formatter module bugfix: (Variation 12)",
-      "starter_code": "# Fix this code\nPrint('Project: String Formatter')",
-      "solution_code": "print('Project: String Formatter')",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of project string formatter module bugfix. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "prompt": "Formatter Milestone: Format a decimal ratio `ratio = 0.8546` into a percentage with 1 decimal place using `f'{ratio:.1%}'`.",
+      "starter_code": "ratio = 0.8546\n# Format percentage\n",
+      "solution_code": "ratio = 0.8546\npercentage = f\"{ratio:.1%}\"\nprint(percentage)",
+      "explanation": "The `%` format specifier multiplies by 100 and appends `%`, displaying `'85.5%'`.",
+      "metadata": {
+        "concept": "percentage_formatting",
+        "skill": "project_milestone",
+        "why_this_exercise_exists": "Replaces variation with percentage formatting"
+      }
     },
     {
       "id": "7.9_q13",
-      "type": "fill_in_the_blank",
-      "concept": "project_string_formatter_module_wiring",
-      "skill": "syntax",
+      "type": "write_the_code",
+      "concept": "project_string_formatter_milestone_1",
+      "skill": "project_milestone",
       "difficulty": "medium",
       "prerequisites": [
         "7.9_q12"
       ],
-      "prompt": "Complete the code to output 'Project: String Formatter #13':\n```python\n___('Project: String Formatter #13')\n```",
-      "correct_answer": "print",
-      "accepted_answers": [
-        "print"
-      ],
-      "explanation": "In Python, this operation directly demonstrates the core behavior of project string formatter module wiring. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "prompt": "Formatter Milestone 1: Normalize a raw name input `raw_name = '  johnathan doe  '` by stripping leading/trailing whitespace and storing the cleaned string in `clean_name`.",
+      "starter_code": "raw_name = \"  johnathan doe  \"\n# Strip whitespace and store in clean_name\n",
+      "solution_code": "raw_name = \"  johnathan doe  \"\nclean_name = raw_name.strip()\nprint(f\"[{clean_name}]\")",
+      "explanation": "Calling `.strip()` strips excess spaces from both ends of the string.",
+      "metadata": {
+        "concept": "name_normalization_stripping",
+        "skill": "implementation",
+        "learning_objective": "Clean extraneous whitespace from user names",
+        "common_misconception": "Forgetting that strip() returns a new string",
+        "why_this_exercise_exists": "Replaces milestone 1 with authentic formatter milestone 1"
+      }
     },
     {
       "id": "7.9_q14",
-      "type": "fill_in_the_blank",
-      "concept": "project_string_formatter_module_wiring",
-      "skill": "syntax",
+      "type": "write_the_code",
+      "concept": "project_string_formatter_milestone_2",
+      "skill": "project_milestone",
       "difficulty": "medium",
       "prerequisites": [
         "7.9_q13"
       ],
-      "prompt": "Complete the code to output 'Project: String Formatter #14':\n```python\n___('Project: String Formatter #14')\n```",
-      "correct_answer": "print",
-      "accepted_answers": [
-        "print"
-      ],
-      "explanation": "In Python, this operation directly demonstrates the core behavior of project string formatter module wiring. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "prompt": "Formatter Milestone 2: Given `name = 'sarah connor'`, convert it to proper Title Case so that both first and last names start with a capital letter. Store the result in `formatted_name`.",
+      "starter_code": "name = \"sarah connor\"\n# Capitalize properly and store in formatted_name\n",
+      "solution_code": "name = \"sarah connor\"\nformatted_name = name.title()\nprint(formatted_name)",
+      "explanation": "Calling `name.title()` capitalizes the first letter of each word, resulting in `'Sarah Connor'`.",
+      "metadata": {
+        "concept": "title_case_capitalization",
+        "skill": "implementation",
+        "learning_objective": "Capitalize multi-word names into standard Title Case",
+        "common_misconception": "Using capitalize() which only capitalizes the very first letter of the entire string",
+        "why_this_exercise_exists": "Replaces milestone 2 with authentic formatter milestone 2"
+      }
     },
     {
       "id": "7.9_q15",
-      "type": "fill_in_the_blank",
-      "concept": "project_string_formatter_module_wiring",
-      "skill": "syntax",
+      "type": "write_the_code",
+      "concept": "project_string_formatter_milestone_3",
+      "skill": "project_milestone",
       "difficulty": "medium",
       "prerequisites": [
         "7.9_q14"
       ],
-      "prompt": "Complete the code to output 'Project: String Formatter #15':\n```python\n___('Project: String Formatter #15')\n```",
-      "correct_answer": "print",
-      "accepted_answers": [
-        "print"
-      ],
-      "explanation": "In Python, this operation directly demonstrates the core behavior of project string formatter module wiring. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "prompt": "Formatter Milestone 3: Given `first = 'ada'` and `last = 'lovelace'`, format them into a single string using an f-string with the format `'Lovelace, Ada'`. Store in `catalog_entry`.",
+      "starter_code": "first = \"ada\"\nlast = \"lovelace\"\n# Format into 'Last, First' title-cased\n",
+      "solution_code": "first = \"ada\"\nlast = \"lovelace\"\ncatalog_entry = f\"{last.capitalize()}, {first.capitalize()}\"\nprint(catalog_entry)",
+      "explanation": "Using `f\"{last.capitalize()}, {first.capitalize()}\"` constructs `'Lovelace, Ada'` cleanly.",
+      "metadata": {
+        "concept": "fstring_composition",
+        "skill": "implementation",
+        "learning_objective": "Compose professional catalog names using f-strings and formatting methods",
+        "common_misconception": "Concatenating with + and risking missing separators",
+        "why_this_exercise_exists": "Replaces milestone 3 with authentic formatter milestone 3"
+      }
     },
     {
       "id": "7.9_q16",
-      "type": "fill_in_the_blank",
-      "concept": "project_string_formatter_module_wiring",
-      "skill": "syntax",
+      "type": "write_the_code",
+      "concept": "project_string_formatter_milestone_4",
+      "skill": "project_milestone",
       "difficulty": "medium",
       "prerequisites": [
         "7.9_q15"
       ],
-      "prompt": "Complete the code to output 'Project: String Formatter #16':\n```python\n___('Project: String Formatter #16')\n```",
-      "correct_answer": "print",
-      "accepted_answers": [
-        "print"
-      ],
-      "explanation": "In Python, this operation directly demonstrates the core behavior of project string formatter module wiring. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "prompt": "Formatter Milestone 4: Format an address. Given `street = '742 evergreen terrace'`, `city = 'springfield'`, and `zip_code = '97477'`, assemble them into a standard address block `'742 Evergreen Terrace, Springfield, OR 97477'` assuming state `'OR'`. Store in `address_label`.",
+      "starter_code": "street = \"742 evergreen terrace\"\ncity = \"springfield\"\nzip_code = \"97477\"\nstate = \"OR\"\n# Build formatted address_label\n",
+      "solution_code": "street = \"742 evergreen terrace\"\ncity = \"springfield\"\nzip_code = \"97477\"\nstate = \"OR\"\naddress_label = f\"{street.title()}, {city.title()}, {state} {zip_code}\"\nprint(address_label)",
+      "explanation": "Combining `.title()` on street and city with uppercase state and zip produces `'742 Evergreen Terrace, Springfield, OR 97477'`.",
+      "metadata": {
+        "concept": "address_formatting",
+        "skill": "implementation",
+        "learning_objective": "Format complex real-world addresses with multiple fields",
+        "common_misconception": "Applying title() to state codes turning OR into Or",
+        "why_this_exercise_exists": "Replaces milestone 4 with authentic formatter milestone 4"
+      }
     },
     {
       "id": "7.9_q17",
-      "type": "fill_in_the_blank",
-      "concept": "project_string_formatter_module_wiring",
-      "skill": "syntax",
+      "type": "write_the_code",
+      "concept": "project_string_formatter_milestone_5",
+      "skill": "project_milestone",
       "difficulty": "medium",
       "prerequisites": [
         "7.9_q16"
       ],
-      "prompt": "Complete the code to output 'Project: String Formatter #17':\n```python\n___('Project: String Formatter #17')\n```",
-      "correct_answer": "print",
-      "accepted_answers": [
-        "print"
-      ],
-      "explanation": "In Python, this operation directly demonstrates the core behavior of project string formatter module wiring. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "prompt": "Formatter Milestone 5: Format a date string. Given `year = '2026'`, `month = '4'`, and `day = '7'`, zero-pad the month and day so they are 2 digits wide (`'04'` and `'07'`), and assemble into ISO format `'YYYY-MM-DD'`. Store in `iso_date`.",
+      "starter_code": "year = \"2026\"\nmonth = \"4\"\nday = \"7\"\n# Pad and assemble into iso_date '2026-04-07'\n",
+      "solution_code": "year = \"2026\"\nmonth = \"4\"\nday = \"7\"\niso_date = f\"{year}-{month.zfill(2)}-{day.zfill(2)}\"\nprint(iso_date)",
+      "explanation": "Using `.zfill(2)` pads numeric strings with leading zeros to achieve a width of 2, producing `'2026-04-07'`.",
+      "metadata": {
+        "concept": "zero_padding_numeric_strings",
+        "skill": "string_formatting",
+        "learning_objective": "Format dates using zfill() or width specifiers",
+        "common_misconception": "Manually appending '0' with an if statement",
+        "why_this_exercise_exists": "Replaces milestone 5 with authentic formatter milestone 5"
+      }
     },
     {
       "id": "7.9_q18",
-      "type": "fill_in_the_blank",
-      "concept": "project_string_formatter_module_wiring",
-      "skill": "syntax",
+      "type": "write_the_code",
+      "concept": "project_string_formatter_milestone_6",
+      "skill": "project_milestone",
       "difficulty": "medium",
       "prerequisites": [
         "7.9_q17"
       ],
-      "prompt": "Complete the code to output 'Project: String Formatter #18':\n```python\n___('Project: String Formatter #18')\n```",
-      "correct_answer": "print",
-      "accepted_answers": [
-        "print"
-      ],
-      "explanation": "In Python, this operation directly demonstrates the core behavior of project string formatter module wiring. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "prompt": "Formatter Milestone 6: Handle missing or empty optional fields. Given `unit_number = '   '`, check if `unit_number.strip()` is empty. If empty, set `unit_str = 'N/A'`; otherwise format as `f'Apt {unit_number.strip()}'`.",
+      "starter_code": "unit_number = \"   \"\n# Handle missing or empty field\n",
+      "solution_code": "unit_number = \"   \"\ncleaned = unit_number.strip()\nunit_str = f\"Apt {cleaned}\" if cleaned else \"N/A\"\nprint(unit_str)",
+      "explanation": "If `cleaned` is empty `\"\"`, it evaluates as falsy, triggering the fallback `'N/A'`. This prevents trailing spaces or empty labels.",
+      "metadata": {
+        "concept": "fallback_string_handling",
+        "skill": "sanitization",
+        "learning_objective": "Provide robust defaults for empty or whitespace-only inputs",
+        "common_misconception": "Treating whitespace '   ' as non-empty without stripping first",
+        "why_this_exercise_exists": "Replaces milestone 6 with authentic formatter milestone 6"
+      }
     },
     {
       "id": "7.9_q19",

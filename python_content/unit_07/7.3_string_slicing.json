@@ -13,7 +13,7 @@
       "title": "What is String Slicing?",
       "content": "String slicing is a technique in Python that allows you to extract a portion of a string by specifying a range of indices. Unlike indexing, which retrieves a single character, slicing retrieves a substring. The general syntax is `string[start:stop]`, where `start` is the index of the first character to include (inclusive) and `stop` is the index of the first character to exclude (exclusive). If you omit `start`, Python assumes the beginning of the string. If you omit `stop`, Python assumes the end of the string. For example, given the string `s = 'python'`, the slice `s[1:4]` returns `'yth'`. Remember that Python uses zero-based indexing, so the first character is at index 0. Slicing is useful for breaking down strings into smaller pieces without modifying the original string.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of string slicing basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Strings in Python are immutable sequences of Unicode characters enclosed in single, double, or triple quotes. Because strings cannot be modified in place, all transformations return new string instances."
     },
     {
       "id": "7.3_q2",
@@ -46,7 +46,7 @@
       "title": "Slicing Syntax and Defaults",
       "content": "The slice syntax `string[start:stop]` provides flexibility through default values. When `start` is omitted, the slice begins at index 0. When `stop` is omitted, the slice extends to the end of the string. Negative indices can also be used, where -1 refers to the last character and -2 refers to the second-to-last. For example, `s = 'abcdef'` yields `s[:3]` = `'abc'` (from beginning to index 3, exclusive), `s[2:]` = `'cdef'` (from index 2 to end), and `s[-4:]` = `'cdef'` (from index -4 to end). It is important to note that the original string remains unchanged; slicing always produces a new string object.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of string slicing syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "The slice syntax `string[start:stop]` provides flexibility through default values. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "7.3_q4",
@@ -247,35 +247,51 @@
     },
     {
       "id": "7.3_q13",
-      "type": "fill_in_the_blank",
-      "concept": "string_slicing_syntax",
-      "skill": "syntax",
+      "type": "code_prediction",
+      "concept": "string_slicing_prefix",
+      "skill": "slicing",
       "difficulty": "easy",
       "prerequisites": [
         "7.3_q12"
       ],
-      "prompt": "Complete the code to output 'String Slicing #13':\n```python\n___('String Slicing #13')\n```",
-      "correct_answer": "print",
-      "accepted_answers": [
-        "print"
+      "prompt": "What does `text[:3]` extract from `text = 'Python'`?",
+      "options": [
+        "Pyt",
+        "Pyth",
+        "yth",
+        "on"
       ],
-      "explanation": "In Python, this operation directly demonstrates the core behavior of string slicing syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "correct_answer": "Pyt",
+      "explanation": "`[:3]` extracts characters from index 0 up to (but not including) index 3: indices 0 ('P'), 1 ('y'), and 2 ('t') -> `'Pyt'`.",
+      "metadata": {
+        "concept": "prefix_slice",
+        "skill": "slicing",
+        "why_this_exercise_exists": "Replaces filler with string prefix slicing"
+      }
     },
     {
       "id": "7.3_q14",
-      "type": "fill_in_the_blank",
-      "concept": "string_slicing_keywords",
-      "skill": "syntax",
+      "type": "code_prediction",
+      "concept": "string_slicing_suffix",
+      "skill": "negative_indexing",
       "difficulty": "medium",
       "prerequisites": [
         "7.3_q13"
       ],
-      "prompt": "Complete the code to output 'String Slicing #14':\n```python\n___('String Slicing #14')\n```",
-      "correct_answer": "print",
-      "accepted_answers": [
-        "print"
+      "prompt": "What does `filename[-4:]` return for `filename = 'document.pdf'`?",
+      "options": [
+        ".pdf",
+        "pdf",
+        "t.pdf",
+        "docu"
       ],
-      "explanation": "In Python, this operation directly demonstrates the core behavior of string slicing keywords. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "correct_answer": ".pdf",
+      "explanation": "Negative start index `-4` starts 4 characters from the end through to the string terminus, returning `'.pdf'`.",
+      "metadata": {
+        "concept": "suffix_slice",
+        "skill": "negative_indexing",
+        "why_this_exercise_exists": "Replaces filler with extension extraction"
+      }
     },
     {
       "id": "7.3_q15",
@@ -303,19 +319,27 @@
     },
     {
       "id": "7.3_q16",
-      "type": "fill_in_the_blank",
-      "concept": "string_slicing_patterns",
-      "skill": "syntax",
+      "type": "code_prediction",
+      "concept": "string_slicing_step_reverse",
+      "skill": "step_slicing",
       "difficulty": "medium",
       "prerequisites": [
         "7.3_q15"
       ],
-      "prompt": "Complete the code to output 'String Slicing #16':\n```python\n___('String Slicing #16')\n```",
-      "correct_answer": "print",
-      "accepted_answers": [
-        "print"
+      "prompt": "What does `word[::-1]` do to `word = 'live'`?",
+      "options": [
+        "evil",
+        "live",
+        "veil",
+        "None"
       ],
-      "explanation": "In Python, this operation directly demonstrates the core behavior of string slicing patterns. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "correct_answer": "evil",
+      "explanation": "A step of `-1` strides backward from the end to the beginning, reversing the string: `'live'` -> `'evil'`.",
+      "metadata": {
+        "concept": "string_reversal_slice",
+        "skill": "step_slicing",
+        "why_this_exercise_exists": "Replaces filler with reversal slice"
+      }
     },
     {
       "id": "7.3_q17",
@@ -343,19 +367,22 @@
     },
     {
       "id": "7.3_q18",
-      "type": "fill_in_the_blank",
-      "concept": "string_slicing_idioms",
-      "skill": "syntax",
-      "difficulty": "medium",
+      "type": "write_the_code",
+      "concept": "string_slicing_domain_extract",
+      "skill": "slicing_application",
+      "difficulty": "hard",
       "prerequisites": [
         "7.3_q17"
       ],
-      "prompt": "Complete the code to output 'String Slicing #18':\n```python\n___('String Slicing #18')\n```",
-      "correct_answer": "print",
-      "accepted_answers": [
-        "print"
-      ],
-      "explanation": "In Python, this operation directly demonstrates the core behavior of string slicing idioms. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "prompt": "Given `email = 'ada@lovelace.org'`, find the index of `'@'` and slice out only the domain name `'lovelace.org'` into variable `domain`.",
+      "starter_code": "email = \"ada@lovelace.org\"\n# Slice out domain\n",
+      "solution_code": "email = \"ada@lovelace.org\"\nat_idx = email.index(\"@\")\ndomain = email[at_idx + 1:]\nprint(domain)",
+      "explanation": "Finding `@` at index 3, slicing from `at_idx + 1` (index 4) to the end extracts `'lovelace.org'`.",
+      "metadata": {
+        "concept": "dynamic_slice_extraction",
+        "skill": "implementation",
+        "why_this_exercise_exists": "Replaces filler with email domain slicing"
+      }
     },
     {
       "id": "7.3_q19",

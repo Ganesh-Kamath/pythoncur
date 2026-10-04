@@ -13,7 +13,7 @@
       "prerequisites": [],
       "content": "Tuple unpacking is a Python feature that allows you to assign elements of a tuple to multiple variables in a single statement. Instead of accessing tuple elements by index, you can unpack them directly. This makes code more readable and concise.\n\nFor example, consider the tuple: ('Alice', 25, 'Engineer'). You can unpack this into three separate variables like this:\n\n```python\nname, age, role = ('Alice', 25, 'Engineer')\nprint(name)\nprint(age)\nprint(role)\n```\n\nOutput:\n```\nAlice\n25\nEngineer\n```\n\nKey points:\n- The number of variables on the left must match the number of elements in the tuple.\n- Unpacking works with any iterable, not just tuples.\n- It is commonly used with function returns and data processing.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of tuple unpacking basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Tuple unpacking is a Python feature that allows you to assign elements of a tuple to multiple variables in a single statement. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "9.3_q2",
@@ -46,7 +46,7 @@
       ],
       "content": "The syntax for tuple unpacking follows a simple pattern: variables = tuple. The variables on the left are assigned values from the tuple on the right in order.\n\nConsider this example:\n\n```python\ncoordinates = (10, 20, 30)\nx, y, z = coordinates\nprint(x, y, z)\n```\n\nOutput:\n```\n10 20 30\n```\n\nImportant syntax rules:\n- The left-hand side must be a sequence of variable names separated by commas.\n- The right-hand side must be an iterable with the same number of elements.\n- You can also unpack nested tuples:\n\n```python\npoint = ((1, 2), (3, 4))\n(x1, y1), (x2, y2) = point\nprint(x1, y1, x2, y2)\n```\n\nOutput:\n```\n1 2 3 4\n```\n\nThis is useful for working with structured data.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of tuple unpacking syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "The syntax for tuple unpacking follows a simple pattern: variables = tuple. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "9.3_q4",

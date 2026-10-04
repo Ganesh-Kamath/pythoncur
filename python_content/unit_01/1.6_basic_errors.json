@@ -16,7 +16,7 @@
       "title": "Errors Are Normal",
       "content": "Every programmer, from complete beginners to senior engineers at Google, encounters errors every single day.\n\nAn error (or **bug**) is simply Python's way of telling you: *'I want to help you run this, but I reached an instruction that violates a rule or doesn't make sense.'*\n\nLearning to read Python error messages is one of the most empowering superpowers you will ever build.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of errors overview. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Every programmer, from complete beginners to senior engineers at Google, encounters errors every single day. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "1.6_q2",
@@ -49,7 +49,7 @@
       "title": "Anatomy of a Traceback",
       "content": "When Python crashes, it displays a **Traceback**.\n\nA traceback provides clues about the crash:\n1. **File name and Line number**: Where Python was executing when the issue happened.\n2. **Code snippet**: The exact line of code Python was trying to run.\n3. **Error Name & Description (The Bottom Line)**: The specific type of error and what went wrong.\n\n💡 Pro tip: Always read a traceback from the **bottom line first**!",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of traceback anatomy. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "When Python crashes, it displays a **Traceback**. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "1.6_q4",
@@ -83,7 +83,7 @@
       "title": "1. SyntaxError: Broken Grammar",
       "content": "A `SyntaxError` happens during the parsing phase, **before** Python executes any code.\n\nIt means you wrote something that violates Python's fundamental grammar rules:\n* Forgetting a closing parenthesis `)`\n* Leaving a string quote unclosed\n* Misplacing punctuation or symbols\n\nBecause the grammar is invalid, Python cannot even translate the file to bytecode.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of syntax error. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "A `SyntaxError` happens during the parsing phase, **before** Python executes any code. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "1.6_q6",
@@ -130,7 +130,7 @@
       "title": "2. NameError: Unknown Words",
       "content": "A `NameError` happens when Python encounters a word that it does not recognize.\n\nCommon causes:\n* Misspelling a built-in function (e.g. `prnt(\"Hi\")`)\n* Incorrect capitalization (e.g. `Print(\"Hi\")`)\n* Forgetting quotes around text, causing Python to treat text as a variable name: `print(Hello)`",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of name error. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "A `NameError` happens when Python encounters a word that it does not recognize. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "1.6_q9",
@@ -165,7 +165,7 @@
         "quote",
         "quotation"
       ],
-      "explanation": "In Python, this operation directly demonstrates the core behavior of name error. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `name error` in Basic Errors. When Python validates this code, it applies the standard rules of name error. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "1.6_q11",
@@ -179,7 +179,7 @@
       "title": "3. ZeroDivisionError: Impossible Math",
       "content": "In mathematics, dividing any number by zero is undefined.\n\nIf Python encounters a division by zero during execution, it immediately stops and raises `ZeroDivisionError`:\n```python\nprint(10 / 0)  # ZeroDivisionError: division by zero\n```",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of zero division error. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "In mathematics, dividing any number by zero is undefined. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "1.6_q12",
@@ -212,7 +212,7 @@
       "title": "4. TypeError: Incompatible Types",
       "content": "A `TypeError` occurs when an operation is applied to an object of an inappropriate type.\n\nFor example, Python can add numbers (`5 + 5`) and it can join strings (`\"a\" + \"b\"`), but it cannot mathematically add text to a raw number:\n```python\nprint(\"Score: \" + 100)  # TypeError\n```\n(Later, you will learn how to convert numbers or use commas/f-strings to display them together!)",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of type error preview. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Python uses explicit type casting (such as `int()`, `float()`, and `str()`) to convert data safely between types. Unintended type mixing triggers TypeError or ValueError if strings contain invalid literals."
     },
     {
       "id": "1.6_q14",
@@ -270,7 +270,7 @@
       "title": "Errors Halt Execution",
       "content": "When a runtime error occurs, Python immediately stops executing further code in that file.\n```python\nprint(\"Step 1\")\nprint(10 / 0)  # Crash occurs here!\nprint(\"Step 2\")  # This line will NEVER run\n```\nBecause line 2 crashes, line 3 is never reached.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of execution interruption. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "When a runtime error occurs, Python immediately stops executing further code in that file. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "1.6_q17",
@@ -343,7 +343,7 @@
       "prompt": "Fix the NameError in this code so it prints 'Success':",
       "starter_code": "prnt(\"Success\")",
       "solution_code": "print(\"Success\")",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of name error fix. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `name error fix` in Basic Errors. When Python validates this code, it applies the standard rules of name error fix. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "1.6_q21",
@@ -357,7 +357,7 @@
       "title": "The 4-Step Debugging Workflow",
       "content": "Whenever you encounter an error in Python, follow this 4-step checklist:\n\n1. **Read the bottom line**: What is the error type and explanation?\n2. **Look at the line number**: Go directly to that line in your editor.\n3. **Inspect the line & previous line**: Look for typos, missing quotes, or unclosed parentheses.\n4. **Test the fix**: Save your file and run the script again.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of four step debugging. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Whenever you encounter an error in Python, follow this 4-step checklist:\n\n1. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "1.6_q22",
@@ -381,7 +381,7 @@
         "Inspect the line for typos, unclosed quotes, or mismatched symbols.",
         "Apply the repair, save the file, and rerun the program."
       ],
-      "explanation": "In Python, this operation directly demonstrates the core behavior of four step debugging. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `four step debugging` in Basic Errors. When Python validates this code, it applies the standard rules of four step debugging. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "1.6_q23",
@@ -480,7 +480,7 @@
       "prompt": "Write a single `print()` call that prints 'Balance:' followed by the number 250 without causing a TypeError or SyntaxError.",
       "starter_code": "",
       "solution_code": "print(\"Balance:\", 250)",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of safe code construction. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `safe code construction` in Basic Errors. When Python validates this code, it applies the standard rules of safe code construction. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "1.6_q29",

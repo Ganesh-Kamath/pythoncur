@@ -13,7 +13,7 @@
       "title": "What Are Character Classes and Quantifiers?",
       "content": "In Python, the re module lets us search patterns in strings. A character class groups characters you want to match, like [aeiou] for vowels. A quantifier says how many times a character or group should appear, such as * for zero or more, + for one or more, ? for zero or one, and {n} for exactly n times. For example, [0-9]+ matches one or more digits. Here is a code example:\n\n```python\nimport re\n\ntext = 'The price is 42 dollars and 5 cents.'\npattern = r'[0-9]+'\nmatches = re.findall(pattern, text)\nprint(matches)\n```\n\nThis returns ['42', '5'] because [0-9] matches any digit and + ensures at least one digit in a row.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of character classes and quantifiers basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Conditional branching with `if`, `elif`, and `else` controls program execution paths. Indentation defines the statement block that executes when a condition evaluates to True."
     },
     {
       "id": "19.4_q2",
@@ -46,7 +46,7 @@
       "title": "Syntax of Character Classes and Quantifiers",
       "content": "A character class is written inside square brackets, such as [a-z] for lowercase letters or [^0-9] for non-digits. Inside a class, ^ at the start negates the set. Quantifiers are placed immediately after the class or group: [a-z]{2} matches exactly two lowercase letters. Common shorthand classes include \\d for digits, \\w for word characters, and \\s for whitespace. Remember that in Python raw strings (r'...') you do not need to escape backslashes. Example:\n\n```python\nimport re\n\ntext = 'abc 123 xyz'\npattern = r'\\d{2}'\nmatch = re.search(pattern, text)\nprint(match.group())\n```\n\nThis prints '12' because \\d{2} finds exactly two consecutive digits.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of character classes and quantifiers syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Conditional branching with `if`, `elif`, and `else` controls program execution paths. Indentation defines the statement block that executes when a condition evaluates to True."
     },
     {
       "id": "19.4_q4",
@@ -127,7 +127,7 @@
         "Character Classes and Quantifiers (repeated)"
       ],
       "correct_answer": "Character Classes and Quantifiers",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of character classes and quantifiers execution. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `character classes and quantifiers execution` in Character Classes and Quantifiers. When Python evaluates this code, it applies the standard rules of character classes and quantifiers execution. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "19.4_q8",
@@ -390,7 +390,7 @@
       "starter_code": "Print('Character Classes and Quantifiers Item 19')",
       "solution_code": "print('Character Classes and Quantifiers Item 19')",
       "hint": "Python built-in functions like print() must be written in lowercase.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of character classes and quantifiers errors. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `character classes and quantifiers errors` in Character Classes and Quantifiers. When Python validates this code, it applies the standard rules of character classes and quantifiers errors. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "19.4_q20",
@@ -405,7 +405,7 @@
       "starter_code": "Print('Character Classes and Quantifiers Item 20')",
       "solution_code": "print('Character Classes and Quantifiers Item 20')",
       "hint": "Python built-in functions like print() must be written in lowercase.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of character classes and quantifiers fix. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `character classes and quantifiers fix` in Character Classes and Quantifiers. When Python validates this code, it applies the standard rules of character classes and quantifiers fix. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "19.4_q21",
@@ -420,7 +420,7 @@
       "starter_code": "Print('Character Classes and Quantifiers Item 21')",
       "solution_code": "print('Character Classes and Quantifiers Item 21')",
       "hint": "Python built-in functions like print() must be written in lowercase.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of character classes and quantifiers edge cases. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `character classes and quantifiers edge cases` in Character Classes and Quantifiers. When Python validates this code, it applies the standard rules of character classes and quantifiers edge cases. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "19.4_q22",
@@ -435,7 +435,7 @@
       "starter_code": "Print('Character Classes and Quantifiers Item 22')",
       "solution_code": "print('Character Classes and Quantifiers Item 22')",
       "hint": "Python built-in functions like print() must be written in lowercase.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of character classes and quantifiers runtime. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `character classes and quantifiers runtime` in Character Classes and Quantifiers. When Python validates this code, it applies the standard rules of character classes and quantifiers runtime. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "19.4_q23",
@@ -450,7 +450,7 @@
       "starter_code": "Print('Character Classes and Quantifiers Item 23')",
       "solution_code": "print('Character Classes and Quantifiers Item 23')",
       "hint": "Python built-in functions like print() must be written in lowercase.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of character classes and quantifiers logic repair. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `character classes and quantifiers logic repair` in Character Classes and Quantifiers. When Python validates this code, it applies the standard rules of character classes and quantifiers logic repair. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "19.4_q24",

@@ -13,7 +13,7 @@
       "title": "What Are Enums?",
       "content": "An Enum (enumeration) is a special class that represents a group of named constants. Instead of using magic strings or integers, you define a fixed set of allowed values. This makes code more readable and less error-prone.\n\nFor example, instead of writing status = 0 or status = 'active', you can define an enum where Active and Inactive are explicit members.\n\nHere is how you create a basic enum in Python:\n\n```python\nfrom enum import Enum\n\nclass Color(Enum):\n    RED = 1\n    GREEN = 2\n    BLUE = 3\n\nprint(Color.RED)\n# Output: Color.RED\n\nprint(Color.RED.name)\n# Output: RED\n\nprint(Color.RED.value)\n# Output: 1\n```\n\nEnums are useful when a variable can only take one of a small, fixed set of values.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of enums basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "An Enum (enumeration) is a special class that represents a group of named constants. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "22.5_q2",
@@ -46,7 +46,7 @@
       "title": "Enum Syntax and Member Access",
       "content": "To create an enum, you import Enum from the enum module and subclass it. Each member is assigned a value. You access members using dot notation.\n\nKey points:\n- Member names are uppercase by convention.\n- The value can be any type, but integers are common.\n- You can iterate over members using Color.\n\n```python\nfrom enum import Enum\n\nclass Status(Enum):\n    PENDING = 0\n    APPROVED = 1\n    REJECTED = 2\n\nfor s in Status:\n    print(s, s.value)\n\n# Output:\n# Status.PENDING 0\n# Status.APPROVED 1\n# Status.REJECTED 2\n```\n\nNote that members are singletons: `Status.PENDING is Status('PENDING')` evaluates to True.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of enums syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "To create an enum, you import Enum from the enum module and subclass it. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "22.5_q4",
@@ -182,7 +182,7 @@
           "expected_output": "Enums"
         }
       ],
-      "explanation": "In Python, this operation directly demonstrates the core behavior of enums analysis. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `enums analysis` in Enums. When Python validates this code, it applies the standard rules of enums analysis. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "22.5_q11",

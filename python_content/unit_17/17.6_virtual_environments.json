@@ -13,7 +13,7 @@
       "title": "What is a Virtual Environment?",
       "content": "A virtual environment (venv) is an isolated Python workspace that keeps project dependencies separate from the global Python installation. This prevents version conflicts between projects. To create one, run: python -m venv myenv. This creates a folder containing a copy of the Python interpreter and pip. Activate it with: source myenv/bin/activate (Linux/macOS) or myenv\\Scripts\\activate (Windows). Once active, the shell prompt shows (myenv), and any packages installed with pip are scoped to this environment only.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of virtual environments venv basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "A virtual environment (venv) is an isolated Python workspace that keeps project dependencies separate from the global Python installation. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "17.6_q2",
@@ -46,7 +46,7 @@
       "title": "Activating and Deactivating a venv",
       "content": "After creating a virtual environment, you must activate it before installing packages or running scripts. On Linux or macOS, use: source myenv/bin/activate. On Windows, use: myenv\\Scripts\\activate. The activation script modifies the PATH and sets the PYTHONHOME variable. To exit the environment and return to the global Python, simply type deactivate. Here is a small example demonstrating activation and package installation in a script:\n\n```python\nimport sys\nprint(sys.executable)\n```\n\nWhen run inside an activated venv, sys.executable points to the venv's Python binary rather than the system-wide one.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of virtual environments venv syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "After creating a virtual environment, you must activate it before installing packages or running scripts. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "17.6_q4",

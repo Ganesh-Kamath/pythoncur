@@ -13,7 +13,7 @@
       "title": "What Is Debugging?",
       "content": "Debugging is the process of identifying, isolating, and fixing errors in your code. When a program crashes or produces unexpected results, you use debugging strategies to trace the problem. Common symptoms include error messages, infinite loops, or incorrect output. The first step is always to read the error message carefully, as it often points to the exact line where the problem occurs. Once you know where to look, you can use techniques like adding print statements, checking variable values, or stepping through code line by line to find the root cause.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of debugging strategies basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Debugging is the process of identifying, isolating, and fixing errors in your code. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "12.5_q2",
@@ -46,7 +46,7 @@
       "title": "Syntax Errors: Missing Colons and Indentation",
       "content": "Syntax errors occur when Python cannot understand your code because of incorrect structure. The most common syntax mistakes are missing colons after if statements, for loops, and function definitions, and inconsistent indentation. Python relies on indentation to define code blocks. For example, after an if statement, the indented block must follow immediately. Consider this code:\n\n```python\nif True:\n    print('This block runs')\nelse:\n    print('This block does not run')\n```\n\nIf you forget the colon after `if True`, Python raises a SyntaxError. Similarly, mixing tabs and spaces or using inconsistent indentation will cause an IndentationError. Always check that every control statement ends with a colon and that all lines within a block share the same indentation level.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of debugging strategies syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Syntax errors occur when Python cannot understand your code because of incorrect structure. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "12.5_q4",
@@ -375,20 +375,23 @@
     {
       "id": "12.5_q19",
       "type": "fix_the_code",
-      "concept": "debugging_strategies_errors",
+      "concept": "debugging_strategies_trace",
       "skill": "debugging",
       "difficulty": "medium",
       "prerequisites": [
         "12.5_q18"
       ],
-      "micro_lesson": {
-        "title": "Identifying Syntax and Name Errors",
-        "content": "When a Python script fails to run, the first step is to read the error message carefully. A SyntaxError occurs when the code violates Python's grammar rules, such as missing a colon or mismatched parentheses. A NameError happens when you try to use a variable that has not been defined. Common debugging strategies include checking indentation, verifying variable names, and using the traceback to locate the exact line. Always isolate the problem by running smaller sections of code. For example, consider the following broken snippet:\n\n```python\ndef calculate_area(radius):\n    area = 3.14 * radius * radius\n    print(f'The area is {area}')\ncalculate_area(5)\n```\n\nThis code produces a SyntaxError because the function definition lacks a colon after `def calculate_area(radius)`. Another common issue is a NameError when a variable is misspelled. Always spell-check your identifiers and ensure they are declared before use."
-      },
-      "prompt": "Fix the bug in this code for debugging strategies errors:",
-      "starter_code": "# Fix this code\nPrint('Debugging Strategies')",
-      "solution_code": "print('Debugging Strategies')",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of debugging strategies errors. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "prompt": "A developer is debugging a calculation bug where an average score is computed incorrectly due to integer floor division. Fix the calculation so it yields the true floating-point average `87.5`.\n\n```python\nscores = [85, 90]\n# Fix calculation below:\navg = sum(scores) // len(scores)\nprint(avg)\n```",
+      "starter_code": "scores = [85, 90]\navg = sum(scores) // len(scores)\nprint(avg)",
+      "solution_code": "scores = [85, 90]\navg = sum(scores) / len(scores)\nprint(avg)",
+      "explanation": "Floor division `//` discards decimal remainders, truncating `175 / 2 = 87.5` down to `87`. Using standard division `/` yields the exact float `87.5`.",
+      "metadata": {
+        "concept": "operator_precision_bug",
+        "skill": "repair",
+        "learning_objective": "Fix subtle logic bugs caused by unintended integer floor division",
+        "common_misconception": "Confusing / with //",
+        "why_this_exercise_exists": "Replaces template function with an authentic arithmetic precision fix"
+      }
     },
     {
       "id": "12.5_q20",
@@ -436,7 +439,7 @@
       "prompt": "Fix the bug in this code for debugging strategies runtime:",
       "starter_code": "# Fix this code\nPrint('Debugging Strategies')",
       "solution_code": "print('Debugging Strategies')",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of debugging strategies runtime. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `debugging strategies runtime` in Debugging Strategies. When Python validates this code, it applies the standard rules of debugging strategies runtime. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "12.5_q23",

@@ -14,7 +14,7 @@
       "title": "What is a Database?",
       "content": "A database is an organized collection of structured information, or data, typically stored electronically in a computer system. In Python, we often interact with databases to store, retrieve, update, and delete data persistently. Unlike in-memory data structures such as lists or dictionaries, databases allow data to survive after the program ends. Common database systems include SQLite, PostgreSQL, and MySQL. SQLite is especially popular for beginners because it is serverless and built into Python's standard library. You can import it using: import sqlite3. A basic workflow involves connecting to a database file, creating a cursor object, executing SQL commands, and committing changes. Here is a simple example: import sqlite3; conn = sqlite3.connect('school.db'); cursor = conn.cursor(); cursor.execute(\"CREATE TABLE IF NOT EXISTS students (id INTEGER PRIMARY KEY, name TEXT)\"); conn.commit(); conn.close(). This snippet creates a database file named school.db and a table called students if they do not already exist.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of introduction to databases basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "A database is an organized collection of structured information, or data, typically stored electronically in a computer system. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "26.1_q2",
@@ -49,7 +49,7 @@
       "title": "Basic SQL Syntax in Python",
       "content": "SQL stands for Structured Query Language, and it uses specific keywords to manipulate data. The most common SQL commands are SELECT, INSERT, UPDATE, and DELETE. In Python, you run SQL commands through a cursor object using the execute method. For example, to insert a row into a table named products, you write: cursor.execute(\"INSERT INTO products (name, price) VALUES ('Apple', 1.5)\"). To retrieve data, you use SELECT: cursor.execute(\"SELECT * FROM products WHERE price < 2\"). After executing a query that returns rows, such as SELECT, you typically call cursor.fetchall() to get all results as a list of tuples. Remember to use parameterized queries to avoid SQL injection. Here is a safe pattern: cursor.execute(\"SELECT * FROM users WHERE age = ?\", (25,)). This binds the integer 25 safely into the query.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of introduction to databases syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "SQL stands for Structured Query Language, and it uses specific keywords to manipulate data. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "26.1_q4",

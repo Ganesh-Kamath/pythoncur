@@ -13,7 +13,7 @@
       "title": "What Are Parameters and Arguments?",
       "content": "In Python, a function definition can include placeholders called parameters. When you call the function, you provide actual values called arguments. Think of parameters as empty boxes inside the function, and arguments as the items you put into those boxes. For example, consider the function below:\n\n```python\ndef greet(name):\n    print('Hello, ' + name + '!')\n```\n\nHere, name is the parameter. When we call greet('Alice'), 'Alice' is the argument. The parameter receives the argument and the function uses it. You can also use multiple parameters, such as in add(a, b), where a and b are parameters. Understanding this distinction is essential because it allows your functions to work with different inputs without rewriting the code.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of parameters and arguments basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "In Python, a function definition can include placeholders called parameters. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "11.3_q2",
@@ -46,7 +46,7 @@
       "title": "Syntax of Parameters and Arguments",
       "content": "To declare parameters, place them inside the parentheses after the function name, separated by commas. Each parameter acts as a local variable inside the function. You can have zero or more parameters. When calling the function, pass arguments in the same order as the parameters unless you use keyword arguments. Here is the general syntax:\n\n```python\ndef function_name(param1, param2):\n    # function body\n    pass\n\n# Calling with positional arguments\nfunction_name(value1, value2)\n\n# Calling with keyword arguments\nfunction_name(param2=value2, param1=value1)\n```\n\nPositional arguments match parameters by position, while keyword arguments match by name. Both approaches are valid, but mixing them requires positional arguments to come first.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of parameters and arguments syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "To declare parameters, place them inside the parentheses after the function name, separated by commas. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "11.3_q4",
@@ -230,35 +230,46 @@
     },
     {
       "id": "11.3_q13",
-      "type": "fill_in_the_blank",
-      "concept": "parameters_and_arguments_syntax",
-      "skill": "syntax",
-      "difficulty": "easy",
+      "type": "write_the_code",
+      "concept": "parameters_default_greeting",
+      "skill": "function_design",
+      "difficulty": "medium",
       "prerequisites": [
         "11.3_q12"
       ],
-      "prompt": "Complete the code to output 'Parameters and Arguments #13':\n```python\n___('Parameters and Arguments #13')\n```",
-      "correct_answer": "print",
-      "accepted_answers": [
-        "print"
-      ],
-      "explanation": "In Python, this operation directly demonstrates the core behavior of parameters and arguments syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "prompt": "Define a function `greet(name, greeting='Hello')` that returns `f'{greeting}, {name}!'`. Call it with `name='Maya'` without passing greeting.",
+      "starter_code": "def greet(name, greeting=\"Hello\"):\n    pass\n\nmsg = greet(\"Maya\")\nprint(msg)",
+      "solution_code": "def greet(name, greeting=\"Hello\"):\n    return f\"{greeting}, {name}!\"\n\nmsg = greet(\"Maya\")\nprint(msg)",
+      "explanation": "When `greeting` is omitted, it takes default value `'Hello'`, producing `'Hello, Maya!'`.",
+      "metadata": {
+        "concept": "default_parameter_usage",
+        "skill": "function_design",
+        "why_this_exercise_exists": "Replaces filler with default parameter greeting"
+      }
     },
     {
       "id": "11.3_q14",
-      "type": "fill_in_the_blank",
-      "concept": "parameters_and_arguments_keywords",
-      "skill": "syntax",
+      "type": "output_prediction",
+      "concept": "keyword_argument_clarity",
+      "skill": "tracing",
       "difficulty": "medium",
       "prerequisites": [
         "11.3_q13"
       ],
-      "prompt": "Complete the code to output 'Parameters and Arguments #14':\n```python\n___('Parameters and Arguments #14')\n```",
-      "correct_answer": "print",
-      "accepted_answers": [
-        "print"
+      "prompt": "What does calling `describe_pet(pet_name=\"Whiskers\", animal_type=\"cat\")` return?\n\n```python\ndef describe_pet(animal_type, pet_name):\n    return f\"{pet_name} is a {animal_type}\"\n\nprint(describe_pet(pet_name=\"Whiskers\", animal_type=\"cat\"))\n```",
+      "options": [
+        "Whiskers is a cat",
+        "cat is a Whiskers",
+        "TypeError",
+        "None"
       ],
-      "explanation": "In Python, this operation directly demonstrates the core behavior of parameters and arguments keywords. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "correct_answer": "Whiskers is a cat",
+      "explanation": "Keyword arguments match parameter names explicitly, avoiding positional ordering errors.",
+      "metadata": {
+        "concept": "named_argument_order",
+        "skill": "tracing",
+        "why_this_exercise_exists": "Replaces filler with keyword argument invocation"
+      }
     },
     {
       "id": "11.3_q15",
@@ -286,19 +297,27 @@
     },
     {
       "id": "11.3_q16",
-      "type": "fill_in_the_blank",
-      "concept": "parameters_and_arguments_patterns",
-      "skill": "syntax",
+      "type": "error_diagnosis",
+      "concept": "duplicate_argument_error",
+      "skill": "debugging",
       "difficulty": "medium",
       "prerequisites": [
         "11.3_q15"
       ],
-      "prompt": "Complete the code to output 'Parameters and Arguments #16':\n```python\n___('Parameters and Arguments #16')\n```",
-      "correct_answer": "print",
-      "accepted_answers": [
-        "print"
+      "prompt": "Why does calling `greet(\"Aria\", name=\"Maya\")` raise a TypeError?\n\n```python\ndef greet(name):\n    return f\"Hello {name}\"\n\ngreet(\"Aria\", name=\"Maya\")\n```",
+      "options": [
+        "TypeError: greet() got multiple values for argument 'name'",
+        "SyntaxError: invalid argument combination",
+        "NameError: Aria is not defined",
+        "ValueError: duplicate name detected"
       ],
-      "explanation": "In Python, this operation directly demonstrates the core behavior of parameters and arguments patterns. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "correct_answer": "TypeError: greet() got multiple values for argument 'name'",
+      "explanation": "`\"Aria\"` was passed positionally for `name`, and then `name=\"Maya\"` attempted to bind the same parameter a second time, which Python forbids.",
+      "metadata": {
+        "concept": "duplicate_parameter_binding",
+        "skill": "debugging",
+        "why_this_exercise_exists": "Replaces filler with parameter collision debugging"
+      }
     },
     {
       "id": "11.3_q17",
@@ -326,19 +345,22 @@
     },
     {
       "id": "11.3_q18",
-      "type": "fill_in_the_blank",
-      "concept": "parameters_and_arguments_idioms",
-      "skill": "syntax",
-      "difficulty": "medium",
+      "type": "write_the_code",
+      "concept": "arbitrary_positional_args",
+      "skill": "implementation",
+      "difficulty": "hard",
       "prerequisites": [
         "11.3_q17"
       ],
-      "prompt": "Complete the code to output 'Parameters and Arguments #18':\n```python\n___('Parameters and Arguments #18')\n```",
-      "correct_answer": "print",
-      "accepted_answers": [
-        "print"
-      ],
-      "explanation": "In Python, this operation directly demonstrates the core behavior of parameters and arguments idioms. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "prompt": "Write a function `sum_all(*numbers)` that sums any quantity of numeric arguments passed to it. Call it with `1, 2, 3, 4`.",
+      "starter_code": "def sum_all(*numbers):\n    # Return sum of all numbers\n    pass",
+      "solution_code": "def sum_all(*numbers):\n    return sum(numbers)\n\nprint(sum_all(1, 2, 3, 4))",
+      "explanation": "`*numbers` packs incoming positional arguments into a tuple `(1, 2, 3, 4)`, which `sum()` aggregates to `10`.",
+      "metadata": {
+        "concept": "varargs_star_args",
+        "skill": "implementation",
+        "why_this_exercise_exists": "Replaces filler with *args implementation"
+      }
     },
     {
       "id": "11.3_q19",
@@ -356,7 +378,7 @@
       "prompt": "Fix the bug in this code for parameters and arguments errors:",
       "starter_code": "# Fix this code\nPrint('Parameters and Arguments')",
       "solution_code": "print('Parameters and Arguments')",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of parameters and arguments errors. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Python logical operators use short-circuit evaluation: `and` stops and returns the first falsy operand, while `or` stops and returns the first truthy operand without evaluating subsequent expressions."
     },
     {
       "id": "11.3_q20",
@@ -404,7 +426,7 @@
       "prompt": "Fix the bug in this code for parameters and arguments runtime:",
       "starter_code": "# Fix this code\nPrint('Parameters and Arguments')",
       "solution_code": "print('Parameters and Arguments')",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of parameters and arguments runtime. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Python logical operators use short-circuit evaluation: `and` stops and returns the first falsy operand, while `or` stops and returns the first truthy operand without evaluating subsequent expressions."
     },
     {
       "id": "11.3_q23",
@@ -456,32 +478,29 @@
     },
     {
       "id": "11.3_q25",
-      "type": "write_the_code",
-      "concept": "parameters_and_arguments_implementation",
-      "skill": "application",
+      "type": "error_diagnosis",
+      "concept": "parameters_and_arguments_mismatch",
+      "skill": "debugging",
       "difficulty": "medium",
       "prerequisites": [
         "11.3_q24"
       ],
-      "prompt": "Write a function named calculate_area that accepts two parameters: length and width. The function should return the product of length and width. Include a docstring explaining what the function does.",
-      "starter_code": "def calculate_area(length, width):\n    pass\n\n# Example usage\nresult = calculate_area(5, 3)\nprint(result)",
-      "solution_code": "def calculate_area(length, width):\n    '''Calculate the area of a rectangle given its length and width.'''\n    return length * width\n\n# Example usage\nresult = calculate_area(5, 3)\nprint(result)",
-      "test_cases": [
-        {
-          "input": "calculate_area(5, 3)",
-          "expected": 15
-        },
-        {
-          "input": "calculate_area(10, 7)",
-          "expected": 70
-        },
-        {
-          "input": "calculate_area(0, 4)",
-          "expected": 0
-        }
+      "prompt": "Examine this function call:\n\n```python\ndef greet(name, age):\n    print(f\"Hello {name}, you are {age} years old\")\n\ngreet(\"Ganesh\")\n```\n\nWhat error occurs when this code runs and why?",
+      "options": [
+        "TypeError: greet() missing 1 required positional argument: 'age'",
+        "ValueError: expected 2 arguments, received 1",
+        "NameError: name 'age' is not defined",
+        "SyntaxError: invalid argument count"
       ],
-      "hint": "Remember to multiply the two parameters and return the result. Add a docstring using triple quotes.",
-      "explanation": "This item tests your ability to define a function with parameters and use arguments when calling it. The parameters length and width receive values from the arguments passed during the function call. The return statement sends the computed area back to the caller."
+      "correct_answer": "TypeError: greet() missing 1 required positional argument: 'age'",
+      "explanation": "In Python, parameters defined without default values are required positional arguments. If a caller fails to pass an argument for every required parameter, Python raises a `TypeError` indicating exactly which argument was missing.",
+      "metadata": {
+        "concept": "positional_arguments_contract",
+        "skill": "error_diagnosis",
+        "learning_objective": "Diagnose missing positional argument TypeErrors",
+        "common_misconception": "Assuming unsupplied arguments automatically default to None",
+        "why_this_exercise_exists": "Replaces template function with authentic parameter/argument validation"
+      }
     },
     {
       "id": "11.3_q26",

@@ -13,7 +13,7 @@
       "content": "The `requests` library is a popular third-party Python package used to make HTTP requests to web servers. It simplifies sending GET, POST, PUT, DELETE, and other requests. First, install it using pip: `pip install requests`. Then, import it in your script: `import requests`. A basic GET request retrieves data from a URL. For example:\n\n```python\nimport requests\n\nurl = 'https://api.example.com/data'\nresponse = requests.get(url)\n\nprint(response.status_code)\nprint(response.text)\n```\n\nThe `requests.get()` function sends a GET request to the specified URL. The server responds with a `Response` object containing status codes, headers, and body content. Always check `response.status_code` to verify success (200 means OK). The library handles connection pooling, cookies, and timeouts automatically, making it ideal for interacting with REST APIs.",
       "skill": "recognition",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of the requests library basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "The `requests` library is a popular third-party Python package used to make HTTP requests to web servers. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "25.2_q2",
@@ -46,7 +46,7 @@
       "content": "The `requests` library supports multiple HTTP methods through functions like `requests.post()`, `requests.put()`, `requests.delete()`, and `requests.patch()`. Each method accepts a URL as the first argument. You can also pass parameters as keyword arguments. For example, to send JSON data in a POST request:\n\n```python\nimport requests\n\nurl = 'https://api.example.com/submit'\ndata = {'name': 'Alice', 'age': 25}\n\nresponse = requests.post(url, json=data)\nprint(response.status_code)\nprint(response.json())\n```\n\nWhen sending JSON, use the `json` parameter rather than manually serializing with `json.dumps()`. The library automatically sets the `Content-Type` header to `application/json`. You can also inspect headers via `response.headers` and cookies via `response.cookies`. Always handle exceptions with `try` and `except requests.exceptions.RequestException` to catch network errors gracefully.",
       "skill": "understanding",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of the requests library syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "The `requests` library supports multiple HTTP methods through functions like `requests. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "25.2_q4",

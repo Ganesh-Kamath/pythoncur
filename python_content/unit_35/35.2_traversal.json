@@ -13,7 +13,7 @@
       "title": "What is Traversal?",
       "content": "Traversal means visiting each node in a linked list exactly once, starting from the head. In a singly linked list, every node contains data and a pointer to the next node. To traverse, we begin at the head and follow the next references until we reach None. This allows us to read, modify, or search through all elements. Traversal is the foundation for operations like printing, counting, and searching in linked lists.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of traversal basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Traversal means visiting each node in a linked list exactly once, starting from the head. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "35.2_q2",
@@ -46,7 +46,7 @@
       "title": "Writing Traversal Code",
       "content": "A standard traversal uses a current pointer initialized to head. A while loop continues as long as current is not None. Inside the loop, you can process current.data, then advance current = current.next. This pattern works for any singly linked list. Here is a complete example:\n\n```python\nclass Node:\n    def __init__(self, data):\n        self.data = data\n        self.next = None\n\nclass LinkedList:\n    def __init__(self):\n        self.head = None\n\n    def traverse(self):\n        current = self.head\n        while current is not None:\n            print(current.data)\n            current = current.next\n```\n\nThe loop stops when current becomes None, which marks the end of the list.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of traversal syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "A standard traversal uses a current pointer initialized to head. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "35.2_q4",
@@ -359,7 +359,7 @@
       "prompt": "Fix the bug in this code for traversal errors:",
       "starter_code": "# Fix this code\nPrint('Traversal')",
       "solution_code": "print('Traversal')",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of traversal errors. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `traversal errors` in Traversal. When Python validates this code, it applies the standard rules of traversal errors. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "35.2_q20",
@@ -407,7 +407,7 @@
       "prompt": "Fix the bug in this code for traversal runtime:",
       "starter_code": "# Fix this code\nPrint('Traversal')",
       "solution_code": "print('Traversal')",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of traversal runtime. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `traversal runtime` in Traversal. When Python validates this code, it applies the standard rules of traversal runtime. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "35.2_q23",

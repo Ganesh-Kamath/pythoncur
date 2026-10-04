@@ -13,7 +13,7 @@
       "content": "In Python, tasks can run in two main ways. Synchronous execution means one task finishes completely before the next task begins. Asynchronous execution means a task can start, pause, and allow other tasks to run while waiting for something like a network response or file read.\n\nSynchronous code is straightforward: the program moves line by line. Asynchronous code uses keywords like `async` and `await`, along with an event loop, to manage concurrency without blocking the entire program.\n\nExample of synchronous execution:\n```python\nimport time\n\ndef fetch_data():\n    print('Fetching data...')\n    time.sleep(1)\n    print('Data received')\n\nfetch_data()\nprint('Done')\n```\nThis blocks until `fetch_data` completes.\n\nExample of asynchronous execution:\n```python\nimport asyncio\n\nasync def fetch_data():\n    print('Fetching data...')\n    await asyncio.sleep(1)\n    print('Data received')\n\nasync def main():\n    fetch_data()\n    print('Done')\n\nasyncio.run(main())\n```\nHere, `await asyncio.sleep(1)` yields control, allowing the event loop to schedule other tasks.",
       "prerequisites": [],
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of synchronous vs asynchronous execution basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "In Python, tasks can run in two main ways. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "28.1_q2",
@@ -46,7 +46,7 @@
         "28.1_q2"
       ],
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of synchronous vs asynchronous execution syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Conditional branching with `if`, `elif`, and `else` controls program execution paths. Indentation defines the statement block that executes when a condition evaluates to True."
     },
     {
       "id": "28.1_q4",
@@ -351,7 +351,7 @@
       "prompt": "Fix the bug in this code for synchronous vs asynchronous execution errors:",
       "starter_code": "# Fix this code\nPrint('Synchronous vs Asynchronous Execution')",
       "solution_code": "print('Synchronous vs Asynchronous Execution')",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of synchronous vs asynchronous execution errors. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `synchronous vs asynchronous execution errors` in Synchronous vs Asynchronous Execution. When Python validates this code, it applies the standard rules of synchronous vs asynchronous execution errors. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "28.1_q20",
@@ -399,7 +399,7 @@
       "prompt": "Fix the bug in this code for synchronous vs asynchronous execution runtime:",
       "starter_code": "# Fix this code\nPrint('Synchronous vs Asynchronous Execution')",
       "solution_code": "print('Synchronous vs Asynchronous Execution')",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of synchronous vs asynchronous execution runtime. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `synchronous vs asynchronous execution runtime` in Synchronous vs Asynchronous Execution. When Python validates this code, it applies the standard rules of synchronous vs asynchronous execution runtime. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "28.1_q23",

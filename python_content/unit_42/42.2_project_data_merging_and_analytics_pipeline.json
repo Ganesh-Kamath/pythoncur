@@ -13,7 +13,7 @@
       "title": "Understanding Pipeline Architecture",
       "content": "In a data merging and analytics pipeline, data flows through distinct stages: extraction, transformation, loading, and analysis. Each stage serves a specific purpose. Extraction gathers raw data from sources like CSV files or databases. Transformation cleans, normalizes, and enriches the data. Loading stores processed data into a target system. Finally, analysis applies statistical or machine learning techniques to generate insights. A modular architecture separates these concerns, making the pipeline maintainable and testable. Below is a simple Python representation of this architecture using function composition:\n\n```python\ndef extract(source):\n    # Simulate reading raw data\n    return source\n\ndef transform(data):\n    # Clean and normalize\n    return [d.strip().lower() for d in data]\n\ndef load(data):\n    # Persist to target\n    return data\n\ndef analyze(data):\n    # Compute summary statistics\n    return {'count': len(data), 'avg_length': sum(len(d) for d in data) / len(data) if data else 0}\n\nraw = ['  Apple  ', 'Banana', '  Cherry  ']\npipeline = analyze(load(transform(extract(raw))))\nprint(pipeline)\n```\n\nBreaking the pipeline into discrete functions allows you to unit test each stage independently. This design reduces coupling and simplifies debugging when merging disparate datasets.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of project data merging and analytics pipeline architecture. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "In a data merging and analytics pipeline, data flows through distinct stages: extraction, transformation, loading, and analysis. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "42.2_q2",
@@ -27,7 +27,7 @@
       "title": "Designing a Scalable Pipeline",
       "content": "A scalable pipeline anticipates growth in data volume and source variety. Consider using generators to stream data rather than loading entire datasets into memory. When merging multiple sources, align schemas through a canonical intermediate format, such as a dictionary with standardized keys. Error handling at each stage prevents a single malformed record from halting the entire process. For analytics, modular aggregation functions enable reuse across different merged datasets. The following example demonstrates a generator-based extraction and a merge step that combines two lists of records by a common key:\n\n```python\ndef stream_records(data):\n    for record in data:\n        yield record\n\ndef merge_by_key(source_a, source_b, key):\n    lookup = {item[key]: item for item in source_b}\n    for item in source_a:\n        if item[key] in lookup:\n            yield {**item, **lookup[item[key]]}\n\nsales = [{'id': 1, 'amount': 100}, {'id': 2, 'amount': 150}]\ncustomers = [{'id': 1, 'region': 'north'}, {'id': 2, 'region': 'south'}]\n\nmerged = list(merge_by_key(sales, customers, 'id'))\nprint(merged)\n```\n\nBy separating extraction into a generator and merging into a reusable function, the pipeline remains memory-efficient and adaptable to new data sources.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of project data merging and analytics pipeline architecture. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "A scalable pipeline anticipates growth in data volume and source variety. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "42.2_q3",
@@ -92,24 +92,33 @@
     {
       "id": "42.2_q6",
       "type": "code_ordering",
-      "concept": "project_data_merging_and_analytics_pipeline_milestone_flow",
-      "skill": "sequencing",
+      "concept": "data_pipeline_lifecycle_ordering",
+      "skill": "pipeline_architecture",
       "difficulty": "medium",
       "prerequisites": [
         "42.2_q5"
       ],
-      "prompt": "Arrange the following milestone steps in the correct order for a data merging and analytics pipeline. (Variation 6)",
+      "prompt": "Arrange the core lifecycle stages of a robust data pipeline in proper execution order:",
       "options": [
-        "x = 10",
-        "y = 20",
-        "print(x + y)"
+        "Ingest raw CSV records from sources",
+        "Validate schema and required columns",
+        "Clean data, cast types, and impute null values",
+        "Merge datasets on key identifiers",
+        "Compute analytical metrics and export to disk"
       ],
       "correct_answer": [
-        "x = 10",
-        "y = 20",
-        "print(x + y)"
+        "Ingest raw CSV records from sources",
+        "Validate schema and required columns",
+        "Clean data, cast types, and impute null values",
+        "Merge datasets on key identifiers",
+        "Compute analytical metrics and export to disk"
       ],
-      "explanation": "The correct sequence is extract, then validate, then merge, then load, then analyze. Although validation before merge is a design choice, the provided correct_answer reflects the ordering where source extraction precedes schema validation, followed by merging, loading, and analytics. In a robust pipeline, validation would occur after merging; however, based on the milestone flow specified, the sequence in the correct_answer represents the intended progression from raw ingestion to final output."
+      "explanation": "A data pipeline follows strict chronological stages: Ingestion -> Schema Validation -> Cleaning/Imputation -> Relational Merging -> Analytical Aggregation/Export.",
+      "metadata": {
+        "concept": "data_pipeline_stages",
+        "skill": "pipeline_architecture",
+        "why_this_exercise_exists": "Replaces variation with data pipeline sequence"
+      }
     },
     {
       "idx": 7,
@@ -131,213 +140,233 @@
       "prompt": "Fix the bug in this code for project data merging and analytics pipeline module bugfix:",
       "starter_code": "# Fix this code\nPrint('Project: Data Merging and Analytics Pipeline')",
       "solution_code": "print('Project: Data Merging and Analytics Pipeline')",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of project data merging and analytics pipeline module bugfix. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Python logical operators use short-circuit evaluation: `and` stops and returns the first falsy operand, while `or` stops and returns the first truthy operand without evaluating subsequent expressions."
     },
     {
-      "idx": 8,
       "id": "42.2_q8",
-      "type": "fix_the_code",
-      "skill": "debugging",
+      "type": "write_the_code",
+      "concept": "project_data_pipeline_deduplication",
+      "skill": "project_milestone",
       "difficulty": "medium",
       "prerequisites": [
         "42.2_q7"
       ],
-      "concept": "project_data_merging_and_analytics_pipeline_module_bugfix",
-      "error_diagnosis": {
-        "prompt": "The analytics pipeline attempts to calculate total revenue but raises a TypeError. Fix the code so it computes revenue correctly.",
-        "starter_code": "import pandas as pd\n\nsales = pd.read_csv('sales.csv')\nsales['total_revenue'] = sales['quantity'] * sales['price']\nprint(sales['total_revenue'].sum())",
-        "solution_code": "import pandas as pd\n\nsales = pd.read_csv('sales.csv')\nsales['quantity'] = pd.to_numeric(sales['quantity'], errors='coerce')\nsales['price'] = pd.to_numeric(sales['price'], errors='coerce')\nsales['total_revenue'] = sales['quantity'] * sales['price']\nprint(sales['total_revenue'].sum())",
-        "hint": "Check the data types of 'quantity' and 'price' columns. Non-numeric values will cause a TypeError during multiplication.",
-        "explanation": "The columns 'quantity' and 'price' may be read as object dtype if the CSV contains headers or missing values. Converting them to numeric with pd.to_numeric ensures valid arithmetic. Coerce invalid entries to NaN, which pandas handles in subsequent operations."
+      "prompt": "Pipeline Milestone: Deduplicate rows by `'id'`. Given `records = [{'id': 1, 'val': 10}, {'id': 1, 'val': 10}, {'id': 2, 'val': 20}]`, filter out duplicate IDs preserving first occurrence in `deduped`.",
+      "starter_code": "records = [{\"id\": 1, \"val\": 10}, {\"id\": 1, \"val\": 10}, {\"id\": 2, \"val\": 20}]\n# Deduplicate records\n",
+      "solution_code": "records = [{\"id\": 1, \"val\": 10}, {\"id\": 1, \"val\": 10}, {\"id\": 2, \"val\": 20}]\nseen = set()\ndeduped = []\nfor r in records:\n    if r[\"id\"] not in seen:\n        seen.add(r[\"id\"])\n        deduped.append(r)\nprint(f\"Deduplicated: {len(deduped)} rows\")",
+      "explanation": "Using a `seen` set checks presence in O(1) time and preserves row order.",
+      "metadata": {
+        "concept": "row_deduplication",
+        "skill": "project_milestone",
+        "why_this_exercise_exists": "Replaces variation with data deduplication"
       },
-      "prompt": "Fix the bug in this code for project data merging and analytics pipeline module bugfix: (Variation 8)",
-      "starter_code": "# Fix this code\nPrint('Project: Data Merging and Analytics Pipeline')",
-      "solution_code": "print('Project: Data Merging and Analytics Pipeline')",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of project data merging and analytics pipeline module bugfix. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "idx": 8
     },
     {
-      "idx": 9,
       "id": "42.2_q9",
-      "type": "fix_the_code",
-      "skill": "debugging",
+      "type": "write_the_code",
+      "concept": "project_data_pipeline_null_imputation",
+      "skill": "project_milestone",
       "difficulty": "medium",
       "prerequisites": [
         "42.2_q8"
       ],
-      "concept": "project_data_merging_and_analytics_pipeline_module_bugfix",
-      "error_diagnosis": {
-        "prompt": "The daily sales aggregation pipeline produces incorrect totals due to a timezone-related indexing issue. Resolve the bug.",
-        "starter_code": "import pandas as pd\n\nsales = pd.DataFrame({'date': ['2024-01-01', '2024-01-01', '2024-01-02'], 'amount': [100, 200, 150]})\nsales['date'] = pd.to_datetime(sales['date'])\nsales_daily = sales.set_index('date').resample('D').sum()\nprint(sales_daily)",
-        "solution_code": "import pandas as pd\n\nsales = pd.DataFrame({'date': ['2024-01-01', '2024-01-01', '2024-01-02'], 'amount': [100, 200, 150]})\nsales['date'] = pd.to_datetime(sales['date'])\nsales_daily = sales.set_index('date').resample('D', origin='start').sum()\nprint(sales_daily)",
-        "hint": "When using resample on a naive datetime index, the origin parameter affects alignment. Verify whether the default origin shifts the bins unexpectedly.",
-        "explanation": "The default origin='epoch' can shift daily bins, causing misalignment with calendar dates. Setting origin='start' aligns the first bin with the earliest date in the data, ensuring correct daily totals for the intended date range."
+      "prompt": "Pipeline Milestone: Impute missing values. Given `values = [10.0, None, 20.0, None]`, compute the mean of non-null values and replace `None` entries with the mean.",
+      "starter_code": "values = [10.0, None, 20.0, None]\n# Impute missing values with mean\n",
+      "solution_code": "values = [10.0, None, 20.0, None]\nvalid = [v for v in values if v is not None]\nmean_val = sum(valid) / len(valid)\nimputed = [v if v is not None else mean_val for v in values]\nprint(imputed)",
+      "explanation": "Imputes missing values with dataset averages, preserving distribution.",
+      "metadata": {
+        "concept": "missing_value_imputation",
+        "skill": "project_milestone",
+        "why_this_exercise_exists": "Replaces variation with data cleaning imputation"
       },
-      "prompt": "Fix the bug in this code for project data merging and analytics pipeline module bugfix: (Variation 9)",
-      "starter_code": "# Fix this code\nPrint('Project: Data Merging and Analytics Pipeline')",
-      "solution_code": "print('Project: Data Merging and Analytics Pipeline')",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of project data merging and analytics pipeline module bugfix. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "idx": 9
     },
     {
-      "idx": 10,
       "id": "42.2_q10",
-      "type": "fix_the_code",
-      "skill": "debugging",
+      "type": "write_the_code",
+      "concept": "project_data_pipeline_monthly_aggregation",
+      "skill": "project_milestone",
       "difficulty": "medium",
       "prerequisites": [
         "42.2_q9"
       ],
-      "concept": "project_data_merging_and_analytics_pipeline_module_bugfix",
-      "error_diagnosis": {
-        "prompt": "The pipeline concatenates monthly reports but duplicates the index and raises a ValueError. Correct the concatenation logic.",
-        "starter_code": "import pandas as pd\n\njan = pd.DataFrame({'product': ['A', 'B'], 'sales': [10, 20]})\nfeb = pd.DataFrame({'product': ['A', 'B'], 'sales': [15, 25]})\ncombined = pd.concat([jan, feb])\nprint(combined)",
-        "solution_code": "import pandas as pd\n\njan = pd.DataFrame({'product': ['A', 'B'], 'sales': [10, 20]})\nfeb = pd.DataFrame({'product': ['A', 'B'], 'sales': [15, 25]})\ncombined = pd.concat([jan, feb], ignore_index=True)\nprint(combined)",
-        "hint": "Concatenating along the default axis preserves original indices. If the downstream merge expects a clean sequential index, reset it.",
-        "explanation": "Without ignore_index=True, the resulting DataFrame has duplicated index labels [0, 1, 0, 1], which can break joins or lookups. Setting ignore_index=True creates a new RangeIndex, resolving the duplication and preventing downstream errors."
+      "prompt": "Pipeline Milestone: Group sales by month. Given `txs = [{'date': '2026-01-15', 'amt': 100}, {'date': '2026-01-20', 'amt': 50}, {'date': '2026-02-01', 'amt': 80}]`, aggregate sales by month `YYYY-MM`.",
+      "starter_code": "txs = [{\"date\": \"2026-01-15\", \"amt\": 100}, {\"date\": \"2026-01-20\", \"amt\": 50}, {\"date\": \"2026-02-01\", \"amt\": 80}]\n# Aggregate by month\n",
+      "solution_code": "txs = [{\"date\": \"2026-01-15\", \"amt\": 100}, {\"date\": \"2026-01-20\", \"amt\": 50}, {\"date\": \"2026-02-01\", \"amt\": 80}]\nmonthly = {}\nfor t in txs:\n    month = t[\"date\"][:7]\n    monthly[month] = monthly.get(month, 0) + t[\"amt\"]\nprint(monthly)",
+      "explanation": "Slicing date string `[:7]` extracts `YYYY-MM` as aggregation buckets.",
+      "metadata": {
+        "concept": "temporal_aggregation",
+        "skill": "project_milestone",
+        "why_this_exercise_exists": "Replaces variation with monthly aggregation"
       },
-      "prompt": "Fix the bug in this code for project data merging and analytics pipeline module bugfix: (Variation 10)",
-      "starter_code": "# Fix this code\nPrint('Project: Data Merging and Analytics Pipeline')",
-      "solution_code": "print('Project: Data Merging and Analytics Pipeline')",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of project data merging and analytics pipeline module bugfix. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "idx": 10
     },
     {
-      "idx": 11,
       "id": "42.2_q11",
-      "type": "fix_the_code",
-      "skill": "debugging",
+      "type": "write_the_code",
+      "concept": "project_data_pipeline_csv_export",
+      "skill": "project_milestone",
       "difficulty": "medium",
       "prerequisites": [
         "42.2_q10"
       ],
-      "concept": "project_data_merging_and_analytics_pipeline_module_bugfix",
-      "error_diagnosis": {
-        "prompt": "The customer-product join creates ambiguous column names and loses rows. Fix the merge to retain all customers and label the source.",
-        "starter_code": "import pandas as pd\n\ncustomers = pd.DataFrame({'customer_id': [1, 2, 3], 'segment': ['premium', 'basic', 'premium']})\nproducts = pd.DataFrame({'product_id': [10, 20], 'category': ['electronics', 'clothing']})\nresult = customers.merge(products, left_on='customer_id', right_on='product_id')\nprint(result)",
-        "solution_code": "import pandas as pd\n\ncustomers = pd.DataFrame({'customer_id': [1, 2, 3], 'segment': ['premium', 'basic', 'premium']})\nproducts = pd.DataFrame({'product_id': [10, 20], 'category': ['electronics', 'clothing']})\nresult = customers.merge(products, left_on='customer_id', right_on='product_id', how='left', indicator=True)\nprint(result)",
-        "hint": "The join columns are unrelated and the default inner merge drops unmatched customers. Use a left join and an indicator to trace row provenance.",
-        "explanation": "The original code attempts to merge unrelated keys with an implicit inner join, yielding an empty DataFrame. Switching to a left join on the correct key (or adding a valid foreign key) preserves all customers. The indicator=True column shows whether each row originated from the left table, which is essential for pipeline auditing."
+      "prompt": "Pipeline Milestone: Export cleaned records `records = [{'id': 1, 'name': 'Aria'}]` to CSV using `csv.DictWriter`.",
+      "starter_code": "import csv\nrecords = [{\"id\": 1, \"name\": \"Aria\"}]\n# Export to clean_data.csv\n",
+      "solution_code": "import csv\nfrom io import StringIO\nrecords = [{\"id\": 1, \"name\": \"Aria\"}]\nout = StringIO()\nwriter = csv.DictWriter(out, fieldnames=[\"id\", \"name\"])\nwriter.writeheader()\nwriter.writerows(records)\nprint(out.getvalue())",
+      "explanation": "`csv.DictWriter` ensures proper quoting and header alignment in exported files.",
+      "metadata": {
+        "concept": "csv_export_pipeline",
+        "skill": "project_milestone",
+        "why_this_exercise_exists": "Replaces variation with CSV exporter"
       },
-      "prompt": "Fix the bug in this code for project data merging and analytics pipeline module bugfix: (Variation 11)",
-      "starter_code": "# Fix this code\nPrint('Project: Data Merging and Analytics Pipeline')",
-      "solution_code": "print('Project: Data Merging and Analytics Pipeline')",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of project data merging and analytics pipeline module bugfix. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "idx": 11
     },
     {
-      "idx": 12,
       "id": "42.2_q12",
-      "type": "fix_the_code",
-      "skill": "debugging",
+      "type": "write_the_code",
+      "concept": "project_data_pipeline_telemetry_metrics",
+      "skill": "project_milestone",
       "difficulty": "medium",
       "prerequisites": [
         "42.2_q11"
       ],
-      "concept": "project_data_merging_and_analytics_pipeline_module_bugfix",
-      "error_diagnosis": {
-        "prompt": "The analytics pipeline mutates a DataFrame during a chained operation and raises a SettingWithCopyWarning. Refactor to avoid the warning.",
-        "starter_code": "import pandas as pd\n\ndf = pd.DataFrame({'value': [1, 2, 3]})\ndf = df[df['value'] > 1].copy()\ndf['value'] = df['value'] * 2\nprint(df)",
-        "solution_code": "import pandas as pd\n\ndf = pd.DataFrame({'value': [1, 2, 3]})\ndf = df[df['value'] > 1].copy()\ndf['value'] = df['value'] * 2\nprint(df)",
-        "hint": "The copy() call is already present, but ensure the assignment occurs on the copied object and not on an intermediate slice. Consider using assign for clarity.",
-        "explanation": "Although the starter code uses .copy(), the pattern can still trigger SettingWithCopyWarning if intermediate slices are modified in place. The robust fix is to explicitly create a copy and assign new columns using .assign or direct indexing on that copy. This guarantees that the original DataFrame remains untouched and the pipeline is reproducible."
+      "prompt": "Pipeline Milestone: Generate audit metrics. Write a summary dict `{'input_rows': 100, 'valid_rows': 95, 'dropped_rows': 5}` logging pipeline throughput.",
+      "starter_code": "# Generate pipeline audit metrics\n",
+      "solution_code": "def generate_audit_metrics(raw_count, clean_count):\n    return {\n        \"input_rows\": raw_count,\n        \"valid_rows\": clean_count,\n        \"dropped_rows\": raw_count - clean_count\n    }\nprint(generate_audit_metrics(100, 95))",
+      "explanation": "Logging input, output, and dropped records provides production pipeline observability.",
+      "metadata": {
+        "concept": "pipeline_audit_telemetry",
+        "skill": "project_milestone",
+        "why_this_exercise_exists": "Replaces variation with pipeline telemetry"
       },
-      "prompt": "Fix the bug in this code for project data merging and analytics pipeline module bugfix: (Variation 12)",
-      "starter_code": "# Fix this code\nPrint('Project: Data Merging and Analytics Pipeline')",
-      "solution_code": "print('Project: Data Merging and Analytics Pipeline')",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of project data merging and analytics pipeline module bugfix. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "idx": 12
     },
     {
       "id": "42.2_q13",
-      "type": "fill_in_the_blank",
-      "concept": "project_data_merging_and_analytics_pipeline_module_wiring",
-      "skill": "syntax",
+      "type": "write_the_code",
+      "concept": "project_data_merging_and_analytics_pipeline_milestone_1",
+      "skill": "project_milestone",
       "difficulty": "medium",
       "prerequisites": [
         "42.2_q12"
       ],
-      "prompt": "Complete the code to output 'Project: Data Merging and Analytics Pipeline #13':\n```python\n___('Project: Data Merging and Analytics Pipeline #13')\n```",
-      "correct_answer": "print",
-      "accepted_answers": [
-        "print"
-      ],
-      "explanation": "In Python, this operation directly demonstrates the core behavior of project data merging and analytics pipeline module wiring. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "prompt": "Pipeline Milestone 1: Load CSV records from `csv_text = 'id,name,spend\\n101,Aria,45.50\\n102,Bob,90.00'` using `csv.DictReader` into a list of dictionaries called `customers`.",
+      "starter_code": "import csv\nfrom io import StringIO\n\ncsv_text = \"id,name,spend\\n101,Aria,45.50\\n102,Bob,90.00\"\ncustomers = []\n# Load into customers list\n",
+      "solution_code": "import csv\nfrom io import StringIO\n\ncsv_text = \"id,name,spend\\n101,Aria,45.50\\n102,Bob,90.00\"\nreader = csv.DictReader(StringIO(csv_text))\ncustomers = list(reader)\nprint(f\"Loaded {len(customers)} customers\")",
+      "explanation": "`list(csv.DictReader(...))` converts tabular rows into Python dictionaries.",
+      "metadata": {
+        "concept": "pipeline_csv_ingestion",
+        "skill": "implementation",
+        "learning_objective": "Ingest tabular datasets into structured dictionary collections",
+        "common_misconception": "Attempting to manually parse comma-separated strings without csv module",
+        "why_this_exercise_exists": "Replaces milestone 1 with data pipeline milestone 1"
+      }
     },
     {
       "id": "42.2_q14",
-      "type": "fill_in_the_blank",
-      "concept": "project_data_merging_and_analytics_pipeline_module_wiring",
-      "skill": "syntax",
+      "type": "write_the_code",
+      "concept": "project_data_merging_and_analytics_pipeline_milestone_2",
+      "skill": "project_milestone",
       "difficulty": "medium",
       "prerequisites": [
         "42.2_q13"
       ],
-      "prompt": "Complete the code to output 'Project: Data Merging and Analytics Pipeline #14':\n```python\n___('Project: Data Merging and Analytics Pipeline #14')\n```",
-      "correct_answer": "print",
-      "accepted_answers": [
-        "print"
-      ],
-      "explanation": "In Python, this operation directly demonstrates the core behavior of project data merging and analytics pipeline module wiring. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "prompt": "Pipeline Milestone 2: Column inspection and schema checking. Given dataset `dataset = [{'id': '1', 'val': '10'}]`, verify that all required columns in `required = ('id', 'val', 'status')` are present. Store missing columns in a list `missing`.",
+      "starter_code": "dataset = [{\"id\": \"1\", \"val\": \"10\"}]\nrequired = (\"id\", \"val\", \"status\")\n# Detect missing columns\n",
+      "solution_code": "dataset = [{\"id\": \"1\", \"val\": \"10\"}]\nrequired = (\"id\", \"val\", \"status\")\nfirst_row = dataset[0] if dataset else {}\nmissing = [col for col in required if col not in first_row]\nprint(f\"Missing columns: {missing}\")",
+      "explanation": "Checking `col not in first_row` reveals that `'status'` is missing, preventing downstream key errors.",
+      "metadata": {
+        "concept": "schema_validation_preflight",
+        "skill": "validation",
+        "learning_objective": "Validate dataset schemas against required column specifications",
+        "common_misconception": "Assuming incoming datasets always match expected schemas",
+        "why_this_exercise_exists": "Replaces milestone 2 with data pipeline milestone 2"
+      }
     },
     {
       "id": "42.2_q15",
-      "type": "fill_in_the_blank",
-      "concept": "project_data_merging_and_analytics_pipeline_module_wiring",
-      "skill": "syntax",
+      "type": "write_the_code",
+      "concept": "project_data_merging_and_analytics_pipeline_milestone_3",
+      "skill": "project_milestone",
       "difficulty": "medium",
       "prerequisites": [
         "42.2_q14"
       ],
-      "prompt": "Complete the code to output 'Project: Data Merging and Analytics Pipeline #15':\n```python\n___('Project: Data Merging and Analytics Pipeline #15')\n```",
-      "correct_answer": "print",
-      "accepted_answers": [
-        "print"
-      ],
-      "explanation": "In Python, this operation directly demonstrates the core behavior of project data merging and analytics pipeline module wiring. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "prompt": "Pipeline Milestone 3: Clean and cast data types. Given `records = [{'id': '101', 'amount': '25.50'}]`, transform `'id'` into `int` and `'amount'` into `float` in-place or into a new list `cleaned`.",
+      "starter_code": "records = [{\"id\": \"101\", \"amount\": \"25.50\"}]\ncleaned = []\n# Transform types\n",
+      "solution_code": "records = [{\"id\": \"101\", \"amount\": \"25.50\"}]\ncleaned = [\n    {\"id\": int(r[\"id\"]), \"amount\": float(r[\"amount\"])}\n    for r in records\n]\nprint(cleaned)",
+      "explanation": "Type casting converts string values from CSV into proper numbers ready for arithmetic operations.",
+      "metadata": {
+        "concept": "data_type_normalization",
+        "skill": "transformation",
+        "learning_objective": "Normalize and cast raw string records into appropriate numerical types",
+        "common_misconception": "Doing math on uncast CSV string fields",
+        "why_this_exercise_exists": "Replaces milestone 3 with data pipeline milestone 3"
+      }
     },
     {
       "id": "42.2_q16",
-      "type": "fill_in_the_blank",
-      "concept": "project_data_merging_and_analytics_pipeline_module_wiring",
-      "skill": "syntax",
+      "type": "write_the_code",
+      "concept": "project_data_merging_and_analytics_pipeline_milestone_4",
+      "skill": "project_milestone",
       "difficulty": "medium",
       "prerequisites": [
         "42.2_q15"
       ],
-      "prompt": "Complete the code to output 'Project: Data Merging and Analytics Pipeline #16':\n```python\n___('Project: Data Merging and Analytics Pipeline #16')\n```",
-      "correct_answer": "print",
-      "accepted_answers": [
-        "print"
-      ],
-      "explanation": "In Python, this operation directly demonstrates the core behavior of project data merging and analytics pipeline module wiring. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "prompt": "Pipeline Milestone 4: Merge two datasets on a common key. Merge `users = {101: 'Aria', 102: 'Bob'}` with `orders = [{'user_id': 101, 'item': 'Laptop'}, {'user_id': 102, 'item': 'Mouse'}]` into a consolidated list `merged` with user names included.",
+      "starter_code": "users = {101: \"Aria\", 102: \"Bob\"}\norders = [{\"user_id\": 101, \"item\": \"Laptop\"}, {\"user_id\": 102, \"item\": \"Mouse\"}]\nmerged = []\n# Merge datasets\n",
+      "solution_code": "users = {101: \"Aria\", 102: \"Bob\"}\norders = [{\"user_id\": 101, \"item\": \"Laptop\"}, {\"user_id\": 102, \"item\": \"Mouse\"}]\nmerged = [\n    {**o, \"user_name\": users.get(o[\"user_id\"], \"Unknown\")}\n    for o in orders\n]\nprint(merged)",
+      "explanation": "Using dictionary unpacking `{**o, \"user_name\": users.get(...)}` performs an efficient O(1) hash join for each record.",
+      "metadata": {
+        "concept": "hash_join_merging",
+        "skill": "data_merging",
+        "learning_objective": "Merge relational records using dictionary key lookups",
+        "common_misconception": "Using nested O(n^2) loops to search through unindexed lists",
+        "why_this_exercise_exists": "Replaces milestone 4 with data pipeline milestone 4"
+      }
     },
     {
       "id": "42.2_q17",
-      "type": "fill_in_the_blank",
-      "concept": "project_data_merging_and_analytics_pipeline_module_wiring",
-      "skill": "syntax",
+      "type": "write_the_code",
+      "concept": "project_data_merging_and_analytics_pipeline_milestone_5",
+      "skill": "project_milestone",
       "difficulty": "medium",
       "prerequisites": [
         "42.2_q16"
       ],
-      "prompt": "Complete the code to output 'Project: Data Merging and Analytics Pipeline #17':\n```python\n___('Project: Data Merging and Analytics Pipeline #17')\n```",
-      "correct_answer": "print",
-      "accepted_answers": [
-        "print"
-      ],
-      "explanation": "In Python, this operation directly demonstrates the core behavior of project data merging and analytics pipeline module wiring. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "prompt": "Pipeline Milestone 5: Handle missing or unmapped records. If an order has a `user_id` not found in `users`, set `\"user_name\": \"Guest\"` instead of crashing with KeyError.",
+      "starter_code": "users = {101: \"Aria\"}\norders = [{\"user_id\": 101, \"item\": \"Book\"}, {\"user_id\": 999, \"item\": \"Pen\"}]\n# Safely map users with fallback 'Guest'\n",
+      "solution_code": "users = {101: \"Aria\"}\norders = [{\"user_id\": 101, \"item\": \"Book\"}, {\"user_id\": 999, \"item\": \"Pen\"}]\nmerged = [\n    {**o, \"user_name\": users.get(o[\"user_id\"], \"Guest\")}\n    for o in orders\n]\nprint(merged)",
+      "explanation": "Using `.get(key, default)` gracefully handles unmapped foreign keys without raising a `KeyError`.",
+      "metadata": {
+        "concept": "missing_record_handling",
+        "skill": "defensive_programming",
+        "learning_objective": "Handle missing join keys gracefully with defensive defaults",
+        "common_misconception": "Direct dictionary indexing dict[key] which crashes on unknown keys",
+        "why_this_exercise_exists": "Replaces milestone 5 with data pipeline milestone 5"
+      }
     },
     {
       "id": "42.2_q18",
-      "type": "fill_in_the_blank",
-      "concept": "project_data_merging_and_analytics_pipeline_module_wiring",
-      "skill": "syntax",
+      "type": "write_the_code",
+      "concept": "project_data_merging_and_analytics_pipeline_milestone_6",
+      "skill": "project_milestone",
       "difficulty": "medium",
       "prerequisites": [
         "42.2_q17"
       ],
-      "prompt": "Complete the code to output 'Project: Data Merging and Analytics Pipeline #18':\n```python\n___('Project: Data Merging and Analytics Pipeline #18')\n```",
-      "correct_answer": "print",
-      "accepted_answers": [
-        "print"
-      ],
-      "explanation": "In Python, this operation directly demonstrates the core behavior of project data merging and analytics pipeline module wiring. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "prompt": "Pipeline Milestone 6: Calculate basic analytics. Given sales data `sales = [120.0, 45.5, 300.0, 85.0]`, compute `total_sales`, `avg_sales`, `min_sales`, and `max_sales`.",
+      "starter_code": "sales = [120.0, 45.5, 300.0, 85.0]\n# Compute summary analytics\n",
+      "solution_code": "sales = [120.0, 45.5, 300.0, 85.0]\ntotal_sales = sum(sales)\navg_sales = total_sales / len(sales)\nmin_sales = min(sales)\nmax_sales = max(sales)\nprint(f\"Total: {total_sales}, Avg: {avg_sales:.2f}, Min: {min_sales}, Max: {max_sales}\")",
+      "explanation": "Standard aggregate functions `sum()`, `min()`, `max()`, and length division compute standard descriptive statistics.",
+      "metadata": {
+        "concept": "pipeline_summary_analytics",
+        "skill": "analytics",
+        "learning_objective": "Compute statistical summary metrics on numerical dataset columns",
+        "common_misconception": "Calculating averages manually without guarding against empty collections",
+        "why_this_exercise_exists": "Replaces milestone 6 with data pipeline milestone 6"
+      }
     },
     {
       "id": "42.2_q19",
@@ -551,21 +580,23 @@
     {
       "id": "42.2_q30",
       "type": "write_the_code",
-      "concept": "project_data_merging_and_analytics_pipeline_extension",
-      "skill": "extension",
+      "concept": "project_data_merging_and_analytics_pipeline_mastery",
+      "skill": "pipeline_engineering",
       "difficulty": "hard",
       "prerequisites": [
         "42.2_q29"
       ],
-      "prompt": "Serialize the final analytics pipeline to disk and reload it for inference on new data.",
-      "starter_code": "import pandas as pd\nimport pickle\n\nfinal_pipeline = {\n    'merge_cols': ['customer_id', 'product_id'],\n    'agg_cols': ['revenue', 'quantity']\n}\n\nwith open('pipeline.pkl', 'wb') as f:\n    pickle.dump(final_pipeline, f)\n\nwith open('pipeline.pkl', 'rb') as f:\n    loaded = pickle.load(f)\nprint(loaded)",
-      "solution_code": "import pandas as pd\nimport pickle\n\nfinal_pipeline = {\n    'merge_cols': ['customer_id', 'product_id'],\n    'agg_cols': ['revenue', 'quantity'],\n    'fillna_map': {'region': 'na', 'segment': 'na'}\n}\n\nwith open('pipeline.pkl', 'wb') as f:\n    pickle.dump(final_pipeline, f)\n\nwith open('pipeline.pkl', 'rb') as f:\n    loaded = pickle.load(f)\nprint('Loaded keys:', list(loaded.keys()))",
-      "test_cases": [
-        "assert 'fillna_map' in loaded",
-        "assert loaded['merge_cols'] == ['customer_id', 'product_id']"
-      ],
-      "hint": "Include fillna_map in the serialized dictionary so the reload step is self-contained.",
-      "explanation": "Persisting pipeline configuration enables repeatable analytics workflows and is a hallmark of production-grade data systems."
+      "prompt": "Capstone Mastery: Build a robust data merging and data quality pipeline function `merge_and_clean_data(customers, orders)` that handles:\n1. Missing rows (skip invalid records)\n2. Inconsistent string amounts by stripping whitespace and converting to float\n3. Deduplicating orders by order 'id'\n4. Merging customer name using 'customer_id' with fallback 'Unknown'\nReturn a cleaned, sorted list of order summaries.",
+      "starter_code": "def merge_and_clean_data(customers, orders):\n    # Build robust merge and cleaning pipeline\n    pass",
+      "solution_code": "def merge_and_clean_data(customers, orders):\n    # customers: dict of id -> name\n    # orders: list of dicts with 'id', 'customer_id', 'amount'\n    seen_order_ids = set()\n    cleaned_orders = []\n    for o in orders:\n        order_id = o.get(\"id\")\n        if not order_id or order_id in seen_order_ids:\n            continue\n        seen_order_ids.add(order_id)\n        \n        try:\n            amt = float(str(o.get(\"amount\", 0)).strip())\n        except (ValueError, TypeError):\n            continue\n            \n        cust_id = o.get(\"customer_id\")\n        cust_name = customers.get(cust_id, \"Unknown\")\n        \n        cleaned_orders.append({\n            \"order_id\": order_id,\n            \"customer_name\": cust_name,\n            \"amount\": amt\n        })\n    return sorted(cleaned_orders, key=lambda x: x[\"order_id\"])",
+      "explanation": "This robust data engineering pipeline enforces uniqueness with a seen set, sanitizes types with defensive try/except float casting, performs hash-lookups on foreign keys with fallback defaults, and returns clean sorted records. Replaces previous inappropriate ML pickle inference challenge with real data engineering mastery.",
+      "metadata": {
+        "concept": "production_data_cleaning_and_merge",
+        "skill": "pipeline_engineering",
+        "learning_objective": "Build an end-to-end resilient merge and data-cleaning pipeline addressing real dirty data",
+        "common_misconception": "Assuming input data is always clean and free of duplicates or formatting bugs",
+        "why_this_exercise_exists": "Addresses user mandate for 42.2_q30 to replace ML inference with authentic data quality pipeline"
+      }
     }
   ],
   "unit_num": 42,

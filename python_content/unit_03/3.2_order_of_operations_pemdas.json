@@ -15,7 +15,7 @@
       "title": "The Rules of Operator Precedence",
       "content": "When an expression contains multiple operators, Python doesn't just evaluate blindly from left to right.\n\nIt follows the standard mathematical hierarchy known as **PEMDAS**:\n1. **P**arentheses `()`\n2. **E**xponents `**`\n3. **M**ultiplication `*`, **D**ivision `/`, `//`, and Modulo `%`\n4. **A**ddition `+` and **S**ubtraction `-`\n\n```python\nprint(2 + 3 * 4)  # Evaluates 3 * 4 first -> 2 + 12 = 14\n```",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of precedence overview. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Python operators follow standard mathematical precedence (PEMDAS). Division (`/`) always produces a float, while floor division (`//`) truncates to an integer."
     },
     {
       "id": "3.2_q2",
@@ -48,7 +48,7 @@
       "title": "Parentheses Override Everything",
       "content": "Expressions inside parentheses `()` are ALWAYS evaluated first. You can use parentheses to force addition before multiplication:\n\n```python\nprint((2 + 3) * 4)  # (2 + 3) = 5 -> 5 * 4 = 20\n```\nParentheses also make your code dramatically easier for human developers to read.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of parentheses override. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Expressions inside parentheses `()` are ALWAYS evaluated first. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "3.2_q4",
@@ -96,7 +96,7 @@
       "title": "Exponents Beat Multiplication",
       "content": "Exponentiation `**` has higher precedence than multiplication and division:\n\n```python\nprint(3 * 2 ** 3)  # 2 ** 3 = 8 -> 3 * 8 = 24\n```\nTo multiply first, wrap in parentheses: `(3 * 2) ** 3` -> `6 ** 3 = 216`.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of exponents precedence. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Exponentiation `**` has higher precedence than multiplication and division:\n\n```python\nprint(3 * 2 ** 3)  # 2 ** 3 = 8 -> 3 * 8 = 24\n```\nTo multiply first, wrap in parentheses: `(3 * 2) ** 3` -> `6 ** 3 = 216`. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "3.2_q7",
@@ -129,7 +129,7 @@
       "title": "Exponent Associativity: Right-to-Left!",
       "content": "Most operators in Python evaluate **left-to-right**:\n`10 - 5 - 2` evaluates as `(10 - 5) - 2` = `3`.\n\nHowever, **exponentiation `**` is right-to-left (right-associative)**:\n```python\nprint(2 ** 3 ** 2)  # Evaluates as 2 ** (3 ** 2) -> 2 ** 9 = 512\n```\nNotice it does NOT calculate `(2 ** 3) ** 2` (which would be 64)!",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of exponent associativity. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Most operators in Python evaluate **left-to-right**:\n`10 - 5 - 2` evaluates as `(10 - 5) - 2` = `3`. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "3.2_q9",
@@ -172,7 +172,7 @@
         "Multiplication `*`, Division `/`, Floor Division `//`, Modulo `%`",
         "Addition `+`, Subtraction `-`"
       ],
-      "explanation": "In Python, this operation directly demonstrates the core behavior of pemdas hierarchy. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `pemdas hierarchy` in Order of Operations (PEMDAS). When Python validates this code, it applies the standard rules of pemdas hierarchy. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "3.2_q11",
@@ -186,7 +186,7 @@
       "title": "Ties Are Broken Left-to-Right",
       "content": "Operators in the same tier have equal precedence: `*`, `/`, `//`, and `%` are equal to each other.\n\nWhen operators of equal precedence appear together, Python evaluates them **left to right**:\n```python\nprint(100 / 10 * 2)  # (100 / 10) = 10.0 -> 10.0 * 2 = 20.0\n```\nIt does NOT do `10 * 2` first.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of left to right tier. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Operators in the same tier have equal precedence: `*`, `/`, `//`, and `%` are equal to each other. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "3.2_q12",
@@ -247,7 +247,7 @@
         "`a ** b ** c`": "Right-to-Left: `a ** (b ** c)`",
         "`(a + b) * c`": "Parentheses override: `a + b` first"
       },
-      "explanation": "In Python, this operation directly demonstrates the core behavior of associativity rules. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `associativity rules` in Order of Operations (PEMDAS). When Python validates this code, it applies the standard rules of associativity rules. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "3.2_q15",
@@ -261,7 +261,7 @@
       "title": "Nested Parentheses",
       "content": "When parentheses are nested inside other parentheses, Python evaluates from the **innermost** pair outward:\n\n```python\nresult = ((2 + 3) * (4 + 1)) / 5\n# 1. Innermost: (2 + 3) = 5 and (4 + 1) = 5\n# 2. Outer: (5 * 5) = 25\n# 3. Final: 25 / 5 = 5.0\n```",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of nested parentheses. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "When parentheses are nested inside other parentheses, Python evaluates from the **innermost** pair outward:\n\n```python\nresult = ((2 + 3) * (4 + 1)) / 5\n# 1. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "3.2_q16",
@@ -295,7 +295,7 @@
       "accepted_answers": [
         "/"
       ],
-      "explanation": "In Python, this operation directly demonstrates the core behavior of parentheses clarity. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `parentheses clarity` in Order of Operations (PEMDAS). When Python validates this code, it applies the standard rules of parentheses clarity. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "3.2_q18",
@@ -364,7 +364,7 @@
       "title": "Unary Minus and Exponents: Watch Out!",
       "content": "In Python, `**` has HIGHER precedence than unary minus `-`:\n```python\nprint(-3 ** 2)  # -(3 ** 2) = -9\n```\nTo square the negative number `-3`, you must use parentheses:\n```python\nprint((-3) ** 2)  # (-3) * (-3) = 9\n```",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of unary operator precedence. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "In Python, `**` has HIGHER precedence than unary minus `-`:\n```python\nprint(-3 ** 2)  # -(3 ** 2) = -9\n```\nTo square the negative number `-3`, you must use parentheses:\n```python\nprint((-3) ** 2)  # (-3) * (-3) = 9\n```. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "3.2_q22",
@@ -397,7 +397,7 @@
       "prompt": "Write an expression for the mathematical formula `(a + b) * (c - d)` using variables `a, b, c, d`.",
       "starter_code": "",
       "solution_code": "(a + b) * (c - d)",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of explicit parentheses formula. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `explicit parentheses formula` in Order of Operations (PEMDAS). When Python validates this code, it applies the standard rules of explicit parentheses formula. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "3.2_q24",
@@ -456,7 +456,7 @@
         "D. Write all math on separate lines."
       ],
       "correct_answer": "B",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of pep8 parentheses guideline. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "According to PEP 8, variable names in Python should be written in snake_case (lowercase words separated by underscores, e.g. `user_account_balance`). This convention maximizes readability."
     },
     {
       "id": "3.2_q27",
@@ -522,7 +522,7 @@
       ],
       "prompt": "Which statement accurately summarizes Python operator precedence?",
       "correct_answer": "A",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of pemdas synthesis. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `pemdas synthesis` in Order of Operations (PEMDAS). When Python validates this code, it applies the standard rules of pemdas synthesis. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     }
   ],
   "unit_num": 3,

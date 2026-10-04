@@ -15,7 +15,7 @@
       "title": "The Six Comparison Operators",
       "content": "Comparison operators test relationships between values and always produce a boolean (`True` or `False`):\n\n* `==` Equal to: `5 == 5` -> `True`\n* `!=` Not equal to: `5 != 3` -> `True`\n* `>` Greater than: `8 > 2` -> `True`\n* `<` Less than: `2 < 8` -> `True`\n* `>=` Greater than or equal to: `5 >= 5` -> `True`\n* `<=` Less than or equal to: `4 <= 5` -> `True`",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of comparison overview. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Python operators follow standard mathematical precedence (PEMDAS). Division (`/`) always produces a float, while floor division (`//`) truncates to an integer."
     },
     {
       "id": "3.4_q2",
@@ -34,7 +34,7 @@
         "D. `equals`"
       ],
       "correct_answer": "B",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of comparison overview. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `comparison overview` in Comparison Operators. When Python validates this code, it applies the standard rules of comparison overview. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "3.4_q3",
@@ -68,7 +68,7 @@
       "title": "Comparing Ints and Floats",
       "content": "Python compares numbers by their mathematical numeric value, not their type:\n\n```python\nprint(5 == 5.0)   # True! Both have the numerical value of 5\nprint(0 == 0.0)   # True!\n```\nEven though one is an `int` and the other is a `float`, their values are equal.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of int float equality. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Python compares numbers by their mathematical numeric value, not their type:\n\n```python\nprint(5 == 5. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "3.4_q5",
@@ -87,7 +87,7 @@
         "D. None"
       ],
       "correct_answer": "B",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of int float equality. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `int float equality` in Comparison Operators. When Python evaluates this code, it applies the standard rules of int float equality. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "3.4_q6",
@@ -102,7 +102,7 @@
       "title": "Comparing Strings: Lexicographical Order",
       "content": "When comparing strings with `<`, `>`, `<=`, or `>=`, Python compares them character-by-character according to their **Unicode / ASCII values** (dictionary order):\n\n* `'a'` comes after `'A'` (uppercase letters have smaller numbers: `'A'` is 65, `'a'` is 97):\n  `\"Apple\" < \"apple\"` is `True`!\n* `'banana' > 'apple'` is `True` because `'b'` comes after `'a'`.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of string comparison. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Strings in Python are immutable sequences of Unicode characters enclosed in single, double, or triple quotes. Because strings cannot be modified in place, all transformations return new string instances."
     },
     {
       "id": "3.4_q7",
@@ -154,7 +154,7 @@
       "title": "Chained Comparisons (Python's Superpower)",
       "content": "In most languages, to test if `x` is between 10 and 20, you must write `x >= 10 && x <= 20`.\n\nPython supports natural mathematical chaining!\n```python\nx = 15\nprint(10 <= x <= 20)  # True!\n```\nPython translates this cleanly into `(10 <= x) and (x <= 20)`.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of chained comparisons. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "In most languages, to test if `x` is between 10 and 20, you must write `x >= 10 && x <= 20`. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "3.4_q10",
@@ -188,7 +188,7 @@
       "accepted_answers": [
         "<="
       ],
-      "explanation": "In Python, this operation directly demonstrates the core behavior of chained comparisons. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Python logical operators use short-circuit evaluation: `and` stops and returns the first falsy operand, while `or` stops and returns the first truthy operand without evaluating subsequent expressions."
     },
     {
       "id": "3.4_q12",
@@ -203,7 +203,7 @@
       "title": "Cannot Compare Strings and Numbers with < or >",
       "content": "Python is strongly typed. While you can check equality between any types (`\"10\" == 10` is `False`), you CANNOT use ordering operators (`<`, `>`, `<=`, `>=`) between a string and a number:\n```python\n# print(\"10\" > 5)  # TypeError: '>' not supported between instances of 'str' and 'int'\n```",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of incompatible type comparison. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Strings in Python are immutable sequences of Unicode characters enclosed in single, double, or triple quotes. Because strings cannot be modified in place, all transformations return new string instances."
     },
     {
       "id": "3.4_q13",
@@ -252,7 +252,7 @@
       "title": "Equality (==) vs. Identity (is)",
       "content": "Python has two ways to compare objects:\n\n1. **`==` (Value Equality)**: Do these two objects have the same value?\n2. **`is` (Object Identity)**: Do these two variables point to the exact same object at the exact same memory address?\n\n💡 Rule of thumb: Always use `==` when comparing values (like numbers or strings). Use `is` only when checking singletons like `None` (`x is None`).",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of equality vs identity. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Python has two ways to compare objects:\n\n1. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "3.4_q16",
@@ -349,7 +349,7 @@
       "prompt": "Write an expression checking if variable `temp` is strictly below `32` (freezing).",
       "starter_code": "",
       "solution_code": "temp < 32",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of temperature check expression. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `temperature check expression` in Comparison Operators. When Python validates this code, it applies the standard rules of temperature check expression. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "3.4_q21",
@@ -408,7 +408,7 @@
         "D. `90 <= score < 100`"
       ],
       "correct_answer": "B",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of grade boundary check. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Python logical operators use short-circuit evaluation: `and` stops and returns the first falsy operand, while `or` stops and returns the first truthy operand without evaluating subsequent expressions."
     },
     {
       "id": "3.4_q24",
@@ -442,7 +442,7 @@
       "prompt": "Given `stock = 12` and `MIN_THRESHOLD = 15`, write an expression that evaluates to `True` if stock is less than or equal to threshold, and print it.",
       "starter_code": "stock = 12\nMIN_THRESHOLD = 15\n# Check if stock <= MIN_THRESHOLD and print result\n",
       "solution_code": "stock = 12\nMIN_THRESHOLD = 15\nprint(stock <= MIN_THRESHOLD)",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of inventory threshold. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Python logical operators use short-circuit evaluation: `and` stops and returns the first falsy operand, while `or` stops and returns the first truthy operand without evaluating subsequent expressions."
     },
     {
       "id": "3.4_q26",
@@ -476,7 +476,7 @@
       "accepted_answers": [
         "is"
       ],
-      "explanation": "In Python, this operation directly demonstrates the core behavior of none identity check. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "According to PEP 8, variable names in Python should be written in snake_case (lowercase words separated by underscores, e.g. `user_account_balance`). This convention maximizes readability."
     },
     {
       "id": "3.4_q28",
@@ -489,7 +489,7 @@
       ],
       "prompt": "A highway speed monitor triggers a fine if a vehicle's `speed` is strictly greater than `65`. What is the condition?",
       "correct_answer": "A",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of speed limit violation. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `speed limit violation` in Comparison Operators. When Python validates this code, it applies the standard rules of speed limit violation. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "3.4_q29",

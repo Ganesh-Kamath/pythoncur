@@ -15,7 +15,7 @@
       "title": "Shorthand: Augmented Assignment",
       "content": "In programming, you frequently update a variable based on its current value:\n```python\nscore = score + 10\n```\nPython provides a clean, concise shorthand called **augmented assignment** (or compound operators):\n```python\nscore += 10  # Identical in effect to: score = score + 10\n```",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of augmented assignment overview. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "In programming, you frequently update a variable based on its current value:\n```python\nscore = score + 10\n```\nPython provides a clean, concise shorthand called **augmented assignment** (or compound operators):\n```python\nscore += 10  # Identical in effect to: score = score + 10\n```. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "3.3_q2",
@@ -48,7 +48,7 @@
       "title": "Python Has No ++ or -- Operators",
       "content": "If you have used languages like C++, Java, or JavaScript, you might look for `count++` or `count--`.\n\n**Python DOES NOT have `++` or `--` operators!**\n\nIf you type `++x`, Python simply sees two unary plus signs (`+(+x)`), which leaves `x` unchanged. Always use `+= 1` or `-= 1` in Python.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of no increment operator. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Python operators follow standard mathematical precedence (PEMDAS). Division (`/`) always produces a float, while floor division (`//`) truncates to an integer."
     },
     {
       "id": "3.3_q4",
@@ -82,7 +82,7 @@
       "title": "The Full Family of Compound Operators",
       "content": "Every arithmetic operator has an augmented counterpart:\n\n* `+=` : `x += 3` -> `x = x + 3`\n* `-=` : `x -= 2` -> `x = x - 2`\n* `*=` : `x *= 4` -> `x = x * 4`\n* `/=` : `x /= 2` -> `x = x / 2` (always float!)\n* `//=` : `x //= 2` -> `x = x // 2`\n* `%=` : `x %= 3` -> `x = x % 3`\n* `**=` : `x **= 2` -> `x = x ** 2`",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of all augmented operators. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Python operators follow standard mathematical precedence (PEMDAS). Division (`/`) always produces a float, while floor division (`//`) truncates to an integer."
     },
     {
       "id": "3.3_q6",
@@ -101,7 +101,7 @@
         "D. -25"
       ],
       "correct_answer": "B",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of subtraction augmented. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Hyphens `-` are interpreted by Python's parser as subtraction operators, not identifier characters. In Python variable names, words must be joined using underscores `_`."
     },
     {
       "id": "3.3_q7",
@@ -120,7 +120,7 @@
         "D. 81"
       ],
       "correct_answer": "A",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of multiplication augmented. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Augmented assignment operators like `+=` perform the arithmetic operation and immediately reassign the result back to the variable in place (e.g. `x += 5` is shorthand for `x = x + 5`)."
     },
     {
       "id": "3.3_q8",
@@ -155,7 +155,7 @@
       "title": "Right-Hand Side Evaluates First!",
       "content": "A crucial rule of augmented assignment:\n**The entire right-hand side is evaluated completely before the operation is applied.**\n\n```python\nx = 5\nx *= 2 + 3\n```\nHow does this evaluate?\n1. Right side: `2 + 3 = 5`\n2. Multiply: `x = 5 * 5 = 25`\n\nIt does NOT do `(5 * 2) + 3 = 13`!",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of rhs precedence in augmented. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "A crucial rule of augmented assignment:\n**The entire right-hand side is evaluated completely before the operation is applied. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "3.3_q10",
@@ -189,7 +189,7 @@
       "title": "Variable Must Already Exist",
       "content": "Because `x += 5` looks up the current value of `x` first, `x` MUST already exist in memory!\n\nIf you use `+=` on a variable that was never initialized:\n```python\ntotal += 10  # NameError: name 'total' is not defined!\n```\nYou must initialize it first: `total = 0`, then `total += 10`.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of uninitialized augmented error. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "In Python, variable names must begin with a letter or underscore, cannot start with a digit, and cannot contain spaces or special punctuation. Following PEP 8 snake_case conventions ensures identifiers remain clear, legal, and unambiguous."
     },
     {
       "id": "3.3_q12",
@@ -237,7 +237,7 @@
       "title": "Augmented Assignment with Strings",
       "content": "Augmented operators also work with strings!\n\n* `+=` appends text:\n```python\ngreeting = \"Hello\"\ngreeting += \" World\"\nprint(greeting)  # Hello World\n```\n* `*=` repeats text:\n```python\nline = \"-\"\nline *= 5\nprint(line)  # -----\n```",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of string augmented assignment. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Strings in Python are immutable sequences of Unicode characters enclosed in single, double, or triple quotes. Because strings cannot be modified in place, all transformations return new string instances."
     },
     {
       "id": "3.3_q15",
@@ -256,7 +256,7 @@
         "D. TypeError"
       ],
       "correct_answer": "A",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of string augmented assignment. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Augmented assignment operators like `+=` perform the arithmetic operation and immediately reassign the result back to the variable in place (e.g. `x += 5` is shorthand for `x = x + 5`)."
     },
     {
       "id": "3.3_q16",
@@ -270,7 +270,7 @@
       "title": "Multiple Assignment in One Line",
       "content": "Python allows two convenient forms of multiple assignment:\n\n1. **Chained assignment** (assigning the same value to multiple names):\n```python\na = b = c = 0  # All three variables point to 0\n```\n2. **Tuple unpacking assignment** (assigning different values in parallel):\n```python\nx, y, z = 1, 2, 3  # x=1, y=2, z=3\n```",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of multiple assignment. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Python allows two convenient forms of multiple assignment:\n\n1. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "3.3_q17",
@@ -312,7 +312,7 @@
         "`a = b = 0`": "Chained assignment (same value to multiple variables)",
         "`u, v = 5, 10`": "Unpacking assignment (multiple variables to multiple values)"
       },
-      "explanation": "In Python, this operation directly demonstrates the core behavior of assignment varieties. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `assignment varieties` in Assignment Operators. When Python validates this code, it applies the standard rules of assignment varieties. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "3.3_q19",
@@ -328,7 +328,7 @@
       "accepted_answers": [
         "%="
       ],
-      "explanation": "In Python, this operation directly demonstrates the core behavior of modulo augmented. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "The modulo operator `%` calculates the remainder of division. For example, `7 % 3` yields `1` because 3 fits into 7 twice with 1 left over."
     },
     {
       "id": "3.3_q20",
@@ -361,7 +361,7 @@
       "prompt": "Fix this code so it adds 5 to `points` instead of resetting it to 5:",
       "starter_code": "points = 20\npoints =+ 5",
       "solution_code": "points = 20\npoints += 5",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of fix equals plus. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `fix equals plus` in Assignment Operators. When Python validates this code, it applies the standard rules of fix equals plus. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "3.3_q22",
@@ -396,7 +396,7 @@
       "prompt": "Given variable `val = 4`, write a single line using augmented assignment to square `val` (`val **= 2`).",
       "starter_code": "",
       "solution_code": "val **= 2",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of exponent augmented. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "The `**` operator raises the left operand to the power of the right operand (e.g. `2 ** 3` evaluates to `8`)."
     },
     {
       "id": "3.3_q24",
@@ -488,7 +488,7 @@
       "prompt": "Initialize `balance = 500.0`. Subtract `rent = 350.0` using `-=`, then print `balance`.",
       "starter_code": "balance = 500.0\nrent = 350.0\n# Subtract rent using -= and print balance\n",
       "solution_code": "balance = 500.0\nrent = 350.0\nbalance -= rent\nprint(balance)",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of balance tracking. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Augmented assignment operators like `+=` perform the arithmetic operation and immediately reassign the result back to the variable in place (e.g. `x += 5` is shorthand for `x = x + 5`)."
     },
     {
       "id": "3.3_q29",
@@ -501,7 +501,7 @@
       ],
       "prompt": "A subtotal is `subtotal = 100.0`. A 10% tax needs to be applied, so `subtotal` becomes 1.10 times its original value. Which single augmented assignment does this?",
       "correct_answer": "B",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of shopping cart tax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "The modulo operator `%` calculates the remainder of division. For example, `7 % 3` yields `1` because 3 fits into 7 twice with 1 left over."
     },
     {
       "id": "3.3_q30",

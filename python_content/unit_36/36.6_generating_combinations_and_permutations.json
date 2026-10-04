@@ -13,7 +13,7 @@
       "title": "What Are Combinations and Permutations?",
       "content": "In this micro-lesson, you will learn the difference between combinations and permutations. A combination is a selection of items where order does not matter. A permutation is an arrangement of items where order matters. For example, given the set [1, 2, 3], the combinations of size 2 are [1, 2], [1, 3], and [2, 3]. The permutations of size 2 are [1, 2], [2, 1], [1, 3], [3, 1], [2, 3], and [3, 2]. Understanding this distinction is essential before writing recursive or backtracking solutions.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of generating combinations and permutations basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "In this micro-lesson, you will learn the difference between combinations and permutations. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "36.6_q2",
@@ -46,7 +46,7 @@
       "title": "Python Syntax for Generating Combinations and Permutations",
       "content": "Python provides built-in tools to generate combinations and permutations. The itertools module is the standard library approach. For combinations, use itertools.combinations(iterable, r). For permutations, use itertools.permutations(iterable, r). These functions return iterators. To convert them into lists, wrap them with list(). Here is a simple example:\n\n```python\nfrom itertools import combinations, permutations\n\nitems = [1, 2, 3]\ncomb = list(combinations(items, 2))\nperm = list(permutations(items, 2))\n\nprint('Combinations:', comb)\nprint('Permutations:', perm)\n```\n\nThis produces:\nCombinations: [(1, 2), (1, 3), (2, 3)]\nPermutations: [(1, 2), (1, 3), (2, 1), (2, 3), (3, 1), (3, 2)]\n\nWhen implementing these manually, recursion and backtracking are the core techniques.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of generating combinations and permutations syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Python provides built-in tools to generate combinations and permutations. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "36.6_q4",

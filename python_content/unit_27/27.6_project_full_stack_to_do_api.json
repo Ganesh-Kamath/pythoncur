@@ -13,7 +13,7 @@
       "title": "Architecting the Full-Stack To-Do API",
       "content": "In this micro_lesson, we design the overall architecture for our Full-Stack To-Do API. A RESTful API exposes endpoints for managing to-do items, typically using HTTP methods: GET to retrieve tasks, POST to create a new task, PUT to update an existing task, and DELETE to remove a task. We will use Flask as the lightweight web backend, with an in-memory dictionary to simulate a database for simplicity. Each to-do item will have an id, title, and completed status. Below is a minimal Flask application skeleton that defines the core routes and request handling structure. This architecture separates concerns: the routing layer handles HTTP requests, while the business logic layer processes data validation and state changes.\n\n```python\nfrom flask import Flask, jsonify, request\n\napp = Flask(__name__)\n\ntodos = {}\n\n@app.route('/todos', methods=['GET'])\ndef get_todos():\n    return jsonify(list(todos.values()))\n\n@app.route('/todos', methods=['POST'])\ndef create_todo():\n    data = request.get_json()\n    todo_id = len(todos) + 1\n    todos[todo_id] = {'id': todo_id, 'title': data.get('title'), 'completed': False}\n    return jsonify(todos[todo_id]), 201\n\nif __name__ == '__main__':\n    app.run(debug=True)\n```\n\nKey takeaways: plan your endpoints before writing code, choose an appropriate data structure for state management, and always return consistent JSON responses with correct HTTP status codes.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of project fullstack todo api architecture. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "In this micro_lesson, we design the overall architecture for our Full-Stack To-Do API. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "27.6_q2",
@@ -27,7 +27,7 @@
       "title": "Designing Data Models and Endpoint Contracts",
       "content": "Before implementing the full backend, we must define the data model and the contract for each endpoint. A to-do item is best represented as a dictionary with three fields: 'id' (integer, unique identifier), 'title' (string, user-provided description), and 'completed' (boolean, default False). The API contract specifies that POST /todos accepts a JSON payload with a 'title' key and returns the created object with a 201 status. GET /todos returns a JSON array of all items. PUT /todos/<id> accepts partial updates and returns the updated object. DELETE /todos/<id> removes the item and returns a 204 No Content. Using a dictionary for storage is acceptable for a prototype; in production, you would migrate to SQLite or PostgreSQL. The following code demonstrates a refined create_todo function with input validation to ensure the title is a non-empty string.\n\n```python\ndef create_todo_validated(data):\n    title = data.get('title')\n    if not isinstance(title, str) or len(title.strip()) == 0:\n        return None, 'Invalid title'\n    todo_id = max(todos.keys(), default=0) + 1\n    todos[todo_id] = {'id': todo_id, 'title': title.strip(), 'completed': False}\n    return todos[todo_id], None\n```\n\nRemember: clear contracts reduce integration errors between frontend and backend teams.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of project fullstack todo api architecture. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Before implementing the full backend, we must define the data model and the contract for each endpoint. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "27.6_q3",
@@ -136,122 +136,107 @@
       "prompt": "Fix the bug in this code for project fullstack todo api module bugfix:",
       "starter_code": "# Fix this code\nPrint('Project: Full-Stack To-Do API')",
       "solution_code": "print('Project: Full-Stack To-Do API')",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of project fullstack todo api module bugfix. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `project fullstack todo api module bugfix` in Project: Full-Stack To-Do API. When Python validates this code, it applies the standard rules of project fullstack todo api module bugfix. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
-      "idx": 8,
       "id": "27.6_q8",
-      "type": "fix_the_code",
-      "skill": "debugging",
-      "diff": "medium",
-      "concept": "project_fullstack_todo_api_module_bugfix",
-      "error_diagnosis": {
-        "prompt": "The GET /todos/<id> endpoint fails with a KeyError when a valid to-do ID is provided. Fix the route to correctly retrieve and return a single to-do item.",
-        "starter_code": "from flask import Flask, jsonify\n\napp = Flask(__name__)\n\ntodos = [{'id': 1, 'text': 'Buy milk', 'done': True}]\n\n@app.route('/todos/<int:todo_id>', methods=['GET'])\ndef get_todo(todo_id):\n    todo = next(t for t in todos if t['id'] == todo_id)\n    return jsonify(todo)",
-        "solution_code": "from flask import Flask, jsonify\n\napp = Flask(__name__)\n\ntodos = [{'id': 1, 'text': 'Buy milk', 'done': True}]\n\n@app.route('/todos/<int:todo_id>', methods=['GET'])\ndef get_todo(todo_id):\n    for t in todos:\n        if t['id'] == todo_id:\n            return jsonify(t)\n    return jsonify({'error': 'Not found'}), 404",
-        "hint": "Consider what happens when no to-do item matches the given ID. The next() function without a default raises StopIteration.",
-        "explanation": "The original code uses next() without a default value, which raises StopIteration when no matching to-do is found. This unhandled exception causes a 500 error. The corrected solution iterates through the list and returns a 404 Not Found response with an error message when the ID does not exist, making the API robust."
-      },
+      "type": "write_the_code",
+      "concept": "project_full_stack_to_do_api_model_init",
+      "skill": "project_milestone",
       "difficulty": "medium",
       "prerequisites": [
         "27.6_q7"
       ],
-      "prompt": "Fix the bug in this code for project fullstack todo api module bugfix: (Variation 8)",
-      "starter_code": "# Fix this code\nPrint('Project: Full-Stack To-Do API')",
-      "solution_code": "print('Project: Full-Stack To-Do API')",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of project fullstack todo api module bugfix. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "prompt": "To-Do API Milestone 1: Initialize in-memory task database `todos = {}` and task ID counter `next_id = 1`.",
+      "starter_code": "# Initialize todos and counter\n",
+      "solution_code": "todos = {}\nnext_id = 1\nprint(f\"Initialized API with {len(todos)} tasks\")",
+      "explanation": "Establishes state storage for incoming CRUD operations.",
+      "metadata": {
+        "concept": "api_storage_init",
+        "skill": "project_milestone",
+        "why_this_exercise_exists": "Replaces variation with to-do API storage init"
+      },
+      "idx": 8
     },
     {
-      "idx": 9,
       "id": "27.6_q9",
-      "type": "fix_the_code",
-      "skill": "debugging",
-      "diff": "medium",
-      "concept": "project_fullstack_todo_api_module_bugfix",
-      "error_diagnosis": {
-        "prompt": "The PATCH /todos/<id> endpoint is not updating the 'done' status of a to-do item. Debug and correct the route implementation.",
-        "starter_code": "from flask import Flask, request, jsonify\n\napp = Flask(__name__)\n\ntodos = [{'id': 1, 'text': 'Read book', 'done': False}]\n\n@app.route('/todos/<int:todo_id>', methods=['PATCH'])\ndef update_todo(todo_id):\n    data = request.get_json()\n    for t in todos:\n        if t['id'] == todo_id:\n            t['done'] = data['done']\n    return jsonify(todos)",
-        "solution_code": "from flask import Flask, request, jsonify\n\napp = Flask(__name__)\n\ntodos = [{'id': 1, 'text': 'Read book', 'done': False}]\n\n@app.route('/todos/<int:todo_id>', methods=['PATCH'])\ndef update_todo(todo_id):\n    data = request.get_json()\n    for t in todos:\n        if t['id'] == todo_id:\n            t['done'] = data['done']\n            return jsonify(t)\n    return jsonify({'error': 'Not found'}), 404",
-        "hint": "The function returns the entire list instead of the updated item, and it does not handle the case where the ID is not found.",
-        "explanation": "The original implementation returns the entire todos list after a successful update, which is inefficient and exposes all data. It also lacks a return statement inside the loop, meaning the function returns None if the ID is not found. The fixed version returns only the updated to-do object and includes proper 404 handling for missing IDs."
-      },
+      "type": "write_the_code",
+      "concept": "project_full_stack_to_do_api_create_task",
+      "skill": "project_milestone",
       "difficulty": "medium",
       "prerequisites": [
         "27.6_q8"
       ],
-      "prompt": "Fix the bug in this code for project fullstack todo api module bugfix: (Variation 9)",
-      "starter_code": "# Fix this code\nPrint('Project: Full-Stack To-Do API')",
-      "solution_code": "print('Project: Full-Stack To-Do API')",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of project fullstack todo api module bugfix. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "prompt": "To-Do API Milestone 2: Create task. Given `title = 'Buy groceries'`, create task record `{'id': 1, 'title': title, 'completed': False}` and store in `todos[1]`.",
+      "starter_code": "todos = {}\ntitle = \"Buy groceries\"\n# Create task\n",
+      "solution_code": "todos = {}\ntitle = \"Buy groceries\"\ntask = {\"id\": 1, \"title\": title, \"completed\": False}\ntodos[1] = task\nprint(todos[1])",
+      "explanation": "Creates a structured entity record with default completion state `False`.",
+      "metadata": {
+        "concept": "create_task_entity",
+        "skill": "project_milestone",
+        "why_this_exercise_exists": "Replaces variation with task creation"
+      },
+      "idx": 9
     },
     {
-      "idx": 10,
       "id": "27.6_q10",
-      "type": "fix_the_code",
-      "skill": "debugging",
-      "diff": "medium",
-      "concept": "project_fullstack_todo_api_module_bugfix",
-      "error_diagnosis": {
-        "prompt": "The DELETE /todos/<id> endpoint is not actually removing the to-do item from the list. Correct the implementation to ensure proper deletion.",
-        "starter_code": "from flask import Flask, jsonify\n\napp = Flask(__name__)\n\ntodos = [{'id': 1, 'text': 'Walk dog', 'done': False}]\n\n@app.route('/todos/<int:todo_id>', methods=['DELETE'])\ndef delete_todo(todo_id):\n    global todos\n    todos = [t for t in todos if t['id'] == todo_id]\n    return jsonify({'message': 'Deleted'})",
-        "solution_code": "from flask import Flask, jsonify\n\napp = Flask(__name__)\n\ntodos = [{'id': 1, 'text': 'Walk dog', 'done': False}]\n\n@app.route('/todos/<int:todo_id>', methods=['DELETE'])\ndef delete_todo(todo_id):\n    for i, t in enumerate(todos):\n        if t['id'] == todo_id:\n            todos.pop(i)\n            return jsonify({'message': 'Deleted', 'id': todo_id})\n    return jsonify({'error': 'Not found'}), 404",
-        "hint": "The list comprehension in the starter_code keeps only items where the ID matches, which removes the item but also fails to report which ID was deleted. Additionally, the global keyword is unnecessary here.",
-        "explanation": "The original code uses a list comprehension that filters to keep only matching IDs, which actually removes the target item but is logically inverted for deletion. It also does not return the deleted ID and lacks error handling. The corrected version uses enumerate to find and pop the exact item by index, returns confirmation with the deleted ID, and handles missing IDs with a 404 response."
-      },
+      "type": "write_the_code",
+      "concept": "project_full_stack_to_do_api_toggle_status",
+      "skill": "project_milestone",
       "difficulty": "medium",
       "prerequisites": [
         "27.6_q9"
       ],
-      "prompt": "Fix the bug in this code for project fullstack todo api module bugfix: (Variation 10)",
-      "starter_code": "# Fix this code\nPrint('Project: Full-Stack To-Do API')",
-      "solution_code": "print('Project: Full-Stack To-Do API')",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of project fullstack todo api module bugfix. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "prompt": "To-Do API Milestone 3: Toggle task completion. Given `task = {'id': 1, 'completed': False}`, toggle `task['completed']` using boolean `not`.",
+      "starter_code": "task = {\"id\": 1, \"completed\": False}\n# Toggle completed\n",
+      "solution_code": "task = {\"id\": 1, \"completed\": False}\ntask[\"completed\"] = not task[\"completed\"]\nprint(f\"Task 1 completed: {task['completed']}\")",
+      "explanation": "`task['completed'] = not task['completed']` flips `False` to `True` or `True` to `False`.",
+      "metadata": {
+        "concept": "toggle_entity_state",
+        "skill": "project_milestone",
+        "why_this_exercise_exists": "Replaces variation with status toggle"
+      },
+      "idx": 10
     },
     {
-      "idx": 11,
       "id": "27.6_q11",
-      "type": "fix_the_code",
-      "skill": "debugging",
-      "diff": "medium",
-      "concept": "project_fullstack_todo_api_module_bugfix",
-      "error_diagnosis": {
-        "prompt": "The GET /todos endpoint returns all to-do items but does not filter by the 'done' status when a query parameter is provided. Fix the route to support ?done=true and ?done=false filtering.",
-        "starter_code": "from flask import Flask, jsonify, request\n\napp = Flask(__name__)\n\ntodos = [{'id': 1, 'text': 'Task A', 'done': True}, {'id': 2, 'text': 'Task B', 'done': False}]\n\n@app.route('/todos', methods=['GET'])\ndef get_todos():\n    return jsonify(todos)",
-        "solution_code": "from flask import Flask, jsonify, request\n\napp = Flask(__name__)\n\ntodos = [{'id': 1, 'text': 'Task A', 'done': True}, {'id': 2, 'text': 'Task B', 'done': False}]\n\n@app.route('/todos', methods=['GET'])\ndef get_todos():\n    done_param = request.args.get('done')\n    if done_param == 'true':\n        filtered = [t for t in todos if t['done']]\n    elif done_param == 'false':\n        filtered = [t for t in todos if not t['done']]\n    else:\n        filtered = todos\n    return jsonify(filtered)",
-        "hint": "Use request.args.get() to read query parameters and conditionally filter the todos list based on the 'done' value.",
-        "explanation": "The original endpoint ignores query parameters and always returns the full list. The corrected implementation reads the 'done' query parameter, converts it to a boolean-like string check, and filters the todos list accordingly. If no parameter is provided, it returns all items, preserving backward compatibility."
-      },
+      "type": "write_the_code",
+      "concept": "project_full_stack_to_do_api_delete_task",
+      "skill": "project_milestone",
       "difficulty": "medium",
       "prerequisites": [
         "27.6_q10"
       ],
-      "prompt": "Fix the bug in this code for project fullstack todo api module bugfix: (Variation 11)",
-      "starter_code": "# Fix this code\nPrint('Project: Full-Stack To-Do API')",
-      "solution_code": "print('Project: Full-Stack To-Do API')",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of project fullstack todo api module bugfix. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "prompt": "To-Do API Milestone 4: Delete task by ID. Given `todos = {1: {'title': 'Task 1'}}`, delete task with ID `1` using `todos.pop(1, None)`.",
+      "starter_code": "todos = {1: {\"title\": \"Task 1\"}}\n# Delete task 1\n",
+      "solution_code": "todos = {1: {\"title\": \"Task 1\"}}\ndeleted = todos.pop(1, None)\nprint(f\"Deleted: {deleted}, Remaining: {len(todos)}\")",
+      "explanation": "Popping removes the item from the dictionary and returns it for response confirmation.",
+      "metadata": {
+        "concept": "delete_entity_by_id",
+        "skill": "project_milestone",
+        "why_this_exercise_exists": "Replaces variation with task deletion"
+      },
+      "idx": 11
     },
     {
-      "idx": 12,
       "id": "27.6_q12",
-      "type": "fix_the_code",
-      "skill": "debugging",
-      "diff": "medium",
-      "concept": "project_fullstack_todo_api_module_bugfix",
-      "error_diagnosis": {
-        "prompt": "The Flask application crashes with a TypeError when invalid JSON is sent to the POST /todos endpoint. Add validation to ensure the 'text' field exists and is a non-empty string.",
-        "starter_code": "from flask import Flask, request, jsonify\n\napp = Flask(__name__)\n\ntodos = []\n\n@app.route('/todos', methods=['POST'])\ndef create_todo():\n    data = request.get_json()\n    todo_id = len(todos) + 1\n    new_todo = {'id': todo_id, 'text': data['text'], 'done': False}\n    todos.append(new_todo)\n    return jsonify(new_todo), 201",
-        "solution_code": "from flask import Flask, request, jsonify\n\napp = Flask(__name__)\n\ntodos = []\n\n@app.route('/todos', methods=['POST'])\ndef create_todo():\n    data = request.get_json()\n    if not data or 'text' not in data or not isinstance(data['text'], str) or len(data['text'].strip()) == 0:\n        return jsonify({'error': 'Invalid or missing text field'}), 400\n    todo_id = len(todos) + 1\n    new_todo = {'id': todo_id, 'text': data['text'].strip(), 'done': False}\n    todos.append(new_todo)\n    return jsonify(new_todo), 201",
-        "hint": "Check that 'data' is not None, that 'text' is a key in the dictionary, and that it is a non-empty string after stripping whitespace.",
-        "explanation": "The original code assumes valid JSON with a 'text' key, causing a TypeError or KeyError when the client sends malformed or incomplete data. The fixed version validates the request body, checks for the required field, ensures it is a string, and verifies it is not empty after stripping whitespace. It returns a 400 Bad Request with a descriptive error message for invalid input."
-      },
+      "type": "write_the_code",
+      "concept": "project_full_stack_to_do_api_list_filter",
+      "skill": "project_milestone",
       "difficulty": "medium",
       "prerequisites": [
         "27.6_q11"
       ],
-      "prompt": "Fix the bug in this code for project fullstack todo api module bugfix: (Variation 12)",
-      "starter_code": "# Fix this code\nPrint('Project: Full-Stack To-Do API')",
-      "solution_code": "print('Project: Full-Stack To-Do API')",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of project fullstack todo api module bugfix. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "prompt": "To-Do API Milestone 5: Filter tasks. Given `todos = {1: {'completed': True}, 2: {'completed': False}}`, return all pending (uncompleted) tasks in list `pending`.",
+      "starter_code": "todos = {1: {\"completed\": True}, 2: {\"completed\": False}}\n# Filter pending\n",
+      "solution_code": "todos = {1: {\"completed\": True}, 2: {\"completed\": False}}\npending = [t for t in todos.values() if not t[\"completed\"]]\nprint(f\"Pending tasks count: {len(pending)}\")",
+      "explanation": "List comprehensions filter dictionary values by status flags in linear O(n) time.",
+      "metadata": {
+        "concept": "filter_tasks_by_status",
+        "skill": "project_milestone",
+        "why_this_exercise_exists": "Replaces variation with task filtering"
+      },
+      "idx": 12
     },
     {
       "id": "27.6_q13",
@@ -524,29 +509,26 @@
           "expected_output": "Project: Full-Stack To-Do API"
         }
       ],
-      "explanation": "In Python, this operation directly demonstrates the core behavior of project fullstack todo api milestone. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `project fullstack todo api milestone` in Project: Full-Stack To-Do API. When Python validates this code, it applies the standard rules of project fullstack todo api milestone. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "27.6_q26",
       "type": "write_the_code",
-      "title": "Implement Authentication and Authorization",
-      "content": "Extend your To-Do API by adding JWT-based authentication. Users must register, log in, and receive an access token to perform CRUD operations on their own tasks. Store hashed passwords using bcrypt. Protect all task routes with a decorator that validates the bearer token. Return 401 for unauthorized requests and 403 for users attempting to access another user's tasks. Seed initial test users in your development database.",
-      "concept": "project_fullstack_todo_api_milestone",
-      "skill": "integration",
+      "concept": "project_full_stack_to_do_api_crud_manager",
+      "skill": "system_design",
       "difficulty": "hard",
       "prerequisites": [
         "27.6_q25"
       ],
-      "prompt": "Write Python code to solve this challenge for Project: Full-Stack To-Do API: (Variation 26)",
-      "starter_code": "# Write your solution below\n",
-      "solution_code": "print('Project: Full-Stack To-Do API')",
-      "test_cases": [
-        {
-          "input": "",
-          "expected_output": "Project: Full-Stack To-Do API"
-        }
-      ],
-      "explanation": "In Python, this operation directly demonstrates the core behavior of project fullstack todo api milestone. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "prompt": "To-Do API Challenge: Implement a class `TodoManager` with methods `add_task(title)`, `get_task(task_id)`, `toggle_task(task_id)`, and `delete_task(task_id)`.",
+      "starter_code": "class TodoManager:\n    # Implement complete CRUD manager\n    pass",
+      "solution_code": "class TodoManager:\n    def __init__(self):\n        self.todos = {}\n        self.next_id = 1\n    def add_task(self, title):\n        tid = self.next_id\n        self.todos[tid] = {\"id\": tid, \"title\": title, \"completed\": False}\n        self.next_id += 1\n        return self.todos[tid]\n    def get_task(self, task_id):\n        return self.todos.get(task_id)\n    def toggle_task(self, task_id):\n        if task_id in self.todos:\n            self.todos[task_id][\"completed\"] = not self.todos[task_id][\"completed\"]\n            return self.todos[task_id]\n        return None\n    def delete_task(self, task_id):\n        return self.todos.pop(task_id, None)\n\nmgr = TodoManager()\nt = mgr.add_task(\"Study Python\")\nprint(mgr.toggle_task(t[\"id\"]))",
+      "explanation": "Encapsulates end-to-end CRUD operations, state persistence, and autoincrement ID generation into a reusable manager class.",
+      "metadata": {
+        "concept": "full_crud_service_class",
+        "skill": "system_design",
+        "why_this_exercise_exists": "Replaces variation with complete to-do backend class"
+      }
     },
     {
       "id": "27.6_q27",

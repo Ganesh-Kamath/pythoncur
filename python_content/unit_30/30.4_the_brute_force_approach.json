@@ -13,7 +13,7 @@
       "title": "What Is the Brute Force Approach?",
       "content": "The brute force approach is a problem-solving methodology where you try every possible solution until you find one that works. Instead of looking for a clever shortcut, you systematically test all candidates. This method is simple to understand and implement, but it can be slow for large inputs. For example, if you need to find a pair of numbers that sum to a target, you might check every possible pair in a list. Here is a Python example:\n\n```python\ndef has_pair_with_sum(numbers, target):\n    for i in range(len(numbers)):\n        for j in range(i + 1, len(numbers)):\n            if numbers[i] + numbers[j] == target:\n                return True\n    return False\n\nprint(has_pair_with_sum([1, 4, 6, 8], 10))\n```\n\nIn this code, the nested loops examine every distinct pair. If any pair sums to `target`, the function returns `True`; otherwise, it returns `False` after checking all pairs.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of the brute force approach basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "The brute force approach is a problem-solving methodology where you try every possible solution until you find one that works. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "30.4_q2",
@@ -46,7 +46,7 @@
       "title": "Writing Brute Force Code in Python",
       "content": "To implement a brute force solution in Python, you typically use loops to generate candidates and conditional checks to validate them. A common pattern is the nested loop: the outer loop picks one element, and the inner loop picks another. You compare the candidate against the required condition. If it matches, you may return early; otherwise, you continue. Here is a complete example that finds whether a list contains duplicate values:\n\n```python\ndef has_duplicates(values):\n    n = len(values)\n    for i in range(n):\n        for j in range(i + 1, n):\n            if values[i] == values[j]:\n                return True\n    return False\n\nprint(has_duplicates([3, 7, 2, 3]))\n```\n\nThe function compares each element with every later element. Because it checks all pairs, it is a brute force method. Note that early termination with `return True` stops the search as soon as a duplicate is found, but the overall strategy remains exhaustive in the worst case.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of the brute force approach syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "To implement a brute force solution in Python, you typically use loops to generate candidates and conditional checks to validate them. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "30.4_q4",
@@ -363,7 +363,7 @@
       "prompt": "Fix the bug in this code for the brute force approach errors:",
       "starter_code": "# Fix this code\nPrint('The Brute Force Approach')",
       "solution_code": "print('The Brute Force Approach')",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of the brute force approach errors. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `the brute force approach errors` in The Brute Force Approach. When Python validates this code, it applies the standard rules of the brute force approach errors. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "30.4_q20",
@@ -411,7 +411,7 @@
       "prompt": "Fix the bug in this code for the brute force approach runtime:",
       "starter_code": "# Fix this code\nPrint('The Brute Force Approach')",
       "solution_code": "print('The Brute Force Approach')",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of the brute force approach runtime. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `the brute force approach runtime` in The Brute Force Approach. When Python validates this code, it applies the standard rules of the brute force approach runtime. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "30.4_q23",

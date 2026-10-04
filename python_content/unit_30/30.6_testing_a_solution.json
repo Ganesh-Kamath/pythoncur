@@ -6,15 +6,18 @@
     {
       "id": "30.6_q1",
       "type": "micro_lesson",
-      "skill": "recognition",
-      "diff": "easy",
-      "concept": "testing_a_solution_basics",
-      "title": "What Does It Mean to Test a Solution?",
-      "content": "Testing a solution is the process of checking whether your Python code produces the expected output for given inputs. In problem-solving, testing helps you verify correctness before moving on. For example, if you write a function to add two numbers, you test it with known values to confirm it works. A common first step is to use print() to observe results. Consider this simple example:\n\n```python\ndef add(a, b):\n    return a + b\n\nresult = add(3, 5)\nprint('The result is:', result)\n```\n\nWhen you run this, you expect to see 'The result is: 8'. If the output differs, your solution needs revision. Testing is not just about finding bugs—it is about building confidence that your logic aligns with the problem requirements.",
-      "difficulty": "easy",
+      "concept": "testing_a_solution_methodology",
+      "skill": "test_design",
+      "difficulty": "medium",
       "prerequisites": [],
-      "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of testing a solution basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "prompt": "# Systematic Solution Testing Methodology\n\nTesting is not merely running code once with the example input. A professional testing workflow follows four rigorous stages:\n\n1. **Happy Path:** Verify standard valid inputs with known answers.\n2. **Boundary Values:** Test extrema (e.g. empty lists `[]`, zero `0`, negative numbers, 1-element collections).\n3. **Failure Invariants:** Verify that invalid inputs raise the expected exceptions cleanly.\n4. **Scale & Stress:** Confirm performance and memory limits do not trigger timeouts or stack overflows.",
+      "explanation": "Mastering systematic test categorization ensures no silent edge-case regressions reach production.",
+      "metadata": {
+        "concept": "systematic_test_methodology",
+        "skill": "testing",
+        "learning_objective": "Structure tests across happy path, boundaries, invariants, and scale",
+        "why_this_exercise_exists": "Replaces generic placeholder with real testing methodology"
+      }
     },
     {
       "id": "30.6_q2",
@@ -39,17 +42,20 @@
     {
       "id": "30.6_q3",
       "type": "micro_lesson",
-      "skill": "understanding",
-      "diff": "easy",
-      "concept": "testing_a_solution_syntax",
-      "title": "Using print() to Check Syntax and Output",
-      "content": "One of the simplest ways to test a Python solution is by printing intermediate values. This helps you confirm both syntax correctness and logical behavior. If your code has a syntax error, Python will raise an exception before any output appears. If syntax is valid, print() reveals runtime values. For instance:\n\n```python\nname = 'Alice'\nage = 10\n\nprint('Name:', name)\nprint('Age:', age)\n```\n\nRunning this produces:\n\n```\nName: Alice\nAge: 10\n```\n\nNotice the use of single quotes inside the print() calls. This is valid Python syntax. Always ensure your strings use consistent quoting. If you mix quotes incorrectly, such as print(\"Name:\" + name), Python will still work, but in this curriculum we standardize on single quotes for clarity and to avoid escaping issues in string literals.",
-      "difficulty": "easy",
+      "concept": "testing_a_solution_triangulation",
+      "skill": "test_triangulation",
+      "difficulty": "medium",
       "prerequisites": [
         "30.6_q2"
       ],
-      "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of testing a solution syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "prompt": "# Test Triangulation and Defect Localization\n\nWhen a test fails, do not guess at the fix:\n\n1. **Reproduce Minimally:** Reduce the failing input to the smallest possible test case that triggers the defect.\n2. **Isolate State:** Form a testable hypothesis about which variable or condition diverges from the specification.\n3. **Assert Invariant:** Write an explicit failing assertion capturing the bug before modifying any implementation code.",
+      "explanation": "Writing an assertion that reproduces the bug before fixing it ensures proof of defect and prevents regression.",
+      "metadata": {
+        "concept": "defect_localization",
+        "skill": "debugging_methodology",
+        "learning_objective": "Formulate minimal reproducible test cases to isolate defects",
+        "why_this_exercise_exists": "Replaces generic placeholder with industry debugging standard"
+      }
     },
     {
       "id": "30.6_q4",
@@ -113,293 +119,323 @@
     },
     {
       "id": "30.6_q7",
-      "type": "code_prediction",
-      "concept": "testing_a_solution_execution",
-      "skill": "prediction",
-      "difficulty": "easy",
+      "type": "error_diagnosis",
+      "concept": "testing_a_solution_bug_hunt_1",
+      "skill": "bug_hunting",
+      "difficulty": "medium",
       "prerequisites": [
         "30.6_q6"
       ],
-      "micro_lesson": {
-        "title": "Predicting What Code Will Run",
-        "content": "When testing a solution, one of the first steps is to predict what the code will do before executing it. This helps catch logical errors early. Consider a simple function that takes a number and returns its square. By reading the code carefully, you can predict the output without running the script. Always trace the values step by step.\n\n```python\ndef square(n):\n    return n * n\n\nresult = square(5)\nprint(result)\n```\nIn this example, the function `square` multiplies `n` by itself. When called with `5`, it returns `25`, which is then printed."
-      },
-      "prompt": "What is the output of this Python snippet?\n```python\nprint('Testing a Solution')\n```",
+      "prompt": "Discover the bug in this function by inspecting the test case:\n\n```python\ndef binary_search(arr, target):\n    low = 0\n    high = len(arr) - 1\n    while low <= high:\n        mid = (low + high) // 2\n        if arr[mid] == target:\n            return mid\n        elif arr[mid] < target:\n            low = mid  # Bug here!\n        else:\n            high = mid - 1\n    return -1\n```\n\nWhat happens when testing with `arr = [1, 3, 5]` and `target = 5`?",
       "options": [
-        "Testing a Solution",
-        "Error",
-        "None",
-        "Testing a Solution (repeated)"
+        "Infinite loop! When low=1 and high=2, mid evaluates to 1 and setting low = mid leaves low at 1 forever.",
+        "IndexError: list index out of range.",
+        "Returns -1 incorrectly.",
+        "Raises a TypeError."
       ],
-      "correct_answer": "Testing a Solution",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of testing a solution execution. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "correct_answer": "Infinite loop! When low=1 and high=2, mid evaluates to 1 and setting low = mid leaves low at 1 forever.",
+      "explanation": "Because `mid` can equal `low` during integer division `(low + high) // 2`, assigning `low = mid` fails to advance the search window, causing an infinite loop. The fix is `low = mid + 1`.",
+      "metadata": {
+        "concept": "binary_search_infinite_loop_bug",
+        "skill": "bug_hunting",
+        "learning_objective": "Discover off-by-one infinite loops in binary search through boundary tests",
+        "common_misconception": "Thinking low = mid advances the search range",
+        "why_this_exercise_exists": "Teaches bug discovery through concrete test tracing"
+      }
     },
     {
       "id": "30.6_q8",
       "type": "output_prediction",
-      "concept": "testing_a_solution_execution",
-      "skill": "prediction",
+      "concept": "testing_a_solution_boundary_test",
+      "skill": "boundary_testing",
       "difficulty": "medium",
       "prerequisites": [
         "30.6_q7"
       ],
-      "micro_lesson": {
-        "title": "Predicting Output with Loops and Conditionals",
-        "content": "Testing a solution often involves predicting the final output when loops and conditionals interact. Pay close attention to indentation and the order of operations. A small change in a condition can alter the entire output. Let's examine a program that checks even numbers and prints a message accordingly.\n\n```python\nfor i in range(1, 4):\n    if i % 2 == 0:\n        print('even', i)\n    else:\n        print('odd', i)\n```\nTrace each iteration: when `i` is `1`, the condition is false and `odd 1` is printed; when `i` is `2`, the condition is true and `even 2` is printed; when `i` is `3`, `odd 3` is printed. The complete output is three lines."
-      },
-      "prompt": "What is the output of this Python snippet?\n```python\nprint('Testing a Solution')\n``` (Variation 8)",
+      "prompt": "Which test case exposes the flaw in this naive palindrome checker?\n\n```python\ndef is_palindrome(text):\n    return text == text[::-1]\n```",
       "options": [
-        "Testing a Solution",
-        "Error",
-        "None",
-        "Testing a Solution (repeated)"
+        "is_palindrome('Racecar') returning False because case sensitivity is not handled.",
+        "is_palindrome('radar') returning True.",
+        "is_palindrome('') returning True.",
+        "is_palindrome('a') returning True."
       ],
-      "correct_answer": "Testing a Solution",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of testing a solution execution. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "correct_answer": "is_palindrome('Racecar') returning False because case sensitivity is not handled.",
+      "explanation": "'Racecar' is a valid palindrome in natural language, but `'Racecar'[::-1]` is `'racecaR'`. Without normalizing case via `.lower()`, case mismatch causes the test to fail.",
+      "metadata": {
+        "concept": "case_insensitivity_boundary",
+        "skill": "test_case_design",
+        "learning_objective": "Design test cases revealing unhandled string normalization requirements",
+        "common_misconception": "Testing only all-lowercase words",
+        "why_this_exercise_exists": "Highlights real-world input variance in test design"
+      }
     },
     {
       "id": "30.6_q9",
       "type": "code_prediction",
-      "concept": "testing_a_solution_flow",
-      "skill": "prediction",
+      "concept": "testing_a_solution_empty_collection",
+      "skill": "edge_case_testing",
       "difficulty": "medium",
       "prerequisites": [
         "30.6_q8"
       ],
-      "micro_lesson": {
-        "title": "Tracing Control Flow",
-        "content": "To test a solution, you must trace the control flow: which branch of an `if` statement is taken and in what order statements execute. Functions can be called multiple times, and each call may follow a different path. Understanding the flow allows you to predict the result accurately.\n\n```python\ndef check(x):\n    if x > 10:\n        return 'high'\n    else:\n        return 'low'\n\nprint(check(5))\nprint(check(15))\n```\nWhen `check(5)` is called, `5` is not greater than `10`, so the `else` branch runs and `'low'` is returned. When `check(15)` is called, `15` is greater than `10`, so the `if` branch runs and `'high'` is returned. The two `print` statements output `'low'` and then `'high'`."
-      },
-      "prompt": "What is the output of this Python snippet?\n```python\nprint('Testing a Solution')\n``` (Variation 9)",
+      "prompt": "What happens when testing `find_max(numbers)` with an empty list `[]`?\n\n```python\ndef find_max(numbers):\n    highest = numbers[0]\n    for n in numbers:\n        if n > highest:\n            highest = n\n    return highest\n```",
       "options": [
-        "Testing a Solution",
-        "Error",
-        "None",
-        "Testing a Solution (repeated)"
+        "Raises IndexError: list index out of range on numbers[0].",
+        "Returns None cleanly.",
+        "Returns 0.",
+        "Returns -1."
       ],
-      "correct_answer": "Testing a Solution",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of testing a solution flow. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "correct_answer": "Raises IndexError: list index out of range on numbers[0].",
+      "explanation": "Accessing `numbers[0]` when `numbers` is empty immediately crashes with an `IndexError`. Robust functions must check `if not numbers:` and raise a descriptive error or return a designated default (such as `None`).",
+      "metadata": {
+        "concept": "empty_collection_index_error",
+        "skill": "edge_case_testing",
+        "learning_objective": "Test functions against empty inputs to catch unguarded indexing errors",
+        "common_misconception": "Assuming input lists are never empty",
+        "why_this_exercise_exists": "Catches unguarded indexing bugs before production"
+      }
     },
     {
       "id": "30.6_q10",
       "type": "write_the_code",
-      "concept": "testing_a_solution_analysis",
-      "skill": "analysis",
+      "concept": "testing_a_solution_test_suite_authoring",
+      "skill": "test_suite_design",
       "difficulty": "medium",
       "prerequisites": [
         "30.6_q9"
       ],
-      "micro_lesson": {
-        "title": "Analyzing Why an Output Occurs",
-        "content": "After predicting an output, you should analyze why it occurred. This involves checking data types, list indices, and whether the code handles edge cases. Analysis turns a guess into a verified understanding. Consider a program that retrieves the last element of a list.\n\n```python\nlst = [10, 20, 30, 40]\nlast = lst[-1]\nprint(last)\n```\nHere, `lst[-1]` accesses the final element of the list. Since the list contains four integers, the index `-1` refers to `40`. The `print` statement displays `40`."
-      },
-      "prompt": "Write Python code to solve this challenge for Testing a Solution:",
-      "starter_code": "# Write your solution below\n",
-      "solution_code": "print('Testing a Solution')",
-      "test_cases": [
-        {
-          "input": "",
-          "expected_output": "Testing a Solution"
-        }
-      ],
-      "explanation": "In Python, this operation directly demonstrates the core behavior of testing a solution analysis. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "prompt": "Write a unit test function `test_divide()` with assertions that test:\n1. Normal division: `divide(10, 2) == 5.0`\n2. Negative division: `divide(-9, 3) == -3.0`\n3. Division by zero: raises `ZeroDivisionError` using a `try/except` block.",
+      "starter_code": "def divide(a, b):\n    return a / b\n\ndef test_divide():\n    # Write comprehensive test suite\n    pass",
+      "solution_code": "def divide(a, b):\n    return a / b\n\ndef test_divide():\n    assert divide(10, 2) == 5.0, \"Should divide positive numbers\"\n    assert divide(-9, 3) == -3.0, \"Should handle negative numbers\"\n    \n    caught = False\n    try:\n        divide(10, 0)\n    except ZeroDivisionError:\n        caught = True\n    assert caught, \"Should raise ZeroDivisionError when denominator is zero\"\n\ntest_divide()\nprint(\"All division tests passed\")",
+      "explanation": "A complete test suite tests both standard operation and exceptional conditions, verifying error boundaries.",
+      "metadata": {
+        "concept": "exception_testing_assertions",
+        "skill": "test_authoring",
+        "learning_objective": "Write automated assertion tests covering both happy path and exceptions",
+        "common_misconception": "Omitting exception path testing",
+        "why_this_exercise_exists": "Teaches thorough test harness creation"
+      }
     },
     {
       "id": "30.6_q11",
       "type": "write_the_code",
-      "concept": "testing_a_solution_tracing",
-      "skill": "tracing",
+      "concept": "testing_a_solution_floating_point_precision",
+      "skill": "precision_testing",
       "difficulty": "medium",
       "prerequisites": [
         "30.6_q10"
       ],
-      "micro_lesson": {
-        "title": "Step-by-Step Execution Tracing",
-        "content": "Tracing execution means recording the value of every variable after each line runs. This is essential when testing a solution because it reveals hidden mistakes. Let's trace a simple arithmetic sequence.\n\n```python\na = 3\nb = a + 2\nc = b * 3\nprint(c)\n```\nStart with `a = 3`. Then `b` becomes `5`. Then `c` becomes `15`. Finally, `print(c)` outputs `15`."
-      },
-      "prompt": "Write Python code to solve this challenge for Testing a Solution: (Variation 11)",
-      "starter_code": "# Write your solution below\n",
-      "solution_code": "print('Testing a Solution')",
-      "test_cases": [
-        {
-          "input": "",
-          "expected_output": "Testing a Solution"
-        }
-      ],
-      "explanation": "In Python, this operation directly demonstrates the core behavior of testing a solution tracing. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "prompt": "Why does `assert 0.1 + 0.2 == 0.3` fail in Python, and how do you write the correct test using `math.isclose`?",
+      "starter_code": "import math\n# Fix the floating point equality assertion\n",
+      "solution_code": "import math\n# 0.1 + 0.2 evaluates to 0.30000000000000004 due to IEEE 754 float representation\nassert math.isclose(0.1 + 0.2, 0.3), \"Float arithmetic should be tested with math.isclose\"",
+      "explanation": "Floating-point numbers cannot represent some decimal fractions exactly in binary IEEE-754. Exact equality `==` fails; testing must use `math.isclose(a, b)` with a small tolerance.",
+      "metadata": {
+        "concept": "float_equality_isclose",
+        "skill": "testing_best_practices",
+        "learning_objective": "Test floating-point calculations safely using math.isclose()",
+        "common_misconception": "Using == for float assertions",
+        "why_this_exercise_exists": "Saves developers from flaky float equality test failures"
+      }
     },
     {
       "id": "30.6_q12",
       "type": "output_prediction",
-      "concept": "testing_a_solution_logic",
-      "skill": "prediction",
+      "concept": "testing_a_solution_side_effects",
+      "skill": "side_effect_testing",
       "difficulty": "medium",
       "prerequisites": [
         "30.6_q11"
       ],
-      "micro_lesson": {
-        "title": "Predicting Output from Logical Conditions",
-        "content": "Logical conditions can produce different outputs based on how variables compare. When testing a solution, evaluate each condition carefully. A compound condition using `and` requires both parts to be true. Consider the following code.\n\n```python\nx = 8\ny = 3\nif x > 5 and y < 4:\n    print('yes')\nelse:\n    print('no')\n```\nHere, `x > 5` is `True` because `8` is greater than `5`. Also, `y < 4` is `True` because `3` is less than `4`. Since both conditions are `True`, the `if` branch executes and `'yes'` is printed."
-      },
-      "prompt": "What is the output of this Python snippet?\n```python\nprint('Testing a Solution')\n``` (Variation 12)",
+      "prompt": "What unintended side effect does this test expose?\n\n```python\ndef append_total(items):\n    items.append(sum(items))\n    return items\n\noriginal = [1, 2, 3]\nres = append_total(original)\nprint(original)\n```",
       "options": [
-        "Testing a Solution",
-        "Error",
-        "None",
-        "Testing a Solution (repeated)"
+        "[1, 2, 3, 6] (The function mutated the caller's original list in place!).",
+        "[1, 2, 3] (original was unaffected).",
+        "[6].",
+        "TypeError."
       ],
-      "correct_answer": "Testing a Solution",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of testing a solution logic. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "correct_answer": "[1, 2, 3, 6] (The function mutated the caller's original list in place!).",
+      "explanation": "In Python, passing a mutable object like a `list` allows the function to mutate it in place. Testing must verify not only the return value, but also that caller inputs are not unexpectedly modified.",
+      "metadata": {
+        "concept": "side_effect_invariant_testing",
+        "skill": "testing",
+        "learning_objective": "Test for unintended mutable object side-effects in functions",
+        "common_misconception": "Assuming functions receive copies of lists",
+        "why_this_exercise_exists": "Catches subtle data corruption side effects"
+      }
     },
     {
       "id": "30.6_q13",
       "type": "fill_in_the_blank",
-      "concept": "testing_a_solution_syntax",
+      "concept": "testing_a_solution_assert_syntax",
       "skill": "syntax",
-      "difficulty": "easy",
+      "difficulty": "medium",
       "prerequisites": [
         "30.6_q12"
       ],
-      "micro_lesson": {
-        "title": "Checking Syntax with a Simple Test",
-        "content": "When you write a solution, the first step is to verify that it follows correct Python syntax. A simple way to test this is to run a minimal example in a Python interpreter. If the code runs without a SyntaxError, the basic structure is valid. For instance, assigning a value to a variable and printing it is a quick sanity check. Always ensure indentation is correct and parentheses match.\n\n```python\nvalue = 42\nprint(value)\n```\nIf this executes without error, your syntax is sound for this basic pattern."
-      },
-      "prompt": "Fill in the blank to complete the statement:\n```python\n___('Testing a Solution')\n```",
-      "correct_answer": "print",
+      "prompt": "Fill in the blank to assert that `result` equals `expected` with an optional error message:\n\n```python\n___ result == expected, f'Expected {expected} but received {result}'\n```",
+      "correct_answer": "assert",
       "accepted_answers": [
-        "print"
+        "assert"
       ],
-      "explanation": "In Python, this operation directly demonstrates the core behavior of testing a solution syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "The `assert` keyword evaluates a condition. If the condition evaluates to `False`, Python raises an `AssertionError` displaying the provided message.",
+      "metadata": {
+        "concept": "assert_statement",
+        "skill": "syntax",
+        "learning_objective": "Use the assert statement with informative failure messages",
+        "why_this_exercise_exists": "Standard Python testing assertion keyword"
+      }
     },
     {
       "id": "30.6_q14",
-      "type": "fill_in_the_blank",
-      "concept": "testing_a_solution_keywords",
-      "skill": "syntax",
+      "type": "multiple_choice",
+      "concept": "testing_a_solution_regression_testing",
+      "skill": "methodology",
       "difficulty": "medium",
       "prerequisites": [
         "30.6_q13"
       ],
-      "micro_lesson": {
-        "title": "Using Keywords to Validate Logic",
-        "content": "Testing a solution involves more than just syntax; it requires using Python keywords correctly to express conditions. The `if`, `else`, and `elif` keywords control flow, while `True` and `False` represent boolean states. When you test a solution, you often write small conditional checks to ensure the code behaves as expected. For example, verifying that a number is positive uses the `if` keyword with a comparison operator.\n\n```python\nnumber = 10\nif number > 0:\n    print('positive')\n```\nNotice how `if` and the colon `:` are required keywords for this structure."
-      },
-      "prompt": "Fill in the blank to complete the statement:\n```python\n___('Testing a Solution')\n``` (Variation 14)",
-      "correct_answer": "print",
-      "accepted_answers": [
-        "print"
+      "prompt": "What is a 'Regression Test' in software development?",
+      "options": [
+        "A test written specifically to ensure that a previously fixed bug does not reappear in future updates.",
+        "A test that measures CPU clock regression.",
+        "A test run only on deprecated versions of Python.",
+        "A test that converts code back into pseudo-code."
       ],
-      "explanation": "In Python, this operation directly demonstrates the core behavior of testing a solution keywords. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "correct_answer": "A test written specifically to ensure that a previously fixed bug does not reappear in future updates.",
+      "explanation": "When a bug is fixed, a regression test is added to the automated test suite so that any future changes that accidentally reintroduce the defect will be immediately caught.",
+      "metadata": {
+        "concept": "regression_testing",
+        "skill": "software_lifecycle",
+        "learning_objective": "Understand the role and importance of regression testing",
+        "common_misconception": "Discarding test cases once the bug fix passes",
+        "why_this_exercise_exists": "Industry software engineering methodology"
+      }
     },
     {
       "id": "30.6_q15",
       "type": "code_ordering",
-      "concept": "testing_a_solution_sequence",
-      "skill": "sequencing",
+      "concept": "testing_a_solution_tdd_cycle",
+      "skill": "test_driven_development",
       "difficulty": "medium",
       "prerequisites": [
         "30.6_q14"
       ],
-      "micro_lesson": {
-        "title": "Ordering Steps When Testing a Function",
-        "content": "When testing a solution, you must execute steps in the correct sequence to observe expected behavior. A function should be defined before it is called, and the return statement should appear inside the function body. Calling the function and printing its result should happen after the definition. Reversing this order causes a NameError because the function does not exist yet when you try to call it.\n\n```python\ndef add(a, b):\n    return a + b\n\nresult = add(3, 5)\nprint(result)\n```\nThis sequence ensures the function is defined, invoked, and its output is displayed in a logical order."
-      },
-      "prompt": "Order the steps logically for testing a solution sequence:",
+      "prompt": "Order the steps of the classic Test-Driven Development (TDD) 'Red-Green-Refactor' cycle:",
       "options": [
-        "x = 10",
-        "y = 20",
-        "print(x + y)"
+        "Write a failing automated test specifying desired behavior",
+        "Run the test and observe it fail (Red)",
+        "Write minimal code required to make the test pass (Green)",
+        "Refactor code for cleanliness and design while keeping tests green"
       ],
       "correct_answer": [
-        "x = 10",
-        "y = 20",
-        "print(x + y)"
+        "Write a failing automated test specifying desired behavior",
+        "Run the test and observe it fail (Red)",
+        "Write minimal code required to make the test pass (Green)",
+        "Refactor code for cleanliness and design while keeping tests green"
       ],
-      "explanation": "In Python, this operation directly demonstrates the core behavior of testing a solution sequence. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "TDD follows Red (write failing test), Green (make it pass), Refactor (improve structure with test safety net).",
+      "metadata": {
+        "concept": "tdd_cycle",
+        "skill": "methodology",
+        "learning_objective": "Sequence the steps of the Test-Driven Development cycle",
+        "why_this_exercise_exists": "Core developer methodology"
+      }
     },
     {
       "id": "30.6_q16",
-      "type": "fill_in_the_blank",
-      "concept": "testing_a_solution_patterns",
-      "skill": "syntax",
+      "type": "code_prediction",
+      "concept": "testing_a_solution_mocking",
+      "skill": "isolation",
       "difficulty": "medium",
       "prerequisites": [
         "30.6_q15"
       ],
-      "micro_lesson": {
-        "title": "Recognizing Common Testing Patterns",
-        "content": "A reliable way to test a solution is to follow a common pattern such as iterating over a sequence and checking each item. The `for` loop combined with `range()` or direct iteration allows you to validate behavior across multiple inputs. When testing, you often print intermediate values or use assertions to confirm correctness. A standard pattern for checking even numbers is to use the modulo operator inside a loop.\n\n```python\nfor num in range(1, 6):\n    if num % 2 == 0:\n        print(num)\n```\nThis pattern tests each integer in the range and prints only those that satisfy the condition."
-      },
-      "prompt": "Fill in the blank to complete the statement:\n```python\n___('Testing a Solution')\n``` (Variation 16)",
-      "correct_answer": "print",
-      "accepted_answers": [
-        "print"
+      "prompt": "Why do unit tests use test doubles (mocks) for external network requests or database connections?",
+      "options": [
+        "To make tests deterministic, fast, and repeatable without requiring real network or database infrastructure.",
+        "Because Python cannot connect to databases during tests.",
+        "To bypass Python's security manager.",
+        "Mocks increase bandwidth speed."
       ],
-      "explanation": "In Python, this operation directly demonstrates the core behavior of testing a solution patterns. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "correct_answer": "To make tests deterministic, fast, and repeatable without requiring real network or database infrastructure.",
+      "explanation": "External APIs may experience downtime, rate limiting, or network delays. Mocking isolates the system-under-test so unit tests run in milliseconds without external dependencies.",
+      "metadata": {
+        "concept": "mocking_and_isolation",
+        "skill": "architecture",
+        "learning_objective": "Recognize the purpose of mocking external dependencies in unit testing",
+        "common_misconception": "Running unit tests against live third-party production servers",
+        "why_this_exercise_exists": "Essential for reliable CI/CD pipelines"
+      }
     },
     {
       "id": "30.6_q17",
-      "type": "code_ordering",
-      "concept": "testing_a_solution_algorithm",
-      "skill": "sequencing",
+      "type": "multiple_choice",
+      "concept": "testing_a_solution_code_coverage",
+      "skill": "metrics",
       "difficulty": "medium",
       "prerequisites": [
         "30.6_q16"
       ],
-      "micro_lesson": {
-        "title": "Sequencing an Algorithm During Testing",
-        "content": "Testing a solution requires executing an algorithm in the proper order: gather input, process it, and produce output. If you print before converting the input to the correct type, you may encounter a TypeError. Similarly, performing the calculation before validation can lead to incorrect results. The correct sequence ensures data is handled safely and the final result is meaningful.\n\n```python\nuser_input = input('Enter a number: ')\nnumber = int(user_input)\ndoubled = number * 2\nprint(doubled)\n```\nEach step depends on the previous one, so the order is critical for a correct test run."
-      },
-      "prompt": "Order the steps logically for testing a solution algorithm:",
+      "prompt": "Does 100% line code coverage guarantee that software is free of bugs?",
       "options": [
-        "x = 10",
-        "y = 20",
-        "print(x + y)"
+        "No; 100% coverage only means every line was executed at least once, but does not guarantee all input combinations, edge cases, or logic boundary states were tested.",
+        "Yes; 100% coverage mathematically proves code correctness.",
+        "Yes; compiler errors cannot exist if coverage is 100%.",
+        "No; coverage only applies to docstrings."
       ],
-      "correct_answer": [
-        "x = 10",
-        "y = 20",
-        "print(x + y)"
-      ],
-      "explanation": "In Python, this operation directly demonstrates the core behavior of testing a solution algorithm. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "correct_answer": "No; 100% coverage only means every line was executed at least once, but does not guarantee all input combinations, edge cases, or logic boundary states were tested.",
+      "explanation": "Coverage tools measure execution paths, not logic validity. A test can execute every line of a division function without ever testing the denominator `0` boundary.",
+      "metadata": {
+        "concept": "code_coverage_limitations",
+        "skill": "testing_philosophy",
+        "learning_objective": "Understand that high coverage does not equate to defect-free software",
+        "common_misconception": "Equating 100% code coverage with 100% bug-free software",
+        "why_this_exercise_exists": "Critical professional perspective on testing metrics"
+      }
     },
     {
       "id": "30.6_q18",
       "type": "fill_in_the_blank",
-      "concept": "testing_a_solution_idioms",
-      "skill": "syntax",
+      "concept": "testing_a_solution_pytest_convention",
+      "skill": "tooling",
       "difficulty": "medium",
       "prerequisites": [
         "30.6_q17"
       ],
-      "micro_lesson": {
-        "title": "Applying Python Idioms in Tests",
-        "content": "Python idioms are concise, readable ways of writing code that experienced developers use. One common idiom is the conditional expression, written as `value_if_true if condition else value_if_false`. When testing a solution, using idioms can make your verification code shorter and clearer. For example, assigning a label based on a boolean condition avoids a multi-line if-else block.\n\n```python\nis_valid = True\nstatus = 'pass' if is_valid else 'fail'\nprint(status)\n```\nThis idiom replaces a longer conditional structure while remaining syntactically correct and easy to test."
-      },
-      "prompt": "Fill in the blank to complete the statement:\n```python\n___('Testing a Solution')\n``` (Variation 18)",
-      "correct_answer": "print",
+      "prompt": "By standard convention, test files and test functions in pytest must start with the prefix `___` (e.g. `___calculator.py` and `def ___add():`).",
+      "correct_answer": "test_",
       "accepted_answers": [
-        "print"
+        "test_",
+        "test"
       ],
-      "explanation": "In Python, this operation directly demonstrates the core behavior of testing a solution idioms. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Pytest automatically discovers and runs tests matching the naming convention `test_*.py` and `def test_*():`.",
+      "metadata": {
+        "concept": "pytest_discovery_conventions",
+        "skill": "tooling",
+        "learning_objective": "Adopt standard test discovery naming conventions",
+        "why_this_exercise_exists": "Standard ecosystem discovery rule"
+      }
     },
     {
       "id": "30.6_q19",
       "type": "fix_the_code",
-      "skill": "debugging",
+      "concept": "testing_a_solution_bug_hunt_2",
+      "skill": "bug_hunting",
       "difficulty": "medium",
-      "concept": "testing_a_solution_errors",
-      "micro_lesson": {
-        "title": "Identifying Common Errors When Testing a Solution",
-        "content": "When you test a solution, errors often fall into categories: syntax errors, runtime errors, and logical errors. Syntax errors prevent the code from running at all. Runtime errors occur during execution, such as dividing by zero or accessing an invalid index. Logical errors produce output but the result does not match the expected behavior. Always read the traceback carefully, reproduce the error with sample inputs, and verify whether the issue stems from incorrect assumptions about the problem. For example, if a function is supposed to return the sum of two numbers but instead returns their product, that is a logical error, not a syntax error."
-      },
       "prerequisites": [
         "30.6_q18"
       ],
-      "prompt": "Fix the bug in this code for testing a solution errors:",
-      "starter_code": "# Fix this code\nPrint('Testing a Solution')",
-      "solution_code": "print('Testing a Solution')",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of testing a solution errors. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "prompt": "A discount function fails its boundary test: `apply_discount(100, 0.1)` should return `90.0`, but currently returns `10.0` because it returns the discount amount rather than the final price! Fix the function.\n\n```python\ndef apply_discount(price, rate):\n    # Fix return value:\n    return price * rate\n```",
+      "starter_code": "def apply_discount(price, rate):\n    return price * rate",
+      "solution_code": "def apply_discount(price, rate):\n    return price * (1 - rate)",
+      "explanation": "Returning `price * rate` returns the discount itself. Subtracting it from the original price (`price * (1 - rate)`) gives the correct discounted price.",
+      "metadata": {
+        "concept": "business_logic_test_failure",
+        "skill": "repair",
+        "learning_objective": "Diagnose and fix calculation bugs uncovered by unit test assertions",
+        "common_misconception": "Returning delta instead of new absolute state",
+        "why_this_exercise_exists": "Directly models finding and repairing a logic bug through test output"
+      }
     },
     {
       "id": "30.6_q20",
@@ -434,20 +470,23 @@
     {
       "id": "30.6_q22",
       "type": "fix_the_code",
-      "skill": "debugging",
+      "concept": "testing_a_solution_bug_hunt_3",
+      "skill": "bug_hunting",
       "difficulty": "medium",
-      "concept": "testing_a_solution_runtime",
-      "micro_lesson": {
-        "title": "Diagnosing Runtime Errors During Solution Testing",
-        "content": "Runtime errors occur while the program is executing, unlike syntax errors that block execution entirely. Common runtime errors include ZeroDivisionError, IndexError, TypeError, and NameError. To diagnose a runtime error, run the code with the exact input that triggers the failure, inspect the traceback line number, and verify the state of variables at that point. A frequent mistake is assuming that a loop will always have at least one element, leading to an IndexError when the list is empty. Another is using a variable before it has been assigned, which raises a NameError. Systematic testing with boundary values helps expose these issues early."
-      },
       "prerequisites": [
         "30.6_q21"
       ],
-      "prompt": "Fix the bug in this code for testing a solution runtime:",
-      "starter_code": "# Fix this code\nPrint('Testing a Solution')",
-      "solution_code": "print('Testing a Solution')",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of testing a solution runtime. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "prompt": "Testing `is_all_positive([-1, 0, 5])` fails because `0` is mistakenly treated as positive. Fix the comparison so only strictly positive numbers (`> 0`) return True.\n\n```python\ndef is_all_positive(numbers):\n    # Fix condition:\n    return all(n >= 0 for n in numbers)\n```",
+      "starter_code": "def is_all_positive(numbers):\n    return all(n >= 0 for n in numbers)",
+      "solution_code": "def is_all_positive(numbers):\n    return all(n > 0 for n in numbers)",
+      "explanation": "Zero is neither positive nor negative. A boundary test passing `0` catches the flaw in `>= 0`. Changing to `n > 0` ensures strictly positive validation.",
+      "metadata": {
+        "concept": "zero_boundary_testing",
+        "skill": "repair",
+        "learning_objective": "Fix zero-boundary comparison bugs revealed by test cases",
+        "common_misconception": "Treating 0 as a positive number in arithmetic filters",
+        "why_this_exercise_exists": "Classic boundary condition discovered through testing"
+      }
     },
     {
       "id": "30.6_q23",

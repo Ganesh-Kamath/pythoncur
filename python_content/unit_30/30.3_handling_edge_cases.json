@@ -14,7 +14,7 @@
       "content": "An edge case is an input or condition that lies at the extreme ends of the operating parameters. In Python, common edge cases include empty lists, zero values, negative numbers, and None. Recognizing these early helps you write robust programs. For example, if you divide a number by zero, Python raises a ZeroDivisionError. Similarly, calling len([]) returns 0, which is valid but must be handled in logic. Always ask: 'What happens when the input is empty or unexpected?'",
       "difficulty": "easy",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of handling edge cases basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "An edge case is an input or condition that lies at the extreme ends of the operating parameters. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "30.3_q2",
@@ -49,7 +49,7 @@
       "content": "You can use if-statements to guard against edge cases before performing operations. A common pattern is checking for None, zero, or empty collections. Here is a simple example:\n\n```python\ndef safe_divide(a, b):\n    if b == 0:\n        return 'Cannot divide by zero'\n    return a / b\n\nprint(safe_divide(10, 2))\nprint(safe_divide(10, 0))\n```\n\nIn this code, the condition `if b == 0:` catches the edge case of division by zero and returns a safe message instead of crashing the program.",
       "difficulty": "easy",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of handling edge cases syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Conditional branching with `if`, `elif`, and `else` controls program execution paths. Indentation defines the statement block that executes when a condition evaluates to True."
     },
     {
       "id": "30.3_q4",
@@ -435,7 +435,7 @@
       "prompt": "Fix the bug in this code for handling edge cases errors:",
       "starter_code": "# Fix this code\nPrint('Handling Edge Cases')",
       "solution_code": "print('Handling Edge Cases')",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of handling edge cases errors. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Python logical operators use short-circuit evaluation: `and` stops and returns the first falsy operand, while `or` stops and returns the first truthy operand without evaluating subsequent expressions."
     },
     {
       "id": "30.3_q20",
@@ -483,7 +483,7 @@
       "prompt": "Fix the bug in this code for handling edge cases runtime:",
       "starter_code": "# Fix this code\nPrint('Handling Edge Cases')",
       "solution_code": "print('Handling Edge Cases')",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of handling edge cases runtime. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Python logical operators use short-circuit evaluation: `and` stops and returns the first falsy operand, while `or` stops and returns the first truthy operand without evaluating subsequent expressions."
     },
     {
       "id": "30.3_q23",

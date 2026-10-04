@@ -10,100 +10,131 @@
       "skill": "recognition",
       "difficulty": "easy",
       "prerequisites": [],
-      "title": "self Keyword Part 1: The Self Keyword Basics",
-      "content": "In Python, **The Self Keyword Basics** provides essential rules when working with the self keyword.\n\nUnderstanding how `the_self_keyword_basics` functions in practice enables you to write clean, unambiguous code.\n\n```python\n# Step 1: the_self_keyword_basics\nstage_1 = True\n```",
-      "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of the self keyword basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "title": "The Role of self in Python Methods",
+      "content": "In Python, `self` represents the specific instance of the class upon which a method is being called.\n\n```python\nclass Dog:\n    def __init__(self, name):\n        self.name = name  # Binds name to this specific dog\n```\n\nWhen you call `d.bark()`, Python translates it to `Dog.bark(d)` behind the scenes, passing the instance automatically as `self`.",
+      "explanation": "self is the explicit reference to the current instance passed to class methods.",
+      "metadata": {
+        "concept": "self_parameter_semantics",
+        "skill": "recognition",
+        "why_this_exercise_exists": "Teaches instance self binding"
+      }
     },
     {
       "id": "20.3_q2",
       "type": "output_prediction",
       "concept": "the_self_keyword_basics",
-      "skill": "recall",
+      "skill": "mental_model",
       "difficulty": "easy",
       "prerequisites": [
         "20.3_q1"
       ],
-      "prompt": "Consider the following Python snippet demonstrating The Self Keyword Basics:\n\n```python\ndef calculate_2(value):\n    base = 8\n    return base + value * 11\n\nresult = calculate_2(2)\nprint(result)\n```\n\nWhat is the value printed to the console?",
+      "prompt": "What does `self` represent inside an instance method?\n\n```python\nclass Account:\n    def __init__(self, owner):\n        self.owner = owner\n\nacc = Account(\"Kiran\")\nprint(acc.owner)\n```",
       "options": [
-        "30",
-        "19",
-        "110",
+        "Kiran",
+        "Account",
+        "self",
         "TypeError"
       ],
-      "correct_answer": "30",
-      "explanation": "Python evaluates arithmetic following standard operator precedence (multiplication before addition). First, `value * 11` evaluates to `2 * 11 = 22`. Then, adding `base` (8) yields `30`. The function returns this integer and `print()` outputs it."
+      "correct_answer": "Kiran",
+      "explanation": "`self` refers to the specific instance of the class being created or operated upon. In this case, `acc` is the instance, so `self.owner = owner` attaches the attribute `'owner'` with value `'Kiran'` to `acc`.",
+      "metadata": {
+        "concept": "self_instance_reference",
+        "skill": "mental_model",
+        "learning_objective": "Understand that self represents the current instance object",
+        "common_misconception": "Thinking self is a reserved keyword that refers to the class itself",
+        "why_this_exercise_exists": "Replaces template function with foundational OOP principles"
+      }
     },
     {
       "id": "20.3_q3",
       "type": "micro_lesson",
-      "concept": "the_self_keyword_syntax",
-      "skill": "understanding",
+      "concept": "the_self_keyword_state",
+      "skill": "recognition",
       "difficulty": "easy",
       "prerequisites": [
         "20.3_q2"
       ],
-      "title": "self Keyword Part 3: The Self Keyword Syntax",
-      "content": "In Python, **The Self Keyword Syntax** provides essential rules when working with the self keyword.\n\nUnderstanding how `the_self_keyword_syntax` functions in practice enables you to write clean, unambiguous code.\n\n```python\n# Step 3: the_self_keyword_syntax\nstage_3 = True\n```",
-      "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of the self keyword syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "title": "Instance State and Encapsulation",
+      "content": "Attributes attached to `self` belong exclusively to that instance object. Two separate instances maintain completely independent state:\n\n```python\nd1 = Dog(\"Buddy\")\nd2 = Dog(\"Milo\")\nprint(d1.name, d2.name)  # Completely separate!\n```",
+      "explanation": "Assigning to self.attr isolates instance state, preventing data bleeding across objects.",
+      "metadata": {
+        "concept": "instance_state_encapsulation",
+        "skill": "recognition",
+        "why_this_exercise_exists": "Teaches instance state isolation"
+      }
     },
     {
       "id": "20.3_q4",
-      "type": "output_prediction",
-      "concept": "the_self_keyword_syntax",
-      "skill": "reasoning",
-      "difficulty": "easy",
+      "type": "error_diagnosis",
+      "concept": "the_self_keyword_basics",
+      "skill": "debugging",
+      "difficulty": "medium",
       "prerequisites": [
         "20.3_q3"
       ],
-      "prompt": "Consider the following Python snippet demonstrating The Self Keyword Syntax:\n\n```python\ndef calculate_4(value):\n    base = 14\n    return base + value * 6\n\nresult = calculate_4(2)\nprint(result)\n```\n\nWhat is the value printed to the console?",
+      "prompt": "Why does calling `greeter.say_hello()` fail below?\n\n```python\nclass Greeter:\n    def say_hello():\n        print(\"Hello world!\")\n\ng = Greeter()\ng.say_hello()\n```",
       "options": [
-        "26",
-        "20",
-        "96",
-        "TypeError"
+        "TypeError: say_hello() takes 0 positional arguments but 1 was given",
+        "NameError: say_hello is not defined",
+        "AttributeError: Greeter object has no attribute 'say_hello'",
+        "SyntaxError: method must return a string"
       ],
-      "correct_answer": "26",
-      "explanation": "Python evaluates arithmetic following standard operator precedence (multiplication before addition). First, `value * 6` evaluates to `2 * 6 = 12`. Then, adding `base` (14) yields `26`. The function returns this integer and `print()` outputs it."
+      "correct_answer": "TypeError: say_hello() takes 0 positional arguments but 1 was given",
+      "explanation": "When invoking an instance method as `g.say_hello()`, Python automatically passes the instance `g` as the first argument. Because `def say_hello():` did not define the `self` parameter, Python complains that 1 argument was unexpectedly given.",
+      "metadata": {
+        "concept": "implicit_self_argument",
+        "skill": "error_recognition",
+        "learning_objective": "Diagnose the classic missing self TypeError in instance methods",
+        "common_misconception": "Thinking methods without arguments don't need self",
+        "why_this_exercise_exists": "Replaces template function with Python's most famous OOP signature error"
+      }
     },
     {
       "id": "20.3_q5",
-      "type": "output_prediction",
-      "concept": "the_self_keyword_matching",
-      "skill": "recognition",
-      "difficulty": "easy",
+      "type": "code_prediction",
+      "concept": "the_self_keyword_basics",
+      "skill": "state_mutation",
+      "difficulty": "medium",
       "prerequisites": [
         "20.3_q4"
       ],
-      "prompt": "Consider the following Python snippet demonstrating The Self Keyword Matching:\n\n```python\ndef calculate_5(value):\n    base = 17\n    return base + value * 11\n\nresult = calculate_5(2)\nprint(result)\n```\n\nWhat is the value printed to the console?",
+      "prompt": "Trace the balance after these method calls:\n\n```python\nclass Wallet:\n    def __init__(self, initial=0):\n        self.balance = initial\n    def add(self, amount):\n        self.balance += amount\n\nw = Wallet(50)\nw.add(25)\nprint(w.balance)\n```",
       "options": [
-        "39",
-        "28",
-        "209",
-        "TypeError"
+        "75",
+        "50",
+        "25",
+        "None"
       ],
-      "correct_answer": "39",
-      "explanation": "Python evaluates arithmetic following standard operator precedence (multiplication before addition). First, `value * 11` evaluates to `2 * 11 = 22`. Then, adding `base` (17) yields `39`. The function returns this integer and `print()` outputs it."
+      "correct_answer": "75",
+      "explanation": "`self.balance` starts at 50. Invoking `w.add(25)` updates `self.balance` by adding 25, resulting in 75.",
+      "metadata": {
+        "concept": "instance_state_mutation",
+        "skill": "tracing",
+        "learning_objective": "Track state mutations on instance attributes across method calls",
+        "common_misconception": "Believing instance variables reset after each method call",
+        "why_this_exercise_exists": "Replaces template function with authentic object state tracking"
+      }
     },
     {
       "id": "20.3_q6",
-      "type": "output_prediction",
-      "concept": "the_self_keyword_pitfalls",
-      "skill": "comprehension",
-      "difficulty": "easy",
+      "type": "fix_the_code",
+      "concept": "the_self_keyword_basics",
+      "skill": "repair",
+      "difficulty": "medium",
       "prerequisites": [
         "20.3_q5"
       ],
-      "prompt": "Consider the following Python snippet demonstrating The Self Keyword Pitfalls:\n\n```python\ndef calculate_6(value):\n    base = 20\n    return base + value * 1\n\nresult = calculate_6(2)\nprint(result)\n```\n\nWhat is the value printed to the console?",
-      "options": [
-        "22",
-        "21",
-        "22",
-        "TypeError"
-      ],
-      "correct_answer": "22",
-      "explanation": "Python evaluates arithmetic following standard operator precedence (multiplication before addition). First, `value * 1` evaluates to `2 * 1 = 2`. Then, adding `base` (20) yields `22`. The function returns this integer and `print()` outputs it."
+      "prompt": "Fix the method definition so it accepts `self` and correctly updates `self.total`:\n\n```python\nclass Counter:\n    def __init__(self):\n        self.total = 0\n    # Fix this method signature:\n    def increment(by):\n        self.total += by\n```",
+      "starter_code": "class Counter:\n    def __init__(self):\n        self.total = 0\n    def increment(by):\n        self.total += by",
+      "solution_code": "class Counter:\n    def __init__(self):\n        self.total = 0\n    def increment(self, by):\n        self.total += by",
+      "explanation": "Instance methods must declare `self` as their first parameter. Writing `def increment(self, by):` allows Python to pass the instance implicitly.",
+      "metadata": {
+        "concept": "method_signature_repair",
+        "skill": "repair",
+        "learning_objective": "Supply self as the first parameter in parameterized methods",
+        "common_misconception": "Omitting self when other parameters are present",
+        "why_this_exercise_exists": "Replaces template function with essential OOP method repairs"
+      }
     },
     {
       "id": "20.3_q7",

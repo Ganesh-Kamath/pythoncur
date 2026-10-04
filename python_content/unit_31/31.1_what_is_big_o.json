@@ -13,7 +13,7 @@
       "title": "What is Big O?",
       "content": "Big O notation is a mathematical tool used in computer science to describe the performance or complexity of an algorithm. It measures how the runtime or space requirements of an algorithm grow as the input size increases. Big O focuses on the worst-case scenario and ignores constant factors. For example, if an algorithm takes 2n + 5 operations, its Big O complexity is O(n) because we drop constants and lower-order terms. Common notations include O(1) for constant time, O(n) for linear time, O(n^2) for quadratic time, and O(log n) for logarithmic time. Understanding Big O helps you compare algorithms and choose the most efficient one for a given problem. Here is a simple Python example:\n\n```python\ndef greet(name):\n    print('Hello, ' + name)\n```\n\nThis function runs in O(1) time because it performs a fixed number of operations regardless of the input size.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of what is big o basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Big O notation is a mathematical tool used in computer science to describe the performance or complexity of an algorithm. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "31.1_q2",
@@ -46,7 +46,7 @@
       "title": "Big O Syntax and Common Forms",
       "content": "When expressing Big O, you use the letter O followed by a function in parentheses. The function inside typically represents the dominant term of the growth rate. For example, O(1), O(n), O(n^2), O(log n), and O(2^n) are standard forms. You do not include coefficients or lower-order terms. A Python function with O(n) complexity processes each element once. Consider this example:\n\n```python\ndef sum_list(numbers):\n    total = 0\n    for num in numbers:\n        total = total + num\n    return total\n```\n\nThis function iterates through the list once, so its time complexity is O(n), where n is the length of the list.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of what is big o syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "When expressing Big O, you use the letter O followed by a function in parentheses. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "31.1_q4",

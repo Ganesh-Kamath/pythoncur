@@ -13,7 +13,7 @@
       "title": "What is Recursion with Trees?",
       "content": "Recursion with trees is a technique where a function calls itself to process each node in a tree structure. A tree consists of nodes, and each node can have child nodes. The key idea is the base case: when a node has no children, the recursion stops. Otherwise, the function processes the current node and then recursively calls itself on each child. For example, to count all nodes in a binary tree, you count the current node plus the nodes in the left subtree and the right subtree. Here is a simple Python implementation:\n\n```python\nclass Node:\n    def __init__(self, value):\n        self.value = value\n        self.left = None\n        self.right = None\n\ndef count_nodes(node):\n    if node is None:\n        return 0\n    return 1 + count_nodes(node.left) + count_nodes(node.right)\n```\n\nNotice that `count_nodes` calls itself for `node.left` and `node.right`. This self-reference is what makes recursion work on trees.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of recursion with trees basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Recursion with trees is a technique where a function calls itself to process each node in a tree structure. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "38.5_q2",
@@ -46,7 +46,7 @@
       "title": "Syntax of Recursive Tree Traversal",
       "content": "A recursive tree function typically follows a three-part structure: (1) handle the base case, (2) process the current node, and (3) recurse on children. For a pre-order traversal, you visit the node first, then traverse the left subtree, then the right subtree. Here is the syntax pattern in Python:\n\n```python\ndef preorder(node):\n    if node is None:\n        return\n    print(node.value)\n    preorder(node.left)\n    preorder(node.right)\n```\n\nIn-order and post-order traversals simply rearrange steps 2 and 3. The base case `if node is None: return` is essential because it stops recursion when a branch ends. Without it, the program would attempt to access attributes on None and raise an error.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of recursion with trees syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "A recursive tree function typically follows a three-part structure: (1) handle the base case, (2) process the current node, and (3) recurse on children. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "38.5_q4",
@@ -368,7 +368,7 @@
       "starter_code": "Print('Recursion with Trees Item 19')",
       "solution_code": "print('Recursion with Trees Item 19')",
       "hint": "Python built-in functions like print() must be written in lowercase.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of recursion with trees errors. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `recursion with trees errors` in Recursion with Trees. When Python validates this code, it applies the standard rules of recursion with trees errors. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "38.5_q20",
@@ -383,7 +383,7 @@
       "starter_code": "Print('Recursion with Trees Item 20')",
       "solution_code": "print('Recursion with Trees Item 20')",
       "hint": "Python built-in functions like print() must be written in lowercase.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of recursion with trees fix. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `recursion with trees fix` in Recursion with Trees. When Python validates this code, it applies the standard rules of recursion with trees fix. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "38.5_q21",
@@ -398,7 +398,7 @@
       "starter_code": "Print('Recursion with Trees Item 21')",
       "solution_code": "print('Recursion with Trees Item 21')",
       "hint": "Python built-in functions like print() must be written in lowercase.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of recursion with trees edge cases. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `recursion with trees edge cases` in Recursion with Trees. When Python validates this code, it applies the standard rules of recursion with trees edge cases. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "38.5_q22",
@@ -413,7 +413,7 @@
       "starter_code": "Print('Recursion with Trees Item 22')",
       "solution_code": "print('Recursion with Trees Item 22')",
       "hint": "Python built-in functions like print() must be written in lowercase.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of recursion with trees runtime. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `recursion with trees runtime` in Recursion with Trees. When Python validates this code, it applies the standard rules of recursion with trees runtime. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "38.5_q23",
@@ -428,7 +428,7 @@
       "starter_code": "Print('Recursion with Trees Item 23')",
       "solution_code": "print('Recursion with Trees Item 23')",
       "hint": "Python built-in functions like print() must be written in lowercase.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of recursion with trees logic repair. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `recursion with trees logic repair` in Recursion with Trees. When Python validates this code, it applies the standard rules of recursion with trees logic repair. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "38.5_q24",

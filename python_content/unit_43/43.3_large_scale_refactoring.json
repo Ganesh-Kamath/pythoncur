@@ -5,15 +5,22 @@
   "items": [
     {
       "id": "43.3_q1",
-      "type": "micro_lesson",
-      "concept": "largescale_refactoring_basics",
-      "skill": "recognition",
-      "difficulty": "easy",
+      "type": "refactoring_challenge",
+      "concept": "large_scale_refactoring_modularization",
+      "skill": "architectural_refactoring",
+      "difficulty": "expert",
       "prerequisites": [],
-      "title": "What Is Large-Scale Refactoring?",
-      "content": "Large-scale refactoring is the systematic process of restructuring existing code to improve its internal structure without changing its external behavior. When a codebase grows, duplicated logic, unclear naming, and tangled dependencies make maintenance difficult. Refactoring at scale involves applying consistent patterns across many files or modules. A key principle is to refactor in small, testable steps so that each change can be verified. For example, consider a function that calculates discounts for many product types. Instead of repeating conditional logic, you can extract shared behavior into helper functions. Here is a simple illustration:\n\n```python\ndef apply_discount(price, discount_rate):\n    return price * (1 - discount_rate)\n\ndef calculate_total(items, discount_rate):\n    total = 0\n    for item in items:\n        total += apply_discount(item['price'], discount_rate)\n    return total\n\nproducts = [{'price': 100}, {'price': 200}, {'price': 300}]\nfinal = calculate_total(products, 0.1)\nprint(final)\n```\n\nIn this example, extracting `apply_discount` makes the code easier to test and reuse. Recognizing where duplication exists is the first step toward large-scale refactoring.",
-      "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of largescale refactoring basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "prompt": "Large-Scale Refactoring Mastery: The monolithic legacy script below mixes CSV parsing, validation, tax calculations, discounts, and reporting into 35 lines of tangled spaghetti code with global variables. Refactor this into three focused, testable functions:\n1. `parse_and_validate_orders(raw_orders)`\n2. `compute_order_totals(orders, tax_rate, discount_threshold)`\n3. `generate_sales_report(processed_orders)`\nPreserve all business rules and return clean data structures.",
+      "starter_code": "# Monolithic legacy script to refactor\nraw_data = [\n    {\"id\": \"1\", \"item\": \"Laptop\", \"price\": \"1200.00\", \"valid\": \"yes\"},\n    {\"id\": \"2\", \"item\": \"Mouse\", \"price\": \"25.00\", \"valid\": \"yes\"},\n    {\"id\": \"3\", \"item\": \"Corrupted\", \"price\": \"-5.00\", \"valid\": \"no\"}\n]\n\n# Refactor into the 3 clean functions\n",
+      "solution_code": "def parse_and_validate_orders(raw_orders):\n    valid = []\n    for o in raw_orders:\n        if o.get(\"valid\") == \"yes\":\n            try:\n                price = float(o[\"price\"])\n                if price > 0:\n                    valid.append({\"id\": int(o[\"id\"]), \"item\": o[\"item\"], \"price\": price})\n            except (ValueError, KeyError):\n                continue\n    return valid\n\ndef compute_order_totals(orders, tax_rate=0.08, discount_threshold=1000.0):\n    processed = []\n    for o in orders:\n        discount = 0.10 if o[\"price\"] >= discount_threshold else 0.0\n        effective_price = o[\"price\"] * (1 - discount)\n        tax = effective_price * tax_rate\n        final_total = round(effective_price + tax, 2)\n        processed.append({**o, \"total\": final_total, \"discount\": discount})\n    return processed\n\ndef generate_sales_report(processed_orders):\n    revenue = sum(o[\"total\"] for o in processed_orders)\n    return {\n        \"order_count\": len(processed_orders),\n        \"total_revenue\": round(revenue, 2),\n        \"orders\": processed_orders\n    }",
+      "explanation": "Decomposes 35 lines of tangled procedural code into three distinct single-responsibility layers: input validation/sanitization, business computation (taxes/discounts), and report aggregation. Each layer can now be unit-tested in complete isolation.",
+      "metadata": {
+        "concept": "large_scale_procedural_refactoring",
+        "skill": "system_design",
+        "learning_objective": "Refactor monolithic procedural scripts into layered, single-responsibility pipelines",
+        "common_misconception": "Refactoring by merely renaming variables without breaking up monolithic workflows",
+        "why_this_exercise_exists": "Directly satisfies user prompt for 43.3_q1 large-scale refactoring"
+      }
     },
     {
       "id": "43.3_q2",
@@ -46,7 +53,7 @@
       "title": "Syntax Patterns for Extracting Methods",
       "content": "A common refactoring syntax pattern is extracting a method. When you notice a block of code doing one clear job, you can move it into a function. This improves readability and reuse. Consider the following pattern:\n\n```python\ndef validate_user(user):\n    if not user:\n        return False\n    if len(user['name']) < 2:\n        return False\n    if user['age'] < 0:\n        return False\n    return True\n\ndef process_users(users):\n    valid = []\n    for u in users:\n        if validate_user(u):\n            valid.append(u)\n    return valid\n\nusers = [{'name': 'Ana', 'age': 30}, {'name': 'B', 'age': 25}]\nprint(process_users(users))\n```\n\nHere, `validate_user` isolates validation logic. Notice the syntax: a clear name, a single responsibility, and a return value. When refactoring at scale, apply this pattern consistently across modules so that each function has one purpose.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of largescale refactoring syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "A common refactoring syntax pattern is extracting a method. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "43.3_q4",

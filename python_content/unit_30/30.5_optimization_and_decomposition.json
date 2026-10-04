@@ -13,7 +13,7 @@
       "title": "What Is Optimization and Decomposition?",
       "content": "Optimization means making a solution use fewer resources—less time, memory, or steps. Decomposition means breaking one big problem into smaller, manageable pieces. For example, instead of writing one giant function, you split the work into helper functions. This makes code easier to read, test, and improve. A simple example: finding the largest number in a list. You can decompose this into two steps: first, find the maximum of a sub-list, then compare across sub-lists. Here is a basic illustration:\n\n```python\ndef find_max(numbers):\n    if not numbers:\n        return None\n    current_max = numbers[0]\n    for num in numbers:\n        if num > current_max:\n            current_max = num\n    return current_max\n\n# Optimization: avoid repeated work by storing the result\nnumbers = [3, 7, 2, 9, 5]\nresult = find_max(numbers)\nprint('The largest number is:', result)\n```\n\nNotice how `find_max` isolates one task. That is decomposition. Later, you can optimize by using built-in functions like `max()` if the list is large.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of optimization and decomposition basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Optimization means making a solution use fewer resources—less time, memory, or steps. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "idx": 2,
@@ -48,7 +48,7 @@
       "content": "When you decompose a problem, you use functions to separate concerns. A helper function performs one specific job. You can also use early returns to reduce nesting, which is a small optimization. Consider a task: calculate the average of valid numbers in a list, ignoring non-numeric entries. You can decompose this into validation, filtering, and averaging. Here is the syntax pattern:\n\n```python\ndef is_number(value):\n    return isinstance(value, (int, float))\n\ndef filter_numbers(data):\n    result = []\n    for item in data:\n        if is_number(item):\n            result.append(item)\n    return result\n\ndef average(values):\n    if not values:\n        return 0\n    return sum(values) / len(values)\n\nraw = [10, 'x', 20, None, 30]\nclean = filter_numbers(raw)\naverage_value = average(clean)\nprint('Average:', average_value)\n```\n\nEach function has one responsibility. This structure makes the code easier to test and optimize later.",
       "id": "30.5_q3",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of optimization and decomposition syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "When you decompose a problem, you use functions to separate concerns. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "idx": 4,
@@ -386,7 +386,7 @@
       "prompt": "Fix the bug in this code for optimization and decomposition errors:",
       "starter_code": "# Fix this code\nPrint('Optimization and Decomposition')",
       "solution_code": "print('Optimization and Decomposition')",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of optimization and decomposition errors. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Python logical operators use short-circuit evaluation: `and` stops and returns the first falsy operand, while `or` stops and returns the first truthy operand without evaluating subsequent expressions."
     },
     {
       "id": "30.5_q20",
@@ -434,7 +434,7 @@
       "prompt": "Fix the bug in this code for optimization and decomposition runtime:",
       "starter_code": "# Fix this code\nPrint('Optimization and Decomposition')",
       "solution_code": "print('Optimization and Decomposition')",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of optimization and decomposition runtime. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Python logical operators use short-circuit evaluation: `and` stops and returns the first falsy operand, while `or` stops and returns the first truthy operand without evaluating subsequent expressions."
     },
     {
       "id": "30.5_q23",

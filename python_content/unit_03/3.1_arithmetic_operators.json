@@ -15,7 +15,7 @@
       "title": "The Core Arithmetic Operators",
       "content": "Python provides 7 core arithmetic operators:\n\n* `+` Addition: `10 + 5 = 15`\n* `-` Subtraction: `10 - 5 = 5`\n* `*` Multiplication: `10 * 5 = 50`\n* `/` True Division: `10 / 4 = 2.5`\n* `//` Floor Division: `10 // 4 = 2`\n* `%` Modulo (Remainder): `10 % 4 = 2`\n* `**` Exponentiation (Power): `2 ** 3 = 8`",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of arithmetic overview. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Python operators follow standard mathematical precedence (PEMDAS). Division (`/`) always produces a float, while floor division (`//`) truncates to an integer."
     },
     {
       "id": "3.1_q2",
@@ -48,7 +48,7 @@
       "title": "Understanding Modulo (%)",
       "content": "Think of division from grade school: `17 / 5 = 3 with a remainder of 2`.\n\n* Floor division gives the quotient: `17 // 5` -> `3`\n* Modulo gives the remainder: `17 % 5` -> `2`\n\nIf a number divides evenly with no remainder, modulo produces `0`:\n`20 % 5` -> `0`",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of modulo operator. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Think of division from grade school: `17 / 5 = 3 with a remainder of 2`. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "3.1_q4",
@@ -81,7 +81,7 @@
       "title": "Pattern: Checking Even vs. Odd",
       "content": "The most common real-world use of modulo is testing whether an integer is **even** or **odd** by dividing by `2`:\n\n* An even number divided by 2 has remainder `0`:\n  `n % 2 == 0` is `True`\n* An odd number divided by 2 has remainder `1`:\n  `n % 2 == 1` is `True`",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of even odd pattern. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "The most common real-world use of modulo is testing whether an integer is **even** or **odd** by dividing by `2`:\n\n* An even number divided by 2 has remainder `0`:\n  `n % 2 == 0` is `True`\n* An odd number divided by 2 has remainder `1`:\n  `n % 2 == 1` is `True`. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "3.1_q6",
@@ -115,7 +115,7 @@
       "accepted_answers": [
         "0"
       ],
-      "explanation": "In Python, this operation directly demonstrates the core behavior of even check. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "The modulo operator `%` calculates the remainder of division. For example, `7 % 3` yields `1` because 3 fits into 7 twice with 1 left over."
     },
     {
       "id": "3.1_q8",
@@ -129,7 +129,7 @@
       "title": "Exponentiation (**)",
       "content": "Python uses two asterisks `**` for power and exponents:\n```python\nprint(2 ** 4)  # 2 * 2 * 2 * 2 = 16\nprint(5 ** 2)  # 5 squared = 25\n```\n⚠️ Misconception: Do NOT use `^` for exponents! In Python, `^` is the bitwise XOR operator, not power!",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of exponentiation operator. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Python uses two asterisks `**` for power and exponents:\n```python\nprint(2 ** 4)  # 2 * 2 * 2 * 2 = 16\nprint(5 ** 2)  # 5 squared = 25\n```\n⚠️ Misconception: Do NOT use `^` for exponents! In Python, `^` is the bitwise XOR operator, not power!. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "3.1_q9",
@@ -162,7 +162,7 @@
       "prompt": "Fix this code so it calculates 3 cubed (27):",
       "starter_code": "cube = 3 ^ 3",
       "solution_code": "cube = 3 ** 3",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of fix power operator. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `fix power operator` in Arithmetic Operators. When Python validates this code, it applies the standard rules of fix power operator. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "3.1_q11",
@@ -177,7 +177,7 @@
       "title": "Floor Division Rounds DOWN",
       "content": "The floor division operator `//` calculates the mathematical quotient and rounds **down** (towards negative infinity):\n\n* Positive: `7 // 2` -> `3.5` rounded down is `3`\n* Even division: `8 // 2` -> `4`\n* Negative: `-7 // 2` -> `-3.5` rounded down is `-4`!",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of floor division deep dive. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "The floor division operator `//` calculates the mathematical quotient and rounds **down** (towards negative infinity):\n\n* Positive: `7 // 2` -> `3. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "3.1_q12",
@@ -196,7 +196,7 @@
         "D. 19"
       ],
       "correct_answer": "C",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of floor division positive. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Floor division `//` divides the operands and rounds down to the nearest integer floor. For positive numbers `7 // 2`, it discards the fractional remainder and returns `3`."
     },
     {
       "id": "3.1_q13",
@@ -230,7 +230,7 @@
       "title": "The Division Identity",
       "content": "Python guarantees the mathematical identity:\n```python\n(a // b) * b + (a % b) == a\n```\nBecause `//` rounds down towards negative infinity, in Python the result of `a % b` always has the **same sign as the divisor `b`**:\n```python\nprint(-7 % 4)  # 1 (because -2 * 4 + 1 = -7)\n```",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of negative modulo. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Python guarantees the mathematical identity:\n```python\n(a // b) * b + (a % b) == a\n```\nBecause `//` rounds down towards negative infinity, in Python the result of `a % b` always has the **same sign as the divisor `b`**:\n```python\nprint(-7 % 4)  # 1 (because -2 * 4 + 1 = -7)\n```. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "3.1_q15",
@@ -273,7 +273,7 @@
         "`%`": "Modulo (division remainder)",
         "`**`": "Exponentiation (raise to power)"
       },
-      "explanation": "In Python, this operation directly demonstrates the core behavior of operator symbols. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `operator symbols` in Arithmetic Operators. When Python validates this code, it applies the standard rules of operator symbols. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "3.1_q17",
@@ -287,7 +287,7 @@
       "prompt": "Write an expression that calculates the remainder when `47` is divided by `5`.",
       "starter_code": "",
       "solution_code": "47 % 5",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of modulo expression. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `modulo expression` in Arithmetic Operators. When Python validates this code, it applies the standard rules of modulo expression. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "3.1_q18",
@@ -345,7 +345,7 @@
         "D. Returns None."
       ],
       "correct_answer": "C",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of zero modulo error. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "The modulo operator `%` calculates the remainder of division. For example, `7 % 3` yields `1` because 3 fits into 7 twice with 1 left over."
     },
     {
       "id": "3.1_q21",
@@ -360,7 +360,7 @@
       "accepted_answers": [
         "**"
       ],
-      "explanation": "In Python, this operation directly demonstrates the core behavior of square operator. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `square operator` in Arithmetic Operators. When Python validates this code, it applies the standard rules of square operator. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "3.1_q22",
@@ -432,7 +432,7 @@
         "D. 0"
       ],
       "correct_answer": "B",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of unary negation. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Hyphens `-` are interpreted by Python's parser as subtraction operators, not identifier characters. In Python variable names, words must be joined using underscores `_`."
     },
     {
       "id": "3.1_q26",
@@ -466,7 +466,7 @@
       "prompt": "Fix this code so it uses true division `/` to get an exact decimal result (2.5) instead of floor division:",
       "starter_code": "ratio = 5 // 2\nprint(ratio)",
       "solution_code": "ratio = 5 / 2\nprint(ratio)",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of integer division bug. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Floor division `//` divides the operands and rounds down to the nearest integer floor. For positive numbers `7 // 2`, it discards the fractional remainder and returns `3`."
     },
     {
       "id": "3.1_q28",
@@ -517,7 +517,7 @@
       ],
       "prompt": "Which of the following summaries regarding Python arithmetic operators is completely TRUE?",
       "correct_answer": "A",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of arithmetic synthesis. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `arithmetic synthesis` in Arithmetic Operators. When Python validates this code, it applies the standard rules of arithmetic synthesis. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     }
   ],
   "unit_num": 3,

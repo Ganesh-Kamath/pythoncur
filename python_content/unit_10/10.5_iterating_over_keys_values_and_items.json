@@ -13,7 +13,7 @@
       "title": "Introduction to Iterating Over Dictionaries",
       "content": "Dictionaries in Python store data as key-value pairs. When you need to access every element in a dictionary, you can iterate over its keys, values, or both. The built-in methods `.keys()`, `.values()`, and `.items()` return view objects that let you loop through dictionary contents. For example, given `student = {'name': 'Aisha', 'age': 20, 'grade': 'A'}`, using `for key in student.keys():` yields 'name', 'age', and 'grade'. Similarly, `student.values()` yields 'Aisha', 20, and 'A', while `student.items()` yields tuples like ('name', 'Aisha'). This lesson focuses on recognizing when to use each method.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of iterating over keys values and items basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Dictionaries in Python store data as key-value pairs. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "10.5_q2",
@@ -46,7 +46,7 @@
       "title": "Syntax for Keys, Values, and Items",
       "content": "To iterate over dictionary contents, use a `for` loop combined with the appropriate method. The general syntax is `for variable in dictionary.keys():`, `for variable in dictionary.values():`, or `for key, value in dictionary.items():`. When using `.items()`, the loop unpacks each key-value pair into two variables. Here is a complete example:\n\n```python\nscores = {'math': 95, 'science': 88, 'english': 92}\n\nprint('Keys:')\nfor subject in scores.keys():\n    print(subject)\n\nprint('Values:')\nfor score in scores.values():\n    print(score)\n\nprint('Items:')\nfor subject, score in scores.items():\n    print(subject, ':', score)\n```\n\nThis code prints each category separately, demonstrating how each method exposes a different slice of the dictionary.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of iterating over keys values and items syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "To iterate over dictionary contents, use a `for` loop combined with the appropriate method. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "10.5_q4",
@@ -346,7 +346,7 @@
       "prompt": "Fix the bug in this code for iterating over keys values and items errors:",
       "starter_code": "# Fix this code\nPrint('Iterating Over keys(), values(), and items()')",
       "solution_code": "print('Iterating Over keys(), values(), and items()')",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of iterating over keys values and items errors. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Python logical operators use short-circuit evaluation: `and` stops and returns the first falsy operand, while `or` stops and returns the first truthy operand without evaluating subsequent expressions."
     },
     {
       "id": "10.5_q20",
@@ -394,7 +394,7 @@
       "prompt": "Fix the bug in this code for iterating over keys values and items runtime:",
       "starter_code": "# Fix this code\nPrint('Iterating Over keys(), values(), and items()')",
       "solution_code": "print('Iterating Over keys(), values(), and items()')",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of iterating over keys values and items runtime. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Python logical operators use short-circuit evaluation: `and` stops and returns the first falsy operand, while `or` stops and returns the first truthy operand without evaluating subsequent expressions."
     },
     {
       "id": "10.5_q23",

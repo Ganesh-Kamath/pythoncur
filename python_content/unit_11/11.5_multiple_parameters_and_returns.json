@@ -5,15 +5,27 @@
   "items": [
     {
       "id": "11.5_q1",
-      "type": "micro_lesson",
-      "title": "Introduction to Multiple Parameters and Returns",
-      "content": "In Python, a function can accept more than one parameter, allowing it to operate on multiple inputs. Similarly, a function can return more than one value using a tuple. When multiple values are returned, they are packed into a tuple automatically. You can unpack the returned tuple into separate variables using comma-separated assignment. For example, a function that calculates area and perimeter of a rectangle takes two parameters: length and width. It returns both values, which can be captured like this: result = calculate_rectangle(5, 3). The function definition uses def, followed by the function name, parameters in parentheses separated by commas, and a colon. The return statement can list multiple values separated by commas.",
+      "type": "code_prediction",
       "concept": "multiple_parameters_and_returns_basics",
-      "skill": "recognition",
+      "skill": "tuple_unpacking",
       "difficulty": "easy",
       "prerequisites": [],
-      "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of multiple parameters and returns basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "prompt": "When a Python function returns multiple comma-separated values, what data structure does it actually return?\n\n```python\ndef get_dimensions():\n    width = 1920\n    height = 1080\n    return width, height\n\nres = get_dimensions()\nprint(type(res))\n```",
+      "options": [
+        "<class 'tuple'>",
+        "<class 'list'>",
+        "<class 'dict'>",
+        "<class 'int'>"
+      ],
+      "correct_answer": "<class 'tuple'>",
+      "explanation": "Returning multiple items separated by commas packs them into a single `tuple` object. Python automatically packages `return x, y` as `return (x, y)`.",
+      "metadata": {
+        "concept": "multiple_return_tuple_packing",
+        "skill": "mental_model",
+        "learning_objective": "Understand that multiple return values are packed into a tuple",
+        "common_misconception": "Believing Python returns multiple independent return values simultaneously",
+        "why_this_exercise_exists": "Replaces template function with core tuple-packing mechanics"
+      }
     },
     {
       "id": "11.5_q2",
@@ -46,7 +58,7 @@
         "11.5_q2"
       ],
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of multiple parameters and returns syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "To define a function with multiple parameters, place the parameter names inside the parentheses separated by commas. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "11.5_q4",
@@ -223,23 +235,29 @@
     },
     {
       "id": "11.5_q13",
-      "type": "fill_in_the_blank",
-      "concept": "multiple_parameters_and_returns_syntax",
-      "skill": "syntax",
-      "difficulty": "easy",
+      "type": "output_prediction",
+      "concept": "multiple_parameters_and_returns_unpacking",
+      "skill": "tracing",
+      "difficulty": "medium",
       "prerequisites": [
         "11.5_q12"
       ],
-      "micro_lesson": {
-        "title": "Defining Functions with Multiple Parameters and Returns",
-        "content": "In Python, a function can accept more than one parameter by listing them separated with commas inside the parentheses. The return statement sends a value back to the caller. When a function has multiple parameters, each argument is matched to the corresponding parameter positionally or by name."
-      },
-      "prompt": "def calculate_area(w, h):\n    return w * h\n\n# Call the function with width 5 and height 10\narea = calculate_area(___)",
-      "correct_answer": "def",
-      "accepted_answers": [
-        "def"
+      "prompt": "Trace the execution of this score analysis function:\n\n```python\ndef analyze_scores(scores):\n    return min(scores), max(scores), sum(scores) / len(scores)\n\nlowest, highest, average = analyze_scores([80, 90, 100])\nprint(f\"{lowest}-{highest} (avg: {average:.0f})\")\n```\n\nWhat is output?",
+      "options": [
+        "80-100 (avg: 90)",
+        "100-80 (avg: 90)",
+        "80-100 (avg: 90.0)",
+        "TypeError: cannot unpack tuple"
       ],
-      "explanation": "The def keyword is required to declare a function in Python. Without it, the code would raise a SyntaxError."
+      "correct_answer": "80-100 (avg: 90)",
+      "explanation": "`analyze_scores` returns `(80, 100, 90.0)`. Unpacking assigns `lowest = 80`, `highest = 100`, and `average = 90.0`. Format specifier `:.0f` displays `90`.",
+      "metadata": {
+        "concept": "multi_return_unpacking_analytics",
+        "skill": "implementation",
+        "learning_objective": "Unpack multiple function returns into descriptive variables",
+        "common_misconception": "Mismatched unpacking variable count",
+        "why_this_exercise_exists": "Replaces template function with authentic multi-value statistical reporting"
+      }
     },
     {
       "idx": 14,
@@ -471,31 +489,23 @@
     {
       "id": "11.5_q25",
       "type": "write_the_code",
-      "concept": "multiple_parameters_and_returns_implementation",
-      "skill": "application",
-      "difficulty": "medium",
+      "concept": "multiple_parameters_and_returns_construction",
+      "skill": "construction",
+      "difficulty": "hard",
       "prerequisites": [
         "11.5_q24"
       ],
-      "prompt": "Write a function named calculate_rectangle_area that accepts two parameters: length and width. The function should return the area of the rectangle. Then, call the function with length 5 and width 3 and print the result.",
-      "starter_code": "def calculate_rectangle_area(length, width):\n    # TODO: compute and return area\n    pass\n\n# Call the function and print the result\nprint(calculate_rectangle_area(5, 3))",
-      "solution_code": "def calculate_rectangle_area(length, width):\n    return length * width\n\nprint(calculate_rectangle_area(5, 3))",
-      "test_cases": [
-        {
-          "input": "(4, 6)",
-          "expected": "24"
-        },
-        {
-          "input": "(7, 2)",
-          "expected": "14"
-        },
-        {
-          "input": "(0, 10)",
-          "expected": "0"
-        }
-      ],
-      "hint": "Multiply the two parameters together and use the return keyword to send the result back to the caller.",
-      "explanation": "This item checks whether the learner can define a function with multiple parameters, perform a simple arithmetic operation, and return the computed value. The caller then receives and prints the result."
+      "prompt": "Write a function `min_max_sum(numbers)` that takes a list of integers and returns a tuple of 3 elements: `(minimum, maximum, total_sum)`. Call it with `[5, 12, 3]` and unpack into `low, high, total`.",
+      "starter_code": "def min_max_sum(numbers):\n    # Return min, max, and sum\n    pass\n\nlow, high, total = min_max_sum([5, 12, 3])\nprint(low, high, total)",
+      "solution_code": "def min_max_sum(numbers):\n    return min(numbers), max(numbers), sum(numbers)\n\nlow, high, total = min_max_sum([5, 12, 3])\nprint(low, high, total)",
+      "explanation": "`min([5, 12, 3])` is 3, `max` is 12, and `sum` is 20. Returning them together creates a 3-tuple `(3, 12, 20)` which is cleanly unpacked.",
+      "metadata": {
+        "concept": "multi_value_return_implementation",
+        "skill": "function_design",
+        "learning_objective": "Design and consume functions returning multiple coordinated outputs",
+        "common_misconception": "Returning a list when an immutable tuple is standard",
+        "why_this_exercise_exists": "Replaces template function with practical aggregate analysis"
+      }
     },
     {
       "id": "11.5_q26",

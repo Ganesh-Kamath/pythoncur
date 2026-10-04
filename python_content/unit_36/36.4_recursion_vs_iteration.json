@@ -13,7 +13,7 @@
       "title": "Recognizing Recursion and Iteration",
       "content": "Recursion is a technique where a function calls itself to solve a smaller instance of the same problem. Iteration uses loops to repeat a block of code. Both approaches can solve the same problems, but they differ in structure and memory usage. A recursive solution breaks a problem into a base case and a recursive step, while an iterative solution updates state through loop variables. For example, calculating factorial can be done recursively or with a for loop. Recognizing which pattern is used is the first step in comparing them.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of recursion vs iteration basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Recursion is a technique where a function calls itself to solve a smaller instance of the same problem. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "36.4_q2",
@@ -46,7 +46,7 @@
       "title": "Syntax of Recursion and Iteration",
       "content": "In Python, recursion is expressed by a function that invokes itself, typically with a modified argument that moves toward a base case. Here is a recursive factorial:\n```python\ndef factorial(n):\n    if n <= 1:\n        return 1\n    return n * factorial(n - 1)\n```\nIn contrast, iteration uses a loop to accumulate a result. Here is an iterative factorial:\n```python\ndef factorial_iter(n):\n    result = 1\n    for i in range(2, n + 1):\n        result = result * i\n    return result\n```\nNotice that recursion uses a conditional check and a self-call, while iteration initializes a variable and updates it inside a loop. Understanding these syntax patterns helps you translate between the two approaches.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of recursion vs iteration syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "In Python, recursion is expressed by a function that invokes itself, typically with a modified argument that moves toward a base case. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "36.4_q4",
@@ -364,7 +364,7 @@
       "prompt": "Fix the bug in this code for recursion vs iteration errors:",
       "starter_code": "# Fix this code\nPrint('Recursion vs Iteration')",
       "solution_code": "print('Recursion vs Iteration')",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of recursion vs iteration errors. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `recursion vs iteration errors` in Recursion vs Iteration. When Python validates this code, it applies the standard rules of recursion vs iteration errors. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "36.4_q20",
@@ -412,7 +412,7 @@
       "prompt": "Fix the bug in this code for recursion vs iteration runtime:",
       "starter_code": "# Fix this code\nPrint('Recursion vs Iteration')",
       "solution_code": "print('Recursion vs Iteration')",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of recursion vs iteration runtime. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `recursion vs iteration runtime` in Recursion vs Iteration. When Python validates this code, it applies the standard rules of recursion vs iteration runtime. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "36.4_q23",

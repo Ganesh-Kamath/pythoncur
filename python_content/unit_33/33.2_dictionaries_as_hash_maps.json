@@ -13,7 +13,7 @@
       "title": "Dictionaries as Hash Maps: The Core Idea",
       "content": "A dictionary in Python is an implementation of a hash map, a data structure that stores key-value pairs. Under the hood, Python computes a hash of each key to determine where to store the corresponding value, enabling average O(1) lookup, insertion, and deletion. Unlike a list, which uses integer indices, a dictionary uses arbitrary immutable keys such as strings or tuples. This makes dictionaries ideal for modeling relationships like student IDs mapped to names. For example:\n\n```python\nstudent = {'id1': 'Alice', 'id2': 'Bob'}\nprint(student['id1'])  # Output: Alice\n```\n\nThe hash map property ensures that retrieving a value by its key is extremely fast because Python avoids scanning every element.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of dictionaries as hash maps basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "A dictionary in Python is an implementation of a hash map, a data structure that stores key-value pairs. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "33.2_q2",
@@ -46,7 +46,7 @@
       "title": "Creating and Accessing Dictionary Entries",
       "content": "You create a dictionary using curly braces with comma-separated key: value pairs. Keys and values can be of different types, though keys must be hashable. To retrieve a value, place the key inside square brackets after the dictionary name. If the key does not exist, Python raises a KeyError.\n\n```python\nscores = {'math': 85, 'science': 92}\nprint(scores['math'])      # Access an existing key\nscores['english'] = 78    # Insert a new key-value pair\nprint(scores)              # Output: {'math': 85, 'science': 92, 'english': 78}\n```\n\nBecause the underlying structure is a hash map, the insertion and lookup shown above run in average O(1) time. Always ensure your keys are immutable types such as strings, numbers, or tuples when using them in a dictionary.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of dictionaries as hash maps syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "You create a dictionary using curly braces with comma-separated key: value pairs. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "33.2_q4",
@@ -231,35 +231,46 @@
     },
     {
       "id": "33.2_q13",
-      "type": "fill_in_the_blank",
-      "concept": "dictionaries_as_hash_maps_syntax",
-      "skill": "syntax",
-      "difficulty": "easy",
+      "type": "write_the_code",
+      "concept": "frequency_map_counting",
+      "skill": "hash_maps",
+      "difficulty": "medium",
       "prerequisites": [
         "33.2_q12"
       ],
-      "prompt": "Complete the code to output 'Dictionaries as Hash Maps #13':\n```python\n___('Dictionaries as Hash Maps #13')\n```",
-      "correct_answer": "print",
-      "accepted_answers": [
-        "print"
-      ],
-      "explanation": "In Python, this operation directly demonstrates the core behavior of dictionaries as hash maps syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "prompt": "Build a character frequency dictionary `freq` for string `text = 'banana'` using `dict.get(char, 0) + 1`.",
+      "starter_code": "text = \"banana\"\nfreq = {}\n# Populate frequency dictionary\n",
+      "solution_code": "text = \"banana\"\nfreq = {}\nfor char in text:\n    freq[char] = freq.get(char, 0) + 1\nprint(freq)",
+      "explanation": "`freq.get(char, 0)` returns the current count or 0 if missing, enabling frequency counting in O(n) time.",
+      "metadata": {
+        "concept": "frequency_counting_dict",
+        "skill": "hash_maps",
+        "why_this_exercise_exists": "Replaces filler with frequency map implementation"
+      }
     },
     {
       "id": "33.2_q14",
-      "type": "fill_in_the_blank",
-      "concept": "dictionaries_as_hash_maps_keywords",
-      "skill": "syntax",
+      "type": "code_prediction",
+      "concept": "hash_map_lookup_complexity",
+      "skill": "complexity",
       "difficulty": "medium",
       "prerequisites": [
         "33.2_q13"
       ],
-      "prompt": "Complete the code to output 'Dictionaries as Hash Maps #14':\n```python\n___('Dictionaries as Hash Maps #14')\n```",
-      "correct_answer": "print",
-      "accepted_answers": [
-        "print"
+      "prompt": "What is the average time complexity of key lookup `key in dict` in a Python dictionary?",
+      "options": [
+        "O(1) average time",
+        "O(n) linear time",
+        "O(log n) logarithmic time",
+        "O(n^2) quadratic time"
       ],
-      "explanation": "In Python, this operation directly demonstrates the core behavior of dictionaries as hash maps keywords. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "correct_answer": "O(1) average time",
+      "explanation": "Python dictionaries use open-addressing hash tables, achieving O(1) average time complexity for key lookups, insertions, and deletions.",
+      "metadata": {
+        "concept": "hash_table_lookup_time",
+        "skill": "complexity",
+        "why_this_exercise_exists": "Replaces filler with O(1) hash map complexity"
+      }
     },
     {
       "id": "33.2_q15",
@@ -287,19 +298,27 @@
     },
     {
       "id": "33.2_q16",
-      "type": "fill_in_the_blank",
-      "concept": "dictionaries_as_hash_maps_patterns",
-      "skill": "syntax",
-      "difficulty": "medium",
+      "type": "code_prediction",
+      "concept": "two_sum_hash_map_optimization",
+      "skill": "algorithmic_patterns",
+      "difficulty": "hard",
       "prerequisites": [
         "33.2_q15"
       ],
-      "prompt": "Complete the code to output 'Dictionaries as Hash Maps #16':\n```python\n___('Dictionaries as Hash Maps #16')\n```",
-      "correct_answer": "print",
-      "accepted_answers": [
-        "print"
+      "prompt": "How does using a hash map optimize the classic Two-Sum problem from O(n^2) brute force to O(n)?",
+      "options": [
+        "By storing visited numbers in a dictionary, the complement (target - num) can be checked in O(1) time during a single pass.",
+        "By sorting the dictionary in O(1) time.",
+        "By splitting the array into two halves.",
+        "By converting the numbers to binary."
       ],
-      "explanation": "In Python, this operation directly demonstrates the core behavior of dictionaries as hash maps patterns. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "correct_answer": "By storing visited numbers in a dictionary, the complement (target - num) can be checked in O(1) time during a single pass.",
+      "explanation": "Checking `if (target - num) in seen:` executes in O(1) average time, reducing the pair search from nested O(n^2) loops to a single O(n) linear scan.",
+      "metadata": {
+        "concept": "two_sum_hash_optimization",
+        "skill": "algorithms",
+        "why_this_exercise_exists": "Replaces filler with canonical two-sum hash pattern"
+      }
     },
     {
       "id": "33.2_q17",
@@ -327,19 +346,22 @@
     },
     {
       "id": "33.2_q18",
-      "type": "fill_in_the_blank",
-      "concept": "dictionaries_as_hash_maps_idioms",
-      "skill": "syntax",
-      "difficulty": "medium",
+      "type": "write_the_code",
+      "concept": "grouping_by_key_dict",
+      "skill": "data_aggregation",
+      "difficulty": "hard",
       "prerequisites": [
         "33.2_q17"
       ],
-      "prompt": "Complete the code to output 'Dictionaries as Hash Maps #18':\n```python\n___('Dictionaries as Hash Maps #18')\n```",
-      "correct_answer": "print",
-      "accepted_answers": [
-        "print"
-      ],
-      "explanation": "In Python, this operation directly demonstrates the core behavior of dictionaries as hash maps idioms. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "prompt": "Group words `words = ['apple', 'bat', 'ant', 'ball']` by their first letter into a dictionary `groups` using `dict.setdefault(letter, []).append(word)`.",
+      "starter_code": "words = [\"apple\", \"bat\", \"ant\", \"ball\"]\ngroups = {}\n# Group words by first letter\n",
+      "solution_code": "words = [\"apple\", \"bat\", \"ant\", \"ball\"]\ngroups = {}\nfor w in words:\n    groups.setdefault(w[0], []).append(w)\nprint(groups)",
+      "explanation": "`setdefault(key, [])` initializes the list if the key is new and appends the word, creating `{'a': ['apple', 'ant'], 'b': ['bat', 'ball']}`.",
+      "metadata": {
+        "concept": "setdefault_grouping",
+        "skill": "data_aggregation",
+        "why_this_exercise_exists": "Replaces filler with hash map grouping"
+      }
     },
     {
       "id": "33.2_q19",

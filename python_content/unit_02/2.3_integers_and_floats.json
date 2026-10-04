@@ -15,7 +15,7 @@
       "title": "Integers: Whole Numbers",
       "content": "An **integer** (`int`) is a whole number without a fractional or decimal part. Integers can be positive, negative, or zero:\n```python\nscore = 100\nfreezing_point = -5\nitems = 0\n```\nIn Python 3, integers have **arbitrary precision**—they can grow as large as your computer's memory allows, without overflowing!",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of int definition. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "An **integer** (`int`) is a whole number without a fractional or decimal part. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "2.3_q2",
@@ -48,7 +48,7 @@
       "title": "Floats: Numbers with Decimals",
       "content": "A **float** (floating-point number) represents a real number that has a decimal point:\n```python\nprice = 19.99\nweight = 72.5\ntemp = -3.8\n```\nEven if the decimal part is zero, having a decimal point makes it a float:\n`5.0` is a `float`, while `5` is an `int`.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of float definition. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "A **float** (floating-point number) represents a real number that has a decimal point:\n```python\nprice = 19. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "2.3_q4",
@@ -81,7 +81,7 @@
       "title": "Readability: Underscores in Numbers",
       "content": "Large numbers like `1000000000` are hard for humans to read. \n\nPython allows you to insert underscores `_` anywhere inside numbers as visual digit separators. Python ignores them during execution:\n```python\none_million = 1_000_000\nlarge_float = 3.141_592\nprint(one_million)  # Prints 1000000\n```",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of underscores in numbers. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Large numbers like `1000000000` are hard for humans to read. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "2.3_q6",
@@ -115,7 +115,7 @@
       "title": "Division Always Returns a Float",
       "content": "In Python 3, standard division using `/` **always** results in a `float`, even if the division divides evenly:\n```python\nprint(10 / 2)  # Outputs: 5.0 (a float!)\nprint(7 / 2)   # Outputs: 3.5\n```\nTo perform integer division (discarding the remainder), use double-slash `//` (floor division):\n```python\nprint(7 // 2)  # Outputs: 3 (an int!)\n```",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of division always float. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "In Python 3, standard division using `/` **always** results in a `float`, even if the division divides evenly:\n```python\nprint(10 / 2)  # Outputs: 5. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "2.3_q8",
@@ -167,7 +167,7 @@
       "title": "Scientific Notation in Floats",
       "content": "For very large or very small numbers, Python supports scientific notation using `e` or `E` (meaning 'times 10 to the power of'):\n```python\nspeed_of_light = 3e8   # 3 * 10^8 = 300000000.0\nsmall_val = 1.5e-3     # 1.5 * 10^-3 = 0.0015\n```\nNumbers written in scientific notation are automatically stored as `float`.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of scientific notation. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Conditional branching with `if`, `elif`, and `else` controls program execution paths. Indentation defines the statement block that executes when a condition evaluates to True."
     },
     {
       "id": "2.3_q11",
@@ -186,7 +186,7 @@
         "D. 23"
       ],
       "correct_answer": "B",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of scientific notation. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `scientific notation` in Integers and Floats. When Python evaluates this code, it applies the standard rules of scientific notation. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "2.3_q12",
@@ -201,7 +201,7 @@
       "title": "Floating-Point Precision Gotcha",
       "content": "Computers store floating-point numbers in base-2 (binary). Just as fractions like 1/3 cannot be represented cleanly in base-10 decimals (`0.33333...`), fractions like 1/10 (`0.1`) cannot be stored with exact finite binary bits.\n\nBecause of this:\n```python\nprint(0.1 + 0.2)\n# Outputs: 0.30000000000000004\n```\nThis is not a Python bug—it is an inherent property of hardware IEEE 754 floating-point arithmetic across virtually all languages.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of float precision. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Computers store floating-point numbers in base-2 (binary). Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "2.3_q13",
@@ -258,7 +258,7 @@
       "accepted_answers": [
         "_"
       ],
-      "explanation": "In Python, this operation directly demonstrates the core behavior of underscores in numbers. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "In Python variable names, letters, numbers, and the underscore `_` are the only legal characters. The underscore is the sole allowed special punctuation mark."
     },
     {
       "id": "2.3_q16",
@@ -278,7 +278,7 @@
         "D. TypeError"
       ],
       "correct_answer": "B",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of mixed type arithmetic. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `mixed type arithmetic` in Integers and Floats. When Python evaluates this code, it applies the standard rules of mixed type arithmetic. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "2.3_q17",
@@ -292,7 +292,7 @@
       "prompt": "Create a variable named `pi` and assign it the float value `3.14159`.",
       "starter_code": "",
       "solution_code": "pi = 3.14159",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of float creation. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `float creation` in Integers and Floats. When Python validates this code, it applies the standard rules of float creation. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "2.3_q18",
@@ -379,7 +379,7 @@
       "accepted_answers": [
         "//"
       ],
-      "explanation": "In Python, this operation directly demonstrates the core behavior of floor division operator. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `floor division operator` in Integers and Floats. When Python validates this code, it applies the standard rules of floor division operator. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "2.3_q23",
@@ -431,7 +431,7 @@
       "prompt": "Calculate the exact split bill per person for a $75.00 dinner shared equally by 4 friends, and print the result.",
       "starter_code": "total = 75.00\nfriends = 4\n# Calculate per_person and print it\n",
       "solution_code": "total = 75.00\nfriends = 4\nper_person = total / friends\nprint(per_person)",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of split bill calculation. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Python logical operators use short-circuit evaluation: `and` stops and returns the first falsy operand, while `or` stops and returns the first truthy operand without evaluating subsequent expressions."
     },
     {
       "id": "2.3_q26",

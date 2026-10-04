@@ -13,7 +13,7 @@
       "title": "What Are Dataclasses?",
       "content": "A dataclass is a Python class that primarily stores data. Instead of writing repetitive boilerplate code like __init__, __repr__, and __eq__, you can use the @dataclass decorator from the dataclasses module. This saves time and reduces errors. Here is a simple example:\n\n```python\nfrom dataclasses import dataclass\n\n@dataclass\nclass Point:\n    x: int\n    y: int\n\np = Point(1, 2)\nprint(p)\n```\n\nWhen you run this, Python automatically generates the __init__ method to accept x and y, and __repr__ to print a readable representation. Dataclasses are especially useful for data-centric objects such as records, configuration objects, or model instances.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of dataclasses basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "A dataclass is a Python class that primarily stores data. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "22.4_q2",
@@ -46,7 +46,7 @@
       "title": "Dataclass Syntax and Field Definitions",
       "content": "To define a dataclass, you import dataclass from dataclasses and decorate your class. Each field is declared with a type annotation. You can optionally provide a default value. Here is the general pattern:\n\n```python\nfrom dataclasses import dataclass\n\n@dataclass\nclass Person:\n    name: str\n    age: int = 0\n\nperson = Person('Alice', 30)\nprint(person.age)\n```\n\nNotice that age has a default value of 0. When a default is provided, the corresponding parameter becomes optional in the generated __init__. Fields without defaults must come before fields with defaults. This ordering rule is enforced by Python.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of dataclasses syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "To define a dataclass, you import dataclass from dataclasses and decorate your class. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "22.4_q4",

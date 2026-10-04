@@ -13,7 +13,7 @@
       "title": "What Is Composition?",
       "content": "Composition is a design principle where a class contains an instance of another class as a member, representing a 'has-a' relationship. Instead of inheriting behavior, the containing class delegates tasks to its composed object. This promotes flexibility because components can be swapped without changing the outer class. For example, a Car class can have an Engine object inside it, rather than inheriting from Engine.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of composition basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Composition is a design principle where a class contains an instance of another class as a member, representing a 'has-a' relationship. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "21.6_q2",
@@ -46,7 +46,7 @@
       "title": "Writing Composition in Python",
       "content": "To use composition, define a class and create an instance of another class as an attribute. Initialize the composed object inside the constructor. Then, delegate method calls to that instance. Here is an example:\n\n```python\nclass Engine:\n    def start(self):\n        return 'Engine started'\n\nclass Car:\n    def __init__(self):\n        self.engine = Engine()\n\n    def drive(self):\n        return self.engine.start() + ' - Car moving'\n```\n\nThe Car class holds an Engine object and forwards the start action to it.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of composition syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "To use composition, define a class and create an instance of another class as an attribute. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "21.6_q4",
@@ -279,7 +279,7 @@
         "y = 20",
         "print(x + y)"
       ],
-      "explanation": "In Python, this operation directly demonstrates the core behavior of composition sequence. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Python logical operators use short-circuit evaluation: `and` stops and returns the first falsy operand, while `or` stops and returns the first truthy operand without evaluating subsequent expressions."
     },
     {
       "id": "21.6_q16",

@@ -13,7 +13,7 @@
       "title": "What is Graph and Tree Traversal?",
       "content": "Traversal means visiting every node in a data structure exactly once in a systematic way. In trees and graphs, we use traversal algorithms to explore nodes, collect data, or search for values. Common patterns include Depth-First Search (DFS) and Breadth-First Search (BFS). DFS explores as far as possible along each branch before backtracking, while BFS explores all neighbors at the present depth before moving deeper. Recognizing these patterns helps you identify when a problem requires visiting all reachable nodes. Here is a simple Python illustration of BFS using a queue:\n\n```python\nfrom collections import deque\n\ndef bfs(graph, start):\n    visited = set()\n    queue = deque([start])\n    while queue:\n        node = queue.popleft()\n        if node not in visited:\n            print('Visiting:', node)\n            visited.add(node)\n            queue.extend(graph.get(node, []))\n    return visited\n\ngraph = {\n    'A': ['B', 'C'],\n    'B': ['D'],\n    'C': [],\n    'D': []\n}\n\nbfs(graph, 'A')\n```\n\nThis code visits nodes level by level, which is the essence of BFS traversal.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of recognizing graph and tree traversal basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Traversal means visiting every node in a data structure exactly once in a systematic way. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "41.5_q2",
@@ -46,7 +46,7 @@
       "title": "Syntax Patterns for Traversals",
       "content": "When implementing traversal in Python, two common syntactic patterns emerge. The recursive pattern suits tree-like structures where each node has children, while the iterative pattern with an explicit stack or queue suits graphs to avoid recursion limits. For DFS on a tree, you recursively visit the left child, then the right child. For BFS on a graph, you maintain a queue of nodes to process. Here is a recursive DFS example on a simple binary tree represented by nested tuples:\n\n```python\ndef dfs_tree(node):\n    if node is None:\n        return\n    print('Processing:', node[0])\n    dfs_tree(node[1])\n    dfs_tree(node[2])\n\n# node = (value, left_subtree, right_subtree)\ntree = (1, (2, None, None), (3, None, None))\ndfs_tree(tree)\n```\n\nNotice how the function calls itself for each child. This recursive call stack is the hallmark of DFS syntax.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of recognizing graph and tree traversal syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "When implementing traversal in Python, two common syntactic patterns emerge. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "41.5_q4",
@@ -363,7 +363,7 @@
       "prompt": "Fix the bug in this code for recognizing graph and tree traversal errors:",
       "starter_code": "# Fix this code\nPrint('Recognizing Graph and Tree Traversal')",
       "solution_code": "print('Recognizing Graph and Tree Traversal')",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of recognizing graph and tree traversal errors. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Python logical operators use short-circuit evaluation: `and` stops and returns the first falsy operand, while `or` stops and returns the first truthy operand without evaluating subsequent expressions."
     },
     {
       "id": "41.5_q20",
@@ -411,7 +411,7 @@
       "prompt": "Fix the bug in this code for recognizing graph and tree traversal runtime:",
       "starter_code": "# Fix this code\nPrint('Recognizing Graph and Tree Traversal')",
       "solution_code": "print('Recognizing Graph and Tree Traversal')",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of recognizing graph and tree traversal runtime. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Python logical operators use short-circuit evaluation: `and` stops and returns the first falsy operand, while `or` stops and returns the first truthy operand without evaluating subsequent expressions."
     },
     {
       "id": "41.5_q23",

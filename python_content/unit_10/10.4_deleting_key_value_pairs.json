@@ -13,7 +13,7 @@
       "title": "What Does Deleting a Key-Value Pair Mean?",
       "content": "A dictionary in Python stores data as key-value pairs. Sometimes you need to remove an entry you no longer need. Deleting a key-value pair means removing one specific entry from the dictionary without affecting the other entries. You use the del statement or the pop() method to remove a pair. For example, if you have a dictionary called scores and you want to remove the entry for 'alice', you can write: del scores['alice']. After this operation, 'alice' will no longer be a key in the dictionary. If you try to access scores['alice'] later, Python will raise a KeyError. Remember that deletion is permanent and cannot be undone unless you saved the dictionary elsewhere.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of deleting keyvalue pairs basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "A dictionary in Python stores data as key-value pairs. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "10.4_q2",
@@ -46,7 +46,7 @@
       "title": "Syntax for Deleting Dictionary Entries",
       "content": "There are two common ways to delete a key-value pair from a dictionary in Python. The first is using the del statement, which directly removes the key from the dictionary. For example: my_dict = {'a': 1, 'b': 2}; del my_dict['a']. After this, 'a' is gone. The second method is using the pop() method, which also removes the key but returns its value. For example: my_dict.pop('b') returns 2 and also removes 'b' from my_dict. If the key does not exist, del will raise a KeyError, while pop() can take a second argument as a default value to avoid an error. Both methods modify the dictionary in place.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of deleting keyvalue pairs syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "There are two common ways to delete a key-value pair from a dictionary in Python. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "10.4_q4",

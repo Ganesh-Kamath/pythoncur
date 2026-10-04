@@ -13,7 +13,7 @@
       "title": "What Is Independent Architectural Design?",
       "content": "Independent architectural design is the practice of planning the structure of a Python program before writing code. It means deciding how your program will be organized into modules, functions, and classes so that each part has a single responsibility. For example, if you are building a calculator, you might create one function for addition, another for subtraction, and a main function to coordinate them. This separation makes code easier to read, test, and maintain. When you design independently, you think about the big picture first: what inputs are needed, what processing occurs, and what output is produced. A simple architectural sketch might look like this:\n\n```python\ndef add(a, b):\n    return a + b\n\ndef subtract(a, b):\n    return a - b\n\ndef main():\n    x = 10\n    y = 4\n    print(add(x, y))\n    print(subtract(x, y))\n\nif __name__ == '__main__':\n    main()\n```\nIn this sketch, `add` and `subtract` are independent building blocks. Recognizing this pattern early helps you build robust programs.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of independent architectural design basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Independent architectural design is the practice of planning the structure of a Python program before writing code. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "43.4_q2",
@@ -46,7 +46,7 @@
       "title": "Syntax for Independent Functions",
       "content": "When designing independently, you express each architectural component as a well-defined Python function. A function signature typically includes a name, parameters, and a return statement. Consider this example of a reusable validation helper:\n\n```python\ndef is_positive(value):\n    if value > 0:\n        return True\n    else:\n        return False\n\ndef process_input(user_value):\n    if is_positive(user_value):\n        return user_value * 2\n    else:\n        return 0\n```\nNotice how `is_positive` performs one clear check and returns a boolean. `process_input` then uses that result to decide its own behavior. This syntax—`def name(parameters):` followed by indented logic and an explicit `return`—is the foundation of independent architectural design. Always keep each function focused on a single task.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of independent architectural design syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "When designing independently, you express each architectural component as a well-defined Python function. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "43.4_q4",

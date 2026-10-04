@@ -13,7 +13,7 @@
       "title": "What Are Custom Exception Classes?",
       "content": "In Python, you can define your own exception classes to represent specific error conditions in your application. A custom exception class is simply a class that inherits from the built-in `Exception` class (or a subclass like `ValueError`). This allows you to raise and catch errors that are meaningful to your domain. For example, if you are building a banking application, a generic `Exception` does not clearly indicate a 'InsufficientFundsError'. By creating a custom class, you make your code more readable and your error handling more precise. To define one, use the `class` keyword followed by the class name ending with `Error`, and inherit from `Exception`. You can optionally add an `__init__` method to store additional context, such as an error message or an account balance.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of custom exception classes basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "In Python, you can define your own exception classes to represent specific error conditions in your application. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "18.4_q2",
@@ -46,7 +46,7 @@
       "title": "Syntax for Defining and Using Custom Exceptions",
       "content": "To create a custom exception with a custom message, define the `__init__` method inside your class. The `super().__init__(message)` call ensures the base `Exception` class is properly initialized with the provided message. Once defined, you can raise it using `raise InvalidAgeError('Age must be positive')` and catch it with `except InvalidAgeError as e:`. The `as e` binds the exception instance to a variable, allowing you to inspect its attributes, such as `e.args` or a custom `self.balance` if you stored one. This pattern keeps your error handling explicit and your debugging information rich.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of custom exception classes syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "To create a custom exception with a custom message, define the `__init__` method inside your class. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "18.4_q4",
@@ -182,7 +182,7 @@
           "expected_output": "Custom Exception Classes"
         }
       ],
-      "explanation": "In Python, this operation directly demonstrates the core behavior of custom exception classes analysis. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `custom exception classes analysis` in Custom Exception Classes. When Python validates this code, it applies the standard rules of custom exception classes analysis. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "18.4_q11",
@@ -546,7 +546,7 @@
       ],
       "prompt": "You are given a partially implemented TemperatureMonitor class. It should raise a custom exception when a temperature reading is outside the safe range of -10 to 50 degrees Celsius. Complete the class by defining the custom exception and the validate method. The validate method must raise the custom exception with the invalid reading and a descriptive message.",
       "starter_code": "class TemperatureMonitor:\n    SAFE_MIN = -10\n    SAFE_MAX = 50\n\n    def validate(self, reading):\n        if reading < self.SAFE_MIN or reading > self.SAFE_MAX:\n            # TODO: define and raise custom exception here\n            pass\n        return True\n\n# Test\nmon = TemperatureMonitor()\nmon.validate(60)",
-      "solution_code": "class OutOfRangeError(Exception):\n    def __init__(self, reading):\n        self.reading = reading\n        super().__init__(f'Temperature {reading}\u00b0C is out of safe range')\n\n    def __str__(self):\n        return f'{self.args[0]} (Reading: {self.reading}\u00b0C)'\n\nclass TemperatureMonitor:\n    SAFE_MIN = -10\n    SAFE_MAX = 50\n\n    def validate(self, reading):\n        if reading < self.SAFE_MIN or reading > self.SAFE_MAX:\n            raise OutOfRangeError(reading)\n        return True\n\n# Test\nmon = TemperatureMonitor()\ntry:\n    mon.validate(60)\nexcept OutOfRangeError as e:\n    print(e)",
+      "solution_code": "class OutOfRangeError(Exception):\n    def __init__(self, reading):\n        self.reading = reading\n        super().__init__(f'Temperature {reading}°C is out of safe range')\n\n    def __str__(self):\n        return f'{self.args[0]} (Reading: {self.reading}°C)'\n\nclass TemperatureMonitor:\n    SAFE_MIN = -10\n    SAFE_MAX = 50\n\n    def validate(self, reading):\n        if reading < self.SAFE_MIN or reading > self.SAFE_MAX:\n            raise OutOfRangeError(reading)\n        return True\n\n# Test\nmon = TemperatureMonitor()\ntry:\n    mon.validate(60)\nexcept OutOfRangeError as e:\n    print(e)",
       "test_cases": [
         "assert mon.validate(-15) == False; assert isinstance(e, OutOfRangeError); assert e.reading == -15",
         "assert mon.validate(25) == True"

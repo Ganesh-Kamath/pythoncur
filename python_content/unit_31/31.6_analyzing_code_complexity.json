@@ -11,9 +11,9 @@
       "difficulty": "easy",
       "prerequisites": [],
       "title": "What is Big O Notation?",
-      "content": "Big O notation describes how the runtime or space requirements of an algorithm grow as the input size increases. It focuses on the dominant term and ignores constant factors. For example, if an algorithm performs 5n + 3 operations, we simplify this to O(n). Common complexities include O(1) for constant time, O(n) for linear time, and O(n\u00b2) for quadratic time. Recognizing these patterns helps you compare algorithms efficiently.",
+      "content": "Big O notation describes how the runtime or space requirements of an algorithm grow as the input size increases. It focuses on the dominant term and ignores constant factors. For example, if an algorithm performs 5n + 3 operations, we simplify this to O(n). Common complexities include O(1) for constant time, O(n) for linear time, and O(n²) for quadratic time. Recognizing these patterns helps you compare algorithms efficiently.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of analyzing code complexity basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Big O notation describes how the runtime or space requirements of an algorithm grow as the input size increases. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "idx": 2,
@@ -46,9 +46,9 @@
         "31.6_q2"
       ],
       "title": "Identifying Linear Complexity in a Loop",
-      "content": "A single loop that iterates once over the input typically yields O(n) complexity. Consider this example:\n\n```python\ndef sum_all(nums):\n    total = 0\n    for n in nums:\n        total = total + n\n    return total\n```\n\nHere, the loop runs n times where n is the length of nums. The work inside the loop is constant, so the overall complexity is O(n). Nested loops usually indicate higher complexity, such as O(n\u00b2).",
+      "content": "A single loop that iterates once over the input typically yields O(n) complexity. Consider this example:\n\n```python\ndef sum_all(nums):\n    total = 0\n    for n in nums:\n        total = total + n\n    return total\n```\n\nHere, the loop runs n times where n is the length of nums. The work inside the loop is constant, so the overall complexity is O(n). Nested loops usually indicate higher complexity, such as O(n²).",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of analyzing code complexity syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Conditional branching with `if`, `elif`, and `else` controls program execution paths. Indentation defines the statement block that executes when a condition evaluates to True."
     },
     {
       "idx": 4,
@@ -64,7 +64,7 @@
       "options": [
         "O(1)",
         "O(n)",
-        "O(n\u00b2)",
+        "O(n²)",
         "O(log n)"
       ],
       "correct_answer": "O(n)",
@@ -84,8 +84,8 @@
       "options": [
         "Single loop over input -> O(n)",
         "Nested loops over input -> O(n)",
-        "Direct index access -> O(n\u00b2)",
-        "Two separate loops over input -> O(n\u00b2)"
+        "Direct index access -> O(n²)",
+        "Two separate loops over input -> O(n²)"
       ],
       "correct_answer": "Single loop over input -> O(n)",
       "explanation": "A single loop that processes each element once corresponds to linear time, O(n)."

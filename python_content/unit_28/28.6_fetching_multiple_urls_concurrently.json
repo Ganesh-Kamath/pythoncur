@@ -13,7 +13,7 @@
       "title": "Why Fetch URLs Concurrently?",
       "content": "When you need to download data from several websites, fetching them one after another is slow because you must wait for each request to finish before starting the next. Concurrency lets you start multiple network requests at the same time and collect the results as they arrive. In Python, the `asyncio` library combined with `aiohttp` allows you to write asynchronous code that handles many I/O-bound tasks without blocking the program. This lesson introduces the core idea: instead of sequential waiting, you launch all fetches together and await their completion together.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of fetching multiple urls concurrently basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "When you need to download data from several websites, fetching them one after another is slow because you must wait for each request to finish before starting the next. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "28.6_q2",
@@ -46,7 +46,7 @@
       "title": "Core Syntax: asyncio.gather with aiohttp",
       "content": "To fetch multiple URLs concurrently, create an async helper that uses `aiohttp.ClientSession` to send a GET request, then use `asyncio.gather` to run several of those helpers at once. Each helper returns the response text or status. The key pattern is:\n\n```python\nimport aiohttp\nimport asyncio\n\nasync def fetch(session, url):\n    async with session.get(url) as response:\n        return await response.text()\n\nasync def main():\n    urls = [\n        'https://api.example.com/data1',\n        'https://api.example.com/data2'\n    ]\n    async with aiohttp.ClientSession() as session:\n        results = await asyncio.gather(*[fetch(session, url) for url in urls])\n        print(results)\n\nasyncio.run(main())\n```\n\nHere, `asyncio.gather` accepts an iterable of awaitables and schedules them concurrently. The session is shared for connection pooling, and each `fetch` call is awaited independently.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of fetching multiple urls concurrently syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "To fetch multiple URLs concurrently, create an async helper that uses `aiohttp. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "28.6_q4",

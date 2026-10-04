@@ -13,7 +13,7 @@
       "title": "What Is a For Loop?",
       "content": "A for loop in Python is used to repeat a block of code a specific number of times. It is ideal when you know in advance how many iterations you need. The basic idea is to iterate over a sequence, such as a list, tuple, or string, and execute the same code for each item. For example, if you have a list of fruits and you want to print each one, a for loop lets you do that without writing the print statement multiple times. Here is a simple example:\n\n```python\nmy_list = ['apple', 'banana', 'cherry']\nfor item in my_list:\n    print(item)\n```\n\nIn this code, the for keyword starts the loop, item is a variable that holds the current element during each iteration, and the colon indicates the start of the indented block. Python executes the indented code once for every element in my_list.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of the for loop basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Loops repeat a block of code while a condition holds True or across elements in an iterable. Loop termination depends on advancing the state variable or encountering a break statement."
     },
     {
       "id": "6.4_q2",
@@ -46,7 +46,7 @@
       "title": "For Loop Syntax and Structure",
       "content": "The standard syntax of a for loop in Python follows this pattern:\n\n```python\nfor variable in iterable:\n    # indented block of code\n```\n\nThe variable on the left of the in keyword acts as a placeholder that receives the next value from the iterable during each iteration. The iterable can be a list, tuple, string, dictionary, or any object that supports iteration. The code inside the loop must be indented, typically with four spaces. If you forget the indentation or the colon, Python raises an IndentationError or SyntaxError. Here is a complete example using a string:\n\n```python\nmessage = 'hello'\nfor character in message:\n    print(character)\n```\n\nThis loop prints 'h', then 'e', then 'l', then 'l', then 'o', each on a separate line. Understanding this structure is essential before writing more complex loops.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of the for loop syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Loops repeat a block of code while a condition holds True or across elements in an iterable. Loop termination depends on advancing the state variable or encountering a break statement."
     },
     {
       "id": "6.4_q4",
@@ -375,7 +375,7 @@
       "prompt": "Fix the bug in this code for the for loop errors:",
       "starter_code": "# Fix this code\nPrint('The for Loop')",
       "solution_code": "print('The for Loop')",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of the for loop errors. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `the for loop errors` in The for Loop. When Python validates this code, it applies the standard rules of the for loop errors. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "6.4_q20",
@@ -426,7 +426,7 @@
       "prompt": "Fix the bug in this code for the for loop runtime:",
       "starter_code": "# Fix this code\nPrint('The for Loop')",
       "solution_code": "print('The for Loop')",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of the for loop runtime. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `the for loop runtime` in The for Loop. When Python validates this code, it applies the standard rules of the for loop runtime. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "6.4_q23",

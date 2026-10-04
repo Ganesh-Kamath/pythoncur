@@ -13,7 +13,7 @@
       "concept": "returning_values_basics",
       "prerequisites": [],
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of returning values basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "When a function finishes running, it can send a value back to the code that called it using the return statement. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "11.4_q2",
@@ -47,7 +47,7 @@
         "11.4_q2"
       ],
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of returning values syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "The return statement has a simple syntax: return followed by an optional expression. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "11.4_q4",
@@ -400,7 +400,7 @@
       "prompt": "Fix the bug in this code for returning values errors:",
       "starter_code": "# Fix this code\nPrint('Returning Values')",
       "solution_code": "print('Returning Values')",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of returning values errors. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `returning values errors` in Returning Values. When Python validates this code, it applies the standard rules of returning values errors. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "11.4_q20",
@@ -448,7 +448,7 @@
       "prompt": "Fix the bug in this code for returning values runtime:",
       "starter_code": "# Fix this code\nPrint('Returning Values')",
       "solution_code": "print('Returning Values')",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of returning values runtime. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `returning values runtime` in Returning Values. When Python validates this code, it applies the standard rules of returning values runtime. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "11.4_q23",
@@ -551,24 +551,29 @@
     },
     {
       "id": "11.4_q28",
-      "type": "real_world_scenario",
-      "concept": "payroll_calculation",
-      "skill": "application",
-      "difficulty": "hard",
+      "type": "output_prediction",
+      "concept": "returning_values_print_vs_return",
+      "skill": "mental_model",
+      "difficulty": "medium",
       "prerequisites": [
         "11.4_q27"
       ],
-      "prompt": "Write a function `calculate_payroll(hourly_rate, hours_worked)` that returns total earnings, calculating 1.5x overtime for any hours worked beyond 40:",
-      "starter_code": "def calculate_payroll(hourly_rate, hours_worked):\n    if hours_worked <= 40:\n        return hourly_rate * hours_worked\n    # Calculate regular + 1.5x overtime for hours > 40\n    ___",
-      "solution_code": "def calculate_payroll(hourly_rate, hours_worked):\n    if hours_worked <= 40:\n        return hourly_rate * hours_worked\n    regular_pay = hourly_rate * 40\n    overtime_pay = (hours_worked - 40) * (hourly_rate * 1.5)\n    return regular_pay + overtime_pay",
-      "test_cases": [
-        {
-          "input": "",
-          "expected_output": "Returning Values Result 28"
-        }
+      "prompt": "A critical distinction in programming is `print()` versus `return`. What does this code print?\n\n```python\ndef square(n):\n    print(n * n)\n\nresult = square(4)\nprint(f\"Result is: {result}\")\n```",
+      "options": [
+        "16\nResult is: None",
+        "16\nResult is: 16",
+        "Result is: 16",
+        "TypeError: cannot format NoneType"
       ],
-      "hint": "Base pay is `40 * hourly_rate`. Overtime pay is `(hours_worked - 40) * hourly_rate * 1.5`.",
-      "explanation": "Returning computed values allows calling code to save, log, or further process payroll figures (such as tax withholding) downstream."
+      "correct_answer": "16\nResult is: None",
+      "explanation": "Calling `square(4)` prints `16` to the console as a side-effect, but because `square()` does not have a `return` statement, it implicitly returns `None`. Therefore, `result` holds `None`!",
+      "metadata": {
+        "concept": "print_vs_return_distinction",
+        "skill": "mental_model",
+        "learning_objective": "Distinguish between printing to stdout and returning data to callers",
+        "common_misconception": "Assuming print() returns the value it displays",
+        "why_this_exercise_exists": "Fixes one of the deepest misconceptions in introductory programming"
+      }
     },
     {
       "id": "11.4_q29",

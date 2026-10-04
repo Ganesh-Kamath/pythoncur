@@ -10,100 +10,131 @@
       "skill": "recognition",
       "difficulty": "easy",
       "prerequisites": [],
-      "title": "Keyword Arguments Part 1: Keyword Arguments Basics",
-      "content": "In Python, **Keyword Arguments Basics** provides essential rules when working with keyword arguments.\n\nUnderstanding how `keyword_arguments_basics` functions in practice enables you to write clean, unambiguous code.\n\n```python\n# Step 1: keyword_arguments_basics\nstage_1 = True\n```",
-      "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of keyword arguments basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "title": "Named Keyword Arguments",
+      "content": "When calling functions, you can specify arguments by parameter name:\n\n```python\ndef setup_user(username, role=\"viewer\"):\n    return f\"{username}: {role}\"\n\n# Order-independent call:\nsetup_user(role=\"admin\", username=\"kiran\")\n```\n\nKeyword arguments clarify meaning at call sites and allow arguments to be supplied in any order.",
+      "explanation": "Keyword arguments match parameter names explicitly, avoiding ordering ambiguities.",
+      "metadata": {
+        "concept": "keyword_arguments_concept",
+        "skill": "recognition",
+        "why_this_exercise_exists": "Teaches keyword argument clarity"
+      }
     },
     {
       "id": "15.2_q2",
       "type": "output_prediction",
       "concept": "keyword_arguments_basics",
-      "skill": "recall",
+      "skill": "tracing",
       "difficulty": "easy",
       "prerequisites": [
         "15.2_q1"
       ],
-      "prompt": "Consider the following Python snippet demonstrating Keyword Arguments Basics:\n\n```python\ndef calculate_2(value):\n    base = 8\n    return base + value * 11\n\nresult = calculate_2(2)\nprint(result)\n```\n\nWhat is the value printed to the console?",
+      "prompt": "What is output when calling this function with explicit keyword arguments?\n\n```python\ndef format_user(name, role):\n    return f\"{name}: {role}\"\n\nprint(format_user(role=\"Admin\", name=\"Maya\"))\n```",
       "options": [
-        "30",
-        "19",
-        "110",
-        "TypeError"
+        "Maya: Admin",
+        "Admin: Maya",
+        "TypeError: parameters out of order",
+        "None"
       ],
-      "correct_answer": "30",
-      "explanation": "Python evaluates arithmetic following standard operator precedence (multiplication before addition). First, `value * 11` evaluates to `2 * 11 = 22`. Then, adding `base` (8) yields `30`. The function returns this integer and `print()` outputs it."
+      "correct_answer": "Maya: Admin",
+      "explanation": "Keyword arguments allow arguments to be passed in any order because Python matches values by parameter name rather than position.",
+      "metadata": {
+        "concept": "keyword_argument_order_independence",
+        "skill": "mental_model",
+        "learning_objective": "Understand that named keyword arguments resolve by identifier, ignoring position",
+        "common_misconception": "Thinking keyword arguments must match positional declaration order",
+        "why_this_exercise_exists": "Replaces template function with proper keyword resolution"
+      }
     },
     {
       "id": "15.2_q3",
       "type": "micro_lesson",
-      "concept": "keyword_arguments_syntax",
-      "skill": "understanding",
+      "concept": "keyword_arguments_kwargs_dict",
+      "skill": "recognition",
       "difficulty": "easy",
       "prerequisites": [
         "15.2_q2"
       ],
-      "title": "Keyword Arguments Part 3: Keyword Arguments Syntax",
-      "content": "In Python, **Keyword Arguments Syntax** provides essential rules when working with keyword arguments.\n\nUnderstanding how `keyword_arguments_syntax` functions in practice enables you to write clean, unambiguous code.\n\n```python\n# Step 3: keyword_arguments_syntax\nstage_3 = True\n```",
-      "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of keyword arguments syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "title": "Arbitrary Keyword Arguments (**kwargs)",
+      "content": "Using `**kwargs` allows a function to accept any number of named arguments, which Python packs into a dictionary:\n\n```python\ndef build_profile(first, last, **details):\n    details[\"first_name\"] = first\n    details[\"last_name\"] = last\n    return details\n```",
+      "explanation": "**kwargs captures unassigned keyword arguments into a standard Python dictionary.",
+      "metadata": {
+        "concept": "kwargs_dictionary_capture",
+        "skill": "recognition",
+        "why_this_exercise_exists": "Teaches **kwargs dictionary packing"
+      }
     },
     {
       "id": "15.2_q4",
-      "type": "output_prediction",
-      "concept": "keyword_arguments_syntax",
-      "skill": "reasoning",
-      "difficulty": "easy",
+      "type": "error_diagnosis",
+      "concept": "keyword_arguments_basics",
+      "skill": "syntax_rules",
+      "difficulty": "medium",
       "prerequisites": [
         "15.2_q3"
       ],
-      "prompt": "Consider the following Python snippet demonstrating Keyword Arguments Syntax:\n\n```python\ndef calculate_4(value):\n    base = 14\n    return base + value * 6\n\nresult = calculate_4(2)\nprint(result)\n```\n\nWhat is the value printed to the console?",
+      "prompt": "Why does Python reject this function call?\n\n```python\ndef setup_server(host, port=8080, debug=False):\n    pass\n\nsetup_server(port=9000, \"localhost\")\n```",
       "options": [
-        "26",
-        "20",
-        "96",
-        "TypeError"
+        "SyntaxError: positional argument follows keyword argument",
+        "TypeError: host is missing",
+        "ValueError: duplicate arguments",
+        "NameError: localhost is not defined"
       ],
-      "correct_answer": "26",
-      "explanation": "Python evaluates arithmetic following standard operator precedence (multiplication before addition). First, `value * 6` evaluates to `2 * 6 = 12`. Then, adding `base` (14) yields `26`. The function returns this integer and `print()` outputs it."
+      "correct_answer": "SyntaxError: positional argument follows keyword argument",
+      "explanation": "In Python call syntax, all positional arguments MUST appear before any keyword arguments. Placing `\"localhost\"` after `port=9000` causes a parse-time `SyntaxError`.",
+      "metadata": {
+        "concept": "positional_before_keyword_rule",
+        "skill": "syntax_rules",
+        "learning_objective": "Enforce that positional arguments precede keyword arguments in calls",
+        "common_misconception": "Mixing positional arguments freely after named keyword arguments",
+        "why_this_exercise_exists": "Replaces template function with core Python grammar rule"
+      }
     },
     {
       "id": "15.2_q5",
       "type": "output_prediction",
-      "concept": "keyword_arguments_matching",
-      "skill": "recognition",
-      "difficulty": "easy",
+      "concept": "keyword_arguments_basics",
+      "skill": "kwargs_unpacking",
+      "difficulty": "medium",
       "prerequisites": [
         "15.2_q4"
       ],
-      "prompt": "Consider the following Python snippet demonstrating Keyword Arguments Matching:\n\n```python\ndef calculate_5(value):\n    base = 17\n    return base + value * 11\n\nresult = calculate_5(2)\nprint(result)\n```\n\nWhat is the value printed to the console?",
+      "prompt": "What does `**kwargs` receive when passing named options?\n\n```python\ndef configure_db(**settings):\n    return sorted(settings.keys())\n\nkeys = configure_db(host=\"localhost\", port=5432, ssl=True)\nprint(keys)\n```",
       "options": [
-        "39",
-        "28",
-        "209",
+        "['host', 'port', 'ssl']",
+        "['localhost', 5432, True]",
+        "('host', 'port', 'ssl')",
         "TypeError"
       ],
-      "correct_answer": "39",
-      "explanation": "Python evaluates arithmetic following standard operator precedence (multiplication before addition). First, `value * 11` evaluates to `2 * 11 = 22`. Then, adding `base` (17) yields `39`. The function returns this integer and `print()` outputs it."
+      "correct_answer": "['host', 'port', 'ssl']",
+      "explanation": "`**settings` packs arbitrary keyword arguments into a standard Python dictionary `{'host': 'localhost', 'port': 5432, 'ssl': True}`. `sorted(settings.keys())` returns the alphabetically sorted list of keys.",
+      "metadata": {
+        "concept": "kwargs_dictionary_packing",
+        "skill": "dict_manipulation",
+        "learning_objective": "Inspect keyword arguments captured via **kwargs",
+        "common_misconception": "Thinking kwargs produces a tuple",
+        "why_this_exercise_exists": "Replaces template function with practical kwargs dictionary usage"
+      }
     },
     {
       "id": "15.2_q6",
-      "type": "output_prediction",
-      "concept": "keyword_arguments_pitfalls",
-      "skill": "comprehension",
-      "difficulty": "easy",
+      "type": "fix_the_code",
+      "concept": "keyword_arguments_basics",
+      "skill": "repair",
+      "difficulty": "medium",
       "prerequisites": [
         "15.2_q5"
       ],
-      "prompt": "Consider the following Python snippet demonstrating Keyword Arguments Pitfalls:\n\n```python\ndef calculate_6(value):\n    base = 20\n    return base + value * 1\n\nresult = calculate_6(2)\nprint(result)\n```\n\nWhat is the value printed to the console?",
-      "options": [
-        "22",
-        "21",
-        "22",
-        "TypeError"
-      ],
-      "correct_answer": "22",
-      "explanation": "Python evaluates arithmetic following standard operator precedence (multiplication before addition). First, `value * 1` evaluates to `2 * 1 = 2`. Then, adding `base` (20) yields `22`. The function returns this integer and `print()` outputs it."
+      "prompt": "Fix the call to `create_user` below so positional arguments come first:\n\n```python\ndef create_user(username, email, is_admin=False):\n    return f\"{username} ({email}) admin={is_admin}\"\n\n# Fix this call:\nprofile = create_user(is_admin=True, \"sam\", \"sam@code.org\")\n```",
+      "starter_code": "def create_user(username, email, is_admin=False):\n    return f\"{username} ({email}) admin={is_admin}\"\n\nprofile = create_user(is_admin=True, \"sam\", \"sam@code.org\")",
+      "solution_code": "def create_user(username, email, is_admin=False):\n    return f\"{username} ({email}) admin={is_admin}\"\n\nprofile = create_user(\"sam\", \"sam@code.org\", is_admin=True)\nprint(profile)",
+      "explanation": "Supplying `\"sam\"` and `\"sam@code.org\"` as the leading positional arguments followed by `is_admin=True` satisfies Python's ordering requirement.",
+      "metadata": {
+        "concept": "argument_order_correction",
+        "skill": "repair",
+        "learning_objective": "Order positional parameters before keyword arguments in invocations",
+        "common_misconception": "Passing keyword overrides before positional parameters",
+        "why_this_exercise_exists": "Replaces template function with practical argument cleanup"
+      }
     },
     {
       "id": "15.2_q7",
@@ -215,24 +246,29 @@
     },
     {
       "id": "15.2_q13",
-      "type": "fill_in_the_blank",
-      "concept": "keyword_arguments_syntax",
-      "skill": "syntax",
-      "difficulty": "easy",
+      "type": "output_prediction",
+      "concept": "keyword_arguments_unpacking",
+      "skill": "dictionary_unpacking",
+      "difficulty": "medium",
       "prerequisites": [
         "15.2_q12"
       ],
-      "micro_lesson": {
-        "title": "Keyword Argument Syntax",
-        "content": "In Python, you can pass arguments to a function by explicitly naming each parameter. This is called a keyword argument. Instead of relying on the order of parameters, you use the parameter name followed by an equals sign and the value. This makes code more readable and less error-prone when functions have many parameters. For example, a function defined as `def greet(name, greeting):` can be called with `greet(name='Alice', greeting='Hi')`. The order of keyword arguments does not matter, though it is conventional to place them in the same order as the function definition."
-      },
-      "prompt": "Complete the function call by filling in the blank with the correct keyword argument syntax: `calculate_area(width=5, ____)`",
-      "correct_answer": "height=10",
-      "accepted_answers": [
-        "height=10",
-        "height = 10"
+      "prompt": "What happens when unpacking a dictionary using `**` into a function?\n\n```python\ndef connect(host, port):\n    return f\"{host}:{port}\"\n\nconfig = {\"host\": \"api.codolingo.com\", \"port\": 443}\nprint(connect(**config))\n```",
+      "options": [
+        "api.codolingo.com:443",
+        "host:port",
+        "TypeError: connect() accepts 2 arguments, got 1 dict",
+        "None"
       ],
-      "explanation": "The blank requires a keyword argument in the form `parameter_name=value`. Since the function expects a height, we write `height=10` to pass 10 as the value for the height parameter."
+      "correct_answer": "api.codolingo.com:443",
+      "explanation": "The `**config` syntax unpacks key-value pairs as individual keyword arguments into `connect()`, perfectly binding `host='api.codolingo.com'` and `port=443`.",
+      "metadata": {
+        "concept": "dictionary_argument_unpacking",
+        "skill": "idiomatic_python",
+        "learning_objective": "Unpack dictionaries into keyword arguments using double-splat (**)",
+        "common_misconception": "Passing the dict directly as a single positional parameter",
+        "why_this_exercise_exists": "Replaces template function with essential configuration unpacking"
+      }
     },
     {
       "id": "15.2_q14",

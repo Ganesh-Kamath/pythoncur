@@ -13,7 +13,7 @@
       "title": "What is a Hash Table?",
       "content": "A hash table is a data structure that maps keys to values using a hash function. The hash function computes an index into an array of buckets or slots, from which the desired value can be found. This allows for average-case constant time O(1) for insertions, deletions, and lookups. In Python, dictionaries are implemented using hash tables. For example, consider the following code:\n\n```python\ndef simple_hash(key):\n    return hash(key) % 10\n\nmy_dict = {}\nmy_dict['apple'] = 5\nmy_dict['banana'] = 3\nindex = simple_hash('apple')\nprint(index)  # Output depends on Python's hash, but demonstrates the idea\n```\n\nUnderstanding that a hash table uses a hash function to quickly locate data is the foundation for working with dictionaries and sets in Python.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of hash tables concepts basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "A hash table is a data structure that maps keys to values using a hash function. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "33.1_q2",
@@ -46,7 +46,7 @@
       "title": "Python Dictionary Syntax for Hash Tables",
       "content": "In Python, you create and use a hash table using a dictionary. The syntax involves curly braces {}, colons :, and commas between key-value pairs. Keys must be hashable, meaning they must have a fixed value during their lifetime in the dictionary. Strings, numbers, and tuples are hashable, while lists and dictionaries are not. Here is a valid example:\n\n```python\nstudent_scores = {\n    'alice': 88,\n    'bob': 92,\n    'charlie': 76\n}\n\n# Accessing a value\nprint(student_scores['alice'])\n\n# Adding a new key-value pair\nstudent_scores['diana'] = 95\n\n# Removing a key-value pair\ndel student_scores['bob']\n```\n\nNotice how string literals use single quotes, which is the preferred style in Python for simple strings.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of hash tables concepts syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "In Python, you create and use a hash table using a dictionary. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "33.1_q4",

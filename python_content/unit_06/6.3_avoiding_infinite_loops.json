@@ -13,7 +13,7 @@
       "title": "What Is an Infinite Loop?",
       "content": "An infinite loop is a loop that never stops running because its condition is always true. In Python, a common example is using a while loop with a condition that never changes inside the loop. For example, running `while True:` without any `break` statement will cause the program to run forever. To avoid infinite loops, always ensure that the loop variable or condition changes in a way that eventually becomes false. Here is an example of a safe loop:\n\n```python\ncount = 0\nwhile count < 5:\n    print('Count is:', count)\n    count += 1\n```\n\nNotice that `count` increases each time, so the loop will stop after 5 iterations.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of avoiding infinite loops basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Loops repeat a block of code while a condition holds True or across elements in an iterable. Loop termination depends on advancing the state variable or encountering a break statement."
     },
     {
       "id": "6.3_q2",
@@ -46,7 +46,7 @@
       "title": "Updating the Loop Variable",
       "content": "To prevent an infinite loop, you must update a variable inside the loop so that the loop condition eventually evaluates to false. If you forget to change the variable, the condition stays the same and the loop runs forever. Consider this correct example:\n\n```python\nnumber = 1\nwhile number <= 3:\n    print('Current number:', number)\n    number += 1\n```\n\nHere, `number += 1` increases the value on each iteration. Without this update, `number` would stay at 1 forever and the loop would never exit. Always check that your loop body contains code that moves the loop closer to termination.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of avoiding infinite loops syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "In Python, variable names must begin with a letter or underscore, cannot start with a digit, and cannot contain spaces or special punctuation. Following PEP 8 snake_case conventions ensures identifiers remain clear, legal, and unambiguous."
     },
     {
       "id": "6.3_q4",
@@ -354,7 +354,7 @@
       "prompt": "Fix the bug in this code for avoiding infinite loops errors:",
       "starter_code": "# Fix this code\nPrint('Avoiding Infinite Loops')",
       "solution_code": "print('Avoiding Infinite Loops')",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of avoiding infinite loops errors. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `avoiding infinite loops errors` in Avoiding Infinite Loops. When Python validates this code, it applies the standard rules of avoiding infinite loops errors. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "6.3_q20",
@@ -402,7 +402,7 @@
       "prompt": "Fix the bug in this code for avoiding infinite loops runtime:",
       "starter_code": "# Fix this code\nPrint('Avoiding Infinite Loops')",
       "solution_code": "print('Avoiding Infinite Loops')",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of avoiding infinite loops runtime. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `avoiding infinite loops runtime` in Avoiding Infinite Loops. When Python validates this code, it applies the standard rules of avoiding infinite loops runtime. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "6.3_q23",

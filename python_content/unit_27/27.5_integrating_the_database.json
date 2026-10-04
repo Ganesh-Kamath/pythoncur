@@ -13,7 +13,7 @@
       "title": "Why Integrate a Database with Your Web Backend",
       "content": "When building a web application, your backend needs a persistent place to store and retrieve data. A database fills this role. In Python, common choices include SQLite for lightweight projects and PostgreSQL or MySQL for production systems. To connect Python to a database, you typically install a driver such as sqlite3 (built-in) or psycopg2. The basic workflow is: import the driver, establish a connection, create a cursor, execute SQL statements, commit changes, and close the connection. For example:\n\n```python\nimport sqlite3\n\nconn = sqlite3.connect('example.db')\ncursor = conn.cursor()\ncursor.execute(\"CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY, name TEXT)\")\nconn.commit()\nconn.close()\n```\n\nRecognizing this pattern helps you understand how your web backend persists data beyond a single request.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of integrating the database basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "When building a web application, your backend needs a persistent place to store and retrieve data. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "27.5_q2",
@@ -46,7 +46,7 @@
       "title": "Writing SQL Through Python with Parameters",
       "content": "To safely insert data into a database from Python, use parameterized queries with placeholders. This prevents SQL injection and ensures values are properly quoted. The placeholder style depends on the driver; for sqlite3, it is a question mark (?). Here is a complete example that inserts a new record and then reads it back:\n\n```python\nimport sqlite3\n\nconn = sqlite3.connect('school.db')\ncursor = conn.cursor()\n\ncursor.execute('INSERT INTO students (name, grade) VALUES (?, ?)', ('Aisha', 10))\nconn.commit()\n\ncursor.execute('SELECT * FROM students WHERE name = ?', ('Aisha',))\nrow = cursor.fetchone()\nprint(row)\n\nconn.close()\n```\n\nNotice how the values are passed as a separate tuple to the execute method. The driver handles escaping and quoting automatically.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of integrating the database syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "To safely insert data into a database from Python, use parameterized queries with placeholders. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "27.5_q4",

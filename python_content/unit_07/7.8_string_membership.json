@@ -13,7 +13,7 @@
       "title": "What is the in Operator for Strings?",
       "content": "The `in` operator checks whether a substring exists inside a string. It returns `True` if the substring is found, and `False` otherwise. This is a membership test, similar to checking if an item is in a list.\n\nExample:\n```python\ns = 'python'\nprint('p' in s)   # True\nprint('java' in s)  # False\n```\n\nKey points:\n- `in` only looks for exact matches of the substring.\n- It is case-sensitive, so `'P' in 'Python'` is `False`.\n- It works with any iterable, not just strings.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of string membership in basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Strings in Python are immutable sequences of Unicode characters enclosed in single, double, or triple quotes. Because strings cannot be modified in place, all transformations return new string instances."
     },
     {
       "id": "7.8_q2",
@@ -46,7 +46,7 @@
       "title": "Syntax of the in Operator",
       "content": "The general syntax is:\n```python\nsubstring in target_string\n```\n\n- `substring`: the smaller string you are searching for.\n- `target_string`: the string you are searching inside.\n\nThe operator evaluates to a Boolean value: `True` if the substring is present, `False` if it is not.\n\nExamples:\n```python\nname = 'Alice'\nprint('lice' in name)   # True\nprint('bob' in name)    # False\n```\n\nNote: `in` is not the same as equality (`==`). Equality checks the entire string, while `in` checks for a part.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of string membership in syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Python operators follow standard mathematical precedence (PEMDAS). Division (`/`) always produces a float, while floor division (`//`) truncates to an integer."
     },
     {
       "id": "7.8_q4",
@@ -126,7 +126,7 @@
         "String Membership (in) (repeated)"
       ],
       "correct_answer": "String Membership (in)",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of string membership in execution. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `string membership in execution` in String Membership (in). When Python evaluates this code, it applies the standard rules of string membership in execution. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "7.8_q8",

@@ -13,7 +13,7 @@
       "title": "Recognizing break and continue",
       "content": "In Python, loops normally run through every item in an iterable. Two keywords let you alter that flow: break and continue. The break keyword immediately terminates the loop entirely, skipping any remaining iterations. The continue keyword skips only the current iteration and moves to the next one. For example, consider a for loop that searches for the first negative number in a list. Using break stops the search as soon as one is found. Using continue would skip printing or processing negative numbers while still checking the rest of the list. Recognizing when a program uses break versus continue is the first step toward controlling repetition precisely.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of loop control break and continue basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "In Python, loops normally run through every item in an iterable. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "6.6_q2",
@@ -46,7 +46,7 @@
       "title": "Syntax of break and continue",
       "content": "Both break and continue are standalone statements inside a loop. They do not require a value or an expression after them. Here is the syntax for each. For a for loop: for item in sequence: if condition: break else: continue. For a while loop: while condition: if condition: break else: continue. The indentation must place break or continue inside the loop body. If you place them outside the loop, Python raises an IndentationError. Because they are simple keywords, you can use them in nested loops as well. In a nested loop, break only affects the innermost loop unless you use additional control structures.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of loop control break and continue syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Both break and continue are standalone statements inside a loop. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "6.6_q4",
@@ -350,7 +350,7 @@
       "prompt": "Fix the bug in this code for loop control break and continue errors:",
       "starter_code": "# Fix this code\nPrint('Loop Control: break and continue')",
       "solution_code": "print('Loop Control: break and continue')",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of loop control break and continue errors. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Python logical operators use short-circuit evaluation: `and` stops and returns the first falsy operand, while `or` stops and returns the first truthy operand without evaluating subsequent expressions."
     },
     {
       "id": "6.6_q20",
@@ -398,7 +398,7 @@
       "prompt": "Fix the bug in this code for loop control break and continue runtime:",
       "starter_code": "# Fix this code\nPrint('Loop Control: break and continue')",
       "solution_code": "print('Loop Control: break and continue')",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of loop control break and continue runtime. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Python logical operators use short-circuit evaluation: `and` stops and returns the first falsy operand, while `or` stops and returns the first truthy operand without evaluating subsequent expressions."
     },
     {
       "id": "6.6_q23",

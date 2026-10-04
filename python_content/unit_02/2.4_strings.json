@@ -15,7 +15,7 @@
       "title": "What is a String?",
       "content": "A **string** (`str`) is an ordered sequence of characters used to store and manipulate text data.\n\nIn Python, you create a string literal by enclosing characters in matching quotes:\n```python\nusername = \"developer_42\"\ngreeting = 'Hello!'\n```\nStrings can contain letters, numbers, punctuation, spaces, emojis, and symbols.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of string definition. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Strings in Python are immutable sequences of Unicode characters enclosed in single, double, or triple quotes. Because strings cannot be modified in place, all transformations return new string instances."
     },
     {
       "id": "2.4_q2",
@@ -48,7 +48,7 @@
       "title": "Apostrophes and Quotes Without Escaping",
       "content": "If your text contains an apostrophe or single quote, wrap the string in **double quotes**:\n```python\nmessage = \"It's a great day!\"  # Clean and readable\n```\nIf your text contains double quotes, wrap the string in **single quotes**:\n```python\nquote = 'He said, \"Welcome!\"'\n```",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of quote nesting. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "If your text contains an apostrophe or single quote, wrap the string in **double quotes**:\n```python\nmessage = \"It's a great day!\"  # Clean and readable\n```\nIf your text contains double quotes, wrap the string in **single quotes**:\n```python\nquote = 'He said, \"Welcome!\"'\n```. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "2.4_q4",
@@ -95,7 +95,7 @@
       "title": "Multi-Line Strings (Triple Quotes)",
       "content": "To write a string that spans multiple lines while preserving exact line breaks and formatting, use **triple quotes** (`\"\"\"` or `'''`):\n```python\nemail_template = \"\"\"\nHi,\nThank you for signing up!\nBest regards,\nCodolingo\n\"\"\"\n```",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of multiline strings. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Strings in Python are immutable sequences of Unicode characters enclosed in single, double, or triple quotes. Because strings cannot be modified in place, all transformations return new string instances."
     },
     {
       "id": "2.4_q7",
@@ -128,7 +128,7 @@
       "title": "String Concatenation (+)",
       "content": "You can join two or more strings together using the plus operator (`+`). This is called **concatenation**:\n```python\nfirst = \"Super\"\nsecond = \"nova\"\ncombined = first + second\nprint(combined)  # Prints: Supernova\n```\nNote: The `+` operator does NOT add spaces automatically! If you want a space, you must include it explicitly.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of string concatenation. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Strings in Python are immutable sequences of Unicode characters enclosed in single, double, or triple quotes. Because strings cannot be modified in place, all transformations return new string instances."
     },
     {
       "id": "2.4_q9",
@@ -147,7 +147,7 @@
         "D. Hello\\nWorld"
       ],
       "correct_answer": "B",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of string concatenation. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `string concatenation` in Strings. When Python evaluates this code, it applies the standard rules of string concatenation. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "2.4_q10",
@@ -177,7 +177,7 @@
       "title": "String Repetition (*)",
       "content": "You can repeat a string multiple times by multiplying it by an integer using `*`:\n```python\ncheer = \"Hip! \" * 3\nprint(cheer)  # Prints: Hip! Hip! Hip! \n\ndivider = \"-\" * 20\nprint(divider)  # Prints: --------------------\n```",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of string multiplication. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Strings in Python are immutable sequences of Unicode characters enclosed in single, double, or triple quotes. Because strings cannot be modified in place, all transformations return new string instances."
     },
     {
       "id": "2.4_q12",
@@ -196,7 +196,7 @@
         "D. Echo!Echo!"
       ],
       "correct_answer": "A",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of string multiplication. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `string multiplication` in Strings. When Python evaluates this code, it applies the standard rules of string multiplication. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "2.4_q13",
@@ -211,7 +211,7 @@
       "title": "The Golden Rule: Can't Concatenate Str and Int",
       "content": "Python is strongly typed. You CANNOT use `+` between a string and an integer:\n```python\nage = 25\n# message = \"I am \" + age  # TypeError!\n```\nWhy? Because `+` means addition for numbers, but concatenation for text. Python refuses to guess which one you meant!",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of type error string int. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Python is strongly typed. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "2.4_q14",
@@ -263,7 +263,7 @@
       "title": "String Length: len()",
       "content": "The built-in `len()` function returns the number of characters in a string (including spaces and punctuation):\n```python\nword = \"Python\"\nprint(len(word))  # Prints 6\n\nempty = \"\"\nprint(len(empty))  # Prints 0\n```",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of len function. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Strings in Python are immutable sequences of Unicode characters enclosed in single, double, or triple quotes. Because strings cannot be modified in place, all transformations return new string instances."
     },
     {
       "id": "2.4_q17",
@@ -321,7 +321,7 @@
         "`\"a\" * 3`": "`\"aaa\"` (Repetition)",
         "`len(\"cat\")`": "`3` (Length)"
       },
-      "explanation": "In Python, this operation directly demonstrates the core behavior of string operations. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `string operations` in Strings. When Python validates this code, it applies the standard rules of string operations. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "2.4_q20",
@@ -370,7 +370,7 @@
       "prompt": "Create a variable named `language` assigned to the string `'Python'`.",
       "starter_code": "",
       "solution_code": "language = \"Python\"",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of string creation. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `string creation` in Strings. When Python validates this code, it applies the standard rules of string creation. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "2.4_q23",
@@ -424,7 +424,7 @@
       "prompt": "Write a line of code that creates a string of 10 equal signs `\"=\"`, and prints it.",
       "starter_code": "",
       "solution_code": "print(\"=\" * 10)",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of string formatting divider. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `string formatting divider` in Strings. When Python validates this code, it applies the standard rules of string formatting divider. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "2.4_q26",
@@ -456,7 +456,7 @@
       ],
       "prompt": "You are building a CLI tool and need to print a decorative border of 40 asterisks `*`. Which approach is most Pythonic?",
       "correct_answer": "B",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of cli header generation. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Python logical operators use short-circuit evaluation: `and` stops and returns the first falsy operand, while `or` stops and returns the first truthy operand without evaluating subsequent expressions."
     },
     {
       "id": "2.4_q28",
@@ -475,7 +475,7 @@
         "D. It needs a semicolon."
       ],
       "correct_answer": "A",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of unmatched quotes. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `unmatched quotes` in Strings. When Python validates this code, it applies the standard rules of unmatched quotes. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "2.4_q29",
@@ -506,7 +506,7 @@
       ],
       "prompt": "Which of the following statements about Python strings is completely TRUE?",
       "correct_answer": "A",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of string synthesis. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `string synthesis` in Strings. When Python validates this code, it applies the standard rules of string synthesis. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     }
   ],
   "unit_num": 2,

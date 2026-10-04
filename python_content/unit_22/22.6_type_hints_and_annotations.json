@@ -13,7 +13,7 @@
       "title": "What Are Type Hints?",
       "content": "Type hints are optional annotations in Python that specify the expected data type of variables, function parameters, and return values. They do not change runtime behavior but help static analysis tools, IDEs, and developers understand code intent. Introduced in Python 3.5 via PEP 484, they improve readability and catch bugs before execution. Example: def greet(name: str) -> str: return f'Hello, {name}' Here, name is expected to be a string and the function returns a string. The interpreter ignores these annotations during normal execution, but tools like mypy can verify them.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of type hints and annotations basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Python uses explicit type casting (such as `int()`, `float()`, and `str()`) to convert data safely between types. Unintended type mixing triggers TypeError or ValueError if strings contain invalid literals."
     },
     {
       "id": "22.6_q2",
@@ -36,17 +36,29 @@
     },
     {
       "id": "22.6_q3",
-      "type": "micro_lesson",
-      "concept": "type_hints_and_annotations_syntax",
-      "skill": "understanding",
-      "difficulty": "easy",
+      "type": "code_prediction",
+      "concept": "type_hints_and_annotations_runtime",
+      "skill": "mental_model",
+      "difficulty": "medium",
       "prerequisites": [
         "22.6_q2"
       ],
-      "title": "Syntax of Annotations",
-      "content": "The basic syntax places a colon after the parameter name followed by the type, and an arrow with the return type after the parameter list. For multiple parameters, each gets its own annotation. You can also annotate local variables. Example: def calculate_area(width: float, height: float) -> float: area = width * height return area x: int = 5 y: str = 'world' print(x, y) Note that string annotations inside quotes are evaluated lazily at runtime, so 'int' is stored as a string unless imported from typing. For built-in generic types like list or dict, use from typing import List, Dict and write List[int] or Dict[str, int].",
-      "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of type hints and annotations syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "prompt": "Does Python enforce type annotations at runtime by default?\n\n```python\ndef repeat_msg(msg: str, count: int) -> str:\n    return msg * count\n\nprint(repeat_msg(5, 2))\n```",
+      "options": [
+        "10 (Python does not enforce type annotations at runtime; it treats them as documentation/hints for static analyzers like mypy).",
+        "TypeError: argument msg expected str, received int.",
+        "'55'",
+        "SyntaxError: type annotations not supported in function body."
+      ],
+      "correct_answer": "10 (Python does not enforce type annotations at runtime; it treats them as documentation/hints for static analyzers like mypy).",
+      "explanation": "In standard Python, type hints are purely annotations. Python does not validate or enforce types during execution. `repeat_msg(5, 2)` performs standard integer multiplication `5 * 2 = 10`. Static type checkers like `mypy` or IDEs use the hints to catch errors before runtime.",
+      "metadata": {
+        "concept": "type_hints_runtime_enforcement",
+        "skill": "mental_model",
+        "learning_objective": "Understand that Python type annotations are non-enforcing hints at runtime",
+        "common_misconception": "Assuming Python behaves like Java or C++ and raises TypeErrors when annotations don't match runtime values",
+        "why_this_exercise_exists": "Replaces template function with essential Python typing semantics"
+      }
     },
     {
       "id": "22.6_q4",
@@ -234,21 +246,29 @@
     },
     {
       "id": "22.6_q13",
-      "type": "fill_in_the_blank",
-      "concept": "type_hints_and_annotations_syntax",
-      "skill": "syntax",
-      "difficulty": "easy",
+      "type": "output_prediction",
+      "concept": "type_hints_and_annotations_union",
+      "skill": "syntax_comprehension",
+      "difficulty": "medium",
       "prerequisites": [
         "22.6_q12"
       ],
-      "prompt": "Complete the function signature by filling in the blank: def calculate_area(radius: ___):",
-      "correct_answer": "float",
-      "accepted_answers": [
-        "float",
-        "int",
-        "float | int"
+      "prompt": "In modern Python 3.10+, what does the pipe operator `|` represent in type annotations?\n\n```python\ndef parse_id(raw: int | str) -> int:\n    return int(raw)\n\nprint(parse_id(\"42\") + parse_id(10))\n```",
+      "options": [
+        "52",
+        "Bitwise OR operation",
+        "TypeError: pipe operator not allowed in annotations",
+        "None"
       ],
-      "explanation": "In Python type hints, you place a colon followed by the type after the parameter name. For a numeric radius, 'float' is the standard annotation, though 'int' is also acceptable. The pipe syntax 'float | int' is valid in Python 3.10+ for union types."
+      "correct_answer": "52",
+      "explanation": "In modern Python, `int | str` is the union type syntax (equivalent to `typing.Union[int, str]`), meaning the parameter accepts either an `int` or a `str`. Both `'42'` and `10` are parsed to ints and summed: `42 + 10 = 52`.",
+      "metadata": {
+        "concept": "union_type_syntax",
+        "skill": "modern_python",
+        "learning_objective": "Read and write modern union type annotations with the pipe syntax",
+        "common_misconception": "Confusing typing union with bitwise OR",
+        "why_this_exercise_exists": "Replaces template function with modern type annotation standards"
+      }
     },
     {
       "id": "22.6_q14",

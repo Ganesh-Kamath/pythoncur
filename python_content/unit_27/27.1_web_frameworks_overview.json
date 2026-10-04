@@ -13,7 +13,7 @@
       "title": "What is a Web Framework?",
       "content": "A web framework is a software framework that is designed to support the development of web applications, including web services, web resources, and web APIs. It provides a standard way to build and deploy web applications. Instead of reinventing the wheel, developers use frameworks to handle common tasks like routing, request handling, and template rendering. Popular Python web frameworks include Flask, Django, and FastAPI. Below is a simple example of a minimal Flask application that returns a greeting:\n\n```python\nfrom flask import Flask\n\napp = Flask(__name__)\n\n@app.route('/hello')\ndef hello():\n    return 'Hello, World!'\n```\n\nIn this snippet, `Flask` is imported, an application instance is created, and a route is defined to respond when a user visits the `/hello` URL.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of web frameworks overview basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "A web framework is a software framework that is designed to support the development of web applications, including web services, web resources, and web APIs. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "27.1_q2",
@@ -46,7 +46,7 @@
       "title": "Basic Syntax in Flask",
       "content": "Flask uses decorators to map URLs to Python functions. The `@app.route()` decorator tells Flask which URL should trigger the function below it. The function must return a response, which is typically a string, HTML, or JSON. Here is a slightly more complete example that accepts a name parameter:\n\n```python\nfrom flask import Flask\n\napp = Flask(__name__)\n\n@app.route('/greet/<name>')\ndef greet(name):\n    return f'Hello, {name}!'\n```\n\nWhen a user visits `/greet/Alice`, Flask calls `greet('Alice')` and returns the string `'Hello, Alice!'`.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of web frameworks overview syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Flask uses decorators to map URLs to Python functions. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "27.1_q4",
@@ -365,7 +365,7 @@
       "prompt": "Fix the bug in this code for web frameworks overview errors:",
       "starter_code": "# Fix this code\nPrint('Web Frameworks Overview')",
       "solution_code": "print('Web Frameworks Overview')",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of web frameworks overview errors. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `web frameworks overview errors` in Web Frameworks Overview. When Python validates this code, it applies the standard rules of web frameworks overview errors. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "27.1_q20",
@@ -416,7 +416,7 @@
       "prompt": "Fix the bug in this code for web frameworks overview runtime:",
       "starter_code": "# Fix this code\nPrint('Web Frameworks Overview')",
       "solution_code": "print('Web Frameworks Overview')",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of web frameworks overview runtime. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `web frameworks overview runtime` in Web Frameworks Overview. When Python validates this code, it applies the standard rules of web frameworks overview runtime. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "27.1_q23",

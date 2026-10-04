@@ -10,100 +10,131 @@
       "skill": "recognition",
       "difficulty": "easy",
       "prerequisites": [],
-      "title": "Recognizing When to use Two Pointers Part 1: Recognizing When To Use Two Pointers Basics",
-      "content": "In Python, **Recognizing When To Use Two Pointers Basics** provides essential rules when working with recognizing when to use two pointers.\n\nUnderstanding how `recognizing_when_to_use_two_pointers_basics` functions in practice enables you to write clean, unambiguous code.\n\n```python\n# Step 1: recognizing_when_to_use_two_pointers_basics\nstage_1 = True\n```",
-      "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of recognizing when to use two pointers basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "title": "Pattern Recognition: The Two-Pointer Technique",
+      "content": "Identify two-pointer problems by looking for these clues in problem descriptions:\n\n1. The input is a **sorted array** or string.\n2. You need to find a **pair** of elements satisfying a condition (e.g. target sum).\n3. You are asked to reverse or partition an array in-place.\n\nTwo pointers convert quadratic O(n^2) nested loops into linear O(n) passes.",
+      "explanation": "Sorted inputs and pairwise search constraints are classic hallmarks for two-pointer solutions.",
+      "metadata": {
+        "concept": "two_pointer_pattern_cues",
+        "skill": "recognition",
+        "why_this_exercise_exists": "Teaches pattern recognition for two-pointers"
+      }
     },
     {
       "id": "41.1_q2",
       "type": "output_prediction",
       "concept": "recognizing_when_to_use_two_pointers_basics",
-      "skill": "recall",
+      "skill": "pattern_recognition",
       "difficulty": "easy",
       "prerequisites": [
         "41.1_q1"
       ],
-      "prompt": "Consider the following Python snippet demonstrating Recognizing When To Use Two Pointers Basics:\n\n```python\ndef calculate_2(value):\n    base = 8\n    return base + value * 11\n\nresult = calculate_2(2)\nprint(result)\n```\n\nWhat is the value printed to the console?",
+      "prompt": "When given a SORTED array and asked to find if two numbers sum to a target `T`, why is the Two-Pointer approach superior to brute force?",
       "options": [
-        "30",
-        "19",
-        "110",
-        "TypeError"
+        "It runs in O(n) time and O(1) space by moving left or right pointers inward based on sum comparisons, whereas brute force takes O(n^2).",
+        "It sorts the array in O(1) time.",
+        "It converts the problem to a hash table automatically.",
+        "It eliminates all loops entirely."
       ],
-      "correct_answer": "30",
-      "explanation": "Python evaluates arithmetic following standard operator precedence (multiplication before addition). First, `value * 11` evaluates to `2 * 11 = 22`. Then, adding `base` (8) yields `30`. The function returns this integer and `print()` outputs it."
+      "correct_answer": "It runs in O(n) time and O(1) space by moving left or right pointers inward based on sum comparisons, whereas brute force takes O(n^2).",
+      "explanation": "Because the array is already sorted, if `nums[left] + nums[right] < target`, the sum can only increase by incrementing `left`. If the sum is too large, it can only decrease by decrementing `right`. This examines every relevant pair in a single O(n) linear pass.",
+      "metadata": {
+        "concept": "two_pointers_sorted_array_efficiency",
+        "skill": "pattern_recognition",
+        "learning_objective": "Recognize when sorted order enables O(n) two-pointer pair searching",
+        "common_misconception": "Using nested loops on sorted arrays instead of two pointers",
+        "why_this_exercise_exists": "Replaces template function with core interview pattern recognition"
+      }
     },
     {
       "id": "41.1_q3",
       "type": "micro_lesson",
-      "concept": "recognizing_when_to_use_two_pointers_syntax",
-      "skill": "understanding",
+      "concept": "recognizing_when_to_use_two_pointers_convergence",
+      "skill": "recognition",
       "difficulty": "easy",
       "prerequisites": [
         "41.1_q2"
       ],
-      "title": "Recognizing When to use Two Pointers Part 3: Recognizing When To Use Two Pointers Syntax",
-      "content": "In Python, **Recognizing When To Use Two Pointers Syntax** provides essential rules when working with recognizing when to use two pointers.\n\nUnderstanding how `recognizing_when_to_use_two_pointers_syntax` functions in practice enables you to write clean, unambiguous code.\n\n```python\n# Step 3: recognizing_when_to_use_two_pointers_syntax\nstage_3 = True\n```",
-      "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of recognizing when to use two pointers syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "title": "Inward Convergence vs Fast/Slow Pointers",
+      "content": "Two-pointer patterns follow two distinct topologies:\n\n* **Opposite Ends (Inward):** Start at index `0` and `n - 1`, moving inward toward each other (used for sorted pair sums and palindromes).\n* **Same Direction (Fast & Slow):** Both start at `0`, moving at different speeds (used for cycle detection and in-place deduplication).",
+      "explanation": "Opposite-end pointers converge inward; fast/slow pointers traverse in the same direction at varying rates.",
+      "metadata": {
+        "concept": "two_pointer_topologies",
+        "skill": "recognition",
+        "why_this_exercise_exists": "Contrasts inward convergence with fast/slow pointers"
+      }
     },
     {
       "id": "41.1_q4",
-      "type": "output_prediction",
-      "concept": "recognizing_when_to_use_two_pointers_syntax",
-      "skill": "reasoning",
-      "difficulty": "easy",
+      "type": "code_prediction",
+      "concept": "recognizing_when_to_use_two_pointers_basics",
+      "skill": "pointer_movement_rules",
+      "difficulty": "medium",
       "prerequisites": [
         "41.1_q3"
       ],
-      "prompt": "Consider the following Python snippet demonstrating Recognizing When To Use Two Pointers Syntax:\n\n```python\ndef calculate_4(value):\n    base = 14\n    return base + value * 6\n\nresult = calculate_4(2)\nprint(result)\n```\n\nWhat is the value printed to the console?",
+      "prompt": "In a sorted two-sum search with target 15, current `nums[left] = 4` and `nums[right] = 13` (sum = 17). What is the next pointer adjustment?\n\n```python\n# Target is 15\n# Current sum is 4 + 13 = 17 (> 15)\n```",
       "options": [
-        "26",
-        "20",
-        "96",
-        "TypeError"
+        "Decrement right (right -= 1) to reduce the total sum.",
+        "Increment left (left += 1) to increase the total sum.",
+        "Reset both pointers to 0.",
+        "Return False immediately."
       ],
-      "correct_answer": "26",
-      "explanation": "Python evaluates arithmetic following standard operator precedence (multiplication before addition). First, `value * 6` evaluates to `2 * 6 = 12`. Then, adding `base` (14) yields `26`. The function returns this integer and `print()` outputs it."
+      "correct_answer": "Decrement right (right -= 1) to reduce the total sum.",
+      "explanation": "Since 17 is greater than the target 15, and the array is sorted in ascending order, the only way to obtain a smaller sum is to move the right pointer to the left.",
+      "metadata": {
+        "concept": "two_pointer_direction_rule",
+        "skill": "algorithmic_reasoning",
+        "learning_objective": "Determine correct pointer adjustment direction based on target comparison",
+        "common_misconception": "Moving the wrong pointer and missing valid combinations",
+        "why_this_exercise_exists": "Replaces template function with fundamental pointer movement logic"
+      }
     },
     {
       "id": "41.1_q5",
       "type": "output_prediction",
-      "concept": "recognizing_when_to_use_two_pointers_matching",
-      "skill": "recognition",
-      "difficulty": "easy",
+      "concept": "recognizing_when_to_use_two_pointers_basics",
+      "skill": "palindrome_verification",
+      "difficulty": "medium",
       "prerequisites": [
         "41.1_q4"
       ],
-      "prompt": "Consider the following Python snippet demonstrating Recognizing When To Use Two Pointers Matching:\n\n```python\ndef calculate_5(value):\n    base = 17\n    return base + value * 11\n\nresult = calculate_5(2)\nprint(result)\n```\n\nWhat is the value printed to the console?",
+      "prompt": "What does a two-pointer palindrome check return for `\"racecar\"`?\n\n```python\ndef is_palindrome(s):\n    l, r = 0, len(s) - 1\n    while l < r:\n        if s[l] != s[r]:\n            return False\n        l += 1\n        r -= 1\n    return True\n\nprint(is_palindrome(\"racecar\"))\n```",
       "options": [
-        "39",
-        "28",
-        "209",
-        "TypeError"
+        "True",
+        "False",
+        "None",
+        "IndexError"
       ],
-      "correct_answer": "39",
-      "explanation": "Python evaluates arithmetic following standard operator precedence (multiplication before addition). First, `value * 11` evaluates to `2 * 11 = 22`. Then, adding `base` (17) yields `39`. The function returns this integer and `print()` outputs it."
+      "correct_answer": "True",
+      "explanation": "At each step, `s[l]` matches `s[r]` ('r'=='r', 'a'=='a', 'c'=='c'). When `l` and `r` meet at 'e', the loop finishes and returns `True`.",
+      "metadata": {
+        "concept": "two_pointer_palindrome_detection",
+        "skill": "implementation",
+        "learning_objective": "Verify string symmetry in O(n) time and O(1) auxiliary space",
+        "common_misconception": "Reversing the entire string with s[::-1] which allocates O(n) extra memory",
+        "why_this_exercise_exists": "Replaces template function with canonical interview problem"
+      }
     },
     {
       "id": "41.1_q6",
-      "type": "output_prediction",
-      "concept": "recognizing_when_to_use_two_pointers_pitfalls",
-      "skill": "comprehension",
-      "difficulty": "easy",
+      "type": "fix_the_code",
+      "concept": "recognizing_when_to_use_two_pointers_basics",
+      "skill": "repair",
+      "difficulty": "medium",
       "prerequisites": [
         "41.1_q5"
       ],
-      "prompt": "Consider the following Python snippet demonstrating Recognizing When To Use Two Pointers Pitfalls:\n\n```python\ndef calculate_6(value):\n    base = 20\n    return base + value * 1\n\nresult = calculate_6(2)\nprint(result)\n```\n\nWhat is the value printed to the console?",
-      "options": [
-        "22",
-        "21",
-        "22",
-        "TypeError"
-      ],
-      "correct_answer": "22",
-      "explanation": "Python evaluates arithmetic following standard operator precedence (multiplication before addition). First, `value * 1` evaluates to `2 * 1 = 2`. Then, adding `base` (20) yields `22`. The function returns this integer and `print()` outputs it."
+      "prompt": "Fix the condition in the two-pointer loop below so it doesn't cause an infinite loop or miss matches:\n\n```python\ndef has_pair_with_sum(nums, target):\n    l, r = 0, len(nums) - 1\n    # Fix loop condition:\n    while l <= r:\n        s = nums[l] + nums[r]\n        if s == target and l != r:\n            return True\n        elif s < target:\n            l += 1\n        else:\n            r -= 1\n    return False\n```",
+      "starter_code": "def has_pair_with_sum(nums, target):\n    l, r = 0, len(nums) - 1\n    while l < r:\n        s = nums[l] + nums[r]\n        if s == target:\n            return True\n        elif s < target:\n            l += 1\n        else:\n            r -= 1\n    return False",
+      "solution_code": "def has_pair_with_sum(nums, target):\n    l, r = 0, len(nums) - 1\n    while l < r:\n        s = nums[l] + nums[r]\n        if s == target:\n            return True\n        elif s < target:\n            l += 1\n        else:\n            r -= 1\n    return False",
+      "explanation": "Using `while l < r:` ensures that two distinct elements are compared and prevents pairing an element with itself.",
+      "metadata": {
+        "concept": "two_pointer_boundary_condition",
+        "skill": "repair",
+        "learning_objective": "Use strict inequality (l < r) to guarantee two distinct elements in pair searches",
+        "common_misconception": "Using l <= r which risks adding an element to itself",
+        "why_this_exercise_exists": "Replaces template function with essential pointer termination logic"
+      }
     },
     {
       "id": "41.1_q7",
@@ -401,7 +432,7 @@
       "prompt": "Fix the bug in this code for recognizing when to use two pointers errors:",
       "starter_code": "# Fix this code\nPrint('Recognizing When to use Two Pointers')",
       "solution_code": "print('Recognizing When to use Two Pointers')",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of recognizing when to use two pointers errors. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `recognizing when to use two pointers errors` in Recognizing When to use Two Pointers. When Python validates this code, it applies the standard rules of recognizing when to use two pointers errors. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "41.1_q20",
@@ -449,7 +480,7 @@
       "prompt": "Fix the bug in this code for recognizing when to use two pointers runtime:",
       "starter_code": "# Fix this code\nPrint('Recognizing When to use Two Pointers')",
       "solution_code": "print('Recognizing When to use Two Pointers')",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of recognizing when to use two pointers runtime. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `recognizing when to use two pointers runtime` in Recognizing When to use Two Pointers. When Python validates this code, it applies the standard rules of recognizing when to use two pointers runtime. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "41.1_q23",

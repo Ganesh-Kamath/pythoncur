@@ -13,7 +13,7 @@
       "title": "Introduction to the re Module",
       "content": "The re module in Python provides support for regular expressions. Regular expressions are sequences of characters that define a search pattern. To use regular expressions, you must first import the module. Once imported, you can use functions like re.match(), re.search(), re.findall(), and re.sub() to work with patterns in strings.\n\nExample:\n```python\nimport re\n\npattern = r'\\d+'\ntext = 'There are 12 apples and 34 oranges.'\n\nmatches = re.findall(pattern, text)\nprint(matches)\n```\nIn this example, r'\\d+' is a raw string pattern that matches one or more digits. The re.findall() function returns all non-overlapping matches of the pattern in the string as a list. The re module is essential for tasks such as input validation, data extraction, and text manipulation.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of the re module basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "The re module in Python provides support for regular expressions. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "19.2_q2",
@@ -46,7 +46,7 @@
       "title": "Common Regular Expression Syntax",
       "content": "Regular expressions use special characters called metacharacters to define patterns. Here are some common ones:\n\n- Dot (.) : Matches any single character except a newline.\n- Asterisk (*): Matches zero or more occurrences of the preceding element.\n- Plus (+): Matches one or more occurrences of the preceding element.\n- Question mark (?): Matches zero or one occurrence of the preceding element.\n- Square brackets ([ ]): Match any single character inside the brackets.\n- Caret (^): When used inside square brackets, it negates the set.\n\nExample:\n```python\nimport re\n\n# Match one or more digits\npattern = r'\\d+'\ntext = 'Room 101, 202, 303'\n\n# Match any character followed by a digit\npattern2 = r'.\\d'\n\nprint(re.findall(pattern, text))\nprint(re.findall(pattern2, text))\n```\nIn the first pattern, \\d+ matches sequences of digits. In the second, .\\d matches any character immediately followed by a digit. Understanding these symbols is crucial for building effective patterns.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of the re module syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Regular expressions use special characters called metacharacters to define patterns. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "19.2_q4",

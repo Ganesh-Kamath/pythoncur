@@ -13,7 +13,7 @@
       "title": "What Is Problem Understanding?",
       "content": "Before writing any code, you must fully understand what the problem is asking. This is the first and most critical step in the problem-solving methodology. A common mistake is to jump straight into coding without clarifying requirements. To understand a problem, ask yourself: What is the input? What is the desired output? Are there any constraints? For example, if you are asked to greet a user by name, you need to know that the input is a string representing a name and the output is a greeting message. Consider the following simple Python program that demonstrates this idea:\n\n```python\nname = 'Alice'\nprint('Hello, ' + name + '!')\n```\n\nIn this snippet, we first identify that the input is the variable `name` holding the string 'Alice', and the output is the printed greeting. Always restate the problem in your own words before attempting to solve it.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of understanding the problem basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Before writing any code, you must fully understand what the problem is asking. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "30.1_q2",
@@ -46,7 +46,7 @@
       "title": "Recognizing Python Syntax in Problem Statements",
       "content": "When a problem mentions Python syntax, it refers to the rules that govern how valid Python code is structured. Syntax errors occur when the code violates these rules, such as missing colons, incorrect indentation, or mismatched brackets. Understanding syntax helps you translate a problem statement into working code. For instance, a problem might ask you to calculate the area of a rectangle. The corresponding Python syntax involves defining variables, using the multiplication operator, and printing the result. Here is an example:\n\n```python\nlength = 5\nwidth = 3\narea = length * width\nprint('Area:', area)\n```\n\nNotice how each statement ends with a newline, indentation is used inside blocks, and string literals are enclosed in single quotes. Reading a problem carefully to spot required syntax patterns prevents common errors later.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of understanding the problem syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "When a problem mentions Python syntax, it refers to the rules that govern how valid Python code is structured. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "30.1_q4",
@@ -364,18 +364,29 @@
     },
     {
       "id": "30.1_q19",
-      "type": "fix_the_code",
-      "concept": "understanding_the_problem_errors",
-      "skill": "debugging",
+      "type": "multiple_choice",
+      "concept": "understanding_the_problem_edge_cases",
+      "skill": "problem_solving",
       "difficulty": "medium",
       "prerequisites": [
         "30.1_q18"
       ],
-      "prompt": "A student wrote a program to find the average of three numbers but keeps getting incorrect results. Analyze the code below and identify the root cause of the error.",
-      "starter_code": "def calculate_average(a, b, c):\n    total = a + b + c\n    avg = total / 3\n    print('The average is:', avg)\n\nnum1 = input('Enter first number: ')\nnum2 = input('Enter second number: ')\nnum3 = input('Enter third number: ')\n\ncalculate_average(num1, num2, num3)",
-      "solution_code": "def calculate_average(a, b, c):\n    total = a + b + c\n    avg = total / 3\n    print('The average is:', avg)\n\nnum1 = float(input('Enter first number: '))\nnum2 = float(input('Enter second number: '))\nnum3 = float(input('Enter third number: '))\n\ncalculate_average(num1, num2, num3)",
-      "hint": "Consider what data type input() returns and how arithmetic operations behave with that type.",
-      "explanation": "The input() function always returns a string. When strings are added together, Python performs concatenation instead of numeric addition. Converting the inputs to float ensures proper arithmetic."
+      "prompt": "When analyzing a coding problem that takes a list of integers as input, which edge cases should you always test?",
+      "options": [
+        "Empty list [], single-element list [x], list with negative numbers, duplicates, and boundary limits (e.g. very large inputs).",
+        "Only lists with exactly 5 positive numbers.",
+        "Only inputs that match the prompt's first example.",
+        "No edge cases are needed if the code compiles."
+      ],
+      "correct_answer": "Empty list [], single-element list [x], list with negative numbers, duplicates, and boundary limits (e.g. very large inputs).",
+      "explanation": "Real software and competitive coding platforms test code against edge conditions: empty inputs, single items, negative numbers, zeros, duplicates, and extremes. Identifying these upfront prevents runtime crashes.",
+      "metadata": {
+        "concept": "edge_case_identification",
+        "skill": "problem_solving_methodology",
+        "learning_objective": "Identify critical edge cases before writing implementation code",
+        "common_misconception": "Assuming input will always look like the happy-path example",
+        "why_this_exercise_exists": "Foundational methodology for problem solving and interviews"
+      }
     },
     {
       "id": "30.1_q20",

@@ -13,7 +13,7 @@
       "title": "What is a Frequency Map?",
       "content": "A frequency map is a data structure that stores how many times each unique element appears in a collection. In Python, the most common way to build a frequency map is by using a dictionary, where keys are the elements and values are their counts. For example, given the list [1, 2, 2, 3, 3, 3], the frequency map is {1: 1, 2: 2, 3: 3}. This structure is extremely useful in data analysis, counting characters in a string, and solving problems involving duplicates. The core idea is simple: iterate through the input, and for each item, increment its count in the dictionary. If the item is not yet present, initialize it to 1. This approach runs in O(n) time, making it efficient for large datasets.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of frequency maps basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "A frequency map is a data structure that stores how many times each unique element appears in a collection. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "33.4_q2",
@@ -46,7 +46,7 @@
       "title": "Building a Frequency Map with Python",
       "content": "To create a frequency map in Python, you initialize an empty dictionary and loop through your data. For each element, check if it already exists as a key; if so, increment its value, otherwise set it to 1. Here is the standard pattern:\n\n```python\ndef build_frequency_map(items):\n    freq = {}\n    for item in items:\n        if item in freq:\n            freq[item] = freq[item] + 1\n        else:\n            freq[item] = 1\n    return freq\n```\n\nYou can also use the `dict.get()` method to simplify the logic:\n\n```python\ndef build_frequency_map_get(items):\n    freq = {}\n    for item in items:\n        freq[item] = freq.get(item, 0) + 1\n    return freq\n```\n\nBoth versions produce identical results. Understanding this syntax is essential because it forms the foundation for more advanced counting techniques, such as using `collections.Counter` for brevity.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of frequency maps syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "To create a frequency map in Python, you initialize an empty dictionary and loop through your data. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "33.4_q4",
@@ -375,7 +375,7 @@
       "starter_code": "Print('Frequency Maps Item 19')",
       "solution_code": "print('Frequency Maps Item 19')",
       "hint": "Python built-in functions like print() must be written in lowercase.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of frequency maps errors. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `frequency maps errors` in Frequency Maps. When Python validates this code, it applies the standard rules of frequency maps errors. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "33.4_q20",
@@ -390,7 +390,7 @@
       "starter_code": "Print('Frequency Maps Item 20')",
       "solution_code": "print('Frequency Maps Item 20')",
       "hint": "Python built-in functions like print() must be written in lowercase.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of frequency maps fix. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `frequency maps fix` in Frequency Maps. When Python validates this code, it applies the standard rules of frequency maps fix. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "33.4_q21",
@@ -405,7 +405,7 @@
       "starter_code": "Print('Frequency Maps Item 21')",
       "solution_code": "print('Frequency Maps Item 21')",
       "hint": "Python built-in functions like print() must be written in lowercase.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of frequency maps edge cases. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `frequency maps edge cases` in Frequency Maps. When Python validates this code, it applies the standard rules of frequency maps edge cases. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "33.4_q22",
@@ -420,7 +420,7 @@
       "starter_code": "Print('Frequency Maps Item 22')",
       "solution_code": "print('Frequency Maps Item 22')",
       "hint": "Python built-in functions like print() must be written in lowercase.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of frequency maps runtime. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `frequency maps runtime` in Frequency Maps. When Python validates this code, it applies the standard rules of frequency maps runtime. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "33.4_q23",
@@ -435,7 +435,7 @@
       "starter_code": "Print('Frequency Maps Item 23')",
       "solution_code": "print('Frequency Maps Item 23')",
       "hint": "Python built-in functions like print() must be written in lowercase.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of frequency maps logic repair. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `frequency maps logic repair` in Frequency Maps. When Python validates this code, it applies the standard rules of frequency maps logic repair. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "33.4_q24",

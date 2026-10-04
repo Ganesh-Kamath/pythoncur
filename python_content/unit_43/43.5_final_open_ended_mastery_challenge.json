@@ -6,104 +6,135 @@
     {
       "id": "43.5_q1",
       "type": "micro_lesson",
-      "concept": "final_openended_mastery_challenge_basics",
+      "concept": "final_open_ended_mastery_challenge_synthesis",
       "skill": "recognition",
-      "difficulty": "easy",
+      "difficulty": "expert",
       "prerequisites": [],
-      "title": "Final Open-Ended Mastery Challenge Part 1: Final Openended Mastery Challenge Basics",
-      "content": "In Python, **Final Openended Mastery Challenge Basics** provides essential rules when working with final open-ended mastery challenge.\n\nUnderstanding how `final_openended_mastery_challenge_basics` functions in practice enables you to write clean, unambiguous code.\n\n```python\n# Step 1: final_openended_mastery_challenge_basics\nstage_1 = True\n```",
-      "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of final openended mastery challenge basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "title": "Architectural Synthesis of Python Paradigms",
+      "content": "Python mastery requires seamlessly synthesizing multiple programming paradigms:\n\n* **Functional:** Pure functions, comprehensions, closures, and generator pipelines.\n* **Object-Oriented:** Encapsulation, dunder protocols, descriptors, and composition.\n* **Defensive Engineering:** Context managers, custom exception hierarchies, and assertions.\n\nA senior developer chooses the simplest, most readable paradigm for each specific layer.",
+      "explanation": "Senior Python development balances functional pipelines, OOP protocols, and defensive error design.",
+      "metadata": {
+        "concept": "multi_paradigm_synthesis",
+        "skill": "recognition",
+        "why_this_exercise_exists": "Capstone synthesis overview"
+      }
     },
     {
       "id": "43.5_q2",
       "type": "output_prediction",
-      "concept": "final_openended_mastery_challenge_basics",
-      "skill": "recall",
-      "difficulty": "easy",
+      "concept": "final_open_ended_mastery_challenge_multi_concept",
+      "skill": "execution_tracing",
+      "difficulty": "hard",
       "prerequisites": [
         "43.5_q1"
       ],
-      "prompt": "Consider the following Python snippet demonstrating Final Openended Mastery Challenge Basics:\n\n```python\ndef calculate_2(value):\n    base = 8\n    return base + value * 11\n\nresult = calculate_2(2)\nprint(result)\n```\n\nWhat is the value printed to the console?",
+      "prompt": "Multi-Concept Mastery: Trace this program combining closures, exception handling, and comprehensions:\n\n```python\ndef make_safe_parser(fallback=0):\n    def parse_int(val):\n        try:\n            return int(val)\n        except (ValueError, TypeError):\n            return fallback\n    return parse_int\n\nparser = make_safe_parser(-1)\nraw_inputs = [\"10\", \"bad\", None, \"42\"]\ncleaned = [parser(x) for x in raw_inputs]\nprint(cleaned)\n```\n\nWhat is printed?",
       "options": [
-        "30",
-        "19",
-        "110",
-        "TypeError"
+        "[10, -1, -1, 42]",
+        "[10, 0, 0, 42]",
+        "ValueError",
+        "[10, None, None, 42]"
       ],
-      "correct_answer": "30",
-      "explanation": "Python evaluates arithmetic following standard operator precedence (multiplication before addition). First, `value * 11` evaluates to `2 * 11 = 22`. Then, adding `base` (8) yields `30`. The function returns this integer and `print()` outputs it."
+      "correct_answer": "[10, -1, -1, 42]",
+      "explanation": "`make_safe_parser(-1)` creates a closure with `fallback = -1`. The list comprehension passes each input to the parser: `'10'` -> `10`, `'bad'` -> `-1`, `None` -> `-1`, and `'42'` -> `42`.",
+      "metadata": {
+        "concept": "closure_exception_comprehension_composition",
+        "skill": "mastery_tracing",
+        "learning_objective": "Trace composite programs integrating closures, exception handling, and comprehensions",
+        "common_misconception": "Thinking None causes a crash rather than triggering TypeError",
+        "why_this_exercise_exists": "Replaces template function with advanced Python mastery evaluation"
+      }
     },
     {
       "id": "43.5_q3",
       "type": "micro_lesson",
-      "concept": "final_openended_mastery_challenge_syntax",
-      "skill": "understanding",
-      "difficulty": "easy",
+      "concept": "final_open_ended_mastery_challenge_production_readiness",
+      "skill": "recognition",
+      "difficulty": "expert",
       "prerequisites": [
         "43.5_q2"
       ],
-      "title": "Final Open-Ended Mastery Challenge Part 3: Final Openended Mastery Challenge Syntax",
-      "content": "In Python, **Final Openended Mastery Challenge Syntax** provides essential rules when working with final open-ended mastery challenge.\n\nUnderstanding how `final_openended_mastery_challenge_syntax` functions in practice enables you to write clean, unambiguous code.\n\n```python\n# Step 3: final_openended_mastery_challenge_syntax\nstage_3 = True\n```",
-      "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of final openended mastery challenge syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "title": "Production-Grade Engineering Principles",
+      "content": "Before deploying Python software to production, evaluate:\n\n1. **Memory & Scaling:** Are massive files streamed lazily or loaded eagerly into RAM?\n2. **Security:** Are queries parameterized? Are inputs sanitized?\n3. **Failure Isolation:** Do worker tasks handle timeouts and exceptions without crashing the process?\n4. **Observability:** Does the system produce structured logs and telemetry metrics?",
+      "explanation": "Production readiness demands lazy streaming, parameterization, fault tolerance, and observability.",
+      "metadata": {
+        "concept": "production_readiness_checklist",
+        "skill": "recognition",
+        "why_this_exercise_exists": "Production readiness checklist for final mastery"
+      }
     },
     {
       "id": "43.5_q4",
-      "type": "output_prediction",
-      "concept": "final_openended_mastery_challenge_syntax",
-      "skill": "reasoning",
-      "difficulty": "easy",
+      "type": "code_prediction",
+      "concept": "final_open_ended_mastery_challenge_generator_memory",
+      "skill": "memory_architecture",
+      "difficulty": "expert",
       "prerequisites": [
         "43.5_q3"
       ],
-      "prompt": "Consider the following Python snippet demonstrating Final Openended Mastery Challenge Syntax:\n\n```python\ndef calculate_4(value):\n    base = 14\n    return base + value * 6\n\nresult = calculate_4(2)\nprint(result)\n```\n\nWhat is the value printed to the console?",
+      "prompt": "In an architectural review, why would you process a 50GB server log with a generator pipeline (`(parse(line) for line in f)`) rather than a list comprehension (`[parse(line) for line in f]`)?",
       "options": [
-        "26",
-        "20",
-        "96",
-        "TypeError"
+        "The generator processes one line at a time in O(1) memory without exhausting system RAM, whereas a list comprehension loads all 50GB into RAM at once causing MemoryError.",
+        "List comprehensions cannot parse strings.",
+        "Generators bypass the Python interpreter.",
+        "There is no difference in memory usage."
       ],
-      "correct_answer": "26",
-      "explanation": "Python evaluates arithmetic following standard operator precedence (multiplication before addition). First, `value * 6` evaluates to `2 * 6 = 12`. Then, adding `base` (14) yields `26`. The function returns this integer and `print()` outputs it."
+      "correct_answer": "The generator processes one line at a time in O(1) memory without exhausting system RAM, whereas a list comprehension loads all 50GB into RAM at once causing MemoryError.",
+      "explanation": "List comprehensions eagerly allocate memory for every element upfront. For huge datasets (like 50GB logs), this instantly causes an Out-Of-Memory `MemoryError`. Generators evaluate lazily in constant O(1) auxiliary space.",
+      "metadata": {
+        "concept": "production_stream_processing",
+        "skill": "system_architecture",
+        "learning_objective": "Design memory-efficient stream processing pipelines for big data",
+        "common_misconception": "Believing list comprehensions stream data under the hood",
+        "why_this_exercise_exists": "Replaces template function with authentic production architecture decision"
+      }
     },
     {
       "id": "43.5_q5",
-      "type": "output_prediction",
-      "concept": "final_openended_mastery_challenge_matching",
-      "skill": "recognition",
-      "difficulty": "easy",
+      "type": "error_diagnosis",
+      "concept": "final_open_ended_mastery_challenge_closure_late_binding",
+      "skill": "subtle_bugs",
+      "difficulty": "expert",
       "prerequisites": [
         "43.5_q4"
       ],
-      "prompt": "Consider the following Python snippet demonstrating Final Openended Mastery Challenge Matching:\n\n```python\ndef calculate_5(value):\n    base = 17\n    return base + value * 11\n\nresult = calculate_5(2)\nprint(result)\n```\n\nWhat is the value printed to the console?",
+      "prompt": "Identify the notorious 'late-binding closure' bug in this function generator:\n\n```python\nmultipliers = [lambda x: x * i for i in range(3)]\nresults = [m(2) for m in multipliers]\nprint(results)\n```\n\nWhat is output and why?",
       "options": [
-        "39",
-        "28",
-        "209",
-        "TypeError"
+        "[4, 4, 4] because the variable 'i' is looked up when the lambda is called, at which point the loop has finished and i is 2.",
+        "[0, 2, 4] because i is bound at each iteration.",
+        "[0, 0, 0] because i resets to 0.",
+        "TypeError: lambda takes no arguments."
       ],
-      "correct_answer": "39",
-      "explanation": "Python evaluates arithmetic following standard operator precedence (multiplication before addition). First, `value * 11` evaluates to `2 * 11 = 22`. Then, adding `base` (17) yields `39`. The function returns this integer and `print()` outputs it."
+      "correct_answer": "[4, 4, 4] because the variable 'i' is looked up when the lambda is called, at which point the loop has finished and i is 2.",
+      "explanation": "Python's closures are late-binding: the variables used in function bodies are looked up when the function is invoked, not when it is created. When the lambdas run, `i` has its final loop value `2`. To bind `i` immediately, use default argument: `lambda x, i=i: x * i`.",
+      "metadata": {
+        "concept": "late_binding_closure_pitfall",
+        "skill": "deep_python_mechanics",
+        "learning_objective": "Recognize and prevent late-binding closure bugs in lambda generators",
+        "common_misconception": "Assuming lambda arguments bind loop variables at loop iteration time",
+        "why_this_exercise_exists": "Replaces template function with a legendary senior Python interview question"
+      }
     },
     {
       "id": "43.5_q6",
-      "type": "output_prediction",
-      "concept": "final_openended_mastery_challenge_pitfalls",
-      "skill": "comprehension",
-      "difficulty": "easy",
+      "type": "write_the_code",
+      "concept": "final_open_ended_mastery_challenge_lru_cache",
+      "skill": "caching_and_decorators",
+      "difficulty": "expert",
       "prerequisites": [
         "43.5_q5"
       ],
-      "prompt": "Consider the following Python snippet demonstrating Final Openended Mastery Challenge Pitfalls:\n\n```python\ndef calculate_6(value):\n    base = 20\n    return base + value * 1\n\nresult = calculate_6(2)\nprint(result)\n```\n\nWhat is the value printed to the console?",
-      "options": [
-        "22",
-        "21",
-        "22",
-        "TypeError"
-      ],
-      "correct_answer": "22",
-      "explanation": "Python evaluates arithmetic following standard operator precedence (multiplication before addition). First, `value * 1` evaluates to `2 * 1 = 2`. Then, adding `base` (20) yields `22`. The function returns this integer and `print()` outputs it."
+      "prompt": "Mastery Challenge: Implement a memoizing decorator `memoize(func)` using a closure and a dictionary cache. When decorated, calls with previously seen arguments should return the cached result without re-executing `func`.",
+      "starter_code": "def memoize(func):\n    # Implement decorator with dictionary cache\n    pass",
+      "solution_code": "from functools import wraps\n\ndef memoize(func):\n    cache = {}\n    @wraps(func)\n    def wrapper(*args):\n        if args not in cache:\n            cache[args] = func(*args)\n        return cache[args]\n    return wrapper\n\n@memoize\ndef fib(n):\n    return n if n < 2 else fib(n - 1) + fib(n - 2)\n\nprint(fib(10))",
+      "explanation": "Using a closure dictionary `cache` keyed by argument tuple `args` stores previously computed results, transforming exponential O(2^n) recursive Fibonacci into linear O(n) performance.",
+      "metadata": {
+        "concept": "custom_memoization_decorator",
+        "skill": "meta_programming",
+        "learning_objective": "Build custom caching decorators using closures and function wrappers",
+        "common_misconception": "Using global variables for cache instead of closure state",
+        "why_this_exercise_exists": "Replaces template function with real algorithmic optimization mastery"
+      }
     },
     {
       "id": "43.5_q7",
@@ -223,145 +254,149 @@
     },
     {
       "id": "43.5_q13",
-      "type": "fill_in_the_blank",
-      "concept": "final_openended_mastery_challenge_syntax",
-      "skill": "syntax",
-      "difficulty": "easy",
+      "type": "code_prediction",
+      "concept": "final_mastery_multi_paradigm_pipeline",
+      "skill": "composite_analysis",
+      "difficulty": "hard",
       "prerequisites": [
         "43.5_q12"
       ],
-      "micro_lesson": {
-        "title": "Python Syntax Review for Mastery",
-        "content": "In Python, every statement must follow strict syntax rules. A valid assignment uses the equals sign with spaces around it: `x = 5`. String literals are enclosed in quotes, and indentation defines code blocks. In this final open-ended challenge, you will combine these fundamentals to build a complete program. Remember that Python is case-sensitive and requires colons after control flow statements.\n\nExample of valid syntax:\n```python\nname = 'Ada'\nage = 12\nprint('Hello, ' + name)\n```\nNotice how variables are assigned, strings use single quotes, and the print statement outputs text."
-      },
-      "prompt": "Complete the statement to assign the string 'final' to the variable `status`:\n\n`status = ___`",
-      "correct_answer": "'final'",
-      "accepted_answers": [
-        "'final'",
-        "'Final'",
-        "'FINAL'"
+      "prompt": "Trace this composite data processing pipeline that merges dictionaries, handles exceptions, and applies comprehensions:\n\n```python\nraw_data = [\n    {\"sku\": \"A1\", \"price\": \"19.99\", \"stock\": 5},\n    {\"sku\": \"B2\", \"price\": \"invalid\", \"stock\": 0},\n    {\"sku\": \"C3\", \"price\": \"45.00\", \"stock\": 2}\n]\n\ndef parse_inventory(records):\n    inventory = {}\n    for r in records:\n        try:\n            p = float(r[\"price\"])\n            if r[\"stock\"] > 0:\n                inventory[r[\"sku\"]] = round(p * r[\"stock\"], 2)\n        except (ValueError, KeyError):\n            continue\n    return inventory\n\nval = parse_inventory(raw_data)\nprint(val)\n```\n\nWhat is output?",
+      "options": [
+        "{'A1': 99.95, 'C3': 90.0}",
+        "{'A1': 99.95, 'B2': 0, 'C3': 90.0}",
+        "{'A1': 19.99, 'C3': 45.00}",
+        "ValueError"
       ],
-      "explanation": "The variable `status` must be assigned a string literal. Single quotes are preferred in this curriculum. The value must exactly match 'final' in content, though case variations are accepted to reinforce case-sensitivity awareness."
+      "correct_answer": "{'A1': 99.95, 'C3': 90.0}",
+      "explanation": "`A1` is parsed and multiplied: `19.99 * 5 = 99.95`. `B2` has an invalid price which raises `ValueError` caught by the `except` block and skipped. `C3` evaluates to `45.00 * 2 = 90.0`.",
+      "metadata": {
+        "concept": "composite_data_pipeline_tracing",
+        "skill": "system_tracing",
+        "learning_objective": "Trace realistic data processing combining exceptions, dictionaries, and numeric casting",
+        "common_misconception": "Thinking invalid entries crash the entire pipeline",
+        "why_this_exercise_exists": "Replaces trivial string assignment with real multi-concept mastery"
+      }
     },
     {
       "id": "43.5_q14",
-      "type": "fill_in_the_blank",
-      "concept": "final_openended_mastery_challenge_keywords",
-      "skill": "syntax",
-      "difficulty": "medium",
+      "type": "error_diagnosis",
+      "concept": "final_mastery_concurrency_race_condition",
+      "skill": "concurrency",
+      "difficulty": "expert",
       "prerequisites": [
         "43.5_q13"
       ],
-      "micro_lesson": {
-        "title": "Control Flow Keywords in Python",
-        "content": "Python relies on reserved keywords to control program flow. The `if` keyword evaluates a condition, `else` provides an alternative branch, and `elif` allows additional checks. These keywords cannot be used as variable names. Understanding when to use each is essential for writing conditional logic. In the final open-ended mastery challenge, you will construct programs that make decisions based on input.\n\nExample of keyword usage:\n```python\nscore = 85\nif score >= 60:\n    print('Pass')\nelif score >= 40:\n    print('Conditional')\nelse:\n    print('Fail')\n```\nNotice how indentation follows the keyword and how only one block executes."
-      },
-      "prompt": "Fill in the blank to check if `x` is greater than 10:\n\n`if x ___ 10:`",
-      "correct_answer": ">",
-      "accepted_answers": [
-        ">",
-        ">=",
-        "<",
-        "<="
+      "prompt": "In a multithreaded Python application, why can two threads concurrently running `balance += 100` cause lost updates even though Python has a Global Interpreter Lock (GIL)?",
+      "options": [
+        "balance += 100 bytecode consists of multiple operations (LOAD, ADD, STORE); thread switching between them causes race conditions.",
+        "The GIL prevents threads from running simultaneously on multicore CPUs entirely.",
+        "Integers are mutable objects that can be corrupted in memory.",
+        "Python does not support threading."
       ],
-      "explanation": "The greater-than operator `>` correctly checks if x exceeds 10. The other operators represent different comparisons: `>=` means greater than or equal, `<` means less than, and `<=` means less than or equal. Only `>` satisfies the condition 'greater than 10'."
+      "correct_answer": "balance += 100 bytecode consists of multiple operations (LOAD, ADD, STORE); thread switching between them causes race conditions.",
+      "explanation": "`balance += 100` is NOT an atomic operation. Under the hood, Python compiles it into multiple bytecode instructions: `LOAD_NAME`, `LOAD_CONST`, `BINARY_OP`, `STORE_NAME`. A thread switch can happen between the read and write, causing race conditions unless protected by a `threading.Lock`.",
+      "metadata": {
+        "concept": "gil_and_bytecode_atomicity",
+        "skill": "concurrency_mastery",
+        "learning_objective": "Understand that the GIL does not eliminate thread race conditions",
+        "common_misconception": "Believing the GIL makes all Python code thread-safe without locks",
+        "why_this_exercise_exists": "Replaces basic comparison with deep multi-threading mastery"
+      }
     },
     {
       "id": "43.5_q15",
-      "type": "code_ordering",
-      "concept": "final_openended_mastery_challenge_sequence",
-      "skill": "sequencing",
-      "difficulty": "medium",
+      "type": "refactoring_challenge",
+      "concept": "final_mastery_generator_streaming",
+      "skill": "memory_architecture",
+      "difficulty": "expert",
       "prerequisites": [
         "43.5_q14"
       ],
-      "micro_lesson": {
-        "title": "Logical Sequence in Python Programs",
-        "content": "A Python program executes statements in the order they appear. Input must be collected before processing, and output must follow after calculations. Reordering statements changes the result or causes errors. In the final open-ended mastery challenge, you must arrange code blocks to form a working program that greets a user by name.\n\nCorrect sequence example:\n```python\nname = input('Enter your name: ')\ngreeting = 'Hello, ' + name\nprint(greeting)\n```\nHere, input is gathered first, then a greeting string is constructed, and finally it is displayed. Reversing these steps would produce an error or incorrect output."
-      },
-      "prompt": "Arrange the following code lines into the correct execution order to create a working program that reads a number and doubles it:\n\nLine A: `result = number * 2`\nLine B: `print('The result is ' + str(result))`\nLine C: `number = input('Enter a number: ')`",
-      "options": [
-        "x = 10",
-        "y = 20",
-        "print(x + y)"
-      ],
-      "correct_answer": [
-        "x = 10",
-        "y = 20",
-        "print(x + y)"
-      ],
-      "explanation": "The program must first collect input with Line C. Then it must compute the doubled value with Line A. Finally, it must display the result with Line B. Any other order either uses an undefined variable or prints before calculating."
+      "prompt": "Refactor this memory-heavy batch filter into an efficient generator pipeline that yields records on demand in O(1) space:\n\n```python\n# Inefficient eager loading:\ndef filter_logs_eager(lines):\n    results = []\n    for l in lines:\n        if \"ERROR\" in l:\n            results.append(l.strip())\n    return results\n```",
+      "starter_code": "def filter_logs_stream(lines):\n    # Implement generator yielding matching lines\n    pass",
+      "solution_code": "def filter_logs_stream(lines):\n    for l in lines:\n        if \"ERROR\" in l:\n            yield l.strip()",
+      "explanation": "Replacing list building with `yield` produces a generator that evaluates elements lazily, keeping memory consumption constant regardless of file size.",
+      "metadata": {
+        "concept": "generator_streaming_refactoring",
+        "skill": "optimization",
+        "learning_objective": "Convert memory-hungry collection accumulators into memory-constant generators",
+        "common_misconception": "Building full lists in memory for log processing",
+        "why_this_exercise_exists": "Replaces basic code ordering with memory architecture refactoring"
+      }
     },
     {
       "id": "43.5_q16",
-      "type": "fill_in_the_blank",
-      "concept": "final_openended_mastery_challenge_patterns",
-      "skill": "syntax",
-      "difficulty": "medium",
+      "type": "output_prediction",
+      "concept": "final_mastery_context_manager_protocol",
+      "skill": "context_managers",
+      "difficulty": "hard",
       "prerequisites": [
         "43.5_q15"
       ],
-      "micro_lesson": {
-        "title": "Recognizing Common Python Patterns",
-        "content": "Experienced Python programmers recognize recurring patterns such as iterating with `for` and `range`, building strings with concatenation, and using list comprehensions. In the final open-ended mastery challenge, you will identify and complete patterns to generate sequences efficiently. The `range(start, stop)` function produces integers from start up to but not including stop.\n\nExample pattern:\n```python\nfor i in range(3):\n    print('Item ' + str(i))\n```\nThis pattern repeats an action for a known number of iterations, which is a fundamental building block in algorithm design."
-      },
-      "prompt": "Complete the pattern that prints the numbers 0, 1, and 2:\n\n`for i in range(___):`",
-      "correct_answer": "3",
-      "accepted_answers": [
-        "3",
-        "0, 3",
-        "0, 1, 2"
+      "prompt": "Trace the execution order of this custom context manager:\n\n```python\nclass ManagedResource:\n    def __enter__(self):\n        print(\"1. Acquired\")\n        return self\n    def __exit__(self, exc_type, exc_val, exc_tb):\n        print(\"3. Released\")\n        return True  # Suppresses exception\n\nwith ManagedResource():\n    print(\"2. Working\")\n    raise ValueError(\"Failure\")\nprint(\"4. Finished\")\n```\n\nWhat is the exact output sequence?",
+      "options": [
+        "1. Acquired\n2. Working\n3. Released\n4. Finished",
+        "1. Acquired\n2. Working\nValueError: Failure",
+        "1. Acquired\n3. Released\n2. Working\n4. Finished",
+        "SyntaxError"
       ],
-      "explanation": "`range(3)` generates 0, 1, and 2 because the stop value is exclusive. `range(0, 3)` is equivalent but less concise. `range(0, 1, 2)` would produce 0 and 2 only, missing 1, so it does not match the required output sequence."
+      "correct_answer": "1. Acquired\n2. Working\n3. Released\n4. Finished",
+      "explanation": "`__enter__` runs first (1), then the `with` body executes (2). When `ValueError` is raised, `__exit__` runs (3). Because `__exit__` returns `True`, Python suppresses the exception, allowing execution to continue normally (4).",
+      "metadata": {
+        "concept": "context_manager_exception_suppression",
+        "skill": "advanced_protocols",
+        "learning_objective": "Trace context manager lifecycle and exception suppression mechanics",
+        "common_misconception": "Believing unhandled exceptions always crash programs inside with blocks",
+        "why_this_exercise_exists": "Replaces basic range(3) fill-in with protocol lifecycle tracing"
+      }
     },
     {
       "id": "43.5_q17",
-      "type": "code_ordering",
-      "concept": "final_openended_mastery_challenge_algorithm",
-      "skill": "sequencing",
-      "difficulty": "medium",
+      "type": "code_prediction",
+      "concept": "final_mastery_metaclasses_and_descriptors",
+      "skill": "advanced_oop",
+      "difficulty": "expert",
       "prerequisites": [
         "43.5_q16"
       ],
-      "micro_lesson": {
-        "title": "Algorithm Design Through Code Ordering",
-        "content": "An algorithm is a step-by-step procedure. In Python, translating an algorithm into code requires ordering operations logically: define inputs, process data, and return or display results. The final open-ended mastery challenge asks you to assemble an algorithm that finds the largest of three numbers. The correct order ensures comparisons happen before the result is returned.\n\nAlgorithm sketch:\n```python\ndef find_largest(a, b, c):\n    if a >= b and a >= c:\n        return a\n    elif b >= a and b >= c:\n        return b\n    else:\n        return c\n```\nEach branch must be evaluated in sequence, and the function must return before any further code runs."
-      },
-      "prompt": "Arrange the following lines to form a function that returns the sum of two numbers:\n\nLine A: `def add(x, y):`\nLine B: `    return x + y`\nLine C: `result = add(4, 5)`",
+      "prompt": "What design pattern does Python's `@property` decorator implement using dunder methods?",
       "options": [
-        "x = 10",
-        "y = 20",
-        "print(x + y)"
+        "The Descriptor protocol (__get__, __set__, __delete__) to customize attribute access.",
+        "The Singleton design pattern.",
+        "The Factory pattern.",
+        "The Observer protocol."
       ],
-      "correct_answer": [
-        "x = 10",
-        "y = 20",
-        "print(x + y)"
-      ],
-      "explanation": "The function must be defined with Line A first, then the body with Line B, and finally the function can be called with Line C. Defining after calling would cause a NameError, and returning before the function signature is invalid syntax."
+      "correct_answer": "The Descriptor protocol (__get__, __set__, __delete__) to customize attribute access.",
+      "explanation": "Under the hood, `@property` is a descriptor class implementing `__get__`, `__set__`, and `__delete__`. Descriptors define how attribute access is looked up and managed across Python classes.",
+      "metadata": {
+        "concept": "descriptor_protocol_architecture",
+        "skill": "language_internals",
+        "learning_objective": "Recognize that @property is an implementation of Python's descriptor protocol",
+        "common_misconception": "Thinking properties are just syntax shortcuts without underlying OOP protocols",
+        "why_this_exercise_exists": "Replaces basic function ordering with deep language architecture"
+      }
     },
     {
       "id": "43.5_q18",
-      "type": "fill_in_the_blank",
-      "concept": "final_openended_mastery_challenge_idioms",
-      "skill": "syntax",
-      "difficulty": "medium",
+      "type": "write_the_code",
+      "concept": "final_mastery_retry_decorator_with_backoff",
+      "skill": "production_patterns",
+      "difficulty": "expert",
       "prerequisites": [
         "43.5_q17"
       ],
-      "micro_lesson": {
-        "title": "Python Idioms and Conventions",
-        "content": "Python idioms are common, readable ways of expressing ideas. The `len()` function returns the size of a sequence, and negative indexing accesses elements from the end. The `f-string` idiom allows embedded expressions inside string literals. In the final open-ended mastery challenge, you will complete idiomatic expressions to manipulate data concisely.\n\nExample idiom:\n```python\nitems = ['apple', 'banana', 'cherry']\nlast = items[-___]\nprint(f'Last item: {last}')\n```\nUsing `-1` accesses the final element directly, which is more Pythonic than `items[len(items) - 1]`."
-      },
-      "prompt": "Fill in the blank to access the last element of a list named `data` using negative indexing:\n\n`last_item = data[___]`",
-      "correct_answer": "-1",
-      "accepted_answers": [
-        "-1",
-        "-2",
-        "-3",
-        "0"
-      ],
-      "explanation": "Negative index `-1` always refers to the last item in a sequence. `-2` would refer to the second-to-last item, `-3` to the third-to-last, and `0` refers to the first item. Only `-1` correctly retrieves the final element."
+      "prompt": "Mastery Challenge: Implement a configurable retry decorator `retry(max_attempts=3)` that re-executes a decorated function if it raises an exception. If all attempts fail, re-raise the final exception.",
+      "starter_code": "def retry(max_attempts=3):\n    # Build configurable parameterized decorator\n    pass",
+      "solution_code": "from functools import wraps\n\ndef retry(max_attempts=3):\n    def decorator(func):\n        @wraps(func)\n        def wrapper(*args, **kwargs):\n            last_err = None\n            for attempt in range(max_attempts):\n                try:\n                    return func(*args, **kwargs)\n                except Exception as e:\n                    last_err = e\n            raise last_err\n        return wrapper\n    return decorator",
+      "explanation": "A 3-level nested closure structure creates a parameterized decorator: outer function accepts decorator config (`max_attempts`), middle function accepts `func`, and inner wrapper manages retries with error persistence.",
+      "metadata": {
+        "concept": "parameterized_retry_decorator",
+        "skill": "production_patterns",
+        "learning_objective": "Construct parameterized decorators with stateful retry and error propagation",
+        "common_misconception": "Swallowing exceptions silently on max failure",
+        "why_this_exercise_exists": "Replaces basic negative indexing fill-in with true Python mastery"
+      }
     },
     {
       "id": "43.5_q19",
@@ -379,7 +414,7 @@
       "prompt": "Fix the bug in this code for final openended mastery challenge errors:",
       "starter_code": "# Fix this code\nPrint('Final Open-Ended Mastery Challenge')",
       "solution_code": "print('Final Open-Ended Mastery Challenge')",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of final openended mastery challenge errors. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `final openended mastery challenge errors` in Final Open-Ended Mastery Challenge. When Python validates this code, it applies the standard rules of final openended mastery challenge errors. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "43.5_q20",
@@ -427,7 +462,7 @@
       "prompt": "Fix the bug in this code for final openended mastery challenge runtime:",
       "starter_code": "# Fix this code\nPrint('Final Open-Ended Mastery Challenge')",
       "solution_code": "print('Final Open-Ended Mastery Challenge')",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of final openended mastery challenge runtime. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `final openended mastery challenge runtime` in Final Open-Ended Mastery Challenge. When Python validates this code, it applies the standard rules of final openended mastery challenge runtime. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "43.5_q23",

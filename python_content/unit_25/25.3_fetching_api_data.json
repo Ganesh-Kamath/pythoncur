@@ -13,7 +13,7 @@
       "title": "What Is an API and Why Fetch Data?",
       "content": "An API (Application Programming Interface) is a way for programs to talk to each other over the internet. When you fetch API data, your Python script sends a request to a remote server and receives information, usually in JSON format. The most common tool for this in Python is the `requests` library. To begin, you must install it with `pip install requests`. Once installed, you use `requests.get(url)` to retrieve data. The response object contains the server's reply. You can check if the request succeeded using `response.status_code == 200`. Always remember to import the library at the top of your file: `import requests`. This foundational step lets you bring real-world data into your programs.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of fetching api data basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "An API (Application Programming Interface) is a way for programs to talk to each other over the internet. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "25.3_q2",
@@ -46,7 +46,7 @@
       "title": "Parsing JSON from a Response",
       "content": "When a server returns data, it often comes as a JSON string. The `requests` library helps you convert this into a Python dictionary using `response.json()`. Here is the typical workflow: first, call `requests.get(url)` to get a response object. Second, call `response.json()` to parse the body into a Python dictionary. Third, access nested values using standard dictionary key notation. For example, if the JSON contains `{'name': 'Alice', 'age': 30}`, you retrieve the name with `data['name']`. Always handle potential network errors with a `try` block. Below is a complete example:\n\n```python\nimport requests\n\ntry:\n    url = 'https://jsonplaceholder.typicode.com/users/1'\n    response = requests.get(url)\n    data = response.json()\n    print(data['name'])\nexcept Exception as e:\n    print('Error:', e)\n```\n\nThis pattern ensures your program safely extracts values from the fetched API payload.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of fetching api data syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "When a server returns data, it often comes as a JSON string. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "25.3_q4",
@@ -359,7 +359,7 @@
       "prompt": "Fix the bug in this code for fetching api data errors:",
       "starter_code": "# Fix this code\nPrint('Fetching API Data')",
       "solution_code": "print('Fetching API Data')",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of fetching api data errors. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `fetching api data errors` in Fetching API Data. When Python validates this code, it applies the standard rules of fetching api data errors. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "25.3_q20",
@@ -407,7 +407,7 @@
       "prompt": "Fix the bug in this code for fetching api data runtime:",
       "starter_code": "# Fix this code\nPrint('Fetching API Data')",
       "solution_code": "print('Fetching API Data')",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of fetching api data runtime. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `fetching api data runtime` in Fetching API Data. When Python validates this code, it applies the standard rules of fetching api data runtime. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "25.3_q23",

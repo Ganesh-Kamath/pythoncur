@@ -13,7 +13,7 @@
       "title": "What is String Indexing?",
       "content": "In Python, a string is a sequence of characters. You can access individual characters using an index inside square brackets []. Python uses zero-based indexing, meaning the first character is at index 0, the second at index 1, and so on. For example, in the string 'hello', the character 'h' is at index 0 and 'e' is at index 1. If you try to access an index that is out of range, Python raises an IndexError. Here is how you can use indexing in practice:\n\n```python\ns = 'python'\nfirst_char = s[0]  # 'p'\nlast_char = s[5]   # 'n'\nprint(first_char)\n```\nRemember: the index must be an integer, and negative indices can be used to count from the end of the string (e.g., s[-1] gives the last character).",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of string indexing basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Strings in Python are immutable sequences of Unicode characters enclosed in single, double, or triple quotes. Because strings cannot be modified in place, all transformations return new string instances."
     },
     {
       "id": "7.1_q2",
@@ -46,7 +46,7 @@
       "title": "Syntax for Accessing Characters",
       "content": "To retrieve a character from a string, place the string variable followed by square brackets containing the desired index. The index must be an integer expression. You can use positive indices to count from the start, or negative indices to count from the end. Here is the general syntax:\n\n```python\nmy_string = 'example'\nchar = my_string[index]\n```\nFor negative indexing, -1 refers to the last character, -2 to the second-to-last, and so on. This works for any string, including empty strings (though accessing any index on an empty string will raise an IndexError). Here is an example using both positive and negative indexing:\n\n```python\ntext = 'indexing'\nprint(text[0])   # 'i'\nprint(text[-1])  # 'g'\n```\nAlways ensure the index is within the valid range to avoid runtime errors.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of string indexing syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "To retrieve a character from a string, place the string variable followed by square brackets containing the desired index. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "7.1_q4",

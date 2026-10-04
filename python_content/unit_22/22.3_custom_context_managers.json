@@ -13,7 +13,7 @@
       "content": "A context manager is an object that defines the runtime context for a block of code, typically used with the with statement. It ensures setup and cleanup actions are performed reliably, even if exceptions occur. The two key methods are __enter__ and __exit__. __enter__ runs when entering the with block and returns the resource (often self). __exit__ runs when leaving the block and handles cleanup. Python's built-in open() is a context manager, but you can create your own classes. This recognition item helps you identify when a custom class is acting as a context manager by looking for __enter__ and __exit__ methods.",
       "prerequisites": [],
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of custom context managers basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "A context manager is an object that defines the runtime context for a block of code, typically used with the with statement. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "22.3_q2",
@@ -46,7 +46,7 @@
         "22.3_q2"
       ],
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of custom context managers syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "To use a custom context manager, instantiate the class and pass it to the with statement. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "22.3_q4",

@@ -13,7 +13,7 @@
       "title": "What Is a Greedy Algorithm?",
       "content": "A greedy algorithm is a problem-solving approach that makes the locally optimal choice at each step with the hope of finding a global optimum. In other words, it never reconsiders a decision once it has been made. This pattern is useful when a problem has the 'greedy choice property' and optimal substructure. For example, to make change with coins, a greedy strategy picks the largest denomination that does not exceed the remaining amount. Here is a simple Python illustration:\n\n```python\ndef make_change(amount, coins):\n    change = []\n    for coin in coins:\n        while amount >= coin:\n            change.append(coin)\n            amount -= coin\n    return change\n\nprint(make_change(63, [25, 10, 5, 1]))\n```\n\nThis code repeatedly selects the biggest available coin, demonstrating the greedy mindset.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of greedy algorithms overview basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "A greedy algorithm is a problem-solving approach that makes the locally optimal choice at each step with the hope of finding a global optimum. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "41.6_q2",
@@ -46,7 +46,7 @@
       "title": "Greedy Syntax Patterns",
       "content": "Implementing a greedy algorithm in Python usually involves sorting the input so that the most promising candidates appear first, then iterating through them and selecting whenever the current choice satisfies the remaining constraint. A common pattern is to maintain a running total and append valid items to a result list. Consider this skeleton:\n\n```python\ndef greedy_select(items, capacity):\n    items = sorted(items, reverse=True)\n    selected = []\n    current = 0\n    for item in items:\n        if current + item <= capacity:\n            selected.append(item)\n            current += item\n    return selected\n\nprint(greedy_select([4, 2, 7, 1], 8))\n```\n\nNotice how sorting in descending order lets the algorithm try the largest items first, which is the essence of the greedy step.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of greedy algorithms overview syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Implementing a greedy algorithm in Python usually involves sorting the input so that the most promising candidates appear first, then iterating through them and selecting whenever the current choice satisfies the remaining constraint. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "41.6_q4",
@@ -347,7 +347,7 @@
       "prompt": "Fix the bug in this code for greedy algorithms overview errors:",
       "starter_code": "# Fix this code\nPrint('Greedy Algorithms Overview')",
       "solution_code": "print('Greedy Algorithms Overview')",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of greedy algorithms overview errors. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `greedy algorithms overview errors` in Greedy Algorithms Overview. When Python validates this code, it applies the standard rules of greedy algorithms overview errors. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "41.6_q20",
@@ -395,7 +395,7 @@
       "prompt": "Fix the bug in this code for greedy algorithms overview runtime:",
       "starter_code": "# Fix this code\nPrint('Greedy Algorithms Overview')",
       "solution_code": "print('Greedy Algorithms Overview')",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of greedy algorithms overview runtime. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `greedy algorithms overview runtime` in Greedy Algorithms Overview. When Python validates this code, it applies the standard rules of greedy algorithms overview runtime. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "41.6_q23",

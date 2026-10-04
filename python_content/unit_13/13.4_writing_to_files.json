@@ -13,7 +13,7 @@
       "title": "Introduction to Writing Data to Files",
       "content": "Writing to a file means saving data from your Python program into a file on your computer so it persists even after the program closes. The most common way is using the open() function with a mode that allows writing, typically 'w' for write mode. When you use 'w', the file is created if it does not exist, or its contents are erased if it does exist. You then use the write() method to add text, and finally close() the file to save changes. Here is a simple example:\n\n```python\n# Open a file in write mode\nfile = open('output.txt', 'w')\n\n# Write some text into the file\nfile.write('Hello, Codolingo!')\n\n# Close the file to ensure data is saved\nfile.close()\n```\n\nKey points: always close the file when done, or use a with statement for automatic cleanup. The write() method does not add a newline automatically, so include '\\n' if you want line breaks.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of writing to files basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Writing to a file means saving data from your Python program into a file on your computer so it persists even after the program closes. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "13.4_q2",
@@ -46,7 +46,7 @@
       "title": "Essential Syntax for Writing to Files",
       "content": "The standard syntax for writing to a file involves three main steps: open the file, write content, and close the file. A safer and preferred approach is using a with statement, which automatically handles closing the file even if an error occurs. The write() method accepts a string and writes it directly. If you need to write multiple lines, you can call write() repeatedly or include newline characters. Here is the recommended pattern:\n\n```python\nwith open('log.txt', 'w') as file:\n    file.write('Session started\\n')\n    file.write('User logged in\\n')\n\n# File is automatically closed here\n```\n\nRemember that write() does not return the written string; it returns the number of characters written, which can be useful for verification.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of writing to files syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "The standard syntax for writing to a file involves three main steps: open the file, write content, and close the file. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "13.4_q4",
@@ -247,35 +247,46 @@
     },
     {
       "id": "13.4_q13",
-      "type": "fill_in_the_blank",
-      "concept": "writing_to_files_syntax",
-      "skill": "syntax",
-      "difficulty": "easy",
+      "type": "code_prediction",
+      "concept": "file_write_mode_w_destructive",
+      "skill": "file_io",
+      "difficulty": "medium",
       "prerequisites": [
         "13.4_q12"
       ],
-      "prompt": "Complete the code to output 'Writing to Files #13':\n```python\n___('Writing to Files #13')\n```",
-      "correct_answer": "print",
-      "accepted_answers": [
-        "print"
+      "prompt": "What happens if you open an existing file in `'w'` mode and write `'New content'`?",
+      "options": [
+        "The entire previous content is immediately truncated (erased) and overwritten.",
+        "The text is appended to the bottom.",
+        "An error is raised if the file already exists.",
+        "A second copy of the file is created."
       ],
-      "explanation": "In Python, this operation directly demonstrates the core behavior of writing to files syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "correct_answer": "The entire previous content is immediately truncated (erased) and overwritten.",
+      "explanation": "Write mode `'w'` truncates existing files to 0 bytes upon opening. To preserve existing data and add to the bottom, mode `'a'` (append) must be used.",
+      "metadata": {
+        "concept": "write_mode_truncation",
+        "skill": "file_io",
+        "why_this_exercise_exists": "Replaces filler with destructive write warning"
+      }
     },
     {
       "id": "13.4_q14",
-      "type": "fill_in_the_blank",
-      "concept": "writing_to_files_keywords",
-      "skill": "syntax",
+      "type": "write_the_code",
+      "concept": "file_append_mode_usage",
+      "skill": "implementation",
       "difficulty": "medium",
       "prerequisites": [
         "13.4_q13"
       ],
-      "prompt": "Complete the code to output 'Writing to Files #14':\n```python\n___('Writing to Files #14')\n```",
-      "correct_answer": "print",
-      "accepted_answers": [
-        "print"
-      ],
-      "explanation": "In Python, this operation directly demonstrates the core behavior of writing to files keywords. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "prompt": "Write a snippet using `with open('log.txt', 'a') as f:` that appends a log entry `'System OK\\n'` to the file.",
+      "starter_code": "# Append to log.txt\n",
+      "solution_code": "with open(\"log.txt\", \"a\") as f:\n    f.write(\"System OK\\n\")",
+      "explanation": "Mode `'a'` opens the file with the write pointer positioned at the end of the file, preserving existing records and appending new lines.",
+      "metadata": {
+        "concept": "file_append_mode",
+        "skill": "implementation",
+        "why_this_exercise_exists": "Replaces filler with log appending"
+      }
     },
     {
       "id": "13.4_q15",
@@ -303,19 +314,27 @@
     },
     {
       "id": "13.4_q16",
-      "type": "fill_in_the_blank",
-      "concept": "writing_to_files_patterns",
-      "skill": "syntax",
+      "type": "error_diagnosis",
+      "concept": "file_exclusive_creation_mode_x",
+      "skill": "file_modes",
       "difficulty": "medium",
       "prerequisites": [
         "13.4_q15"
       ],
-      "prompt": "Complete the code to output 'Writing to Files #16':\n```python\n___('Writing to Files #16')\n```",
-      "correct_answer": "print",
-      "accepted_answers": [
-        "print"
+      "prompt": "What does mode `'x'` do when opening a file that already exists on disk?",
+      "options": [
+        "Raises FileExistsError: [Errno 17] File exists",
+        "Overwrites the file silently",
+        "Appends to the file",
+        "Renames the old file"
       ],
-      "explanation": "In Python, this operation directly demonstrates the core behavior of writing to files patterns. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "correct_answer": "Raises FileExistsError: [Errno 17] File exists",
+      "explanation": "Mode `'x'` provides exclusive creation. It opens the file for writing only if it does not already exist, raising `FileExistsError` if the file is present to prevent accidental data overwrites.",
+      "metadata": {
+        "concept": "exclusive_file_creation",
+        "skill": "file_modes",
+        "why_this_exercise_exists": "Replaces filler with exclusive mode protection"
+      }
     },
     {
       "id": "13.4_q17",
@@ -343,19 +362,22 @@
     },
     {
       "id": "13.4_q18",
-      "type": "fill_in_the_blank",
-      "concept": "writing_to_files_idioms",
-      "skill": "syntax",
-      "difficulty": "medium",
+      "type": "write_the_code",
+      "concept": "writelines_list_writing",
+      "skill": "implementation",
+      "difficulty": "hard",
       "prerequisites": [
         "13.4_q17"
       ],
-      "prompt": "Complete the code to output 'Writing to Files #18':\n```python\n___('Writing to Files #18')\n```",
-      "correct_answer": "print",
-      "accepted_answers": [
-        "print"
-      ],
-      "explanation": "In Python, this operation directly demonstrates the core behavior of writing to files idioms. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "prompt": "Given `lines = ['Alpha\\n', 'Beta\\n', 'Gamma\\n']`, write all lines to `'output.txt'` using `f.writelines(lines)` within a `with` block.",
+      "starter_code": "lines = [\"Alpha\\n\", \"Beta\\n\", \"Gamma\\n\"]\n# Write lines using writelines\n",
+      "solution_code": "lines = [\"Alpha\\n\", \"Beta\\n\", \"Gamma\\n\"]\nwith open(\"output.txt\", \"w\") as f:\n    f.writelines(lines)",
+      "explanation": "`f.writelines(lines)` efficiently writes an iterable of strings to the stream in a single call.",
+      "metadata": {
+        "concept": "writelines_bulk_io",
+        "skill": "implementation",
+        "why_this_exercise_exists": "Replaces filler with writelines bulk writing"
+      }
     },
     {
       "id": "13.4_q19",
@@ -370,7 +392,7 @@
       "starter_code": "Print('Writing to Files Item 19')",
       "solution_code": "print('Writing to Files Item 19')",
       "hint": "Python built-in functions like print() must be written in lowercase.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of writing to files errors. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `writing to files errors` in Writing to Files. When Python validates this code, it applies the standard rules of writing to files errors. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "13.4_q20",
@@ -385,7 +407,7 @@
       "starter_code": "Print('Writing to Files Item 20')",
       "solution_code": "print('Writing to Files Item 20')",
       "hint": "Python built-in functions like print() must be written in lowercase.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of writing to files fix. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `writing to files fix` in Writing to Files. When Python validates this code, it applies the standard rules of writing to files fix. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "13.4_q21",
@@ -400,7 +422,7 @@
       "starter_code": "Print('Writing to Files Item 21')",
       "solution_code": "print('Writing to Files Item 21')",
       "hint": "Python built-in functions like print() must be written in lowercase.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of writing to files edge cases. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `writing to files edge cases` in Writing to Files. When Python validates this code, it applies the standard rules of writing to files edge cases. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "13.4_q22",
@@ -415,7 +437,7 @@
       "starter_code": "Print('Writing to Files Item 22')",
       "solution_code": "print('Writing to Files Item 22')",
       "hint": "Python built-in functions like print() must be written in lowercase.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of writing to files runtime. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `writing to files runtime` in Writing to Files. When Python validates this code, it applies the standard rules of writing to files runtime. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "13.4_q23",
@@ -430,7 +452,7 @@
       "starter_code": "Print('Writing to Files Item 23')",
       "solution_code": "print('Writing to Files Item 23')",
       "hint": "Python built-in functions like print() must be written in lowercase.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of writing to files logic repair. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `writing to files logic repair` in Writing to Files. When Python validates this code, it applies the standard rules of writing to files logic repair. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "13.4_q24",

@@ -13,7 +13,7 @@
       "title": "Introduction to Tree Traversals",
       "content": "Tree traversal refers to the process of visiting (checking and/or updating) each node in a tree data structure exactly once. There are three classic depth-first traversal strategies. Inorder traversal visits the left subtree, then the root node, then the right subtree. Preorder traversal visits the root node first, then the left subtree, then the right subtree. Postorder traversal visits the left subtree, then the right subtree, then the root node. Understanding these orders is essential for binary search trees, expression trees, and many algorithms. Here is a simple Python representation using a nested dictionary to model a binary tree:\n\n```python\n# Representing a binary tree as nested dictionaries\n# Each node is {'value': int, 'left': node_or_None, 'right': node_or_None}\n\ntree = {\n    'value': 10,\n    'left': {\n        'value': 5,\n        'left': None,\n        'right': None\n    },\n    'right': {\n        'value': 15,\n        'left': None,\n        'right': None\n    }\n}\n\ndef inorder(node):\n    if node is None:\n        return []\n    return inorder(node['left']) + [node['value']] + inorder(node['right'])\n\ndef preorder(node):\n    if node is None:\n        return []\n    return [node['value']] + preorder(node['left']) + preorder(node['right'])\n\ndef postorder(node):\n    if node is None:\n        return []\n    return postorder(node['left']) + postorder(node['right']) + [node['value']]\n\nprint('Inorder:', inorder(tree))      # [5, 10, 15]\nprint('Preorder:', preorder(tree))   # [10, 5, 15]\nprint('Postorder:', postorder(tree)) # [5, 15, 10]\n```\n\nNotice how the root value 10 appears in different positions depending on the traversal order.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of tree traversal inorder preorder postorder basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Tree traversal refers to the process of visiting (checking and/or updating) each node in a tree data structure exactly once. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "38.4_q2",
@@ -46,7 +46,7 @@
       "title": "Recursive Syntax for Tree Traversals",
       "content": "Recursive tree traversal relies on a base case and a recursive case. The base case is when the node is None, in which case we return an empty list. The recursive case combines results from subtrees with the current node's value. For inorder, the pattern is: traverse left, visit root, traverse right. For preorder: visit root, traverse left, traverse right. For postorder: traverse left, traverse right, visit root. This ordering determines when the node value is appended to the result list. Here is a consolidated Python implementation with clear comments:\n\n```python\ndef inorder(node):\n    if node is None:\n        return []\n    # left, root, right\n    return inorder(node['left']) + [node['value']] + inorder(node['right'])\n\ndef preorder(node):\n    if node is None:\n        return []\n    # root, left, right\n    return [node['value']] + preorder(node['left']) + preorder(node['right'])\n\ndef postorder(node):\n    if node is None:\n        return []\n    # left, right, root\n    return postorder(node['left']) + postorder(node['right']) + [node['value']]\n```\n\nEach function follows the same structural skeleton: check for None, then combine recursive calls in the required order.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of tree traversal inorder preorder postorder syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Recursive tree traversal relies on a base case and a recursive case. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "38.4_q4",
@@ -350,7 +350,7 @@
       "prompt": "Fix the bug in this code for tree traversal inorder preorder postorder errors:",
       "starter_code": "# Fix this code\nPrint('Tree Traversal (Inorder, Preorder, Postorder)')",
       "solution_code": "print('Tree Traversal (Inorder, Preorder, Postorder)')",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of tree traversal inorder preorder postorder errors. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `tree traversal inorder preorder postorder errors` in Tree Traversal (Inorder, Preorder, Postorder). When Python validates this code, it applies the standard rules of tree traversal inorder preorder postorder errors. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "38.4_q20",
@@ -398,7 +398,7 @@
       "prompt": "Fix the bug in this code for tree traversal inorder preorder postorder runtime:",
       "starter_code": "# Fix this code\nPrint('Tree Traversal (Inorder, Preorder, Postorder)')",
       "solution_code": "print('Tree Traversal (Inorder, Preorder, Postorder)')",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of tree traversal inorder preorder postorder runtime. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `tree traversal inorder preorder postorder runtime` in Tree Traversal (Inorder, Preorder, Postorder). When Python validates this code, it applies the standard rules of tree traversal inorder preorder postorder runtime. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "38.4_q23",

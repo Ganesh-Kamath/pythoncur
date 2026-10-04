@@ -13,7 +13,7 @@
       "title": "What Is a Web Request?",
       "content": "When a user opens a URL in their browser or a program calls an API endpoint, the server receives a message called a request. In Python web development, we use frameworks like Flask or Django to listen for these requests and respond. A request contains information such as the HTTP method (GET, POST, etc.), headers, and optional data. Understanding that every interaction with a web server starts with a request is essential before writing any backend code. Here is a minimal Flask example that listens for requests:\n\n```python\nfrom flask import Flask\n\napp = Flask(__name__)\n\n@app.route('/')\ndef home():\n    return 'Hello, World!'\n\nif __name__ == '__main__':\n    app.run(debug=True)\n```\n\nThis snippet creates an application instance, defines a route for the root path, and returns a simple string when a GET request arrives.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of handling requests basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "When a user opens a URL in their browser or a program calls an API endpoint, the server receives a message called a request. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "27.3_q2",
@@ -46,7 +46,7 @@
       "title": "Defining Routes and Methods",
       "content": "In a Python web framework such as Flask, you define how your application responds to a request by decorating a function with @app.route(...). The decorator can accept a path string and optionally a list of HTTP methods. By default, Flask assumes GET, but you can explicitly allow POST, PUT, DELETE, and others. Inside the function, you can access request data using request.args for query parameters or request.form for POST payloads. Below is a concise example showing multiple methods on one route:\n\n```python\nfrom flask import Flask, request\n\napp = Flask(__name__)\n\n@app.route('/data', methods=['GET', 'POST'])\ndef data():\n    if request.method == 'GET':\n        name = request.args.get('name', 'Guest')\n        return f'Hello, {name}'\n    if request.method == 'POST':\n        payload = request.form.get('message', '')\n        return f'Received: {payload}'\n    return 'Method not allowed', 405\n\nif __name__ == '__main__':\n    app.run(debug=True)\n```\n\nNotice how request.method lets you branch logic based on the HTTP verb, and request.args.get safely retrieves query parameters with a default value.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of handling requests syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "In a Python web framework such as Flask, you define how your application responds to a request by decorating a function with @app. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "27.3_q4",
@@ -380,7 +380,7 @@
       "prompt": "Fix the bug in this code for handling requests errors:",
       "starter_code": "# Fix this code\nPrint('Handling Requests')",
       "solution_code": "print('Handling Requests')",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of handling requests errors. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Python logical operators use short-circuit evaluation: `and` stops and returns the first falsy operand, while `or` stops and returns the first truthy operand without evaluating subsequent expressions."
     },
     {
       "id": "27.3_q20",
@@ -428,7 +428,7 @@
       "prompt": "Fix the bug in this code for handling requests runtime:",
       "starter_code": "# Fix this code\nPrint('Handling Requests')",
       "solution_code": "print('Handling Requests')",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of handling requests runtime. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Python logical operators use short-circuit evaluation: `and` stops and returns the first falsy operand, while `or` stops and returns the first truthy operand without evaluating subsequent expressions."
     },
     {
       "id": "27.3_q23",

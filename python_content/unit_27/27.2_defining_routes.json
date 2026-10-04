@@ -13,7 +13,7 @@
       "title": "What Is a Route?",
       "content": "In web backend development, a route is a URL pattern that the server listens for, and it maps that URL to a specific function that handles the request. When a client sends a request to a URL, the web framework checks which route matches that URL and then executes the associated function. For example, in Flask, you use the @app.route decorator to define a route. A simple route might look like this:\n\n```python\nfrom flask import Flask\n\napp = Flask(__name__)\n\n@app.route('/')\ndef home():\n    return 'Welcome to my site!'\n```\n\nHere, the route '/' is mapped to the home function. Whenever a user visits the root URL of the site, the home function runs and returns a response.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of defining routes basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "In web backend development, a route is a URL pattern that the server listens for, and it maps that URL to a specific function that handles the request. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "27.2_q2",
@@ -46,7 +46,7 @@
       "title": "Route Syntax and Parameters",
       "content": "Routes in Flask can include dynamic segments using angle brackets. For example, @app.route('/user/<username>') tells Flask to match any URL that starts with '/user/' followed by a value, and that value is passed to the function as a parameter. Here is a complete example:\n\n```python\nfrom flask import Flask\n\napp = Flask(__name__)\n\n@app.route('/user/<username>')\ndef show_user_profile(username):\n    return f'Profile for {username}'\n```\n\nWhen a client requests '/user/alice', Flask extracts 'alice' and passes it as the username argument to show_user_profile. You can also specify allowed HTTP methods using the methods parameter, such as methods=['GET', 'POST']. This flexibility allows a single URL pattern to handle different kinds of requests.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of defining routes syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Routes in Flask can include dynamic segments using angle brackets. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "27.2_q4",
@@ -249,35 +249,46 @@
     },
     {
       "id": "27.2_q13",
-      "type": "fill_in_the_blank",
-      "concept": "defining_routes_syntax",
-      "skill": "syntax",
-      "difficulty": "easy",
+      "type": "code_prediction",
+      "concept": "route_path_parameters",
+      "skill": "api_routing",
+      "difficulty": "medium",
       "prerequisites": [
         "27.2_q12"
       ],
-      "prompt": "Complete the code to output 'Defining Routes #13':\n```python\n___('Defining Routes #13')\n```",
-      "correct_answer": "print",
-      "accepted_answers": [
-        "print"
+      "prompt": "In FastAPI or Flask, how is a dynamic path parameter defined in the route decorator?",
+      "options": [
+        "@app.get('/users/{user_id}') in FastAPI (or '/users/<int:user_id>' in Flask)",
+        "@app.get('/users/user_id?')",
+        "@app.get('/users/$user_id')",
+        "@app.get('/users/regex')"
       ],
-      "explanation": "In Python, this operation directly demonstrates the core behavior of defining routes syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "correct_answer": "@app.get('/users/{user_id}') in FastAPI (or '/users/<int:user_id>' in Flask)",
+      "explanation": "FastAPI uses `{param}` brackets with type hints; Flask uses `<converter:param>` tags.",
+      "metadata": {
+        "concept": "path_parameter_syntax",
+        "skill": "routing",
+        "why_this_exercise_exists": "Replaces filler with path parameter syntax"
+      }
     },
     {
       "id": "27.2_q14",
-      "type": "fill_in_the_blank",
-      "concept": "defining_routes_keywords",
-      "skill": "syntax",
+      "type": "write_the_code",
+      "concept": "json_endpoint_response",
+      "skill": "api_design",
       "difficulty": "medium",
       "prerequisites": [
         "27.2_q13"
       ],
-      "prompt": "Complete the code to output 'Defining Routes #14':\n```python\n___('Defining Routes #14')\n```",
-      "correct_answer": "print",
-      "accepted_answers": [
-        "print"
-      ],
-      "explanation": "In Python, this operation directly demonstrates the core behavior of defining routes keywords. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "prompt": "Write a route handler function `get_status()` that returns a dictionary `{'status': 'ok', 'version': '1.0'}`.",
+      "starter_code": "def get_status():\n    # Return JSON dictionary\n    pass",
+      "solution_code": "def get_status():\n    return {\"status\": \"ok\", \"version\": \"1.0\"}\n\nprint(get_status())",
+      "explanation": "Modern Python web frameworks automatically serialize dictionaries into JSON responses.",
+      "metadata": {
+        "concept": "json_response_handler",
+        "skill": "api_design",
+        "why_this_exercise_exists": "Replaces filler with JSON route handler"
+      }
     },
     {
       "id": "27.2_q15",
@@ -305,19 +316,27 @@
     },
     {
       "id": "27.2_q16",
-      "type": "fill_in_the_blank",
-      "concept": "defining_routes_patterns",
-      "skill": "syntax",
+      "type": "multiple_choice",
+      "concept": "http_post_vs_get",
+      "skill": "http_methods",
       "difficulty": "medium",
       "prerequisites": [
         "27.2_q15"
       ],
-      "prompt": "Complete the code to output 'Defining Routes #16':\n```python\n___('Defining Routes #16')\n```",
-      "correct_answer": "print",
-      "accepted_answers": [
-        "print"
+      "prompt": "When creating a new resource in a RESTful API, which HTTP method should the route use?",
+      "options": [
+        "POST",
+        "GET",
+        "DELETE",
+        "HEAD"
       ],
-      "explanation": "In Python, this operation directly demonstrates the core behavior of defining routes patterns. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "correct_answer": "POST",
+      "explanation": "REST architecture reserves `GET` for idempotent data reads and `POST` for submitting entity payloads to create new resources.",
+      "metadata": {
+        "concept": "rest_http_verbs",
+        "skill": "http_methods",
+        "why_this_exercise_exists": "Replaces filler with REST HTTP verbs"
+      }
     },
     {
       "id": "27.2_q17",
@@ -345,19 +364,27 @@
     },
     {
       "id": "27.2_q18",
-      "type": "fill_in_the_blank",
-      "concept": "defining_routes_idioms",
-      "skill": "syntax",
+      "type": "code_prediction",
+      "concept": "http_status_codes",
+      "skill": "status_codes",
       "difficulty": "medium",
       "prerequisites": [
         "27.2_q17"
       ],
-      "prompt": "Complete the code to output 'Defining Routes #18':\n```python\n___('Defining Routes #18')\n```",
-      "correct_answer": "print",
-      "accepted_answers": [
-        "print"
+      "prompt": "What HTTP status code represents successful resource creation?",
+      "options": [
+        "201 Created",
+        "200 OK",
+        "204 No Content",
+        "404 Not Found"
       ],
-      "explanation": "In Python, this operation directly demonstrates the core behavior of defining routes idioms. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "correct_answer": "201 Created",
+      "explanation": "`201 Created` indicates that the request succeeded and led to the creation of a new resource on the server.",
+      "metadata": {
+        "concept": "http_201_created",
+        "skill": "status_codes",
+        "why_this_exercise_exists": "Replaces filler with HTTP status codes"
+      }
     },
     {
       "id": "27.2_q19",

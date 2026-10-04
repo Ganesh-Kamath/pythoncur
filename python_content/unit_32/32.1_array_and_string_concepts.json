@@ -13,7 +13,7 @@
       "content": "In Python, a string is a sequence of characters enclosed in quotes. For example, 'hello' stores the characters h, e, l, l, o. An array (more commonly called a list in Python) is an ordered collection of items that can hold different data types. You create a list using square brackets: [10, 'apple', 3.14]. Both strings and lists are iterable, meaning you can loop through them. A key difference is that strings are immutable—you cannot change an individual character after creation—while lists are mutable, allowing you to update, add, or remove elements. Recognizing these basic definitions helps you choose the right structure for your data.",
       "prerequisites": [],
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of array and string concepts basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Strings in Python are immutable sequences of Unicode characters enclosed in single, double, or triple quotes. Because strings cannot be modified in place, all transformations return new string instances."
     },
     {
       "id": "32.1_q2",
@@ -46,7 +46,7 @@
         "32.1_q2"
       ],
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of array and string concepts syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Strings in Python are immutable sequences of Unicode characters enclosed in single, double, or triple quotes. Because strings cannot be modified in place, all transformations return new string instances."
     },
     {
       "id": "32.1_q4",
@@ -184,7 +184,7 @@
           "expected_output": "Array and String Concepts"
         }
       ],
-      "explanation": "In Python, this operation directly demonstrates the core behavior of array and string concepts analysis. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Python logical operators use short-circuit evaluation: `and` stops and returns the first falsy operand, while `or` stops and returns the first truthy operand without evaluating subsequent expressions."
     },
     {
       "id": "32.1_q11",
@@ -228,35 +228,51 @@
     },
     {
       "id": "32.1_q13",
-      "type": "fill_in_the_blank",
-      "concept": "array_and_string_concepts_syntax",
-      "skill": "syntax",
+      "type": "code_prediction",
+      "concept": "array_indexing_time_complexity",
+      "skill": "complexity",
       "difficulty": "easy",
       "prerequisites": [
         "32.1_q12"
       ],
-      "prompt": "Complete the code to output 'Array and String Concepts #13':\n```python\n___('Array and String Concepts #13')\n```",
-      "correct_answer": "print",
-      "accepted_answers": [
-        "print"
+      "prompt": "What is the time complexity of accessing an element in a Python list by index (e.g. `arr[i]`)?",
+      "options": [
+        "O(1) constant time",
+        "O(n) linear time",
+        "O(log n) logarithmic time",
+        "O(n^2) quadratic time"
       ],
-      "explanation": "In Python, this operation directly demonstrates the core behavior of array and string concepts syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "correct_answer": "O(1) constant time",
+      "explanation": "Python lists are contiguous arrays of memory pointers. Finding an element by index requires simple address arithmetic (`base_address + index * pointer_size`), executing in O(1) constant time.",
+      "metadata": {
+        "concept": "constant_time_indexing",
+        "skill": "complexity",
+        "why_this_exercise_exists": "Replaces filler with O(1) array access complexity"
+      }
     },
     {
       "id": "32.1_q14",
-      "type": "fill_in_the_blank",
-      "concept": "array_and_string_concepts_keywords",
-      "skill": "syntax",
+      "type": "code_prediction",
+      "concept": "string_join_efficiency",
+      "skill": "performance",
       "difficulty": "medium",
       "prerequisites": [
         "32.1_q13"
       ],
-      "prompt": "Complete the code to output 'Array and String Concepts #14':\n```python\n___('Array and String Concepts #14')\n```",
-      "correct_answer": "print",
-      "accepted_answers": [
-        "print"
+      "prompt": "Why is `''.join(char_list)` vastly faster than repeated string concatenation `s += c` in a loop?",
+      "options": [
+        "''.join() pre-calculates the exact total buffer size and allocates memory once in O(n) time, whereas s += c reallocates new strings repeatedly taking O(n^2) time.",
+        "''.join() uses multiple threads.",
+        "s += c only works on numbers.",
+        "There is no difference."
       ],
-      "explanation": "In Python, this operation directly demonstrates the core behavior of array and string concepts keywords. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "correct_answer": "''.join() pre-calculates the exact total buffer size and allocates memory once in O(n) time, whereas s += c reallocates new strings repeatedly taking O(n^2) time.",
+      "explanation": "Repeatedly concatenating immutable strings causes quadratic O(n^2) copying. `join()` computes the total length once and constructs the result in linear O(n) time.",
+      "metadata": {
+        "concept": "string_join_linear_time",
+        "skill": "performance",
+        "why_this_exercise_exists": "Replaces filler with string concatenation complexity"
+      }
     },
     {
       "id": "32.1_q15",
@@ -284,19 +300,27 @@
     },
     {
       "id": "32.1_q16",
-      "type": "fill_in_the_blank",
-      "concept": "array_and_string_concepts_patterns",
-      "skill": "syntax",
+      "type": "output_prediction",
+      "concept": "array_slice_copy",
+      "skill": "memory_model",
       "difficulty": "medium",
       "prerequisites": [
         "32.1_q15"
       ],
-      "prompt": "Complete the code to output 'Array and String Concepts #16':\n```python\n___('Array and String Concepts #16')\n```",
-      "correct_answer": "print",
-      "accepted_answers": [
-        "print"
+      "prompt": "Does slicing a list `b = a[:]` create a shallow copy or a reference alias?\n\n```python\na = [1, 2, 3]\nb = a[:]\nb.append(4)\nprint(len(a), len(b))\n```",
+      "options": [
+        "3 4 (b is a new independent list shallow copy)",
+        "4 4 (both alias the same list)",
+        "3 3",
+        "TypeError"
       ],
-      "explanation": "In Python, this operation directly demonstrates the core behavior of array and string concepts patterns. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "correct_answer": "3 4 (b is a new independent list shallow copy)",
+      "explanation": "Slicing `a[:]` creates a new shallow copy of the list. Mutating `b` does not affect `a`.",
+      "metadata": {
+        "concept": "shallow_copy_slicing",
+        "skill": "memory_model",
+        "why_this_exercise_exists": "Replaces filler with shallow copy mechanics"
+      }
     },
     {
       "id": "32.1_q17",
@@ -324,19 +348,22 @@
     },
     {
       "id": "32.1_q18",
-      "type": "fill_in_the_blank",
-      "concept": "array_and_string_concepts_idioms",
-      "skill": "syntax",
-      "difficulty": "medium",
+      "type": "write_the_code",
+      "concept": "array_two_pointer_partition",
+      "skill": "dsa_implementation",
+      "difficulty": "hard",
       "prerequisites": [
         "32.1_q17"
       ],
-      "prompt": "Complete the code to output 'Array and String Concepts #18':\n```python\n___('Array and String Concepts #18')\n```",
-      "correct_answer": "print",
-      "accepted_answers": [
-        "print"
-      ],
-      "explanation": "In Python, this operation directly demonstrates the core behavior of array and string concepts idioms. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "prompt": "Write a snippet using two pointers to reverse the list `nums = [10, 20, 30, 40]` in place.",
+      "starter_code": "nums = [10, 20, 30, 40]\n# Reverse in place with two pointers\n",
+      "solution_code": "nums = [10, 20, 30, 40]\nl, r = 0, len(nums) - 1\nwhile l < r:\n    nums[l], nums[r] = nums[r], nums[l]\n    l += 1\n    r -= 1\nprint(nums)",
+      "explanation": "Swapping opposite elements inward reverses the array in O(n) time and O(1) space.",
+      "metadata": {
+        "concept": "in_place_two_pointers",
+        "skill": "dsa",
+        "why_this_exercise_exists": "Replaces filler with two-pointer array reversal"
+      }
     },
     {
       "id": "32.1_q19",

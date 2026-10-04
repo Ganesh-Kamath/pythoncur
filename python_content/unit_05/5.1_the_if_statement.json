@@ -10,100 +10,131 @@
       "skill": "recognition",
       "difficulty": "easy",
       "prerequisites": [],
-      "title": "if Statement Part 1: The If Statement Basics",
-      "content": "In Python, **The If Statement Basics** provides essential rules when working with the if statement.\n\nUnderstanding how `the_if_statement_basics` functions in practice enables you to write clean, unambiguous code.\n\n```python\n# Step 1: the_if_statement_basics\nstage_1 = True\n```",
-      "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of the if statement basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "title": "Conditional Execution with if",
+      "content": "The `if` statement evaluates a boolean condition. If the condition is `True`, Python executes the indented block of code below it:\n\n```python\nscore = 85\nif score >= 80:\n    print(\"Great job!\")\n```\n\nIn Python, code blocks are defined by indentation (typically 4 spaces), ending with a colon `:` at the end of the `if` line.",
+      "explanation": "An if statement tests a condition and executes its indented block only when that condition evaluates to True.",
+      "metadata": {
+        "concept": "if_statement_fundamentals",
+        "skill": "recognition",
+        "why_this_exercise_exists": "Foundational if syntax and block rules"
+      }
     },
     {
       "id": "5.1_q2",
       "type": "output_prediction",
       "concept": "the_if_statement_basics",
-      "skill": "recall",
+      "skill": "mental_model",
       "difficulty": "easy",
       "prerequisites": [
         "5.1_q1"
       ],
-      "prompt": "Consider the following Python snippet demonstrating The If Statement Basics:\n\n```python\ndef calculate_2(value):\n    base = 8\n    return base + value * 11\n\nresult = calculate_2(2)\nprint(result)\n```\n\nWhat is the value printed to the console?",
+      "prompt": "Predict the output of the following conditional block:\n\n```python\ntemperature = 22\nif temperature > 20:\n    print(\"Pleasant weather\")\nprint(\"Done\")\n```",
       "options": [
-        "30",
-        "19",
-        "110",
-        "TypeError"
+        "Pleasant weather\nDone",
+        "Pleasant weather",
+        "Done",
+        "No output is printed"
       ],
-      "correct_answer": "30",
-      "explanation": "Python evaluates arithmetic following standard operator precedence (multiplication before addition). First, `value * 11` evaluates to `2 * 11 = 22`. Then, adding `base` (8) yields `30`. The function returns this integer and `print()` outputs it."
+      "correct_answer": "Pleasant weather\nDone",
+      "explanation": "Since `22 > 20` evaluates to `True`, the indented body under `if` executes, printing `'Pleasant weather'`. Then execution continues sequentially outside the `if` block, printing `'Done'`.",
+      "metadata": {
+        "concept": "if_execution_flow",
+        "skill": "control_flow",
+        "learning_objective": "Trace execution through an if block and subsequent statements",
+        "common_misconception": "Thinking code after an if block only runs when the condition is False",
+        "why_this_exercise_exists": "Reinforces python block structure and sequential execution"
+      }
     },
     {
       "id": "5.1_q3",
       "type": "micro_lesson",
-      "concept": "the_if_statement_syntax",
-      "skill": "understanding",
+      "concept": "the_if_statement_comparisons",
+      "skill": "recognition",
       "difficulty": "easy",
       "prerequisites": [
         "5.1_q2"
       ],
-      "title": "if Statement Part 3: The If Statement Syntax",
-      "content": "In Python, **The If Statement Syntax** provides essential rules when working with the if statement.\n\nUnderstanding how `the_if_statement_syntax` functions in practice enables you to write clean, unambiguous code.\n\n```python\n# Step 3: the_if_statement_syntax\nstage_3 = True\n```",
-      "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of the if statement syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "title": "Comparison Operators and Boundaries",
+      "content": "Conditions rely on comparison operators:\n\n* `==` (equal to) vs `!=` (not equal to)\n* `>` (greater than) vs `>=` (greater than or equal to)\n* `<` (less than) vs `<=` (less than or equal to)\n\nPay close attention to boundaries: `score > 90` excludes 90, while `score >= 90` includes 90!",
+      "explanation": "Strict inequalities (> and <) exclude boundary points, whereas inclusive comparisons (>= and <=) include them.",
+      "metadata": {
+        "concept": "comparison_operator_boundaries",
+        "skill": "recognition",
+        "why_this_exercise_exists": "Teaches boundary condition vigilance"
+      }
     },
     {
       "id": "5.1_q4",
-      "type": "output_prediction",
-      "concept": "the_if_statement_syntax",
-      "skill": "reasoning",
+      "type": "error_diagnosis",
+      "concept": "the_if_statement_basics",
+      "skill": "debugging",
       "difficulty": "easy",
       "prerequisites": [
         "5.1_q3"
       ],
-      "prompt": "Consider the following Python snippet demonstrating The If Statement Syntax:\n\n```python\ndef calculate_4(value):\n    base = 14\n    return base + value * 6\n\nresult = calculate_4(2)\nprint(result)\n```\n\nWhat is the value printed to the console?",
+      "prompt": "Examine this Python snippet:\n\n```python\nage = 18\nif age >= 18:\nprint(\"Adult\")\n```\n\nWhy will Python fail to execute this code?",
       "options": [
-        "26",
-        "20",
-        "96",
-        "TypeError"
+        "IndentationError: expected an indented block after 'if' statement",
+        "SyntaxError: invalid comparison operator",
+        "TypeError: 'age' is not defined",
+        "ValueError: condition cannot evaluate equality"
       ],
-      "correct_answer": "26",
-      "explanation": "Python evaluates arithmetic following standard operator precedence (multiplication before addition). First, `value * 6` evaluates to `2 * 6 = 12`. Then, adding `base` (14) yields `26`. The function returns this integer and `print()` outputs it."
+      "correct_answer": "IndentationError: expected an indented block after 'if' statement",
+      "explanation": "Python uses indentation (standard 4 spaces) rather than curly braces `{}` to determine which statements belong inside an `if` block. An unindented statement immediately following an `if` header triggers an `IndentationError`.",
+      "metadata": {
+        "concept": "if_block_indentation",
+        "skill": "syntax_debugging",
+        "learning_objective": "Identify and diagnose IndentationError in conditional statements",
+        "common_misconception": "Assuming whitespace is purely aesthetic in Python",
+        "why_this_exercise_exists": "Core Python structural rule that every programmer must master"
+      }
     },
     {
       "id": "5.1_q5",
-      "type": "output_prediction",
-      "concept": "the_if_statement_matching",
-      "skill": "recognition",
-      "difficulty": "easy",
+      "type": "code_prediction",
+      "concept": "the_if_statement_basics",
+      "skill": "boundary_analysis",
+      "difficulty": "medium",
       "prerequisites": [
         "5.1_q4"
       ],
-      "prompt": "Consider the following Python snippet demonstrating The If Statement Matching:\n\n```python\ndef calculate_5(value):\n    base = 17\n    return base + value * 11\n\nresult = calculate_5(2)\nprint(result)\n```\n\nWhat is the value printed to the console?",
+      "prompt": "A grading script checks student scores:\n\n```python\nscore = 90\nif score > 90:\n    print(\"Honor Roll\")\nprint(\"Processed\")\n```\n\nWhat is printed to the console when `score` is exactly 90?",
       "options": [
-        "39",
-        "28",
-        "209",
-        "TypeError"
+        "Processed",
+        "Honor Roll\nProcessed",
+        "Honor Roll",
+        "Nothing"
       ],
-      "correct_answer": "39",
-      "explanation": "Python evaluates arithmetic following standard operator precedence (multiplication before addition). First, `value * 11` evaluates to `2 * 11 = 22`. Then, adding `base` (17) yields `39`. The function returns this integer and `print()` outputs it."
+      "correct_answer": "Processed",
+      "explanation": "The strict greater-than operator `>` checks if `90 > 90`, which is `False`! Therefore, the indented block is skipped entirely, and only `'Processed'` is printed. If 90 was meant to qualify, the condition should use `>=`.",
+      "metadata": {
+        "concept": "strict_vs_inclusive_inequality",
+        "skill": "boundary_testing",
+        "learning_objective": "Discriminate between strict (>) and inclusive (>=) comparison boundaries",
+        "common_misconception": "Treating > as including the boundary value",
+        "why_this_exercise_exists": "Boundary/off-by-one errors in conditionals are a primary source of business logic bugs"
+      }
     },
     {
       "id": "5.1_q6",
-      "type": "output_prediction",
-      "concept": "the_if_statement_pitfalls",
-      "skill": "comprehension",
-      "difficulty": "easy",
+      "type": "fix_the_code",
+      "concept": "the_if_statement_basics",
+      "skill": "repair",
+      "difficulty": "medium",
       "prerequisites": [
         "5.1_q5"
       ],
-      "prompt": "Consider the following Python snippet demonstrating The If Statement Pitfalls:\n\n```python\ndef calculate_6(value):\n    base = 20\n    return base + value * 1\n\nresult = calculate_6(2)\nprint(result)\n```\n\nWhat is the value printed to the console?",
-      "options": [
-        "22",
-        "21",
-        "22",
-        "TypeError"
-      ],
-      "correct_answer": "22",
-      "explanation": "Python evaluates arithmetic following standard operator precedence (multiplication before addition). First, `value * 1` evaluates to `2 * 1 = 2`. Then, adding `base` (20) yields `22`. The function returns this integer and `print()` outputs it."
+      "prompt": "Fix the indentation in the code below so that the discount message only prints when `cart_total` exceeds 100, but the checkout message always prints.\n\n```python\ncart_total = 75\nif cart_total > 100:\nprint(\"Free shipping applied!\")\nprint(\"Ready for checkout\")\n```",
+      "starter_code": "cart_total = 75\nif cart_total > 100:\nprint(\"Free shipping applied!\")\nprint(\"Ready for checkout\")",
+      "solution_code": "cart_total = 75\nif cart_total > 100:\n    print(\"Free shipping applied!\")\nprint(\"Ready for checkout\")",
+      "explanation": "Indenting `print(\"Free shipping applied!\")` by 4 spaces places it inside the `if` body, so it only executes when `cart_total > 100`. Leaving `print(\"Ready for checkout\")` unindented ensures it executes regardless of the cart total.",
+      "metadata": {
+        "concept": "conditional_scoping",
+        "skill": "indentation_control",
+        "learning_objective": "Scope statements correctly inside and outside an if statement",
+        "common_misconception": "Indenting all subsequent lines or indenting none",
+        "why_this_exercise_exists": "Directly trains visual and cognitive reasoning about Python blocks"
+      }
     },
     {
       "id": "5.1_q7",
@@ -160,22 +191,24 @@
     },
     {
       "id": "5.1_q10",
-      "type": "output_prediction",
-      "concept": "the_if_statement_analysis",
-      "skill": "analysis",
+      "type": "write_the_code",
+      "concept": "the_if_statement_basics",
+      "skill": "construction",
       "difficulty": "medium",
       "prerequisites": [
         "5.1_q9"
       ],
-      "prompt": "Consider the following Python snippet demonstrating The If Statement Analysis:\n\n```python\ndef calculate_10(value):\n    base = 12\n    return base + value * 6\n\nresult = calculate_10(2)\nprint(result)\n```\n\nWhat is the value printed to the console?",
-      "options": [
-        "24",
-        "18",
-        "84",
-        "TypeError"
-      ],
-      "correct_answer": "24",
-      "explanation": "Python evaluates arithmetic following standard operator precedence (multiplication before addition). First, `value * 6` evaluates to `2 * 6 = 12`. Then, adding `base` (12) yields `24`. The function returns this integer and `print()` outputs it."
+      "prompt": "Write an `if` statement that checks if `temperature` is greater than 30. If true, set `alert` to `'Heat advisory'` and print `'Drink water'`. If `temperature` is 32, execute the check.",
+      "starter_code": "temperature = 32\nalert = \"Normal\"\n# Write the if statement here\n",
+      "solution_code": "temperature = 32\nalert = \"Normal\"\nif temperature > 30:\n    alert = \"Heat advisory\"\n    print(\"Drink water\")",
+      "explanation": "`temperature > 30` evaluates to `True` for 32. Inside the indented block, `alert` is updated to `'Heat advisory'` and `'Drink water'` is printed.",
+      "metadata": {
+        "concept": "state_mutation_in_if",
+        "skill": "implementation",
+        "learning_objective": "Mutate program state conditionally inside an if block",
+        "common_misconception": "Forgetting the colon at the end of the if header",
+        "why_this_exercise_exists": "Teaches fundamental decision-making and state tracking"
+      }
     },
     {
       "id": "5.1_q11",
@@ -217,35 +250,50 @@
     },
     {
       "id": "5.1_q13",
-      "type": "fill_in_the_blank",
-      "concept": "the_if_statement_syntax",
-      "skill": "syntax",
-      "difficulty": "easy",
+      "type": "output_prediction",
+      "concept": "the_if_statement_basics",
+      "skill": "mental_model",
+      "difficulty": "medium",
       "prerequisites": [
         "5.1_q12"
       ],
-      "prompt": "Complete the code to output 'if Statement #13':\n```python\n___('if Statement #13')\n```",
-      "correct_answer": "print",
-      "accepted_answers": [
-        "print"
+      "prompt": "What does this code output when `battery_level` is 15?\n\n```python\nbattery_level = 15\nif battery_level <= 20:\n    print(\"Low Battery\")\nif battery_level <= 10:\n    print(\"Critical Battery\")\n```",
+      "options": [
+        "Low Battery",
+        "Low Battery\nCritical Battery",
+        "Critical Battery",
+        "No output"
       ],
-      "explanation": "In Python, this operation directly demonstrates the core behavior of the if statement syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "correct_answer": "Low Battery",
+      "explanation": "The first condition `15 <= 20` is `True`, so `'Low Battery'` prints. The second condition `15 <= 10` is `False`, so the second block is skipped.",
+      "metadata": {
+        "concept": "independent_if_evaluation",
+        "skill": "branching_logic",
+        "learning_objective": "Understand that sequential if statements evaluate independently",
+        "common_misconception": "Confusing sequential if statements with mutually exclusive if-elif chains",
+        "why_this_exercise_exists": "Prevents logic bugs where multiple if statements accidentally trigger"
+      }
     },
     {
       "id": "5.1_q14",
-      "type": "fill_in_the_blank",
-      "concept": "the_if_statement_keywords",
-      "skill": "syntax",
+      "type": "fix_the_code",
+      "concept": "the_if_statement_basics",
+      "skill": "repair",
       "difficulty": "medium",
       "prerequisites": [
         "5.1_q13"
       ],
-      "prompt": "Complete the code to output 'if Statement #14':\n```python\n___('if Statement #14')\n```",
-      "correct_answer": "print",
-      "accepted_answers": [
-        "print"
-      ],
-      "explanation": "In Python, this operation directly demonstrates the core behavior of the if statement keywords. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "prompt": "The code below attempts to check if a username has at least 3 characters, but uses an assignment `=` instead of an equality comparison `==`. Fix the code.\n\n```python\nusername = \"sam\"\n# Fix the condition to check if username is \"admin\"\nis_admin = False\nif username = \"admin\":\n    is_admin = True\n```",
+      "starter_code": "username = \"sam\"\nis_admin = False\nif username = \"admin\":\n    is_admin = True",
+      "solution_code": "username = \"sam\"\nis_admin = False\nif username == \"admin\":\n    is_admin = True",
+      "explanation": "In Python, a single `=` is the assignment operator, which is illegal syntax in an `if` expression. The equality operator `==` compares whether `username` equals `'admin'`.",
+      "metadata": {
+        "concept": "assignment_vs_equality",
+        "skill": "syntax_repair",
+        "learning_objective": "Distinguish assignment (=) from equality comparison (==) in conditions",
+        "common_misconception": "Using single = inside an if statement",
+        "why_this_exercise_exists": "Eliminates one of the most common syntax errors across all programming languages"
+      }
     },
     {
       "id": "5.1_q15",

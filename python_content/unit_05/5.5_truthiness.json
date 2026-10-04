@@ -13,7 +13,7 @@
       "title": "What is Truthiness in Python?",
       "content": "In Python, every object has an inherent boolean value, which is called its truthiness. When Python evaluates a value in a conditional statement (like an if statement), it does not always require the explicit True or False. Instead, Python uses the following rules: empty collections (such as '', [], and {}) are considered False; zero and None are considered False; and most other values are considered True. Understanding truthiness helps you write cleaner, more Pythonic conditional logic. Here is a simple demonstration:\n\n```python\nvalue1 = ''\nvalue2 = 'hello'\nvalue3 = []\nvalue4 = [1, 2]\n\nif value1:\n    print('value1 is truthy')\nelse:\n    print('value1 is falsy')\n\nif value2:\n    print('value2 is truthy')\nelse:\n    print('value2 is falsy')\n\nif value3:\n    print('value3 is truthy')\nelse:\n    print('value3 is falsy')\n\nif value4:\n    print('value4 is truthy')\nelse:\n    print('value4 is falsy')\n```\n\nRunning this code prints that value1 and value3 are falsy, while value2 and value4 are truthy.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of truthiness basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "In Python, every object has an inherent boolean value, which is called its truthiness. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "5.5_q2",
@@ -46,7 +46,7 @@
       "title": "Using Truthiness in Conditionals",
       "content": "You can use any object directly in an if statement without explicitly comparing it to True or False. This is a common Python idiom. For example, checking whether a list has items can be done by testing the list itself rather than its length. Similarly, checking whether a string contains text is done by testing the string directly. Here is how you can use truthiness in practice:\n\n```python\ndef process_items(items):\n    if items:\n        print('Processing', len(items), 'items')\n        for item in items:\n            print('Item:', item)\n    else:\n        print('No items to process')\n\nprocess_items([10, 20, 30])\nprocess_items([])\n```\n\nIn the first call, items is a non-empty list, so it is truthy and the loop executes. In the second call, items is an empty list, so it is falsy and the else branch runs.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of truthiness syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Conditional branching with `if`, `elif`, and `else` controls program execution paths. Indentation defines the statement block that executes when a condition evaluates to True."
     },
     {
       "id": "5.5_q4",

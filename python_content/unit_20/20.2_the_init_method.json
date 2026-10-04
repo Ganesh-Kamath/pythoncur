@@ -13,7 +13,7 @@
       "prerequisites": [],
       "content": "The __init__ method is a special method in Python classes. It is automatically called when a new object is created from a class. Its main purpose is to initialize the object's attributes. Think of __init__ as a setup routine that runs once per object. You define it inside a class, and it always takes self as its first parameter. The self parameter refers to the instance being created. Here is a simple example:\n\n```python\nclass Dog:\n    def __init__(self, name, age):\n        self.name = name\n        self.age = age\n\nd = Dog('Buddy', 3)\nprint(d.name)  # Output: Buddy\nprint(d.age)   # Output: 3\n```\n\nIn this code, when d is created, __init__ runs and stores 'Buddy' and 3 as instance attributes. Without __init__, you would need to set attributes manually after creating the object.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of the init method basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "The __init__ method is a special method in Python classes. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "20.2_q2",
@@ -46,7 +46,7 @@
       ],
       "content": "The syntax for __init__ follows a clear pattern. It must be defined inside the class and include self as the first parameter. Additional parameters are used to pass initial values into the object. These values are then assigned to instance attributes using self. Here is the standard structure:\n\n```python\nclass Car:\n    def __init__(self, make, model):\n        self.make = make\n        self.model = model\n\nc = Car('Toyota', 'Corolla')\nprint(c.make)\n```\n\nNotice that self does not need to be provided when calling the constructor. Python supplies it automatically. You can also provide default values for parameters to make object creation more flexible:\n\n```python\nclass Book:\n    def __init__(self, title, author='Unknown'):\n        self.title = title\n        self.author = author\n\nb1 = Book('Python Guide')\nb2 = Book('Advanced Python', 'Alice')\n```\n\nIn the second example, b1 uses the default author, while b2 uses the provided author.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of the init method syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "The syntax for __init__ follows a clear pattern. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "20.2_q4",
@@ -350,7 +350,7 @@
       "prompt": "Fix the bug in this code for the init method errors:",
       "starter_code": "# Fix this code\nPrint('The __init__ Method')",
       "solution_code": "print('The __init__ Method')",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of the init method errors. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `the init method errors` in The __init__ Method. When Python validates this code, it applies the standard rules of the init method errors. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "20.2_q20",
@@ -398,7 +398,7 @@
       "prompt": "Fix the bug in this code for the init method runtime:",
       "starter_code": "# Fix this code\nPrint('The __init__ Method')",
       "solution_code": "print('The __init__ Method')",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of the init method runtime. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `the init method runtime` in The __init__ Method. When Python validates this code, it applies the standard rules of the init method runtime. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "20.2_q23",

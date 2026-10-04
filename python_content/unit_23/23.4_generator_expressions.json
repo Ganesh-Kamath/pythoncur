@@ -13,7 +13,7 @@
       "title": "What Is a Generator Expression?",
       "content": "A generator expression is a concise way to create a generator object in Python. It looks like a list comprehension but uses parentheses () instead of square brackets []. Because it is lazy, it does not compute all values at once; instead, it yields one value at a time when iterated over. This makes generator expressions memory-efficient for large or infinite sequences.\n\nFor example, instead of writing:\n\n    numbers = [x * x for x in range(5)]\n\nYou can write:\n\n    numbers = (x * x for x in range(5))\n\nBoth produce the same sequence, but the generator expression does not store all results in memory immediately.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of generator expressions basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "A generator expression is a concise way to create a generator object in Python. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "23.4_q2",
@@ -46,7 +46,7 @@
       "title": "Syntax of Generator Expressions",
       "content": "The general syntax of a generator expression is:\n\n    (expression for item in iterable if condition)\n\nThe expression is evaluated for each item in the iterable. You may include an optional if clause to filter items. Unlike list comprehensions, generator expressions do not require the entire result to be stored in memory.\n\nConsider this example:\n\n    evens = (x for x in range(10) if x % 2 == 0)\n\nThis creates a generator that yields 0, 2, 4, 6, and 8 one at a time. You can consume it with a for loop or the next() function.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of generator expressions syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "The general syntax of a generator expression is:\n\n    (expression for item in iterable if condition)\n\nThe expression is evaluated for each item in the iterable. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "23.4_q4",

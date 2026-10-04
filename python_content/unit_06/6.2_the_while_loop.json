@@ -13,7 +13,7 @@
       "title": "What is a while Loop?",
       "content": "A while loop is a control flow statement that repeatedly executes a block of code as long as a given condition is true. It is used when you do not know in advance how many times the loop should run. The basic idea is: check a condition, and if it evaluates to True, run the indented code; after the block finishes, check the condition again. When the condition becomes False, the loop stops and the program continues with the next statement after the loop.\n\nExample:\n```python\ncount = 0\nwhile count < 3:\n    print('count is', count)\n    count = count + 1\nprint('Done')\n```\nIn this example, the indented block runs three times because count starts at 0 and increases by 1 each iteration. Once count reaches 3, the condition count < 3 is False, so the loop exits.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of the while loop basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Loops repeat a block of code while a condition holds True or across elements in an iterable. Loop termination depends on advancing the state variable or encountering a break statement."
     },
     {
       "id": "6.2_q2",
@@ -46,7 +46,7 @@
       "title": "while Loop Syntax",
       "content": "The syntax of a while loop in Python has three main parts:\n\n1. The keyword `while`\n2. A condition that evaluates to True or False\n3. An indented block of code to execute\n\nThe condition is tested before every iteration. If the condition is True, Python executes the indented block. After the block finishes, Python returns to the `while` line and re-evaluates the condition. If it is still True, the block runs again. This continues until the condition becomes False, at which point the loop ends.\n\nImportant syntax rules:\n- The condition must be a boolean expression.\n- The code block must be indented consistently (usually 4 spaces).\n- Forgetting to indent the block causes an `IndentationError`.\n- Forgetting to update the condition inside the loop can create an infinite loop.\n\nExample:\n```python\nnumber = 1\nwhile number <= 4:\n    print('number:', number)\n    number = number + 1\n```\nHere, `number <= 4` is the condition, and the two indented lines form the loop body.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of the while loop syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Loops repeat a block of code while a condition holds True or across elements in an iterable. Loop termination depends on advancing the state variable or encountering a break statement."
     },
     {
       "id": "6.2_q4",
@@ -237,19 +237,29 @@
     },
     {
       "id": "6.2_q14",
-      "type": "fill_in_the_blank",
-      "concept": "the_while_loop_keywords",
-      "skill": "syntax",
+      "type": "multiple_choice",
+      "concept": "the_while_loop_execution_contract",
+      "skill": "mental_model",
       "difficulty": "medium",
       "prerequisites": [
         "6.2_q13"
       ],
-      "prompt": "Fill in the missing keyword to make the loop execute at least once: \n```python\nscore = 0\n___ score < 3:\n    print('Attempt', score)\n    score += 1\n```",
-      "correct_answer": "while True:",
-      "accepted_answers": [
-        "while True:"
+      "prompt": "Does Python have a native `do-while` loop that guarantees at least one execution of the loop body?",
+      "options": [
+        "No; Python has no native do-while loop. A standard while loop tests its condition before the first iteration and may execute zero times.",
+        "Yes; using the `do while condition:` syntax.",
+        "Yes; adding the `always:` keyword guarantees at least one run.",
+        "No; while loops always run at least once regardless of condition."
       ],
-      "explanation": "The keyword 'while True:' creates an infinite loop that runs forever unless broken internally. This is useful when you need the loop to execute at least once and exit based on a condition inside the loop."
+      "correct_answer": "No; Python has no native do-while loop. A standard while loop tests its condition before the first iteration and may execute zero times.",
+      "explanation": "Unlike C, C++, or Java, Python has NO native `do-while` statement. A Python `while condition:` loop evaluates its condition *prior* to executing the loop body. If the condition is initially `False`, the loop body runs zero times. To emulate a do-while loop in Python, developers idiomatically use `while True:` and break at the end based on a condition.",
+      "metadata": {
+        "concept": "pre_test_loop_evaluation",
+        "skill": "conceptual_rigor",
+        "learning_objective": "Understand that Python while loops are pre-test and may execute zero times",
+        "common_misconception": "Believing Python has a native do-while construct or guarantees one execution",
+        "why_this_exercise_exists": "Directly corrects the flawed prior question and teaches how Python actually evaluates loops"
+      }
     },
     {
       "id": "6.2_q15",
@@ -330,20 +340,23 @@
     {
       "id": "6.2_q19",
       "type": "fix_the_code",
+      "concept": "the_while_loop_infinite_loops",
       "skill": "debugging",
       "difficulty": "medium",
-      "concept": "the_while_loop_errors",
       "prerequisites": [
         "6.2_q18"
       ],
-      "micro_lesson": {
-        "title": "Common Syntax and Logic Errors in while Loops",
-        "content": "A while loop repeats a block of code as long as a condition is True. Beginners often make three common mistakes:\n\n1. Forgetting to update the loop variable, causing an infinite loop.\n2. Using = instead of == in the condition.\n3. Indenting the body incorrectly.\n\nExample of a correct while loop:\n```\ncount = 0\nwhile count < 3:\n    print('count is', count)\n    count = count + 1\n```\nIf you forget `count = count + 1`, the condition `count < 3` never becomes False, and the program hangs forever. Always verify that the loop variable moves toward the exit condition."
-      },
-      "prompt": "Fix the bug in this code for the while loop errors:",
-      "starter_code": "# Fix this code\nPrint('The while Loop')",
-      "solution_code": "print('The while Loop')",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of the while loop errors. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "prompt": "The following while loop is supposed to print numbers 0 through 4, but it causes an infinite loop because the loop counter is never updated! Fix the bug.\n\n```python\ncount = 0\nwhile count < 5:\n    print(count)\n```",
+      "starter_code": "count = 0\nwhile count < 5:\n    print(count)",
+      "solution_code": "count = 0\nwhile count < 5:\n    print(count)\n    count += 1",
+      "explanation": "A while loop continues executing as long as its condition remains `True`. Because `count` was initialized to 0 and never incremented inside the loop body, `count < 5` stayed `True` forever. Adding `count += 1` increments the counter so it reaches 5 and terminates.",
+      "metadata": {
+        "concept": "infinite_loop_termination",
+        "skill": "debugging",
+        "learning_objective": "Diagnose and fix infinite loops caused by missing loop variable increments",
+        "common_misconception": "Assuming loops automatically increment integer variables like range() does in for loops",
+        "why_this_exercise_exists": "Every programmer must master while loop termination guarantees"
+      }
     },
     {
       "id": "6.2_q20",
@@ -378,20 +391,23 @@
     {
       "id": "6.2_q22",
       "type": "fix_the_code",
+      "concept": "the_while_loop_boundary_conditions",
       "skill": "debugging",
       "difficulty": "medium",
-      "concept": "the_while_loop_runtime",
       "prerequisites": [
         "6.2_q21"
       ],
-      "micro_lesson": {
-        "title": "Runtime Errors and Infinite Loops",
-        "content": "Runtime errors in while loops usually stem from conditions that never become False or from operations that raise exceptions mid-loop.\n\nConsider this faulty code:\n```\nx = 10\nwhile x > 0:\n    print('x is', x)\n    x = x - 1\n    if x == 5:\n        x = x + 2\n```\nHere, `x` decreases by 1 each time, but when it reaches 5, it jumps to 7. It will eventually reach 6, then 5 again, bouncing between 5 and 6 forever. This is an infinite loop caused by logic that prevents the exit condition from being satisfied.\n\nTo avoid runtime hangs:\n- Trace the loop variable step by step.\n- Ensure every path updates the variable toward the exit condition.\n- Watch for division by zero or index errors inside the loop."
-      },
-      "prompt": "Fix the bug in this code for the while loop runtime:",
-      "starter_code": "# Fix this code\nPrint('The while Loop')",
-      "solution_code": "print('The while Loop')",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of the while loop runtime. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "prompt": "The following code intends to sum the first 5 natural numbers (1 + 2 + 3 + 4 + 5 = 15), but has an off-by-one bug stopping prematurely at 4. Fix the condition.\n\n```python\ntotal = 0\ni = 1\nwhile i < 5:\n    total += i\n    i += 1\nprint(total)\n```",
+      "starter_code": "total = 0\ni = 1\nwhile i < 5:\n    total += i\n    i += 1\nprint(total)",
+      "solution_code": "total = 0\ni = 1\nwhile i <= 5:\n    total += i\n    i += 1\nprint(total)",
+      "explanation": "Using `i < 5` exits the loop when `i` reaches 5, excluding 5 from the sum (yielding 10). Changing the condition to `i <= 5` includes 5 in the accumulation, producing the correct sum `15`.",
+      "metadata": {
+        "concept": "off_by_one_boundary_condition",
+        "skill": "debugging",
+        "learning_objective": "Identify and correct off-by-one boundary errors in while loops",
+        "common_misconception": "Using strict < when the boundary item should be included",
+        "why_this_exercise_exists": "Off-by-one loop errors are ubiquitous in software engineering"
+      }
     },
     {
       "id": "6.2_q23",
@@ -410,18 +426,24 @@
     },
     {
       "id": "6.2_q24",
-      "type": "fix_the_code",
+      "type": "refactoring_challenge",
+      "concept": "the_while_loop_idiomatic_search",
       "skill": "refactoring",
-      "difficulty": "hard",
-      "concept": "the_while_loop_optimization",
+      "difficulty": "medium",
       "prerequisites": [
         "6.2_q23"
       ],
-      "prompt": "Rewrite this inefficient loop that builds a list of squares into a more optimal and readable form.",
-      "starter_code": "squares = []\ni = 0\nwhile i < 10:\n    squares.append(i * i)\n    i = i + 1\n",
-      "solution_code": "squares = [i * i for i in range(10)]\n",
-      "hint": "Python offers a concise syntax for transforming one sequence into another.",
-      "explanation": "The original while loop manually initializes an empty list, iterates with an index, computes the square, appends it, and increments the counter. This is verbose and error-prone. A list comprehension combined with `range` expresses the same transformation in a single readable line, reducing boilerplate and improving performance."
+      "prompt": "Refactor this manual index-based while loop into an idiomatic `while True` loop that uses `break` when finding the first negative number in `data`:\n\n```python\ndata = [4, 7, -2, 9]\nfound = None\ni = 0\nwhile i < len(data):\n    if data[i] < 0:\n        found = data[i]\n        break\n    i += 1\nprint(found)\n```",
+      "starter_code": "data = [4, 7, -2, 9]\nfound = None\n# Refactor using while True and break\nidx = 0\nwhile True:\n    if idx >= len(data):\n        break\n    if data[idx] < 0:\n        found = data[idx]\n        break\n    idx += 1\nprint(found)",
+      "solution_code": "data = [4, 7, -2, 9]\nfound = None\nidx = 0\nwhile True:\n    if idx >= len(data):\n        break\n    if data[idx] < 0:\n        found = data[idx]\n        break\n    idx += 1\nprint(found)",
+      "explanation": "Emulating a sentinel loop with `while True` and explicit `break` conditions gives complete control over loop exit points for both match and termination conditions.",
+      "metadata": {
+        "concept": "while_true_break_pattern",
+        "skill": "control_flow",
+        "learning_objective": "Structure event/search loops using while True and conditional breaks",
+        "common_misconception": "Fearing while True because of infinite loop risks",
+        "why_this_exercise_exists": "Teaches the standard Python idiom for do-while and event-driven loops"
+      }
     },
     {
       "id": "6.2_q25",
@@ -538,23 +560,23 @@
     {
       "id": "6.2_q30",
       "type": "write_the_code",
-      "concept": "the_while_loop_mastery_challenge",
-      "skill": "transfer",
-      "difficulty": "expert",
+      "concept": "the_while_loop_pin_retry_system",
+      "skill": "system_design",
+      "difficulty": "hard",
       "prerequisites": [
         "6.2_q29"
       ],
-      "prompt": "Mastery Challenge: Implement a robust, tested function for The while Loop that processes inputs, validates preconditions, and handles invalid states cleanly:",
-      "starter_code": "def execute_task(data):\n    if not data:\n        return None\n    # Process valid data\n    ___",
-      "solution_code": "def execute_task(data):\n    if not data:\n        return None\n    return sorted(data)",
-      "test_cases": [
-        {
-          "input": "",
-          "expected_output": "while Loop Result 30"
-        }
-      ],
-      "hint": "Validate input first, then execute the transformation.",
-      "explanation": "Demonstrating end-to-end mastery of The while Loop requires combining input validation, core algorithmic logic, and defensive programming."
+      "prompt": "Mastery Challenge: Implement a simulated PIN authentication system using a while loop. The correct PIN is `'4821'`. Given a list of user attempts `attempts = ['0000', '1234', '4821']`, iterate through attempts. If the PIN matches, set `authenticated = True` and exit immediately. Allow at most 3 attempts; if exhausted without success, set `locked_out = True`. Implement this cleanly.",
+      "starter_code": "correct_pin = \"4821\"\nattempts = [\"0000\", \"1234\", \"4821\"]\nauthenticated = False\nlocked_out = False\n# Implement PIN verification loop\n",
+      "solution_code": "correct_pin = \"4821\"\nattempts = [\"0000\", \"1234\", \"4821\"]\nauthenticated = False\nlocked_out = False\n\nidx = 0\nmax_attempts = 3\n\nwhile idx < len(attempts) and idx < max_attempts:\n    if attempts[idx] == correct_pin:\n        authenticated = True\n        break\n    idx += 1\n\nif not authenticated:\n    locked_out = True\n\nprint(f\"Auth: {authenticated}, Locked: {locked_out}\")",
+      "explanation": "The loop checks each attempt while tracking the attempt count up to `max_attempts`. If a matching PIN is found, `authenticated` is flagged and `break` terminates early. If all 3 attempts fail, `locked_out` is set to `True`.",
+      "metadata": {
+        "concept": "retry_and_lockout_system",
+        "skill": "production_pattern",
+        "learning_objective": "Build a real-world retry counter with early-exit and security lockout",
+        "common_misconception": "Allowing attempts to exceed the security threshold",
+        "why_this_exercise_exists": "Replaces generic mastery prompt with an authentic authentication challenge"
+      }
     }
   ],
   "unit_num": 6,

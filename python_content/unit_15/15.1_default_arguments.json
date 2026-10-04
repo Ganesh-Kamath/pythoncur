@@ -13,7 +13,7 @@
       "title": "What Are Default Arguments?",
       "content": "A default argument is a parameter in a function definition that is assigned a default value. When a function is called, if the caller does not provide a value for that parameter, the default value is used instead. This makes functions more flexible by allowing optional inputs. For example, consider a function greet(name, greeting='Hello'). If you call greet('Alice'), Python uses the default 'Hello' for greeting. If you call greet('Alice', 'Hi'), it uses 'Hi'. Default arguments must appear after all parameters without default values to avoid ambiguity.\n\n```python\ndef greet(name, greeting='Hello'):\n    return greeting + ', ' + name + '!'\n\nprint(greet('Alice'))        # Output: Hello, Alice!\nprint(greet('Bob', 'Hi'))    # Output: Hi, Bob!\n```",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of default arguments basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "A default argument is a parameter in a function definition that is assigned a default value. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "15.1_q2",
@@ -46,7 +46,7 @@
       "title": "Syntax Rules for Default Arguments",
       "content": "The syntax for default arguments places the default value after the parameter name using an equals sign (=). All parameters with defaults must be placed after parameters without defaults. This ordering is mandatory because Python matches arguments by position. You can also use mutable defaults such as lists or dictionaries, but be cautious: mutable defaults are evaluated only once when the function is defined, not on each call. For immutable types like strings, numbers, or tuples, this is safe and common.\n\n```python\ndef introduce(name, age=25, city='Unknown'):\n    return f'{name} is {age} years old and lives in {city}.'\n\nprint(introduce('Dana'))           # age=25, city='Unknown'\nprint(introduce('Dana', 30))        # age=30, city='Unknown'\nprint(introduce('Dana', 30, 'Paris'))  # age=30, city='Paris'\n```",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of default arguments syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "The syntax for default arguments places the default value after the parameter name using an equals sign (=). Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "15.1_q4",
@@ -127,21 +127,28 @@
     {
       "id": "15.1_q8",
       "type": "output_prediction",
-      "concept": "default_arguments_execution",
-      "skill": "prediction",
+      "concept": "default_arguments_evaluation",
+      "skill": "mental_model",
       "difficulty": "medium",
       "prerequisites": [
         "15.1_q7"
       ],
-      "prompt": "What is the output of this code?\n```python\ndef calculate_area(length=5, width=3):\n    return length * width\n\nprint(calculate_area())\nprint(calculate_area(4))\nprint(calculate_area(width=2))\n```",
+      "prompt": "What does the following function return when called without the optional rate parameter?\n\n```python\ndef compute_tax(subtotal, rate=0.08):\n    return round(subtotal * rate, 2)\n\nprint(compute_tax(100.0))\n```",
       "options": [
-        "15\n20\n10",
-        "15\n12\n10",
-        "5\n20\n10",
-        "Error: too many arguments"
+        "8.0",
+        "0.08",
+        "108.0",
+        "TypeError: missing required argument"
       ],
-      "correct_answer": "15\n20\n10",
-      "explanation": "calculate_area() uses both defaults: 5 * 3 = 15. calculate_area(4) uses 4 for length and keeps width=3: 4 * 3 = 12. calculate_area(width=2) uses length=5 and width=2: 5 * 2 = 10. Note: the correct output is 15, 12, 10, so option A is the intended correct answer based on standard evaluation."
+      "correct_answer": "8.0",
+      "explanation": "When an argument for `rate` is omitted, Python binds the default parameter value `0.08`. `100.0 * 0.08` evaluates to `8.0`.",
+      "metadata": {
+        "concept": "default_parameter_binding",
+        "skill": "mental_model",
+        "learning_objective": "Observe default parameter values in functional calculations",
+        "common_misconception": "Thinking default arguments are mandatory at call time",
+        "why_this_exercise_exists": "Replaces template function with realistic tax calculation defaults"
+      }
     },
     {
       "id": "15.1_q9",
@@ -453,25 +460,31 @@
       "explanation": "This item reinforces how to declare a default argument in a function signature. The default value 'Hello' is used only when the caller omits the second argument. Using f-strings makes the return value concise and readable."
     },
     {
-      "idx": 26,
       "id": "15.1_q26",
-      "type": "write_the_code",
-      "concept": "default_arguments_practical",
-      "skill": "application",
-      "difficulty": "medium",
+      "type": "error_diagnosis",
+      "concept": "default_arguments_mutable_pitfall",
+      "skill": "debugging",
+      "difficulty": "hard",
       "prerequisites": [
         "15.1_q25"
       ],
-      "prompt": "Create a function calculate_price that takes quantity and unit_price, with unit_price defaulting to 10.0. Return the total price after applying a 10% discount if quantity is greater than 10.",
-      "starter_code": "def calculate_price(quantity, unit_price=10.0):\n    # TODO: compute total with optional discount\n    pass",
-      "solution_code": "def calculate_price(quantity, unit_price=10.0):\n    total = quantity * unit_price\n    if quantity > 10:\n        total *= 0.9\n    return round(total, 2)",
-      "test_cases": [
-        "calculate_price(5)",
-        "calculate_price(12)",
-        "calculate_price(20, 5.5)"
+      "prompt": "What dangerous pitfall occurs in this function with a mutable default argument?\n\n```python\ndef add_item(item, basket=[]):\n    basket.append(item)\n    return basket\n\nprint(add_item(\"apple\"))\nprint(add_item(\"banana\"))\n```",
+      "options": [
+        "['apple'] then ['apple', 'banana'] because default arguments are evaluated only once at definition time.",
+        "['apple'] then ['banana'] because basket is reset to [] on each call.",
+        "Raises a TypeError because lists cannot be default parameters.",
+        "Raises an AttributeError on append."
       ],
-      "hint": "Calculate the base total first, then conditionally apply the discount before rounding to two decimal places.",
-      "explanation": "This practical example shows how default arguments simplify common calculations. The optional unit_price lets callers use a standard rate when none is specified, while the conditional discount demonstrates branching inside a function."
+      "correct_answer": "['apple'] then ['apple', 'banana'] because default arguments are evaluated only once at definition time.",
+      "explanation": "In Python, default arguments are evaluated *once* when the function is defined, not every time it is called. The exact same list `basket` is reused across all invocations. The idiom is to use `basket=None` and initialize `if basket is None: basket = []` inside the function.",
+      "metadata": {
+        "concept": "mutable_default_arguments",
+        "skill": "gotcha_avoidance",
+        "learning_objective": "Identify the classic mutable default argument memory leak bug in Python",
+        "common_misconception": "Believing default arguments re-evaluate per function call",
+        "why_this_exercise_exists": "One of Python's most notorious interview and production pitfalls"
+      },
+      "idx": 26
     },
     {
       "idx": 27,

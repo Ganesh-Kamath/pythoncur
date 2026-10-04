@@ -13,7 +13,7 @@
       "title": "What Are Sets and Why Use Them for Lookups?",
       "content": "A set is an unordered collection of unique elements. Unlike lists, which store elements in order and allow duplicates, sets automatically remove duplicates and are optimized for membership testing. Under the hood, sets use a hash table, which gives an average time complexity of O(1) for checking whether an element exists. This makes sets ideal when you need to answer questions like 'Is this value already present?' very quickly. For example, checking if a number is in a list of 1 million items takes O(n) time, but checking if it is in a set of 1 million items takes O(1) average time. Here is a simple demonstration:\n\n```python\nnumbers = [1, 2, 3, 4, 5]\nnumber_set = set(numbers)\n\nprint('Is 3 in the list?', 3 in numbers)   # O(n) scan\nprint('Is 3 in the set?', 3 in number_set) # O(1) hash lookup\n\n# Sets also remove duplicates automatically\nwith_duplicates = [1, 2, 2, 3, 3, 3]\nprint('Unique values:', set(with_duplicates))\n```\n\nRemember: sets are unordered, so you cannot rely on index positions. They are best used when you only need to test membership, add elements, or remove elements, and you do not care about order.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of sets for fast lookups basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "A set is an unordered collection of unique elements. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "33.3_q2",
@@ -46,7 +46,7 @@
       "title": "Creating and Using Sets in Python",
       "content": "You can create a set in two ways: using the set() constructor or using curly braces {}. However, curly braces alone create a dictionary when key-value pairs are present, so use set() for empty sets. Common operations include adding an element with add(), removing an element with remove() (which raises KeyError if missing), and discarding an element with discard() (which does nothing if missing). You can also test membership with in and test equality with ==. Here is a complete example:\n\n```python\n# Creating sets\nfruits = {'apple', 'banana', 'cherry'}\nempty = set()\n\n# Adding and removing\nfruits.add('date')\nfruits.discard('banana')\n\n# Membership test\nprint('Is orange in fruits?', 'orange' in fruits)\n\n# Set equality\nother = {'apple', 'cherry', 'date'}\nprint('Are fruits and other equal?', fruits == other)\n```\n\nNote that sets are mutable, but their elements must be hashable. Unhashable types such as lists or dictionaries cannot be stored in a set.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of sets for fast lookups syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "You can create a set in two ways: using the set() constructor or using curly braces {}. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "33.3_q4",
@@ -372,7 +372,7 @@
       "starter_code": "Print('Sets for Fast Lookups Item 19')",
       "solution_code": "print('Sets for Fast Lookups Item 19')",
       "hint": "Python built-in functions like print() must be written in lowercase.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of sets for fast lookups errors. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `sets for fast lookups errors` in Sets for Fast Lookups. When Python validates this code, it applies the standard rules of sets for fast lookups errors. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "33.3_q20",
@@ -387,7 +387,7 @@
       "starter_code": "Print('Sets for Fast Lookups Item 20')",
       "solution_code": "print('Sets for Fast Lookups Item 20')",
       "hint": "Python built-in functions like print() must be written in lowercase.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of sets for fast lookups fix. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `sets for fast lookups fix` in Sets for Fast Lookups. When Python validates this code, it applies the standard rules of sets for fast lookups fix. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "33.3_q21",
@@ -402,7 +402,7 @@
       "starter_code": "Print('Sets for Fast Lookups Item 21')",
       "solution_code": "print('Sets for Fast Lookups Item 21')",
       "hint": "Python built-in functions like print() must be written in lowercase.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of sets for fast lookups edge cases. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `sets for fast lookups edge cases` in Sets for Fast Lookups. When Python validates this code, it applies the standard rules of sets for fast lookups edge cases. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "33.3_q22",
@@ -417,7 +417,7 @@
       "starter_code": "Print('Sets for Fast Lookups Item 22')",
       "solution_code": "print('Sets for Fast Lookups Item 22')",
       "hint": "Python built-in functions like print() must be written in lowercase.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of sets for fast lookups runtime. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `sets for fast lookups runtime` in Sets for Fast Lookups. When Python validates this code, it applies the standard rules of sets for fast lookups runtime. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "33.3_q23",
@@ -432,7 +432,7 @@
       "starter_code": "Print('Sets for Fast Lookups Item 23')",
       "solution_code": "print('Sets for Fast Lookups Item 23')",
       "hint": "Python built-in functions like print() must be written in lowercase.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of sets for fast lookups logic repair. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `sets for fast lookups logic repair` in Sets for Fast Lookups. When Python validates this code, it applies the standard rules of sets for fast lookups logic repair. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "33.3_q24",

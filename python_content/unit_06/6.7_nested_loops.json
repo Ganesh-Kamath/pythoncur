@@ -10,100 +10,131 @@
       "skill": "recognition",
       "difficulty": "easy",
       "prerequisites": [],
-      "title": "Nested Loops Part 1: Nested Loops Basics",
-      "content": "In Python, **Nested Loops Basics** provides essential rules when working with nested loops.\n\nUnderstanding how `nested_loops_basics` functions in practice enables you to write clean, unambiguous code.\n\n```python\n# Step 1: nested_loops_basics\nstage_1 = True\n```",
-      "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of nested loops basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "title": "Nested Loops and Execution Ordering",
+      "content": "A nested loop is a loop inside another loop. For EVERY single iteration of the outer loop, the inner loop executes completely from start to finish:\n\n```python\nfor i in range(2):\n    for j in range(3):\n        print(f\"i={i}, j={j}\")\n```\n\nTotal iterations equal the product of both loops: `2 * 3 = 6` total steps.",
+      "explanation": "Inner loops run to completion for every single step of their enclosing outer loop.",
+      "metadata": {
+        "concept": "nested_loop_execution_order",
+        "skill": "recognition",
+        "why_this_exercise_exists": "Teaches nested loop step order"
+      }
     },
     {
       "id": "6.7_q2",
       "type": "output_prediction",
       "concept": "nested_loops_basics",
-      "skill": "recall",
+      "skill": "mental_model",
       "difficulty": "easy",
       "prerequisites": [
         "6.7_q1"
       ],
-      "prompt": "Consider the following Python snippet demonstrating Nested Loops Basics:\n\n```python\ndef calculate_2(value):\n    base = 8\n    return base + value * 11\n\nresult = calculate_2(2)\nprint(result)\n```\n\nWhat is the value printed to the console?",
+      "prompt": "Predict the output of the following nested loop:\n\n```python\nfor row in range(2):\n    for col in range(3):\n        print(f\"({row},{col})\", end=\" \")\n    print()\n```",
       "options": [
-        "30",
-        "19",
-        "110",
-        "TypeError"
+        "(0,0) (0,1) (0,2) \n(1,0) (1,1) (1,2) ",
+        "(0,0) (1,0) \n(0,1) (1,1) \n(0,2) (1,2) ",
+        "(0,0) (0,1) (1,0) (1,1)",
+        "(2,3)"
       ],
-      "correct_answer": "30",
-      "explanation": "Python evaluates arithmetic following standard operator precedence (multiplication before addition). First, `value * 11` evaluates to `2 * 11 = 22`. Then, adding `base` (8) yields `30`. The function returns this integer and `print()` outputs it."
+      "correct_answer": "(0,0) (0,1) (0,2) \n(1,0) (1,1) (1,2) ",
+      "explanation": "For each iteration of the outer loop (`row = 0`, then `row = 1`), the inner loop runs completely through `col = 0, 1, 2`. This generates a 2D coordinate grid.",
+      "metadata": {
+        "concept": "nested_loop_execution_order",
+        "skill": "tracing",
+        "learning_objective": "Trace nested loop row-column execution ordering",
+        "common_misconception": "Thinking outer and inner loops step in lockstep",
+        "why_this_exercise_exists": "Replaces synthetic template function with coordinate grid iteration"
+      }
     },
     {
       "id": "6.7_q3",
       "type": "micro_lesson",
-      "concept": "nested_loops_syntax",
-      "skill": "understanding",
+      "concept": "nested_loops_grid_traversal",
+      "skill": "recognition",
       "difficulty": "easy",
       "prerequisites": [
         "6.7_q2"
       ],
-      "title": "Nested Loops Part 3: Nested Loops Syntax",
-      "content": "In Python, **Nested Loops Syntax** provides essential rules when working with nested loops.\n\nUnderstanding how `nested_loops_syntax` functions in practice enables you to write clean, unambiguous code.\n\n```python\n# Step 3: nested_loops_syntax\nstage_3 = True\n```",
-      "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of nested loops syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "title": "Traversing 2D Grids and Matrices",
+      "content": "Nested loops are the standard tool for processing two-dimensional data (like spreadsheets, images, or game boards):\n\n```python\ngrid = [\n    [1, 2, 3],\n    [4, 5, 6]\n]\n\nfor row in grid:\n    for val in row:\n        print(val, end=\" \")\n    print()\n```",
+      "explanation": "Outer loops iterate over rows while inner loops iterate through column elements in 2D structures.",
+      "metadata": {
+        "concept": "2d_grid_processing",
+        "skill": "recognition",
+        "why_this_exercise_exists": "Teaches matrix iteration"
+      }
     },
     {
       "id": "6.7_q4",
-      "type": "output_prediction",
-      "concept": "nested_loops_syntax",
-      "skill": "reasoning",
-      "difficulty": "easy",
+      "type": "code_prediction",
+      "concept": "nested_loops_basics",
+      "skill": "tracing",
+      "difficulty": "medium",
       "prerequisites": [
         "6.7_q3"
       ],
-      "prompt": "Consider the following Python snippet demonstrating Nested Loops Syntax:\n\n```python\ndef calculate_4(value):\n    base = 14\n    return base + value * 6\n\nresult = calculate_4(2)\nprint(result)\n```\n\nWhat is the value printed to the console?",
+      "prompt": "How many times does the `count += 1` statement execute in this block?\n\n```python\ncount = 0\nfor i in range(4):\n    for j in range(3):\n        count += 1\nprint(count)\n```",
       "options": [
-        "26",
-        "20",
-        "96",
-        "TypeError"
+        "12",
+        "7",
+        "4",
+        "3"
       ],
-      "correct_answer": "26",
-      "explanation": "Python evaluates arithmetic following standard operator precedence (multiplication before addition). First, `value * 6` evaluates to `2 * 6 = 12`. Then, adding `base` (14) yields `26`. The function returns this integer and `print()` outputs it."
+      "correct_answer": "12",
+      "explanation": "The outer loop runs 4 times. For each outer iteration, the inner loop runs 3 times. Total executions = 4 * 3 = 12.",
+      "metadata": {
+        "concept": "nested_iteration_multiplication",
+        "skill": "complexity_awareness",
+        "learning_objective": "Calculate total iterations of nested independent loops",
+        "common_misconception": "Adding loop iterations (4 + 3) instead of multiplying",
+        "why_this_exercise_exists": "Replaces template function with iteration counting essential for Big-O analysis"
+      }
     },
     {
       "id": "6.7_q5",
       "type": "output_prediction",
-      "concept": "nested_loops_matching",
-      "skill": "recognition",
-      "difficulty": "easy",
+      "concept": "nested_loops_basics",
+      "skill": "matrix_processing",
+      "difficulty": "medium",
       "prerequisites": [
         "6.7_q4"
       ],
-      "prompt": "Consider the following Python snippet demonstrating Nested Loops Matching:\n\n```python\ndef calculate_5(value):\n    base = 17\n    return base + value * 11\n\nresult = calculate_5(2)\nprint(result)\n```\n\nWhat is the value printed to the console?",
+      "prompt": "Trace this 2D matrix sum:\n\n```python\nmatrix = [\n    [1, 2],\n    [3, 4]\n]\ntotal = 0\nfor row in matrix:\n    for val in row:\n        total += val\nprint(total)\n```",
       "options": [
-        "39",
-        "28",
-        "209",
-        "TypeError"
+        "10",
+        "7",
+        "4",
+        "14"
       ],
-      "correct_answer": "39",
-      "explanation": "Python evaluates arithmetic following standard operator precedence (multiplication before addition). First, `value * 11` evaluates to `2 * 11 = 22`. Then, adding `base` (17) yields `39`. The function returns this integer and `print()` outputs it."
+      "correct_answer": "10",
+      "explanation": "The outer loop iterates over each row (`[1, 2]`, then `[3, 4]`). The inner loop extracts each number. 1 + 2 + 3 + 4 = 10.",
+      "metadata": {
+        "concept": "matrix_nested_iteration",
+        "skill": "data_structures",
+        "learning_objective": "Iterate through 2D nested lists to aggregate values",
+        "common_misconception": "Summing whole sublists directly without inner iteration",
+        "why_this_exercise_exists": "Replaces template function with realistic 2D data processing"
+      }
     },
     {
       "id": "6.7_q6",
-      "type": "output_prediction",
-      "concept": "nested_loops_pitfalls",
-      "skill": "comprehension",
-      "difficulty": "easy",
+      "type": "fix_the_code",
+      "concept": "nested_loops_basics",
+      "skill": "debugging",
+      "difficulty": "medium",
       "prerequisites": [
         "6.7_q5"
       ],
-      "prompt": "Consider the following Python snippet demonstrating Nested Loops Pitfalls:\n\n```python\ndef calculate_6(value):\n    base = 20\n    return base + value * 1\n\nresult = calculate_6(2)\nprint(result)\n```\n\nWhat is the value printed to the console?",
-      "options": [
-        "22",
-        "21",
-        "22",
-        "TypeError"
-      ],
-      "correct_answer": "22",
-      "explanation": "Python evaluates arithmetic following standard operator precedence (multiplication before addition). First, `value * 1` evaluates to `2 * 1 = 2`. Then, adding `base` (20) yields `22`. The function returns this integer and `print()` outputs it."
+      "prompt": "Fix the following code so that it prints a right triangle pattern of asterisks with heights 1 through 3:\n\n```python\n# Desired output:\n# *\n# **\n# ***\nfor i in range(1, 4):\n    # Fix line below so it prints i asterisks:\n    for j in range(1):\n        print(\"*\" * i)\n        break\n```",
+      "starter_code": "for i in range(1, 4):\n    for j in range(1):\n        print(\"*\" * i)\n        break",
+      "solution_code": "for i in range(1, 4):\n    row = \"\"\n    for j in range(i):\n        row += \"*\"\n    print(row)",
+      "explanation": "Inner loop `range(i)` runs `i` times for each row `i` (1, then 2, then 3), accumulating `*` into `row` before printing.",
+      "metadata": {
+        "concept": "dependent_nested_loops",
+        "skill": "pattern_generation",
+        "learning_objective": "Implement nested loops where the inner range depends on the outer loop variable",
+        "common_misconception": "Using fixed ranges for inner loops when triangle shapes require variable bounds",
+        "why_this_exercise_exists": "Replaces template function with dependent loop iteration"
+      }
     },
     {
       "id": "6.7_q7",
@@ -160,22 +191,24 @@
     },
     {
       "id": "6.7_q10",
-      "type": "output_prediction",
-      "concept": "nested_loops_analysis",
-      "skill": "analysis",
+      "type": "write_the_code",
+      "concept": "nested_loops_basics",
+      "skill": "implementation",
       "difficulty": "medium",
       "prerequisites": [
         "6.7_q9"
       ],
-      "prompt": "Consider the following Python snippet demonstrating Nested Loops Analysis:\n\n```python\ndef calculate_10(value):\n    base = 12\n    return base + value * 6\n\nresult = calculate_10(2)\nprint(result)\n```\n\nWhat is the value printed to the console?",
-      "options": [
-        "24",
-        "18",
-        "84",
-        "TypeError"
-      ],
-      "correct_answer": "24",
-      "explanation": "Python evaluates arithmetic following standard operator precedence (multiplication before addition). First, `value * 6` evaluates to `2 * 6 = 12`. Then, adding `base` (12) yields `24`. The function returns this integer and `print()` outputs it."
+      "prompt": "Write a nested loop to flatten a 2D list `grid = [[10, 20], [30, 40]]` into a 1D list called `flat` containing `[10, 20, 30, 40]`.",
+      "starter_code": "grid = [[10, 20], [30, 40]]\nflat = []\n# Iterate and append elements to flat\n",
+      "solution_code": "grid = [[10, 20], [30, 40]]\nflat = []\nfor sublist in grid:\n    for item in sublist:\n        flat.append(item)\nprint(flat)",
+      "explanation": "Iterating over each sublist and then over each element inside it appends items one by one into the flat 1D list.",
+      "metadata": {
+        "concept": "matrix_flattening",
+        "skill": "data_manipulation",
+        "learning_objective": "Flatten multi-dimensional lists into 1D sequences using nested loops",
+        "common_misconception": "Appending sublists directly resulting in nested structures",
+        "why_this_exercise_exists": "Replaces template function with an essential data transformation routine"
+      }
     },
     {
       "id": "6.7_q11",

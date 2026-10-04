@@ -13,7 +13,7 @@
       "title": "Architecting a Weather Dashboard",
       "content": "Before writing any code, you must plan how your Weather Dashboard will fetch data and display it. A typical architecture has three layers: the frontend (GUI) where the user interacts, the networking layer that calls the weather API, and the data layer that parses the JSON response. We will use the `requests` library to send a GET request to a public weather API such as OpenWeatherMap. The response arrives as JSON, which we convert into a Python dictionary using `.json()`. Your GUI will then extract fields like temperature, humidity, and description to update labels. Sketch this flow on paper: GUI button triggers function -> `requests.get(url)` -> `.json()` -> update labels. This separation keeps your code readable and debuggable.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of project api weather dashboard architecture. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Before writing any code, you must plan how your Weather Dashboard will fetch data and display it. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "idx": 2,
@@ -28,7 +28,7 @@
       "content": "Selecting the right API endpoint is critical. For example, the current weather endpoint usually returns data like `{'main': {'temp': 285.53}, 'weather': [{'description': 'clear sky'}]}`. Plan to store the API key securely, perhaps as an environment variable, rather than hard-coding it. For the GUI, a simple layout might use a `tkinter.Tk()` root window with a `Label` for the city, another for temperature, and a `Button` to refresh. Remember to handle network errors gracefully with a `try/except` block around the request. Here is a skeleton to guide your planning:\n\n```python\nimport requests\n\napi_key = 'YOUR_KEY'\nbase_url = 'https://api.openweathermap.org/data/2.5/weather'\nparams = {'q': 'London', 'appid': api_key, 'units': 'metric'}\n\ntry:\n    response = requests.get(base_url, params=params)\n    response.raise_for_status()\n    data = response.json()\nexcept requests.exceptions.RequestException as e:\n    print('Error:', e)\n```\n\nWith this structure, you can now wire the parsed values into your GUI widgets.",
       "id": "25.6_q2",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of project api weather dashboard architecture. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Selecting the right API endpoint is critical. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "idx": 3,
@@ -139,112 +139,102 @@
       "prompt": "Fix the bug in this code for project api weather dashboard module bugfix:",
       "starter_code": "# Fix this code\nPrint('Project: API Weather Dashboard')",
       "solution_code": "print('Project: API Weather Dashboard')",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of project api weather dashboard module bugfix. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `project api weather dashboard module bugfix` in Project: API Weather Dashboard. When Python validates this code, it applies the standard rules of project api weather dashboard module bugfix. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "25.6_q8",
-      "type": "fix_the_code",
-      "concept": "project_api_weather_dashboard_module_bugfix",
-      "skill": "debugging",
+      "type": "write_the_code",
+      "concept": "project_api_weather_dashboard_temp_extract",
+      "skill": "project_milestone",
       "difficulty": "medium",
       "prerequisites": [
         "25.6_q7"
       ],
-      "error_diagnosis": {
-        "prompt": "In the Weather Dashboard module, the function below is supposed to handle network failures gracefully. Currently, if the API is unreachable, the program terminates with an unhandled exception. Fix the code so it catches connection errors and prints a user-friendly message.",
-        "starter_code": "import requests\n\ndef fetch_weather(city):\n    url = 'https://api.example.com/weather?q=' + city\n    response = requests.get(url)\n    return response.json()\n\nfetch_weather('Paris')",
-        "solution_code": "import requests\n\ndef fetch_weather(city):\n    url = 'https://api.example.com/weather?q=' + city\n    try:\n        response = requests.get(url, timeout=5)\n        response.raise_for_status()\n        return response.json()\n    except requests.exceptions.RequestException as e:\n        print('Unable to retrieve weather data:', e)\n        return None\n\nfetch_weather('Paris')",
-        "hint": "Use a try-except block to catch request-related exceptions such as ConnectionError or Timeout. Also call raise_for_status() to catch HTTP errors.",
-        "explanation": "Wrapping the network call in a try-except block ensures that connection timeouts, DNS failures, or bad HTTP status codes do not crash the program. The function now returns None on failure and informs the user."
-      },
-      "prompt": "Fix the bug in this code for project api weather dashboard module bugfix: (Variation 8)",
-      "starter_code": "# Fix this code\nPrint('Project: API Weather Dashboard')",
-      "solution_code": "print('Project: API Weather Dashboard')",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of project api weather dashboard module bugfix. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "prompt": "Weather Dashboard Milestone 1: Extract temperature. Given API response payload `payload = {'main': {'temp': 295.15, 'humidity': 60}}`, extract temperature into `temp_k`.",
+      "starter_code": "payload = {\"main\": {\"temp\": 295.15, \"humidity\": 60}}\n# Extract temp\n",
+      "solution_code": "payload = {\"main\": {\"temp\": 295.15, \"humidity\": 60}}\ntemp_k = payload[\"main\"][\"temp\"]\nprint(f\"Kelvin: {temp_k}\")",
+      "explanation": "Navigating nested JSON dictionaries via `payload['main']['temp']` extracts weather readings.",
+      "metadata": {
+        "concept": "nested_json_extraction",
+        "skill": "project_milestone",
+        "why_this_exercise_exists": "Replaces variation with temperature parsing"
+      }
     },
     {
       "id": "25.6_q9",
-      "type": "fix_the_code",
-      "concept": "project_api_weather_dashboard_module_bugfix",
-      "skill": "debugging",
+      "type": "write_the_code",
+      "concept": "project_api_weather_dashboard_kelvin_to_celsius",
+      "skill": "project_milestone",
       "difficulty": "medium",
       "prerequisites": [
         "25.6_q8"
       ],
-      "error_diagnosis": {
-        "prompt": "The Weather Dashboard code below attempts to parse the API response but fails because it does not validate whether the response contains the expected nested structure. Add defensive checks so the code does not raise an exception when keys are missing.",
-        "starter_code": "import requests\n\ndef parse_weather(data):\n    return data['weather'][0]['description']\n\nresp = requests.get('https://api.example.com/weather?q=Tokyo')\nresult = parse_weather(resp.json())\nprint(result)",
-        "solution_code": "import requests\n\ndef parse_weather(data):\n    if not isinstance(data, dict):\n        raise ValueError('Invalid response format')\n    if 'weather' not in data or not data['weather']:\n        raise ValueError('Weather list is missing')\n    return data['weather'][0]['description']\n\nresp = requests.get('https://api.example.com/weather?q=Tokyo')\nresult = parse_weather(resp.json())\nprint(result)",
-        "hint": "Verify that 'data' is a dictionary, that 'weather' exists and is non-empty, and that the first element contains 'description' before accessing it.",
-        "explanation": "Defensive programming prevents runtime exceptions by confirming the expected data shape before indexing. The improved parse_weather function raises clear ValueError messages when the API response is malformed."
-      },
-      "prompt": "Fix the bug in this code for project api weather dashboard module bugfix: (Variation 9)",
-      "starter_code": "# Fix this code\nPrint('Project: API Weather Dashboard')",
-      "solution_code": "print('Project: API Weather Dashboard')",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of project api weather dashboard module bugfix. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "prompt": "Weather Dashboard Milestone 2: Convert temperature from Kelvin `295.15` to Celsius (`temp_k - 273.15`) rounded to 1 decimal place into `temp_c`.",
+      "starter_code": "temp_k = 295.15\n# Convert to Celsius\n",
+      "solution_code": "temp_k = 295.15\ntemp_c = round(temp_k - 273.15, 1)\nprint(f\"Celsius: {temp_c}°C\")",
+      "explanation": "Subtracting 273.15 converts standard Kelvin readings into user-friendly Celsius format (`22.0°C`).",
+      "metadata": {
+        "concept": "temperature_conversion",
+        "skill": "project_milestone",
+        "why_this_exercise_exists": "Replaces variation with metric conversion"
+      }
     },
     {
       "id": "25.6_q10",
-      "type": "fix_the_code",
-      "concept": "project_api_weather_dashboard_module_bugfix",
-      "skill": "debugging",
+      "type": "write_the_code",
+      "concept": "project_api_weather_dashboard_desc_extract",
+      "skill": "project_milestone",
       "difficulty": "medium",
       "prerequisites": [
         "25.6_q9"
       ],
-      "error_diagnosis": {
-        "prompt": "The Weather Dashboard stores API responses in a local cache dictionary. The code below incorrectly mutates the cached dictionary when updating a city's forecast. Fix the logic so the original cache remains unchanged and a new forecast entry is added safely.",
-        "starter_code": "cache = {'London': {'temp': 280}}\n\ndef update_cache(city, forecast):\n    cache[city] = forecast\n    return cache\n\nupdate_cache('London', {'temp': 285})\nprint(cache)",
-        "solution_code": "cache = {'London': {'temp': 280}}\n\ndef update_cache(city, forecast):\n    new_cache = cache.copy()\n    new_cache[city] = forecast\n    return new_cache\n\nupdate_cache('London', {'temp': 285})\nprint(cache)",
-        "hint": "Use dict.copy() to create a shallow copy before modifying it, ensuring the original cache dictionary is not altered.",
-        "explanation": "By copying the cache before mutation, the function avoids side effects on the original dictionary. This pattern is useful when the dashboard needs to preserve historical cached states while displaying updated forecasts."
-      },
-      "prompt": "Fix the bug in this code for project api weather dashboard module bugfix: (Variation 10)",
-      "starter_code": "# Fix this code\nPrint('Project: API Weather Dashboard')",
-      "solution_code": "print('Project: API Weather Dashboard')",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of project api weather dashboard module bugfix. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "prompt": "Weather Dashboard Milestone 3: Extract weather condition description from `payload = {'weather': [{'description': 'clear sky'}]}` into variable `description`.",
+      "starter_code": "payload = {\"weather\": [{\"description\": \"clear sky\"}]}\n# Extract description\n",
+      "solution_code": "payload = {\"weather\": [{\"description\": \"clear sky\"}]}\ndescription = payload[\"weather\"][0][\"description\"]\nprint(description.title())",
+      "explanation": "The `weather` key contains a list of condition dicts; accessing index `0` extracts the primary description.",
+      "metadata": {
+        "concept": "nested_list_dict_navigation",
+        "skill": "project_milestone",
+        "why_this_exercise_exists": "Replaces variation with description extraction"
+      }
     },
     {
       "id": "25.6_q11",
-      "type": "fix_the_code",
-      "concept": "project_api_weather_dashboard_module_bugfix",
-      "skill": "debugging",
+      "type": "write_the_code",
+      "concept": "project_api_weather_dashboard_http_status",
+      "skill": "project_milestone",
       "difficulty": "medium",
       "prerequisites": [
         "25.6_q10"
       ],
-      "error_diagnosis": {
-        "prompt": "The Weather Dashboard API client constructs query parameters incorrectly, causing the API to return a 400 Bad Request. The parameters are concatenated into the URL string instead of being passed as a proper dictionary. Correct the URL construction.",
-        "starter_code": "import requests\n\ndef build_url(city, units):\n    base = 'https://api.example.com/weather'\n    params = 'q=' + city + '&units=' + units\n    url = base + '?' + params\n    return requests.get(url)\n\nbuild_url('Berlin', 'metric')",
-        "solution_code": "import requests\n\ndef build_url(city, units):\n    base = 'https://api.example.com/weather'\n    params = {'q': city, 'units': units}\n    return requests.get(base, params=params)\n\nbuild_url('Berlin', 'metric')",
-        "hint": "Pass query parameters as a dictionary to the params argument of requests.get rather than manually appending them to the URL string.",
-        "explanation": "Using the params dictionary lets requests handle proper URL encoding and avoids malformed query strings. This is the standard way to build API requests in Python."
-      },
-      "prompt": "Fix the bug in this code for project api weather dashboard module bugfix: (Variation 11)",
-      "starter_code": "# Fix this code\nPrint('Project: API Weather Dashboard')",
-      "solution_code": "print('Project: API Weather Dashboard')",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of project api weather dashboard module bugfix. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "prompt": "Weather Dashboard Milestone 4: Verify HTTP response status. Given `status_code = 200`, write an `if-else` check: if 200 print `'Success'`, else print `f'API Error: {status_code}'`.",
+      "starter_code": "status_code = 200\n# Check status code\n",
+      "solution_code": "status_code = 200\nif status_code == 200:\n    print(\"Success\")\nelse:\n    print(f\"API Error: {status_code}\")",
+      "explanation": "Checking HTTP status codes prevents downstream JSON parsing crashes when requests fail.",
+      "metadata": {
+        "concept": "http_status_guard",
+        "skill": "project_milestone",
+        "why_this_exercise_exists": "Replaces variation with API status check"
+      }
     },
     {
       "id": "25.6_q12",
-      "type": "fix_the_code",
-      "concept": "project_api_weather_dashboard_module_bugfix",
-      "skill": "debugging",
+      "type": "write_the_code",
+      "concept": "project_api_weather_dashboard_city_not_found",
+      "skill": "project_milestone",
       "difficulty": "medium",
       "prerequisites": [
         "25.6_q11"
       ],
-      "error_diagnosis": {
-        "prompt": "The Weather Dashboard displays temperature in Fahrenheit when the user requested Celsius. The conversion formula is applied incorrectly, resulting in a value that is too high. Fix the conversion logic in the display function.",
-        "starter_code": "def display_temp(kelvin, scale):\n    if scale == 'C':\n        return (kelvin - 273.15) * 9/5 + 32\n    return kelvin\n\nprint(display_temp(293.15, 'C'))",
-        "solution_code": "def display_temp(kelvin, scale):\n    if scale == 'C':\n        return kelvin - 273.15\n    return kelvin\n\nprint(display_temp(293.15, 'C'))",
-        "hint": "When converting from Kelvin to Celsius, subtract 273.15. The extra multiplication by 9/5 and addition of 32 is a Kelvin-to-Fahrenheit conversion, not Kelvin-to-Celsius.",
-        "explanation": "The original code mistakenly applied a Fahrenheit conversion formula to a Celsius request. Removing the unnecessary arithmetic yields the correct Celsius temperature from the Kelvin base value."
-      },
-      "prompt": "Fix the bug in this code for project api weather dashboard module bugfix: (Variation 12)",
-      "starter_code": "# Fix this code\nPrint('Project: API Weather Dashboard')",
-      "solution_code": "print('Project: API Weather Dashboard')",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of project api weather dashboard module bugfix. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "prompt": "Weather Dashboard Milestone 5: Handle missing city (HTTP 404). Given `status_code = 404`, set `error_msg = 'City not found. Please verify spelling.'`.",
+      "starter_code": "status_code = 404\nerror_msg = \"\"\n# Handle 404\n",
+      "solution_code": "status_code = 404\nerror_msg = \"\"\nif status_code == 404:\n    error_msg = \"City not found. Please verify spelling.\"\nprint(error_msg)",
+      "explanation": "Providing actionable, human-readable error messages when endpoints return 404 improves user experience.",
+      "metadata": {
+        "concept": "client_error_reporting",
+        "skill": "project_milestone",
+        "why_this_exercise_exists": "Replaces variation with 404 handling"
+      }
     },
     {
       "id": "25.6_q13",

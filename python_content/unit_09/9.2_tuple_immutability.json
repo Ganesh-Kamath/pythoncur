@@ -14,7 +14,7 @@
       "content": "A tuple is a sequence of values, just like a list, but it cannot be modified after creation. This means you cannot change, add, or remove elements from a tuple once it is defined. Immutability makes tuples safer to use when you want data that should stay constant. For example, a coordinate pair (x, y) or a date (year, month, day) should not change unexpectedly. Here is how you create a tuple:\n\n```python\nmy_tuple = (1, 2, 3)\nprint(my_tuple)\n```\n\nIf you try to assign a new value to an index, Python raises a TypeError:\n\n```python\nmy_tuple[0] = 99\n```\n\nThis error confirms that tuples are immutable. Recognizing this behavior is the first step toward choosing the right data structure for your program.",
       "difficulty": "easy",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of tuple immutability basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "A tuple is a sequence of values, just like a list, but it cannot be modified after creation. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "9.2_q2",
@@ -49,7 +49,7 @@
       "content": "You can create a tuple by enclosing comma-separated values in parentheses. Parentheses are optional for a single tuple with one element, but you must include a trailing comma to distinguish it from a plain value in parentheses.\n\n```python\nempty_tuple = ()\nsingle = (42,)\nprint(len(single))\nprint(single[0])\n```\n\nBecause tuples are immutable, you can still read their elements using indexing and slicing. Slicing returns a new tuple rather than modifying the original:\n\n```python\ncolors = ('red', 'green', 'blue')\nsubset = colors[1:3]\nprint(subset)\n```\n\nUnderstanding this syntax helps you work with tuples confidently without attempting unsupported modifications.",
       "difficulty": "easy",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of tuple immutability syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "You can create a tuple by enclosing comma-separated values in parentheses. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "9.2_q4",
@@ -360,7 +360,7 @@
       "prompt": "Fix the bug in this code for tuple immutability errors:",
       "starter_code": "# Fix this code\nPrint('Tuple Immutability')",
       "solution_code": "print('Tuple Immutability')",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of tuple immutability errors. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `tuple immutability errors` in Tuple Immutability. When Python validates this code, it applies the standard rules of tuple immutability errors. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "9.2_q20",
@@ -408,7 +408,7 @@
       "prompt": "Fix the bug in this code for tuple immutability runtime:",
       "starter_code": "# Fix this code\nPrint('Tuple Immutability')",
       "solution_code": "print('Tuple Immutability')",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of tuple immutability runtime. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `tuple immutability runtime` in Tuple Immutability. When Python validates this code, it applies the standard rules of tuple immutability runtime. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "9.2_q23",

@@ -13,7 +13,7 @@
       "title": "What Is the heapq Module?",
       "content": "The heapq module in Python implements a binary min-heap, which is a tree-based data structure that satisfies the heap property: the value of each node is less than or equal to the value of its children. This makes the smallest element always accessible at index 0. The module does not provide a full priority queue class, but offers functions to treat a regular list as a heap. Common operations include heapq.heappush(heap, item) to add an element, heapq.heappop(heap) to remove and return the smallest element, heapq.heapify(heap) to transform a list into a heap in-place, and heapq.heappushpop(heap, item) to push a new item and pop the smallest in one efficient step. A key property is that heapq works with any comparable objects, not just numbers, and it maintains the heap invariant after each operation.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of pythons heapq module basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "The heapq module in Python implements a binary min-heap, which is a tree-based data structure that satisfies the heap property: the value of each node is less than or equal to the value of its children. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "40.3_q2",
@@ -46,7 +46,7 @@
       "title": "Core heapq Functions and Their Signatures",
       "content": "The heapq module exposes several functions that operate on a list representing a heap. The most frequently used ones are: heapq.heappush(heap, item) inserts item while maintaining the heap invariant; heapq.heappop(heap) removes and returns the smallest item; heapq.heapify(heap) reorders heap in-place; heapq.heappushpop(heap, item) pushes item and returns the smallest of the two; heapq.heapreplace(heap, item) pops the smallest and pushes item; and heapq.nlargest(n, iterable) and heapq.nsmallest(n, iterable) return the n largest or smallest elements without fully sorting the iterable. Note that heapq does not support decreasing the priority of an arbitrary element directly; to update an element, one typically removes and re-inserts it. All functions assume the list is already a heap unless heapify is called first.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of pythons heapq module syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "The heapq module exposes several functions that operate on a list representing a heap. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "40.3_q4",
@@ -186,7 +186,7 @@
           "expected_output": "OK"
         }
       ],
-      "explanation": "In Python, this operation directly demonstrates the core behavior of pythons heapq module analysis. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `pythons heapq module analysis` in Python's heapq Module. When Python validates this code, it applies the standard rules of pythons heapq module analysis. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "40.3_q11",
@@ -206,7 +206,7 @@
         "[4, 5, 2]"
       ],
       "correct_answer": "[2, 4, 5, 3]",
-      "explanation": "Initial heap: [6, 4, 3]. After heappush(2), 2 bubbles to the top: [2, 4, 3, 6]. After heappop, 2 is removed and 6 replaces it, then bubbles down: [3, 4, 6]. After heappush(5), 5 is appended and bubbles up: [3, 4, 6, 5]. Wait \u2014 re-evaluating: after heappop from [2, 4, 3, 6], the last element 6 moves to root and sinks to index 3, giving [3, 4, 6]. Then heappush(5) appends 5 and swaps with 4: [3, 5, 6, 4]. Actually, the correct trace yields [2, 4, 5, 3] only if initial heapify was applied. Given the initial list [6, 4, 3] is not a valid heap, heapq.heappush first heapifies implicitly. The correct final state after all operations is [2, 4, 5, 3] when properly traced with heapify on push."
+      "explanation": "Initial heap: [6, 4, 3]. After heappush(2), 2 bubbles to the top: [2, 4, 3, 6]. After heappop, 2 is removed and 6 replaces it, then bubbles down: [3, 4, 6]. After heappush(5), 5 is appended and bubbles up: [3, 4, 6, 5]. Wait — re-evaluating: after heappop from [2, 4, 3, 6], the last element 6 moves to root and sinks to index 3, giving [3, 4, 6]. Then heappush(5) appends 5 and swaps with 4: [3, 5, 6, 4]. Actually, the correct trace yields [2, 4, 5, 3] only if initial heapify was applied. Given the initial list [6, 4, 3] is not a valid heap, heapq.heappush first heapifies implicitly. The correct final state after all operations is [2, 4, 5, 3] when properly traced with heapify on push."
     },
     {
       "id": "40.3_q12",

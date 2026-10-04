@@ -13,7 +13,7 @@
       "title": "What Are Instance Attributes?",
       "content": "An instance attribute is a variable that belongs to a specific object created from a class. When you create an object, each object can have its own values for these attributes. For example, if you create a class Car, each Car object can have its own color and model. Instance attributes are defined inside the __init__ method using self. Here is a simple example:\n\n```python\nclass Car:\n    def __init__(self, color, model):\n        self.color = color\n        self.model = model\n\nmy_car = Car('red', 'sedan')\nprint(my_car.color)  # Output: red\n```\n\nNotice that self.color and self.model are instance attributes. They store data unique to each instance of Car.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of instance attributes basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "An instance attribute is a variable that belongs to a specific object created from a class. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "20.4_q2",
@@ -46,7 +46,7 @@
       "title": "Syntax for Defining Instance Attributes",
       "content": "To define an instance attribute, you place the assignment inside the __init__ method and prefix the variable name with self. This syntax tells Python that the attribute belongs to the instance, not the class. Here is a detailed example:\n\n```python\nclass Dog:\n    def __init__(self, name, age):\n        self.name = name\n        self.age = age\n\nbuddy = Dog('Buddy', 5)\nprint(buddy.name)\nprint(buddy.age)\n```\n\nYou can also assign multiple attributes in one line or use default values. For example:\n\n```python\nclass Student:\n    def __init__(self, name, grade='A'):\n        self.name = name\n        self.grade = grade\n\nanna = Student('Anna')\nprint(anna.grade)  # Output: A\n```\n\nEach call to Dog or Student creates a new object with its own set of instance attributes.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of instance attributes syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "To define an instance attribute, you place the assignment inside the __init__ method and prefix the variable name with self. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "20.4_q4",
@@ -361,7 +361,7 @@
       "prompt": "Fix the bug in this code for instance attributes errors:",
       "starter_code": "# Fix this code\nPrint('Instance Attributes')",
       "solution_code": "print('Instance Attributes')",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of instance attributes errors. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `instance attributes errors` in Instance Attributes. When Python validates this code, it applies the standard rules of instance attributes errors. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "20.4_q20",
@@ -409,7 +409,7 @@
       "prompt": "Fix the bug in this code for instance attributes runtime:",
       "starter_code": "# Fix this code\nPrint('Instance Attributes')",
       "solution_code": "print('Instance Attributes')",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of instance attributes runtime. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `instance attributes runtime` in Instance Attributes. When Python validates this code, it applies the standard rules of instance attributes runtime. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "20.4_q23",

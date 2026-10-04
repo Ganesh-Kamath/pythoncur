@@ -14,7 +14,7 @@
       "difficulty": "easy",
       "prerequisites": [],
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of project cli expense tracker architecture. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "In this micro-lesson, we plan the overall structure of our Command-Line Interface (CLI) Expense Tracker. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "14.6_q2",
@@ -29,7 +29,7 @@
         "14.6_q1"
       ],
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of project cli expense tracker architecture. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Before writing the full application, we must decide how data moves through the system. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "14.6_q3",
@@ -136,112 +136,104 @@
       "prompt": "Fix the bug in this code for project cli expense tracker module bugfix:",
       "starter_code": "# Fix this code\nPrint('Project: CLI Expense Tracker')",
       "solution_code": "print('Project: CLI Expense Tracker')",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of project cli expense tracker module bugfix. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `project cli expense tracker module bugfix` in Project: CLI Expense Tracker. When Python validates this code, it applies the standard rules of project cli expense tracker module bugfix. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "14.6_q8",
-      "type": "fix_the_code",
-      "concept": "project_cli_expense_tracker_module_bugfix",
-      "skill": "debugging",
+      "type": "write_the_code",
+      "concept": "project_cli_expense_tracker_record_creation",
+      "skill": "project_milestone",
       "difficulty": "medium",
       "prerequisites": [
         "14.6_q7"
       ],
-      "error_diagnosis": {
-        "prompt": "The load_expenses function crashes with a FileNotFoundError when expenses.json does not yet exist. Add safe handling so it returns an empty list instead.",
-        "starter_code": "import json\n\ndef load_expenses():\n    with open('expenses.json', 'r') as f:\n        return json.load(f)\n\nprint(load_expenses())",
-        "solution_code": "import json\nimport os\n\ndef load_expenses():\n    if not os.path.exists('expenses.json'):\n        return []\n    with open('expenses.json', 'r') as f:\n        return json.load(f)\n\nprint(load_expenses())",
-        "hint": "Consider checking file existence before opening, or use a try-except block around json.load.",
-        "explanation": "When the JSON file is missing, json.load raises FileNotFoundError. By checking os.path.exists first or catching the exception, the function gracefully returns an empty list, matching the expected behavior for a new tracker."
-      },
-      "prompt": "Fix the bug in this code for project cli expense tracker module bugfix: (Variation 8)",
-      "starter_code": "# Fix this code\nPrint('Project: CLI Expense Tracker')",
-      "solution_code": "print('Project: CLI Expense Tracker')",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of project cli expense tracker module bugfix. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "prompt": "Expense Tracker Milestone: Write a function `create_expense(category, amount, note)` that returns a clean dictionary record with keys `category`, `amount` (as float), and `note`.",
+      "starter_code": "def create_expense(category, amount, note=\"\"):\n    pass",
+      "solution_code": "def create_expense(category, amount, note=\"\"):\n    return {\"category\": category, \"amount\": float(amount), \"note\": note}\n\nprint(create_expense(\"Food\", 12.50))",
+      "explanation": "Standardizes expense entity creation with proper float typing.",
+      "metadata": {
+        "concept": "expense_entity_constructor",
+        "skill": "project_milestone",
+        "why_this_exercise_exists": "Replaces variation with expense entity builder"
+      }
     },
     {
       "id": "14.6_q9",
-      "type": "fix_the_code",
-      "concept": "project_cli_expense_tracker_module_bugfix",
-      "skill": "debugging",
+      "type": "write_the_code",
+      "concept": "project_cli_expense_tracker_listing",
+      "skill": "project_milestone",
       "difficulty": "medium",
       "prerequisites": [
         "14.6_q8"
       ],
-      "error_diagnosis": {
-        "prompt": "The save_expenses function writes a compact, unreadable JSON file. Update it to produce nicely indented output without changing the data structure.",
-        "starter_code": "import json\n\ndef save_expenses(expenses):\n    with open('expenses.json', 'w') as f:\n        json.dump(expenses, f)\n\nexpenses = [{'name': 'Coffee', 'amount': 3.50}]\nsave_expenses(expenses)",
-        "solution_code": "import json\n\ndef save_expenses(expenses):\n    with open('expenses.json', 'w') as f:\n        json.dump(expenses, f, indent=4)\n\nexpenses = [{'name': 'Coffee', 'amount': 3.50}]\nsave_expenses(expenses)",
-        "hint": "json.dump accepts an indent parameter to control whitespace formatting.",
-        "explanation": "Adding indent=4 to json.dump formats the output with readable indentation. The data remains identical; only the file layout changes, which is useful for debugging and manual inspection."
-      },
-      "prompt": "Fix the bug in this code for project cli expense tracker module bugfix: (Variation 9)",
-      "starter_code": "# Fix this code\nPrint('Project: CLI Expense Tracker')",
-      "solution_code": "print('Project: CLI Expense Tracker')",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of project cli expense tracker module bugfix. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "prompt": "Expense Tracker Milestone: Given `expenses = [{'category': 'Gas', 'amount': 40.0}]`, format and print each entry as `'Category: $Amount'`.",
+      "starter_code": "expenses = [{\"category\": \"Gas\", \"amount\": 40.0}]\n# Format and display\n",
+      "solution_code": "expenses = [{\"category\": \"Gas\", \"amount\": 40.0}]\nfor e in expenses:\n    print(f\"{e['category']}: ${e['amount']:.2f}\")",
+      "explanation": "Formats monetary amounts with two decimal places for clear CLI viewing.",
+      "metadata": {
+        "concept": "expense_table_display",
+        "skill": "project_milestone",
+        "why_this_exercise_exists": "Replaces variation with expense roster display"
+      }
     },
     {
       "id": "14.6_q10",
-      "type": "fix_the_code",
-      "concept": "project_cli_expense_tracker_module_bugfix",
-      "skill": "debugging",
+      "type": "write_the_code",
+      "concept": "project_cli_expense_tracker_total",
+      "skill": "project_milestone",
       "difficulty": "medium",
       "prerequisites": [
         "14.6_q9"
       ],
-      "error_diagnosis": {
-        "prompt": "The calculate_total function assumes every expense has an 'amount' key, but some malformed entries may lack it. Fix the function to skip invalid entries and still sum valid amounts.",
-        "starter_code": "import json\n\ndef calculate_total(expenses):\n    return sum(e['amount'] for e in expenses)\n\nexpenses = [{'name': 'Coffee', 'amount': 3.50}, {'name': 'Books'}]\nprint(calculate_total(expenses))",
-        "solution_code": "import json\n\ndef calculate_total(expenses):\n    return sum(e['amount'] for e in expenses if 'amount' in e)\n\nexpenses = [{'name': 'Coffee', 'amount': 3.50}, {'name': 'Books'}]\nprint(calculate_total(expenses))",
-        "hint": "Use a conditional inside the generator expression to filter only dictionaries that contain the 'amount' key.",
-        "explanation": "The original generator expression raises a KeyError on the malformed entry. Adding if 'amount' in e filters out invalid dictionaries, allowing the sum to compute only over valid expenses."
-      },
-      "prompt": "Fix the bug in this code for project cli expense tracker module bugfix: (Variation 10)",
-      "starter_code": "# Fix this code\nPrint('Project: CLI Expense Tracker')",
-      "solution_code": "print('Project: CLI Expense Tracker')",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of project cli expense tracker module bugfix. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "prompt": "Expense Tracker Milestone: Given a list of expense records `expenses = [{'category': 'Food', 'amount': 15.50}, {'category': 'Transport', 'amount': 4.50}, {'category': 'Food', 'amount': 12.00}]`, compute the total spending in the `'Food'` category.",
+      "starter_code": "expenses = [\n    {\"category\": \"Food\", \"amount\": 15.50},\n    {\"category\": \"Transport\", \"amount\": 4.50},\n    {\"category\": \"Food\", \"amount\": 12.00}\n]\nfood_total = 0.0\n# Sum amounts where category == 'Food'\n",
+      "solution_code": "expenses = [\n    {\"category\": \"Food\", \"amount\": 15.50},\n    {\"category\": \"Transport\", \"amount\": 4.50},\n    {\"category\": \"Food\", \"amount\": 12.00}\n]\nfood_total = sum(e[\"amount\"] for e in expenses if e[\"category\"] == \"Food\")\nprint(f\"Food total: ${food_total:.2f}\")",
+      "explanation": "Filtering with a generator expression `e[\"amount\"] for e in expenses if e[\"category\"] == \"Food\"` sums `15.50 + 12.00 = 27.50`.",
+      "metadata": {
+        "concept": "expense_filtering_aggregation",
+        "skill": "data_analysis",
+        "learning_objective": "Aggregate numeric fields by category in structured dictionary records",
+        "common_misconception": "Summing all amounts without category filtering",
+        "why_this_exercise_exists": "Replaces template function with core CLI expense tracker analytics"
+      }
     },
     {
       "id": "14.6_q11",
-      "type": "fix_the_code",
-      "concept": "project_cli_expense_tracker_module_bugfix",
-      "skill": "debugging",
+      "type": "write_the_code",
+      "concept": "project_cli_expense_tracker_category_breakdown",
+      "skill": "project_milestone",
       "difficulty": "medium",
       "prerequisites": [
         "14.6_q10"
       ],
-      "error_diagnosis": {
-        "prompt": "The add_expense function stores expenses without a timestamp, making it impossible to track when each entry was recorded. Add a 'timestamp' field set to the current ISO-formatted date and time before saving.",
-        "starter_code": "import json\nfrom datetime import datetime\n\ndef add_expense(name, amount):\n    expense = {'name': name, 'amount': amount}\n    expenses = load_expenses()\n    expenses.append(expense)\n    save_expenses(expenses)\n\ndef load_expenses():\n    with open('expenses.json', 'r') as f:\n        return json.load(f)\n\ndef save_expenses(expenses):\n    with open('expenses.json', 'w') as f:\n        json.dump(expenses, f)\n\nadd_expense('Lunch', 15.00)",
-        "solution_code": "import json\nfrom datetime import datetime\n\ndef add_expense(name, amount):\n    expense = {'name': name, 'amount': amount, 'timestamp': datetime.now().isoformat()}\n    expenses = load_expenses()\n    expenses.append(expense)\n    save_expenses(expenses)\n\ndef load_expenses():\n    with open('expenses.json', 'r') as f:\n        return json.load(f)\n\ndef save_expenses(expenses):\n    with open('expenses.json', 'w') as f:\n        json.dump(expenses, f, indent=4)\n\nadd_expense('Lunch', 15.00)",
-        "hint": "datetime.now().isoformat() returns a standard string representation of the current date and time.",
-        "explanation": "Including a timestamp field with datetime.now().isoformat() records when the expense was added. This enriches the JSON payload and supports chronological analysis of spending."
-      },
-      "prompt": "Fix the bug in this code for project cli expense tracker module bugfix: (Variation 11)",
-      "starter_code": "# Fix this code\nPrint('Project: CLI Expense Tracker')",
-      "solution_code": "print('Project: CLI Expense Tracker')",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of project cli expense tracker module bugfix. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "prompt": "Expense Tracker Milestone: Group spending by category. Given `expenses = [{'category': 'A', 'amount': 10}, {'category': 'B', 'amount': 20}, {'category': 'A', 'amount': 15}]`, return a dictionary mapping category to total spend.",
+      "starter_code": "expenses = [{\"category\": \"A\", \"amount\": 10}, {\"category\": \"B\", \"amount\": 20}, {\"category\": \"A\", \"amount\": 15}]\nbreakdown = {}\n# Compute category breakdown\n",
+      "solution_code": "expenses = [{\"category\": \"A\", \"amount\": 10}, {\"category\": \"B\", \"amount\": 20}, {\"category\": \"A\", \"amount\": 15}]\nbreakdown = {}\nfor e in expenses:\n    breakdown[e[\"category\"]] = breakdown.get(e[\"category\"], 0) + e[\"amount\"]\nprint(breakdown)",
+      "explanation": "Aggregates expenditures per category using `dict.get()`.",
+      "metadata": {
+        "concept": "category_breakdown",
+        "skill": "project_milestone",
+        "why_this_exercise_exists": "Replaces variation with category expenditure aggregation"
+      }
     },
     {
       "id": "14.6_q12",
-      "type": "fix_the_code",
-      "concept": "project_cli_expense_tracker_module_bugfix",
-      "skill": "debugging",
+      "type": "write_the_code",
+      "concept": "project_cli_expense_tracker_persistence",
+      "skill": "project_milestone",
       "difficulty": "medium",
       "prerequisites": [
         "14.6_q11"
       ],
-      "error_diagnosis": {
-        "prompt": "The save_expenses function opens the file but never actually writes the updated list because the write operation is outside the with block. Correct the indentation so the dump happens inside the context manager.",
-        "starter_code": "import json\n\ndef save_expenses(expenses):\n    with open('expenses.json', 'w') as f:\n        pass\n    json.dump(expenses, f)\n\nexpenses = [{'name': 'Coffee', 'amount': 3.50}]\nsave_expenses(expenses)",
-        "solution_code": "import json\n\ndef save_expenses(expenses):\n    with open('expenses.json', 'w') as f:\n        json.dump(expenses, f, indent=4)\n\nexpenses = [{'name': 'Coffee', 'amount': 3.50}]\nsave_expenses(expenses)",
-        "hint": "The json.dump call must be indented to occur inside the with block where f is an open file handle.",
-        "explanation": "In the buggy version, the with block does nothing (pass), then json.dump tries to use f after it has been closed, causing a ValueError. Moving json.dump inside the with block ensures the file is open during the write operation."
-      },
-      "prompt": "Fix the bug in this code for project cli expense tracker module bugfix: (Variation 12)",
-      "starter_code": "# Fix this code\nPrint('Project: CLI Expense Tracker')",
-      "solution_code": "print('Project: CLI Expense Tracker')",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of project cli expense tracker module bugfix. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "prompt": "Expense Tracker Milestone: Save expenses to JSON. Given `expenses = [{'category': 'Food', 'amount': 15.0}]`, serialize and write to `'expenses.json'` using `json.dump`.",
+      "starter_code": "import json\nexpenses = [{\"category\": \"Food\", \"amount\": 15.0}]\n# Save to expenses.json\n",
+      "solution_code": "import json\nexpenses = [{\"category\": \"Food\", \"amount\": 15.0}]\nwith open(\"expenses.json\", \"w\") as f:\n    json.dump(expenses, f, indent=2)",
+      "explanation": "Persisting structured expenses to disk ensures state survives across application restarts.",
+      "metadata": {
+        "concept": "json_expense_persistence",
+        "skill": "project_milestone",
+        "why_this_exercise_exists": "Replaces variation with file persistence"
+      }
     },
     {
       "id": "14.6_q13",
@@ -542,29 +534,21 @@
     {
       "id": "14.6_q26",
       "type": "write_the_code",
-      "title": "Milestone 2: Persist and Load Data with JSON",
-      "content": "Extend your CLI expense tracker to persist data to a file and reload it on startup. Use the `json` module to serialize the `expenses` list to a file named `expenses.json`. Write `save_to_json(expenses, filename)` that opens the file in write mode with UTF-8 encoding and dumps the list. Write `load_from_json(filename)` that opens the file in read mode and returns the list, handling the case where the file does not exist by returning an empty list. In `main()`, call `load_from_json` before the loop and `save_to_json` after each successful addition. Ensure all string literals use single quotes.",
-      "concept": "project_cli_expense_tracker_milestone",
-      "skill": "integration",
+      "concept": "project_cli_expense_tracker_full_suite",
+      "skill": "system_design",
       "difficulty": "hard",
       "prerequisites": [
         "14.6_q25"
       ],
-      "starter_code": "import json\n\ndef save_to_json(expenses, filename):\n    # TODO: write expenses to JSON file\n    pass\n\ndef load_from_json(filename):\n    # TODO: read and return expenses list\n    pass\n\ndef main():\n    expenses = []\n    expenses = load_from_json('expenses.json')\n    while True:\n        print('1) Add Expense')\n        print('2) View All')\n        print('3) Exit')\n        choice = input('Select an option: ')\n        if choice == '1':\n            date = input('Date (YYYY-MM-DD): ')\n            category = input('Category: ')\n            description = input('Description: ')\n            amount = input('Amount: ')\n            add_expense(expenses, date, category, description, amount)\n            save_to_json(expenses, 'expenses.json')\n        elif choice == '2':\n            display_summary(expenses)\n        elif choice == '3':\n            break\n        else:\n            print('Invalid choice')\n\nif __name__ == '__main__':\n    main()",
-      "solution_code": "import json\nimport os\n\ndef save_to_json(expenses, filename):\n    with open(filename, 'w', encoding='utf-8') as f:\n        json.dump(expenses, f, indent=2)\n\ndef load_from_json(filename):\n    if not os.path.exists(filename):\n        return []\n    with open(filename, 'r', encoding='utf-8') as f:\n        return json.load(f)\n\ndef add_expense(expenses, date, category, description, amount):\n    try:\n        amt = float(amount)\n        if amt <= 0:\n            print('Amount must be positive')\n            return\n    except ValueError:\n        print('Invalid amount')\n        return\n    expenses.append({'date': date, 'category': category, 'description': description, 'amount': amt})\n\ndef display_summary(expenses):\n    if not expenses:\n        print('No expenses recorded.')\n        return\n    print('Date        | Category | Description   | Amount')\n    print('-' * 48)\n    for e in expenses:\n        print(f\"{e['date']} | {e['category']} | {e['description']} | {e['amount']:.2f}\")\n\ndef main():\n    expenses = []\n    expenses = load_from_json('expenses.json')\n    while True:\n        print('1) Add Expense')\n        print('2) View All')\n        print('3) Exit')\n        choice = input('Select an option: ')\n        if choice == '1':\n            date = input('Date (YYYY-MM-DD): ')\n            category = input('Category: ')\n            description = input('Description: ')\n            amount = input('Amount: ')\n            add_expense(expenses, date, category, description, amount)\n            save_to_json(expenses, 'expenses.json')\n        elif choice == '2':\n            display_summary(expenses)\n        elif choice == '3':\n            break\n        else:\n            print('Invalid choice')\n\nif __name__ == '__main__':\n    main()",
-      "test_cases": [
-        {
-          "input": "1\n2024-02-01\nEntertainment\nMovie\n15\n2\n3",
-          "expected_output": "Date        | Category | Description   | Amount\n------------------------------------------------\n2024-02-01 | Entertainment | Movie         | 15.00\n"
-        },
-        {
-          "input": "2\n3",
-          "expected_output": "Date        | Category | Description   | Amount\n------------------------------------------------\n2024-02-01 | Entertainment | Movie         | 15.00\n"
-        }
-      ],
-      "hint": "Use `json.dump` with `indent=2` for readable files. Wrap file reading in `os.path.exists` to avoid `FileNotFoundError`.",
-      "explanation": "This milestone adds persistence by serializing the in-memory list to JSON and deserializing it back. The `save_to_json` function writes after each addition, ensuring data survives program restarts. The `load_from_json` function initializes the list from disk.",
-      "prompt": "Write Python code to solve this challenge for Project: CLI Expense Tracker: (Variation 26)"
+      "prompt": "Expense Tracker Challenge: Implement `ExpenseTracker` class with methods `add_expense(category, amount)`, `get_total()`, and `get_category_total(category)`.",
+      "starter_code": "class ExpenseTracker:\n    # Implement expense tracker system\n    pass",
+      "solution_code": "class ExpenseTracker:\n    def __init__(self):\n        self.expenses = []\n    def add_expense(self, category, amount):\n        self.expenses.append({\"category\": category, \"amount\": float(amount)})\n    def get_total(self):\n        return sum(e[\"amount\"] for e in self.expenses)\n    def get_category_total(self, category):\n        return sum(e[\"amount\"] for e in self.expenses if e[\"category\"] == category)\n\ntracker = ExpenseTracker()\ntracker.add_expense(\"Food\", 25.50)\nprint(tracker.get_total())",
+      "explanation": "Consolidates expense recording and multi-dimensional aggregations into an object-oriented tracker.",
+      "metadata": {
+        "concept": "expense_tracker_oop_class",
+        "skill": "system_design",
+        "why_this_exercise_exists": "Replaces variation with full tracker class"
+      }
     },
     {
       "id": "14.6_q27",

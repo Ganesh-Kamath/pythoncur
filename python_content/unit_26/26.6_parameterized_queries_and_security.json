@@ -10,100 +10,131 @@
       "skill": "recognition",
       "difficulty": "easy",
       "prerequisites": [],
-      "title": "Parameterized Queries and Security Part 1: Parameterized Queries And Security Basics",
-      "content": "In Python, **Parameterized Queries And Security Basics** provides essential rules when working with parameterized queries and security.\n\nUnderstanding how `parameterized_queries_and_security_basics` functions in practice enables you to write clean, unambiguous code.\n\n```python\n# Step 1: parameterized_queries_and_security_basics\nstage_1 = True\n```",
-      "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of parameterized queries and security basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "title": "The Danger of SQL Injection",
+      "content": "Never construct SQL queries by interpolating strings or using f-strings with user input:\n\n```python\n# DANGEROUS SQL INJECTION VULNERABILITY:\nquery = f\"SELECT * FROM users WHERE email = '{user_email}'\"\n```\n\nIf a malicious user submits `' OR '1'='1`, the query structure is rewritten, allowing unauthorized data leaks or destructive deletions.",
+      "explanation": "String concatenation allows attacker inputs to alter SQL query syntax, causing SQL injection.",
+      "metadata": {
+        "concept": "sql_injection_threat",
+        "skill": "recognition",
+        "why_this_exercise_exists": "OWASP SQL injection awareness"
+      }
     },
     {
       "id": "26.6_q2",
-      "type": "output_prediction",
-      "concept": "parameterized_queries_and_security_basics",
-      "skill": "recall",
-      "difficulty": "easy",
+      "type": "error_diagnosis",
+      "concept": "parameterized_queries_and_security_sql_injection",
+      "skill": "security",
+      "difficulty": "medium",
       "prerequisites": [
         "26.6_q1"
       ],
-      "prompt": "Consider the following Python snippet demonstrating Parameterized Queries And Security Basics:\n\n```python\ndef calculate_2(value):\n    base = 8\n    return base + value * 11\n\nresult = calculate_2(2)\nprint(result)\n```\n\nWhat is the value printed to the console?",
+      "prompt": "Why is the following query vulnerable to catastrophic SQL Injection?\n\n```python\nuser_input = \"admin' OR '1'='1\"\nquery = f\"SELECT * FROM users WHERE username = '{user_input}'\"\n```",
       "options": [
-        "30",
-        "19",
-        "110",
-        "TypeError"
+        "Using f-string formatting injects raw unescaped SQL syntax, transforming the query into WHERE username = 'admin' OR '1'='1' which always evaluates to True.",
+        "SQL does not support f-strings.",
+        "The username column cannot be compared to strings.",
+        "f-strings add null bytes to the query buffer."
       ],
-      "correct_answer": "30",
-      "explanation": "Python evaluates arithmetic following standard operator precedence (multiplication before addition). First, `value * 11` evaluates to `2 * 11 = 22`. Then, adding `base` (8) yields `30`. The function returns this integer and `print()` outputs it."
+      "correct_answer": "Using f-string formatting injects raw unescaped SQL syntax, transforming the query into WHERE username = 'admin' OR '1'='1' which always evaluates to True.",
+      "explanation": "String concatenation or f-strings treat user input as executable SQL code rather than passive data. The injected `' OR '1'='1'` alters the query's boolean logic, allowing attackers to bypass authentication or dump all table records.",
+      "metadata": {
+        "concept": "sql_injection_vulnerability",
+        "skill": "security",
+        "learning_objective": "Identify SQL injection risks caused by dynamic string interpolation",
+        "common_misconception": "Assuming database drivers automatically sanitize f-strings",
+        "why_this_exercise_exists": "OWASP Top 10 security fundamental every developer must know"
+      }
     },
     {
       "id": "26.6_q3",
       "type": "micro_lesson",
-      "concept": "parameterized_queries_and_security_syntax",
-      "skill": "understanding",
+      "concept": "parameterized_queries_and_security_parameterization",
+      "skill": "recognition",
       "difficulty": "easy",
       "prerequisites": [
         "26.6_q2"
       ],
-      "title": "Parameterized Queries and Security Part 3: Parameterized Queries And Security Syntax",
-      "content": "In Python, **Parameterized Queries And Security Syntax** provides essential rules when working with parameterized queries and security.\n\nUnderstanding how `parameterized_queries_and_security_syntax` functions in practice enables you to write clean, unambiguous code.\n\n```python\n# Step 3: parameterized_queries_and_security_syntax\nstage_3 = True\n```",
-      "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of parameterized queries and security syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "title": "How Parameterized Queries Protect Applications",
+      "content": "Always pass untrusted input as parameters using the database driver's placeholder:\n\n```python\ncursor.execute(\"SELECT * FROM users WHERE email = ?\", (user_email,))\n```\n\nThe database engine compiles the SQL command structure first. When input data arrives, it is treated strictly as literal values, rendering injection mathematically impossible.",
+      "explanation": "Parameterized queries separate query logic from input literals, immunizing databases against injection.",
+      "metadata": {
+        "concept": "parameterized_query_defense",
+        "skill": "recognition",
+        "why_this_exercise_exists": "Standard secure database programming practice"
+      }
     },
     {
       "id": "26.6_q4",
-      "type": "output_prediction",
-      "concept": "parameterized_queries_and_security_syntax",
-      "skill": "reasoning",
-      "difficulty": "easy",
+      "type": "code_prediction",
+      "concept": "parameterized_queries_and_security_parameterization",
+      "skill": "secure_coding",
+      "difficulty": "medium",
       "prerequisites": [
         "26.6_q3"
       ],
-      "prompt": "Consider the following Python snippet demonstrating Parameterized Queries And Security Syntax:\n\n```python\ndef calculate_4(value):\n    base = 14\n    return base + value * 6\n\nresult = calculate_4(2)\nprint(result)\n```\n\nWhat is the value printed to the console?",
+      "prompt": "How does parameterized query execution protect against SQL Injection?\n\n```python\ncursor.execute(\"SELECT * FROM users WHERE username = ?\", (user_input,))\n```",
       "options": [
-        "26",
-        "20",
-        "96",
-        "TypeError"
+        "The database driver sends query structure and data separately, treating user_input strictly as literal data rather than executable SQL syntax.",
+        "It strips all punctuation and single quotes from user_input automatically.",
+        "It converts the user input to lowercase.",
+        "It encrypts the entire query with TLS."
       ],
-      "correct_answer": "26",
-      "explanation": "Python evaluates arithmetic following standard operator precedence (multiplication before addition). First, `value * 6` evaluates to `2 * 6 = 12`. Then, adding `base` (14) yields `26`. The function returns this integer and `print()` outputs it."
+      "correct_answer": "The database driver sends query structure and data separately, treating user_input strictly as literal data rather than executable SQL syntax.",
+      "explanation": "With parameterized queries (using placeholders like `?` or `%s`), the database engine compiles the query structure first. When parameter values are bound, they are treated strictly as literals, making it impossible for input to inject new SQL commands.",
+      "metadata": {
+        "concept": "parameterized_query_protection",
+        "skill": "secure_architecture",
+        "learning_objective": "Understand how parameter placeholders separate code from data",
+        "common_misconception": "Thinking parameterized queries just do string replacement under the hood",
+        "why_this_exercise_exists": "The gold standard for database interaction security"
+      }
     },
     {
       "id": "26.6_q5",
-      "type": "output_prediction",
-      "concept": "parameterized_queries_and_security_matching",
-      "skill": "recognition",
-      "difficulty": "easy",
+      "type": "fix_the_code",
+      "concept": "parameterized_queries_and_security_repair",
+      "skill": "repair",
+      "difficulty": "medium",
       "prerequisites": [
         "26.6_q4"
       ],
-      "prompt": "Consider the following Python snippet demonstrating Parameterized Queries And Security Matching:\n\n```python\ndef calculate_5(value):\n    base = 17\n    return base + value * 11\n\nresult = calculate_5(2)\nprint(result)\n```\n\nWhat is the value printed to the console?",
-      "options": [
-        "39",
-        "28",
-        "209",
-        "TypeError"
-      ],
-      "correct_answer": "39",
-      "explanation": "Python evaluates arithmetic following standard operator precedence (multiplication before addition). First, `value * 11` evaluates to `2 * 11 = 22`. Then, adding `base` (17) yields `39`. The function returns this integer and `print()` outputs it."
+      "prompt": "Fix the unsafe query below by replacing string interpolation with safe parameterization using `?` placeholder and a parameter tuple in `cursor.execute`:\n\n```python\n# Unsafe:\nuser_id = 42\nquery = f\"DELETE FROM sessions WHERE user_id = {user_id}\"\ncursor.execute(query)\n```",
+      "starter_code": "user_id = 42\n# Fix using parameterized query\nquery = f\"DELETE FROM sessions WHERE user_id = {user_id}\"\ncursor.execute(query)",
+      "solution_code": "user_id = 42\nquery = \"DELETE FROM sessions WHERE user_id = ?\"\ncursor.execute(query, (user_id,))",
+      "explanation": "Replacing `{user_id}` with `?` and passing `(user_id,)` as the second argument ensures safe, injection-proof parameter binding.",
+      "metadata": {
+        "concept": "parameterized_query_repair",
+        "skill": "repair",
+        "learning_objective": "Convert unsafe dynamic SQL statements into secure parameterized queries",
+        "common_misconception": "Passing user_id without wrapping it in a tuple (user_id,)",
+        "why_this_exercise_exists": "Teaches the essential secure database pattern in Python"
+      }
     },
     {
       "id": "26.6_q6",
-      "type": "output_prediction",
-      "concept": "parameterized_queries_and_security_pitfalls",
-      "skill": "comprehension",
-      "difficulty": "easy",
+      "type": "error_diagnosis",
+      "concept": "parameterized_queries_and_security_tuple_pitfall",
+      "skill": "debugging",
+      "difficulty": "medium",
       "prerequisites": [
         "26.6_q5"
       ],
-      "prompt": "Consider the following Python snippet demonstrating Parameterized Queries And Security Pitfalls:\n\n```python\ndef calculate_6(value):\n    base = 20\n    return base + value * 1\n\nresult = calculate_6(2)\nprint(result)\n```\n\nWhat is the value printed to the console?",
+      "prompt": "Why does `cursor.execute(\"SELECT * FROM items WHERE name = ?\", (item_name))` cause a programming error when `item_name = \"pencil\"`?",
       "options": [
-        "22",
-        "21",
-        "22",
-        "TypeError"
+        "(item_name) is just a parenthesized string, not a tuple; Python requires a trailing comma (item_name,) to make a 1-element tuple.",
+        "item_name must be an integer.",
+        "SELECT queries cannot take parameters.",
+        "cursor.execute only takes lists, never tuples."
       ],
-      "correct_answer": "22",
-      "explanation": "Python evaluates arithmetic following standard operator precedence (multiplication before addition). First, `value * 1` evaluates to `2 * 1 = 2`. Then, adding `base` (20) yields `22`. The function returns this integer and `print()` outputs it."
+      "correct_answer": "(item_name) is just a parenthesized string, not a tuple; Python requires a trailing comma (item_name,) to make a 1-element tuple.",
+      "explanation": "In Python, parentheses alone do not create a tuple—the comma does! `(\"pencil\")` evaluates to the string `\"pencil\"`. When the database driver tries to unpack parameters, it iterates over the characters of the string (`'p'`, `'e'`, `'n'`, ...) causing parameter count mismatches. A 1-element tuple must have a trailing comma: `(\"pencil\",)`.",
+      "metadata": {
+        "concept": "single_element_tuple_comma",
+        "skill": "syntax_rules",
+        "learning_objective": "Recognize that single-element tuples require a trailing comma",
+        "common_misconception": "Believing (x) creates a tuple",
+        "why_this_exercise_exists": "Catches one of the most frustrating beginner syntax errors in database programming"
+      }
     },
     {
       "id": "26.6_q7",
@@ -226,35 +257,41 @@
     },
     {
       "id": "26.6_q13",
-      "type": "fill_in_the_blank",
-      "concept": "parameterized_queries_and_security_syntax",
-      "skill": "syntax",
-      "difficulty": "easy",
+      "type": "write_the_code",
+      "concept": "parameterized_select_query",
+      "skill": "database_security",
+      "difficulty": "medium",
       "prerequisites": [
         "26.6_q12"
       ],
-      "prompt": "Complete the code to output 'Parameterized Queries and Security #13':\n```python\n___('Parameterized Queries and Security #13')\n```",
-      "correct_answer": "print",
-      "accepted_answers": [
-        "print"
-      ],
-      "explanation": "In Python, this operation directly demonstrates the core behavior of parameterized queries and security syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "prompt": "Write a safe parameterized SELECT statement to fetch a user by email `'ada@lovelace.org'` using `cursor.execute('SELECT * FROM users WHERE email = ?', (email,))`.",
+      "starter_code": "email = \"ada@lovelace.org\"\n# Execute safe parameterized query\n",
+      "solution_code": "email = \"ada@lovelace.org\"\n# In production: cursor.execute(\"SELECT * FROM users WHERE email = ?\", (email,))\nquery = \"SELECT * FROM users WHERE email = ?\"\nparams = (email,)\nprint(f\"Safe query: {query} with {params}\")",
+      "explanation": "Parameterized queries separate SQL instructions from user inputs, preventing SQL injection.",
+      "metadata": {
+        "concept": "parameterized_select",
+        "skill": "security",
+        "why_this_exercise_exists": "Replaces filler with secure query design"
+      }
     },
     {
       "id": "26.6_q14",
-      "type": "fill_in_the_blank",
-      "concept": "parameterized_queries_and_security_keywords",
-      "skill": "syntax",
+      "type": "write_the_code",
+      "concept": "parameterized_insert_query",
+      "skill": "database_security",
       "difficulty": "medium",
       "prerequisites": [
         "26.6_q13"
       ],
-      "prompt": "Complete the code to output 'Parameterized Queries and Security #14':\n```python\n___('Parameterized Queries and Security #14')\n```",
-      "correct_answer": "print",
-      "accepted_answers": [
-        "print"
-      ],
-      "explanation": "In Python, this operation directly demonstrates the core behavior of parameterized queries and security keywords. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "prompt": "Write a parameterized INSERT statement with two placeholders `?` to insert a product `name = 'Keyboard'` and `price = 49.99` into table `products`.",
+      "starter_code": "name = \"Keyboard\"\nprice = 49.99\n# Build parameterized insert\n",
+      "solution_code": "name = \"Keyboard\"\nprice = 49.99\nquery = \"INSERT INTO products (name, price) VALUES (?, ?)\"\nparams = (name, price)\nprint(f\"Insert: {query} with {params}\")",
+      "explanation": "Using multiple `?` placeholders binds multi-column records safely without manual quotation.",
+      "metadata": {
+        "concept": "parameterized_insert",
+        "skill": "security",
+        "why_this_exercise_exists": "Replaces filler with parameterized INSERT"
+      }
     },
     {
       "id": "26.6_q15",
@@ -282,19 +319,27 @@
     },
     {
       "id": "26.6_q16",
-      "type": "fill_in_the_blank",
-      "concept": "parameterized_queries_and_security_patterns",
-      "skill": "syntax",
+      "type": "code_prediction",
+      "concept": "named_sql_parameters",
+      "skill": "database_patterns",
       "difficulty": "medium",
       "prerequisites": [
         "26.6_q15"
       ],
-      "prompt": "Complete the code to output 'Parameterized Queries and Security #16':\n```python\n___('Parameterized Queries and Security #16')\n```",
-      "correct_answer": "print",
-      "accepted_answers": [
-        "print"
+      "prompt": "In Python's `sqlite3`, what dictionary-style parameter placeholder format is supported alongside `?`?",
+      "options": [
+        "Named placeholders with colons (e.g. :name and :price) passed via a dictionary.",
+        "Brackets with numbers [0] and [1].",
+        "Dollar signs ($name, $price).",
+        "Percentage signs (%1, %2)."
       ],
-      "explanation": "In Python, this operation directly demonstrates the core behavior of parameterized queries and security patterns. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "correct_answer": "Named placeholders with colons (e.g. :name and :price) passed via a dictionary.",
+      "explanation": "`sqlite3` supports named placeholders `:col` when arguments are passed in a dictionary `{'col': value}`.",
+      "metadata": {
+        "concept": "named_sql_placeholders",
+        "skill": "database_patterns",
+        "why_this_exercise_exists": "Replaces filler with named query placeholders"
+      }
     },
     {
       "id": "26.6_q17",
@@ -322,19 +367,27 @@
     },
     {
       "id": "26.6_q18",
-      "type": "fill_in_the_blank",
-      "concept": "parameterized_queries_and_security_idioms",
-      "skill": "syntax",
-      "difficulty": "medium",
+      "type": "multiple_choice",
+      "concept": "table_name_parameterization_limit",
+      "skill": "security_architecture",
+      "difficulty": "hard",
       "prerequisites": [
         "26.6_q17"
       ],
-      "prompt": "Complete the code to output 'Parameterized Queries and Security #18':\n```python\n___('Parameterized Queries and Security #18')\n```",
-      "correct_answer": "print",
-      "accepted_answers": [
-        "print"
+      "prompt": "Can table or column names be parameterized using `?` in SQL?",
+      "options": [
+        "No; SQL drivers only permit parameters for literal data values. Table/column names must be validated against a strict allowlist in Python.",
+        "Yes; cursor.execute('SELECT * FROM ?', (table_name,)) works standardly.",
+        "Yes; table names are encrypted by the database driver.",
+        "No; table names must always be prompted via input()."
       ],
-      "explanation": "In Python, this operation directly demonstrates the core behavior of parameterized queries and security idioms. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "correct_answer": "No; SQL drivers only permit parameters for literal data values. Table/column names must be validated against a strict allowlist in Python.",
+      "explanation": "SQL parameters only replace literal values. Passing a table or column name as `?` causes a syntax error. Dynamic table names must be strictly validated against an approved Python whitelist before insertion.",
+      "metadata": {
+        "concept": "dynamic_table_whitelist_defense",
+        "skill": "security_architecture",
+        "why_this_exercise_exists": "Replaces filler with subtle SQL driver limitation rule"
+      }
     },
     {
       "id": "26.6_q19",
@@ -352,7 +405,7 @@
       "prompt": "Fix the bug in this code for parameterized queries and security errors:",
       "starter_code": "# Fix this code\nPrint('Parameterized Queries and Security')",
       "solution_code": "print('Parameterized Queries and Security')",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of parameterized queries and security errors. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Python logical operators use short-circuit evaluation: `and` stops and returns the first falsy operand, while `or` stops and returns the first truthy operand without evaluating subsequent expressions."
     },
     {
       "id": "26.6_q20",
@@ -400,7 +453,7 @@
       "prompt": "Fix the bug in this code for parameterized queries and security runtime:",
       "starter_code": "# Fix this code\nPrint('Parameterized Queries and Security')",
       "solution_code": "print('Parameterized Queries and Security')",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of parameterized queries and security runtime. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Python logical operators use short-circuit evaluation: `and` stops and returns the first falsy operand, while `or` stops and returns the first truthy operand without evaluating subsequent expressions."
     },
     {
       "id": "26.6_q23",

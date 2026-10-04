@@ -13,7 +13,7 @@
       "title": "What Is a Tree in Data Structures?",
       "content": "A tree is a hierarchical data structure in computer science. Unlike a linear list, a tree organizes data in levels starting from a single node called the root. Each node can have zero or more child nodes, and each child has exactly one parent. The topmost node is the root, which has no parent. Nodes with no children are called leaves. The path from the root to any node defines its ancestry, and the depth of a node is the number of edges from the root to that node. In Python, we often represent trees using classes and objects. Here is a simple example:\n\n```python\nclass Node:\n    def __init__(self, value):\n        self.value = value\n        self.children = []\n\nroot = Node('root')\nchild = Node('child')\nroot.children.append(child)\n```\n\nThis code creates a root node and attaches one child to it. Recognizing these terms—root, child, parent, leaf, and hierarchy—is essential before working with more complex tree algorithms.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of tree terminology basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "A tree is a hierarchical data structure in computer science. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "38.1_q2",
@@ -46,7 +46,7 @@
       "title": "Syntax of Tree Traversal",
       "content": "Tree traversal refers to visiting every node in a tree in a systematic order. The two most common basic traversals are pre-order and in-order. In pre-order traversal, you visit the current node first, then recursively traverse each child from left to right. In-order traversal is typically used for binary trees, where you visit the left subtree, then the current node, then the right subtree. Understanding this syntax helps when writing recursive functions. Here is a pre-order example in Python:\n\n```python\ndef preorder(node):\n    if node is None:\n        return\n    print(node.value)\n    for child in node.children:\n        preorder(child)\n```\n\nNotice how the function checks for `None` to avoid errors on missing children, then prints the current node before recursing. This ordering is the core idea behind pre-order traversal.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of tree terminology syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Tree traversal refers to visiting every node in a tree in a systematic order. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "38.1_q4",

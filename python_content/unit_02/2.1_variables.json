@@ -15,7 +15,7 @@
       "title": "What is a Variable?",
       "content": "Programs need to remember data. A **variable** is a named reference that points to a value stored in your computer's memory.\n\nYou create a variable using the **assignment operator** (`=`):\n```python\nscore = 100\n```\nHere, `score` is the variable name, and `100` is the integer value stored in memory.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of variable definition. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "In Python, variable names must begin with a letter or underscore, cannot start with a digit, and cannot contain spaces or special punctuation. Following PEP 8 snake_case conventions ensures identifiers remain clear, legal, and unambiguous."
     },
     {
       "id": "2.1_q2",
@@ -34,7 +34,7 @@
         "D. A Python module"
       ],
       "correct_answer": "B",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of variable definition. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `variable definition` in Variables. When Python validates this code, it applies the standard rules of variable definition. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "2.1_q3",
@@ -48,7 +48,7 @@
       "title": "Assignment Works Right to Left",
       "content": "In Python, the single equals sign `=` does NOT mean mathematical equality.\n\nIt means **assignment**: \n1. Python evaluates the expression on the **right-hand side** first.\n2. Then it assigns that result to the variable name on the **left-hand side**.\n\n```python\ntotal = 10 + 5  # 1. Computes 15, 2. Binds to total\n```",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of assignment direction. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "In Python, the single equals sign `=` does NOT mean mathematical equality. Mastering these rules prevents runtime errors and establishes robust programming foundations."
     },
     {
       "id": "2.1_q4",
@@ -100,7 +100,7 @@
       "title": "Variables Can Vary (Reassignment)",
       "content": "Variables are called 'variables' because their values can change (vary) over time.\n\nYou can reassign a variable simply by assigning a new value to it:\n```python\ncoins = 5\ncoins = 12  # The old value 5 is replaced\nprint(coins)  # Prints 12\n```",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of reassignment. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "In Python, variable names must begin with a letter or underscore, cannot start with a digit, and cannot contain spaces or special punctuation. Following PEP 8 snake_case conventions ensures identifiers remain clear, legal, and unambiguous."
     },
     {
       "id": "2.1_q7",
@@ -119,7 +119,7 @@
         "D. status"
       ],
       "correct_answer": "B",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of reassignment. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `reassignment` in Variables. When Python evaluates this code, it applies the standard rules of reassignment. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "2.1_q8",
@@ -134,7 +134,7 @@
       "title": "Updating a Variable Using Its Old Value",
       "content": "Because Python evaluates the right side first, you can use a variable's current value to calculate its new value:\n```python\nscore = 10\nscore = score + 5\nprint(score)  # Prints 15\n```\nStep-by-step:\n1. Look at right side: `score + 5` -> `10 + 5` = `15`.\n2. Assign `15` back to `score`.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of updating variables. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "In Python, variable names must begin with a letter or underscore, cannot start with a digit, and cannot contain spaces or special punctuation. Following PEP 8 snake_case conventions ensures identifiers remain clear, legal, and unambiguous."
     },
     {
       "id": "2.1_q9",
@@ -186,7 +186,7 @@
       "prompt": "Fix this reversed assignment statement so that `points` is assigned 50:",
       "starter_code": "50 = points",
       "solution_code": "points = 50",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of assignment direction. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `assignment direction` in Variables. When Python validates this code, it applies the standard rules of assignment direction. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "2.1_q12",
@@ -200,7 +200,7 @@
       "title": "Assigning One Variable to Another",
       "content": "When you write `b = a`, Python makes `b` point to the same object currently referenced by `a`:\n```python\na = 10\nb = a\na = 20\nprint(b)\n```\nWhat does `b` print? It prints `10`!\nReassigning `a` later does NOT automatically update `b`. They are independent references.",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of multiple references. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "In Python, variable names must begin with a letter or underscore, cannot start with a digit, and cannot contain spaces or special punctuation. Following PEP 8 snake_case conventions ensures identifiers remain clear, legal, and unambiguous."
     },
     {
       "id": "2.1_q13",
@@ -234,7 +234,7 @@
       "accepted_answers": [
         "city"
       ],
-      "explanation": "In Python, this operation directly demonstrates the core behavior of variable assignment. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `variable assignment` in Variables. When Python validates this code, it applies the standard rules of variable assignment. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "2.1_q15",
@@ -248,7 +248,7 @@
       "title": "Python is Dynamically Typed",
       "content": "In some languages (like C or Java), you must declare the type of data a variable will hold, and it can never change.\n\nPython is **dynamically typed**: variables are just tags pointing to objects. A variable can point to a number first, and later be reassigned to a string:\n```python\ndata = 42\ndata = \"Answer\"\n```",
       "prompt": "",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of dynamic typing. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "Python uses explicit type casting (such as `int()`, `float()`, and `str()`) to convert data safely between types. Unintended type mixing triggers TypeError or ValueError if strings contain invalid literals."
     },
     {
       "id": "2.1_q16",
@@ -281,7 +281,7 @@
       "prompt": "Create a variable named `temperature` and assign it the integer `72`.",
       "starter_code": "",
       "solution_code": "temperature = 72",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of variable creation. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `variable creation` in Variables. When Python validates this code, it applies the standard rules of variable creation. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "2.1_q18",
@@ -466,7 +466,7 @@
       "prompt": "Given `length = 8` and `width = 5`, create a variable `area` that calculates their product (`length * width`), then print `area`.",
       "starter_code": "length = 8\nwidth = 5\n# Calculate area and print it\n",
       "solution_code": "length = 8\nwidth = 5\narea = length * width\nprint(area)",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of variable calculation. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `variable calculation` in Variables. When Python validates this code, it applies the standard rules of variable calculation. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     },
     {
       "id": "2.1_q28",
@@ -516,7 +516,7 @@
       ],
       "prompt": "Which of the following statements about Python variables is completely TRUE?",
       "correct_answer": "B",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of variables synthesis. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "This exercise tests `variables synthesis` in Variables. When Python validates this code, it applies the standard rules of variables synthesis. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
     }
   ],
   "unit_num": 2,
