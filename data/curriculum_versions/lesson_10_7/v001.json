@@ -1,0 +1,591 @@
+{
+  "lesson_id": "10.7",
+  "title": "Project: Terminal Contact Book",
+  "unit": "Dictionaries",
+  "items": [
+    {
+      "id": "10.7_q1",
+      "type": "micro_lesson",
+      "skill": "planning",
+      "diff": "easy",
+      "concept": "project_terminal_contact_book_architecture",
+      "title": "Designing the Contact Book Data Structure",
+      "content": "In this micro-lesson, you will plan how to store contact information using Python dictionaries. A dictionary maps unique keys to values, making it perfect for a contact book where each contact has a unique identifier. We will use a dictionary where keys are contact names (strings) and values are dictionaries containing phone numbers and email addresses. This nested structure keeps related data organized. Below is a code block showing the planned architecture:\n\n```python\ncontacts = {\n    'Alice': {\n        'phone': '555-0101',\n        'email': 'alice@example.com'\n    },\n    'Bob': {\n        'phone': '555-0102',\n        'email': 'bob@example.com'\n    }\n}\n```\n\nThink about how you will add, update, and retrieve contacts. Using a dictionary at the top level allows fast lookups by name, while inner dictionaries store structured details. This architecture supports future expansion, such as adding addresses or notes.",
+      "difficulty": "easy",
+      "prerequisites": []
+    },
+    {
+      "id": "10.7_q2",
+      "type": "micro_lesson",
+      "skill": "planning",
+      "diff": "easy",
+      "concept": "project_terminal_contact_book_architecture",
+      "title": "Planning User Interactions in the Terminal",
+      "content": "Before writing the full program, plan how the user will interact with the terminal contact book. A typical flow includes: displaying a menu, reading user input, performing an action (add, view, update, delete), and repeating until the user chooses to exit. We will use a while loop to keep the program running. Below is a code block illustrating the planned interaction loop:\n\n```python\ndef run_contact_book():\n    while True:\n        print('1. Add contact')\n        print('2. View contact')\n        print('3. Update contact')\n        print('4. Delete contact')\n        print('5. Exit')\n        choice = input('Select an option: ')\n        # handle choice here\n```\n\nConsider how to validate user input and handle cases where a contact does not exist. Planning these interactions first prevents bugs later. Break the problem into small steps: display menu, get choice, execute action, and loop back.",
+      "difficulty": "easy",
+      "prerequisites": [
+        "10.7_q1"
+      ]
+    },
+    {
+      "id": "10.7_q3",
+      "type": "multiple_choice",
+      "skill": "design",
+      "diff": "easy",
+      "concept": "project_terminal_contact_book_requirements",
+      "prompt": "Which of the following is a core requirement for the Terminal Contact Book project?",
+      "options": [
+        "Store contacts in a list of tuples",
+        "Allow users to add, view, update, and delete contacts",
+        "Connect to a web API for contact synchronization",
+        "Generate a PDF report of all contacts"
+      ],
+      "correct_answer": "Allow users to add, view, update, and delete contacts",
+      "explanation": "The project focuses on building a local terminal-based contact manager. The essential requirements are CRUD operations: Create, Read, Update, and Delete contacts. Storing data in a list of tuples would not leverage the dictionary-based design taught in this lesson, and web API integration or PDF generation are beyond the scope of Lesson 10.7.",
+      "difficulty": "easy",
+      "prerequisites": [
+        "10.7_q2"
+      ]
+    },
+    {
+      "id": "10.7_q4",
+      "type": "multiple_choice",
+      "skill": "design",
+      "diff": "easy",
+      "concept": "project_terminal_contact_book_requirements",
+      "prompt": "What should happen when a user tries to view a contact that does not exist in the contact book?",
+      "options": [
+        "The program should crash with a KeyError",
+        "The program should display a friendly message saying the contact was not found",
+        "The program should automatically create a blank contact",
+        "The program should restart from the beginning"
+      ],
+      "correct_answer": "The program should display a friendly message saying the contact was not found",
+      "explanation": "Robust programs handle missing data gracefully. Displaying a user-friendly message prevents crashes and improves usability. A KeyError would be unexpected for end users, automatic blank creation could confuse the user, and restarting is unnecessary for a simple lookup failure.",
+      "difficulty": "easy",
+      "prerequisites": [
+        "10.7_q3"
+      ]
+    },
+    {
+      "id": "10.7_q5",
+      "type": "code_ordering",
+      "skill": "sequencing",
+      "diff": "medium",
+      "concept": "project_terminal_contact_book_milestone_flow",
+      "prompt": "Arrange the following code lines in the correct order to implement the 'add contact' milestone in the terminal contact book.",
+      "options": [
+        "x = 10",
+        "y = 20",
+        "print(x + y)"
+      ],
+      "correct_answer": [
+        "x = 10",
+        "y = 20",
+        "print(x + y)"
+      ],
+      "explanation": "The correct order is: gather inputs first, then store them in the dictionary, then confirm success. Option B stores data before collecting inputs, which would raise a NameError. Option C prints before storing, giving false confirmation. Option D assigns the dictionary before collecting phone and email values, leading to undefined variables.",
+      "difficulty": "medium",
+      "prerequisites": [
+        "10.7_q4"
+      ]
+    },
+    {
+      "id": "10.7_q6",
+      "type": "code_ordering",
+      "skill": "sequencing",
+      "diff": "medium",
+      "concept": "project_terminal_contact_book_milestone_flow",
+      "prompt": "Arrange the following code lines in the correct order to implement the 'view contact' milestone in the terminal contact book.",
+      "options": [
+        "x = 10",
+        "y = 20",
+        "print(x + y)"
+      ],
+      "correct_answer": [
+        "x = 10",
+        "y = 20",
+        "print(x + y)"
+      ],
+      "explanation": "The correct sequence is: prompt for the name, check if it exists in the dictionary, print the stored data if found, or print a not-found message otherwise. Option B accesses contacts[name] before checking membership, causing a KeyError. Option C checks membership before defining name and attempts to print an undefined key. Option D inverts the condition and prints the contact when it is missing.",
+      "difficulty": "medium",
+      "prerequisites": [
+        "10.7_q5"
+      ]
+    },
+    {
+      "id": "10.7_q7",
+      "type": "fix_the_code",
+      "concept": "project_terminal_contact_book_module_bugfix",
+      "skill": "debugging",
+      "difficulty": "medium",
+      "prerequisites": [
+        "10.7_q6"
+      ],
+      "error_diagnosis": {
+        "prompt": "The add_contact function in the terminal contact book is not storing contacts correctly. When you run the program, it raises a KeyError or fails to update the dictionary. Identify and fix the bug so that adding a new contact stores the name and phone number in the contacts dictionary.",
+        "starter_code": "def add_contact(contacts, name, phone):\n    contacts[name] = phone\n    print('Contact added.')\n\ncontacts = {}\nadd_contact(contacts, 'Alice', '555-1234')\nprint(contacts)",
+        "solution_code": "def add_contact(contacts, name, phone):\n    if not isinstance(contacts, dict):\n        contacts = {}\n    contacts[name] = phone\n    print('Contact added.')\n\ncontacts = {}\nadd_contact(contacts, 'Alice', '555-1234')\nprint(contacts)",
+        "hint": "Check whether the contacts variable is being passed as a mutable dictionary and whether it is reinitialized inside the function.",
+        "explanation": "The original code assumes contacts is always a dictionary. If a non-dictionary is passed, a TypeError occurs. The fix ensures contacts is a dictionary before assignment and safely handles the update."
+      },
+      "prompt": "Fix the bug in this code for project terminal contact book module bugfix:",
+      "starter_code": "# Fix this code\nPrint('Project: Terminal Contact Book')",
+      "solution_code": "print('Project: Terminal Contact Book')",
+      "explanation": "Python identifiers and built-ins are case-sensitive."
+    },
+    {
+      "id": "10.7_q8",
+      "type": "fix_the_code",
+      "concept": "project_terminal_contact_book_module_bugfix",
+      "skill": "debugging",
+      "difficulty": "medium",
+      "prerequisites": [
+        "10.7_q7"
+      ],
+      "error_diagnosis": {
+        "prompt": "The search_contact function is supposed to return a phone number, but it returns None even when the contact exists. Fix the logic so it returns the correct phone number or a helpful message if the contact is not found.",
+        "starter_code": "def search_contact(contacts, name):\n    if name in contacts:\n        return None\n    return 'Not found'\n\ncontacts = {'Bob': '555-5678'}\nprint(search_contact(contacts, 'Bob'))",
+        "solution_code": "def search_contact(contacts, name):\n    if name in contacts:\n        return contacts[name]\n    return 'Not found'\n\ncontacts = {'Bob': '555-5678'}\nprint(search_contact(contacts, 'Bob'))",
+        "hint": "The conditional returns None when the contact exists and returns a string when it does not. Swap the return values.",
+        "explanation": "The bug was inverted logic: the function returned None when the name was present and a message when absent. Correcting the condition ensures the stored phone number is returned when the contact exists."
+      },
+      "prompt": "Fix the bug in this code for project terminal contact book module bugfix: (Variation 8)",
+      "starter_code": "# Fix this code\nPrint('Project: Terminal Contact Book')",
+      "solution_code": "print('Project: Terminal Contact Book')",
+      "explanation": "Python identifiers and built-ins are case-sensitive."
+    },
+    {
+      "id": "10.7_q9",
+      "type": "fix_the_code",
+      "concept": "project_terminal_contact_book_module_bugfix",
+      "skill": "debugging",
+      "difficulty": "medium",
+      "prerequisites": [
+        "10.7_q8"
+      ],
+      "error_diagnosis": {
+        "prompt": "The delete_contact function is supposed to remove a contact, but after deletion the program crashes with a KeyError when trying to access the removed entry. Fix the function so it safely removes the contact and handles missing names gracefully.",
+        "starter_code": "def delete_contact(contacts, name):\n    del contacts[name]\n\ncontacts = {'Carol': '555-9999'}\ndelete_contact(contacts, 'Carol')\nprint(contacts['Carol'])",
+        "solution_code": "def delete_contact(contacts, name):\n    if name in contacts:\n        del contacts[name]\n    else:\n        print('Contact not found.')\n\ncontacts = {'Carol': '555-9999'}\ndelete_contact(contacts, 'Carol')\nprint(contacts.get('Carol', 'Not found'))",
+        "hint": "Use a membership check before deletion and avoid accessing a key that may have been removed.",
+        "explanation": "The original code unconditionally deletes the key, causing a KeyError if the name does not exist. The fix checks for presence first and uses .get() for safe retrieval after deletion."
+      },
+      "prompt": "Fix the bug in this code for project terminal contact book module bugfix: (Variation 9)",
+      "starter_code": "# Fix this code\nPrint('Project: Terminal Contact Book')",
+      "solution_code": "print('Project: Terminal Contact Book')",
+      "explanation": "Python identifiers and built-ins are case-sensitive."
+    },
+    {
+      "id": "10.7_q10",
+      "type": "fix_the_code",
+      "concept": "project_terminal_contact_book_module_bugfix",
+      "skill": "debugging",
+      "difficulty": "medium",
+      "prerequisites": [
+        "10.7_q9"
+      ],
+      "error_diagnosis": {
+        "prompt": "The list_contacts function is supposed to display all contacts, but it prints only the last one repeatedly. Fix the loop so every contact is displayed exactly once.",
+        "starter_code": "def list_contacts(contacts):\n    for key in contacts:\n        print(key)\n\ncontacts = {'Dave': '555-1111', 'Eve': '555-2222'}\nlist_contacts(contacts)",
+        "solution_code": "def list_contacts(contacts):\n    for name, phone in contacts.items():\n        print(f'{name}: {phone}')\n\ncontacts = {'Dave': '555-1111', 'Eve': '555-2222'}\nlist_contacts(contacts)",
+        "hint": "Iterating over contacts directly gives keys only. To get both key and value, use .items().",
+        "explanation": "The original loop only printed keys. The corrected version unpacks each key-value pair from .items() and prints both the name and phone number."
+      },
+      "prompt": "Fix the bug in this code for project terminal contact book module bugfix: (Variation 10)",
+      "starter_code": "# Fix this code\nPrint('Project: Terminal Contact Book')",
+      "solution_code": "print('Project: Terminal Contact Book')",
+      "explanation": "Python identifiers and built-ins are case-sensitive."
+    },
+    {
+      "id": "10.7_q11",
+      "type": "fix_the_code",
+      "concept": "project_terminal_contact_book_module_bugfix",
+      "skill": "debugging",
+      "difficulty": "medium",
+      "prerequisites": [
+        "10.7_q10"
+      ],
+      "error_diagnosis": {
+        "prompt": "The save_contacts function is supposed to write the contact dictionary to a file, but it writes the string representation of the dictionary instead of valid Python dictionary syntax. Fix it so the file contains a valid Python dictionary string that can be loaded later.",
+        "starter_code": "def save_contacts(contacts, filename):\n    with open(filename, 'w') as f:\n        f.write(str(contacts))\n\ncontacts = {'Frank': '555-3333'}\nsave_contacts(contacts, 'contacts.txt')",
+        "solution_code": "def save_contacts(contacts, filename):\n    with open(filename, 'w') as f:\n        f.write(repr(contacts))\n\ncontacts = {'Frank': '555-3333'}\nsave_contacts(contacts, 'contacts.txt')",
+        "hint": "str() and repr() differ for containers. repr() produces a string that evaluates back to the same object.",
+        "explanation": "Using str() yields a compact but non-evaluable representation. repr() produces a valid Python literal string, making the saved file reloadable with eval() or ast.literal_eval()."
+      },
+      "prompt": "Fix the bug in this code for project terminal contact book module bugfix: (Variation 11)",
+      "starter_code": "# Fix this code\nPrint('Project: Terminal Contact Book')",
+      "solution_code": "print('Project: Terminal Contact Book')",
+      "explanation": "Python identifiers and built-ins are case-sensitive."
+    },
+    {
+      "id": "10.7_q12",
+      "type": "fix_the_code",
+      "concept": "project_terminal_contact_book_module_bugfix",
+      "skill": "debugging",
+      "difficulty": "medium",
+      "prerequisites": [
+        "10.7_q11"
+      ],
+      "error_diagnosis": {
+        "prompt": "The load_contacts function fails because it tries to read a file that may not exist. Add error handling so the program creates an empty dictionary instead of crashing when the file is missing.",
+        "starter_code": "def load_contacts(filename):\n    with open(filename, 'r') as f:\n        return eval(f.read())\n\ncontacts = load_contacts('contacts.txt')",
+        "solution_code": "def load_contacts(filename):\n    try:\n        with open(filename, 'r') as f:\n            return eval(f.read())\n    except FileNotFoundError:\n        return {}\n\ncontacts = load_contacts('contacts.txt')",
+        "hint": "Wrap the file operation in a try-except block and return an empty dictionary on failure.",
+        "explanation": "The original code crashes with FileNotFoundError if the file does not exist. The fix catches the exception and returns an empty dictionary, allowing the program to continue gracefully."
+      },
+      "prompt": "Fix the bug in this code for project terminal contact book module bugfix: (Variation 12)",
+      "starter_code": "# Fix this code\nPrint('Project: Terminal Contact Book')",
+      "solution_code": "print('Project: Terminal Contact Book')",
+      "explanation": "Python identifiers and built-ins are case-sensitive."
+    },
+    {
+      "id": "10.7_q13",
+      "type": "fill_in_the_blank",
+      "concept": "project_terminal_contact_book_module_wiring",
+      "skill": "syntax",
+      "difficulty": "medium",
+      "prerequisites": [
+        "10.7_q12"
+      ],
+      "prompt": "Complete the function below to add a new contact to the contact book dictionary. The function should take a name and phone number, then store them using the name as the key:\n\n```python\ndef add_contact(book, name, phone):\n    ____\n```",
+      "correct_answer": "book[name] = phone",
+      "accepted_answers": [
+        "book[name] = phone",
+        "book[name] = phone # store contact"
+      ],
+      "explanation": "In Python dictionaries, you assign a value to a key using square bracket notation. The name parameter becomes the key and the phone parameter becomes the value."
+    },
+    {
+      "id": "10.7_q14",
+      "type": "fill_in_the_blank",
+      "concept": "project_terminal_contact_book_module_wiring",
+      "skill": "syntax",
+      "difficulty": "medium",
+      "prerequisites": [
+        "10.7_q13"
+      ],
+      "prompt": "Fill in the blank to retrieve a contact's phone number from the dictionary. If the contact does not exist, return a default message:\n\n```python\ndef get_phone(book, name):\n    ____\n```",
+      "correct_answer": "return book.get(name, 'Contact not found')",
+      "accepted_answers": [
+        "return book.get(name, 'Contact not found')",
+        "return book.get(name, 'Contact not found') # safe lookup"
+      ],
+      "explanation": "The dict.get(key, default) method safely retrieves a value or returns the provided default if the key is missing, avoiding KeyError exceptions."
+    },
+    {
+      "id": "10.7_q15",
+      "type": "fill_in_the_blank",
+      "concept": "project_terminal_contact_book_module_wiring",
+      "skill": "syntax",
+      "difficulty": "medium",
+      "prerequisites": [
+        "10.7_q14"
+      ],
+      "prompt": "Complete the loop that prints every contact in the contact book in a readable format:\n\n```python\ndef list_contacts(book):\n    for ____ in book:\n        print('Name:', name, 'Phone:', book[name])\n```",
+      "correct_answer": "name",
+      "accepted_answers": [
+        "name",
+        "name for name in book"
+      ],
+      "explanation": "To iterate over a dictionary, you loop over its keys by default. Each key (the contact name) is assigned to the variable name, which is then used to access the corresponding phone number."
+    },
+    {
+      "id": "10.7_q16",
+      "type": "fill_in_the_blank",
+      "concept": "project_terminal_contact_book_module_wiring",
+      "skill": "syntax",
+      "difficulty": "medium",
+      "prerequisites": [
+        "10.7_q15"
+      ],
+      "prompt": "Fill in the blank to check whether a contact already exists before adding a duplicate:\n\n```python\ndef can_add(book, name):\n    ____\n```",
+      "correct_answer": "return name not in book",
+      "accepted_answers": [
+        "return name not in book",
+        "return name not in book # check existence"
+      ],
+      "explanation": "The 'in' operator checks if a key exists in a dictionary. Negating it with 'not' returns True when the name is absent, allowing safe addition."
+    },
+    {
+      "id": "10.7_q17",
+      "type": "fill_in_the_blank",
+      "concept": "project_terminal_contact_book_module_wiring",
+      "skill": "syntax",
+      "difficulty": "medium",
+      "prerequisites": [
+        "10.7_q16"
+      ],
+      "prompt": "Complete the function that removes a contact and returns the updated dictionary:\n\n```python\ndef remove_contact(book, name):\n    ____\n    return book\n```",
+      "correct_answer": "book.pop(name, None)",
+      "accepted_answers": [
+        "book.pop(name, None)",
+        "book.pop(name, None) # remove if exists"
+      ],
+      "explanation": "dict.pop(key, default) removes the key-value pair and returns the value. Providing None as the default prevents a KeyError if the contact does not exist."
+    },
+    {
+      "id": "10.7_q18",
+      "type": "fill_in_the_blank",
+      "concept": "project_terminal_contact_book_module_wiring",
+      "skill": "syntax",
+      "difficulty": "medium",
+      "prerequisites": [
+        "10.7_q17"
+      ],
+      "prompt": "Fill in the import statement needed to use the contact book functions defined in a separate module named 'contact_book':\n\n```python\n____\n```",
+      "correct_answer": "import contact_book",
+      "accepted_answers": [
+        "import contact_book",
+        "# import contact_book"
+      ],
+      "explanation": "The import statement loads a Python module so its functions and variables can be accessed. Using 'import contact_book' allows you to call functions like contact_book.add_contact()."
+    },
+    {
+      "id": "10.7_q19",
+      "type": "write_the_code",
+      "concept": "project_terminal_contact_book_component",
+      "skill": "implementation",
+      "difficulty": "medium",
+      "prerequisites": [
+        "10.7_q18"
+      ],
+      "prompt": "Coding Challenge 19: Write a statement that prints 'Project: Terminal Contact Book Result 19' to standard output.",
+      "starter_code": "# Write your code below\n",
+      "solution_code": "print('Project: Terminal Contact Book Result 19')",
+      "test_cases": [
+        {
+          "input": "",
+          "expected_output": "Project: Terminal Contact Book Result 19"
+        }
+      ],
+      "hint": "Use print('Project: Terminal Contact Book Result 19') to generate the required output.",
+      "explanation": "Calling print with the exact string produces the expected console output."
+    },
+    {
+      "id": "10.7_q20",
+      "type": "write_the_code",
+      "concept": "project_terminal_contact_book_component",
+      "skill": "implementation",
+      "difficulty": "medium",
+      "prerequisites": [
+        "10.7_q19"
+      ],
+      "prompt": "Coding Challenge 20: Write a statement that prints 'Project: Terminal Contact Book Result 20' to standard output.",
+      "starter_code": "# Write your code below\n",
+      "solution_code": "print('Project: Terminal Contact Book Result 20')",
+      "test_cases": [
+        {
+          "input": "",
+          "expected_output": "Project: Terminal Contact Book Result 20"
+        }
+      ],
+      "hint": "Use print('Project: Terminal Contact Book Result 20') to generate the required output.",
+      "explanation": "Calling print with the exact string produces the expected console output."
+    },
+    {
+      "id": "10.7_q21",
+      "type": "write_the_code",
+      "concept": "project_terminal_contact_book_component",
+      "skill": "implementation",
+      "difficulty": "medium",
+      "prerequisites": [
+        "10.7_q20"
+      ],
+      "prompt": "Coding Challenge 21: Write a statement that prints 'Project: Terminal Contact Book Result 21' to standard output.",
+      "starter_code": "# Write your code below\n",
+      "solution_code": "print('Project: Terminal Contact Book Result 21')",
+      "test_cases": [
+        {
+          "input": "",
+          "expected_output": "Project: Terminal Contact Book Result 21"
+        }
+      ],
+      "hint": "Use print('Project: Terminal Contact Book Result 21') to generate the required output.",
+      "explanation": "Calling print with the exact string produces the expected console output."
+    },
+    {
+      "id": "10.7_q22",
+      "type": "write_the_code",
+      "concept": "project_terminal_contact_book_component",
+      "skill": "implementation",
+      "difficulty": "medium",
+      "prerequisites": [
+        "10.7_q21"
+      ],
+      "prompt": "Coding Challenge 22: Write a statement that prints 'Project: Terminal Contact Book Result 22' to standard output.",
+      "starter_code": "# Write your code below\n",
+      "solution_code": "print('Project: Terminal Contact Book Result 22')",
+      "test_cases": [
+        {
+          "input": "",
+          "expected_output": "Project: Terminal Contact Book Result 22"
+        }
+      ],
+      "hint": "Use print('Project: Terminal Contact Book Result 22') to generate the required output.",
+      "explanation": "Calling print with the exact string produces the expected console output."
+    },
+    {
+      "id": "10.7_q23",
+      "type": "write_the_code",
+      "concept": "project_terminal_contact_book_milestone",
+      "skill": "integration",
+      "difficulty": "hard",
+      "prerequisites": [
+        "10.7_q22"
+      ],
+      "prompt": "Coding Challenge 23: Write a statement that prints 'Project: Terminal Contact Book Result 23' to standard output.",
+      "starter_code": "# Write your code below\n",
+      "solution_code": "print('Project: Terminal Contact Book Result 23')",
+      "test_cases": [
+        {
+          "input": "",
+          "expected_output": "Project: Terminal Contact Book Result 23"
+        }
+      ],
+      "hint": "Use print('Project: Terminal Contact Book Result 23') to generate the required output.",
+      "explanation": "Calling print with the exact string produces the expected console output."
+    },
+    {
+      "id": "10.7_q24",
+      "type": "write_the_code",
+      "concept": "project_terminal_contact_book_milestone",
+      "skill": "integration",
+      "difficulty": "hard",
+      "prerequisites": [
+        "10.7_q23"
+      ],
+      "prompt": "Coding Challenge 24: Write a statement that prints 'Project: Terminal Contact Book Result 24' to standard output.",
+      "starter_code": "# Write your code below\n",
+      "solution_code": "print('Project: Terminal Contact Book Result 24')",
+      "test_cases": [
+        {
+          "input": "",
+          "expected_output": "Project: Terminal Contact Book Result 24"
+        }
+      ],
+      "hint": "Use print('Project: Terminal Contact Book Result 24') to generate the required output.",
+      "explanation": "Calling print with the exact string produces the expected console output."
+    },
+    {
+      "id": "10.7_q25",
+      "type": "write_the_code",
+      "concept": "project_terminal_contact_book_milestone",
+      "skill": "integration",
+      "difficulty": "hard",
+      "prerequisites": [
+        "10.7_q24"
+      ],
+      "prompt": "Build the first milestone of the Terminal Contact Book: create a dictionary to store contacts where the key is the contact's name and the value is a dictionary containing 'phone' and 'email'. Write a function add_contact(name, phone, email) that adds a new entry, and a function display_contacts() that prints all stored contacts in a readable format.",
+      "starter_code": "def add_contact(name, phone, email):\n    # TODO: add contact to dictionary\n    pass\n\ndef display_contacts():\n    # TODO: print all contacts\n    pass\n\ncontacts = {}\nadd_contact('Alice', '555-0101', 'alice@example.com')\nadd_contact('Bob', '555-0102', 'bob@example.com')\ndisplay_contacts()",
+      "solution_code": "def add_contact(name, phone, email):\n    contacts = {}\n    contacts[name] = {'phone': phone, 'email': email}\n    return contacts\n\ndef display_contacts(contacts):\n    for name, info in contacts.items():\n        print(f'{name}: {info[\"phone\"]}, {info[\"email\"]}')\n\ncontacts = {}\ncontacts = add_contact(contacts, 'Alice', '555-0101', 'alice@example.com')\ncontacts = add_contact(contacts, 'Bob', '555-0102', 'bob@example.com')\ndisplay_contacts(contacts)",
+      "test_cases": [
+        "add_contact returns a dictionary with the correct nested structure",
+        "display_contacts prints each contact's name, phone, and email",
+        "Multiple calls to add_contact accumulate entries without overwriting"
+      ],
+      "hint": "Use a dictionary for the outer container and another dictionary for each contact's details. Remember that functions can return the updated dictionary so you can chain or reassign it.",
+      "explanation": "This milestone introduces nested dictionaries, a core pattern for organizing structured data. The add_contact function creates a new dictionary entry keyed by name, with an inner dictionary holding 'phone' and 'email'. The display_contacts function iterates over items() to unpack each key-value pair. Returning the dictionary from add_contact allows the caller to maintain state across operations."
+    },
+    {
+      "id": "10.7_q26",
+      "type": "write_the_code",
+      "concept": "project_terminal_contact_book_milestone",
+      "skill": "integration",
+      "difficulty": "hard",
+      "prerequisites": [
+        "10.7_q25"
+      ],
+      "prompt": "Extend the contact book to persist data to a JSON file. Write save_contacts(contacts, filename) that serializes the contact dictionary to a file, and load_contacts(filename) that reads it back. Ensure the program handles the case where the file does not exist yet.",
+      "starter_code": "import json\n\ndef save_contacts(contacts, filename):\n    # TODO: write contacts to JSON file\n    pass\n\ndef load_contacts(filename):\n    # TODO: read contacts from JSON file\n    pass\n\ncontacts = {'Alice': {'phone': '555-0101', 'email': 'alice@example.com'}}\nsave_contacts(contacts, 'contacts.json')\nloaded = load_contacts('contacts.json')\nprint(loaded)",
+      "solution_code": "import json\nimport os\n\ndef save_contacts(contacts, filename):\n    with open(filename, 'w') as f:\n        json.dump(contacts, f, indent=2)\n\ndef load_contacts(filename):\n    if not os.path.exists(filename):\n        return {}\n    with open(filename, 'r') as f:\n        return json.load(f)\n\ncontacts = {'Alice': {'phone': '555-0101', 'email': 'alice@example.com'}}\nsave_contacts(contacts, 'contacts.json')\nloaded = load_contacts('contacts.json')\nprint(loaded)",
+      "test_cases": [
+        "save_contacts creates or overwrites the file without errors",
+        "load_contacts returns the exact dictionary when the file exists",
+        "load_contacts returns an empty dictionary when the file is missing"
+      ],
+      "hint": "Use json.dump for writing and json.load for reading. Check os.path.exists before attempting to read to avoid FileNotFoundError.",
+      "explanation": "Persistence turns an in-memory dictionary into a durable application. json.dump converts the Python dictionary into a human-readable text format, while json.load reverses the process. The os.path.exists guard makes the program robust by returning an empty dictionary when no saved data is present."
+    },
+    {
+      "id": "10.7_q27",
+      "type": "write_the_code",
+      "concept": "project_terminal_contact_book_extension",
+      "skill": "extension",
+      "difficulty": "hard",
+      "prerequisites": [
+        "10.7_q26"
+      ],
+      "prompt": "Add a search_contact(contacts, query) function that returns all contacts whose name contains the query string, case-insensitively. If no match is found, return an empty list. Write a small driver that prompts the user for a query and displays matching results.",
+      "starter_code": "def search_contact(contacts, query):\n    # TODO: return matching contacts\n    return []\n\ndef main():\n    contacts = {\n        'Alice': {'phone': '555-0101', 'email': 'alice@example.com'},\n        'Bob': {'phone': '555-0102', 'email': 'bob@example.com'},\n        'Charlie': {'phone': '555-0103', 'email': 'charlie@example.com'}\n    }\n    query = input('Search by name: ')\n    results = search_contact(contacts, query)\n    if results:\n        for name, info in results.items():\n            print(f'{name}: {info[\"phone\"]}')\n    else:\n        print('No matches found.')\n\nif __name__ == '__main__':\n    main()",
+      "solution_code": "def search_contact(contacts, query):\n    query_lower = query.lower()\n    matches = {}\n    for name in contacts:\n        if query_lower in name.lower():\n            matches[name] = contacts[name]\n    return matches\n\ndef main():\n    contacts = {\n        'Alice': {'phone': '555-0101', 'email': 'alice@example.com'},\n        'Bob': {'phone': '555-0102', 'email': 'bob@example.com'},\n        'Charlie': {'phone': '555-0103', 'email': 'charlie@example.com'}\n    }\n    query = input('Search by name: ')\n    results = search_contact(contacts, query)\n    if results:\n        for name, info in results.items():\n            print(f'{name}: {info[\"phone\"]}')\n    else:\n        print('No matches found.')\n\nif __name__ == '__main__':\n    main()",
+      "test_cases": [
+        "search_contact('ali') returns Alice",
+        "search_contact('BOB') returns Bob (case-insensitive)",
+        "search_contact('Zoe') returns an empty dictionary"
+      ],
+      "hint": "Normalize both the stored names and the query to lowercase before comparing with 'in'. Build a new dictionary for matches rather than modifying the original.",
+      "explanation": "Substring search on dictionary keys demonstrates how to extend a data structure with query capabilities. Using a comprehension or explicit loop with .lower() ensures case-insensitive matching. Returning a new dictionary preserves immutability of the source data."
+    },
+    {
+      "id": "10.7_q28",
+      "type": "write_the_code",
+      "concept": "project_terminal_contact_book_extension",
+      "skill": "extension",
+      "difficulty": "hard",
+      "prerequisites": [
+        "10.7_q27"
+      ],
+      "prompt": "Implement a delete_contact(contacts, name) function that removes a contact by exact name match and returns the updated dictionary. If the name does not exist, return the original dictionary unchanged. Add a confirmation prompt before deletion and handle invalid input gracefully.",
+      "starter_code": "def delete_contact(contacts, name):\n    # TODO: remove contact and return updated dictionary\n    return contacts\n\ndef main():\n    contacts = {\n        'Alice': {'phone': '555-0101', 'email': 'alice@example.com'},\n        'Bob': {'phone': '555-0102', 'email': 'bob@example.com'}\n    }\n    name = input('Enter name to delete: ')\n    if name in contacts:\n        confirm = input(f'Delete {name}? (yes/no): ')\n        if confirm.lower() == 'yes':\n            contacts = delete_contact(contacts, name)\n            print('Deleted.')\n        else:\n            print('Cancelled.')\n    else:\n        print('Contact not found.')\n    print(contacts)\n\nif __name__ == '__main__':\n    main()",
+      "solution_code": "def delete_contact(contacts, name):\n    if name in contacts:\n        del contacts[name]\n    return contacts\n\ndef main():\n    contacts = {\n        'Alice': {'phone': '555-0101', 'email': 'alice@example.com'},\n        'Bob': {'phone': '555-0102', 'email': 'bob@example.com'}\n    }\n    name = input('Enter name to delete: ')\n    if name in contacts:\n        confirm = input(f'Delete {name}? (yes/no): ')\n        if confirm.lower() == 'yes':\n            contacts = delete_contact(contacts, name)\n            print('Deleted.')\n        else:\n            print('Cancelled.')\n    else:\n        print('Contact not found.')\n    print(contacts)\n\nif __name__ == '__main__':\n    main()",
+      "test_cases": [
+        "delete_contact removes the entry and returns the reduced dictionary",
+        "delete_contact leaves the dictionary unchanged when name is absent",
+        "main prompts for confirmation and only deletes on 'yes'"
+      ],
+      "hint": "Use the del statement to remove a key from a dictionary. Because dictionaries are mutable, remember that the function modifies the original object unless you create a copy first.",
+      "explanation": "Deletion is a fundamental mutation operation on dictionaries. The del statement removes a key-value pair in-place. Returning the dictionary allows chaining or reassignment, and the confirmation prompt adds a safety layer for user-facing applications."
+    },
+    {
+      "id": "10.7_q29",
+      "type": "write_the_code",
+      "concept": "project_terminal_contact_book_extension",
+      "skill": "extension",
+      "difficulty": "hard",
+      "prerequisites": [
+        "10.7_q28"
+      ],
+      "prompt": "Create an update_contact(contacts, name, field, value) function that modifies a specific field ('phone' or 'email') for an existing contact. If the contact or field does not exist, print an error and return the original dictionary. Write a test case that updates Alice's email and verifies the change.",
+      "starter_code": "def update_contact(contacts, name, field, value):\n    # TODO: update the specified field\n    return contacts\n\ndef main():\n    contacts = {\n        'Alice': {'phone': '555-0101', 'email': 'alice@example.com'},\n        'Bob': {'phone': '555-0102', 'email': 'bob@example.com'}\n    }\n    update_contact(contacts, 'Alice', 'email', 'alice.new@example.com')\n    print(contacts['Alice']['email'])\n\nif __name__ == '__main__':\n    main()",
+      "solution_code": "def update_contact(contacts, name, field, value):\n    if name in contacts and field in contacts[name]:\n        contacts[name][field] = value\n    else:\n        print(f'Error: contact or field not found.')\n    return contacts\n\ndef main():\n    contacts = {\n        'Alice': {'phone': '555-0101', 'email': 'alice@example.com'},\n        'Bob': {'phone': '555-0102', 'email': 'bob@example.com'}\n    }\n    update_contact(contacts, 'Alice', 'email', 'alice.new@example.com')\n    assert contacts['Alice']['email'] == 'alice.new@example.com'\n    print('Update verified.')\n\nif __name__ == '__main__':\n    main()",
+      "test_cases": [
+        "update_contact changes the specified field and returns the modified dictionary",
+        "update_contact prints an error and returns unchanged dictionary for missing contact",
+        "update_contact prints an error and returns unchanged dictionary for invalid field"
+      ],
+      "hint": "Check both the outer name key and the inner field key before assigning. Use a nested lookup: contacts[name][field] = value.",
+      "explanation": "Updating nested dictionary values requires two levels of key validation. This pattern appears frequently when managing records with multiple attributes. Returning the dictionary enables functional-style composition, while the error message guides debugging."
+    },
+    {
+      "id": "10.7_q30",
+      "type": "write_the_code",
+      "concept": "project_terminal_contact_book_extension",
+      "skill": "extension",
+      "difficulty": "hard",
+      "prerequisites": [
+        "10.7_q29"
+      ],
+      "prompt": "Add input validation to the contact book: phone must be exactly 10 digits and email must contain exactly one '@' symbol. Write validate_phone(phone) and validate_email(email) helper functions. If validation fails, raise a ValueError with a descriptive message. Integrate these checks into add_contact so that only valid data is stored.",
+      "starter_code": "def validate_phone(phone):\n    # TODO: check 10 digits\n    pass\n\ndef validate_email(email):\n    # TODO: check exactly one '@'\n    pass\n\ndef add_contact(contacts, name, phone, email):\n    # TODO: validate and add\n    contacts[name] = {'phone': phone, 'email': email}\n    return contacts\n\ndef main():\n    contacts = {}\n    add_contact(contacts, 'Dana', '555-1234567', 'dana@example.com')\n    print(contacts)\n\nif __name__ == '__main__':\n    main()",
+      "solution_code": "def validate_phone(phone):\n    if not (isinstance(phone, str) and phone.isdigit() and len(phone) == 10):\n        raise ValueError('Phone must be a 10-digit string.')\n\ndef validate_email(email):\n    if not isinstance(email, str) or email.count('@') != 1:\n        raise ValueError('Email must contain exactly one @ symbol.')\n\ndef add_contact(contacts, name, phone, email):\n    validate_phone(phone)\n    validate_email(email)\n    contacts[name] = {'phone': phone, 'email': email}\n    return contacts\n\ndef main():\n    contacts = {}\n    add_contact(contacts, 'Dana', '555-1234567', 'dana@example.com')\n    print(contacts)\n\nif __name__ == '__main__':\n    main()",
+      "test_cases": [
+        "validate_phone accepts '1234567890' and rejects '12345' and '12a4567890'",
+        "validate_email accepts 'a@b.com' and rejects 'a@b@c.com' and 'abc'",
+        "add_contact raises ValueError for invalid inputs and stores only valid entries"
+      ],
+      "hint": "Use str.isdigit() for digit-only checks and str.count('@') for email validation. Raise ValueError with a clear message when a rule is violated.",
+      "explanation": "Defensive programming with custom validation functions prevents garbage data from entering the contact book. Raising exceptions rather than silently failing makes errors explicit. These helpers can be reused across add_contact, update_contact, or any future import routine."
+    }
+  ]
+}

@@ -1,0 +1,637 @@
+{
+  "lesson_id": "42.3",
+  "title": "Project: Interactive Web Scraper API",
+  "unit": "Capstone Projects",
+  "items": [
+    {
+      "id": "42.3_q1",
+      "type": "micro_lesson",
+      "concept": "project_interactive_web_scraper_api_architecture",
+      "skill": "planning",
+      "difficulty": "easy",
+      "prerequisites": [],
+      "title": "Designing the Architecture of an Interactive Web Scraper API",
+      "content": "In this micro-lesson, you will learn how to architect a scalable Interactive Web Scraper API. The core idea is to separate concerns into three layers: the client (frontend or consumer), the API gateway (routes and validates requests), and the scraper engine (fetches, parses, and normalizes data). A robust architecture uses a request queue, rate-limiting middleware, and a standardized JSON response schema. Below is a conceptual Python skeleton showing how the main application class coordinates these components. Notice how the scraper_engine is injected into the API handler, promoting loose coupling and testability.\n\n```python\nclass ScraperEngine:\n    def fetch(self, url):\n        pass\n\nclass APIHandler:\n    def __init__(self, engine):\n        self.engine = engine\n\n    def get_data(self, url):\n        raw = self.engine.fetch(url)\n        return {'status': 'ok', 'data': raw}\n\napp = APIHandler(ScraperEngine())\nresponse = app.get_data('https://example.com')\n```"
+    },
+    {
+      "id": "42.3_q2",
+      "type": "micro_lesson",
+      "concept": "project_interactive_web_scraper_api_architecture",
+      "skill": "planning",
+      "difficulty": "easy",
+      "prerequisites": [
+        "42.3_q1"
+      ],
+      "title": "Choosing Data Formats and Error-Handling Strategies",
+      "content": "When building an Interactive Web Scraper API, selecting the right data format and error-handling strategy is critical. JSON is the standard for API payloads because it is lightweight and natively supported by Python via the json module. For errors, define a consistent schema with a code, message, and optional details field. This allows consumers to programmatically react to failures such as 429 Too Many Requests or 503 Service Unavailable. The following example demonstrates a safe wrapper around requests.get that catches common exceptions and returns a uniform JSON error object.\n\n```python\nimport requests\nimport json\n\ndef safe_fetch(url):\n    try:\n        resp = requests.get(url, timeout=10)\n        resp.raise_for_status()\n        return {'status': 'success', 'payload': resp.json()}\n    except requests.exceptions.RequestException as e:\n        return json.dumps({'status': 'error', 'code': 'FETCH_FAILED', 'message': str(e)})\n```"
+    },
+    {
+      "id": "42.3_q3",
+      "type": "multiple_choice",
+      "concept": "project_interactive_web_scraper_api_requirements",
+      "skill": "design",
+      "difficulty": "easy",
+      "prerequisites": [
+        "42.3_q2"
+      ],
+      "prompt": "Which of the following is a mandatory requirement for the Interactive Web Scraper API capstone project?",
+      "options": [
+        "The API must return data exclusively in XML format.",
+        "The API must support GET requests to retrieve scraped content.",
+        "The API must run only on a local machine with no network access.",
+        "The API must use a relational database for every request."
+      ],
+      "correct_answer": "The API must support GET requests to retrieve scraped content.",
+      "explanation": "The capstone focuses on an interactive web scraper API, which fundamentally needs to expose endpoints\u2014typically GET requests\u2014to allow clients to fetch scraped data. XML is not required, local-only execution defeats the purpose of a web API, and a relational database is optional rather than mandatory."
+    },
+    {
+      "id": "42.3_q4",
+      "type": "multiple_choice",
+      "concept": "project_interactive_web_scraper_api_requirements",
+      "skill": "design",
+      "difficulty": "easy",
+      "prerequisites": [
+        "42.3_q3"
+      ],
+      "prompt": "Which design principle should be prioritized to ensure the Interactive Web Scraper API remains maintainable as new scraping targets are added?",
+      "options": [
+        "Hard-code every target URL inside a single function.",
+        "Use a configuration file or environment variables to store target URLs.",
+        "Avoid documentation to reduce maintenance overhead.",
+        "Disable logging to improve performance."
+      ],
+      "correct_answer": "Use a configuration file or environment variables to store target URLs.",
+      "explanation": "Externalizing target URLs into configuration or environment variables decouples the scraper logic from specific endpoints, making it easier to add, remove, or update targets without modifying source code."
+    },
+    {
+      "id": "42.3_q5",
+      "type": "code_ordering",
+      "concept": "project_interactive_web_scraper_api_milestone_flow",
+      "skill": "sequencing",
+      "difficulty": "medium",
+      "prerequisites": [
+        "42.3_q4"
+      ],
+      "prompt": "Arrange the following milestone steps in the correct order to build the Interactive Web Scraper API.",
+      "options": [
+        "Define the JSON response schema and error codes.",
+        "Write unit tests for the scraper engine.",
+        "Deploy the API to a cloud platform.",
+        "Implement the HTTP endpoint that triggers scraping."
+      ],
+      "correct_answer": [
+        "Define the JSON response schema and error codes.",
+        "Implement the HTTP endpoint that triggers scraping.",
+        "Write unit tests for the scraper engine.",
+        "Deploy the API to a cloud platform."
+      ],
+      "explanation": "A logical development flow begins with defining contracts (schema and errors), then implementing core functionality (endpoint), validating correctness (tests), and finally releasing (deployment)."
+    },
+    {
+      "id": "42.3_q6",
+      "type": "code_ordering",
+      "concept": "project_interactive_web_scraper_api_milestone_flow",
+      "skill": "sequencing",
+      "difficulty": "medium",
+      "prerequisites": [
+        "42.3_q5"
+      ],
+      "prompt": "Arrange the following code snippets in the correct order to complete the milestone flow for initializing and running the scraper API.",
+      "options": [
+        "app.run(host='0.0.0.0', port=5000)",
+        "scraper = WebScraper(config_path='config.json')",
+        "from flask import Flask",
+        "app = Flask(__name__)"
+      ],
+      "correct_answer": [
+        "from flask import Flask",
+        "app = Flask(__name__)",
+        "scraper = WebScraper(config_path='config.json')",
+        "app.run(host='0.0.0.0', port=5000)"
+      ],
+      "explanation": "Correct Python execution order requires importing the library first, instantiating the application object, initializing the scraper with its configuration, and finally starting the server."
+    },
+    {
+      "id": "42.3_q7",
+      "type": "fix_the_code",
+      "concept": "project_interactive_web_scraper_api_module_bugfix",
+      "skill": "debugging",
+      "difficulty": "medium",
+      "prerequisites": [
+        "42.3_q6"
+      ],
+      "prompt": "Debug Challenge 7: Fix the capitalization error in this line for Project Interactive Web Scraper Api Module Bugfix:",
+      "starter_code": "Print('Project: Interactive Web Scraper API Item 7')",
+      "solution_code": "print('Project: Interactive Web Scraper API Item 7')",
+      "hint": "Python built-in functions like print() must be written in lowercase.",
+      "explanation": "Built-in function names in Python are case-sensitive and require lowercase."
+    },
+    {
+      "id": "42.3_q8",
+      "type": "fix_the_code",
+      "concept": "project_interactive_web_scraper_api_module_bugfix",
+      "skill": "debugging",
+      "difficulty": "medium",
+      "prerequisites": [
+        "42.3_q7"
+      ],
+      "prompt": "Debug Challenge 8: Fix the capitalization error in this line for Project Interactive Web Scraper Api Module Bugfix:",
+      "starter_code": "Print('Project: Interactive Web Scraper API Item 8')",
+      "solution_code": "print('Project: Interactive Web Scraper API Item 8')",
+      "hint": "Python built-in functions like print() must be written in lowercase.",
+      "explanation": "Built-in function names in Python are case-sensitive and require lowercase."
+    },
+    {
+      "id": "42.3_q9",
+      "type": "fix_the_code",
+      "concept": "project_interactive_web_scraper_api_module_bugfix",
+      "skill": "debugging",
+      "difficulty": "medium",
+      "prerequisites": [
+        "42.3_q8"
+      ],
+      "prompt": "Debug Challenge 9: Fix the capitalization error in this line for Project Interactive Web Scraper Api Module Bugfix:",
+      "starter_code": "Print('Project: Interactive Web Scraper API Item 9')",
+      "solution_code": "print('Project: Interactive Web Scraper API Item 9')",
+      "hint": "Python built-in functions like print() must be written in lowercase.",
+      "explanation": "Built-in function names in Python are case-sensitive and require lowercase."
+    },
+    {
+      "id": "42.3_q10",
+      "type": "fix_the_code",
+      "concept": "project_interactive_web_scraper_api_module_bugfix",
+      "skill": "debugging",
+      "difficulty": "medium",
+      "prerequisites": [
+        "42.3_q9"
+      ],
+      "prompt": "Debug Challenge 10: Fix the capitalization error in this line for Project Interactive Web Scraper Api Module Bugfix:",
+      "starter_code": "Print('Project: Interactive Web Scraper API Item 10')",
+      "solution_code": "print('Project: Interactive Web Scraper API Item 10')",
+      "hint": "Python built-in functions like print() must be written in lowercase.",
+      "explanation": "Built-in function names in Python are case-sensitive and require lowercase."
+    },
+    {
+      "id": "42.3_q11",
+      "type": "fix_the_code",
+      "concept": "project_interactive_web_scraper_api_module_bugfix",
+      "skill": "debugging",
+      "difficulty": "medium",
+      "prerequisites": [
+        "42.3_q10"
+      ],
+      "prompt": "Debug Challenge 11: Fix the capitalization error in this line for Project Interactive Web Scraper Api Module Bugfix:",
+      "starter_code": "Print('Project: Interactive Web Scraper API Item 11')",
+      "solution_code": "print('Project: Interactive Web Scraper API Item 11')",
+      "hint": "Python built-in functions like print() must be written in lowercase.",
+      "explanation": "Built-in function names in Python are case-sensitive and require lowercase."
+    },
+    {
+      "id": "42.3_q12",
+      "type": "fix_the_code",
+      "concept": "project_interactive_web_scraper_api_module_bugfix",
+      "skill": "debugging",
+      "difficulty": "medium",
+      "prerequisites": [
+        "42.3_q11"
+      ],
+      "prompt": "Debug Challenge 12: Fix the capitalization error in this line for Project Interactive Web Scraper Api Module Bugfix:",
+      "starter_code": "Print('Project: Interactive Web Scraper API Item 12')",
+      "solution_code": "print('Project: Interactive Web Scraper API Item 12')",
+      "hint": "Python built-in functions like print() must be written in lowercase.",
+      "explanation": "Built-in function names in Python are case-sensitive and require lowercase."
+    },
+    {
+      "id": "42.3_q13",
+      "type": "fill_in_the_blank",
+      "concept": "project_interactive_web_scraper_api_module_wiring",
+      "skill": "syntax",
+      "difficulty": "medium",
+      "prerequisites": [
+        "42.3_q12"
+      ],
+      "prompt": "Fill Blank 13: Complete the code to output 'Project: Interactive Web Scraper API #13':\n```python\n___('Project: Interactive Web Scraper API #13')\n```",
+      "correct_answer": "print",
+      "accepted_answers": [
+        "print"
+      ],
+      "explanation": "The built-in print() function outputs the specified string."
+    },
+    {
+      "id": "42.3_q14",
+      "type": "fill_in_the_blank",
+      "concept": "project_interactive_web_scraper_api_module_wiring",
+      "skill": "syntax",
+      "difficulty": "medium",
+      "prerequisites": [
+        "42.3_q13"
+      ],
+      "prompt": "Fill Blank 14: Complete the code to output 'Project: Interactive Web Scraper API #14':\n```python\n___('Project: Interactive Web Scraper API #14')\n```",
+      "correct_answer": "print",
+      "accepted_answers": [
+        "print"
+      ],
+      "explanation": "The built-in print() function outputs the specified string."
+    },
+    {
+      "id": "42.3_q15",
+      "type": "fill_in_the_blank",
+      "concept": "project_interactive_web_scraper_api_module_wiring",
+      "skill": "syntax",
+      "difficulty": "medium",
+      "prerequisites": [
+        "42.3_q14"
+      ],
+      "prompt": "Fill Blank 15: Complete the code to output 'Project: Interactive Web Scraper API #15':\n```python\n___('Project: Interactive Web Scraper API #15')\n```",
+      "correct_answer": "print",
+      "accepted_answers": [
+        "print"
+      ],
+      "explanation": "The built-in print() function outputs the specified string."
+    },
+    {
+      "id": "42.3_q16",
+      "type": "fill_in_the_blank",
+      "concept": "project_interactive_web_scraper_api_module_wiring",
+      "skill": "syntax",
+      "difficulty": "medium",
+      "prerequisites": [
+        "42.3_q15"
+      ],
+      "prompt": "Fill Blank 16: Complete the code to output 'Project: Interactive Web Scraper API #16':\n```python\n___('Project: Interactive Web Scraper API #16')\n```",
+      "correct_answer": "print",
+      "accepted_answers": [
+        "print"
+      ],
+      "explanation": "The built-in print() function outputs the specified string."
+    },
+    {
+      "id": "42.3_q17",
+      "type": "fill_in_the_blank",
+      "concept": "project_interactive_web_scraper_api_module_wiring",
+      "skill": "syntax",
+      "difficulty": "medium",
+      "prerequisites": [
+        "42.3_q16"
+      ],
+      "prompt": "Fill Blank 17: Complete the code to output 'Project: Interactive Web Scraper API #17':\n```python\n___('Project: Interactive Web Scraper API #17')\n```",
+      "correct_answer": "print",
+      "accepted_answers": [
+        "print"
+      ],
+      "explanation": "The built-in print() function outputs the specified string."
+    },
+    {
+      "id": "42.3_q18",
+      "type": "fill_in_the_blank",
+      "concept": "project_interactive_web_scraper_api_module_wiring",
+      "skill": "syntax",
+      "difficulty": "medium",
+      "prerequisites": [
+        "42.3_q17"
+      ],
+      "prompt": "Fill Blank 18: Complete the code to output 'Project: Interactive Web Scraper API #18':\n```python\n___('Project: Interactive Web Scraper API #18')\n```",
+      "correct_answer": "print",
+      "accepted_answers": [
+        "print"
+      ],
+      "explanation": "The built-in print() function outputs the specified string."
+    },
+    {
+      "id": "42.3_q19",
+      "type": "write_the_code",
+      "concept": "project_interactive_web_scraper_api_component",
+      "skill": "implementation",
+      "difficulty": "medium",
+      "prerequisites": [
+        "42.3_q18"
+      ],
+      "prompt": "Implement a Flask route that accepts a URL query parameter and returns the page title as JSON. The route should handle missing or invalid URLs gracefully.",
+      "starter_code": "from flask import Flask, request, jsonify\nimport requests\nfrom bs4 import BeautifulSoup\n\napp = Flask(__name__)\n\n@app.route('/scrape-title')\ndef get_title():\n    url = request.args.get('url')\n    # TODO: validate url, fetch page, parse title, return JSON\n    pass\n\nif __name__ == '__main__':\n    app.run(debug=True)",
+      "solution_code": "from flask import Flask, request, jsonify\nimport requests\nfrom bs4 import BeautifulSoup\n\napp = Flask(__name__)\n\n@app.route('/scrape-title')\ndef get_title():\n    url = request.args.get('url')\n    if not url or not url.startswith('http'):\n        return jsonify({'error': 'Invalid URL'}), 400\n    try:\n        response = requests.get(url, timeout=10)\n        response.raise_for_status()\n        soup = BeautifulSoup(response.text, 'html.parser')\n        title_tag = soup.find('title')\n        title = title_tag.get_text(strip=True) if title_tag else 'No title found'\n        return jsonify({'url': url, 'title': title})\n    except requests.RequestException as e:\n        return jsonify({'error': str(e)}), 500\n\nif __name__ == '__main__':\n    app.run(debug=True)",
+      "test_cases": [
+        {
+          "input": "?url=https://example.com",
+          "expected": "JSON response containing 'title' key"
+        },
+        {
+          "input": "?url=invalid",
+          "expected": "400 status with 'Invalid URL' error"
+        },
+        {
+          "input": "",
+          "expected": "400 status with 'Invalid URL' error"
+        }
+      ],
+      "hint": "Use request.args.get() to retrieve the URL. Validate that the string starts with 'http'. Use requests.get() with a timeout and BeautifulSoup to extract the <title> tag.",
+      "explanation": "This component builds the core scraping endpoint. It validates the incoming URL, performs an HTTP GET request safely with a timeout, parses the HTML with BeautifulSoup, and extracts the text inside the <title> element. The result is returned as a JSON object. Error handling ensures the API responds with appropriate status codes for bad requests or network failures."
+    },
+    {
+      "id": "42.3_q20",
+      "type": "write_the_code",
+      "concept": "project_interactive_web_scraper_api_component",
+      "skill": "implementation",
+      "difficulty": "medium",
+      "prerequisites": [
+        "42.3_q19"
+      ],
+      "prompt": "Add a second Flask route '/scrape-headings' that accepts a URL and returns a JSON list of all <h1> through <h6> tag texts found on the page. Include a maximum limit of 20 headings to prevent abuse.",
+      "starter_code": "from flask import Flask, request, jsonify\nimport requests\nfrom bs4 import BeautifulSoup\n\napp = Flask(__name__)\n\n@app.route('/scrape-title')\ndef get_title():\n    url = request.args.get('url')\n    if not url or not url.startswith('http'):\n        return jsonify({'error': 'Invalid URL'}), 400\n    try:\n        response = requests.get(url, timeout=10)\n        response.raise_for_status()\n        soup = BeautifulSoup(response.text, 'html.parser')\n        title_tag = soup.find('title')\n        title = title_tag.get_text(strip=True) if title_tag else 'No title found'\n        return jsonify({'url': url, 'title': title})\n    except requests.RequestException as e:\n        return jsonify({'error': str(e)}), 500\n\n# TODO: implement /scrape-headings route\n\nif __name__ == '__main__':\n    app.run(debug=True)",
+      "solution_code": "from flask import Flask, request, jsonify\nimport requests\nfrom bs4 import BeautifulSoup\n\napp = Flask(__name__)\n\n@app.route('/scrape-title')\ndef get_title():\n    url = request.args.get('url')\n    if not url or not url.startswith('http'):\n        return jsonify({'error': 'Invalid URL'}), 400\n    try:\n        response = requests.get(url, timeout=10)\n        response.raise_for_status()\n        soup = BeautifulSoup(response.text, 'html.parser')\n        title_tag = soup.find('title')\n        title = title_tag.get_text(strip=True) if title_tag else 'No title found'\n        return jsonify({'url': url, 'title': title})\n    except requests.RequestException as e:\n        return jsonify({'error': str(e)}), 500\n\n@app.route('/scrape-headings')\ndef get_headings():\n    url = request.args.get('url')\n    if not url or not url.startswith('http'):\n        return jsonify({'error': 'Invalid URL'}), 400\n    try:\n        response = requests.get(url, timeout=10)\n        response.raise_for_status()\n        soup = BeautifulSoup(response.text, 'html.parser')\n        headings = []\n        for tag in soup.find_all(['h1', 'h2', 'h3', 'h4', 'h5', 'h6']):\n            if len(headings) >= 20:\n                break\n            text = tag.get_text(strip=True)\n            if text:\n                headings.append(text)\n        return jsonify({'url': url, 'headings': headings})\n    except requests.RequestException as e:\n        return jsonify({'error': str(e)}), 500\n\nif __name__ == '__main__':\n    app.run(debug=True)",
+      "test_cases": [
+        {
+          "input": "?url=https://en.wikipedia.org/wiki/Python_(programming_language)",
+          "expected": "JSON list of up to 20 heading strings"
+        },
+        {
+          "input": "?url=https://example.com",
+          "expected": "JSON list with 0 or few headings"
+        },
+        {
+          "input": "?url=bad",
+          "expected": "400 status with 'Invalid URL' error"
+        }
+      ],
+      "hint": "Use soup.find_all() with a list of header tag names. Iterate and collect text, enforcing the 20-item cap.",
+      "explanation": "This route extends the scraper API by extracting structured heading data. It reuses the same validation and request logic as the title endpoint, then filters for header tags and limits output. Returning headings as JSON enables downstream consumers to display a table of contents or summary."
+    },
+    {
+      "id": "42.3_q21",
+      "type": "write_the_code",
+      "concept": "project_interactive_web_scraper_api_component",
+      "skill": "implementation",
+      "difficulty": "medium",
+      "prerequisites": [
+        "42.3_q20"
+      ],
+      "prompt": "Enable CORS on the Flask application and add a route '/health' that returns {'status': 'ok'} with a 200 status code. Ensure the API can be called from a frontend JavaScript client.",
+      "starter_code": "from flask import Flask, request, jsonify\nimport requests\nfrom bs4 import BeautifulSoup\n\napp = Flask(__name__)\n\n# TODO: configure CORS and add /health route\n\nif __name__ == '__main__':\n    app.run(debug=True)",
+      "solution_code": "from flask import Flask, request, jsonify\nfrom flask_cors import CORS\nimport requests\nfrom bs4 import BeautifulSoup\n\napp = Flask(__name__)\nCORS(app)\n\n@app.route('/health')\ndef health_check():\n    return jsonify({'status': 'ok'}), 200\n\nif __name__ == '__main__':\n    app.run(debug=True)",
+      "test_cases": [
+        {
+          "input": "GET /health",
+          "expected": "200 status and JSON {'status': 'ok'}"
+        },
+        {
+          "input": "GET /health with Origin header",
+          "expected": "200 status with Access-Control-Allow-Origin header"
+        }
+      ],
+      "hint": "Install flask-cors and initialize it with your app instance. The /health route should return a simple JSON payload and HTTP 200.",
+      "explanation": "CORS configuration is essential when the scraper API is consumed by a web frontend. The /health endpoint provides a lightweight liveness check for monitoring and load balancing. Together with the scraping routes, this makes the service production-ready."
+    },
+    {
+      "id": "42.3_q22",
+      "type": "write_the_code",
+      "concept": "project_interactive_web_scraper_api_component",
+      "skill": "implementation",
+      "difficulty": "medium",
+      "prerequisites": [
+        "42.3_q21"
+      ],
+      "prompt": "Add structured logging to the application. Log every incoming request URL, the HTTP method, and the response status code. Use Python's logging module with a basic configuration that prints to the console.",
+      "starter_code": "from flask import Flask, request, jsonify\nfrom flask_cors import CORS\nimport requests\nfrom bs4 import BeautifulSoup\nimport logging\n\napp = Flask(__name__)\nCORS(app)\n\n# TODO: configure logging and instrument existing routes\n\nif __name__ == '__main__':\n    app.run(debug=True)",
+      "solution_code": "from flask import Flask, request, jsonify\nfrom flask_cors import CORS\nimport requests\nfrom bs4 import BeautifulSoup\nimport logging\n\nlogging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')\n\napp = Flask(__name__)\nCORS(app)\n\n@app.before_request\ndef log_request_info():\n    logging.info('Request: %s %s', request.method, request.url)\n\n@app.after_request\ndef log_response_info(response):\n    logging.info('Response status: %d', response.status_code)\n    return response\n\nif __name__ == '__main__':\n    app.run(debug=True)",
+      "test_cases": [
+        {
+          "input": "GET /scrape-title?url=https://example.com",
+          "expected": "Console log entries showing request method/URL and response status"
+        },
+        {
+          "input": "GET /health",
+          "expected": "Console log entries showing request method/URL and response status"
+        }
+      ],
+      "hint": "Use @app.before_request and @app.after_request decorators. In before_request, log request.method and request.url. In after_request, log response.status_code.",
+      "explanation": "Structured logging improves observability and debugging in production. By capturing request metadata and response outcomes, developers can trace failures, measure performance, and audit usage patterns. This is a critical non-functional requirement for any API."
+    },
+    {
+      "id": "42.3_q23",
+      "type": "write_the_code",
+      "concept": "project_interactive_web_scraper_api_milestone",
+      "skill": "integration",
+      "difficulty": "hard",
+      "prerequisites": [
+        "42.3_q22"
+      ],
+      "prompt": "Integrate all components into a single deployable module. Read the target URL from an environment variable named SCRAPE_TARGET_URL. Add a POST route '/scrape' that accepts JSON with a 'url' field, validates it, performs the scrape, and returns the combined result with title and headings. Include input sanitization and a 5-second request timeout.",
+      "starter_code": "import os\nfrom flask import Flask, request, jsonify\nfrom flask_cors import CORS\nimport requests\nfrom bs4 import BeautifulSoup\nimport logging\n\napp = Flask(__name__)\nCORS(app)\n\nlogging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')\n\nDEFAULT_URL = os.environ.get('SCRAPE_TARGET_URL', '')\n\n@app.route('/scrape', methods=['POST'])\ndef scrape_data():\n    # TODO: parse JSON body, validate url, enforce timeout, scrape title and headings\n    pass\n\nif __name__ == '__main__':\n    app.run(debug=True)",
+      "solution_code": "import os\nfrom flask import Flask, request, jsonify\nfrom flask_cors import CORS\nimport requests\nfrom bs4 import BeautifulSoup\nimport logging\n\napp = Flask(__name__)\nCORS(app)\n\nlogging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')\n\nDEFAULT_URL = os.environ.get('SCRAPE_TARGET_URL', '')\n\n@app.route('/scrape', methods=['POST'])\ndef scrape_data():\n    data = request.get_json(silent=True)\n    if not data or 'url' not in data:\n        return jsonify({'error': 'Missing url in JSON body'}), 400\n    url = data['url']\n    if not url or not url.startswith('http'):\n        return jsonify({'error': 'Invalid URL'}), 400\n    try:\n        response = requests.get(url, timeout=5)\n        response.raise_for_status()\n        soup = BeautifulSoup(response.text, 'html.parser')\n        title_tag = soup.find('title')\n        title = title_tag.get_text(strip=True) if title_tag else 'No title found'\n        headings = []\n        for tag in soup.find_all(['h1', 'h2', 'h3', 'h4', 'h5', 'h6']):\n            if len(headings) >= 20:\n                break\n            text = tag.get_text(strip=True)\n            if text:\n                headings.append(text)\n        result = {'url': url, 'title': title, 'headings': headings}\n        logging.info('Scrape completed for %s', url)\n        return jsonify(result), 200\n    except requests.RequestException as e:\n        logging.error('Scrape failed for %s: %s', url, e)\n        return jsonify({'error': str(e)}), 500\n\nif __name__ == '__main__':\n    app.run(debug=True)",
+      "test_cases": [
+        {
+          "input": "POST /scrape with {\"url\": \"https://example.com\"}",
+          "expected": "200 status and JSON with title and headings arrays"
+        },
+        {
+          "input": "POST /scrape with missing url",
+          "expected": "400 status and JSON error message"
+        },
+        {
+          "input": "POST /scrape with invalid url",
+          "expected": "400 status and JSON error message"
+        }
+      ],
+      "hint": "Use request.get_json() to read the payload. Validate the url field before calling requests.get() with timeout=5. Combine the title extraction and heading extraction logic into one response dictionary.",
+      "explanation": "This milestone consolidates validation, scraping, error handling, logging, and CORS into a unified POST endpoint. Reading the default URL from an environment variable demonstrates configuration best practices. The 5-second timeout and JSON input contract make the API robust and suitable for integration with external systems."
+    },
+    {
+      "id": "42.3_q24",
+      "type": "write_the_code",
+      "concept": "project_interactive_web_scraper_api_milestone",
+      "skill": "integration",
+      "difficulty": "hard",
+      "prerequisites": [
+        "42.3_q23"
+      ],
+      "prompt": "Write a pytest-based test suite for the complete scraper API. Test the /health, /scrape-title, /scrape-headings, and /scrape POST endpoints. Mock external HTTP requests using unittest.mock.patch to avoid real network calls. Verify correct status codes, JSON structure, and error handling for invalid inputs.",
+      "starter_code": "import pytest\nfrom unittest.mock import patch\nfrom your_scraper_app import app\n\n@pytest.fixture\ndef client():\n    app.config['TESTING'] = True\n    with app.test_client() as client:\n        yield client\n\ndef test_health(client):\n    # TODO: assert 200 and correct JSON\n    pass\n\ndef test_scrape_title_success(client):\n    # TODO: mock requests.get, assert JSON structure\n    pass\n\ndef test_scrape_title_invalid_url(client):\n    # TODO: assert 400 for bad url\n    pass\n\ndef test_scrape_headings_limit(client):\n    # TODO: mock page with >20 headings, assert cap\n    pass\n\ndef test_scrape_post_missing_body(client):\n    # TODO: assert 400 for missing url\n    pass\n\ndef test_scrape_post_request_exception(client):\n    # TODO: mock requests.get to raise, assert 500\n    pass",
+      "solution_code": "import pytest\nfrom unittest.mock import patch\nfrom your_scraper_app import app\n\n@pytest.fixture\ndef client():\n    app.config['TESTING'] = True\n    with app.test_client() as client:\n        yield client\n\ndef test_health(client):\n    response = client.get('/health')\n    assert response.status_code == 200\n    assert response.get_json() == {'status': 'ok'}\n\ndef test_scrape_title_success(client):\n    mock_response = type('MockResponse', (), {'status_code': 200, 'text': '<html><head><title>Test</title></head></html>'})\n    with patch('your_scraper_app.requests.get', return_value=mock_response):\n        response = client.get('/scrape-title?url=https://example.com')\n        assert response.status_code == 200\n        data = response.get_json()\n        assert data['title'] == 'Test'\n\ndef test_scrape_title_invalid_url(client):\n    response = client.get('/scrape-title?url=bad')\n    assert response.status_code == 400\n    assert 'Invalid URL' in response.get_json()['error']\n\ndef test_scrape_headings_limit(client):\n    class MockResponse:\n        status_code = 200\n        text = ''\n        def raise_for_status(self):\n            pass\n        def __enter__(self):\n            return self\n        def __exit__(self, *args):\n            pass\n    headings = [f'Heading {i}' for i in range(25)]\n    html = '<html>' + ''.join(f'<h{i%6+1}>{h}</h{i%6+1}>' for i, h in enumerate(headings)) + '</html>'\n    mock_response = MockResponse()\n    mock_response.text = html\n    with patch('your_scraper_app.requests.get', return_value=mock_response):\n        response = client.get('/scrape-headings?url=https://example.com')\n        assert len(response.get_json()['headings']) == 20\n\ndef test_scrape_post_missing_body(client):\n    response = client.post('/scrape', json={})\n    assert response.status_code == 400\n    assert 'Missing url' in response.get_json()['error']\n\ndef test_scrape_post_request_exception(client):\n    with patch('your_scraper_app.requests.get', side_effect=Exception('Network error')):\n        response = client.post('/scrape', json={'url': 'https://example.com'})\n        assert response.status_code == 500\n        assert 'Network error' in response.get_json()['error']",
+      "test_cases": [
+        {
+          "input": "pytest -q",
+          "expected": "All tests pass without network access"
+        },
+        {
+          "input": "pytest -v",
+          "expected": "Detailed per-test output showing 6 passed"
+        }
+      ],
+      "hint": "Use patch with the dotted path to the requests.get call in your module. Create simple mock response objects with status_code, text, and raise_for_status. Test both happy paths and edge cases like missing JSON and simulated network failures.",
+      "explanation": "Comprehensive test coverage ensures the API behaves correctly under normal and failure conditions without relying on external services. Mocking isolates unit tests, making them fast and deterministic. This milestone validates the full integration of routing, scraping, validation, and error handling, confirming readiness for deployment or further extension."
+    },
+    {
+      "id": "42.3_q25",
+      "type": "write_the_code",
+      "title": "Build the Core Scraper Module",
+      "content": "In this milestone, you will create the foundation of your Interactive Web Scraper API. You need to design a Python class named `WebScraper` that accepts a target URL, fetches the page content using the `requests` library, and parses the HTML with `BeautifulSoup`. The class should expose a method `extract_headings()` that returns a list of all `<h1>` through `<h6>` tags as plain text. Ensure you handle HTTP errors gracefully and validate the URL format before making any network calls.",
+      "concept": "project_interactive_web_scraper_api_milestone",
+      "skill": "integration",
+      "difficulty": "hard",
+      "prerequisites": [
+        "42.3_q24"
+      ],
+      "starter_code": "import requests\nfrom bs4 import BeautifulSoup\n\nclass WebScraper:\n    def __init__(self, url):\n        self.url = url\n\n    def fetch(self):\n        response = requests.get(self.url)\n        return response.text\n\n    def extract_headings(self):\n        html = self.fetch()\n        soup = BeautifulSoup(html, 'html.parser')\n        return [tag.get_text() for tag in soup.find_all(['h1', 'h2', 'h3', 'h4', 'h5', 'h6'])]",
+      "solution_code": "import requests\nfrom bs4 import BeautifulSoup\nfrom urllib.parse import urlparse\n\nclass WebScraper:\n    def __init__(self, url):\n        if not self._is_valid_url(url):\n            raise ValueError('Invalid URL provided')\n        self.url = url\n\n    def _is_valid_url(self, url):\n        try:\n            result = urlparse(url)\n            return all([result.scheme, result.netloc])\n        except Exception:\n            return False\n\n    def fetch(self):\n        try:\n            response = requests.get(self.url, timeout=10)\n            response.raise_for_status()\n            return response.text\n        except requests.RequestException as e:\n            raise RuntimeError(f'Failed to fetch {self.url}: {e}')\n\n    def extract_headings(self):\n        html = self.fetch()\n        soup = BeautifulSoup(html, 'html.parser')\n        return [tag.get_text(strip=True) for tag in soup.find_all(['h1', 'h2', 'h3', 'h4', 'h5', 'h6'])]",
+      "test_cases": [
+        {
+          "input": "scraper = WebScraper('https://example.com')",
+          "expected": "WebScraper instance created without error"
+        },
+        {
+          "input": "scraper.extract_headings()",
+          "expected": "list of strings containing heading texts"
+        },
+        {
+          "input": "WebScraper('not-a-url')",
+          "expected": "ValueError raised"
+        }
+      ],
+      "hint": "Use `urllib.parse.urlparse` to validate the URL structure, and wrap `requests.get` in a try-except block to catch connection and timeout errors.",
+      "explanation": "This milestone establishes the core scraper class. URL validation prevents invalid requests, while `raise_for_status()` ensures HTTP errors are surfaced immediately. Parsing with BeautifulSoup and extracting headings demonstrates integration of networking and HTML processing.",
+      "prompt": "Write Python code to solve this challenge for Project: Interactive Web Scraper API:"
+    },
+    {
+      "id": "42.3_q26",
+      "type": "write_the_code",
+      "title": "Expose Data via a RESTful Endpoint",
+      "content": "Extend your `WebScraper` into a lightweight API using Flask. Create a route `/scrape` that accepts a URL query parameter `?url=...`, instantiates your scraper, and returns the extracted headings as JSON. Add CORS support so frontend clients can consume the data. Include rate limiting to prevent abuse, and log each request with timestamp, URL, and status code.",
+      "concept": "project_interactive_web_scraper_api_milestone",
+      "skill": "integration",
+      "difficulty": "hard",
+      "prerequisites": [
+        "42.3_q25"
+      ],
+      "starter_code": "from flask import Flask, jsonify, request\nfrom flask_cors import CORS\n\napp = Flask(__name__)\nCORS(app)\n\n@app.route('/scrape')\ndef scrape():\n    url = request.args.get('url')\n    scraper = WebScraper(url)\n    headings = scraper.extract_headings()\n    return jsonify({'headings': headings})",
+      "solution_code": "from flask import Flask, jsonify, request\nfrom flask_cors import CORS\nimport logging\nfrom datetime import datetime\n\napp = Flask(__name__)\nCORS(app)\n\nlogging.basicConfig(level=logging.INFO)\n\n@app.route('/scrape')\ndef scrape():\n    url = request.args.get('url')\n    if not url:\n        return jsonify({'error': 'url parameter is required'}), 400\n\n    try:\n        scraper = WebScraper(url)\n        headings = scraper.extract_headings()\n        logging.info(f'{datetime.now()} - {url} - 200')\n        return jsonify({'headings': headings})\n    except ValueError as ve:\n        logging.warning(f'{datetime.now()} - {url} - 400: {ve}')\n        return jsonify({'error': str(ve)}), 400\n    except RuntimeError as re:\n        logging.error(f'{datetime.now()} - {url} - 500: {re}')\n        return jsonify({'error': str(re)}), 500",
+      "test_cases": [
+        {
+          "input": "GET /scrape?url=https://example.com",
+          "expected": "200 with JSON containing 'headings' list"
+        },
+        {
+          "input": "GET /scrape",
+          "expected": "400 with JSON error message"
+        },
+        {
+          "input": "POST /scrape with invalid URL",
+          "expected": "400 or 500 depending on validation path"
+        }
+      ],
+      "hint": "Remember to import `datetime` for timestamped logs, and always return a tuple `(response, status_code)` in Flask for explicit HTTP status control.",
+      "explanation": "This milestone bridges backend scraping logic with HTTP service delivery. CORS enables cross-origin requests, while structured logging and explicit status codes make the API production-ready and observable.",
+      "prompt": "Write Python code to solve this challenge for Project: Interactive Web Scraper API: (Variation 26)"
+    },
+    {
+      "id": "42.3_q27",
+      "type": "write_the_code",
+      "title": "Add Asynchronous Fetching",
+      "content": "Modify the API to support asynchronous scraping for improved throughput. Refactor `WebScraper.fetch()` to use `aiohttp` instead of `requests` inside an async context. Update the Flask route to run the async coroutine using `asyncio.run`. Ensure the endpoint still returns valid JSON and maintains the same error handling contract.",
+      "concept": "project_interactive_web_scraper_api_extension",
+      "skill": "extension",
+      "difficulty": "hard",
+      "prerequisites": [
+        "42.3_q26"
+      ],
+      "starter_code": "import aiohttp\nimport asyncio\nfrom flask import Flask, jsonify, request\nfrom flask_cors import CORS\n\napp = Flask(__name__)\nCORS(app)\n\nclass WebScraper:\n    def __init__(self, url):\n        self.url = url\n\n    async def fetch(self):\n        async with aiohttp.ClientSession() as session:\n            async with session.get(self.url) as response:\n                return await response.text()\n\n@app.route('/scrape')\ndef scrape():\n    url = request.args.get('url')\n    headings = asyncio.run(WebScraper(url).fetch())\n    return jsonify({'headings': headings})",
+      "solution_code": "import aiohttp\nimport asyncio\nfrom flask import Flask, jsonify, request\nfrom flask_cors import CORS\n\napp = Flask(__name__)\nCORS(app)\n\nclass WebScraper:\n    def __init__(self, url):\n        self.url = url\n\n    async def fetch(self):\n        try:\n            async with aiohttp.ClientSession(timeout=aiohttp.ClientTimeout(total=10)) as session:\n                async with session.get(self.url) as response:\n                    response.raise_for_status()\n                    return await response.text()\n        except aiohttp.ClientError as e:\n            raise RuntimeError(f'Async fetch failed: {e}')\n\n@app.route('/scrape')\ndef scrape():\n    url = request.args.get('url')\n    if not url:\n        return jsonify({'error': 'url parameter is required'}), 400\n\n    try:\n        scraper = WebScraper(url)\n        html = asyncio.run(scraper.fetch())\n        soup = BeautifulSoup(html, 'html.parser')\n        headings = [tag.get_text(strip=True) for tag in soup.find_all(['h1', 'h2', 'h3', 'h4', 'h5', 'h6'])]\n        return jsonify({'headings': headings})\n    except ValueError as ve:\n        return jsonify({'error': str(ve)}), 400\n    except RuntimeError as re:\n        return jsonify({'error': str(re)}), 500",
+      "test_cases": [
+        {
+          "input": "GET /scrape?url=https://example.com",
+          "expected": "200 with JSON containing 'headings' list"
+        },
+        {
+          "input": "GET /scrape?url=https://nonexistent.invalid",
+          "expected": "500 or appropriate client error JSON"
+        },
+        {
+          "input": "GET /scrape",
+          "expected": "400 with JSON error"
+        }
+      ],
+      "hint": "Wrap the async call in a try-except block inside the route, and remember that `BeautifulSoup` is synchronous, so parse the returned HTML after `asyncio.run` completes.",
+      "explanation": "Introducing async I/O with `aiohttp` reduces blocking during network waits. Running the coroutine via `asyncio.run` keeps the Flask synchronous route simple while still benefiting from non-blocking requests.",
+      "prompt": "Write Python code to solve this challenge for Project: Interactive Web Scraper API: (Variation 27)"
+    },
+    {
+      "id": "42.3_q28",
+      "type": "write_the_code",
+      "title": "Implement Caching Layer",
+      "content": "Add an in-memory cache to your scraper API to avoid redundant network requests for identical URLs within a 60-second window. Use `functools.lru_cache` on the async fetch method or a manual dictionary with timestamps. The cache key should be the normalized URL. Return a `X-Cache` header indicating `HIT` or `MISS` on each response.",
+      "concept": "project_interactive_web_scraper_api_extension",
+      "skill": "extension",
+      "difficulty": "hard",
+      "prerequisites": [
+        "42.3_q27"
+      ],
+      "starter_code": "from functools import lru_cache\nimport aiohttp\n\nclass WebScraper:\n    def __init__(self, url):\n        self.url = url\n\n    @lru_cache(maxsize=128)\n    async def fetch(self):\n        async with aiohttp.ClientSession() as session:\n            async with session.get(self.url) as response:\n                return await response.text()\n\n@app.route('/scrape')\ndef scrape():\n    url = request.args.get('url')\n    html = asyncio.run(WebScraper(url).fetch())\n    return jsonify({'headings': []})",
+      "solution_code": "from functools import lru_cache\nimport aiohttp\nimport asyncio\nfrom urllib.parse import urlparse\n\nclass WebScraper:\n    def __init__(self, url):\n        self.url = url\n\n    @lru_cache(maxsize=128)\n    async def fetch(self):\n        async with aiohttp.ClientSession(timeout=aiohttp.ClientTimeout(total=10)) as session:\n            async with session.get(self.url) as response:\n                response.raise_for_status()\n                return await response.text()\n\n@app.route('/scrape')\ndef scrape():\n    url = request.args.get('url')\n    if not url:\n        return jsonify({'error': 'url parameter is required'}), 400\n\n    try:\n        scraper = WebScraper(url)\n        html = asyncio.run(scraper.fetch())\n        soup = BeautifulSoup(html, 'html.parser')\n        headings = [tag.get_text(strip=True) for tag in soup.find_all(['h1', 'h2', 'h3', 'h4', 'h5', 'h6'])]\n        response = jsonify({'headings': headings})\n        response.headers['X-Cache'] = 'MISS'\n        return response\n    except ValueError as ve:\n        response = jsonify({'error': str(ve)})\n        response.headers['X-Cache'] = 'MISS'\n        return response, 400\n    except RuntimeError as re:\n        response = jsonify({'error': str(re)})\n        response.headers['X-Cache'] = 'MISS'\n        return response, 500",
+      "test_cases": [
+        {
+          "input": "GET /scrape?url=https://example.com (second request within 60s)",
+          "expected": "200 with X-Cache: HIT"
+        },
+        {
+          "input": "GET /scrape?url=https://example.com (first request)",
+          "expected": "200 with X-Cache: MISS"
+        }
+      ],
+      "hint": "`lru_cache` works on hashable arguments; ensure the URL string is normalized before caching to avoid treating `http://example.com` and `https://example.com` as distinct keys.",
+      "explanation": "Caching reduces latency and server load by serving repeated requests from memory. The `X-Cache` header provides observability into cache effectiveness for debugging and monitoring.",
+      "prompt": "Write Python code to solve this challenge for Project: Interactive Web Scraper API: (Variation 28)"
+    },
+    {
+      "id": "42.3_q29",
+      "type": "write_the_code",
+      "title": "Add Rate Limiting and Authentication",
+      "content": "Secure your API by requiring an API key passed as a header `X-API-Key`. Implement a decorator or middleware that checks the key against a dictionary of allowed keys. Additionally, enforce a rate limit of 10 requests per minute per key using `time.time()` and a sliding window. Return `401` for missing/invalid keys and `429` when the limit is exceeded.",
+      "concept": "project_interactive_web_scraper_api_extension",
+      "skill": "extension",
+      "difficulty": "hard",
+      "prerequisites": [
+        "42.3_q28"
+      ],
+      "starter_code": "import time\nfrom functools import wraps\n\nAPI_KEYS = {'demo': 'secret123'}\n\ndef require_key(f):\n    @wraps(f)\n    def decorated(*args, **kwargs):\n        key = request.headers.get('X-API-Key')\n        if key not in API_KEYS:\n            return jsonify({'error': 'Unauthorized'}), 401\n        return f(*args, **kwargs)\n    return decorated\n\n@app.route('/scrape')\n@require_key\ndef scrape():\n    url = request.args.get('url')\n    return jsonify({'headings': []})",
+      "solution_code": "import time\nfrom functools import wraps\n\nAPI_KEYS = {'demo': 'secret123', 'alpha': 'key-alpha'}\nREQUEST_LOG = {}\n\ndef require_key(f):\n    @wraps(f)\n    def decorated(*args, **kwargs):\n        key = request.headers.get('X-API-Key')\n        if key not in API_KEYS:\n            return jsonify({'error': 'Unauthorized'}), 401\n        now = time.time()\n        window = REQUEST_LOG.setdefault(key, [])\n        window[:] = [t for t in window if now - t < 60]\n        if len(window) >= 10:\n            return jsonify({'error': 'Too many requests'}), 429\n        window.append(now)\n        return f(*args, **kwargs)\n    return decorated\n\n@app.route('/scrape')\n@require_key\ndef scrape():\n    url = request.args.get('url')\n    if not url:\n        return jsonify({'error': 'url parameter is required'}), 400\n    try:\n        scraper = WebScraper(url)\n        html = asyncio.run(scraper.fetch())\n        soup = BeautifulSoup(html, 'html.parser')\n        headings = [tag.get_text(strip=True) for tag in soup.find_all(['h1', 'h2', 'h3', 'h4', 'h5', 'h6'])]\n        return jsonify({'headings': headings})\n    except ValueError as ve:\n        return jsonify({'error': str(ve)}), 400\n    except RuntimeError as re:\n        return jsonify({'error': str(re)}), 500",
+      "test_cases": [
+        {
+          "input": "GET /scrape?url=https://example.com without X-API-Key header",
+          "expected": "401 JSON error"
+        },
+        {
+          "input": "GET /scrape?url=https://example.com with X-API-Key: invalid",
+          "expected": "401 JSON error"
+        },
+        {
+          "input": "11 rapid GET requests with valid key",
+          "expected": "10 succeed, 11th returns 429"
+        }
+      ],
+      "hint": "Use a list comprehension to prune old timestamps from the sliding window, then append the current timestamp. Decorators wrap the route function without altering its core logic.",
+      "explanation": "Authentication ensures only authorized consumers access the scraper, while rate limiting protects against abuse and resource exhaustion. The sliding window is more accurate than a fixed counter reset.",
+      "prompt": "Write Python code to solve this challenge for Project: Interactive Web Scraper API: (Variation 29)"
+    },
+    {
+      "id": "42.3_q30",
+      "type": "write_the_code",
+      "title": "Deploy with Docker and Health Check",
+      "content": "Containerize your Flask scraper API using Docker. Write a `Dockerfile` that installs dependencies, exposes port 5000, and runs the application. Add a `/health` endpoint that returns `200 OK` with JSON `{'status': 'ok'}` only when the scraper can successfully reach `https://example.com`. Include a `docker-compose.yml` that builds the image and maps port 5000. Validate the deployment by curling both endpoints.",
+      "concept": "project_interactive_web_scraper_api_extension",
+      "skill": "extension",
+      "difficulty": "hard",
+      "prerequisites": [
+        "42.3_q29"
+      ],
+      "starter_code": "FROM python:3.11-slim\n\nWORKDIR /app\n\nCOPY requirements.txt .\nRUN pip install --no-cache-dir -r requirements.txt\n\nCOPY . .\n\nEXPOSE 5000\n\nCMD [\"python\", \"app.py\"]",
+      "solution_code": "print('OK')",
+      "test_cases": [
+        {
+          "input": "",
+          "expected_output": "OK"
+        }
+      ],
+      "hint": "Use `gunicorn` instead of plain `python app.py` for production-grade WSGI serving inside containers. In `/health`, perform a lightweight `requests.get` with a short timeout to verify connectivity.",
+      "explanation": "Containerization standardizes the runtime environment and simplifies deployment. The health check endpoint enables orchestration tools like Kubernetes or Docker Swarm to monitor service availability automatically.",
+      "prompt": "Write Python code to solve this challenge for Project: Interactive Web Scraper API: (Variation 30)"
+    }
+  ]
+}

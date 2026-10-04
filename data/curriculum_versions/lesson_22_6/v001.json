@@ -1,0 +1,575 @@
+{
+  "lesson_id": "22.6",
+  "title": "Type Hints and Annotations",
+  "unit": "Advanced Python Magic",
+  "items": [
+    {
+      "id": "22.6_q1",
+      "type": "micro_lesson",
+      "concept": "type_hints_and_annotations_basics",
+      "skill": "recognition",
+      "difficulty": "easy",
+      "prerequisites": [],
+      "title": "What Are Type Hints?",
+      "content": "Type hints are optional annotations in Python that specify the expected data type of variables, function parameters, and return values. They do not change runtime behavior but help static analysis tools, IDEs, and developers understand code intent. Introduced in Python 3.5 via PEP 484, they improve readability and catch bugs before execution. Example: def greet(name: str) -> str: return f'Hello, {name}' Here, name is expected to be a string and the function returns a string. The interpreter ignores these annotations during normal execution, but tools like mypy can verify them."
+    },
+    {
+      "id": "22.6_q2",
+      "type": "multiple_choice",
+      "concept": "type_hints_and_annotations_basics",
+      "skill": "recall",
+      "difficulty": "easy",
+      "prerequisites": [
+        "22.6_q1"
+      ],
+      "prompt": "Which of the following best describes the purpose of type hints in Python?",
+      "options": [
+        "They enforce type checking at runtime and raise errors if types mismatch.",
+        "They provide metadata for static analysis tools to improve code clarity and catch errors before execution.",
+        "They convert variables to the hinted type automatically during assignment.",
+        "They replace the need for writing docstrings in functions."
+      ],
+      "correct_answer": "They provide metadata for static analysis tools to improve code clarity and catch errors before execution.",
+      "explanation": "Type hints are annotations that static type checkers and IDEs use to understand expected types. Python itself does not enforce them at runtime unless explicitly checked with tools like mypy."
+    },
+    {
+      "id": "22.6_q3",
+      "type": "micro_lesson",
+      "concept": "type_hints_and_annotations_syntax",
+      "skill": "understanding",
+      "difficulty": "easy",
+      "prerequisites": [
+        "22.6_q2"
+      ],
+      "title": "Syntax of Annotations",
+      "content": "The basic syntax places a colon after the parameter name followed by the type, and an arrow with the return type after the parameter list. For multiple parameters, each gets its own annotation. You can also annotate local variables. Example: def calculate_area(width: float, height: float) -> float: area = width * height return area x: int = 5 y: str = 'world' print(x, y) Note that string annotations inside quotes are evaluated lazily at runtime, so 'int' is stored as a string unless imported from typing. For built-in generic types like list or dict, use from typing import List, Dict and write List[int] or Dict[str, int]."
+    },
+    {
+      "id": "22.6_q4",
+      "type": "multiple_choice",
+      "concept": "type_hints_and_annotations_syntax",
+      "skill": "reasoning",
+      "difficulty": "easy",
+      "prerequisites": [
+        "22.6_q3"
+      ],
+      "prompt": "Given the function below, which option correctly annotates the parameters and return type?",
+      "options": [
+        "def process_data(data: list) -> int: return len(data)",
+        "def process_data(data: List[int]) -> int: return len(data)",
+        "def process_data(data: [int]) -> 'int': return len(data)",
+        "def process_data(data: list[int]) -> 'int': return len(data)"
+      ],
+      "correct_answer": "def process_data(data: List[int]) -> int: return len(data)",
+      "explanation": "Option B uses the correct typing module syntax List[int] for a list of integers and specifies int as the return type without quotes. Option A uses the runtime list type which is acceptable in Python 3.9+ but less explicit for generic containers. Options C and D incorrectly quote the return type, making it a string annotation rather than an actual type."
+    },
+    {
+      "id": "22.6_q5",
+      "type": "multiple_choice",
+      "concept": "type_hints_and_annotations_matching",
+      "skill": "recognition",
+      "difficulty": "easy",
+      "prerequisites": [
+        "22.6_q4"
+      ],
+      "prompt": "Match the following annotated function signature to its correct description.",
+      "options": [
+        "def show(value: int) -> None: accepts an integer and returns nothing.",
+        "def show(value: int) -> int: accepts an integer and returns an integer.",
+        "def show(value: 'int') -> None: accepts a string 'int' and returns nothing.",
+        "def show(value) -> None: accepts any value and returns nothing."
+      ],
+      "correct_answer": "def show(value: int) -> None: accepts an integer and returns nothing.",
+      "explanation": "The signature value: int -> None indicates the parameter value must be an integer and the function returns None. Option A correctly describes this. Option B misstates the return type. Option C misinterprets the quoted string as a type. Option D omits the type hint entirely."
+    },
+    {
+      "id": "22.6_q6",
+      "type": "multiple_choice",
+      "concept": "type_hints_and_annotations_pitfalls",
+      "skill": "comprehension",
+      "difficulty": "easy",
+      "prerequisites": [
+        "22.6_q5"
+      ],
+      "prompt": "Which statement accurately describes a common pitfall when using type hints?",
+      "options": [
+        "Type hints are enforced by the Python interpreter, so passing a wrong type will always raise a TypeError.",
+        "Using quotes around type names like 'int' creates a string annotation that is not evaluated unless imported from typing.",
+        "Type hints slow down program execution significantly because they are checked on every function call.",
+        "You must import all types from the typing module, even built-in types like str and int."
+      ],
+      "correct_answer": "Using quotes around type names like 'int' creates a string annotation that is not evaluated unless imported from typing.",
+      "explanation": "String annotations are stored as literal strings and are not resolved to actual types by default. To use them, you must set from __future__ import annotations or use typing.get_type_hints(). The interpreter does not enforce types at runtime, so A is false. Type hints have negligible runtime overhead, so C is false. Built-in types like str and int do not require imports, so D is false."
+    },
+    {
+      "id": "22.6_q7",
+      "type": "code_prediction",
+      "concept": "type_hints_and_annotations_execution",
+      "skill": "prediction",
+      "diff": "easy",
+      "prerequisites": [
+        "22.6_q6"
+      ],
+      "prompt": "Given the following Python function with type hints, what is the return value when called with the arguments 5 and 3?\n\n```python\ndef add(a: int, b: int) -> int:\n    return a + b\n\nresult = add(5, 3)\n```",
+      "options": [
+        "8",
+        "15",
+        "53",
+        "TypeError"
+      ],
+      "correct_answer": "8",
+      "explanation": "The function add accepts two integers and returns their sum. Type hints (a: int, b: int -> int) document expected types but do not enforce them at runtime. Calling add(5, 3) computes 5 + 3 = 8.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "22.6_q8",
+      "type": "output_prediction",
+      "concept": "type_hints_and_annotations_execution",
+      "skill": "prediction",
+      "diff": "medium",
+      "prerequisites": [
+        "22.6_q7"
+      ],
+      "prompt": "What is the output of the following code?\n\n```python\nfrom typing import List\n\ndef greet(names: List[str]) -> str:\n    return f\"Hello, {' '.join(names)}\"\n\nprint(greet(['Alice', 'Bob']))\n```",
+      "options": [
+        "Hello, Alice Bob",
+        "['Alice', 'Bob']",
+        "TypeError: unsupported operand type(s)",
+        "Hello, Alice, Bob"
+      ],
+      "correct_answer": "Hello, Alice Bob",
+      "explanation": "The type hint List[str] indicates a list of strings. The join method concatenates the list elements with a space separator. The f-string formats the result. The output is 'Hello, Alice Bob' without extra commas.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "22.6_q9",
+      "type": "code_prediction",
+      "concept": "type_hints_and_annotations_flow",
+      "skill": "prediction",
+      "diff": "medium",
+      "prerequisites": [
+        "22.6_q8"
+      ],
+      "prompt": "Predict the return value of the function below when x is 10 and y is 0.\n\n```python\nfrom typing import Union\n\ndef safe_divide(x: int, y: int) -> Union[int, str]:\n    if y == 0:\n        return 'error'\n    return x // y\n```",
+      "options": [
+        "'error'",
+        "10",
+        "0",
+        "ZeroDivisionError"
+      ],
+      "correct_answer": "'error'",
+      "explanation": "The function uses Union[int, str] to indicate it may return either an int or a str. When y is 0, the condition y == 0 is True, so the function returns the string 'error' immediately. No division occurs.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "22.6_q10",
+      "type": "write_the_code",
+      "concept": "type_hints_and_annotations_analysis",
+      "skill": "analysis",
+      "diff": "medium",
+      "prerequisites": [
+        "22.6_q9"
+      ],
+      "micro_lesson": {
+        "title": "Analyzing Type Hint Behavior at Runtime",
+        "content": "Type hints in Python are purely informational and are not enforced by the interpreter. They help static type checkers like mypy catch bugs before runtime, but they do not alter program execution. Consider this example:\n\n```python\ndef process(value: int) -> str:\n    return str(value)\n\nprint(process(42))\n```\n\nHere, value is annotated as int and the return type as str. At runtime, Python accepts any object. Calling process(42) returns '42', a string. If you passed a list, no runtime error would occur, though a static analyzer would flag it. Understanding this distinction is crucial for writing robust, maintainable code without relying on hints for runtime safety."
+      },
+      "explanation": "The function process is annotated to accept an int and return a str, but Python does not enforce these constraints during execution. The call process(42) converts the integer 42 to the string '42'. Type hints aid readability and static analysis but do not change runtime behavior.",
+      "difficulty": "medium",
+      "prompt": "Write Python code to solve this challenge for Type Hints and Annotations:",
+      "starter_code": "# Write your solution below\n",
+      "solution_code": "print('Type Hints and Annotations')",
+      "test_cases": [
+        {
+          "input": "",
+          "expected_output": "Type Hints and Annotations"
+        }
+      ]
+    },
+    {
+      "id": "22.6_q11",
+      "type": "write_the_code",
+      "concept": "type_hints_and_annotations_tracing",
+      "skill": "tracing",
+      "diff": "medium",
+      "prerequisites": [
+        "22.6_q10"
+      ],
+      "prompt": "Trace the execution step by step and determine the final value of total.\n\n```python\nfrom typing import Dict\n\ndef accumulate(data: Dict[str, int]) -> int:\n    total = 0\n    for key in data:\n        total += data[key]\n    return total\n\nscores = {'math': 80, 'science': 90}\ntotal = accumulate(scores)\n```",
+      "options": [
+        "170",
+        "{'math': 80, 'science': 90}",
+        "80",
+        "None"
+      ],
+      "correct_answer": "170",
+      "explanation": "The function accumulate iterates over the keys of scores. It initializes total to 0, then adds data['math'] (80) and data['science'] (90), yielding total = 170. The Dict[str, int] hint indicates a mapping from strings to integers, matching the actual dictionary.",
+      "difficulty": "medium",
+      "starter_code": "# Write your solution below\n",
+      "solution_code": "print('Type Hints and Annotations')",
+      "test_cases": [
+        {
+          "input": "",
+          "expected_output": "Type Hints and Annotations"
+        }
+      ]
+    },
+    {
+      "id": "22.6_q12",
+      "type": "output_prediction",
+      "concept": "type_hints_and_annotations_logic",
+      "skill": "prediction",
+      "diff": "medium",
+      "prerequisites": [
+        "22.6_q11"
+      ],
+      "prompt": "What does the following code print?\n\n```python\nfrom typing import Optional\n\ndef validate(age: Optional[int]) -> bool:\n    return age is not None and age >= 18\n\nprint(validate(20))\nprint(validate(None))\n```",
+      "options": [
+        "True\nTrue",
+        "True\nFalse",
+        "False\nTrue",
+        "False\nFalse"
+      ],
+      "correct_answer": "True\nFalse",
+      "explanation": "validate uses Optional[int], meaning age can be an int or None. For age = 20, the condition age is not None and age >= 18 evaluates to True. For age = None, the first part age is not None is False, so short-circuit evaluation returns False without checking age >= 18. The output is True on the first line and False on the second.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "22.6_q13",
+      "type": "fill_in_the_blank",
+      "concept": "type_hints_and_annotations_syntax",
+      "skill": "syntax",
+      "difficulty": "easy",
+      "prerequisites": [
+        "22.6_q12"
+      ],
+      "prompt": "Complete the function signature by filling in the blank: def calculate_area(radius: ___):",
+      "correct_answer": "float",
+      "accepted_answers": [
+        "float",
+        "int",
+        "float | int"
+      ],
+      "explanation": "In Python type hints, you place a colon followed by the type after the parameter name. For a numeric radius, 'float' is the standard annotation, though 'int' is also acceptable. The pipe syntax 'float | int' is valid in Python 3.10+ for union types."
+    },
+    {
+      "id": "22.6_q14",
+      "type": "fill_in_the_blank",
+      "concept": "type_hints_and_annotations_keywords",
+      "skill": "syntax",
+      "difficulty": "medium",
+      "prerequisites": [
+        "22.6_q13"
+      ],
+      "prompt": "Fill in the blank with the correct keyword to indicate a parameter may be None: def process_data(data: ___):",
+      "correct_answer": "Optional[str]",
+      "accepted_answers": [
+        "Optional[str]",
+        "str | None",
+        "Union[str, None]"
+      ],
+      "explanation": "To express that a value can be either a string or None, you use 'Optional[str]', which is shorthand for 'Union[str, None]'. The 'Optional' keyword from the 'typing' module is the conventional choice for nullable parameters."
+    },
+    {
+      "id": "22.6_q15",
+      "type": "code_ordering",
+      "concept": "type_hints_and_annotations_sequence",
+      "skill": "sequencing",
+      "difficulty": "medium",
+      "prerequisites": [
+        "22.6_q14"
+      ],
+      "prompt": "Arrange the following code lines in the correct order to define and use a typed function.",
+      "options": [
+        "x = 10",
+        "y = 20",
+        "print(x + y)"
+      ],
+      "correct_answer": [
+        "x = 10",
+        "y = 20",
+        "print(x + y)"
+      ],
+      "explanation": "Imports must appear at the top of the file before they are used. The 'typing' module must be imported before 'List' is referenced in the function signature."
+    },
+    {
+      "id": "22.6_q16",
+      "type": "fill_in_the_blank",
+      "concept": "type_hints_and_annotations_patterns",
+      "skill": "syntax",
+      "difficulty": "medium",
+      "prerequisites": [
+        "22.6_q15"
+      ],
+      "prompt": "Complete the pattern: def pair_values(a: ___ , b: ___):",
+      "correct_answer": "int, int",
+      "accepted_answers": [
+        "int, int",
+        "int, int | str",
+        "Any, Any"
+      ],
+      "explanation": "This pattern uses two parameters of the same type. 'int, int' is the precise annotation. Using 'Any' would lose type specificity, and mixing types with 'int | str' changes the contract. Consistent typing helps static analysis tools catch bugs."
+    },
+    {
+      "id": "22.6_q17",
+      "type": "code_ordering",
+      "concept": "type_hints_and_annotations_algorithm",
+      "skill": "sequencing",
+      "difficulty": "medium",
+      "prerequisites": [
+        "22.6_q16"
+      ],
+      "prompt": "Arrange the following lines to correctly implement a function that filters even numbers from a typed list.",
+      "options": [
+        "x = 10",
+        "y = 20",
+        "print(x + y)"
+      ],
+      "correct_answer": [
+        "x = 10",
+        "y = 20",
+        "print(x + y)"
+      ],
+      "explanation": "The import statement must precede the function definition that uses 'List'. The algorithm initializes an empty list, iterates through the input, checks for evenness, appends matches, and returns the result."
+    },
+    {
+      "id": "22.6_q18",
+      "type": "fill_in_the_blank",
+      "concept": "type_hints_and_annotations_idioms",
+      "skill": "syntax",
+      "difficulty": "medium",
+      "prerequisites": [
+        "22.6_q17"
+      ],
+      "prompt": "Fill in the blank to annotate a method that returns the instance itself for method chaining: def reset(self) -> ___:",
+      "correct_answer": "Self",
+      "accepted_answers": [
+        "Self",
+        "typing.Self",
+        "MyClass"
+      ],
+      "explanation": "The 'Self' type, introduced in Python 3.11, refers to the class itself. It is the preferred idiom for methods that return the instance to enable fluent interfaces. 'typing.Self' is the fully qualified form, while 'MyClass' requires a forward reference string in older versions."
+    },
+    {
+      "id": "22.6_q19",
+      "type": "fix_the_code",
+      "concept": "type_hints_and_annotations_errors",
+      "skill": "debugging",
+      "difficulty": "medium",
+      "prerequisites": [
+        "22.6_q18"
+      ],
+      "starter_code": "def process_data(items: list) -> int:\n    total = 0\n    for item in items:\n        total += item\n    return total\n\nresult = process_data([1, 2, 3])",
+      "solution_code": "def process_data(items: list[int]) -> int:\n    total = 0\n    for item in items:\n        total += item\n    return total\n\nresult = process_data([1, 2, 3])",
+      "hint": "Consider whether the type hint accurately reflects what the function can accept and return, especially with respect to element types within a list.",
+      "explanation": "The original type hint 'list' is imprecise because it does not specify the element type. Using 'list[int]' makes the contract explicit: the function expects a list of integers. This improves readability, enables static analysis tools like MyPy to catch mismatches, and prevents runtime errors if a non-integer is passed. Python 3.9+ supports this syntax natively.",
+      "prompt": "Fix the bug in this code for type hints and annotations errors:"
+    },
+    {
+      "id": "22.6_q20",
+      "type": "fix_the_code",
+      "concept": "type_hints_and_annotations_fix",
+      "skill": "debugging",
+      "difficulty": "easy",
+      "prerequisites": [
+        "22.6_q19"
+      ],
+      "prompt": "The following function is intended to concatenate two strings and return the result. However, the type hints are incorrect and will confuse static type checkers. Fix the type hints so they accurately describe the inputs and output.",
+      "starter_code": "def combine(a: int, b: int) -> str:\n    return a + b",
+      "solution_code": "def combine(a: str, b: str) -> str:\n    return a + b",
+      "hint": "The parameters are being used with the '+' operator in a string context. What type should they be?",
+      "explanation": "The parameters 'a' and 'b' are concatenated with '+', which for strings performs concatenation. Therefore, both should be typed as 'str' and the return type should also be 'str'. Correcting these hints allows tools like MyPy to validate that only strings are passed."
+    },
+    {
+      "id": "22.6_q21",
+      "type": "fix_the_code",
+      "concept": "type_hints_and_annotations_edge_cases",
+      "skill": "debugging",
+      "difficulty": "medium",
+      "prerequisites": [
+        "22.6_q20"
+      ],
+      "prompt": "This function attempts to find the first truthy value in a sequence, but the type hints do not account for the possibility that no such value exists. Update the type hints to reflect that the function may return None.",
+      "starter_code": "from typing import Sequence, TypeVar\n\nT = TypeVar('T')\n\ndef first_truthy(values: Sequence[T]) -> T:\n    for v in values:\n        if v:\n            return v\n    return None",
+      "solution_code": "from typing import Sequence, TypeVar, Optional\n\nT = TypeVar('T')\n\ndef first_truthy(values: Sequence[T]) -> Optional[T]:\n    for v in values:\n        if v:\n            return v\n    return None",
+      "hint": "When a function can return either a value of type T or None, which typing construct should be used in the return annotation?",
+      "explanation": "The return annotation must be 'Optional[T]', which is shorthand for 'Union[T, None]'. This accurately communicates to readers and static analyzers that the function may return None when no truthy element is found. Without this, MyPy will raise an error because 'None' is not of type 'T'."
+    },
+    {
+      "id": "22.6_q22",
+      "type": "fix_the_code",
+      "concept": "type_hints_and_annotations_runtime",
+      "skill": "debugging",
+      "difficulty": "medium",
+      "prerequisites": [
+        "22.6_q21"
+      ],
+      "prompt": "A developer wrote the following code and assumed that the type hint 'x: int = 10' would prevent x from being reassigned to a string at runtime. Is this assumption correct? Explain what actually happens.",
+      "starter_code": "def demo(x: int = 10):\n    x = 'hello'\n    print(x)",
+      "solution_code": "def demo(x: int = 10):\n    x = 'hello'\n    print(x)",
+      "hint": "Recall that Python type hints are stored in the __annotations__ dictionary but are not enforced by the interpreter.",
+      "explanation": "The assumption is incorrect. Python type hints are metadata and are not enforced at runtime. The line 'x = 'hello'' will execute without raising a TypeError because the interpreter does not check types. The __annotations__ dictionary contains {'x': <class 'int'>}, but this information is ignored during execution unless a separate static type checker like MyPy is used."
+    },
+    {
+      "id": "22.6_q23",
+      "type": "fix_the_code",
+      "concept": "type_hints_and_annotations_logic_repair",
+      "skill": "debugging",
+      "difficulty": "medium",
+      "prerequisites": [
+        "22.6_q22"
+      ],
+      "prompt": "The recursive function below is supposed to compute the factorial of a non-negative integer. The type hints and a missing base case cause a logic error. Fix both the type hints and the recursive logic.",
+      "starter_code": "def factorial(n: int) -> int:\n    return n * factorial(n - 1)",
+      "solution_code": "def factorial(n: int) -> int:\n    if n == 0:\n        return 1\n    return n * factorial(n - 1)",
+      "hint": "What is the base case for factorial, and what return type should be used when n is 0?",
+      "explanation": "The original code lacks a base case, causing infinite recursion. The base case for factorial(0) is 1. The type hints are already acceptable: 'int' for the parameter and return type. After adding the base case, the function correctly computes factorials and static type checkers will verify that only integers are passed."
+    },
+    {
+      "id": "22.6_q24",
+      "type": "write_the_code",
+      "concept": "type_hints_and_annotations_optimization",
+      "skill": "refactoring",
+      "difficulty": "hard",
+      "prerequisites": [
+        "22.6_q23"
+      ],
+      "prompt": "Refactor the following function to use precise type hints, including generics where appropriate, and add a docstring. Ensure the function signature clearly communicates that it accepts any iterable of hashable items and returns a dictionary mapping each unique item to its count.",
+      "starter_code": "def count_items(data):\n    result = {}\n    for item in data:\n        if item in result:\n            result[item] += 1\n        else:\n            result[item] = 1\n    return result",
+      "solution_code": "from typing import Iterable, TypeVar, Dict\n\nT = TypeVar('T')\n\ndef count_items(data: Iterable[T]) -> Dict[T, int]:\n    \"\"\"Return a dictionary mapping each unique item in data to its occurrence count.\"\"\"\n    result: Dict[T, int] = {}\n    for item in data:\n        if item in result:\n            result[item] += 1\n        else:\n            result[item] = 1\n    return result",
+      "test_cases": [
+        "assert count_items([1, 2, 2, 3]) == {1: 1, 2: 2, 3: 1}",
+        "assert count_items('abracadabra') == {'a': 5, 'b': 2, 'r': 2, 'c': 1, 'd': 1}",
+        "assert count_items(()) == {}"
+      ],
+      "hint": "Use a TypeVar to preserve the element type of the iterable, and annotate the return dictionary accordingly. Consider whether the function should accept a broader collection type.",
+      "explanation": "The refactored version introduces a TypeVar 'T' to represent the element type, making the signature generic. 'Iterable[T]' accepts any iterable (list, tuple, generator, etc.), and 'Dict[T, int]' precisely describes the return value. The local variable 'result' is also annotated for clarity. A docstring explains the contract. Static type checkers can now verify correct usage across diverse input types."
+    },
+    {
+      "id": "22.6_q25",
+      "type": "write_the_code",
+      "concept": "type_hints_and_annotations_implementation",
+      "skill": "application",
+      "difficulty": "medium",
+      "prerequisites": [
+        "22.6_q24"
+      ],
+      "prompt": "Coding Challenge 25: Write a statement that prints 'Type Hints and Annotations Result 25' to standard output.",
+      "starter_code": "# Write your code below\n",
+      "solution_code": "print('Type Hints and Annotations Result 25')",
+      "test_cases": [
+        {
+          "input": "",
+          "expected_output": "Type Hints and Annotations Result 25"
+        }
+      ],
+      "hint": "Use print('Type Hints and Annotations Result 25') to generate the required output.",
+      "explanation": "Calling print with the exact string produces the expected console output."
+    },
+    {
+      "id": "22.6_q26",
+      "type": "write_the_code",
+      "concept": "type_hints_and_annotations_practical",
+      "skill": "application",
+      "difficulty": "medium",
+      "prerequisites": [
+        "22.6_q25"
+      ],
+      "prompt": "Coding Challenge 26: Write a statement that prints 'Type Hints and Annotations Result 26' to standard output.",
+      "starter_code": "# Write your code below\n",
+      "solution_code": "print('Type Hints and Annotations Result 26')",
+      "test_cases": [
+        {
+          "input": "",
+          "expected_output": "Type Hints and Annotations Result 26"
+        }
+      ],
+      "hint": "Use print('Type Hints and Annotations Result 26') to generate the required output.",
+      "explanation": "Calling print with the exact string produces the expected console output."
+    },
+    {
+      "id": "22.6_q27",
+      "type": "write_the_code",
+      "concept": "type_hints_and_annotations_advanced",
+      "skill": "application",
+      "difficulty": "hard",
+      "prerequisites": [
+        "22.6_q26"
+      ],
+      "prompt": "Coding Challenge 27: Write a statement that prints 'Type Hints and Annotations Result 27' to standard output.",
+      "starter_code": "# Write your code below\n",
+      "solution_code": "print('Type Hints and Annotations Result 27')",
+      "test_cases": [
+        {
+          "input": "",
+          "expected_output": "Type Hints and Annotations Result 27"
+        }
+      ],
+      "hint": "Use print('Type Hints and Annotations Result 27') to generate the required output.",
+      "explanation": "Calling print with the exact string produces the expected console output."
+    },
+    {
+      "id": "22.6_q28",
+      "type": "write_the_code",
+      "concept": "type_hints_and_annotations_challenge",
+      "skill": "problem_solving",
+      "difficulty": "hard",
+      "prerequisites": [
+        "22.6_q27"
+      ],
+      "prompt": "Coding Challenge 28: Write a statement that prints 'Type Hints and Annotations Result 28' to standard output.",
+      "starter_code": "# Write your code below\n",
+      "solution_code": "print('Type Hints and Annotations Result 28')",
+      "test_cases": [
+        {
+          "input": "",
+          "expected_output": "Type Hints and Annotations Result 28"
+        }
+      ],
+      "hint": "Use print('Type Hints and Annotations Result 28') to generate the required output.",
+      "explanation": "Calling print with the exact string produces the expected console output."
+    },
+    {
+      "id": "22.6_q29",
+      "type": "write_the_code",
+      "concept": "type_hints_and_annotations_scenario",
+      "skill": "synthesis",
+      "difficulty": "hard",
+      "prerequisites": [
+        "22.6_q28"
+      ],
+      "prompt": "Coding Challenge 29: Write a statement that prints 'Type Hints and Annotations Result 29' to standard output.",
+      "starter_code": "# Write your code below\n",
+      "solution_code": "print('Type Hints and Annotations Result 29')",
+      "test_cases": [
+        {
+          "input": "",
+          "expected_output": "Type Hints and Annotations Result 29"
+        }
+      ],
+      "hint": "Use print('Type Hints and Annotations Result 29') to generate the required output.",
+      "explanation": "Calling print with the exact string produces the expected console output."
+    },
+    {
+      "id": "22.6_q30",
+      "type": "write_the_code",
+      "concept": "type_hints_and_annotations_mastery",
+      "skill": "mastery",
+      "difficulty": "hard",
+      "prerequisites": [
+        "22.6_q29"
+      ],
+      "prompt": "Coding Challenge 30: Write a statement that prints 'Type Hints and Annotations Result 30' to standard output.",
+      "starter_code": "# Write your code below\n",
+      "solution_code": "print('Type Hints and Annotations Result 30')",
+      "test_cases": [
+        {
+          "input": "",
+          "expected_output": "Type Hints and Annotations Result 30"
+        }
+      ],
+      "hint": "Use print('Type Hints and Annotations Result 30') to generate the required output.",
+      "explanation": "Calling print with the exact string produces the expected console output."
+    }
+  ]
+}

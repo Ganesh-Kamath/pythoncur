@@ -1,0 +1,44 @@
+{
+  "timestamp": "2026-10-03T18:23:34.948124+00:00",
+  "lesson_id": "1.3",
+  "question_id": "1.3_q15",
+  "rejection_cause": "Sarvam rejected (The code and explanation are accurate, but the new hint is overly general and introduces unrelated concepts, so it should be rewritten to directly target the lowercase requirement for the built-in function name.)",
+  "reason": "Generate hint",
+  "evidence": "Question 1.3_q15 has no hint",
+  "model_used": "qwen3:8b",
+  "validation_errors": [],
+  "sarvam_review": {
+    "decision": "revise",
+    "conceptual_correctness": 90,
+    "pedagogical_quality": 65,
+    "difficulty_quality": 95,
+    "clarity": 90,
+    "ambiguity": 10,
+    "exercise_alignment": 95,
+    "problems": [
+      "The hint appends a generic debugging tip about variable names and types, which are absent from the starter code and premature for a first-program lesson.",
+      "It fails to specifically name the built-in function `print` or its lowercase requirement, weakening the progressive scaffold."
+    ],
+    "required_changes": [
+      "Replace the hint with a targeted prompt such as: 'Python function names like print are case-sensitive and must be lowercase.'",
+      "Remove references to variable names and types from the hint to avoid confusion."
+    ],
+    "reasoning_summary": "The code and explanation are accurate, but the new hint is overly general and introduces unrelated concepts, so it should be rewritten to directly target the lowercase requirement for the built-in function name.",
+    "raw_response": "{\n  \"decision\": \"revise\",\n  \"conceptual_correctness\": 90,\n  \"pedagogical_quality\": 65,\n  \"difficulty_quality\": 95,\n  \"clarity\": 90,\n  \"ambiguity\": 10,\n  \"exercise_alignment\": 95,\n  \"problems\": [\n    \"The hint appends a generic debugging tip about variable names and types, which are absent from the starter code and premature for a first-program lesson.\",\n    \"It fails to specifically name the built-in function `print` or its lowercase requirement, weakening the progressive scaffold.\"\n  ],\n  \"required_changes\": [\n    \"Replace the hint with a targeted prompt such as: 'Python function names like print are case-sensitive and must be lowercase.'\",\n    \"Remove references to variable names and types from the hint to avoid confusion.\"\n  ],\n  \"reasoning_summary\": \"The code and explanation are accurate, but the new hint is overly general and introduces unrelated concepts, so it should be rewritten to directly target the lowercase requirement for the built-in function name.\"\n}"
+  },
+  "proposed_data": {
+    "id": "1.3_q15",
+    "type": "fix_the_code",
+    "concept": "case_sensitivity",
+    "skill": "debugging",
+    "difficulty": "easy",
+    "prerequisites": [
+      "1.3_q14"
+    ],
+    "prompt": "Fix the capitalization error in this line of code so it prints 'Welcome!':",
+    "starter_code": "Print(\"Welcome!\")",
+    "solution_code": "print(\"Welcome!\")",
+    "explanation": "Built-in functions in Python like `print()` must be written entirely in lowercase.",
+    "hint": "Remember the syntax rules for case_sensitivity. Check your variable names and types."
+  }
+}

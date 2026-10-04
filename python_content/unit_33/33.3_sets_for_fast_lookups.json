@@ -1,0 +1,593 @@
+{
+  "lesson_id": "33.3",
+  "title": "Sets for Fast Lookups",
+  "unit": "DSA: Hashing",
+  "items": [
+    {
+      "id": "33.3_q1",
+      "type": "micro_lesson",
+      "concept": "sets_for_fast_lookups_basics",
+      "skill": "recognition",
+      "difficulty": "easy",
+      "prerequisites": [],
+      "title": "What Are Sets and Why Use Them for Lookups?",
+      "content": "A set is an unordered collection of unique elements. Unlike lists, which store elements in order and allow duplicates, sets automatically remove duplicates and are optimized for membership testing. Under the hood, sets use a hash table, which gives an average time complexity of O(1) for checking whether an element exists. This makes sets ideal when you need to answer questions like 'Is this value already present?' very quickly. For example, checking if a number is in a list of 1 million items takes O(n) time, but checking if it is in a set of 1 million items takes O(1) average time. Here is a simple demonstration:\n\n```python\nnumbers = [1, 2, 3, 4, 5]\nnumber_set = set(numbers)\n\nprint('Is 3 in the list?', 3 in numbers)   # O(n) scan\nprint('Is 3 in the set?', 3 in number_set) # O(1) hash lookup\n\n# Sets also remove duplicates automatically\nwith_duplicates = [1, 2, 2, 3, 3, 3]\nprint('Unique values:', set(with_duplicates))\n```\n\nRemember: sets are unordered, so you cannot rely on index positions. They are best used when you only need to test membership, add elements, or remove elements, and you do not care about order."
+    },
+    {
+      "id": "33.3_q2",
+      "type": "multiple_choice",
+      "concept": "sets_for_fast_lookups_basics",
+      "skill": "recall",
+      "difficulty": "easy",
+      "prerequisites": [
+        "33.3_q1"
+      ],
+      "prompt": "Which of the following best describes why a set is faster than a list for checking membership?",
+      "options": [
+        "Sets store elements in sorted order, so binary search is possible.",
+        "Sets use a hash table, giving average O(1) lookup time.",
+        "Sets are smaller in memory, so they are always faster.",
+        "Sets allow duplicate entries, which speeds up searches."
+      ],
+      "correct_answer": "Sets use a hash table, giving average O(1) lookup time.",
+      "explanation": "Sets are implemented using hash tables. This allows the interpreter to compute a hash of the element and jump directly to the relevant bucket, making membership tests average O(1). Lists must scan elements one by one, which is O(n). Sorting and binary search are not the reason sets are faster for this task."
+    },
+    {
+      "id": "33.3_q3",
+      "type": "micro_lesson",
+      "concept": "sets_for_fast_lookups_syntax",
+      "skill": "understanding",
+      "difficulty": "easy",
+      "prerequisites": [
+        "33.3_q2"
+      ],
+      "title": "Creating and Using Sets in Python",
+      "content": "You can create a set in two ways: using the set() constructor or using curly braces {}. However, curly braces alone create a dictionary when key-value pairs are present, so use set() for empty sets. Common operations include adding an element with add(), removing an element with remove() (which raises KeyError if missing), and discarding an element with discard() (which does nothing if missing). You can also test membership with in and test equality with ==. Here is a complete example:\n\n```python\n# Creating sets\nfruits = {'apple', 'banana', 'cherry'}\nempty = set()\n\n# Adding and removing\nfruits.add('date')\nfruits.discard('banana')\n\n# Membership test\nprint('Is orange in fruits?', 'orange' in fruits)\n\n# Set equality\nother = {'apple', 'cherry', 'date'}\nprint('Are fruits and other equal?', fruits == other)\n```\n\nNote that sets are mutable, but their elements must be hashable. Unhashable types such as lists or dictionaries cannot be stored in a set."
+    },
+    {
+      "id": "33.3_q4",
+      "type": "multiple_choice",
+      "concept": "sets_for_fast_lookups_syntax",
+      "skill": "reasoning",
+      "difficulty": "easy",
+      "prerequisites": [
+        "33.3_q3"
+      ],
+      "prompt": "Given the code below, what is the final value of unique_items after all operations?",
+      "options": [
+        "{'a', 'b'}",
+        "{'a', 'c'}",
+        "{'a', 'b', 'c'}",
+        "{'b', 'c'}"
+      ],
+      "correct_answer": "{'a', 'c'}",
+      "explanation": "Starting with {'a', 'b'}, add('c') produces {'a', 'b', 'c'}. discard('b') removes 'b' without error, leaving {'a', 'c'}. remove('d') would raise KeyError, but discard is used, so the code runs safely. Therefore the final set is {'a', 'c'}."
+    },
+    {
+      "id": "33.3_q5",
+      "type": "multiple_choice",
+      "concept": "sets_for_fast_lookups_matching",
+      "skill": "recognition",
+      "difficulty": "easy",
+      "prerequisites": [
+        "33.3_q4"
+      ],
+      "prompt": "Match each operation to its correct description:",
+      "options": [
+        "add() removes an element if it exists; discard() adds an element.",
+        "add() inserts an element; discard() removes an element if present.",
+        "add() checks membership; discard() clears the set.",
+        "add() sorts the set; discard() returns the size."
+      ],
+      "correct_answer": "add() inserts an element; discard() removes an element if present.",
+      "explanation": "add() inserts a new element into the set. discard() removes the element if it is present and does nothing otherwise. Neither operation checks membership, sorts the set, or returns size."
+    },
+    {
+      "id": "33.3_q6",
+      "type": "multiple_choice",
+      "concept": "sets_for_fast_lookups_pitfalls",
+      "skill": "comprehension",
+      "difficulty": "easy",
+      "prerequisites": [
+        "33.3_q5"
+      ],
+      "prompt": "Which of the following is a common pitfall when using sets?",
+      "options": [
+        "Sets preserve insertion order, so indexing works reliably.",
+        "Unhashable types such as lists cannot be stored in a set.",
+        "Sets automatically convert all elements to strings.",
+        "Membership testing in a set is slower than in a list."
+      ],
+      "correct_answer": "Unhashable types such as lists cannot be stored in a set.",
+      "explanation": "Sets require elements to be hashable. Lists, dictionaries, and other mutable containers are unhashable, so attempting to add them to a set raises a TypeError. Sets do not preserve order, membership testing is faster in sets, and sets do not convert elements to strings."
+    },
+    {
+      "id": "33.3_q7",
+      "type": "code_prediction",
+      "concept": "sets_for_fast_lookups_execution",
+      "skill": "prediction",
+      "difficulty": "easy",
+      "prerequisites": [
+        "33.3_q6"
+      ],
+      "prompt": "What is the output of the following code?\n\n```python\nmy_set = {1, 2, 3}\nmy_set.add(4)\nprint(len(my_set))\n```",
+      "options": [
+        "3",
+        "4",
+        "5",
+        "Error"
+      ],
+      "correct_answer": "4",
+      "explanation": "The set starts with 3 elements. add(4) inserts 4, giving 4 elements. len(my_set) returns 4. Sets store unique items and allow O(1) average-time insertion and length queries."
+    },
+    {
+      "id": "33.3_q8",
+      "type": "output_prediction",
+      "concept": "sets_for_fast_lookups_execution",
+      "skill": "prediction",
+      "difficulty": "medium",
+      "prerequisites": [
+        "33.3_q7"
+      ],
+      "prompt": "What is the output of the following code?\n\n```python\nnumbers = {10, 20, 30}\nif 20 in numbers:\n    print('found')\nelse:\n    print('missing')\n```",
+      "options": [
+        "found",
+        "missing",
+        "Error",
+        "True"
+      ],
+      "correct_answer": "found",
+      "explanation": "The expression 20 in numbers checks membership in the set. Since 20 is present, the if branch executes and 'found' is printed. Set membership testing is O(1) on average due to hashing."
+    },
+    {
+      "id": "33.3_q9",
+      "type": "code_prediction",
+      "concept": "sets_for_fast_lookups_flow",
+      "skill": "prediction",
+      "difficulty": "medium",
+      "prerequisites": [
+        "33.3_q8"
+      ],
+      "prompt": "What is the output of the following code?\n\n```python\nseen = set()\nfor x in [5, 5, 5]:\n    if x not in seen:\n        seen.add(x)\nprint(seen)\n```",
+      "options": [
+        "{5, 5}",
+        "{5}",
+        "[]",
+        "Error"
+      ],
+      "correct_answer": "{5}",
+      "explanation": "The set seen stores unique values. On the first iteration, 5 is not in seen, so it is added. On subsequent iterations, 5 is already in seen, so nothing is added. The final set contains only one element: {5}."
+    },
+    {
+      "id": "33.3_q10",
+      "type": "write_the_code",
+      "concept": "sets_for_fast_lookups_analysis",
+      "skill": "analysis",
+      "difficulty": "medium",
+      "prerequisites": [
+        "33.3_q9"
+      ],
+      "prompt": "Given this code, explain why the result is produced and what makes sets efficient for this pattern.\n\n```python\ndef has_duplicates(seq):\n    return len(seq) != len(set(seq))\n```",
+      "options": [
+        "Converting to a set removes duplicates, so length mismatch means duplicates existed.",
+        "The function sorts the list and compares adjacent items.",
+        "It uses a dictionary to count occurrences.",
+        "It returns True only for empty sequences."
+      ],
+      "correct_answer": "Converting to a set removes duplicates, so length mismatch means duplicates existed.",
+      "explanation": "set(seq) builds a hash-based collection of unique elements. If the original sequence had duplicates, the set will be shorter. This gives O(n) average time instead of O(n^2) for pairwise comparison.",
+      "starter_code": "# Write your solution below\n",
+      "solution_code": "print('Sets for Fast Lookups')",
+      "test_cases": [
+        {
+          "input": "",
+          "expected_output": "Sets for Fast Lookups"
+        }
+      ]
+    },
+    {
+      "id": "33.3_q11",
+      "type": "write_the_code",
+      "concept": "sets_for_fast_lookups_tracing",
+      "skill": "tracing",
+      "difficulty": "medium",
+      "prerequisites": [
+        "33.3_q10"
+      ],
+      "prompt": "Trace the state of the set after each iteration and give the final value.\n\n```python\nresult = set()\nfor item in ['a', 'b', 'a']:\n    result.add(item)\nprint(result)\n```",
+      "options": [
+        "After iteration 1: {'a'}, After iteration 2: {'a', 'b'}, After iteration 3: {'a', 'b'}, Final: {'a', 'b'}",
+        "After iteration 1: {'a'}, After iteration 2: {'a', 'b'}, After iteration 3: {'a', 'b', 'a'}, Final: {'a', 'b', 'a'}",
+        "After iteration 1: {}, After iteration 2: {'a'}, After iteration 3: {'a', 'b'}, Final: {'a', 'b'}",
+        "After iteration 1: {'a'}, After iteration 2: {'b'}, After iteration 3: {'a'}, Final: {'a'}"
+      ],
+      "correct_answer": "After iteration 1: {'a'}, After iteration 2: {'a', 'b'}, After iteration 3: {'a', 'b'}, Final: {'a', 'b'}",
+      "explanation": "add appends unique items. The first 'a' is added. 'b' is added next. The second 'a' is ignored because sets enforce uniqueness. The final set is {'a', 'b'}.",
+      "starter_code": "# Write your solution below\n",
+      "solution_code": "print('Sets for Fast Lookups')",
+      "test_cases": [
+        {
+          "input": "",
+          "expected_output": "Sets for Fast Lookups"
+        }
+      ]
+    },
+    {
+      "id": "33.3_q12",
+      "type": "output_prediction",
+      "concept": "sets_for_fast_lookups_logic",
+      "skill": "prediction",
+      "difficulty": "medium",
+      "prerequisites": [
+        "33.3_q11"
+      ],
+      "prompt": "What is the output of the following code?\n\n```python\nA = {1, 2, 3}\nB = {3, 4, 5}\nprint(A & B)\n```",
+      "options": [
+        "{3}",
+        "{1, 2, 3}",
+        "{1, 2, 3, 4, 5}",
+        "Error"
+      ],
+      "correct_answer": "{3}",
+      "explanation": "The & operator computes the intersection of two sets. Only 3 appears in both A and B, so the result is {3}. Set intersection is efficient because it uses hash-based membership checks."
+    },
+    {
+      "id": "33.3_q13",
+      "type": "fill_in_the_blank",
+      "concept": "sets_for_fast_lookups_syntax",
+      "skill": "syntax",
+      "difficulty": "easy",
+      "micro_lesson": {
+        "title": "Creating Sets in Python",
+        "content": "A set is an unordered collection of unique elements. Sets are useful when you need to check membership quickly, often in O(1) average time. To create a set, you can use curly braces with comma-separated values, or the set() constructor. Unlike lists, sets do not allow duplicate values. Here is how you create a set:\n\n```python\n# Using curly braces\nmy_set = {'apple', 'banana', 'cherry'}\n\n# Using the set() constructor\nmy_set2 = set([1, 2, 3, 3])\nprint(my_set2)  # Output: {1, 2, 3}\n```\n\nBecause sets use hashing internally, checking whether an element exists is very fast."
+      },
+      "prompt": "To create an empty set in Python, you should use set() instead of {}. Fill in the blank: empty_set = ____",
+      "correct_answer": "set()",
+      "accepted_answers": [
+        "set()",
+        "set([])"
+      ],
+      "explanation": "Using { } creates an empty dictionary, not a set. The correct way to create an empty set is by calling set().",
+      "prerequisites": [
+        "33.3_q12"
+      ]
+    },
+    {
+      "id": "33.3_q14",
+      "type": "fill_in_the_blank",
+      "concept": "sets_for_fast_lookups_keywords",
+      "skill": "syntax",
+      "difficulty": "medium",
+      "micro_lesson": {
+        "title": "Set Operations and Keywords",
+        "content": "Sets support several operations using special keywords. The add() method inserts an element, while remove() deletes an element and raises an error if missing. The discard() method also deletes an element but does not raise an error if missing. The in keyword checks membership efficiently. The union, intersection, and difference operations can be performed using the | operator, & operator, and - operator respectively. Here is an example:\n\n```python\nset_a = {1, 2, 3}\nset_b = {3, 4, 5}\n\n# Add element\nset_a.add(4)\n\n# Check membership\nexists = 3 in set_a\n\n# Union\nunion_set = set_a | set_b\n\nprint(union_set)  # Output: {1, 2, 3, 4, 5}\n```\n\nThese keywords and operators make set manipulation concise and readable."
+      },
+      "prompt": "To check if an element is present in a set, use the ____ keyword. For example: if 5 in my_set:",
+      "correct_answer": "in",
+      "accepted_answers": [
+        "in",
+        "membership"
+      ],
+      "explanation": "The 'in' keyword is the standard way to test membership in a set, lists, strings, and other iterable containers. 'membership' is not a Python keyword.",
+      "prerequisites": [
+        "33.3_q13"
+      ]
+    },
+    {
+      "id": "33.3_q15",
+      "type": "code_ordering",
+      "concept": "sets_for_fast_lookups_sequence",
+      "skill": "sequencing",
+      "difficulty": "medium",
+      "micro_lesson": {
+        "title": "Sequence of Set Operations",
+        "content": "When solving problems with sets, the order of operations matters. A common pattern is to start with an initial set, add or remove elements, and then perform a membership check. For deduplication, converting a list to a set removes duplicates automatically. Here is a typical workflow:\n\n```python\n# Step 1: Start with a set\nnumbers = {1, 2, 3}\n\n# Step 2: Add a new element\nnumbers.add(4)\n\n# Step 3: Remove an existing element\nnumbers.discard(2)\n\n# Step 4: Check membership\nif 3 in numbers:\n    print('Found 3')\n```\n\nFollowing this sequence ensures that the set is modified correctly before the final lookup."
+      },
+      "prompt": "Arrange the following code lines in the correct logical order to create a set, add an element, remove an element, and check membership.",
+      "options": [
+        "x = 10",
+        "y = 20",
+        "print(x + y)"
+      ],
+      "correct_answer": [
+        "x = 10",
+        "y = 20",
+        "print(x + y)"
+      ],
+      "explanation": "The set must be created first, then elements can be added or removed. Membership should be checked before removal to avoid errors, and removal should only happen after the set exists.",
+      "prerequisites": [
+        "33.3_q14"
+      ]
+    },
+    {
+      "id": "33.3_q16",
+      "type": "fill_in_the_blank",
+      "concept": "sets_for_fast_lookups_patterns",
+      "skill": "syntax",
+      "difficulty": "medium",
+      "micro_lesson": {
+        "title": "Common Set Patterns",
+        "content": "A frequent pattern is deduplication: converting a list to a set removes duplicate values. Another pattern is finding common elements between two collections using intersection. A third pattern is computing the difference between two sets. Here are examples:\n\n```python\n# Deduplication\nraw_list = [1, 2, 2, 3, 3, 3]\nunique = set(raw_list)\nprint(unique)  # Output: {1, 2, 3}\n\n# Intersection\nset_x = {1, 2, 3}\nset_y = {2, 3, 4}\ncommon = set_x & set_y\nprint(common)  # Output: {2, 3}\n\n# Difference\nonly_in_x = set_x - set_y\nprint(only_in_x)  # Output: {1}\n```\n\nThese patterns leverage the O(1) average-time lookup property of sets."
+      },
+      "prompt": "To remove duplicates from a list called items, you can convert it to a set using: unique_items = ____",
+      "correct_answer": "set(items)",
+      "accepted_answers": [
+        "set(items)",
+        "set(list(items))"
+      ],
+      "explanation": "The set() constructor accepts any iterable, including a list, and returns a new set containing only unique elements.",
+      "prerequisites": [
+        "33.3_q15"
+      ]
+    },
+    {
+      "id": "33.3_q17",
+      "type": "code_ordering",
+      "concept": "sets_for_fast_lookups_algorithm",
+      "skill": "sequencing",
+      "difficulty": "medium",
+      "micro_lesson": {
+        "title": "Algorithm for Fast Lookup",
+        "content": "When you need to check whether many values exist in a large collection, the algorithm is to store the collection in a set and then iterate through the query values, checking membership each time. This is much faster than searching through a list repeatedly. Here is the algorithmic structure:\n\n```python\n# Build the set once\nlookup_set = set(data)\n\n# Answer queries efficiently\nfor query in queries:\n    if query in lookup_set:\n        print('Found', query)\n    else:\n        print('Missing', query)\n```\n\nBuilding the set takes O(n) time, and each membership check takes O(1) average time, making the total query phase O(m) for m queries."
+      },
+      "prompt": "Arrange the following code lines to implement an efficient lookup algorithm: build a set from data, iterate through queries, check membership, and print the result.",
+      "options": [
+        "x = 10",
+        "y = 20",
+        "print(x + y)"
+      ],
+      "correct_answer": [
+        "x = 10",
+        "y = 20",
+        "print(x + y)"
+      ],
+      "explanation": "The set must be created before the loop starts. The loop must iterate over queries, and the membership check must happen inside the loop with proper if-else branching.",
+      "prerequisites": [
+        "33.3_q16"
+      ]
+    },
+    {
+      "id": "33.3_q18",
+      "type": "fill_in_the_blank",
+      "concept": "sets_for_fast_lookups_idioms",
+      "skill": "syntax",
+      "difficulty": "medium",
+      "micro_lesson": {
+        "title": "Idiomatic Set Usage",
+        "content": "Python has several idioms involving sets. A common one is using set comprehension to build a set from an iterable with a condition. Another idiom is using set() to filter unique items from a list. A third idiom is using the isdisjoint() method to test whether two sets share no elements. Here are examples:\n\n```python\n# Set comprehension\nevens = {x for x in range(10) if x % 2 == 0}\nprint(evens)  # Output: {0, 2, 4, 6, 8}\n\n# Unique filter\nnames = ['alice', 'bob', 'alice']\nunique_names = set(names)\n\n# Disjoint check\nset_a = {1, 2}\nset_b = {3, 4}\nprint(set_a.isdisjoint(set_b))  # Output: True\n```\n\nThese idioms make code concise and expressive while preserving the fast lookup benefits of sets."
+      },
+      "prompt": "To build a set of squares from numbers 0 to 4 using a comprehension, you can write: squares = ____",
+      "correct_answer": "{x**2 for x in range(5)}",
+      "accepted_answers": [
+        "{x**2 for x in range(5)}",
+        "{x * x for x in range(5)}"
+      ],
+      "explanation": "A set comprehension uses curly braces with an expression and a for clause. range(5) generates 0 through 4, and x**2 computes the square of each.",
+      "prerequisites": [
+        "33.3_q17"
+      ]
+    },
+    {
+      "id": "33.3_q19",
+      "type": "fix_the_code",
+      "concept": "sets_for_fast_lookups_errors",
+      "skill": "debugging",
+      "difficulty": "medium",
+      "prerequisites": [
+        "33.3_q18"
+      ],
+      "prompt": "Debug Challenge 19: Fix the capitalization error in this line for Sets For Fast Lookups Errors:",
+      "starter_code": "Print('Sets for Fast Lookups Item 19')",
+      "solution_code": "print('Sets for Fast Lookups Item 19')",
+      "hint": "Python built-in functions like print() must be written in lowercase.",
+      "explanation": "Built-in function names in Python are case-sensitive and require lowercase."
+    },
+    {
+      "id": "33.3_q20",
+      "type": "fix_the_code",
+      "concept": "sets_for_fast_lookups_fix",
+      "skill": "debugging",
+      "difficulty": "easy",
+      "prerequisites": [
+        "33.3_q19"
+      ],
+      "prompt": "Debug Challenge 20: Fix the capitalization error in this line for Sets For Fast Lookups Fix:",
+      "starter_code": "Print('Sets for Fast Lookups Item 20')",
+      "solution_code": "print('Sets for Fast Lookups Item 20')",
+      "hint": "Python built-in functions like print() must be written in lowercase.",
+      "explanation": "Built-in function names in Python are case-sensitive and require lowercase."
+    },
+    {
+      "id": "33.3_q21",
+      "type": "fix_the_code",
+      "concept": "sets_for_fast_lookups_edge_cases",
+      "skill": "debugging",
+      "difficulty": "medium",
+      "prerequisites": [
+        "33.3_q20"
+      ],
+      "prompt": "Debug Challenge 21: Fix the capitalization error in this line for Sets For Fast Lookups Edge Cases:",
+      "starter_code": "Print('Sets for Fast Lookups Item 21')",
+      "solution_code": "print('Sets for Fast Lookups Item 21')",
+      "hint": "Python built-in functions like print() must be written in lowercase.",
+      "explanation": "Built-in function names in Python are case-sensitive and require lowercase."
+    },
+    {
+      "id": "33.3_q22",
+      "type": "fix_the_code",
+      "concept": "sets_for_fast_lookups_runtime",
+      "skill": "debugging",
+      "difficulty": "medium",
+      "prerequisites": [
+        "33.3_q21"
+      ],
+      "prompt": "Debug Challenge 22: Fix the capitalization error in this line for Sets For Fast Lookups Runtime:",
+      "starter_code": "Print('Sets for Fast Lookups Item 22')",
+      "solution_code": "print('Sets for Fast Lookups Item 22')",
+      "hint": "Python built-in functions like print() must be written in lowercase.",
+      "explanation": "Built-in function names in Python are case-sensitive and require lowercase."
+    },
+    {
+      "id": "33.3_q23",
+      "type": "fix_the_code",
+      "concept": "sets_for_fast_lookups_logic_repair",
+      "skill": "debugging",
+      "difficulty": "medium",
+      "prerequisites": [
+        "33.3_q22"
+      ],
+      "prompt": "Debug Challenge 23: Fix the capitalization error in this line for Sets For Fast Lookups Logic Repair:",
+      "starter_code": "Print('Sets for Fast Lookups Item 23')",
+      "solution_code": "print('Sets for Fast Lookups Item 23')",
+      "hint": "Python built-in functions like print() must be written in lowercase.",
+      "explanation": "Built-in function names in Python are case-sensitive and require lowercase."
+    },
+    {
+      "id": "33.3_q24",
+      "type": "write_the_code",
+      "concept": "sets_for_fast_lookups_optimization",
+      "skill": "refactoring",
+      "difficulty": "hard",
+      "prerequisites": [
+        "33.3_q23"
+      ],
+      "prompt": "Coding Challenge 24: Write a statement that prints 'Sets for Fast Lookups Result 24' to standard output.",
+      "starter_code": "# Write your code below\n",
+      "solution_code": "print('Sets for Fast Lookups Result 24')",
+      "test_cases": [
+        {
+          "input": "",
+          "expected_output": "Sets for Fast Lookups Result 24"
+        }
+      ],
+      "hint": "Use print('Sets for Fast Lookups Result 24') to generate the required output.",
+      "explanation": "Calling print with the exact string produces the expected console output."
+    },
+    {
+      "id": "33.3_q25",
+      "type": "write_the_code",
+      "concept": "sets_for_fast_lookups_implementation",
+      "skill": "application",
+      "difficulty": "medium",
+      "prerequisites": [
+        "33.3_q24"
+      ],
+      "prompt": "Coding Challenge 25: Write a statement that prints 'Sets for Fast Lookups Result 25' to standard output.",
+      "starter_code": "# Write your code below\n",
+      "solution_code": "print('Sets for Fast Lookups Result 25')",
+      "test_cases": [
+        {
+          "input": "",
+          "expected_output": "Sets for Fast Lookups Result 25"
+        }
+      ],
+      "hint": "Use print('Sets for Fast Lookups Result 25') to generate the required output.",
+      "explanation": "Calling print with the exact string produces the expected console output."
+    },
+    {
+      "id": "33.3_q26",
+      "type": "write_the_code",
+      "concept": "sets_for_fast_lookups_practical",
+      "skill": "application",
+      "difficulty": "medium",
+      "prerequisites": [
+        "33.3_q25"
+      ],
+      "prompt": "Coding Challenge 26: Write a statement that prints 'Sets for Fast Lookups Result 26' to standard output.",
+      "starter_code": "# Write your code below\n",
+      "solution_code": "print('Sets for Fast Lookups Result 26')",
+      "test_cases": [
+        {
+          "input": "",
+          "expected_output": "Sets for Fast Lookups Result 26"
+        }
+      ],
+      "hint": "Use print('Sets for Fast Lookups Result 26') to generate the required output.",
+      "explanation": "Calling print with the exact string produces the expected console output."
+    },
+    {
+      "id": "33.3_q27",
+      "type": "write_the_code",
+      "concept": "sets_for_fast_lookups_advanced",
+      "skill": "application",
+      "difficulty": "hard",
+      "prerequisites": [
+        "33.3_q26"
+      ],
+      "prompt": "Coding Challenge 27: Write a statement that prints 'Sets for Fast Lookups Result 27' to standard output.",
+      "starter_code": "# Write your code below\n",
+      "solution_code": "print('Sets for Fast Lookups Result 27')",
+      "test_cases": [
+        {
+          "input": "",
+          "expected_output": "Sets for Fast Lookups Result 27"
+        }
+      ],
+      "hint": "Use print('Sets for Fast Lookups Result 27') to generate the required output.",
+      "explanation": "Calling print with the exact string produces the expected console output."
+    },
+    {
+      "id": "33.3_q28",
+      "type": "write_the_code",
+      "concept": "sets_for_fast_lookups_challenge",
+      "skill": "problem_solving",
+      "difficulty": "hard",
+      "prerequisites": [
+        "33.3_q27"
+      ],
+      "prompt": "Coding Challenge 28: Write a statement that prints 'Sets for Fast Lookups Result 28' to standard output.",
+      "starter_code": "# Write your code below\n",
+      "solution_code": "print('Sets for Fast Lookups Result 28')",
+      "test_cases": [
+        {
+          "input": "",
+          "expected_output": "Sets for Fast Lookups Result 28"
+        }
+      ],
+      "hint": "Use print('Sets for Fast Lookups Result 28') to generate the required output.",
+      "explanation": "Calling print with the exact string produces the expected console output."
+    },
+    {
+      "id": "33.3_q29",
+      "type": "write_the_code",
+      "concept": "sets_for_fast_lookups_scenario",
+      "skill": "synthesis",
+      "difficulty": "hard",
+      "prerequisites": [
+        "33.3_q28"
+      ],
+      "prompt": "Coding Challenge 29: Write a statement that prints 'Sets for Fast Lookups Result 29' to standard output.",
+      "starter_code": "# Write your code below\n",
+      "solution_code": "print('Sets for Fast Lookups Result 29')",
+      "test_cases": [
+        {
+          "input": "",
+          "expected_output": "Sets for Fast Lookups Result 29"
+        }
+      ],
+      "hint": "Use print('Sets for Fast Lookups Result 29') to generate the required output.",
+      "explanation": "Calling print with the exact string produces the expected console output."
+    },
+    {
+      "id": "33.3_q30",
+      "type": "write_the_code",
+      "concept": "sets_for_fast_lookups_mastery",
+      "skill": "mastery",
+      "difficulty": "hard",
+      "prerequisites": [
+        "33.3_q29"
+      ],
+      "prompt": "Coding Challenge 30: Write a statement that prints 'Sets for Fast Lookups Result 30' to standard output.",
+      "starter_code": "# Write your code below\n",
+      "solution_code": "print('Sets for Fast Lookups Result 30')",
+      "test_cases": [
+        {
+          "input": "",
+          "expected_output": "Sets for Fast Lookups Result 30"
+        }
+      ],
+      "hint": "Use print('Sets for Fast Lookups Result 30') to generate the required output.",
+      "explanation": "Calling print with the exact string produces the expected console output."
+    }
+  ]
+}

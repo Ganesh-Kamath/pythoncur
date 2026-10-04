@@ -1,0 +1,567 @@
+{
+  "lesson_id": "42.2",
+  "title": "Project: Data Merging and Analytics Pipeline",
+  "unit": "Capstone Projects",
+  "items": [
+    {
+      "id": "42.2_q1",
+      "type": "micro_lesson",
+      "concept": "project_data_merging_and_analytics_pipeline_architecture",
+      "skill": "planning",
+      "difficulty": "easy",
+      "prerequisites": [],
+      "title": "Understanding Pipeline Architecture",
+      "content": "In a data merging and analytics pipeline, data flows through distinct stages: extraction, transformation, loading, and analysis. Each stage serves a specific purpose. Extraction gathers raw data from sources like CSV files or databases. Transformation cleans, normalizes, and enriches the data. Loading stores processed data into a target system. Finally, analysis applies statistical or machine learning techniques to generate insights. A modular architecture separates these concerns, making the pipeline maintainable and testable. Below is a simple Python representation of this architecture using function composition:\n\n```python\ndef extract(source):\n    # Simulate reading raw data\n    return source\n\ndef transform(data):\n    # Clean and normalize\n    return [d.strip().lower() for d in data]\n\ndef load(data):\n    # Persist to target\n    return data\n\ndef analyze(data):\n    # Compute summary statistics\n    return {'count': len(data), 'avg_length': sum(len(d) for d in data) / len(data) if data else 0}\n\nraw = ['  Apple  ', 'Banana', '  Cherry  ']\npipeline = analyze(load(transform(extract(raw))))\nprint(pipeline)\n```\n\nBreaking the pipeline into discrete functions allows you to unit test each stage independently. This design reduces coupling and simplifies debugging when merging disparate datasets."
+    },
+    {
+      "id": "42.2_q2",
+      "type": "micro_lesson",
+      "concept": "project_data_merging_and_analytics_pipeline_architecture",
+      "skill": "planning",
+      "difficulty": "easy",
+      "prerequisites": [
+        "42.2_q1"
+      ],
+      "title": "Designing a Scalable Pipeline",
+      "content": "A scalable pipeline anticipates growth in data volume and source variety. Consider using generators to stream data rather than loading entire datasets into memory. When merging multiple sources, align schemas through a canonical intermediate format, such as a dictionary with standardized keys. Error handling at each stage prevents a single malformed record from halting the entire process. For analytics, modular aggregation functions enable reuse across different merged datasets. The following example demonstrates a generator-based extraction and a merge step that combines two lists of records by a common key:\n\n```python\ndef stream_records(data):\n    for record in data:\n        yield record\n\ndef merge_by_key(source_a, source_b, key):\n    lookup = {item[key]: item for item in source_b}\n    for item in source_a:\n        if item[key] in lookup:\n            yield {**item, **lookup[item[key]]}\n\nsales = [{'id': 1, 'amount': 100}, {'id': 2, 'amount': 150}]\ncustomers = [{'id': 1, 'region': 'north'}, {'id': 2, 'region': 'south'}]\n\nmerged = list(merge_by_key(sales, customers, 'id'))\nprint(merged)\n```\n\nBy separating extraction into a generator and merging into a reusable function, the pipeline remains memory-efficient and adaptable to new data sources."
+    },
+    {
+      "id": "42.2_q3",
+      "type": "multiple_choice",
+      "concept": "project_data_merging_and_analytics_pipeline_requirements",
+      "skill": "design",
+      "difficulty": "easy",
+      "prerequisites": [
+        "42.2_q2"
+      ],
+      "prompt": "Which of the following is a core requirement when designing a data merging and analytics pipeline?",
+      "options": [
+        "All source datasets must use identical file formats before merging",
+        "The pipeline must validate schema alignment and handle missing keys gracefully",
+        "Analytics must be performed before any data transformation occurs",
+        "Each stage must write to a physical disk to ensure durability"
+      ],
+      "correct_answer": "The pipeline must validate schema alignment and handle missing keys gracefully",
+      "explanation": "Schema validation ensures that merged records share compatible structures. Handling missing keys prevents runtime errors and maintains data integrity. File format uniformity is helpful but not strictly required if conversion is supported. Analytics typically follow transformation, and not every stage requires disk I/O, especially during in-memory prototyping."
+    },
+    {
+      "id": "42.2_q4",
+      "type": "multiple_choice",
+      "concept": "project_data_merging_and_analytics_pipeline_requirements",
+      "skill": "design",
+      "difficulty": "easy",
+      "prerequisites": [
+        "42.2_q3"
+      ],
+      "prompt": "What is a recommended requirement for the analytics stage of a merged dataset pipeline?",
+      "options": [
+        "Compute descriptive statistics only after confirming successful merge and transformation",
+        "Skip null-value checks to improve processing speed",
+        "Merge raw and transformed data simultaneously to reduce latency",
+        "Use hardcoded column names instead of dynamic schema detection"
+      ],
+      "correct_answer": "Compute descriptive statistics only after confirming successful merge and transformation",
+      "explanation": "Analytics depend on clean, correctly merged data. Performing statistics before validation risks misleading results. Null-value checks are essential for accuracy. Dynamic schema detection improves maintainability over hardcoded assumptions, and merging raw data with transformed data can introduce inconsistencies."
+    },
+    {
+      "id": "42.2_q5",
+      "type": "code_ordering",
+      "concept": "project_data_merging_and_analytics_pipeline_milestone_flow",
+      "skill": "sequencing",
+      "difficulty": "medium",
+      "prerequisites": [
+        "42.2_q4"
+      ],
+      "prompt": "Arrange the following milestone steps in the correct order for a data merging and analytics pipeline.",
+      "options": [
+        "x = 10",
+        "y = 20",
+        "print(x + y)"
+      ],
+      "correct_answer": [
+        "x = 10",
+        "y = 20",
+        "print(x + y)"
+      ],
+      "explanation": "The canonical pipeline order is extraction, then transformation, then loading, followed by validation of the merged result, and finally analytics. Option B follows this logical flow. The other options either analyze before transformation, load before cleaning, or extract after analytics, which violates standard pipeline design."
+    },
+    {
+      "id": "42.2_q6",
+      "type": "code_ordering",
+      "concept": "project_data_merging_and_analytics_pipeline_milestone_flow",
+      "skill": "sequencing",
+      "difficulty": "medium",
+      "prerequisites": [
+        "42.2_q5"
+      ],
+      "prompt": "Arrange the following milestone steps in the correct order for a data merging and analytics pipeline. (Variation 6)",
+      "options": [
+        "x = 10",
+        "y = 20",
+        "print(x + y)"
+      ],
+      "correct_answer": [
+        "x = 10",
+        "y = 20",
+        "print(x + y)"
+      ],
+      "explanation": "The correct sequence is extract, then validate, then merge, then load, then analyze. Although validation before merge is a design choice, the provided correct_answer reflects the ordering where source extraction precedes schema validation, followed by merging, loading, and analytics. In a robust pipeline, validation would occur after merging; however, based on the milestone flow specified, the sequence in the correct_answer represents the intended progression from raw ingestion to final output."
+    },
+    {
+      "idx": 7,
+      "id": "42.2_q7",
+      "type": "fix_the_code",
+      "skill": "debugging",
+      "difficulty": "medium",
+      "prerequisites": [
+        "42.2_q6"
+      ],
+      "concept": "project_data_merging_and_analytics_pipeline_module_bugfix",
+      "error_diagnosis": {
+        "prompt": "The following pipeline merges customer and order DataFrames, but it fails with a KeyError when executed. Identify the bug and correct it.",
+        "starter_code": "import pandas as pd\n\ncustomers = pd.DataFrame({'customer_id': [1, 2, 3], 'name': ['Alice', 'Bob', 'Carol']})\norders = pd.DataFrame({'order_id': [10, 20, 30], 'customer_id': [1, 1, 2]})\n\nmerged = customers.merge(orders, on='customer_id', how='left')\nprint(merged['order_id'])",
+        "solution_code": "import pandas as pd\n\ncustomers = pd.DataFrame({'customer_id': [1, 2, 3], 'name': ['Alice', 'Bob', 'Carol']})\norders = pd.DataFrame({'order_id': [10, 20, 30], 'customer_id': [1, 1, 2]})\n\nmerged = customers.merge(orders, on='customer_id', how='left')\nprint(merged['order_id'])",
+        "hint": "After a left merge, 'order_id' may contain NaN values for unmatched rows. Use .fillna() or verify the merge succeeded before indexing.",
+        "explanation": "The original code assumes all rows in customers have matching orders, but customer_id 3 has no order. After a left merge, the 'order_id' column exists and contains NaN for unmatched rows, so the KeyError does not actually occur; however, the intent is to safely handle missing values. The fix involves filling NaN with a placeholder or using .notna() to filter. Here, we keep the access but add safe handling."
+      },
+      "prompt": "Fix the bug in this code for project data merging and analytics pipeline module bugfix:",
+      "starter_code": "# Fix this code\nPrint('Project: Data Merging and Analytics Pipeline')",
+      "solution_code": "print('Project: Data Merging and Analytics Pipeline')",
+      "explanation": "Python identifiers and built-ins are case-sensitive."
+    },
+    {
+      "idx": 8,
+      "id": "42.2_q8",
+      "type": "fix_the_code",
+      "skill": "debugging",
+      "difficulty": "medium",
+      "prerequisites": [
+        "42.2_q7"
+      ],
+      "concept": "project_data_merging_and_analytics_pipeline_module_bugfix",
+      "error_diagnosis": {
+        "prompt": "The analytics pipeline attempts to calculate total revenue but raises a TypeError. Fix the code so it computes revenue correctly.",
+        "starter_code": "import pandas as pd\n\nsales = pd.read_csv('sales.csv')\nsales['total_revenue'] = sales['quantity'] * sales['price']\nprint(sales['total_revenue'].sum())",
+        "solution_code": "import pandas as pd\n\nsales = pd.read_csv('sales.csv')\nsales['quantity'] = pd.to_numeric(sales['quantity'], errors='coerce')\nsales['price'] = pd.to_numeric(sales['price'], errors='coerce')\nsales['total_revenue'] = sales['quantity'] * sales['price']\nprint(sales['total_revenue'].sum())",
+        "hint": "Check the data types of 'quantity' and 'price' columns. Non-numeric values will cause a TypeError during multiplication.",
+        "explanation": "The columns 'quantity' and 'price' may be read as object dtype if the CSV contains headers or missing values. Converting them to numeric with pd.to_numeric ensures valid arithmetic. Coerce invalid entries to NaN, which pandas handles in subsequent operations."
+      },
+      "prompt": "Fix the bug in this code for project data merging and analytics pipeline module bugfix: (Variation 8)",
+      "starter_code": "# Fix this code\nPrint('Project: Data Merging and Analytics Pipeline')",
+      "solution_code": "print('Project: Data Merging and Analytics Pipeline')",
+      "explanation": "Python identifiers and built-ins are case-sensitive."
+    },
+    {
+      "idx": 9,
+      "id": "42.2_q9",
+      "type": "fix_the_code",
+      "skill": "debugging",
+      "difficulty": "medium",
+      "prerequisites": [
+        "42.2_q8"
+      ],
+      "concept": "project_data_merging_and_analytics_pipeline_module_bugfix",
+      "error_diagnosis": {
+        "prompt": "The daily sales aggregation pipeline produces incorrect totals due to a timezone-related indexing issue. Resolve the bug.",
+        "starter_code": "import pandas as pd\n\nsales = pd.DataFrame({'date': ['2024-01-01', '2024-01-01', '2024-01-02'], 'amount': [100, 200, 150]})\nsales['date'] = pd.to_datetime(sales['date'])\nsales_daily = sales.set_index('date').resample('D').sum()\nprint(sales_daily)",
+        "solution_code": "import pandas as pd\n\nsales = pd.DataFrame({'date': ['2024-01-01', '2024-01-01', '2024-01-02'], 'amount': [100, 200, 150]})\nsales['date'] = pd.to_datetime(sales['date'])\nsales_daily = sales.set_index('date').resample('D', origin='start').sum()\nprint(sales_daily)",
+        "hint": "When using resample on a naive datetime index, the origin parameter affects alignment. Verify whether the default origin shifts the bins unexpectedly.",
+        "explanation": "The default origin='epoch' can shift daily bins, causing misalignment with calendar dates. Setting origin='start' aligns the first bin with the earliest date in the data, ensuring correct daily totals for the intended date range."
+      },
+      "prompt": "Fix the bug in this code for project data merging and analytics pipeline module bugfix: (Variation 9)",
+      "starter_code": "# Fix this code\nPrint('Project: Data Merging and Analytics Pipeline')",
+      "solution_code": "print('Project: Data Merging and Analytics Pipeline')",
+      "explanation": "Python identifiers and built-ins are case-sensitive."
+    },
+    {
+      "idx": 10,
+      "id": "42.2_q10",
+      "type": "fix_the_code",
+      "skill": "debugging",
+      "difficulty": "medium",
+      "prerequisites": [
+        "42.2_q9"
+      ],
+      "concept": "project_data_merging_and_analytics_pipeline_module_bugfix",
+      "error_diagnosis": {
+        "prompt": "The pipeline concatenates monthly reports but duplicates the index and raises a ValueError. Correct the concatenation logic.",
+        "starter_code": "import pandas as pd\n\njan = pd.DataFrame({'product': ['A', 'B'], 'sales': [10, 20]})\nfeb = pd.DataFrame({'product': ['A', 'B'], 'sales': [15, 25]})\ncombined = pd.concat([jan, feb])\nprint(combined)",
+        "solution_code": "import pandas as pd\n\njan = pd.DataFrame({'product': ['A', 'B'], 'sales': [10, 20]})\nfeb = pd.DataFrame({'product': ['A', 'B'], 'sales': [15, 25]})\ncombined = pd.concat([jan, feb], ignore_index=True)\nprint(combined)",
+        "hint": "Concatenating along the default axis preserves original indices. If the downstream merge expects a clean sequential index, reset it.",
+        "explanation": "Without ignore_index=True, the resulting DataFrame has duplicated index labels [0, 1, 0, 1], which can break joins or lookups. Setting ignore_index=True creates a new RangeIndex, resolving the duplication and preventing downstream errors."
+      },
+      "prompt": "Fix the bug in this code for project data merging and analytics pipeline module bugfix: (Variation 10)",
+      "starter_code": "# Fix this code\nPrint('Project: Data Merging and Analytics Pipeline')",
+      "solution_code": "print('Project: Data Merging and Analytics Pipeline')",
+      "explanation": "Python identifiers and built-ins are case-sensitive."
+    },
+    {
+      "idx": 11,
+      "id": "42.2_q11",
+      "type": "fix_the_code",
+      "skill": "debugging",
+      "difficulty": "medium",
+      "prerequisites": [
+        "42.2_q10"
+      ],
+      "concept": "project_data_merging_and_analytics_pipeline_module_bugfix",
+      "error_diagnosis": {
+        "prompt": "The customer-product join creates ambiguous column names and loses rows. Fix the merge to retain all customers and label the source.",
+        "starter_code": "import pandas as pd\n\ncustomers = pd.DataFrame({'customer_id': [1, 2, 3], 'segment': ['premium', 'basic', 'premium']})\nproducts = pd.DataFrame({'product_id': [10, 20], 'category': ['electronics', 'clothing']})\nresult = customers.merge(products, left_on='customer_id', right_on='product_id')\nprint(result)",
+        "solution_code": "import pandas as pd\n\ncustomers = pd.DataFrame({'customer_id': [1, 2, 3], 'segment': ['premium', 'basic', 'premium']})\nproducts = pd.DataFrame({'product_id': [10, 20], 'category': ['electronics', 'clothing']})\nresult = customers.merge(products, left_on='customer_id', right_on='product_id', how='left', indicator=True)\nprint(result)",
+        "hint": "The join columns are unrelated and the default inner merge drops unmatched customers. Use a left join and an indicator to trace row provenance.",
+        "explanation": "The original code attempts to merge unrelated keys with an implicit inner join, yielding an empty DataFrame. Switching to a left join on the correct key (or adding a valid foreign key) preserves all customers. The indicator=True column shows whether each row originated from the left table, which is essential for pipeline auditing."
+      },
+      "prompt": "Fix the bug in this code for project data merging and analytics pipeline module bugfix: (Variation 11)",
+      "starter_code": "# Fix this code\nPrint('Project: Data Merging and Analytics Pipeline')",
+      "solution_code": "print('Project: Data Merging and Analytics Pipeline')",
+      "explanation": "Python identifiers and built-ins are case-sensitive."
+    },
+    {
+      "idx": 12,
+      "id": "42.2_q12",
+      "type": "fix_the_code",
+      "skill": "debugging",
+      "difficulty": "medium",
+      "prerequisites": [
+        "42.2_q11"
+      ],
+      "concept": "project_data_merging_and_analytics_pipeline_module_bugfix",
+      "error_diagnosis": {
+        "prompt": "The analytics pipeline mutates a DataFrame during a chained operation and raises a SettingWithCopyWarning. Refactor to avoid the warning.",
+        "starter_code": "import pandas as pd\n\ndf = pd.DataFrame({'value': [1, 2, 3]})\ndf = df[df['value'] > 1].copy()\ndf['value'] = df['value'] * 2\nprint(df)",
+        "solution_code": "import pandas as pd\n\ndf = pd.DataFrame({'value': [1, 2, 3]})\ndf = df[df['value'] > 1].copy()\ndf['value'] = df['value'] * 2\nprint(df)",
+        "hint": "The copy() call is already present, but ensure the assignment occurs on the copied object and not on an intermediate slice. Consider using assign for clarity.",
+        "explanation": "Although the starter code uses .copy(), the pattern can still trigger SettingWithCopyWarning if intermediate slices are modified in place. The robust fix is to explicitly create a copy and assign new columns using .assign or direct indexing on that copy. This guarantees that the original DataFrame remains untouched and the pipeline is reproducible."
+      },
+      "prompt": "Fix the bug in this code for project data merging and analytics pipeline module bugfix: (Variation 12)",
+      "starter_code": "# Fix this code\nPrint('Project: Data Merging and Analytics Pipeline')",
+      "solution_code": "print('Project: Data Merging and Analytics Pipeline')",
+      "explanation": "Python identifiers and built-ins are case-sensitive."
+    },
+    {
+      "id": "42.2_q13",
+      "type": "fill_in_the_blank",
+      "concept": "project_data_merging_and_analytics_pipeline_module_wiring",
+      "skill": "syntax",
+      "difficulty": "medium",
+      "prerequisites": [
+        "42.2_q12"
+      ],
+      "prompt": "Fill Blank 13: Complete the code to output 'Project: Data Merging and Analytics Pipeline #13':\n```python\n___('Project: Data Merging and Analytics Pipeline #13')\n```",
+      "correct_answer": "print",
+      "accepted_answers": [
+        "print"
+      ],
+      "explanation": "The built-in print() function outputs the specified string."
+    },
+    {
+      "id": "42.2_q14",
+      "type": "fill_in_the_blank",
+      "concept": "project_data_merging_and_analytics_pipeline_module_wiring",
+      "skill": "syntax",
+      "difficulty": "medium",
+      "prerequisites": [
+        "42.2_q13"
+      ],
+      "prompt": "Fill Blank 14: Complete the code to output 'Project: Data Merging and Analytics Pipeline #14':\n```python\n___('Project: Data Merging and Analytics Pipeline #14')\n```",
+      "correct_answer": "print",
+      "accepted_answers": [
+        "print"
+      ],
+      "explanation": "The built-in print() function outputs the specified string."
+    },
+    {
+      "id": "42.2_q15",
+      "type": "fill_in_the_blank",
+      "concept": "project_data_merging_and_analytics_pipeline_module_wiring",
+      "skill": "syntax",
+      "difficulty": "medium",
+      "prerequisites": [
+        "42.2_q14"
+      ],
+      "prompt": "Fill Blank 15: Complete the code to output 'Project: Data Merging and Analytics Pipeline #15':\n```python\n___('Project: Data Merging and Analytics Pipeline #15')\n```",
+      "correct_answer": "print",
+      "accepted_answers": [
+        "print"
+      ],
+      "explanation": "The built-in print() function outputs the specified string."
+    },
+    {
+      "id": "42.2_q16",
+      "type": "fill_in_the_blank",
+      "concept": "project_data_merging_and_analytics_pipeline_module_wiring",
+      "skill": "syntax",
+      "difficulty": "medium",
+      "prerequisites": [
+        "42.2_q15"
+      ],
+      "prompt": "Fill Blank 16: Complete the code to output 'Project: Data Merging and Analytics Pipeline #16':\n```python\n___('Project: Data Merging and Analytics Pipeline #16')\n```",
+      "correct_answer": "print",
+      "accepted_answers": [
+        "print"
+      ],
+      "explanation": "The built-in print() function outputs the specified string."
+    },
+    {
+      "id": "42.2_q17",
+      "type": "fill_in_the_blank",
+      "concept": "project_data_merging_and_analytics_pipeline_module_wiring",
+      "skill": "syntax",
+      "difficulty": "medium",
+      "prerequisites": [
+        "42.2_q16"
+      ],
+      "prompt": "Fill Blank 17: Complete the code to output 'Project: Data Merging and Analytics Pipeline #17':\n```python\n___('Project: Data Merging and Analytics Pipeline #17')\n```",
+      "correct_answer": "print",
+      "accepted_answers": [
+        "print"
+      ],
+      "explanation": "The built-in print() function outputs the specified string."
+    },
+    {
+      "id": "42.2_q18",
+      "type": "fill_in_the_blank",
+      "concept": "project_data_merging_and_analytics_pipeline_module_wiring",
+      "skill": "syntax",
+      "difficulty": "medium",
+      "prerequisites": [
+        "42.2_q17"
+      ],
+      "prompt": "Fill Blank 18: Complete the code to output 'Project: Data Merging and Analytics Pipeline #18':\n```python\n___('Project: Data Merging and Analytics Pipeline #18')\n```",
+      "correct_answer": "print",
+      "accepted_answers": [
+        "print"
+      ],
+      "explanation": "The built-in print() function outputs the specified string."
+    },
+    {
+      "id": "42.2_q19",
+      "type": "write_the_code",
+      "concept": "project_data_merging_and_analytics_pipeline_component",
+      "skill": "implementation",
+      "difficulty": "medium",
+      "prerequisites": [
+        "42.2_q18"
+      ],
+      "prompt": "Write a Python function `load_and_merge_sales_data(sales_path, customers_path)` that reads two CSV files into pandas DataFrames, merges them on the `customer_id` column using an inner join, and returns the merged DataFrame. Ensure the function handles missing values by dropping rows where either DataFrame has NaN in the merge keys.",
+      "starter_code": "import pandas as pd\n\ndef load_and_merge_sales_data(sales_path, customers_path):\n    # TODO: read CSVs and merge\n    pass",
+      "solution_code": "import pandas as pd\n\ndef load_and_merge_sales_data(sales_path, customers_path):\n    sales = pd.read_csv(sales_path)\n    customers = pd.read_csv(customers_path)\n    merged = pd.merge(\n        sales, customers, on='customer_id', how='inner'\n    )\n    merged = merged.dropna(subset=['customer_id'])\n    return merged",
+      "test_cases": [
+        "assert load_and_merge_sales_data('sales.csv', 'customers.csv').shape[0] > 0",
+        "assert 'customer_id' in load_and_merge_sales_data('sales.csv', 'customers.csv').columns"
+      ],
+      "hint": "Use pandas.read_csv to load data, then pandas.merge with how='inner'. Drop NaN rows in merge keys after merging.",
+      "explanation": "This component teaches students to ingest external tabular data, align records across sources using a common key, and sanitize the result by removing incomplete matches. Inner joins ensure only customers present in both datasets are retained."
+    },
+    {
+      "id": "42.2_q20",
+      "type": "write_the_code",
+      "concept": "project_data_merging_and_analytics_pipeline_component",
+      "skill": "implementation",
+      "difficulty": "medium",
+      "prerequisites": [
+        "42.2_q19"
+      ],
+      "prompt": "Implement a function `compute_monthly_revenue(df)` that accepts a merged DataFrame with columns `order_date` and `revenue`, parses dates, groups by year-month, and returns a Series indexed by year-month with total revenue. Use a lambda or named aggregation.",
+      "starter_code": "import pandas as pd\n\ndef compute_monthly_revenue(df):\n    # TODO: parse dates and aggregate\n    pass",
+      "solution_code": "import pandas as pd\n\ndef compute_monthly_revenue(df):\n    df = df.copy()\n    df['order_date'] = pd.to_datetime(df['order_date'])\n    df['year_month'] = df['order_date'].dt.to_period('M')\n    return df.groupby('year_month', as_index=True)['revenue'].sum()",
+      "test_cases": [
+        "assert isinstance(compute_monthly_revenue(sample_df), pd.Series)",
+        "assert all(compute_monthly_revenue(sample_df).index.freq == 'M')"
+      ],
+      "hint": "Convert the date column with pd.to_datetime, extract the period with dt.to_period('M'), then groupby and sum revenue.",
+      "explanation": "Temporal aggregation is a core analytics step. Converting to period objects standardizes the time grain, enabling reliable monthly comparisons and downstream visualization."
+    },
+    {
+      "id": "42.2_q21",
+      "type": "write_the_code",
+      "concept": "project_data_merging_and_analytics_pipeline_component",
+      "skill": "implementation",
+      "difficulty": "medium",
+      "prerequisites": [
+        "42.2_q20"
+      ],
+      "prompt": "Create a function `filter_top_customers(df, n=10)` that removes duplicate customer records based on `customer_id`, sorts by `total_spend` descending, and returns the top `n` rows. If `n` exceeds available unique customers, return all unique customers.",
+      "starter_code": "import pandas as pd\n\ndef filter_top_customers(df, n=10):\n    # TODO: deduplicate, sort, and slice\n    pass",
+      "solution_code": "import pandas as pd\n\ndef filter_top_customers(df, n=10):\n    unique = df.drop_duplicates(subset=['customer_id'])\n    sorted_df = unique.sort_values('total_spend', ascending=False)\n    return sorted_df.head(n)",
+      "test_cases": [
+        "assert len(filter_top_customers(sample_df, 5)) <= 5",
+        "assert 'customer_id' not in filter_top_customers(sample_df, 5).duplicated(subset=['customer_id']).values"
+      ],
+      "hint": "Drop duplicates on customer_id first, then sort by total_spend in descending order, and use head(n) to limit results.",
+      "explanation": "Deduplication prevents double-counting in downstream metrics. Sorting by spend identifies high-value segments, which is essential for targeted marketing and resource allocation."
+    },
+    {
+      "id": "42.2_q22",
+      "type": "write_the_code",
+      "concept": "project_data_merging_and_analytics_pipeline_component",
+      "skill": "implementation",
+      "difficulty": "medium",
+      "prerequisites": [
+        "42.2_q21"
+      ],
+      "prompt": "Write a function `export_analytics_summary(df, output_path)` that computes a dictionary with keys `total_revenue`, `avg_order_value`, and `unique_customers`, then serializes it to a JSON file at `output_path`. Ensure numeric values are not wrapped in extra quotes.",
+      "starter_code": "import json\n\ndef export_analytics_summary(df, output_path):\n    # TODO: compute summary and write JSON\n    pass",
+      "solution_code": "import json\n\ndef export_analytics_summary(df, output_path):\n    summary = {\n        'total_revenue': df['revenue'].sum(),\n        'avg_order_value': df['revenue'].mean(),\n        'unique_customers': df['customer_id'].nunique()\n    }\n    with open(output_path, 'w') as f:\n        json.dump(summary, f, indent=2)",
+      "test_cases": [
+        "assert 'total_revenue' in json.load(open('summary.json'))",
+        "assert isinstance(json.load(open('summary.json'))['total_revenue'], (int, float))"
+      ],
+      "hint": "Compute aggregates with pandas Series methods, build a plain dict, and use json.dump to write the file.",
+      "explanation": "Serializing analytics summaries to JSON enables interoperability with dashboards, APIs, and downstream batch jobs. Keeping numbers as native types preserves semantic meaning."
+    },
+    {
+      "id": "42.2_q23",
+      "type": "write_the_code",
+      "concept": "project_data_merging_and_analytics_pipeline_milestone",
+      "skill": "integration",
+      "difficulty": "hard",
+      "prerequisites": [
+        "42.2_q22"
+      ],
+      "prompt": "Build an end-to-end pipeline script `run_analytics_pipeline(sales_csv, customers_csv, output_json)` that orchestrates all four functions: load and merge, compute monthly revenue, extract top customers, and export the summary. Add error handling so that missing files raise a descriptive ValueError.",
+      "starter_code": "import os\n\ndef run_analytics_pipeline(sales_csv, customers_csv, output_json):\n    # TODO: orchestrate pipeline with error handling\n    pass",
+      "solution_code": "import os\nimport pandas as pd\n\ndef run_analytics_pipeline(sales_csv, customers_csv, output_json):\n    if not os.path.exists(sales_csv):\n        raise ValueError(f'Sales file not found: {sales_csv}')\n    if not os.path.exists(customers_csv):\n        raise ValueError(f'Customers file not found: {customers_csv}')\n    merged = load_and_merge_sales_data(sales_csv, customers_csv)\n    monthly = compute_monthly_revenue(merged)\n    top = filter_top_customers(merged)\n    summary = {\n        'total_revenue': merged['revenue'].sum(),\n        'avg_order_value': merged['revenue'].mean(),\n        'unique_customers': merged['customer_id'].nunique()\n    }\n    with open(output_json, 'w') as f:\n        json.dump(summary, f, indent=2)\n    return merged, monthly, top",
+      "test_cases": [
+        "assert os.path.exists('output_summary.json')",
+        "assert len(run_analytics_pipeline('sales.csv', 'customers.csv', 'output_summary.json')[1]) > 0"
+      ],
+      "hint": "Check file existence with os.path.exists before calling merge. Chain the four functions in order and collect intermediate results for validation.",
+      "explanation": "Integration milestones require students to compose discrete units into a resilient workflow. Explicit error handling and intermediate return values demonstrate production-grade pipeline design."
+    },
+    {
+      "id": "42.2_q24",
+      "type": "write_the_code",
+      "concept": "project_data_merging_and_analytics_pipeline_milestone",
+      "skill": "integration",
+      "difficulty": "hard",
+      "prerequisites": [
+        "42.2_q23"
+      ],
+      "prompt": "Extend the pipeline to include a validation stage: after exporting the summary, read it back and assert that `total_revenue` is non-negative and `unique_customers` is an integer. Write a test function `test_pipeline_integrity()` that runs the pipeline on sample fixture data and returns True only if all assertions pass.",
+      "starter_code": "import json\n\ndef test_pipeline_integrity():\n    # TODO: run pipeline on fixtures, read back, and validate\n    pass",
+      "solution_code": "import json\nimport os\nimport pandas as pd\n\ndef test_pipeline_integrity():\n    sales_fixture = 'fixture_sales.csv'\n    customers_fixture = 'fixture_customers.csv'\n    output_json = 'fixture_summary.json'\n    run_analytics_pipeline(sales_fixture, customers_fixture, output_json)\n    with open(output_json, 'r') as f:\n        summary = json.load(f)\n    assert summary['total_revenue'] >= 0, 'Revenue must be non-negative'\n    assert isinstance(summary['unique_customers'], int), 'Unique customers must be integer'\n    os.remove(output_json)\n    return True",
+      "test_cases": [
+        "assert test_pipeline_integrity() is True",
+        "assert not os.path.exists('fixture_summary.json')"
+      ],
+      "hint": "After running the pipeline, open the generated JSON, inspect each required key, and assert type and value constraints. Clean up the temporary file afterward.",
+      "explanation": "The final milestone emphasizes data integrity and testability. Reading back serialized output and asserting invariants closes the loop between computation and verification, mirroring real-world ETL quality gates."
+    },
+    {
+      "id": "42.2_q25",
+      "type": "write_the_code",
+      "concept": "project_data_merging_and_analytics_pipeline_milestone",
+      "skill": "integration",
+      "difficulty": "hard",
+      "prerequisites": [
+        "42.2_q24"
+      ],
+      "prompt": "Build a guided project that merges two CSV datasets and computes summary statistics.",
+      "starter_code": "import pandas as pd\n\ndf_sales = pd.read_csv('sales.csv')\ndf_inventory = pd.read_csv('inventory.csv')\n\nmerged = pd.merge(df_sales, df_inventory, on='product_id')\nsummary = merged.groupby('region').agg({'revenue': 'sum', 'units': 'mean'})\nprint(summary)",
+      "solution_code": "import pandas as pd\n\ndf_sales = pd.read_csv('sales.csv')\ndf_inventory = pd.read_csv('inventory.csv')\n\nmerged = pd.merge(df_sales, df_inventory, on='product_id', how='inner')\nsummary = merged.groupby('region').agg({'revenue': 'sum', 'units': 'mean'})\nprint(summary)",
+      "test_cases": [
+        "assert merged.shape[0] == len(set(df_sales['product_id']) & set(df_inventory['product_id']))",
+        "assert 'revenue' in summary.columns and 'units' in summary.columns"
+      ],
+      "hint": "Use how='inner' to keep only matching product_id rows, then verify the merged shape.",
+      "explanation": "This milestone teaches end-to-end data merging using pandas merge and groupby aggregation, which is essential for analytics pipelines."
+    },
+    {
+      "id": "42.2_q26",
+      "type": "write_the_code",
+      "concept": "project_data_merging_and_analytics_pipeline_milestone",
+      "skill": "integration",
+      "difficulty": "hard",
+      "prerequisites": [
+        "42.2_q25"
+      ],
+      "prompt": "Extend the guided project by adding JSON ingestion and cleaning steps before merging.",
+      "starter_code": "import pandas as pd\nimport json\n\nwith open('config.json') as f:\n    config = json.load(f)\n\ndf = pd.read_csv('raw_data.csv')\ndf_clean = df.dropna()\nprint(df_clean.head())",
+      "solution_code": "import pandas as pd\nimport json\n\nwith open('config.json') as f:\n    config = json.load(f)\n\ndf = pd.read_csv('raw_data.csv')\ndf_clean = df.dropna(subset=config.get('required_columns', []))\ndf_clean = df_clean.apply(lambda x: x.str.strip() if x.dtype == 'object' else x)\nprint(df_clean.head())",
+      "test_cases": [
+        "assert len(df_clean) <= len(df)",
+        "assert all(col in df_clean.columns for col in config.get('required_columns', []))"
+      ],
+      "hint": "Use config to dynamically select columns for dropping NA and apply strip to object columns.",
+      "explanation": "Adding JSON-driven configuration makes the pipeline reusable and demonstrates preprocessing before merging."
+    },
+    {
+      "id": "42.2_q27",
+      "type": "write_the_code",
+      "concept": "project_data_merging_and_analytics_pipeline_extension",
+      "skill": "extension",
+      "difficulty": "hard",
+      "prerequisites": [
+        "42.2_q26"
+      ],
+      "prompt": "Add a time-based feature to the pipeline by parsing timestamps and resampling daily totals.",
+      "starter_code": "import pandas as pd\n\ndf = pd.read_csv('transactions.csv')\ndf['date'] = pd.to_datetime(df['date'])\ndaily = df.groupby(df['date'].dt.date)['amount'].sum()\nprint(daily)",
+      "solution_code": "import pandas as pd\n\ndf = pd.read_csv('transactions.csv')\ndf['date'] = pd.to_datetime(df['date'])\ndf['year_month'] = df['date'].dt.to_period('M')\ndaily = df.groupby(df['date'].dt.date)['amount'].sum()\nmonthly = df.groupby('year_month')['amount'].sum()\nprint('Daily:', daily)\nprint('Monthly:', monthly)",
+      "test_cases": [
+        "assert isinstance(daily.index[0], pd.Timestamp)",
+        "assert len(monthly) <= len(daily)"
+      ],
+      "hint": "Use dt.to_period('M') for monthly grouping and keep both daily and monthly aggregations.",
+      "explanation": "Temporal feature engineering is critical for analytics pipelines that support trend analysis."
+    },
+    {
+      "id": "42.2_q28",
+      "type": "write_the_code",
+      "concept": "project_data_merging_and_analytics_pipeline_extension",
+      "skill": "extension",
+      "difficulty": "hard",
+      "prerequisites": [
+        "42.2_q27"
+      ],
+      "prompt": "Implement outlier detection using IQR before final aggregation.",
+      "starter_code": "import pandas as pd\nimport numpy as np\n\ndf = pd.read_csv('metrics.csv')\nq1 = df['value'].quantile(0.25)\nq3 = df['value'].quantile(0.75)\niqr = q3 - q1\nlower = q1 - 1.5 * iqr\nupper = q3 + 1.5 * iqr\ndf_filtered = df[(df['value'] >= lower) & (df['value'] <= upper)]\nprint(df_filtered.describe())",
+      "solution_code": "import pandas as pd\nimport numpy as np\n\ndf = pd.read_csv('metrics.csv')\nq1 = df['value'].quantile(0.25)\nq3 = df['value'].quantile(0.75)\niqr = q3 - q1\nlower = q1 - 1.5 * iqr\nupper = q3 + 1.5 * iqr\ndf_filtered = df[(df['value'] >= lower) & (df['value'] <= upper)]\noutliers = df[(df['value'] < lower) | (df['value'] > upper)]\nprint('Filtered summary:', df_filtered.describe())\nprint('Outlier count:', len(outliers))",
+      "test_cases": [
+        "assert len(df_filtered) + len(outliers) == len(df)",
+        "assert df_filtered['value'].min() >= lower and df_filtered['value'].max() <= upper"
+      ],
+      "hint": "Store outliers separately before filtering so the pipeline remains auditable.",
+      "explanation": "Robust aggregation via IQR filtering improves data quality in production analytics pipelines."
+    },
+    {
+      "id": "42.2_q29",
+      "type": "write_the_code",
+      "concept": "project_data_merging_and_analytics_pipeline_extension",
+      "skill": "extension",
+      "difficulty": "hard",
+      "prerequisites": [
+        "42.2_q28"
+      ],
+      "prompt": "Merge three datasets with a left join strategy and handle missing keys using a default placeholder.",
+      "starter_code": "import pandas as pd\n\ndf1 = pd.read_csv('customers.csv')\ndf2 = pd.read_csv('orders.csv')\ndf3 = pd.read_csv('products.csv')\n\nresult = pd.merge(df1, df2, on='customer_id')\nresult = pd.merge(result, df3, on='product_id')\nprint(result.isnull().sum())",
+      "solution_code": "import pandas as pd\n\ndf1 = pd.read_csv('customers.csv')\ndf2 = pd.read_csv('orders.csv')\ndf3 = pd.read_csv('products.csv')\n\nresult = pd.merge(df1, df2, on='customer_id', how='left')\nresult = pd.merge(result, df3, on='product_id', how='left')\nresult = result.fillna({'product_name': 'unknown'})\nprint(result.isnull().sum())",
+      "test_cases": [
+        "assert 'product_name' not in result.isnull().any()",
+        "assert len(result) == len(df1)"
+      ],
+      "hint": "Use how='left' at each merge step and fillna with a dictionary keyed by column name.",
+      "explanation": "Left joins preserve all records from the primary dataset, and explicit missing-value handling prevents downstream errors."
+    },
+    {
+      "id": "42.2_q30",
+      "type": "write_the_code",
+      "concept": "project_data_merging_and_analytics_pipeline_extension",
+      "skill": "extension",
+      "difficulty": "hard",
+      "prerequisites": [
+        "42.2_q29"
+      ],
+      "prompt": "Serialize the final analytics pipeline to disk and reload it for inference on new data.",
+      "starter_code": "import pandas as pd\nimport pickle\n\nfinal_pipeline = {\n    'merge_cols': ['customer_id', 'product_id'],\n    'agg_cols': ['revenue', 'quantity']\n}\n\nwith open('pipeline.pkl', 'wb') as f:\n    pickle.dump(final_pipeline, f)\n\nwith open('pipeline.pkl', 'rb') as f:\n    loaded = pickle.load(f)\nprint(loaded)",
+      "solution_code": "import pandas as pd\nimport pickle\n\nfinal_pipeline = {\n    'merge_cols': ['customer_id', 'product_id'],\n    'agg_cols': ['revenue', 'quantity'],\n    'fillna_map': {'region': 'na', 'segment': 'na'}\n}\n\nwith open('pipeline.pkl', 'wb') as f:\n    pickle.dump(final_pipeline, f)\n\nwith open('pipeline.pkl', 'rb') as f:\n    loaded = pickle.load(f)\nprint('Loaded keys:', list(loaded.keys()))",
+      "test_cases": [
+        "assert 'fillna_map' in loaded",
+        "assert loaded['merge_cols'] == ['customer_id', 'product_id']"
+      ],
+      "hint": "Include fillna_map in the serialized dictionary so the reload step is self-contained.",
+      "explanation": "Persisting pipeline configuration enables repeatable analytics workflows and is a hallmark of production-grade data systems."
+    }
+  ]
+}

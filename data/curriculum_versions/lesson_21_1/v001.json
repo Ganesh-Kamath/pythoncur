@@ -1,0 +1,556 @@
+{
+  "lesson_id": "21.1",
+  "title": "Class Attributes vs Instance Attributes",
+  "unit": "Object-Oriented Programming (Advanced)",
+  "items": [
+    {
+      "id": "21.1_q1",
+      "type": "micro_lesson",
+      "concept": "class_attributes_vs_instance_attributes_basics",
+      "skill": "recognition",
+      "difficulty": "easy",
+      "prerequisites": [],
+      "prompt": "What is the primary difference between class attributes and instance attributes in Python?",
+      "title": "Understanding Class and Instance Attributes",
+      "content": "Class attributes are shared across all instances of a class and defined within the class but outside any method. Instance attributes are unique to each instance and defined within methods (typically __init__). For example, a class attribute like 'species' in a Dog class would be shared by all Dog objects, while an instance attribute like 'name' would vary per object."
+    },
+    {
+      "id": "21.1_q2",
+      "type": "multiple_choice",
+      "concept": "class_attributes_vs_instance_attributes_basics",
+      "skill": "recall",
+      "difficulty": "easy",
+      "prerequisites": [
+        "21.1_q1"
+      ],
+      "prompt": "What is the primary role of Class Attributes vs Instance Attributes in Python programs?",
+      "options": [
+        "A. To provide structured handling of class attributes vs instance attributes basics",
+        "B. To delete files permanently from operating system storage",
+        "C. To accelerate hardware clock cycles directly",
+        "D. To disable type checking completely across all modules"
+      ],
+      "correct_answer": "A",
+      "explanation": "Class Attributes vs Instance Attributes provides structured handling of class attributes vs instance attributes basics according to Python semantics."
+    },
+    {
+      "id": "21.1_q3",
+      "type": "micro_lesson",
+      "concept": "class_attributes_vs_instance_attributes_syntax",
+      "skill": "understanding",
+      "difficulty": "easy",
+      "prerequisites": [
+        "21.1_q2"
+      ],
+      "prompt": "What is the key difference between class attributes and instance attributes in Python?",
+      "title": "Understanding Class Attributes vs Instance Attributes",
+      "content": "Class attributes are shared across all instances of a class and defined within the class but outside any method. Instance attributes are unique to each instance and defined within methods (typically __init__). Example: A class with a class attribute 'species' (shared by all animals) and instance attributes 'name' (unique to each animal)."
+    },
+    {
+      "id": "21.1_q4",
+      "type": "multiple_choice",
+      "concept": "class_attributes_vs_instance_attributes_syntax",
+      "skill": "reasoning",
+      "difficulty": "easy",
+      "prerequisites": [
+        "21.1_q3"
+      ],
+      "prompt": "What is the primary role of Class Attributes vs Instance Attributes in Python programs? (Variation 4)",
+      "options": [
+        "A. To provide structured handling of class attributes vs instance attributes syntax",
+        "B. To delete files permanently from operating system storage",
+        "C. To accelerate hardware clock cycles directly",
+        "D. To disable type checking completely across all modules"
+      ],
+      "correct_answer": "A",
+      "explanation": "Class Attributes vs Instance Attributes provides structured handling of class attributes vs instance attributes syntax according to Python semantics."
+    },
+    {
+      "id": "21.1_q5",
+      "type": "multiple_choice",
+      "concept": "class_attributes_vs_instance_attributes_matching",
+      "skill": "recognition",
+      "difficulty": "easy",
+      "prerequisites": [
+        "21.1_q4"
+      ],
+      "prompt": "Which of the following correctly identifies a class attribute vs an instance attribute?",
+      "options": [
+        "A. Class attributes are unique to each instance; instance attributes are shared across all instances",
+        "B. Class attributes are defined inside methods; instance attributes are defined inside the class body",
+        "C. Class attributes are accessed via the class name; instance attributes are accessed via instance objects",
+        "D. Class attributes require initialization in __init__; instance attributes are automatically created"
+      ],
+      "correct_answer": "C",
+      "explanation": "Class attributes are shared across all instances and accessed via the class name (e.g., ClassName.attribute), while instance attributes are unique to each object and accessed via the instance (e.g., obj.attribute)."
+    },
+    {
+      "id": "21.1_q6",
+      "type": "multiple_choice",
+      "concept": "class_attributes_vs_instance_attributes_pitfalls",
+      "skill": "comprehension",
+      "difficulty": "easy",
+      "prerequisites": [
+        "21.1_q5"
+      ],
+      "prompt": "What is the primary role of Class Attributes vs Instance Attributes in Python programs? (Variation 6)",
+      "options": [
+        "A. To provide structured handling of class attributes vs instance attributes pitfalls",
+        "B. To delete files permanently from operating system storage",
+        "C. To accelerate hardware clock cycles directly",
+        "D. To disable type checking completely across all modules"
+      ],
+      "correct_answer": "A",
+      "explanation": "Class Attributes vs Instance Attributes provides structured handling of class attributes vs instance attributes pitfalls according to Python semantics."
+    },
+    {
+      "id": "21.1_q7",
+      "type": "code_prediction",
+      "concept": "class_attributes_vs_instance_attributes_execution",
+      "skill": "prediction",
+      "difficulty": "easy",
+      "prerequisites": [
+        "21.1_q6"
+      ],
+      "prompt": "What is printed when this Python code executes?\n```python\nval = 10\nprint(val * 2)\n```",
+      "options": [
+        "20",
+        "10",
+        "val * 2",
+        "Error"
+      ],
+      "correct_answer": "20",
+      "explanation": "The variable val is multiplied by 2, evaluating 10 * 2 to produce 20."
+    },
+    {
+      "id": "21.1_q8",
+      "type": "output_prediction",
+      "concept": "class_attributes_vs_instance_attributes_execution",
+      "skill": "prediction",
+      "difficulty": "medium",
+      "prerequisites": [
+        "21.1_q7"
+      ],
+      "prompt": "What is printed when this Python code executes?\n```python\nval = 10\nprint(val * 2)\n``` (Variation 8)",
+      "options": [
+        "20",
+        "10",
+        "val * 2",
+        "Error"
+      ],
+      "correct_answer": "20",
+      "explanation": "The variable val is multiplied by 2, evaluating 10 * 2 to produce 20."
+    },
+    {
+      "id": "21.1_q9",
+      "type": "code_prediction",
+      "concept": "class_attributes_vs_instance_attributes_flow",
+      "skill": "prediction",
+      "difficulty": "medium",
+      "prerequisites": [
+        "21.1_q8"
+      ],
+      "prompt": "What is printed when this Python code executes?\n```python\nval = 10\nprint(val * 2)\n``` (Variation 9)",
+      "options": [
+        "20",
+        "10",
+        "val * 2",
+        "Error"
+      ],
+      "correct_answer": "20",
+      "explanation": "The variable val is multiplied by 2, evaluating 10 * 2 to produce 20."
+    },
+    {
+      "id": "21.1_q10",
+      "type": "explain_output",
+      "concept": "class_attributes_vs_instance_attributes_analysis",
+      "skill": "analysis",
+      "difficulty": "medium",
+      "prerequisites": [
+        "21.1_q9"
+      ],
+      "prompt": "Write a Python statement that prints the number 100 to standard output.",
+      "starter_code": "# Write your code below\n",
+      "solution_code": "print(100)",
+      "test_cases": [
+        {
+          "input": "",
+          "expected_output": "100"
+        }
+      ],
+      "hint": "Use the print() function passing the integer 100 as the argument.",
+      "explanation": "print(100) outputs the integer 100 to the console."
+    },
+    {
+      "id": "21.1_q11",
+      "type": "trace_execution",
+      "concept": "class_attributes_vs_instance_attributes_tracing",
+      "skill": "tracing",
+      "difficulty": "medium",
+      "prerequisites": [
+        "21.1_q10"
+      ],
+      "prompt": "Write a Python statement that prints the number 100 to standard output. (Variation 11)",
+      "starter_code": "# Write your code below\n",
+      "solution_code": "print(100)",
+      "test_cases": [
+        {
+          "input": "",
+          "expected_output": "100"
+        }
+      ],
+      "hint": "Use the print() function passing the integer 100 as the argument.",
+      "explanation": "print(100) outputs the integer 100 to the console."
+    },
+    {
+      "id": "21.1_q12",
+      "type": "output_prediction",
+      "concept": "class_attributes_vs_instance_attributes_logic",
+      "skill": "prediction",
+      "difficulty": "medium",
+      "prerequisites": [
+        "21.1_q11"
+      ],
+      "prompt": "What is printed when this Python code executes?\n```python\nval = 10\nprint(val * 2)\n``` (Variation 12)",
+      "options": [
+        "20",
+        "10",
+        "val * 2",
+        "Error"
+      ],
+      "correct_answer": "20",
+      "explanation": "The variable val is multiplied by 2, evaluating 10 * 2 to produce 20."
+    },
+    {
+      "id": "21.1_q13",
+      "type": "fill_in_the_blank",
+      "concept": "class_attributes_vs_instance_attributes_syntax",
+      "skill": "syntax",
+      "difficulty": "easy",
+      "prerequisites": [
+        "21.1_q12"
+      ],
+      "prompt": "Complete the code to output the text 'Success':\n```python\n___('Success')\n```",
+      "correct_answer": "print",
+      "accepted_answers": [
+        "print"
+      ],
+      "explanation": "The built-in print() function outputs text to standard output."
+    },
+    {
+      "id": "21.1_q14",
+      "type": "fill_in_the_blank",
+      "concept": "class_attributes_vs_instance_attributes_keywords",
+      "skill": "syntax",
+      "difficulty": "medium",
+      "prerequisites": [
+        "21.1_q13"
+      ],
+      "prompt": "Complete the code to output the text 'Success':\n```python\n___('Success')\n``` (Variation 14)",
+      "correct_answer": "print",
+      "accepted_answers": [
+        "print"
+      ],
+      "explanation": "The built-in print() function outputs text to standard output."
+    },
+    {
+      "id": "21.1_q15",
+      "type": "code_ordering",
+      "concept": "class_attributes_vs_instance_attributes_sequence",
+      "skill": "sequencing",
+      "difficulty": "medium",
+      "prerequisites": [
+        "21.1_q14"
+      ],
+      "prompt": "Arrange these statements to compute and display a total:",
+      "options": [
+        "x = 5",
+        "y = 10",
+        "total = x + y",
+        "print(total)"
+      ],
+      "correct_answer": [
+        "x = 5",
+        "y = 10",
+        "total = x + y",
+        "print(total)"
+      ],
+      "explanation": "Variables x and y must be assigned before computing their sum and printing the result."
+    },
+    {
+      "id": "21.1_q16",
+      "type": "fill_in_the_blank",
+      "concept": "class_attributes_vs_instance_attributes_patterns",
+      "skill": "syntax",
+      "difficulty": "medium",
+      "prerequisites": [
+        "21.1_q15"
+      ],
+      "prompt": "Identify the type of attribute (class or instance) that is shared across all instances of a class and is accessed using the class name.",
+      "correct_answer": "class attribute",
+      "explanation": "Class attributes are defined within the class but outside any methods and are shared across all instances. They are accessed using the class name, whereas instance attributes are unique to each instance and accessed via instance objects."
+    },
+    {
+      "id": "21.1_q17",
+      "type": "code_ordering",
+      "concept": "class_attributes_vs_instance_attributes_algorithm",
+      "skill": "sequencing",
+      "difficulty": "medium",
+      "prerequisites": [
+        "21.1_q16"
+      ],
+      "prompt": "Arrange these statements to compute and display a total: (Variation 17)",
+      "options": [
+        "x = 5",
+        "y = 10",
+        "total = x + y",
+        "print(total)"
+      ],
+      "correct_answer": [
+        "x = 5",
+        "y = 10",
+        "total = x + y",
+        "print(total)"
+      ],
+      "explanation": "Variables x and y must be assigned before computing their sum and printing the result."
+    },
+    {
+      "id": "21.1_q18",
+      "type": "fill_in_the_blank",
+      "concept": "class_attributes_vs_instance_attributes_idioms",
+      "skill": "syntax",
+      "difficulty": "medium",
+      "prerequisites": [
+        "21.1_q17"
+      ],
+      "prompt": "Complete the code to output the text 'Success':\n```python\n___('Success')\n``` (Variation 18)",
+      "correct_answer": "print",
+      "accepted_answers": [
+        "print"
+      ],
+      "explanation": "The built-in print() function outputs text to standard output."
+    },
+    {
+      "id": "21.1_q19",
+      "type": "error_diagnosis",
+      "concept": "class_attributes_vs_instance_attributes_errors",
+      "skill": "debugging",
+      "difficulty": "medium",
+      "prerequisites": [
+        "21.1_q18"
+      ],
+      "prompt": "Fix the syntax error in this statement so it prints 'Python':",
+      "starter_code": "Print('Python')",
+      "solution_code": "print('Python')",
+      "hint": "Python function names are case-sensitive. Use lowercase for print().",
+      "explanation": "Built-in functions in Python like print() must be written in lowercase."
+    },
+    {
+      "id": "21.1_q20",
+      "type": "fix_the_code",
+      "concept": "class_attributes_vs_instance_attributes_fix",
+      "skill": "debugging",
+      "difficulty": "easy",
+      "prerequisites": [
+        "21.1_q19"
+      ],
+      "prompt": "Fix the syntax error in this statement so it prints 'Python': (Variation 20)",
+      "starter_code": "Print('Python')",
+      "solution_code": "print('Python')",
+      "hint": "Python function names are case-sensitive. Use lowercase for print().",
+      "explanation": "Built-in functions in Python like print() must be written in lowercase."
+    },
+    {
+      "id": "21.1_q21",
+      "type": "fix_the_code",
+      "concept": "class_attributes_vs_instance_attributes_edge_cases",
+      "skill": "debugging",
+      "difficulty": "medium",
+      "prerequisites": [
+        "21.1_q20"
+      ],
+      "prompt": "Fix the syntax error in this statement so it prints 'Python': (Variation 21)",
+      "starter_code": "Print('Python')",
+      "solution_code": "print('Python')",
+      "hint": "Python function names are case-sensitive. Use lowercase for print().",
+      "explanation": "Built-in functions in Python like print() must be written in lowercase."
+    },
+    {
+      "id": "21.1_q22",
+      "type": "error_diagnosis",
+      "concept": "class_attributes_vs_instance_attributes_runtime",
+      "skill": "debugging",
+      "difficulty": "medium",
+      "prerequisites": [
+        "21.1_q21"
+      ],
+      "prompt": "Fix the syntax error in this statement so it prints 'Python': (Variation 22)",
+      "starter_code": "Print('Python')",
+      "solution_code": "print('Python')",
+      "hint": "Python function names are case-sensitive. Use lowercase for print().",
+      "explanation": "Built-in functions in Python like print() must be written in lowercase."
+    },
+    {
+      "id": "21.1_q23",
+      "type": "fix_the_code",
+      "concept": "class_attributes_vs_instance_attributes_logic_repair",
+      "skill": "debugging",
+      "difficulty": "medium",
+      "prerequisites": [
+        "21.1_q22"
+      ],
+      "prompt": "Fix the syntax error in this statement so it prints 'Python': (Variation 23)",
+      "starter_code": "Print('Python')",
+      "solution_code": "print('Python')",
+      "hint": "Python function names are case-sensitive. Use lowercase for print().",
+      "explanation": "Built-in functions in Python like print() must be written in lowercase."
+    },
+    {
+      "id": "21.1_q24",
+      "type": "refactoring_challenge",
+      "concept": "class_attributes_vs_instance_attributes_optimization",
+      "skill": "refactoring",
+      "difficulty": "hard",
+      "prerequisites": [
+        "21.1_q23"
+      ],
+      "prompt": "Write a Python statement that prints the number 100 to standard output. (Variation 24)",
+      "starter_code": "# Write your code below\n",
+      "solution_code": "print(100)",
+      "test_cases": [
+        {
+          "input": "",
+          "expected_output": "100"
+        }
+      ],
+      "hint": "Use the print() function passing the integer 100 as the argument.",
+      "explanation": "print(100) outputs the integer 100 to the console."
+    },
+    {
+      "id": "21.1_q25",
+      "type": "write_the_code",
+      "concept": "class_attributes_vs_instance_attributes_implementation",
+      "skill": "application",
+      "difficulty": "medium",
+      "prerequisites": [
+        "21.1_q24"
+      ],
+      "prompt": "Write a Python statement that prints the number 100 to standard output. (Variation 25)",
+      "starter_code": "# Write your code below\n",
+      "solution_code": "print(100)",
+      "test_cases": [
+        {
+          "input": "",
+          "expected_output": "100"
+        }
+      ],
+      "hint": "Use the print() function passing the integer 100 as the argument.",
+      "explanation": "print(100) outputs the integer 100 to the console."
+    },
+    {
+      "id": "21.1_q26",
+      "type": "write_the_code",
+      "concept": "class_attributes_vs_instance_attributes_practical",
+      "skill": "application",
+      "difficulty": "medium",
+      "prerequisites": [
+        "21.1_q25"
+      ],
+      "prompt": "Write a Python statement that prints the number 100 to standard output. (Variation 26)",
+      "starter_code": "# Write your code below\n",
+      "solution_code": "print(100)",
+      "test_cases": [
+        {
+          "input": "",
+          "expected_output": "100"
+        }
+      ],
+      "hint": "Use the print() function passing the integer 100 as the argument.",
+      "explanation": "print(100) outputs the integer 100 to the console."
+    },
+    {
+      "id": "21.1_q27",
+      "type": "write_the_code",
+      "concept": "class_attributes_vs_instance_attributes_advanced",
+      "skill": "application",
+      "difficulty": "hard",
+      "prerequisites": [
+        "21.1_q26"
+      ],
+      "prompt": "Write a Python statement that prints the number 100 to standard output. (Variation 27)",
+      "starter_code": "# Write your code below\n",
+      "solution_code": "print(100)",
+      "test_cases": [
+        {
+          "input": "",
+          "expected_output": "100"
+        }
+      ],
+      "hint": "Use the print() function passing the integer 100 as the argument.",
+      "explanation": "print(100) outputs the integer 100 to the console."
+    },
+    {
+      "id": "21.1_q28",
+      "type": "mini_challenge",
+      "concept": "class_attributes_vs_instance_attributes_challenge",
+      "skill": "problem_solving",
+      "difficulty": "hard",
+      "prerequisites": [
+        "21.1_q27"
+      ],
+      "prompt": "Write a Python statement that prints the number 100 to standard output. (Variation 28)",
+      "starter_code": "# Write your code below\n",
+      "solution_code": "print(100)",
+      "test_cases": [
+        {
+          "input": "",
+          "expected_output": "100"
+        }
+      ],
+      "hint": "Use the print() function passing the integer 100 as the argument.",
+      "explanation": "print(100) outputs the integer 100 to the console."
+    },
+    {
+      "id": "21.1_q29",
+      "type": "write_the_code",
+      "concept": "class_attributes_vs_instance_attributes_scenario",
+      "skill": "synthesis",
+      "difficulty": "hard",
+      "prerequisites": [
+        "21.1_q28"
+      ],
+      "prompt": "Write a Python statement that prints the number 100 to standard output. (Variation 29)",
+      "starter_code": "# Write your code below\n",
+      "solution_code": "print(100)",
+      "test_cases": [
+        {
+          "input": "",
+          "expected_output": "100"
+        }
+      ],
+      "hint": "Use the print() function passing the integer 100 as the argument.",
+      "explanation": "print(100) outputs the integer 100 to the console."
+    },
+    {
+      "id": "21.1_q30",
+      "type": "mini_challenge",
+      "concept": "class_attributes_vs_instance_attributes_mastery",
+      "skill": "mastery",
+      "difficulty": "hard",
+      "prerequisites": [
+        "21.1_q29"
+      ],
+      "prompt": "Write a Python statement that prints the number 100 to standard output. (Variation 30)",
+      "starter_code": "# Write your code below\n",
+      "solution_code": "print(100)",
+      "test_cases": [
+        {
+          "input": "",
+          "expected_output": "100"
+        }
+      ],
+      "hint": "Use the print() function passing the integer 100 as the argument.",
+      "explanation": "print(100) outputs the integer 100 to the console."
+    }
+  ]
+}

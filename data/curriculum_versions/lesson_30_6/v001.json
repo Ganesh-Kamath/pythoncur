@@ -1,0 +1,619 @@
+{
+  "lesson_id": "30.6",
+  "title": "Testing a Solution",
+  "unit": "Problem-Solving Methodology",
+  "items": [
+    {
+      "id": "30.6_q1",
+      "type": "micro_lesson",
+      "skill": "recognition",
+      "diff": "easy",
+      "concept": "testing_a_solution_basics",
+      "title": "What Does It Mean to Test a Solution?",
+      "content": "Testing a solution is the process of checking whether your Python code produces the expected output for given inputs. In problem-solving, testing helps you verify correctness before moving on. For example, if you write a function to add two numbers, you test it with known values to confirm it works. A common first step is to use print() to observe results. Consider this simple example:\n\n```python\ndef add(a, b):\n    return a + b\n\nresult = add(3, 5)\nprint('The result is:', result)\n```\n\nWhen you run this, you expect to see 'The result is: 8'. If the output differs, your solution needs revision. Testing is not just about finding bugs\u2014it is about building confidence that your logic aligns with the problem requirements.",
+      "difficulty": "easy",
+      "prerequisites": []
+    },
+    {
+      "id": "30.6_q2",
+      "type": "multiple_choice",
+      "skill": "recall",
+      "diff": "easy",
+      "concept": "testing_a_solution_basics",
+      "prompt": "Which of the following best describes the purpose of testing a solution in Python?",
+      "options": [
+        "To make the code run faster",
+        "To verify that the code produces expected results",
+        "To add comments to the code",
+        "To change variable names"
+      ],
+      "correct_answer": "To verify that the code produces expected results",
+      "explanation": "Testing a solution means checking whether your code behaves as intended for given inputs. It is not primarily about performance optimization, documentation, or renaming variables.",
+      "difficulty": "easy",
+      "prerequisites": [
+        "30.6_q1"
+      ]
+    },
+    {
+      "id": "30.6_q3",
+      "type": "micro_lesson",
+      "skill": "understanding",
+      "diff": "easy",
+      "concept": "testing_a_solution_syntax",
+      "title": "Using print() to Check Syntax and Output",
+      "content": "One of the simplest ways to test a Python solution is by printing intermediate values. This helps you confirm both syntax correctness and logical behavior. If your code has a syntax error, Python will raise an exception before any output appears. If syntax is valid, print() reveals runtime values. For instance:\n\n```python\nname = 'Alice'\nage = 10\n\nprint('Name:', name)\nprint('Age:', age)\n```\n\nRunning this produces:\n\n```\nName: Alice\nAge: 10\n```\n\nNotice the use of single quotes inside the print() calls. This is valid Python syntax. Always ensure your strings use consistent quoting. If you mix quotes incorrectly, such as print(\"Name:\" + name), Python will still work, but in this curriculum we standardize on single quotes for clarity and to avoid escaping issues in string literals.",
+      "difficulty": "easy",
+      "prerequisites": [
+        "30.6_q2"
+      ]
+    },
+    {
+      "id": "30.6_q4",
+      "type": "multiple_choice",
+      "skill": "reasoning",
+      "diff": "easy",
+      "concept": "testing_a_solution_syntax",
+      "prompt": "Given the code below, what will be printed when executed correctly?\n\n```python\nx = 7\ny = 2\nprint('x + y equals', x + y)\n```",
+      "options": [
+        "x + y equals 9",
+        "x + y equals 14",
+        "x + y equals 5",
+        "SyntaxError"
+      ],
+      "correct_answer": "x + y equals 9",
+      "explanation": "The expression x + y evaluates to 9 because 7 + 2 = 9. The print() statement outputs the string 'x + y equals' followed by the computed sum. There is no syntax error because single quotes are used correctly and the addition operator is valid.",
+      "difficulty": "easy",
+      "prerequisites": [
+        "30.6_q3"
+      ]
+    },
+    {
+      "id": "30.6_q5",
+      "type": "multiple_choice",
+      "skill": "recognition",
+      "diff": "easy",
+      "concept": "testing_a_solution_matching",
+      "prompt": "Match the testing action to its purpose.",
+      "options": [
+        "Running code with sample inputs to check output",
+        "Rewriting the entire program from scratch",
+        "Deleting all comments from the file",
+        "Changing the file extension to .txt"
+      ],
+      "correct_answer": "Running code with sample inputs to check output",
+      "explanation": "Testing a solution involves executing your code with known inputs and comparing the actual output to the expected result. The other options describe unrelated activities such as refactoring, documentation cleanup, or file manipulation.",
+      "difficulty": "easy",
+      "prerequisites": [
+        "30.6_q4"
+      ]
+    },
+    {
+      "id": "30.6_q6",
+      "type": "multiple_choice",
+      "skill": "comprehension",
+      "diff": "easy",
+      "concept": "testing_a_solution_pitfalls",
+      "prompt": "Which of the following is a common pitfall when testing a Python solution?",
+      "options": [
+        "Testing only with one input and assuming it works for all cases",
+        "Using print() to inspect values during development",
+        "Writing clear variable names",
+        "Checking that indentation is consistent"
+      ],
+      "correct_answer": "Testing only with one input and assuming it works for all cases",
+      "explanation": "Relying on a single test case can hide bugs that appear with different inputs. Effective testing uses multiple representative inputs. The other choices are actually good practices that help prevent errors rather than cause them.",
+      "difficulty": "easy",
+      "prerequisites": [
+        "30.6_q5"
+      ]
+    },
+    {
+      "id": "30.6_q7",
+      "type": "code_prediction",
+      "concept": "testing_a_solution_execution",
+      "skill": "prediction",
+      "difficulty": "easy",
+      "prerequisites": [
+        "30.6_q6"
+      ],
+      "micro_lesson": {
+        "title": "Predicting What Code Will Run",
+        "content": "When testing a solution, one of the first steps is to predict what the code will do before executing it. This helps catch logical errors early. Consider a simple function that takes a number and returns its square. By reading the code carefully, you can predict the output without running the script. Always trace the values step by step.\n\n```python\ndef square(n):\n    return n * n\n\nresult = square(5)\nprint(result)\n```\nIn this example, the function `square` multiplies `n` by itself. When called with `5`, it returns `25`, which is then printed."
+      },
+      "prompt": "What is the output of this Python snippet?\n```python\nprint('Testing a Solution')\n```",
+      "options": [
+        "Testing a Solution",
+        "Error",
+        "None",
+        "Testing a Solution (repeated)"
+      ],
+      "correct_answer": "Testing a Solution",
+      "explanation": "Python evaluates and outputs the result sequentially."
+    },
+    {
+      "id": "30.6_q8",
+      "type": "output_prediction",
+      "concept": "testing_a_solution_execution",
+      "skill": "prediction",
+      "difficulty": "medium",
+      "prerequisites": [
+        "30.6_q7"
+      ],
+      "micro_lesson": {
+        "title": "Predicting Output with Loops and Conditionals",
+        "content": "Testing a solution often involves predicting the final output when loops and conditionals interact. Pay close attention to indentation and the order of operations. A small change in a condition can alter the entire output. Let's examine a program that checks even numbers and prints a message accordingly.\n\n```python\nfor i in range(1, 4):\n    if i % 2 == 0:\n        print('even', i)\n    else:\n        print('odd', i)\n```\nTrace each iteration: when `i` is `1`, the condition is false and `odd 1` is printed; when `i` is `2`, the condition is true and `even 2` is printed; when `i` is `3`, `odd 3` is printed. The complete output is three lines."
+      },
+      "prompt": "What is the output of this Python snippet?\n```python\nprint('Testing a Solution')\n``` (Variation 8)",
+      "options": [
+        "Testing a Solution",
+        "Error",
+        "None",
+        "Testing a Solution (repeated)"
+      ],
+      "correct_answer": "Testing a Solution",
+      "explanation": "Python evaluates and outputs the result sequentially."
+    },
+    {
+      "id": "30.6_q9",
+      "type": "code_prediction",
+      "concept": "testing_a_solution_flow",
+      "skill": "prediction",
+      "difficulty": "medium",
+      "prerequisites": [
+        "30.6_q8"
+      ],
+      "micro_lesson": {
+        "title": "Tracing Control Flow",
+        "content": "To test a solution, you must trace the control flow: which branch of an `if` statement is taken and in what order statements execute. Functions can be called multiple times, and each call may follow a different path. Understanding the flow allows you to predict the result accurately.\n\n```python\ndef check(x):\n    if x > 10:\n        return 'high'\n    else:\n        return 'low'\n\nprint(check(5))\nprint(check(15))\n```\nWhen `check(5)` is called, `5` is not greater than `10`, so the `else` branch runs and `'low'` is returned. When `check(15)` is called, `15` is greater than `10`, so the `if` branch runs and `'high'` is returned. The two `print` statements output `'low'` and then `'high'`."
+      },
+      "prompt": "What is the output of this Python snippet?\n```python\nprint('Testing a Solution')\n``` (Variation 9)",
+      "options": [
+        "Testing a Solution",
+        "Error",
+        "None",
+        "Testing a Solution (repeated)"
+      ],
+      "correct_answer": "Testing a Solution",
+      "explanation": "Python evaluates and outputs the result sequentially."
+    },
+    {
+      "id": "30.6_q10",
+      "type": "write_the_code",
+      "concept": "testing_a_solution_analysis",
+      "skill": "analysis",
+      "difficulty": "medium",
+      "prerequisites": [
+        "30.6_q9"
+      ],
+      "micro_lesson": {
+        "title": "Analyzing Why an Output Occurs",
+        "content": "After predicting an output, you should analyze why it occurred. This involves checking data types, list indices, and whether the code handles edge cases. Analysis turns a guess into a verified understanding. Consider a program that retrieves the last element of a list.\n\n```python\nlst = [10, 20, 30, 40]\nlast = lst[-1]\nprint(last)\n```\nHere, `lst[-1]` accesses the final element of the list. Since the list contains four integers, the index `-1` refers to `40`. The `print` statement displays `40`."
+      },
+      "prompt": "Write Python code to solve this challenge for Testing a Solution:",
+      "starter_code": "# Write your solution below\n",
+      "solution_code": "print('Testing a Solution')",
+      "test_cases": [
+        {
+          "input": "",
+          "expected_output": "Testing a Solution"
+        }
+      ],
+      "explanation": "The solution fulfills all functional requirements."
+    },
+    {
+      "id": "30.6_q11",
+      "type": "write_the_code",
+      "concept": "testing_a_solution_tracing",
+      "skill": "tracing",
+      "difficulty": "medium",
+      "prerequisites": [
+        "30.6_q10"
+      ],
+      "micro_lesson": {
+        "title": "Step-by-Step Execution Tracing",
+        "content": "Tracing execution means recording the value of every variable after each line runs. This is essential when testing a solution because it reveals hidden mistakes. Let's trace a simple arithmetic sequence.\n\n```python\na = 3\nb = a + 2\nc = b * 3\nprint(c)\n```\nStart with `a = 3`. Then `b` becomes `5`. Then `c` becomes `15`. Finally, `print(c)` outputs `15`."
+      },
+      "prompt": "Write Python code to solve this challenge for Testing a Solution: (Variation 11)",
+      "starter_code": "# Write your solution below\n",
+      "solution_code": "print('Testing a Solution')",
+      "test_cases": [
+        {
+          "input": "",
+          "expected_output": "Testing a Solution"
+        }
+      ],
+      "explanation": "The solution fulfills all functional requirements."
+    },
+    {
+      "id": "30.6_q12",
+      "type": "output_prediction",
+      "concept": "testing_a_solution_logic",
+      "skill": "prediction",
+      "difficulty": "medium",
+      "prerequisites": [
+        "30.6_q11"
+      ],
+      "micro_lesson": {
+        "title": "Predicting Output from Logical Conditions",
+        "content": "Logical conditions can produce different outputs based on how variables compare. When testing a solution, evaluate each condition carefully. A compound condition using `and` requires both parts to be true. Consider the following code.\n\n```python\nx = 8\ny = 3\nif x > 5 and y < 4:\n    print('yes')\nelse:\n    print('no')\n```\nHere, `x > 5` is `True` because `8` is greater than `5`. Also, `y < 4` is `True` because `3` is less than `4`. Since both conditions are `True`, the `if` branch executes and `'yes'` is printed."
+      },
+      "prompt": "What is the output of this Python snippet?\n```python\nprint('Testing a Solution')\n``` (Variation 12)",
+      "options": [
+        "Testing a Solution",
+        "Error",
+        "None",
+        "Testing a Solution (repeated)"
+      ],
+      "correct_answer": "Testing a Solution",
+      "explanation": "Python evaluates and outputs the result sequentially."
+    },
+    {
+      "id": "30.6_q13",
+      "type": "fill_in_the_blank",
+      "concept": "testing_a_solution_syntax",
+      "skill": "syntax",
+      "difficulty": "easy",
+      "prerequisites": [
+        "30.6_q12"
+      ],
+      "micro_lesson": {
+        "title": "Checking Syntax with a Simple Test",
+        "content": "When you write a solution, the first step is to verify that it follows correct Python syntax. A simple way to test this is to run a minimal example in a Python interpreter. If the code runs without a SyntaxError, the basic structure is valid. For instance, assigning a value to a variable and printing it is a quick sanity check. Always ensure indentation is correct and parentheses match.\n\n```python\nvalue = 42\nprint(value)\n```\nIf this executes without error, your syntax is sound for this basic pattern."
+      },
+      "prompt": "Fill in the blank to complete the statement:\n```python\n___('Testing a Solution')\n```",
+      "correct_answer": "print",
+      "accepted_answers": [
+        "print"
+      ],
+      "explanation": "The missing expression completes the valid Python statement."
+    },
+    {
+      "id": "30.6_q14",
+      "type": "fill_in_the_blank",
+      "concept": "testing_a_solution_keywords",
+      "skill": "syntax",
+      "difficulty": "medium",
+      "prerequisites": [
+        "30.6_q13"
+      ],
+      "micro_lesson": {
+        "title": "Using Keywords to Validate Logic",
+        "content": "Testing a solution involves more than just syntax; it requires using Python keywords correctly to express conditions. The `if`, `else`, and `elif` keywords control flow, while `True` and `False` represent boolean states. When you test a solution, you often write small conditional checks to ensure the code behaves as expected. For example, verifying that a number is positive uses the `if` keyword with a comparison operator.\n\n```python\nnumber = 10\nif number > 0:\n    print('positive')\n```\nNotice how `if` and the colon `:` are required keywords for this structure."
+      },
+      "prompt": "Fill in the blank to complete the statement:\n```python\n___('Testing a Solution')\n``` (Variation 14)",
+      "correct_answer": "print",
+      "accepted_answers": [
+        "print"
+      ],
+      "explanation": "The missing expression completes the valid Python statement."
+    },
+    {
+      "id": "30.6_q15",
+      "type": "code_ordering",
+      "concept": "testing_a_solution_sequence",
+      "skill": "sequencing",
+      "difficulty": "medium",
+      "prerequisites": [
+        "30.6_q14"
+      ],
+      "micro_lesson": {
+        "title": "Ordering Steps When Testing a Function",
+        "content": "When testing a solution, you must execute steps in the correct sequence to observe expected behavior. A function should be defined before it is called, and the return statement should appear inside the function body. Calling the function and printing its result should happen after the definition. Reversing this order causes a NameError because the function does not exist yet when you try to call it.\n\n```python\ndef add(a, b):\n    return a + b\n\nresult = add(3, 5)\nprint(result)\n```\nThis sequence ensures the function is defined, invoked, and its output is displayed in a logical order."
+      },
+      "prompt": "Order the steps logically for testing a solution sequence:",
+      "options": [
+        "x = 10",
+        "y = 20",
+        "print(x + y)"
+      ],
+      "correct_answer": [
+        "x = 10",
+        "y = 20",
+        "print(x + y)"
+      ],
+      "explanation": "Statements execute from top to bottom in logical sequence."
+    },
+    {
+      "id": "30.6_q16",
+      "type": "fill_in_the_blank",
+      "concept": "testing_a_solution_patterns",
+      "skill": "syntax",
+      "difficulty": "medium",
+      "prerequisites": [
+        "30.6_q15"
+      ],
+      "micro_lesson": {
+        "title": "Recognizing Common Testing Patterns",
+        "content": "A reliable way to test a solution is to follow a common pattern such as iterating over a sequence and checking each item. The `for` loop combined with `range()` or direct iteration allows you to validate behavior across multiple inputs. When testing, you often print intermediate values or use assertions to confirm correctness. A standard pattern for checking even numbers is to use the modulo operator inside a loop.\n\n```python\nfor num in range(1, 6):\n    if num % 2 == 0:\n        print(num)\n```\nThis pattern tests each integer in the range and prints only those that satisfy the condition."
+      },
+      "prompt": "Fill in the blank to complete the statement:\n```python\n___('Testing a Solution')\n``` (Variation 16)",
+      "correct_answer": "print",
+      "accepted_answers": [
+        "print"
+      ],
+      "explanation": "The missing expression completes the valid Python statement."
+    },
+    {
+      "id": "30.6_q17",
+      "type": "code_ordering",
+      "concept": "testing_a_solution_algorithm",
+      "skill": "sequencing",
+      "difficulty": "medium",
+      "prerequisites": [
+        "30.6_q16"
+      ],
+      "micro_lesson": {
+        "title": "Sequencing an Algorithm During Testing",
+        "content": "Testing a solution requires executing an algorithm in the proper order: gather input, process it, and produce output. If you print before converting the input to the correct type, you may encounter a TypeError. Similarly, performing the calculation before validation can lead to incorrect results. The correct sequence ensures data is handled safely and the final result is meaningful.\n\n```python\nuser_input = input('Enter a number: ')\nnumber = int(user_input)\ndoubled = number * 2\nprint(doubled)\n```\nEach step depends on the previous one, so the order is critical for a correct test run."
+      },
+      "prompt": "Order the steps logically for testing a solution algorithm:",
+      "options": [
+        "x = 10",
+        "y = 20",
+        "print(x + y)"
+      ],
+      "correct_answer": [
+        "x = 10",
+        "y = 20",
+        "print(x + y)"
+      ],
+      "explanation": "Statements execute from top to bottom in logical sequence."
+    },
+    {
+      "id": "30.6_q18",
+      "type": "fill_in_the_blank",
+      "concept": "testing_a_solution_idioms",
+      "skill": "syntax",
+      "difficulty": "medium",
+      "prerequisites": [
+        "30.6_q17"
+      ],
+      "micro_lesson": {
+        "title": "Applying Python Idioms in Tests",
+        "content": "Python idioms are concise, readable ways of writing code that experienced developers use. One common idiom is the conditional expression, written as `value_if_true if condition else value_if_false`. When testing a solution, using idioms can make your verification code shorter and clearer. For example, assigning a label based on a boolean condition avoids a multi-line if-else block.\n\n```python\nis_valid = True\nstatus = 'pass' if is_valid else 'fail'\nprint(status)\n```\nThis idiom replaces a longer conditional structure while remaining syntactically correct and easy to test."
+      },
+      "prompt": "Fill in the blank to complete the statement:\n```python\n___('Testing a Solution')\n``` (Variation 18)",
+      "correct_answer": "print",
+      "accepted_answers": [
+        "print"
+      ],
+      "explanation": "The missing expression completes the valid Python statement."
+    },
+    {
+      "id": "30.6_q19",
+      "type": "fix_the_code",
+      "skill": "debugging",
+      "difficulty": "medium",
+      "concept": "testing_a_solution_errors",
+      "micro_lesson": {
+        "title": "Identifying Common Errors When Testing a Solution",
+        "content": "When you test a solution, errors often fall into categories: syntax errors, runtime errors, and logical errors. Syntax errors prevent the code from running at all. Runtime errors occur during execution, such as dividing by zero or accessing an invalid index. Logical errors produce output but the result does not match the expected behavior. Always read the traceback carefully, reproduce the error with sample inputs, and verify whether the issue stems from incorrect assumptions about the problem. For example, if a function is supposed to return the sum of two numbers but instead returns their product, that is a logical error, not a syntax error."
+      },
+      "prerequisites": [
+        "30.6_q18"
+      ],
+      "prompt": "Fix the bug in this code for testing a solution errors:",
+      "starter_code": "# Fix this code\nPrint('Testing a Solution')",
+      "solution_code": "print('Testing a Solution')",
+      "explanation": "Python identifiers and built-ins are case-sensitive."
+    },
+    {
+      "id": "30.6_q20",
+      "type": "fix_the_code",
+      "skill": "debugging",
+      "difficulty": "easy",
+      "concept": "testing_a_solution_fix",
+      "prompt": "The following function is intended to check whether a number is positive, but it fails for zero and negative values. Identify and fix the issue.",
+      "starter_code": "def is_positive(n):\n    if n > 0:\n        return True\n    else:\n        return False",
+      "solution_code": "def is_positive(n):\n    return n > 0",
+      "hint": "Consider whether the function should return False for zero and negative inputs, and whether the explicit else branch is necessary.",
+      "explanation": "The original code works for positive numbers but is unnecessarily verbose. The expression n > 0 already evaluates to a boolean, so the function can directly return that result. This simplifies the code and ensures consistent behavior for all numeric inputs.",
+      "prerequisites": [
+        "30.6_q19"
+      ]
+    },
+    {
+      "id": "30.6_q21",
+      "type": "fix_the_code",
+      "skill": "debugging",
+      "difficulty": "medium",
+      "concept": "testing_a_solution_edge_cases",
+      "prompt": "This function computes the average of a list of numbers. It works for typical inputs but crashes on edge cases. Fix it to handle empty lists and non-numeric entries safely.",
+      "starter_code": "def average(values):\n    return sum(values) / len(values)",
+      "solution_code": "def average(values):\n    if not values:\n        return 0\n    total = 0\n    count = 0\n    for v in values:\n        if isinstance(v, (int, float)):\n            total += v\n            count += 1\n    return total / count if count else 0",
+      "hint": "Check for division by zero and filter out values that are not numbers before computing the mean.",
+      "explanation": "An empty list causes ZeroDivisionError because len(values) is 0. Additionally, non-numeric values like strings would raise a TypeError during summation. The corrected version filters valid numbers, counts them, and returns 0 when no valid numbers remain.",
+      "prerequisites": [
+        "30.6_q20"
+      ]
+    },
+    {
+      "id": "30.6_q22",
+      "type": "fix_the_code",
+      "skill": "debugging",
+      "difficulty": "medium",
+      "concept": "testing_a_solution_runtime",
+      "micro_lesson": {
+        "title": "Diagnosing Runtime Errors During Solution Testing",
+        "content": "Runtime errors occur while the program is executing, unlike syntax errors that block execution entirely. Common runtime errors include ZeroDivisionError, IndexError, TypeError, and NameError. To diagnose a runtime error, run the code with the exact input that triggers the failure, inspect the traceback line number, and verify the state of variables at that point. A frequent mistake is assuming that a loop will always have at least one element, leading to an IndexError when the list is empty. Another is using a variable before it has been assigned, which raises a NameError. Systematic testing with boundary values helps expose these issues early."
+      },
+      "prerequisites": [
+        "30.6_q21"
+      ],
+      "prompt": "Fix the bug in this code for testing a solution runtime:",
+      "starter_code": "# Fix this code\nPrint('Testing a Solution')",
+      "solution_code": "print('Testing a Solution')",
+      "explanation": "Python identifiers and built-ins are case-sensitive."
+    },
+    {
+      "id": "30.6_q23",
+      "type": "fix_the_code",
+      "skill": "debugging",
+      "difficulty": "medium",
+      "concept": "testing_a_solution_logic_repair",
+      "prompt": "The function below is supposed to return the larger of two integers, but it returns the smaller value for some inputs. Repair the logic without changing the function signature.",
+      "starter_code": "def max_of_two(a, b):\n    if a < b:\n        return a\n    else:\n        return b",
+      "solution_code": "def max_of_two(a, b):\n    if a > b:\n        return a\n    else:\n        return b",
+      "hint": "Review the comparison operator used in the conditional statement and consider what the function should return when a is greater than b.",
+      "explanation": "The original condition incorrectly returns a when a is less than b, which yields the smaller value. Changing the operator to a > b ensures the function returns the larger of the two inputs. This repair aligns the implementation with the intended specification.",
+      "prerequisites": [
+        "30.6_q22"
+      ]
+    },
+    {
+      "id": "30.6_q24",
+      "type": "write_the_code",
+      "skill": "refactoring",
+      "difficulty": "hard",
+      "concept": "testing_a_solution_optimization",
+      "prompt": "Refactor the following solution to improve its time complexity while preserving correctness. The current implementation checks every element against every other element to count duplicates. Optimize it for large inputs.",
+      "starter_code": "def count_duplicates(items):\n    duplicates = 0\n    for i in range(len(items)):\n        for j in range(len(items)):\n            if i != j and items[i] == items[j]:\n                duplicates += 1\n    return duplicates // 2",
+      "solution_code": "def count_duplicates(items):\n    seen = {}\n    for item in items:\n        seen[item] = seen.get(item, 0) + 1\n    duplicates = 0\n    for count in seen.values():\n        duplicates += count * (count - 1) // 2\n    return duplicates",
+      "test_cases": [
+        {
+          "input": "[1, 2, 2, 3, 3, 3]",
+          "expected": 4
+        },
+        {
+          "input": "[4, 4, 4, 4]",
+          "expected": 6
+        },
+        {
+          "input": "[]",
+          "expected": 0
+        }
+      ],
+      "hint": "Use a dictionary to tally frequencies in a single pass, then compute combinations of two for each repeated value.",
+      "explanation": "The original nested loops yield O(n^2) time complexity, which is inefficient for large lists. The refactored version builds a frequency map in O(n) time and computes duplicate pairs using the combination formula n choose 2. This reduces the overall complexity to O(n) and scales much better.",
+      "prerequisites": [
+        "30.6_q23"
+      ]
+    },
+    {
+      "id": "30.6_q25",
+      "type": "write_the_code",
+      "concept": "testing_a_solution_implementation",
+      "skill": "application",
+      "difficulty": "medium",
+      "prerequisites": [
+        "30.6_q24"
+      ],
+      "prompt": "Coding Challenge 25: Write a statement that prints 'Testing a Solution Result 25' to standard output.",
+      "starter_code": "# Write your code below\n",
+      "solution_code": "print('Testing a Solution Result 25')",
+      "test_cases": [
+        {
+          "input": "",
+          "expected_output": "Testing a Solution Result 25"
+        }
+      ],
+      "hint": "Use print('Testing a Solution Result 25') to generate the required output.",
+      "explanation": "Calling print with the exact string produces the expected console output."
+    },
+    {
+      "id": "30.6_q26",
+      "type": "write_the_code",
+      "concept": "testing_a_solution_practical",
+      "skill": "application",
+      "difficulty": "medium",
+      "prerequisites": [
+        "30.6_q25"
+      ],
+      "prompt": "Coding Challenge 26: Write a statement that prints 'Testing a Solution Result 26' to standard output.",
+      "starter_code": "# Write your code below\n",
+      "solution_code": "print('Testing a Solution Result 26')",
+      "test_cases": [
+        {
+          "input": "",
+          "expected_output": "Testing a Solution Result 26"
+        }
+      ],
+      "hint": "Use print('Testing a Solution Result 26') to generate the required output.",
+      "explanation": "Calling print with the exact string produces the expected console output."
+    },
+    {
+      "id": "30.6_q27",
+      "type": "write_the_code",
+      "concept": "testing_a_solution_advanced",
+      "skill": "application",
+      "difficulty": "hard",
+      "prerequisites": [
+        "30.6_q26"
+      ],
+      "prompt": "Coding Challenge 27: Write a statement that prints 'Testing a Solution Result 27' to standard output.",
+      "starter_code": "# Write your code below\n",
+      "solution_code": "print('Testing a Solution Result 27')",
+      "test_cases": [
+        {
+          "input": "",
+          "expected_output": "Testing a Solution Result 27"
+        }
+      ],
+      "hint": "Use print('Testing a Solution Result 27') to generate the required output.",
+      "explanation": "Calling print with the exact string produces the expected console output."
+    },
+    {
+      "id": "30.6_q28",
+      "type": "write_the_code",
+      "concept": "testing_a_solution_challenge",
+      "skill": "problem_solving",
+      "difficulty": "hard",
+      "prerequisites": [
+        "30.6_q27"
+      ],
+      "prompt": "Coding Challenge 28: Write a statement that prints 'Testing a Solution Result 28' to standard output.",
+      "starter_code": "# Write your code below\n",
+      "solution_code": "print('Testing a Solution Result 28')",
+      "test_cases": [
+        {
+          "input": "",
+          "expected_output": "Testing a Solution Result 28"
+        }
+      ],
+      "hint": "Use print('Testing a Solution Result 28') to generate the required output.",
+      "explanation": "Calling print with the exact string produces the expected console output."
+    },
+    {
+      "id": "30.6_q29",
+      "type": "write_the_code",
+      "concept": "testing_a_solution_scenario",
+      "skill": "synthesis",
+      "difficulty": "hard",
+      "prerequisites": [
+        "30.6_q28"
+      ],
+      "prompt": "Coding Challenge 29: Write a statement that prints 'Testing a Solution Result 29' to standard output.",
+      "starter_code": "# Write your code below\n",
+      "solution_code": "print('Testing a Solution Result 29')",
+      "test_cases": [
+        {
+          "input": "",
+          "expected_output": "Testing a Solution Result 29"
+        }
+      ],
+      "hint": "Use print('Testing a Solution Result 29') to generate the required output.",
+      "explanation": "Calling print with the exact string produces the expected console output."
+    },
+    {
+      "id": "30.6_q30",
+      "type": "write_the_code",
+      "concept": "testing_a_solution_mastery",
+      "skill": "mastery",
+      "difficulty": "hard",
+      "prerequisites": [
+        "30.6_q29"
+      ],
+      "prompt": "Coding Challenge 30: Write a statement that prints 'Testing a Solution Result 30' to standard output.",
+      "starter_code": "# Write your code below\n",
+      "solution_code": "print('Testing a Solution Result 30')",
+      "test_cases": [
+        {
+          "input": "",
+          "expected_output": "Testing a Solution Result 30"
+        }
+      ],
+      "hint": "Use print('Testing a Solution Result 30') to generate the required output.",
+      "explanation": "Calling print with the exact string produces the expected console output."
+    }
+  ]
+}

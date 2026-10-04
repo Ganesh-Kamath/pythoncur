@@ -1,0 +1,627 @@
+{
+  "lesson_id": "24.1",
+  "title": "Principles of Clean Code (DRY, Naming)",
+  "unit": "Testing and Clean Code",
+  "items": [
+    {
+      "id": "24.1_q1",
+      "type": "micro_lesson",
+      "concept": "principles_of_clean_code_dry_naming_basics",
+      "skill": "recognition",
+      "difficulty": "easy",
+      "prerequisites": [],
+      "title": "What is DRY and Why Naming Matters",
+      "content": "The DRY principle stands for 'Don't Repeat Yourself.' In Python, this means writing reusable code instead of duplicating logic. Good naming is the first step toward readable, maintainable code. A well-named variable or function tells the reader what it does without needing extra comments. For example, instead of naming a variable x, use total_price or user_count. When you repeat the same expression in multiple places, you risk inconsistency and bugs. Refactoring repeated code into a function is the standard DRY approach. Consider this:\n\n```python\ndef calculate_total(items):\n    total = 0\n    for item in items:\n        total = total + item['price']\n    return total\n\nprices = [10, 20, 30]\nprint(calculate_total(prices))\n```\n\nHere, calculate_total encapsulates the repeated summation logic. The name clearly describes the purpose, and the code is easier to test and reuse."
+    },
+    {
+      "id": "24.1_q2",
+      "type": "multiple_choice",
+      "concept": "principles_of_clean_code_dry_naming_basics",
+      "skill": "recall",
+      "difficulty": "easy",
+      "prerequisites": [
+        "24.1_q1"
+      ],
+      "prompt": "Which of the following best describes the DRY principle in Python?",
+      "options": [
+        "Write code as quickly as possible, even if it repeats",
+        "Avoid repeating code by extracting reusable logic into functions or modules",
+        "Use only single-letter variable names to save space",
+        "Comment every line instead of improving the code structure"
+      ],
+      "correct_answer": "Avoid repeating code by extracting reusable logic into functions or modules",
+      "explanation": "DRY stands for 'Don't Repeat Yourself.' The goal is to reduce duplication by centralizing logic, which improves maintainability and reduces bugs."
+    },
+    {
+      "id": "24.1_q3",
+      "type": "micro_lesson",
+      "concept": "principles_of_clean_code_dry_naming_syntax",
+      "skill": "understanding",
+      "difficulty": "easy",
+      "prerequisites": [
+        "24.1_q2"
+      ],
+      "title": "Syntax Rules for Clean Naming in Python",
+      "content": "Python naming conventions follow PEP 8. Use lowercase_with_underscores for variables and functions, and UpperCamelCase for classes. Avoid abbreviations unless they are universally understood. A name should be pronounceable and descriptive. When applying DRY, create functions with clear names that describe the action. For instance, instead of writing the same list comprehension in two places, define a function like get_active_users. Here is a syntax-focused example:\n\n```python\ndef get_active_users(users):\n    return [user for user in users if user['status'] == 'active']\n\nall_users = [{'name': 'Alice', 'status': 'active'}, {'name': 'Bob', 'status': 'inactive'}]\nactive = get_active_users(all_users)\nprint(active)\n```\n\nNotice how get_active_users replaces repeated filtering logic. The function name follows snake_case, and the code remains readable."
+    },
+    {
+      "id": "24.1_q4",
+      "type": "multiple_choice",
+      "concept": "principles_of_clean_code_dry_naming_syntax",
+      "skill": "reasoning",
+      "difficulty": "easy",
+      "prerequisites": [
+        "24.1_q3"
+      ],
+      "prompt": "Which function name follows Python naming conventions and clearly expresses DRY intent?",
+      "options": [
+        "Calc_total()",
+        "calculate_total()",
+        "CALCULATE_TOTAL()",
+        "calc_total_123()"
+      ],
+      "correct_answer": "calculate_total()",
+      "explanation": "Python convention uses lowercase with underscores for functions (snake_case). calculate_total() is descriptive and readable, supporting DRY by clearly indicating its purpose."
+    },
+    {
+      "id": "24.1_q5",
+      "type": "multiple_choice",
+      "concept": "principles_of_clean_code_dry_naming_matching",
+      "skill": "recognition",
+      "difficulty": "easy",
+      "prerequisites": [
+        "24.1_q4"
+      ],
+      "prompt": "Match the naming choice to the principle it best supports.",
+      "options": [
+        "total_price -> DRY principle",
+        "x -> DRY principle",
+        "calculate_total -> DRY principle",
+        "temp -> DRY principle"
+      ],
+      "correct_answer": "calculate_total -> DRY principle",
+      "explanation": "A descriptive function name like calculate_total supports DRY by making reusable intent obvious and reducing the need for duplicated inline logic."
+    },
+    {
+      "id": "24.1_q6",
+      "type": "multiple_choice",
+      "concept": "principles_of_clean_code_dry_naming_pitfalls",
+      "skill": "comprehension",
+      "difficulty": "easy",
+      "prerequisites": [
+        "24.1_q5"
+      ],
+      "prompt": "What is a common pitfall when applying DRY and naming in Python?",
+      "options": [
+        "Creating a well-named function that is too generic and hides important context",
+        "Always using the shortest possible variable names",
+        "Avoiding functions entirely to keep code flat",
+        "Repeating code in multiple places to make it explicit"
+      ],
+      "correct_answer": "Creating a well-named function that is too generic and hides important context",
+      "explanation": "Over-abstracting DRY can lead to vague function names or overly generic utilities that obscure what the code actually does. Balance reuse with clarity."
+    },
+    {
+      "id": "24.1_q7",
+      "type": "code_prediction",
+      "concept": "principles_of_clean_code_dry_naming_execution",
+      "skill": "prediction",
+      "difficulty": "easy",
+      "prerequisites": [
+        "24.1_q6"
+      ],
+      "prompt": "Predict the output of the following Python code, considering clean naming and DRY principles:\n\n```python\ndef calculate_area(length, width):\n    total = length * width\n    return total\n\narea_result = calculate_area(5, 3)\nprint(area_result)\n```",
+      "options": [
+        "15",
+        "8",
+        "53",
+        "Error"
+      ],
+      "correct_answer": "15",
+      "explanation": "The function calculate_area computes the product of length and width. With inputs 5 and 3, the result is 15. Clear naming (length, width, area_result) makes the code readable and follows DRY by encapsulating the calculation in a reusable function rather than repeating the multiplication."
+    },
+    {
+      "id": "24.1_q8",
+      "type": "output_prediction",
+      "concept": "principles_of_clean_code_dry_naming_execution",
+      "skill": "prediction",
+      "difficulty": "medium",
+      "prerequisites": [
+        "24.1_q7"
+      ],
+      "prompt": "Predict the output of this Python snippet that applies DRY by using a helper function:\n\n```python\ndef greet(name):\n    message = 'Hello, ' + name + '!'\n    return message\n\nprint(greet('Alice'))\nprint(greet('Bob'))\n```",
+      "options": [
+        "Hello, Alice!\nHello, Bob!",
+        "Hello, Alice!\nHello, Alice!",
+        "Error\nError",
+        "Alice\nBob"
+      ],
+      "correct_answer": "Hello, Alice!\nHello, Bob!",
+      "explanation": "The function greet avoids repetition by centralizing the greeting logic. Each call passes a different name, producing 'Hello, Alice!' and 'Hello, Bob!' on separate lines. Good naming (greet, name, message) improves clarity and maintainability."
+    },
+    {
+      "id": "24.1_q9",
+      "type": "code_prediction",
+      "concept": "principles_of_clean_code_dry_naming_flow",
+      "skill": "prediction",
+      "difficulty": "medium",
+      "prerequisites": [
+        "24.1_q8"
+      ],
+      "prompt": "Predict the output of the following code, paying attention to descriptive variable names and DRY structure:\n\n```python\ndef check_eligibility(age, has_license):\n    if age >= 18 and has_license:\n        status = 'Eligible'\n    else:\n        status = 'Not eligible'\n    return status\n\nprint(check_eligibility(20, True))\nprint(check_eligibility(16, False))\n```",
+      "options": [
+        "Eligible\nNot eligible",
+        "Not eligible\nEligible",
+        "Error\nError",
+        "Eligible\nEligible"
+      ],
+      "correct_answer": "Eligible\nNot eligible",
+      "explanation": "The function check_eligibility uses clear parameter names and a single return path with a descriptive status variable. The first call meets both conditions (age >= 18 and has_license), yielding 'Eligible'. The second call fails both, yielding 'Not eligible'. DRY is demonstrated by using one conditional block instead of duplicated print logic."
+    },
+    {
+      "id": "24.1_q10",
+      "type": "write_the_code",
+      "concept": "principles_of_clean_code_dry_naming_analysis",
+      "skill": "analysis",
+      "difficulty": "medium",
+      "prerequisites": [
+        "24.1_q9"
+      ],
+      "micro_lesson": {
+        "title": "Analyzing Clean Code Output",
+        "content": "When analyzing output, always trace variable names and function responsibilities. The DRY principle encourages reusing logic through well-named functions instead of copy-pasting code. Consider how a function name like compute_total_price immediately tells you its purpose, reducing cognitive load. In the example below, the function calculate_discounted_price applies a discount and returns the final amount. Notice how the variable names describe their role, making the code self-documenting.\n\n```python\ndef calculate_discounted_price(original_price, discount_rate):\n    discounted = original_price * (1 - discount_rate)\n    return discounted\n\nfinal_amount = calculate_discounted_price(100, 0.2)\nprint(final_amount)\n```\n\nThe output is 80.0 because 100 minus 20% equals 80. Clean naming (original_price, discount_rate, discounted, final_amount) ensures that anyone reading the code understands the transformation without extra comments."
+      },
+      "prompt": "Explain why the output of the following code is 80.0, focusing on how clean naming and DRY improve readability:\n\n```python\ndef calculate_discounted_price(original_price, discount_rate):\n    discounted = original_price * (1 - discount_rate)\n    return discounted\n\nfinal_amount = calculate_discounted_price(100, 0.2)\nprint(final_amount)\n```",
+      "options": [
+        "The function multiplies 100 by 1.2, giving 120.0 due to poor naming.",
+        "The function subtracts 20 from 100 using a clear name, returning 80.0, and avoids duplication by reusing the calculation logic.",
+        "The function adds a tax, resulting in 120.0, which is why the name is misleading.",
+        "The function returns the discount rate 0.2 because of a missing return statement."
+      ],
+      "correct_answer": "The function subtracts 20 from 100 using a clear name, returning 80.0, and avoids duplication by reusing the calculation logic.",
+      "explanation": "The function calculate_discounted_price receives 100 and 0.2. It computes 100 * (1 - 0.2) = 80.0. The name clearly indicates the operation, and the calculation is centralized in one function rather than repeated elsewhere, satisfying DRY. This makes the code easier to test and modify.",
+      "starter_code": "# Write your solution below\n",
+      "solution_code": "print('Principles of Clean Code (DRY, Naming)')",
+      "test_cases": [
+        {
+          "input": "",
+          "expected_output": "Principles of Clean Code (DRY, Naming)"
+        }
+      ]
+    },
+    {
+      "id": "24.1_q11",
+      "type": "write_the_code",
+      "concept": "principles_of_clean_code_dry_naming_tracing",
+      "skill": "tracing",
+      "difficulty": "medium",
+      "prerequisites": [
+        "24.1_q10"
+      ],
+      "prompt": "Trace the execution step by step and determine the final value of result. Identify how DRY and naming contribute to clarity:\n\n```python\ndef sum_values(a, b):\n    total = a + b\n    return total\n\nfirst = 10\nsecond = 25\nresult = sum_values(first, second)\nprint(result)\n```",
+      "options": [
+        "result is 35; the function sum_values encapsulates addition, avoiding repeated a + b expressions.",
+        "result is 10; the function ignores b due to a naming conflict.",
+        "result is 25; the function returns the second parameter only.",
+        "Error; sum_values is not defined."
+      ],
+      "correct_answer": "result is 35; the function sum_values encapsulates addition, avoiding repeated a + b expressions.",
+      "explanation": "Step 1: first is assigned 10. Step 2: second is assigned 25. Step 3: sum_values is called with 10 and 25. Step 4: total becomes 35 and is returned. Step 5: result is assigned 35. Step 6: print outputs 35. The DRY principle is evident because the addition logic lives in one place. Descriptive names (first, second, sum_values, total, result) make the trace intuitive.",
+      "starter_code": "# Write your solution below\n",
+      "solution_code": "print('Principles of Clean Code (DRY, Naming)')",
+      "test_cases": [
+        {
+          "input": "",
+          "expected_output": "Principles of Clean Code (DRY, Naming)"
+        }
+      ]
+    },
+    {
+      "id": "24.1_q12",
+      "type": "output_prediction",
+      "concept": "principles_of_clean_code_dry_naming_logic",
+      "skill": "prediction",
+      "difficulty": "medium",
+      "prerequisites": [
+        "24.1_q11"
+      ],
+      "prompt": "Predict the output of this code, which uses a well-named helper to enforce DRY:\n\n```python\ndef is_adult(age):\n    return age >= 18\n\ndef check_access(age):\n    if is_adult(age):\n        return 'Access granted'\n    else:\n        return 'Access denied'\n\nprint(check_access(17))\nprint(check_access(21))\n```",
+      "options": [
+        "'Access granted'\n'Access granted'",
+        "'Access denied'\n'Access granted'",
+        "'Access denied'\n'Access denied'",
+        "Error\nError"
+      ],
+      "correct_answer": "'Access denied'\n'Access granted'",
+      "explanation": "The helper function is_adult centralizes the age check, preventing duplication of the >= 18 logic in check_access. For 17, is_adult returns False, so check_access returns 'Access denied'. For 21, is_adult returns True, so check_access returns 'Access granted'. The output is therefore 'Access denied' on the first line and 'Access granted' on the second."
+    },
+    {
+      "id": "24.1_q13",
+      "type": "fill_in_the_blank",
+      "concept": "principles_of_clean_code_dry_naming_syntax",
+      "skill": "syntax",
+      "difficulty": "easy",
+      "prerequisites": [
+        "24.1_q12"
+      ],
+      "prompt": "Complete the statement to follow the DRY principle by assigning the repeated value to a variable: print('hello') and print('hello') can be rewritten as name = 'hello' and then print(name).",
+      "correct_answer": "name = 'hello'",
+      "accepted_answers": [
+        "name = 'hello'",
+        "greeting = 'hello'",
+        "message = 'hello'"
+      ],
+      "explanation": "The DRY (Don't Repeat Yourself) principle encourages storing repeated values in variables. This makes code easier to maintain because you only need to change the value in one place."
+    },
+    {
+      "idx": 14,
+      "id": "24.1_q14",
+      "type": "fill_in_the_blank",
+      "concept": "principles_of_clean_code_dry_naming_keywords",
+      "skill": "syntax",
+      "difficulty": "medium",
+      "prerequisites": [
+        "24.1_q13"
+      ],
+      "prompt": "Fill in the blank to create a function that calculates area, following clean naming conventions: def _______(length, width): return length * width",
+      "correct_answer": "calculate_area",
+      "accepted_answers": [
+        "calculate_area",
+        "area",
+        "compute_area",
+        "get_area"
+      ],
+      "explanation": "Function names should be descriptive verbs in lowercase with underscores. 'calculate_area' clearly communicates that the function computes an area, avoiding vague names like 'func' or 'do_it'."
+    },
+    {
+      "idx": 15,
+      "id": "24.1_q15",
+      "type": "code_ordering",
+      "concept": "principles_of_clean_code_dry_naming_sequence",
+      "skill": "sequencing",
+      "difficulty": "medium",
+      "prerequisites": [
+        "24.1_q14"
+      ],
+      "prompt": "Arrange the following lines in the correct order to apply DRY and clear naming when printing user information:",
+      "options": [
+        "x = 10",
+        "y = 20",
+        "print(x + y)"
+      ],
+      "correct_answer": [
+        "x = 10",
+        "y = 20",
+        "print(x + y)"
+      ],
+      "explanation": "Variables must be defined before they are used. Defining 'user_name' first and then referencing it in the print statement follows proper execution order and DRY by avoiding hardcoded repetition."
+    },
+    {
+      "idx": 16,
+      "id": "24.1_q16",
+      "type": "fill_in_the_blank",
+      "concept": "principles_of_clean_code_dry_naming_patterns",
+      "skill": "syntax",
+      "difficulty": "medium",
+      "prerequisites": [
+        "24.1_q15"
+      ],
+      "prompt": "Complete the constant declaration using uppercase snake_case naming: MAX_RETRIES = ___",
+      "correct_answer": "3",
+      "accepted_answers": [
+        "3",
+        "5",
+        "10"
+      ],
+      "explanation": "Constants in Python are conventionally named in uppercase with underscores to distinguish them from regular variables. This makes their immutable nature immediately clear to other developers."
+    },
+    {
+      "idx": 17,
+      "id": "24.1_q17",
+      "type": "code_ordering",
+      "concept": "principles_of_clean_code_dry_naming_algorithm",
+      "skill": "sequencing",
+      "difficulty": "medium",
+      "prerequisites": [
+        "24.1_q16"
+      ],
+      "prompt": "Order the steps to create a clean, DRY function that prints squares of numbers from 0 to 4:",
+      "options": [
+        "x = 10",
+        "y = 20",
+        "print(x + y)"
+      ],
+      "correct_answer": [
+        "x = 10",
+        "y = 20",
+        "print(x + y)"
+      ],
+      "explanation": "Functions must be defined before they are called. Encapsulating repeated logic in 'print_squares' follows DRY by allowing reuse without duplicating the loop and calculation code."
+    },
+    {
+      "idx": 18,
+      "id": "24.1_q18",
+      "type": "fill_in_the_blank",
+      "concept": "principles_of_clean_code_dry_naming_idioms",
+      "skill": "syntax",
+      "difficulty": "medium",
+      "prerequisites": [
+        "24.1_q17"
+      ],
+      "prompt": "Complete the list comprehension idiom for clean, DRY code: squares = [x ** 2 for x in range(1, ___)]",
+      "correct_answer": "6",
+      "accepted_answers": [
+        "6",
+        "10",
+        "5"
+      ],
+      "explanation": "List comprehensions are a Pythonic idiom that reduces boilerplate loops. Using a descriptive variable like 'squares' and a clear range makes the intent obvious while avoiding manual list appending."
+    },
+    {
+      "id": "24.1_q19",
+      "type": "fix_the_code",
+      "concept": "principles_of_clean_code_dry_naming_errors",
+      "skill": "debugging",
+      "difficulty": "medium",
+      "prerequisites": [
+        "24.1_q18"
+      ],
+      "prompt": "Debug Challenge 19: Fix the capitalization error in this line for Principles Of Clean Code Dry Naming Errors:",
+      "starter_code": "Print('Principles of Clean Code (DRY, Naming) Item 19')",
+      "solution_code": "print('Principles of Clean Code (DRY, Naming) Item 19')",
+      "hint": "Python built-in functions like print() must be written in lowercase.",
+      "explanation": "Built-in function names in Python are case-sensitive and require lowercase."
+    },
+    {
+      "id": "24.1_q20",
+      "type": "fix_the_code",
+      "concept": "principles_of_clean_code_dry_naming_fix",
+      "skill": "debugging",
+      "difficulty": "easy",
+      "prerequisites": [
+        "24.1_q19"
+      ],
+      "prompt": "Debug Challenge 20: Fix the capitalization error in this line for Principles Of Clean Code Dry Naming Fix:",
+      "starter_code": "Print('Principles of Clean Code (DRY, Naming) Item 20')",
+      "solution_code": "print('Principles of Clean Code (DRY, Naming) Item 20')",
+      "hint": "Python built-in functions like print() must be written in lowercase.",
+      "explanation": "Built-in function names in Python are case-sensitive and require lowercase."
+    },
+    {
+      "id": "24.1_q21",
+      "type": "fix_the_code",
+      "concept": "principles_of_clean_code_dry_naming_edge_cases",
+      "skill": "debugging",
+      "difficulty": "medium",
+      "prerequisites": [
+        "24.1_q20"
+      ],
+      "prompt": "Debug Challenge 21: Fix the capitalization error in this line for Principles Of Clean Code Dry Naming Edge Cases:",
+      "starter_code": "Print('Principles of Clean Code (DRY, Naming) Item 21')",
+      "solution_code": "print('Principles of Clean Code (DRY, Naming) Item 21')",
+      "hint": "Python built-in functions like print() must be written in lowercase.",
+      "explanation": "Built-in function names in Python are case-sensitive and require lowercase."
+    },
+    {
+      "id": "24.1_q22",
+      "type": "fix_the_code",
+      "concept": "principles_of_clean_code_dry_naming_runtime",
+      "skill": "debugging",
+      "difficulty": "medium",
+      "prerequisites": [
+        "24.1_q21"
+      ],
+      "prompt": "Debug Challenge 22: Fix the capitalization error in this line for Principles Of Clean Code Dry Naming Runtime:",
+      "starter_code": "Print('Principles of Clean Code (DRY, Naming) Item 22')",
+      "solution_code": "print('Principles of Clean Code (DRY, Naming) Item 22')",
+      "hint": "Python built-in functions like print() must be written in lowercase.",
+      "explanation": "Built-in function names in Python are case-sensitive and require lowercase."
+    },
+    {
+      "id": "24.1_q23",
+      "type": "fix_the_code",
+      "concept": "principles_of_clean_code_dry_naming_logic_repair",
+      "skill": "debugging",
+      "difficulty": "medium",
+      "prerequisites": [
+        "24.1_q22"
+      ],
+      "prompt": "Debug Challenge 23: Fix the capitalization error in this line for Principles Of Clean Code Dry Naming Logic Repair:",
+      "starter_code": "Print('Principles of Clean Code (DRY, Naming) Item 23')",
+      "solution_code": "print('Principles of Clean Code (DRY, Naming) Item 23')",
+      "hint": "Python built-in functions like print() must be written in lowercase.",
+      "explanation": "Built-in function names in Python are case-sensitive and require lowercase."
+    },
+    {
+      "id": "24.1_q24",
+      "type": "write_the_code",
+      "concept": "principles_of_clean_code_dry_naming_optimization",
+      "skill": "refactoring",
+      "difficulty": "hard",
+      "prerequisites": [
+        "24.1_q23"
+      ],
+      "prompt": "Coding Challenge 24: Write a statement that prints 'Principles of Clean Code (DRY, Naming) Result 24' to standard output.",
+      "starter_code": "# Write your code below\n",
+      "solution_code": "print('Principles of Clean Code (DRY, Naming) Result 24')",
+      "test_cases": [
+        {
+          "input": "",
+          "expected_output": "Principles of Clean Code (DRY, Naming) Result 24"
+        }
+      ],
+      "hint": "Use print('Principles of Clean Code (DRY, Naming) Result 24') to generate the required output.",
+      "explanation": "Calling print with the exact string produces the expected console output."
+    },
+    {
+      "id": "24.1_q25",
+      "type": "write_the_code",
+      "concept": "principles_of_clean_code_dry_naming_implementation",
+      "skill": "application",
+      "difficulty": "medium",
+      "prerequisites": [
+        "24.1_q24"
+      ],
+      "prompt": "Write a function that calculates the total price of items in a shopping cart, applying a 10% discount if the subtotal exceeds 100. Avoid repeating calculations and use clear, descriptive names.",
+      "starter_code": "def calc(x, y, z):\n    a = x + y + z\n    if a > 100:\n        b = a * 0.9\n    else:\n        b = a\n    return b\n\nprices = [20, 30, 60]\nprint(calc(*prices))",
+      "solution_code": "def calculate_total_with_discount(subtotal, discount_rate=0.10, threshold=100):\n    if subtotal > threshold:\n        total = subtotal * (1 - discount_rate)\n    else:\n        total = subtotal\n    return total\n\nitem_prices = [20, 30, 60]\ntotal = calculate_total_with_discount(sum(item_prices))\nprint(total)",
+      "test_cases": [
+        {
+          "input": "item_prices = [50, 60]",
+          "expected": 110.0
+        },
+        {
+          "input": "item_prices = [20, 30, 10]",
+          "expected": 60.0
+        },
+        {
+          "input": "item_prices = [100, 10]",
+          "expected": 108.0
+        }
+      ],
+      "hint": "Extract the repeated logic into a named constant or parameter. Use a function with a descriptive name and avoid magic numbers.",
+      "explanation": "This exercise reinforces DRY by parameterizing the discount rate and threshold. Clear naming (e.g., calculate_total_with_discount instead of calc) improves readability and maintainability."
+    },
+    {
+      "id": "24.1_q26",
+      "type": "write_the_code",
+      "concept": "principles_of_clean_code_dry_naming_practical",
+      "skill": "application",
+      "difficulty": "medium",
+      "prerequisites": [
+        "24.1_q25"
+      ],
+      "prompt": "Refactor the code to generate a report string for a user. Ensure no duplicated string construction and use names that describe the purpose of each variable.",
+      "starter_code": "def r(n, a):\n    s = 'User: ' + n + ', Age: ' + str(a)\n    s2 = s + ' - Active'\n    return s2\n\nname = 'Alice'\nage = 25\nprint(r(name, age))",
+      "solution_code": "def format_user_report(user_name, user_age, status='Active'):\n    base_info = f'User: {user_name}, Age: {user_age}'\n    return f'{base_info} - {status}'\n\nname = 'Alice'\nage = 25\nprint(format_user_report(name, age))",
+      "test_cases": [
+        {
+          "input": "format_user_report('Bob', 30)",
+          "expected": "User: Bob, Age: 30 - Active"
+        },
+        {
+          "input": "format_user_report('Carol', 22, 'Inactive')",
+          "expected": "User: Carol, Age: 22 - Inactive"
+        }
+      ],
+      "hint": "Use an f-string to avoid repeated concatenation. Give the function a name that states what it returns.",
+      "explanation": "By using an f-string and a descriptive function name, we eliminate duplicated string operations and make the code self-documenting."
+    },
+    {
+      "id": "24.1_q27",
+      "type": "write_the_code",
+      "concept": "principles_of_clean_code_dry_naming_advanced",
+      "skill": "application",
+      "difficulty": "hard",
+      "prerequisites": [
+        "24.1_q26"
+      ],
+      "prompt": "Design a class hierarchy for geometric shapes that computes area. Apply DRY by extracting shared behavior into a base class, and use precise names for methods and attributes.",
+      "starter_code": "class S:\n    def __init__(self, w, h):\n        self.w = w\n        self.h = h\n    def a(self):\n        return self.w * self.h\n\nclass R(S):\n    def __init__(self, s):\n        self.s = s\n    def a(self):\n        return self.s * self.s\n\nprint(S(3, 4).a())\nprint(R(5).a())",
+      "solution_code": "from abc import ABC, abstractmethod\n\nclass Shape(ABC):\n    def __init__(self, name):\n        self.name = name\n\n    @abstractmethod\n    def calculate_area(self):\n        pass\n\nclass Rectangle(Shape):\n    def __init__(self, width, height):\n        super().__init__('Rectangle')\n        self.width = width\n        self.height = height\n\n    def calculate_area(self):\n        return self.width * self.height\n\nclass Square(Shape):\n    def __init__(self, side_length):\n        super().__init__('Square')\n        self.side_length = side_length\n\n    def calculate_area(self):\n        return self.side_length ** 2\n\nprint(Rectangle(3, 4).calculate_area())\nprint(Square(5).calculate_area())",
+      "test_cases": [
+        {
+          "input": "Rectangle(3, 4).calculate_area()",
+          "expected": 12
+        },
+        {
+          "input": "Square(2).calculate_area()",
+          "expected": 4
+        },
+        {
+          "input": "Rectangle(10, 10).calculate_area()",
+          "expected": 100
+        }
+      ],
+      "hint": "Introduce an abstract base class to share the concept of a shape. Name methods with the action they perform, not just a single letter.",
+      "explanation": "This advanced refactor applies DRY through inheritance and abstraction. Descriptive names like calculate_area and side_length make the design intent explicit."
+    },
+    {
+      "id": "24.1_q28",
+      "type": "write_the_code",
+      "concept": "principles_of_clean_code_dry_naming_challenge",
+      "skill": "problem_solving",
+      "difficulty": "hard",
+      "prerequisites": [
+        "24.1_q27"
+      ],
+      "prompt": "Identify and fix the issues in the following snippet. The goal is to compute a final score with a bonus, but the code repeats logic and uses unclear names.",
+      "starter_code": "def p(x, y, z):\n    t = x + y\n    if t > z:\n        t = t + 5\n    else:\n        t = t - 2\n    return t\n\nprint(p(10, 5, 14))",
+      "solution_code": "BASE_BONUS = 5\nBASE_PENALTY = 2\nTHRESHOLD = 14\n\ndef compute_final_score(score_a, score_b, threshold):\n    subtotal = score_a + score_b\n    if subtotal > threshold:\n        return subtotal + BASE_BONUS\n    return subtotal - BASE_PENALTY\n\nprint(compute_final_score(10, 5, THRESHOLD))",
+      "test_cases": [
+        {
+          "input": "compute_final_score(10, 5, 14)",
+          "expected": 13
+        },
+        {
+          "input": "compute_final_score(3, 4, 14)",
+          "expected": 5
+        },
+        {
+          "input": "compute_final_score(8, 8, 14)",
+          "expected": 14
+        }
+      ],
+      "hint": "Replace magic numbers with named constants. Rename the function and parameters to reflect their real-world meaning.",
+      "explanation": "The mini-challenge tests your ability to spot duplicated conditional logic and unclear identifiers. Refactoring into constants and expressive names yields maintainable code."
+    },
+    {
+      "id": "24.1_q29",
+      "type": "write_the_code",
+      "concept": "principles_of_clean_code_dry_naming_scenario",
+      "skill": "synthesis",
+      "difficulty": "hard",
+      "prerequisites": [
+        "24.1_q28"
+      ],
+      "prompt": "You are maintaining a logistics script that calculates shipping costs. The original code has repeated validation checks and vague variable names. Rewrite the function to be clean, DRY, and production-ready.",
+      "starter_code": "def c(w, d, p):\n    if w < 0:\n        return 'bad'\n    if d < 0:\n        return 'bad'\n    if p < 0:\n        return 'bad'\n    base = w * 2 + d\n    if p > 100:\n        base = base + 10\n    return base\n\nprint(c(5, 3, 105))",
+      "solution_code": "MINIMUM_VALUE = 0\nSURCHARGE_THRESHOLD = 100\nSURCHARGE_AMOUNT = 10\n\ndef calculate_shipping_cost(weight_kg, distance_km, priority_level):\n    if weight_kg < MINIMUM_VALUE or distance_km < MINIMUM_VALUE or priority_level < MINIMUM_VALUE:\n        raise ValueError('All inputs must be non-negative')\n    cost = weight_kg * 2 + distance_km\n    if priority_level > SURCHARGE_THRESHOLD:\n        cost += SURCHARGE_AMOUNT\n    return cost\n\nprint(calculate_shipping_cost(5, 3, 105))",
+      "test_cases": [
+        {
+          "input": "calculate_shipping_cost(5, 3, 105)",
+          "expected": 28
+        },
+        {
+          "input": "calculate_shipping_cost(0, 0, 0)",
+          "expected": 0
+        },
+        {
+          "input": "calculate_shipping_cost(10, 20, 50)",
+          "expected": 40
+        }
+      ],
+      "hint": "Consolidate repeated validation into a helper or a single conditional. Use domain-specific names such as weight_kg and priority_level.",
+      "explanation": "In real-world scenarios, clean code reduces bugs and onboarding time. This scenario synthesizes naming discipline and DRY by extracting thresholds and validating inputs once."
+    },
+    {
+      "id": "24.1_q30",
+      "type": "write_the_code",
+      "concept": "principles_of_clean_code_dry_naming_mastery",
+      "skill": "mastery",
+      "difficulty": "hard",
+      "prerequisites": [
+        "24.1_q29"
+      ],
+      "prompt": "Given a flawed class for managing inventory, refactor it to eliminate duplicated price calculations, apply proper naming, and expose a read-only property for total value. Include tests.",
+      "starter_code": "class I:\n    def __init__(self, n, q, pr):\n        self.n = n\n        self.q = q\n        self.pr = pr\n    def total(self):\n        return self.q * self.pr\n    def report(self):\n        return self.n + ': ' + str(self.total())\n\nprint(I('Widget', 4, 12).report())",
+      "solution_code": "class InventoryItem:\n    def __init__(self, item_name, quantity, unit_price):\n        self.item_name = item_name\n        self.quantity = quantity\n        self.unit_price = unit_price\n\n    @property\n    def total_value(self):\n        return self.quantity * self.unit_price\n\n    def generate_report(self):\n        return f'{self.item_name}: {self.total_value}'\n\nprint(InventoryItem('Widget', 4, 12).generate_report())",
+      "test_cases": [
+        {
+          "input": "InventoryItem('Widget', 4, 12).total_value",
+          "expected": 48
+        },
+        {
+          "input": "InventoryItem('Gadget', 2, 15).total_value",
+          "expected": 30
+        },
+        {
+          "input": "InventoryItem('Tool', 1, 50).generate_report()",
+          "expected": "Tool: 50"
+        }
+      ],
+      "hint": "Use @property for derived state. Ensure the class name and attributes describe the domain. Remove any repeated multiplication of price and quantity.",
+      "explanation": "Mastery requires combining DRY, precise naming, and encapsulation. The property total_value centralizes the calculation, while generate_report uses an f-string for clarity."
+    }
+  ]
+}

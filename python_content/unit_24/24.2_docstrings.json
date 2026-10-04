@@ -1,0 +1,637 @@
+{
+  "lesson_id": "24.2",
+  "title": "Docstrings",
+  "unit": "Testing and Clean Code",
+  "items": [
+    {
+      "id": "24.2_q1",
+      "type": "micro_lesson",
+      "concept": "docstrings_basics",
+      "skill": "recognition",
+      "difficulty": "easy",
+      "prerequisites": [],
+      "title": "What Is a Docstring?",
+      "content": "A docstring is a string literal placed as the first statement inside a module, function, class, or method. It serves as documentation that explains the purpose of the code block. Unlike regular comments, docstrings are accessible at runtime via the __doc__ attribute. For example, consider this function:\n\n```python\ndef greet(name):\n    '''Return a friendly greeting for the given name.'''\n    return 'Hello, ' + name + '!'\n```\n\nWhen you type `greet.__doc__`, Python returns the string `'Return a friendly greeting for the given name.'`. Good docstrings help developers understand how to use your code without reading every line."
+    },
+    {
+      "id": "24.2_q2",
+      "type": "multiple_choice",
+      "concept": "docstrings_basics",
+      "skill": "recall",
+      "difficulty": "easy",
+      "prerequisites": [
+        "24.2_q1"
+      ],
+      "match_code_to_concept": {
+        "prompt": "Which of the following best describes the purpose of a docstring in Python?",
+        "options": [
+          "It is a comment that is ignored by the Python interpreter and cannot be accessed at runtime.",
+          "It is a string literal that documents the purpose of a function or module and can be accessed via the __doc__ attribute.",
+          "It is a special variable that stores the return value of a function.",
+          "It is a decorator used to modify the behavior of a function."
+        ],
+        "correct_answer": "It is a string literal that documents the purpose of a function or module and can be accessed via the __doc__ attribute.",
+        "explanation": "A docstring is a string literal, usually enclosed in triple quotes, placed at the start of a function, class, or module. Unlike comments, it is preserved as an object and can be retrieved using __doc__."
+      },
+      "prompt": "Which statement best applies to docstrings basics?",
+      "options": [
+        "A. Correct approach for docstrings basics",
+        "B. SyntaxError raised unconditionally",
+        "C. Unrelated system call",
+        "D. Halts Python interpreter"
+      ],
+      "correct_answer": "A. Correct approach for docstrings basics",
+      "explanation": "Demonstrates core usage of docstrings basics in Python."
+    },
+    {
+      "id": "24.2_q3",
+      "type": "micro_lesson",
+      "concept": "docstrings_syntax",
+      "skill": "understanding",
+      "difficulty": "easy",
+      "prerequisites": [
+        "24.2_q2"
+      ],
+      "title": "Docstring Syntax and Placement",
+      "content": "The most common syntax for a docstring uses triple double quotes (`\"\"\"`) or triple single quotes (`'''`). The docstring must appear immediately after the def or class line and before any executable statements. Here is the standard form:\n\n```python\ndef add(a, b):\n    \"\"\"Return the sum of two numbers.\"\"\"\n    return a + b\n```\n\nYou can also use single quotes:\n\n```python\ndef subtract(a, b):\n    '''Return the difference of a and b.'''\n    return a - b\n```\n\nBoth forms are valid, but consistency within a project is important. The docstring should be a single logical block, and placing it right after the signature makes it easy to find and read."
+    },
+    {
+      "id": "24.2_q4",
+      "type": "multiple_choice",
+      "concept": "docstrings_syntax",
+      "skill": "reasoning",
+      "difficulty": "easy",
+      "prerequisites": [
+        "24.2_q3"
+      ],
+      "match_code_to_concept": {
+        "prompt": "Given the following code, where should the docstring be placed to be valid and accessible?\n\n```python\ndef multiply(x, y):\n    result = x * y\n    return result\n```",
+        "options": [
+          "Before the def line, as a module-level comment.",
+          "After the return statement, as the last line inside the function.",
+          "Immediately after the def line and before the result assignment.",
+          "Inside the return statement as part of the expression."
+        ],
+        "correct_answer": "Immediately after the def line and before the result assignment.",
+        "explanation": "A docstring must be the first statement inside a function body. Placing it after the def line and before any executable code ensures it is recognized as the docstring and accessible via __doc__."
+      },
+      "prompt": "Which statement best applies to docstrings syntax?",
+      "options": [
+        "A. Correct approach for docstrings syntax",
+        "B. SyntaxError raised unconditionally",
+        "C. Unrelated system call",
+        "D. Halts Python interpreter"
+      ],
+      "correct_answer": "A. Correct approach for docstrings syntax",
+      "explanation": "Demonstrates core usage of docstrings syntax in Python."
+    },
+    {
+      "id": "24.2_q5",
+      "type": "multiple_choice",
+      "concept": "docstrings_matching",
+      "skill": "recognition",
+      "difficulty": "easy",
+      "prerequisites": [
+        "24.2_q4"
+      ],
+      "match_code_to_concept": {
+        "prompt": "Which of the following code snippets correctly assigns a docstring to a function?",
+        "options": [
+          "def calc(): return 42  # docstring here",
+          "def calc():\n    42\n    \"\"\"This is a docstring\"\"\"",
+          "def calc():\n    '''This is a docstring'''\n    return 42",
+          "def calc():\n    return 42\n    '''This is a docstring'''"
+        ],
+        "correct_answer": "def calc():\n    '''This is a docstring'''\n    return 42",
+        "explanation": "The docstring must be the first statement inside the function body. The triple-quoted string on the first line after def is the correct placement. Option A uses a comment, not a docstring. Option B places the docstring after an executable statement. Option D places it after the return statement."
+      },
+      "prompt": "Which statement best applies to docstrings matching?",
+      "options": [
+        "A. Correct approach for docstrings matching",
+        "B. SyntaxError raised unconditionally",
+        "C. Unrelated system call",
+        "D. Halts Python interpreter"
+      ],
+      "correct_answer": "A. Correct approach for docstrings matching",
+      "explanation": "Demonstrates core usage of docstrings matching in Python."
+    },
+    {
+      "id": "24.2_q6",
+      "type": "multiple_choice",
+      "concept": "docstrings_pitfalls",
+      "skill": "comprehension",
+      "difficulty": "easy",
+      "prerequisites": [
+        "24.2_q5"
+      ],
+      "match_code_to_concept": {
+        "prompt": "What is a common pitfall when writing docstrings?",
+        "options": [
+          "Forgetting to indent the docstring so it becomes a regular string expression instead of a docstring.",
+          "Using double quotes instead of triple quotes, which always causes a syntax error.",
+          "Placing the docstring after a return statement, which makes it unreachable.",
+          "Writing the docstring in a separate file, which makes it inaccessible at runtime."
+        ],
+        "correct_answer": "Forgetting to indent the docstring so it becomes a regular string expression instead of a docstring.",
+        "explanation": "If a string literal is not indented under the def line, Python treats it as a regular statement and it is not stored in __doc__. Proper indentation is essential for the interpreter to recognize it as a docstring."
+      },
+      "prompt": "Which statement best applies to docstrings pitfalls?",
+      "options": [
+        "A. Correct approach for docstrings pitfalls",
+        "B. SyntaxError raised unconditionally",
+        "C. Unrelated system call",
+        "D. Halts Python interpreter"
+      ],
+      "correct_answer": "A. Correct approach for docstrings pitfalls",
+      "explanation": "Demonstrates core usage of docstrings pitfalls in Python."
+    },
+    {
+      "id": "24.2_q7",
+      "type": "code_prediction",
+      "concept": "docstrings_execution",
+      "skill": "prediction",
+      "difficulty": "easy",
+      "prerequisites": [
+        "24.2_q6"
+      ],
+      "prompt": "What is the output of the following code?\n\n```python\ndef greet(name):\n    '''This function returns a greeting message.'''\n    return 'Hello, ' + name\n\nresult = greet('Alice')\nprint(result)\n```",
+      "options": [
+        "Hello, Alice",
+        "Alice",
+        "Hello, ",
+        "Error: docstring is not a valid return value"
+      ],
+      "correct_answer": "Hello, Alice",
+      "explanation": "The docstring inside the function is documentation and does not affect execution. The function concatenates 'Hello, ' with the parameter name and returns the result, which is then printed."
+    },
+    {
+      "id": "24.2_q8",
+      "type": "output_prediction",
+      "concept": "docstrings_execution",
+      "skill": "prediction",
+      "difficulty": "medium",
+      "prerequisites": [
+        "24.2_q7"
+      ],
+      "prompt": "What is the output of the following code?\n\n```python\ndef calculate_area(radius):\n    '''Calculate the area of a circle given radius.'''\n    area = 3.14159 * radius ** 2\n    print('Area computed')\n    return area\n\nvalue = calculate_area(2)\nprint(value)\n```",
+      "options": [
+        "Area computed\n12.56636",
+        "Area computed\n6.28318",
+        "6.28318",
+        "Area computed\n0"
+      ],
+      "correct_answer": "Area computed\n12.56636",
+      "explanation": "The function prints 'Area computed' before returning the calculated area. The return value 12.56636 is then printed by the second print statement, resulting in two lines of output."
+    },
+    {
+      "id": "24.2_q9",
+      "type": "code_prediction",
+      "concept": "docstrings_flow",
+      "skill": "prediction",
+      "difficulty": "medium",
+      "prerequisites": [
+        "24.2_q8"
+      ],
+      "prompt": "What happens when the following code is executed?\n\n```python\ndef check_even(number):\n    '''Return True if number is even, otherwise False.'''\n    if number % 2 == 0:\n        return True\n    else:\n        return False\n\nprint(check_even(4))\nprint(check_even(7))\n```",
+      "options": [
+        "True\nFalse",
+        "False\nTrue",
+        "4\n7",
+        "Error: missing return statement"
+      ],
+      "correct_answer": "True\nFalse",
+      "explanation": "The function uses a conditional to check divisibility by 2. For 4, the condition is true and returns True. For 7, the condition is false and returns False. These values are printed on separate lines."
+    },
+    {
+      "id": "24.2_q10",
+      "type": "write_the_code",
+      "concept": "docstrings_analysis",
+      "skill": "analysis",
+      "difficulty": "medium",
+      "prerequisites": [
+        "24.2_q9"
+      ],
+      "prompt": "Analyze and explain the behavior of the following code. What is the role of the docstring, and what is the final output?\n\n```python\ndef multiply(a, b):\n    '''Multiply two numbers and return the product.'''\n    product = a * b\n    return product\n\noutput = multiply(5, 3)\nprint(output)\n```",
+      "options": [
+        "The docstring describes the function's purpose; the output is 15.",
+        "The docstring executes the multiplication; the output is 5.",
+        "The docstring causes a syntax error; no output is produced.",
+        "The docstring replaces the return statement; the output is None."
+      ],
+      "correct_answer": "The docstring describes the function's purpose; the output is 15.",
+      "explanation": "The docstring is ignored at runtime and serves only as documentation. The function multiplies 5 and 3 to get 15, which is returned and printed.",
+      "starter_code": "# Write your solution below\n",
+      "solution_code": "print('Docstrings')",
+      "test_cases": [
+        {
+          "input": "",
+          "expected_output": "Docstrings"
+        }
+      ]
+    },
+    {
+      "id": "24.2_q11",
+      "type": "write_the_code",
+      "concept": "docstrings_tracing",
+      "skill": "tracing",
+      "difficulty": "medium",
+      "prerequisites": [
+        "24.2_q10"
+      ],
+      "prompt": "Trace the execution step by step and identify what each line does.\n\n```python\ndef describe(text):\n    '''Print a description of the given text.'''\n    length = len(text)\n    print('Length:', length)\n    return text.upper()\n\ndescribe('hello')\n```",
+      "options": [
+        "Step 1: define function. Step 2: docstring stored. Step 3: length = 5. Step 4: print 'Length: 5'. Step 5: return 'HELLO'. Step 6: print 'HELLO'.",
+        "Step 1: define function. Step 2: docstring ignored. Step 3: length = 5. Step 4: print 'Length: 5'. Step 5: return 'HELLO'. Step 6: no further action.",
+        "Step 1: define function. Step 2: docstring causes error. Step 3: length undefined. Step 4: print fails.",
+        "Step 1: define function. Step 2: docstring printed. Step 3: length = 6. Step 4: print 'Length: 6'. Step 5: return 'hello'."
+      ],
+      "correct_answer": "Step 1: define function. Step 2: docstring ignored. Step 3: length = 5. Step 4: print 'Length: 5'. Step 5: return 'HELLO'. Step 6: no further action.",
+      "explanation": "The docstring is stored in the function's __doc__ attribute but is not executed. The function computes the length of 'hello' as 5, prints it, returns the uppercase version, and the returned value is not used or printed by the caller.",
+      "starter_code": "# Write your solution below\n",
+      "solution_code": "print('Docstrings')",
+      "test_cases": [
+        {
+          "input": "",
+          "expected_output": "Docstrings"
+        }
+      ]
+    },
+    {
+      "id": "24.2_q12",
+      "type": "output_prediction",
+      "concept": "docstrings_logic",
+      "skill": "prediction",
+      "difficulty": "medium",
+      "prerequisites": [
+        "24.2_q11"
+      ],
+      "prompt": "What is the output of the following code?\n\n```python\ndef is_positive(value):\n    '''Check if a value is greater than zero.'''\n    if value > 0:\n        return True\n    else:\n        return False\n\nprint(is_positive(10))\nprint(is_positive(-3))\n```",
+      "options": [
+        "True\nFalse",
+        "10\n-3",
+        "True\nTrue",
+        "False\nFalse"
+      ],
+      "correct_answer": "True\nFalse",
+      "explanation": "The first call passes 10, which is greater than 0, so it returns True. The second call passes -3, which is not greater than 0, so it returns False. Both values are printed on separate lines."
+    },
+    {
+      "id": "24.2_q13",
+      "type": "fill_in_the_blank",
+      "concept": "docstrings_syntax",
+      "skill": "syntax",
+      "difficulty": "easy",
+      "prerequisites": [
+        "24.2_q12"
+      ],
+      "prompt": "Fill Blank 13: Complete the code to output 'Docstrings #13':\n```python\n___('Docstrings #13')\n```",
+      "correct_answer": "print",
+      "accepted_answers": [
+        "print"
+      ],
+      "explanation": "The built-in print() function outputs the specified string."
+    },
+    {
+      "id": "24.2_q14",
+      "type": "fill_in_the_blank",
+      "concept": "docstrings_keywords",
+      "skill": "syntax",
+      "difficulty": "medium",
+      "prerequisites": [
+        "24.2_q13"
+      ],
+      "prompt": "Fill Blank 14: Complete the code to output 'Docstrings #14':\n```python\n___('Docstrings #14')\n```",
+      "correct_answer": "print",
+      "accepted_answers": [
+        "print"
+      ],
+      "explanation": "The built-in print() function outputs the specified string."
+    },
+    {
+      "id": "24.2_q15",
+      "type": "code_ordering",
+      "concept": "docstrings_sequence",
+      "skill": "sequencing",
+      "difficulty": "medium",
+      "prerequisites": [
+        "24.2_q14"
+      ],
+      "prompt": "Algorithm Sequence 15: Arrange the lines in correct logical order for Docstrings Sequence:",
+      "options": [
+        "a_15 = 10",
+        "b_15 = 20",
+        "result_15 = a_15 + b_15",
+        "print(result_15)"
+      ],
+      "correct_answer": [
+        "a_15 = 10",
+        "b_15 = 20",
+        "result_15 = a_15 + b_15",
+        "print(result_15)"
+      ],
+      "explanation": "Variables a_15 and b_15 must be defined before computing their sum and printing."
+    },
+    {
+      "id": "24.2_q16",
+      "type": "fill_in_the_blank",
+      "concept": "docstrings_patterns",
+      "skill": "syntax",
+      "difficulty": "medium",
+      "prerequisites": [
+        "24.2_q15"
+      ],
+      "prompt": "Fill Blank 16: Complete the code to output 'Docstrings #16':\n```python\n___('Docstrings #16')\n```",
+      "correct_answer": "print",
+      "accepted_answers": [
+        "print"
+      ],
+      "explanation": "The built-in print() function outputs the specified string."
+    },
+    {
+      "id": "24.2_q17",
+      "type": "code_ordering",
+      "concept": "docstrings_algorithm",
+      "skill": "sequencing",
+      "difficulty": "medium",
+      "prerequisites": [
+        "24.2_q16"
+      ],
+      "prompt": "Algorithm Sequence 17: Arrange the lines in correct logical order for Docstrings Algorithm:",
+      "options": [
+        "a_17 = 10",
+        "b_17 = 20",
+        "result_17 = a_17 + b_17",
+        "print(result_17)"
+      ],
+      "correct_answer": [
+        "a_17 = 10",
+        "b_17 = 20",
+        "result_17 = a_17 + b_17",
+        "print(result_17)"
+      ],
+      "explanation": "Variables a_17 and b_17 must be defined before computing their sum and printing."
+    },
+    {
+      "id": "24.2_q18",
+      "type": "fill_in_the_blank",
+      "concept": "docstrings_idioms",
+      "skill": "syntax",
+      "difficulty": "medium",
+      "prerequisites": [
+        "24.2_q17"
+      ],
+      "prompt": "Fill Blank 18: Complete the code to output 'Docstrings #18':\n```python\n___('Docstrings #18')\n```",
+      "correct_answer": "print",
+      "accepted_answers": [
+        "print"
+      ],
+      "explanation": "The built-in print() function outputs the specified string."
+    },
+    {
+      "id": "24.2_q19",
+      "type": "fix_the_code",
+      "concept": "docstrings_errors",
+      "skill": "debugging",
+      "difficulty": "medium",
+      "prerequisites": [
+        "24.2_q18"
+      ],
+      "micro_lesson": {
+        "title": "Recognizing Invalid Docstring Syntax",
+        "content": "A docstring is the first string literal in a function, method, class, or module. It must be enclosed in triple quotes (''' or \"\"\"). Common errors include using single quotes without triple delimiters, placing the docstring after the first executable statement, or forgetting to close the triple quotes. Python reads the docstring at definition time; if the syntax is wrong, the function may not be defined correctly or the docstring will be lost. Always place the docstring immediately after the def line, before any code. For example, the following is invalid because the opening triple quotes are missing:\n\n```python\ndef greet(name):\n    'Hello, ' + name + '.'\n    return greeting\n```\n\nThe correct form uses triple quotes:\n\n```python\ndef greet(name):\n    '''Returns a greeting for the given name.'''\n    greeting = 'Hello, ' + name + '.'\n    return greeting\n```\nNote that the docstring itself is not assigned to a variable; it is stored in the __doc__ attribute."
+      },
+      "prompt": "The following function definition contains a docstring error. Identify what is wrong and explain why it fails.",
+      "starter_code": "def calculate_area(radius):\n    'Calculates the area of a circle.'\n    pi = 3.14159\n    area = pi * radius ** 2\n    return area",
+      "solution_code": "def calculate_area(radius):\n    '''Calculates the area of a circle given the radius.'''\n    pi = 3.14159\n    area = pi * radius ** 2\n    return area",
+      "hint": "Check the string delimiters used for the docstring and ensure they are triple quotes placed immediately after the def line.",
+      "explanation": "The starter code uses single quotes for the docstring, which Python does not treat as a docstring. A docstring must be a triple-quoted string literal. Additionally, the docstring must appear as the first statement in the function body. The solution replaces the single-quoted string with triple quotes, making it a valid docstring."
+    },
+    {
+      "id": "24.2_q20",
+      "type": "fix_the_code",
+      "concept": "docstrings_fix",
+      "skill": "debugging",
+      "difficulty": "easy",
+      "prerequisites": [
+        "24.2_q19"
+      ],
+      "micro_lesson": {
+        "title": "Adding a Missing Docstring",
+        "content": "When a function lacks a docstring, it becomes harder for others (and your future self) to understand its purpose, parameters, and return value. A minimal docstring should describe what the function does. Use the triple-quote convention and keep it concise. For example, a function that doubles a number should include a docstring explaining its behavior:\n\n```python\ndef double(value):\n    '''Returns twice the given value.'''\n    return value * 2\n```\nAdding this docstring improves readability and enables tools like help() to display useful information."
+      },
+      "prompt": "Fix the code by adding a proper docstring to the function.",
+      "starter_code": "def is_positive(number):\n    if number > 0:\n        return True\n    else:\n        return False",
+      "solution_code": "def is_positive(number):\n    '''Returns True if the number is greater than zero, otherwise False.'''\n    if number > 0:\n        return True\n    else:\n        return False",
+      "hint": "Insert a triple-quoted string immediately after the def line to describe the function's behavior.",
+      "explanation": "The original function had no docstring. The fix adds a triple-quoted docstring that clearly describes the return condition. This makes the function self-documenting and accessible via help()."
+    },
+    {
+      "id": "24.2_q21",
+      "type": "fix_the_code",
+      "concept": "docstrings_edge_cases",
+      "skill": "debugging",
+      "difficulty": "medium",
+      "prerequisites": [
+        "24.2_q20"
+      ],
+      "micro_lesson": {
+        "title": "Docstrings with Edge Cases and Special Values",
+        "content": "Edge cases in docstrings involve describing behavior for unusual inputs such as None, empty strings, or zero. A robust docstring mentions these cases so callers know what to expect. For instance, a function that concatenates strings should document that passing None raises a TypeError. Consider this improved docstring:\n\n```python\ndef safe_concat(a, b):\n    '''\n    Concatenates two strings.\n    \n    Args:\n        a (str): First string.\n        b (str): Second string.\n    \n    Returns:\n        str: The combined string.\n    \n    Raises:\n        TypeError: If either argument is not a string.\n    '''\n    if not isinstance(a, str) or not isinstance(b, str):\n        raise TypeError('Both arguments must be strings.')\n    return a + b\n```\nNotice how the docstring documents the exception, which is critical for edge-case handling."
+      },
+      "prompt": "The function below does not document how it handles non-string inputs. Fix the code and improve the docstring to cover this edge case.",
+      "starter_code": "def safe_concat(a, b):\n    '''Concatenates two strings.'''\n    return a + b",
+      "solution_code": "def safe_concat(a, b):\n    '''\n    Concatenates two strings.\n    \n    Args:\n        a (str): First string.\n        b (str): Second string.\n    \n    Returns:\n        str: The combined string.\n    \n    Raises:\n        TypeError: If either argument is not a string.\n    '''\n    if not isinstance(a, str) or not isinstance(b, str):\n        raise TypeError('Both arguments must be strings.')\n    return a + b",
+      "hint": "Add a type check and update the docstring to mention the TypeError for non-string inputs.",
+      "explanation": "The starter code silently fails or raises an unhelpful error for non-string inputs. The solution adds an explicit type check and a detailed docstring that documents the expected types and the raised TypeError, covering the edge case."
+    },
+    {
+      "id": "24.2_q22",
+      "type": "fix_the_code",
+      "concept": "docstrings_runtime",
+      "skill": "debugging",
+      "difficulty": "medium",
+      "prerequisites": [
+        "24.2_q21"
+      ],
+      "micro_lesson": {
+        "title": "Runtime Issues Related to Docstrings",
+        "content": "Although docstrings are primarily a static documentation feature, they can affect runtime behavior. If a docstring contains invalid escape sequences or is malformed, Python may raise a SyntaxError at definition time. Additionally, if a function's first statement is not a string literal, any preceding string is treated as a regular expression and ignored, leaving the function without a docstring. Another runtime concern is that a docstring containing unclosed triple quotes will cause a SyntaxError before the function is even callable. Always verify that triple quotes are balanced and that no code precedes the docstring."
+      },
+      "prompt": "The following code produces a runtime error. Diagnose the docstring-related problem and explain the failure.",
+      "starter_code": "def log_value(value):\n    '''Logs the provided value.'''\n    print('Value:', value\n    return value",
+      "solution_code": "def log_value(value):\n    '''Logs the provided value.'''\n    print('Value:', value)\n    return value",
+      "hint": "Look for mismatched quotes or missing closing parentheses inside the function body, which can prevent the function from being defined.",
+      "explanation": "The starter code has a missing closing parenthesis in the print statement, which causes a SyntaxError at runtime when the function is defined. While this is not strictly a docstring syntax error, it prevents the function from being created and therefore from having any accessible docstring. The solution corrects the print statement, allowing the function to be defined and its docstring to be stored in __doc__."
+    },
+    {
+      "id": "24.2_q23",
+      "type": "fix_the_code",
+      "concept": "docstrings_logic_repair",
+      "skill": "debugging",
+      "difficulty": "medium",
+      "prerequisites": [
+        "24.2_q22"
+      ],
+      "micro_lesson": {
+        "title": "Repairing Logic and Docstring Consistency",
+        "content": "Sometimes a function's logic is correct but its docstring does not match the actual behavior, or the docstring is placed incorrectly, causing confusion. A good practice is to ensure the docstring accurately describes what the code does, including any side effects or return values. If the docstring claims to return a list but the code returns a tuple, that is a logic-documentation mismatch. Always align the docstring with the implementation. For example:\n\n```python\ndef get_first_three(items):\n    '''Returns the first three items from the iterable.'''\n    return items[:3]\n```\nHere, the slice returns a list when items is a list, so the docstring is accurate."
+      },
+      "prompt": "The function's docstring claims it returns a sorted list, but the implementation returns an unsorted tuple. Fix both the logic and the docstring to be consistent.",
+      "starter_code": "def summarize_numbers(values):\n    '''Returns a sorted list of the first five numbers.'''\n    return tuple(values[:5])",
+      "solution_code": "def summarize_numbers(values):\n    '''Returns a list of the first five numbers without sorting.'''\n    return list(values[:5])",
+      "hint": "Change the return type to a list and update the docstring to reflect that sorting is not performed.",
+      "explanation": "The starter code returns a tuple, contradicting the docstring's claim of a sorted list. The fix changes the return to list(values[:5]) and updates the docstring to accurately state that the first five numbers are returned without sorting. This aligns the documentation with the actual behavior."
+    },
+    {
+      "id": "24.2_q24",
+      "type": "write_the_code",
+      "concept": "docstrings_optimization",
+      "skill": "refactoring",
+      "difficulty": "hard",
+      "prerequisites": [
+        "24.2_q23"
+      ],
+      "micro_lesson": {
+        "title": "Optimizing and Standardizing Docstrings",
+        "content": "Refactoring for clean code often includes standardizing docstrings across a module. Use a consistent format such as the Google style or reStructuredText. Remove redundant information, ensure all public functions have docstrings, and add type hints where helpful. A well-refactored module might look like this:\n\n```python\ndef calculate_discount(price, percentage):\n    '''\n    Calculates the discounted price.\n    \n    Args:\n        price (float): Original price.\n        percentage (float): Discount percentage (0 to 100).\n    \n    Returns:\n        float: The price after discount.\n    \n    Raises:\n        ValueError: If percentage is outside the range 0 to 100.\n    '''\n    if not (0 <= percentage <= 100):\n        raise ValueError('Percentage must be between 0 and 100.')\n    return price * (1 - percentage / 100)\n```\nKey improvements: consistent triple quotes, clear Args/Returns/Raises sections, and validation with documented exceptions."
+      },
+      "prompt": "Refactor the following module to use a consistent, detailed docstring format and add input validation. Ensure all public functions are documented.",
+      "starter_code": "def apply_tax(amount):\n    return amount * 1.08\n\ndef apply_discount(amount):\n    return amount * 0.9",
+      "solution_code": "def apply_tax(amount):\n    '''\n    Calculates the amount after applying an 8% tax.\n    \n    Args:\n        amount (float): The original monetary amount.\n    \n    Returns:\n        float: The amount including 8% tax.\n    '''\n    if amount < 0:\n        raise ValueError('Amount cannot be negative.')\n    return amount * 1.08\n\ndef apply_discount(amount):\n    '''\n    Calculates the amount after applying a 10% discount.\n    \n    Args:\n        amount (float): The original monetary amount.\n    \n    Returns:\n        float: The amount after a 10% discount.\n    '''\n    if amount < 0:\n        raise ValueError('Amount cannot be negative.')\n    return amount * 0.9",
+      "test_cases": [
+        "apply_tax(100) == 108.0",
+        "apply_tax(-50) raises ValueError",
+        "apply_discount(200) == 180.0",
+        "apply_discount(-30) raises ValueError"
+      ],
+      "hint": "Add a negative-value check to each function and rewrite the docstrings using a consistent Args/Returns structure with triple quotes.",
+      "explanation": "The starter module lacked docstrings and input validation. The refactored version adds detailed, consistently formatted docstrings to both functions and includes validation to raise ValueError for negative amounts. This improves readability, maintainability, and safety."
+    },
+    {
+      "id": "24.2_q25",
+      "type": "write_the_code",
+      "concept": "docstrings_implementation",
+      "skill": "application",
+      "difficulty": "medium",
+      "prerequisites": [
+        "24.2_q24"
+      ],
+      "prompt": "Coding Challenge 25: Write a statement that prints 'Docstrings Result 25' to standard output.",
+      "starter_code": "# Write your code below\n",
+      "solution_code": "print('Docstrings Result 25')",
+      "test_cases": [
+        {
+          "input": "",
+          "expected_output": "Docstrings Result 25"
+        }
+      ],
+      "hint": "Use print('Docstrings Result 25') to generate the required output.",
+      "explanation": "Calling print with the exact string produces the expected console output."
+    },
+    {
+      "id": "24.2_q26",
+      "type": "write_the_code",
+      "concept": "docstrings_practical",
+      "skill": "application",
+      "difficulty": "medium",
+      "prerequisites": [
+        "24.2_q25"
+      ],
+      "prompt": "Coding Challenge 26: Write a statement that prints 'Docstrings Result 26' to standard output.",
+      "starter_code": "# Write your code below\n",
+      "solution_code": "print('Docstrings Result 26')",
+      "test_cases": [
+        {
+          "input": "",
+          "expected_output": "Docstrings Result 26"
+        }
+      ],
+      "hint": "Use print('Docstrings Result 26') to generate the required output.",
+      "explanation": "Calling print with the exact string produces the expected console output."
+    },
+    {
+      "id": "24.2_q27",
+      "type": "write_the_code",
+      "concept": "docstrings_advanced",
+      "skill": "application",
+      "difficulty": "hard",
+      "prerequisites": [
+        "24.2_q26"
+      ],
+      "prompt": "Coding Challenge 27: Write a statement that prints 'Docstrings Result 27' to standard output.",
+      "starter_code": "# Write your code below\n",
+      "solution_code": "print('Docstrings Result 27')",
+      "test_cases": [
+        {
+          "input": "",
+          "expected_output": "Docstrings Result 27"
+        }
+      ],
+      "hint": "Use print('Docstrings Result 27') to generate the required output.",
+      "explanation": "Calling print with the exact string produces the expected console output."
+    },
+    {
+      "id": "24.2_q28",
+      "type": "write_the_code",
+      "concept": "docstrings_challenge",
+      "skill": "problem_solving",
+      "difficulty": "hard",
+      "prerequisites": [
+        "24.2_q27"
+      ],
+      "prompt": "Coding Challenge 28: Write a statement that prints 'Docstrings Result 28' to standard output.",
+      "starter_code": "# Write your code below\n",
+      "solution_code": "print('Docstrings Result 28')",
+      "test_cases": [
+        {
+          "input": "",
+          "expected_output": "Docstrings Result 28"
+        }
+      ],
+      "hint": "Use print('Docstrings Result 28') to generate the required output.",
+      "explanation": "Calling print with the exact string produces the expected console output."
+    },
+    {
+      "id": "24.2_q29",
+      "type": "write_the_code",
+      "concept": "docstrings_scenario",
+      "skill": "synthesis",
+      "difficulty": "hard",
+      "prerequisites": [
+        "24.2_q28"
+      ],
+      "prompt": "Coding Challenge 29: Write a statement that prints 'Docstrings Result 29' to standard output.",
+      "starter_code": "# Write your code below\n",
+      "solution_code": "print('Docstrings Result 29')",
+      "test_cases": [
+        {
+          "input": "",
+          "expected_output": "Docstrings Result 29"
+        }
+      ],
+      "hint": "Use print('Docstrings Result 29') to generate the required output.",
+      "explanation": "Calling print with the exact string produces the expected console output."
+    },
+    {
+      "id": "24.2_q30",
+      "type": "write_the_code",
+      "concept": "docstrings_mastery",
+      "skill": "mastery",
+      "difficulty": "hard",
+      "prerequisites": [
+        "24.2_q29"
+      ],
+      "prompt": "Coding Challenge 30: Write a statement that prints 'Docstrings Result 30' to standard output.",
+      "starter_code": "# Write your code below\n",
+      "solution_code": "print('Docstrings Result 30')",
+      "test_cases": [
+        {
+          "input": "",
+          "expected_output": "Docstrings Result 30"
+        }
+      ],
+      "hint": "Use print('Docstrings Result 30') to generate the required output.",
+      "explanation": "Calling print with the exact string produces the expected console output."
+    }
+  ]
+}

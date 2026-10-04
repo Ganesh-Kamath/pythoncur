@@ -1,0 +1,50 @@
+{
+  "timestamp": "2026-10-03T18:18:58.519513+00:00",
+  "lesson_id": "1.1",
+  "question_id": "1.1_q2",
+  "rejection_cause": "Sarvam rejected (The proposed explanation is conceptually accurate but structurally incomplete and pedagogically inferior to the original due to the loss of concrete examples, so the item must be revised before acceptance.)",
+  "reason": "Improved explanation",
+  "evidence": "Manual CLI targeting",
+  "model_used": "qwen3:8b",
+  "validation_errors": [],
+  "sarvam_review": {
+    "decision": "revise",
+    "conceptual_correctness": 90,
+    "pedagogical_quality": 75,
+    "difficulty_quality": 100,
+    "clarity": 82,
+    "ambiguity": 5,
+    "exercise_alignment": 99,
+    "problems": [
+      "The modified explanation is structurally truncated, ending mid-sentence and damaging both clarity and instructional completeness.",
+      "The revision strips away the concrete, relatable examples (e.g., 'open the bag, take out two slices') that served as a critical scaffold for novice programmers."
+    ],
+    "required_changes": [
+      "Complete the explanation with a proper closing statement and full grammatical structure.",
+      "Restore or retain concrete step-by-step examples that illustrate exactly how vagueness causes failure.",
+      "Demonstrate clear pedagogical improvement over the original rather than offering a regression."
+    ],
+    "reasoning_summary": "The proposed explanation is conceptually accurate but structurally incomplete and pedagogically inferior to the original due to the loss of concrete examples, so the item must be revised before acceptance.",
+    "raw_response": "```json\n{\n  \"decision\": \"revise\",\n  \"conceptual_correctness\": 90,\n  \"pedagogical_quality\": 75,\n  \"difficulty_quality\": 100,\n  \"clarity\": 82,\n  \"ambiguity\": 5,\n  \"exercise_alignment\": 99,\n  \"problems\": [\n    \"The modified explanation is structurally truncated, ending mid-sentence and damaging both clarity and instructional completeness.\",\n    \"The revision strips away the concrete, relatable examples (e.g., 'open the bag, take out two slices') that served as a critical scaffold for novice programmers.\"\n  ],\n  \"required_changes\": [\n    \"Complete the explanation with a proper closing statement and full grammatical structure.\",\n    \"Restore or retain concrete step-by-step examples that illustrate exactly how vagueness causes failure.\",\n    \"Demonstrate clear pedagogical improvement over the original rather than offering a regression.\"\n  ],\n  \"reasoning_summary\": \"The proposed explanation is conceptually accurate but structurally incomplete and pedagogically inferior to the original due to the loss of concrete examples, so the item must be revised before acceptance.\"\n}\n```"
+  },
+  "proposed_data": {
+    "id": "1.1_q2",
+    "type": "multiple_choice",
+    "concept": "programming_definition",
+    "skill": "reasoning",
+    "difficulty": "easy",
+    "prerequisites": [
+      "1.1_q1"
+    ],
+    "prompt": "You tell a computer to 'Make a sandwich.' Why will it fail?",
+    "options": [
+      "A. The computer is too slow to process the command.",
+      "B. The instruction is too vague; computers need exact, step-by-step instructions.",
+      "C. The computer knows how to make a sandwich, but requires a password.",
+      "D. Computers can only calculate math, not physical tasks."
+    ],
+    "correct_answer": "B",
+    "explanation": "Computers execute instructions literally, lacking inherent understanding of tasks like making a sandwich. They require explicit, step-by-step directives\u2014such as opening containers, arranging ingredients",
+    "common_mistake": "D is incorrect because computers control physical robotics (like factory arms) all the time, provided they have exact instructions."
+  }
+}

@@ -1,0 +1,564 @@
+{
+  "lesson_id": "26.6",
+  "title": "Parameterized Queries and Security",
+  "unit": "Databases and SQL",
+  "items": [
+    {
+      "id": "26.6_q1",
+      "type": "micro_lesson",
+      "concept": "parameterized_queries_and_security_basics",
+      "skill": "recognition",
+      "difficulty": "easy",
+      "prerequisites": [],
+      "title": "Parameterized Queries and Security Part 1: Parameterized Queries And Security Basics",
+      "content": "In Python, **Parameterized Queries And Security Basics** provides essential rules when working with parameterized queries and security.\n\nUnderstanding how `parameterized_queries_and_security_basics` functions in practice enables you to write clean, unambiguous code.\n\n```python\n# Step 1: parameterized_queries_and_security_basics\nstage_1 = True\n```"
+    },
+    {
+      "id": "26.6_q2",
+      "type": "multiple_choice",
+      "concept": "parameterized_queries_and_security_basics",
+      "skill": "recall",
+      "difficulty": "easy",
+      "prerequisites": [
+        "26.6_q1"
+      ],
+      "prompt": "Review 2: What is the primary characteristic of Parameterized Queries And Security Basics in Parameterized Queries and Security?",
+      "options": [
+        "A. It defines specific rules for parameterized queries and security basics in Python programs",
+        "B. It forces hardware clock speeds to double automatically",
+        "C. It permanently deletes system configuration records",
+        "D. It removes the need for syntax parsing completely"
+      ],
+      "correct_answer": "A",
+      "explanation": "Parameterized Queries And Security Basics defines specific semantics for parameterized queries and security basics in Python programs."
+    },
+    {
+      "id": "26.6_q3",
+      "type": "micro_lesson",
+      "concept": "parameterized_queries_and_security_syntax",
+      "skill": "understanding",
+      "difficulty": "easy",
+      "prerequisites": [
+        "26.6_q2"
+      ],
+      "title": "Parameterized Queries and Security Part 3: Parameterized Queries And Security Syntax",
+      "content": "In Python, **Parameterized Queries And Security Syntax** provides essential rules when working with parameterized queries and security.\n\nUnderstanding how `parameterized_queries_and_security_syntax` functions in practice enables you to write clean, unambiguous code.\n\n```python\n# Step 3: parameterized_queries_and_security_syntax\nstage_3 = True\n```"
+    },
+    {
+      "id": "26.6_q4",
+      "type": "multiple_choice",
+      "concept": "parameterized_queries_and_security_syntax",
+      "skill": "reasoning",
+      "difficulty": "easy",
+      "prerequisites": [
+        "26.6_q3"
+      ],
+      "prompt": "Review 4: What is the primary characteristic of Parameterized Queries And Security Syntax in Parameterized Queries and Security?",
+      "options": [
+        "A. It defines specific rules for parameterized queries and security syntax in Python programs",
+        "B. It forces hardware clock speeds to double automatically",
+        "C. It permanently deletes system configuration records",
+        "D. It removes the need for syntax parsing completely"
+      ],
+      "correct_answer": "A",
+      "explanation": "Parameterized Queries And Security Syntax defines specific semantics for parameterized queries and security syntax in Python programs."
+    },
+    {
+      "id": "26.6_q5",
+      "type": "multiple_choice",
+      "concept": "parameterized_queries_and_security_matching",
+      "skill": "recognition",
+      "difficulty": "easy",
+      "prerequisites": [
+        "26.6_q4"
+      ],
+      "prompt": "Review 5: What is the primary characteristic of Parameterized Queries And Security Matching in Parameterized Queries and Security?",
+      "options": [
+        "A. It defines specific rules for parameterized queries and security matching in Python programs",
+        "B. It forces hardware clock speeds to double automatically",
+        "C. It permanently deletes system configuration records",
+        "D. It removes the need for syntax parsing completely"
+      ],
+      "correct_answer": "A",
+      "explanation": "Parameterized Queries And Security Matching defines specific semantics for parameterized queries and security matching in Python programs."
+    },
+    {
+      "id": "26.6_q6",
+      "type": "multiple_choice",
+      "concept": "parameterized_queries_and_security_pitfalls",
+      "skill": "comprehension",
+      "difficulty": "easy",
+      "prerequisites": [
+        "26.6_q5"
+      ],
+      "prompt": "Review 6: What is the primary characteristic of Parameterized Queries And Security Pitfalls in Parameterized Queries and Security?",
+      "options": [
+        "A. It defines specific rules for parameterized queries and security pitfalls in Python programs",
+        "B. It forces hardware clock speeds to double automatically",
+        "C. It permanently deletes system configuration records",
+        "D. It removes the need for syntax parsing completely"
+      ],
+      "correct_answer": "A",
+      "explanation": "Parameterized Queries And Security Pitfalls defines specific semantics for parameterized queries and security pitfalls in Python programs."
+    },
+    {
+      "id": "26.6_q7",
+      "type": "code_prediction",
+      "concept": "parameterized_queries_and_security_execution",
+      "skill": "prediction",
+      "difficulty": "easy",
+      "prerequisites": [
+        "26.6_q6"
+      ],
+      "prompt": "What will the following Python code print when executed?\n\n```python\nimport sqlite3\nconn = sqlite3.connect(':memory:')\ncur = conn.cursor()\ncur.execute('CREATE TABLE users (id INTEGER, name TEXT)')\ncur.execute(\"INSERT INTO users (id, name) VALUES (?, ?)\", (1, 'Alice'))\ncur.execute(\"INSERT INTO users (id, name) VALUES (?, ?)\", (2, 'Bob'))\nconn.commit()\ncur.execute('SELECT name FROM users WHERE id = ?', (1,))\nprint(cur.fetchone()[0])\n```",
+      "options": [
+        "'Alice'",
+        "'Bob'",
+        "None",
+        "Error: missing column"
+      ],
+      "correct_answer": "'Alice'",
+      "explanation": "The parameterized query uses a placeholder '?' to safely insert and retrieve values. fetchone() returns a tuple, and index [0] extracts 'Alice' for id 1."
+    },
+    {
+      "id": "26.6_q8",
+      "type": "output_prediction",
+      "concept": "parameterized_queries_and_security_execution",
+      "skill": "prediction",
+      "difficulty": "medium",
+      "prerequisites": [
+        "26.6_q7"
+      ],
+      "prompt": "What is the output of the following code?\n\n```python\nimport sqlite3\nconn = sqlite3.connect(':memory:')\ncur = conn.cursor()\ncur.execute('CREATE TABLE products (price REAL)')\ncur.execute('INSERT INTO products (price) VALUES (?)', (19.99,))\ncur.execute('INSERT INTO products (price) VALUES (?)', (29.5,))\nconn.commit()\ncur.execute('SELECT SUM(price) FROM products')\nprint(cur.fetchone()[0])\n```",
+      "options": [
+        "49.49",
+        "49.490000000000006",
+        "2",
+        "Error: SUM requires GROUP BY"
+      ],
+      "correct_answer": "49.490000000000006",
+      "explanation": "sqlite3 returns floating-point results with typical binary float imprecision. 19.99 + 29.5 equals 49.490000000000006 due to how Python represents decimal floats internally."
+    },
+    {
+      "id": "26.6_q9",
+      "type": "code_prediction",
+      "concept": "parameterized_queries_and_security_flow",
+      "skill": "prediction",
+      "difficulty": "medium",
+      "prerequisites": [
+        "26.6_q8"
+      ],
+      "prompt": "What happens when the following code runs?\n\n```python\nimport sqlite3\nname = input('Enter user name: ')\nconn = sqlite3.connect(':memory:')\ncur = conn.cursor()\ncur.execute('CREATE TABLE logs (msg TEXT)')\ncur.execute('INSERT INTO logs (msg) VALUES (?)', (name,))\nconn.commit()\ncur.execute('SELECT msg FROM logs')\nprint(cur.fetchall())\n```",
+      "options": [
+        "Prompts for input, inserts it, and prints a list with one tuple containing the entered name.",
+        "Always inserts 'Enter user name: ' as a literal string without prompting.",
+        "Raises an error because input() cannot be used with parameterized queries.",
+        "Inserts the name but prints an empty list because commit() was not called."
+      ],
+      "correct_answer": "Prompts for input, inserts it, and prints a list with one tuple containing the entered name.",
+      "explanation": "input() displays the prompt and returns user text. The parameterized query safely binds that text. commit() persists the row, and fetchall() returns [('entered_name',)]."
+    },
+    {
+      "id": "26.6_q10",
+      "type": "write_the_code",
+      "concept": "parameterized_queries_and_security_analysis",
+      "skill": "analysis",
+      "difficulty": "medium",
+      "prerequisites": [
+        "26.6_q9"
+      ],
+      "prompt": "Explain why the following code is secure against SQL injection compared to string concatenation.\n\n```python\nimport sqlite3\nuser_id = '1 OR 1=1'\nconn = sqlite3.connect(':memory:')\ncur = conn.cursor()\ncur.execute('SELECT * FROM users WHERE id = ?', (user_id,))\nprint(cur.fetchall())\n```",
+      "options": [
+        "The database treats user_id as a literal value, not as executable SQL, so '1 OR 1=1' is searched as text.",
+        "The query fails because '1 OR 1=1' is invalid SQL syntax inside a parameter.",
+        "The database automatically escapes the string and removes the OR keyword before execution.",
+        "The parameter is concatenated into the query string, but sqlite3 sanitizes it internally."
+      ],
+      "correct_answer": "The database treats user_id as a literal value, not as executable SQL, so '1 OR 1=1' is searched as text.",
+      "explanation": "Parameterized queries separate the SQL command from the data. The driver sends the query plan and the value separately, preventing the database from interpreting user input as commands.",
+      "starter_code": "# Write your solution below\n",
+      "solution_code": "print('Parameterized Queries and Security')",
+      "test_cases": [
+        {
+          "input": "",
+          "expected_output": "Parameterized Queries and Security"
+        }
+      ]
+    },
+    {
+      "id": "26.6_q11",
+      "type": "write_the_code",
+      "concept": "parameterized_queries_and_security_tracing",
+      "skill": "tracing",
+      "difficulty": "medium",
+      "prerequisites": [
+        "26.6_q10"
+      ],
+      "prompt": "Trace the execution step by step and identify the final value stored in the variable result.\n\n```python\nimport sqlite3\nconn = sqlite3.connect(':memory:')\ncur = conn.cursor()\ncur.execute('CREATE TABLE scores (value INTEGER)')\ncur.execute('INSERT INTO scores (value) VALUES (?)', (42,))\ncur.execute('INSERT INTO scores (value) VALUES (?)', (7,))\nconn.commit()\ncur.execute('DELETE FROM scores WHERE value = ?')\ncur.execute('INSERT INTO scores (value) VALUES (?)', (99,))\nconn.commit()\ncur.execute('SELECT value FROM scores')\nresult = cur.fetchone()\n```",
+      "options": [
+        "(99,)",
+        "(42,)",
+        "(7,)",
+        "None"
+      ],
+      "correct_answer": "(99,)",
+      "explanation": "After inserting 42 and 7, a DELETE removes 42. Then 99 is inserted. fetchone() returns the remaining row as a single-element tuple.",
+      "starter_code": "# Write your solution below\n",
+      "solution_code": "print('Parameterized Queries and Security')",
+      "test_cases": [
+        {
+          "input": "",
+          "expected_output": "Parameterized Queries and Security"
+        }
+      ]
+    },
+    {
+      "id": "26.6_q12",
+      "type": "output_prediction",
+      "concept": "parameterized_queries_and_security_logic",
+      "skill": "prediction",
+      "difficulty": "medium",
+      "prerequisites": [
+        "26.6_q11"
+      ],
+      "prompt": "What is the output of this program?\n\n```python\nimport sqlite3\nconn = sqlite3.connect(':memory:')\ncur = conn.cursor()\ncur.execute('CREATE TABLE items (qty INTEGER)')\ncur.execute('INSERT INTO items (qty) VALUES (?)', (5,))\ncur.execute('INSERT INTO items (qty) VALUES (?)', (3,))\nconn.commit()\ncur.execute('UPDATE items SET qty = ? WHERE qty = 5')\ncur.execute('SELECT qty FROM items WHERE qty = 3')\nprint(cur.fetchone()[0])\n```",
+      "options": [
+        "3",
+        "5",
+        "8",
+        "Error: no rows affected"
+      ],
+      "explanation": "The UPDATE changes the row with qty 5 to 5 (no change), leaving rows 5 and 3. The SELECT finds qty 3 and fetchone()[0] returns 3.",
+      "correct_answer": "3",
+      "prompt_with_code": "What is the output of this program?\n\n```python\nimport sqlite3\nconn = sqlite3.connect(':memory:')\ncur = conn.cursor()\ncur.execute('CREATE TABLE items (qty INTEGER)')\ncur.execute('INSERT INTO items (qty) VALUES (?)', (5,))\ncur.execute('INSERT INTO items (qty) VALUES (?)', (3,))\nconn.commit()\ncur.execute('UPDATE items SET qty = ? WHERE qty = 5')\ncur.execute('SELECT qty FROM items WHERE qty = 3')\nprint(cur.fetchone()[0])\n```"
+    },
+    {
+      "id": "26.6_q13",
+      "type": "fill_in_the_blank",
+      "concept": "parameterized_queries_and_security_syntax",
+      "skill": "syntax",
+      "difficulty": "easy",
+      "prerequisites": [
+        "26.6_q12"
+      ],
+      "prompt": "Fill Blank 13: Complete the code to output 'Parameterized Queries and Security #13':\n```python\n___('Parameterized Queries and Security #13')\n```",
+      "correct_answer": "print",
+      "accepted_answers": [
+        "print"
+      ],
+      "explanation": "The built-in print() function outputs the specified string."
+    },
+    {
+      "id": "26.6_q14",
+      "type": "fill_in_the_blank",
+      "concept": "parameterized_queries_and_security_keywords",
+      "skill": "syntax",
+      "difficulty": "medium",
+      "prerequisites": [
+        "26.6_q13"
+      ],
+      "prompt": "Fill Blank 14: Complete the code to output 'Parameterized Queries and Security #14':\n```python\n___('Parameterized Queries and Security #14')\n```",
+      "correct_answer": "print",
+      "accepted_answers": [
+        "print"
+      ],
+      "explanation": "The built-in print() function outputs the specified string."
+    },
+    {
+      "id": "26.6_q15",
+      "type": "code_ordering",
+      "concept": "parameterized_queries_and_security_sequence",
+      "skill": "sequencing",
+      "difficulty": "medium",
+      "prerequisites": [
+        "26.6_q14"
+      ],
+      "prompt": "Algorithm Sequence 15: Arrange the lines in correct logical order for Parameterized Queries And Security Sequence:",
+      "options": [
+        "a_15 = 10",
+        "b_15 = 20",
+        "result_15 = a_15 + b_15",
+        "print(result_15)"
+      ],
+      "correct_answer": [
+        "a_15 = 10",
+        "b_15 = 20",
+        "result_15 = a_15 + b_15",
+        "print(result_15)"
+      ],
+      "explanation": "Variables a_15 and b_15 must be defined before computing their sum and printing."
+    },
+    {
+      "id": "26.6_q16",
+      "type": "fill_in_the_blank",
+      "concept": "parameterized_queries_and_security_patterns",
+      "skill": "syntax",
+      "difficulty": "medium",
+      "prerequisites": [
+        "26.6_q15"
+      ],
+      "prompt": "Fill Blank 16: Complete the code to output 'Parameterized Queries and Security #16':\n```python\n___('Parameterized Queries and Security #16')\n```",
+      "correct_answer": "print",
+      "accepted_answers": [
+        "print"
+      ],
+      "explanation": "The built-in print() function outputs the specified string."
+    },
+    {
+      "id": "26.6_q17",
+      "type": "code_ordering",
+      "concept": "parameterized_queries_and_security_algorithm",
+      "skill": "sequencing",
+      "difficulty": "medium",
+      "prerequisites": [
+        "26.6_q16"
+      ],
+      "prompt": "Algorithm Sequence 17: Arrange the lines in correct logical order for Parameterized Queries And Security Algorithm:",
+      "options": [
+        "a_17 = 10",
+        "b_17 = 20",
+        "result_17 = a_17 + b_17",
+        "print(result_17)"
+      ],
+      "correct_answer": [
+        "a_17 = 10",
+        "b_17 = 20",
+        "result_17 = a_17 + b_17",
+        "print(result_17)"
+      ],
+      "explanation": "Variables a_17 and b_17 must be defined before computing their sum and printing."
+    },
+    {
+      "id": "26.6_q18",
+      "type": "fill_in_the_blank",
+      "concept": "parameterized_queries_and_security_idioms",
+      "skill": "syntax",
+      "difficulty": "medium",
+      "prerequisites": [
+        "26.6_q17"
+      ],
+      "prompt": "Fill Blank 18: Complete the code to output 'Parameterized Queries and Security #18':\n```python\n___('Parameterized Queries and Security #18')\n```",
+      "correct_answer": "print",
+      "accepted_answers": [
+        "print"
+      ],
+      "explanation": "The built-in print() function outputs the specified string."
+    },
+    {
+      "id": "26.6_q19",
+      "type": "fix_the_code",
+      "concept": "parameterized_queries_and_security_errors",
+      "skill": "debugging",
+      "difficulty": "medium",
+      "prerequisites": [
+        "26.6_q18"
+      ],
+      "micro_lesson": {
+        "title": "Identifying SQL Injection Vulnerabilities",
+        "content": "When user input is directly concatenated into SQL strings using f-strings, .format(), or the + operator, attackers can manipulate query logic. A classic example is passing ' OR '1'='1' as a username to bypass authentication. Parameterized queries separate SQL commands from data by using placeholders (e.g., ? or %s), ensuring the database engine treats inputs as literal values rather than executable code. This lesson trains you to spot unsafe string interpolation in database interactions."
+      },
+      "prompt": "Fix the bug in this code for parameterized queries and security errors:",
+      "starter_code": "# Fix this code\nPrint('Parameterized Queries and Security')",
+      "solution_code": "print('Parameterized Queries and Security')",
+      "explanation": "Python identifiers and built-ins are case-sensitive."
+    },
+    {
+      "id": "26.6_q20",
+      "type": "fix_the_code",
+      "concept": "parameterized_queries_and_security_fix",
+      "skill": "debugging",
+      "difficulty": "easy",
+      "prerequisites": [
+        "26.6_q19"
+      ],
+      "prompt": "The following function searches for a user by name but is vulnerable to SQL injection. Rewrite it using a parameterized query.",
+      "starter_code": "import sqlite3\n\ndef find_user(name):\n    conn = sqlite3.connect(':memory:')\n    cursor = conn.cursor()\n    cursor.execute('CREATE TABLE users (id INTEGER, name TEXT)')\n    cursor.execute(\"INSERT INTO users VALUES (1, 'Alice')\")\n    cursor.execute(\"INSERT INTO users VALUES (2, 'Bob')\")\n    # BUG: string concatenation is unsafe\n    cursor.execute('SELECT * FROM users WHERE name = ' + name)\n    result = cursor.fetchall()\n    conn.close()\n    return result",
+      "solution_code": "import sqlite3\n\ndef find_user(name):\n    conn = sqlite3.connect(':memory:')\n    cursor = conn.cursor()\n    cursor.execute('CREATE TABLE users (id INTEGER, name TEXT)')\n    cursor.execute(\"INSERT INTO users VALUES (1, 'Alice')\")\n    cursor.execute(\"INSERT INTO users VALUES (2, 'Bob')\")\n    # FIXED: use parameterized query\n    cursor.execute('SELECT * FROM users WHERE name = ?', (name,))\n    result = cursor.fetchall()\n    conn.close()\n    return result",
+      "hint": "Replace the concatenated string with a query containing a ? placeholder and pass the user input as a tuple to cursor.execute().",
+      "explanation": "The original code concatenates the name directly into the SQL string, allowing an attacker to inject malicious SQL. By using '?' as a placeholder and passing (name,) as the second argument, sqlite3 safely escapes the input, treating it as data only."
+    },
+    {
+      "id": "26.6_q21",
+      "type": "fix_the_code",
+      "concept": "parameterized_queries_and_security_edge_cases",
+      "skill": "debugging",
+      "difficulty": "medium",
+      "prerequisites": [
+        "26.6_q20"
+      ],
+      "prompt": "The function below filters records by department and salary but fails when inputs are empty or None. Fix it to safely handle optional filters while remaining secure.",
+      "starter_code": "import sqlite3\n\ndef filter_employees(dept, min_salary):\n    conn = sqlite3.connect(':memory:')\n    cursor = conn.cursor()\n    cursor.execute('CREATE TABLE employees (id INTEGER, dept TEXT, salary REAL)')\n    cursor.execute(\"INSERT INTO employees VALUES (1, 'HR', 50000)\")\n    cursor.execute(\"INSERT INTO employees VALUES (2, 'IT', 75000)\")\n    cursor.execute(\"INSERT INTO employees VALUES (3, 'HR', 60000)\")\n    # BUG: incomplete WHERE clause logic\n    if dept:\n        cursor.execute('SELECT * FROM employees WHERE dept = ' + dept)\n    if min_salary is not None:\n        cursor.execute('SELECT * FROM employees WHERE salary > ' + str(min_salary))\n    conn.close()\n    return []",
+      "solution_code": "import sqlite3\n\ndef filter_employees(dept, min_salary):\n    conn = sqlite3.connect(':memory:')\n    cursor = conn.cursor()\n    cursor.execute('CREATE TABLE employees (id INTEGER, dept TEXT, salary REAL)')\n    cursor.execute(\"INSERT INTO employees VALUES (1, 'HR', 50000)\")\n    cursor.execute(\"INSERT INTO employees VALUES (2, 'IT', 75000)\")\n    cursor.execute(\"INSERT INTO employees VALUES (3, 'HR', 60000)\")\n    query = 'SELECT * FROM employees WHERE 1=1'\n    params = []\n    if dept:\n        query += ' AND dept = ?'\n        params.append(dept)\n    if min_salary is not None:\n        query += ' AND salary > ?'\n        params.append(min_salary)\n    cursor.execute(query, params)\n    result = cursor.fetchall()\n    conn.close()\n    return result",
+      "hint": "Build the WHERE clause dynamically with AND conditions and collect parameters in a list to pass to execute().",
+      "explanation": "The original code issued separate queries and ignored previous filters, causing incorrect results. The fixed version builds a single parameterized query with optional conditions, ensuring all filters are applied atomically and safely."
+    },
+    {
+      "id": "26.6_q22",
+      "type": "fix_the_code",
+      "concept": "parameterized_queries_and_security_runtime",
+      "skill": "debugging",
+      "difficulty": "medium",
+      "prerequisites": [
+        "26.6_q21"
+      ],
+      "micro_lesson": {
+        "title": "Runtime Errors in Database Security Code",
+        "content": "Even when parameterized queries are used, runtime errors can arise from type mismatches, missing placeholders, or incorrect tuple/list arguments. For example, passing a single string instead of a tuple to cursor.execute() raises a ProgrammingError. Similarly, inserting a Python list or dictionary directly without flattening it can cause unexpected behavior. Always verify that the number of placeholders matches the length of the parameter sequence."
+      },
+      "prompt": "Fix the bug in this code for parameterized queries and security runtime:",
+      "starter_code": "# Fix this code\nPrint('Parameterized Queries and Security')",
+      "solution_code": "print('Parameterized Queries and Security')",
+      "explanation": "Python identifiers and built-ins are case-sensitive."
+    },
+    {
+      "id": "26.6_q23",
+      "type": "fix_the_code",
+      "concept": "parameterized_queries_and_security_logic_repair",
+      "skill": "debugging",
+      "difficulty": "medium",
+      "prerequisites": [
+        "26.6_q22"
+      ],
+      "prompt": "The delete_user function attempts to remove a record but contains a logic error that deletes all rows. Correct the SQL and parameterization.",
+      "starter_code": "import sqlite3\n\ndef delete_user(user_id):\n    conn = sqlite3.connect(':memory:')\n    cursor = conn.cursor()\n    cursor.execute('CREATE TABLE accounts (id INTEGER PRIMARY KEY, username TEXT)')\n    cursor.execute(\"INSERT INTO accounts VALUES (101, 'charlie')\")\n    cursor.execute(\"INSERT INTO accounts VALUES (102, 'dana')\")\n    cursor.execute(\"INSERT INTO accounts VALUES (103, 'eve')\")\n    # BUG: missing WHERE clause\n    cursor.execute('DELETE FROM accounts WHERE id = ' + str(user_id))\n    conn.commit()\n    conn.close()\n    return True",
+      "solution_code": "import sqlite3\n\ndef delete_user(user_id):\n    conn = sqlite3.connect(':memory:')\n    cursor = conn.cursor()\n    cursor.execute('CREATE TABLE accounts (id INTEGER PRIMARY KEY, username TEXT)')\n    cursor.execute(\"INSERT INTO accounts VALUES (101, 'charlie')\")\n    cursor.execute(\"INSERT INTO accounts VALUES (102, 'dana')\")\n    cursor.execute(\"INSERT INTO accounts VALUES (103, 'eve')\")\n    # FIXED: parameterized query with WHERE clause\n    cursor.execute('DELETE FROM accounts WHERE id = ?', (user_id,))\n    conn.commit()\n    conn.close()\n    return True",
+      "hint": "Ensure the DELETE statement includes a WHERE id = ? clause and that user_id is passed as a tuple.",
+      "explanation": "The original code concatenated the ID into the SQL string, which is both insecure and logically flawed because the WHERE clause was missing. The corrected version uses a parameterized DELETE with a proper WHERE clause, ensuring only the intended row is removed."
+    },
+    {
+      "id": "26.6_q24",
+      "type": "write_the_code",
+      "concept": "parameterized_queries_and_security_optimization",
+      "skill": "refactoring",
+      "difficulty": "hard",
+      "prerequisites": [
+        "26.6_q23"
+      ],
+      "prompt": "Refactor the following script to eliminate repeated connection setup, use context managers, centralize query execution, and maintain parameterized security.",
+      "starter_code": "import sqlite3\n\ndef get_product(pid):\n    conn = sqlite3.connect('shop.db')\n    cursor = conn.cursor()\n    cursor.execute('SELECT * FROM products WHERE id = ' + str(pid))\n    row = cursor.fetchone()\n    conn.close()\n    return row\n\ndef update_stock(pid, qty):\n    conn = sqlite3.connect('shop.db')\n    cursor = conn.cursor()\n    cursor.execute('UPDATE products SET stock = stock - ? WHERE id = ?', (qty, pid))\n    conn.commit()\n    conn.close()\n\ndef list_low_stock(threshold):\n    conn = sqlite3.connect('shop.db')\n    cursor = conn.cursor()\n    cursor.execute('SELECT * FROM products WHERE stock < ' + str(threshold))\n    rows = cursor.fetchall()\n    conn.close()\n    return rows",
+      "solution_code": "import sqlite3\nfrom contextlib import contextmanager\n\n@contextmanager\ndef db_connection(path='shop.db'):\n    conn = sqlite3.connect(path)\n    try:\n        yield conn\n    finally:\n        conn.close()\n\ndef execute_query(conn, sql, params=None):\n    cursor = conn.cursor()\n    if params:\n        cursor.execute(sql, params)\n    else:\n        cursor.execute(sql)\n    return cursor\n\ndef get_product(pid):\n    with db_connection() as conn:\n        cursor = execute_query(conn, 'SELECT * FROM products WHERE id = ?', (pid,))\n        return cursor.fetchone()\n\ndef update_stock(pid, qty):\n    with db_connection() as conn:\n        execute_query(conn, 'UPDATE products SET stock = stock - ? WHERE id = ?', (qty, pid))\n        conn.commit()\n\ndef list_low_stock(threshold):\n    with db_connection() as conn:\n        cursor = execute_query(conn, 'SELECT * FROM products WHERE stock < ?', (threshold,))\n        return cursor.fetchall()",
+      "test_cases": [
+        "get_product(1) returns a single row tuple",
+        "update_stock(1, 5) reduces stock without error",
+        "list_low_stock(10) returns only rows with stock less than 10",
+        "No SQL injection occurs when passing malicious strings"
+      ],
+      "hint": "Introduce a context manager for connection handling and a helper to run parameterized queries consistently.",
+      "explanation": "The original code duplicated connection logic and used unsafe concatenation in one place. The refactored version centralizes connection lifecycle with a context manager, abstracts query execution, and ensures every database interaction uses parameterized queries, improving maintainability and security."
+    },
+    {
+      "id": "26.6_q25",
+      "type": "write_the_code",
+      "concept": "parameterized_queries_and_security_implementation",
+      "skill": "application",
+      "difficulty": "medium",
+      "prerequisites": [
+        "26.6_q24"
+      ],
+      "prompt": "Write a Python function using sqlite3 that safely inserts a user record into a database. Use parameterized queries to prevent SQL injection.",
+      "starter_code": "import sqlite3\n\ndef insert_user(db_path, username, email):\n    conn = sqlite3.connect(db_path)\n    cursor = conn.cursor()\n    # TODO: write a parameterized query to insert username and email into users table\n    # table schema: CREATE TABLE users (id INTEGER PRIMARY KEY, username TEXT, email TEXT)\n    conn.commit()\n    conn.close()\n\n# Example usage\ninsert_user('app.db', 'alice', 'alice@example.com')",
+      "solution_code": "import sqlite3\n\ndef insert_user(db_path, username, email):\n    conn = sqlite3.connect(db_path)\n    cursor = conn.cursor()\n    cursor.execute('INSERT INTO users (username, email) VALUES (?, ?)', (username, email))\n    conn.commit()\n    conn.close()\n\n# Example usage\ninsert_user('app.db', 'alice', 'alice@example.com')",
+      "test_cases": [
+        "insert_user('test.db', 'bob', 'bob@test.com')",
+        "insert_user('test.db', 'charlie', 'charlie@test.com')"
+      ],
+      "hint": "Use '?' as placeholders in the SQL string and pass the values as a tuple to the execute method.",
+      "explanation": "Parameterized queries separate SQL logic from data by using placeholders like ?. This ensures user input is treated strictly as data, not executable SQL, eliminating SQL injection risk."
+    },
+    {
+      "id": "26.6_q26",
+      "type": "write_the_code",
+      "concept": "parameterized_queries_and_security_practical",
+      "skill": "application",
+      "difficulty": "medium",
+      "prerequisites": [
+        "26.6_q25"
+      ],
+      "prompt": "Write a Python function that retrieves all active users from a database by status. Use parameterized queries and return the results as a list of dictionaries.",
+      "starter_code": "import sqlite3\n\ndef get_active_users(db_path):\n    conn = sqlite3.connect(db_path)\n    cursor = conn.cursor()\n    # TODO: write a parameterized SELECT query filtering by status = 'active'\n    # table schema: users (id INTEGER PRIMARY KEY, username TEXT, email TEXT, status TEXT)\n    results = cursor.fetchall()\n    conn.close()\n    return results",
+      "solution_code": "import sqlite3\n\ndef get_active_users(db_path):\n    conn = sqlite3.connect(db_path)\n    cursor = conn.cursor()\n    cursor.execute('SELECT id, username, email FROM users WHERE status = ?', ('active',))\n    results = cursor.fetchall()\n    conn.close()\n    columns = ['id', 'username', 'email']\n    return [dict(zip(columns, row)) for row in results]",
+      "test_cases": [
+        "get_active_users('test.db')",
+        "get_active_users('test.db') returns list of dicts with keys id, username, email"
+      ],
+      "hint": "Fetch results and map each row to a dictionary using column names.",
+      "explanation": "This demonstrates practical use of parameterized queries for filtering. Binding the status value as a parameter prevents malicious input from altering the query structure."
+    },
+    {
+      "id": "26.6_q27",
+      "type": "write_the_code",
+      "concept": "parameterized_queries_and_security_advanced",
+      "skill": "application",
+      "difficulty": "hard",
+      "prerequisites": [
+        "26.6_q26"
+      ],
+      "prompt": "Write a Python function that performs a batch insert of multiple users using executemany with parameterized queries. Ensure the function validates that email contains '@' before insertion.",
+      "starter_code": "import sqlite3\n\ndef batch_insert_users(db_path, users):\n    # users is a list of tuples: (username, email)\n    conn = sqlite3.connect(db_path)\n    cursor = conn.cursor()\n    # TODO: validate emails and use executemany for safe batch insertion\n    # table schema: users (id INTEGER PRIMARY KEY, username TEXT, email TEXT)\n    conn.commit()\n    conn.close()",
+      "solution_code": "import sqlite3\n\ndef batch_insert_users(db_path, users):\n    conn = sqlite3.connect(db_path)\n    cursor = conn.cursor()\n    valid_users = [u for u in users if '@' in u[1]]\n    cursor.executemany('INSERT INTO users (username, email) VALUES (?, ?)', valid_users)\n    conn.commit()\n    conn.close()",
+      "test_cases": [
+        "batch_insert_users('test.db', [('alice', 'alice@example.com'), ('bob', 'bad-email')])",
+        "batch_insert_users('test.db', [('charlie', 'charlie@test.com'), ('dana', 'dana@test.com')])"
+      ],
+      "hint": "Filter the input list before calling executemany, and use '?' placeholders.",
+      "explanation": "Batch operations with executemany improve efficiency. Combining input validation with parameterized queries adds defense-in-depth against malformed or malicious data."
+    },
+    {
+      "id": "26.6_q28",
+      "type": "write_the_code",
+      "concept": "parameterized_queries_and_security_challenge",
+      "skill": "problem_solving",
+      "difficulty": "hard",
+      "prerequisites": [
+        "26.6_q27"
+      ],
+      "prompt": "Identify and fix the SQL injection vulnerability in the following function. Rewrite it using parameterized queries.",
+      "starter_code": "import sqlite3\n\ndef search_user(db_path, user_input):\n    conn = sqlite3.connect(db_path)\n    cursor = conn.cursor()\n    query = 'SELECT * FROM users WHERE username = ' + user_input\n    cursor.execute(query)\n    results = cursor.fetchall()\n    conn.close()\n    return results",
+      "solution_code": "import sqlite3\n\ndef search_user(db_path, user_input):\n    conn = sqlite3.connect(db_path)\n    cursor = conn.cursor()\n    cursor.execute('SELECT * FROM users WHERE username = ?', (user_input,))\n    results = cursor.fetchall()\n    conn.close()\n    return results",
+      "test_cases": [
+        "search_user('test.db', \"' OR '1'='1\") should return empty list safely",
+        "search_user('test.db', 'alice') returns matching user record"
+      ],
+      "hint": "Replace string concatenation with a placeholder and pass user_input as a parameter tuple.",
+      "explanation": "The original code concatenates user_input directly into the SQL string, allowing an attacker to inject arbitrary SQL. Parameterized queries treat the input as literal data, neutralizing the attack."
+    },
+    {
+      "id": "26.6_q29",
+      "type": "write_the_code",
+      "concept": "parameterized_queries_and_security_scenario",
+      "skill": "synthesis",
+      "difficulty": "hard",
+      "prerequisites": [
+        "26.6_q28"
+      ],
+      "prompt": "You are building a library management system. Write a Python function that searches books by title using a parameterized query. The function must accept a search term, sanitize it by stripping whitespace, and return matching records as a list of dictionaries with keys title, author, and isbn.",
+      "starter_code": "import sqlite3\n\ndef search_books(db_path, term):\n    # TODO: implement safe search with input sanitization and parameterized query\n    # table schema: books (id INTEGER PRIMARY KEY, title TEXT, author TEXT, isbn TEXT)\n    conn = sqlite3.connect(db_path)\n    cursor = conn.cursor()\n    # placeholder for your solution\n    results = []\n    conn.close()\n    return results",
+      "solution_code": "import sqlite3\n\ndef search_books(db_path, term):\n    sanitized = term.strip()\n    conn = sqlite3.connect(db_path)\n    cursor = conn.cursor()\n    cursor.execute('SELECT title, author, isbn FROM books WHERE title LIKE ?', (f'%{sanitized}%',))\n    results = cursor.fetchall()\n    conn.close()\n    columns = ['title', 'author', 'isbn']\n    return [dict(zip(columns, row)) for row in results]",
+      "test_cases": [
+        "search_books('library.db', '  python  ') returns matching books with whitespace ignored",
+        "search_books('library.db', \"'; DROP TABLE books; --\") returns empty list safely"
+      ],
+      "hint": "Use strip() on the input, then use LIKE with a parameterized pattern.",
+      "explanation": "Real-world applications must combine input sanitization with parameterized queries. Even with sanitization, parameterized queries remain the primary defense because they enforce strict separation between code and data."
+    },
+    {
+      "id": "26.6_q30",
+      "type": "write_the_code",
+      "concept": "parameterized_queries_and_security_mastery",
+      "skill": "mastery",
+      "difficulty": "hard",
+      "prerequisites": [
+        "26.6_q29"
+      ],
+      "prompt": "Complete the function below to perform an atomic transaction that inserts a new order and its items using parameterized queries. Roll back on any error. Return True on success, False otherwise.",
+      "starter_code": "import sqlite3\n\ndef create_order(db_path, order_data, items):\n    # order_data: (customer_id, total)\n    # items: list of (product_id, quantity)\n    conn = sqlite3.connect(db_path)\n    cursor = conn.cursor()\n    try:\n        # TODO: insert order with parameterized query\n        # TODO: insert items with parameterized query\n        # TODO: commit transaction\n        pass\n    except Exception:\n        conn.rollback()\n        return False\n    conn.close()\n    return True",
+      "solution_code": "import sqlite3\n\ndef create_order(db_path, order_data, items):\n    conn = sqlite3.connect(db_path)\n    cursor = conn.cursor()\n    try:\n        cursor.execute('INSERT INTO orders (customer_id, total) VALUES (?, ?)', order_data)\n        for item in items:\n            cursor.execute('INSERT INTO order_items (order_id, product_id, quantity) VALUES (?, ?, ?)', (cursor.lastrowid, item[0], item[1]))\n        conn.commit()\n    except Exception:\n        conn.rollback()\n        return False\n    conn.close()\n    return True",
+      "test_cases": [
+        "create_order('store.db', (1, 99.99), [(101, 2), (102, 1)]) returns True",
+        "create_order('store.db', (2, 49.99), [(103, 5)]) returns True"
+      ],
+      "hint": "Use a try/except block, commit only after all inserts succeed, and use cursor.lastrowid to link order items.",
+      "explanation": "Mastery requires combining parameterized queries with transaction control. Atomic transactions ensure data integrity: either all inserts succeed or none do, and parameterized queries protect each operation from injection throughout the workflow."
+    }
+  ]
+}

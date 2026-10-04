@@ -1,0 +1,598 @@
+{
+  "lesson_id": "25.6",
+  "title": "Project: API Weather Dashboard",
+  "unit": "APIs and Networking",
+  "items": [
+    {
+      "id": "25.6_q1",
+      "type": "micro_lesson",
+      "concept": "project_api_weather_dashboard_architecture",
+      "skill": "planning",
+      "difficulty": "easy",
+      "prerequisites": [],
+      "title": "Architecting a Weather Dashboard",
+      "content": "Before writing any code, you must plan how your Weather Dashboard will fetch data and display it. A typical architecture has three layers: the frontend (GUI) where the user interacts, the networking layer that calls the weather API, and the data layer that parses the JSON response. We will use the `requests` library to send a GET request to a public weather API such as OpenWeatherMap. The response arrives as JSON, which we convert into a Python dictionary using `.json()`. Your GUI will then extract fields like temperature, humidity, and description to update labels. Sketch this flow on paper: GUI button triggers function -> `requests.get(url)` -> `.json()` -> update labels. This separation keeps your code readable and debuggable."
+    },
+    {
+      "idx": 2,
+      "type": "micro_lesson",
+      "concept": "project_api_weather_dashboard_architecture",
+      "skill": "planning",
+      "difficulty": "easy",
+      "prerequisites": [
+        "25.6_q1"
+      ],
+      "title": "Choosing API Endpoints and GUI Layout",
+      "content": "Selecting the right API endpoint is critical. For example, the current weather endpoint usually returns data like `{'main': {'temp': 285.53}, 'weather': [{'description': 'clear sky'}]}`. Plan to store the API key securely, perhaps as an environment variable, rather than hard-coding it. For the GUI, a simple layout might use a `tkinter.Tk()` root window with a `Label` for the city, another for temperature, and a `Button` to refresh. Remember to handle network errors gracefully with a `try/except` block around the request. Here is a skeleton to guide your planning:\n\n```python\nimport requests\n\napi_key = 'YOUR_KEY'\nbase_url = 'https://api.openweathermap.org/data/2.5/weather'\nparams = {'q': 'London', 'appid': api_key, 'units': 'metric'}\n\ntry:\n    response = requests.get(base_url, params=params)\n    response.raise_for_status()\n    data = response.json()\nexcept requests.exceptions.RequestException as e:\n    print('Error:', e)\n```\n\nWith this structure, you can now wire the parsed values into your GUI widgets.",
+      "id": "25.6_q2"
+    },
+    {
+      "idx": 3,
+      "type": "multiple_choice",
+      "concept": "project_api_weather_dashboard_requirements",
+      "skill": "design",
+      "difficulty": "easy",
+      "prerequisites": [
+        "25.6_q2"
+      ],
+      "prompt": "Which of the following is a core functional requirement for the API Weather Dashboard?",
+      "options": [
+        "Display the current temperature in Celsius fetched from a weather API",
+        "Store all historical weather data in a local SQL database",
+        "Generate a PDF report every time the dashboard opens",
+        "Allow users to edit the API source code directly from the GUI"
+      ],
+      "correct_answer": "Display the current temperature in Celsius fetched from a weather API",
+      "explanation": "The primary goal of this project is to retrieve real-time weather data via an API and present key metrics like temperature to the user. Persistent storage, PDF generation, and code editing are outside the stated scope.",
+      "id": "25.6_q3"
+    },
+    {
+      "idx": 4,
+      "type": "multiple_choice",
+      "concept": "project_api_weather_dashboard_requirements",
+      "skill": "design",
+      "difficulty": "easy",
+      "prerequisites": [
+        "25.6_q3"
+      ],
+      "prompt": "What is a valid non-functional requirement for the weather dashboard project?",
+      "options": [
+        "The application must respond to an API call within 3 seconds",
+        "The GUI must use exactly three labels",
+        "The API key must be printed in the console for debugging",
+        "The code must contain at least 100 lines"
+      ],
+      "correct_answer": "The application must respond to an API call within 3 seconds",
+      "explanation": "Non-functional requirements describe quality attributes such as performance, reliability, and usability. A 3-second response time is a reasonable performance target. The other options describe implementation details or poor practices.",
+      "id": "25.6_q4"
+    },
+    {
+      "idx": 5,
+      "type": "code_ordering",
+      "concept": "project_api_weather_dashboard_milestone_flow",
+      "skill": "sequencing",
+      "difficulty": "medium",
+      "prerequisites": [
+        "25.6_q4"
+      ],
+      "prompt": "Arrange the following milestone steps in the correct order to build the weather dashboard.",
+      "options": [
+        "Update GUI labels with parsed weather data",
+        "Define the API URL and parameters",
+        "Create the main tkinter window and widgets",
+        "Send a GET request to the weather API"
+      ],
+      "correct_answer": [
+        "Define the API URL and parameters",
+        "Create the main tkinter window and widgets",
+        "Send a GET request to the weather API",
+        "Update GUI labels with parsed weather data"
+      ],
+      "explanation": "You must first know where to fetch data and how to request it, then set up the display, trigger the network call, and finally populate the widgets with the results.",
+      "id": "25.6_q5"
+    },
+    {
+      "idx": 6,
+      "type": "code_ordering",
+      "concept": "project_api_weather_dashboard_milestone_flow",
+      "skill": "sequencing",
+      "difficulty": "medium",
+      "prerequisites": [
+        "25.6_q5"
+      ],
+      "prompt": "Arrange the following code blocks in the correct execution order for the refresh button callback.",
+      "options": [
+        "```python\\nlabel_temp.config(text=f'Temp: {data['main']['temp']}')\\n```",
+        "```python\\nresponse = requests.get(url, params=params)\\ndata = response.json()\\n```",
+        "```python\\ndef on_refresh():\\n    try:\\n```",
+        "```python\\nroot = tk.Tk()\\nlabel_city = tk.Label(root)\\n```"
+      ],
+      "correct_answer": [
+        "```python\\ndef on_refresh():\\n    try:\\n```",
+        "```python\\nresponse = requests.get(url, params=params)\\ndata = response.json()\\n```",
+        "```python\\nlabel_temp.config(text=f'Temp: {data['main']['temp']}')\\n```",
+        "```python\\nroot = tk.Tk()\\nlabel_city = tk.Label(root)\\n```"
+      ],
+      "explanation": "The callback must be defined before it is triggered, the request must happen inside the callback before parsing, parsing must precede label updates, and the GUI must be instantiated before any callback references its widgets.",
+      "id": "25.6_q6"
+    },
+    {
+      "id": "25.6_q7",
+      "type": "fix_the_code",
+      "concept": "project_api_weather_dashboard_module_bugfix",
+      "skill": "debugging",
+      "difficulty": "medium",
+      "prerequisites": [
+        "25.6_q6"
+      ],
+      "error_diagnosis": {
+        "prompt": "The following code is part of the Weather Dashboard project. It attempts to fetch current temperature data from a weather API and display it. However, the program crashes with a KeyError when the API response is processed. Identify and fix the bug.",
+        "starter_code": "import requests\n\ndef get_temperature(city):\n    url = 'https://api.example.com/weather?q=' + city\n    response = requests.get(url)\n    data = response.json()\n    temp = data['main']['temp']\n    print('Current temperature in ' + city + ' is ' + str(temp) + 'K')\n\nget_temperature('London')",
+        "solution_code": "import requests\n\ndef get_temperature(city):\n    url = 'https://api.example.com/weather?q=' + city\n    response = requests.get(url)\n    data = response.json()\n    temp = data['main']['temp_c']\n    print('Current temperature in ' + city + ' is ' + str(temp) + 'C')\n\nget_temperature('London')",
+        "hint": "Check the exact key names returned by the API response structure. The API uses 'temp_c' instead of 'temp', and returns Celsius rather than Kelvin.",
+        "explanation": "The original code assumed the API returned a 'temp' key inside 'main', but the actual API schema uses 'temp_c' and reports temperature in Celsius. Updating the key and the unit label fixes the KeyError and ensures correct display."
+      },
+      "prompt": "Fix the bug in this code for project api weather dashboard module bugfix:",
+      "starter_code": "# Fix this code\nPrint('Project: API Weather Dashboard')",
+      "solution_code": "print('Project: API Weather Dashboard')",
+      "explanation": "Python identifiers and built-ins are case-sensitive."
+    },
+    {
+      "id": "25.6_q8",
+      "type": "fix_the_code",
+      "concept": "project_api_weather_dashboard_module_bugfix",
+      "skill": "debugging",
+      "difficulty": "medium",
+      "prerequisites": [
+        "25.6_q7"
+      ],
+      "error_diagnosis": {
+        "prompt": "In the Weather Dashboard module, the function below is supposed to handle network failures gracefully. Currently, if the API is unreachable, the program terminates with an unhandled exception. Fix the code so it catches connection errors and prints a user-friendly message.",
+        "starter_code": "import requests\n\ndef fetch_weather(city):\n    url = 'https://api.example.com/weather?q=' + city\n    response = requests.get(url)\n    return response.json()\n\nfetch_weather('Paris')",
+        "solution_code": "import requests\n\ndef fetch_weather(city):\n    url = 'https://api.example.com/weather?q=' + city\n    try:\n        response = requests.get(url, timeout=5)\n        response.raise_for_status()\n        return response.json()\n    except requests.exceptions.RequestException as e:\n        print('Unable to retrieve weather data:', e)\n        return None\n\nfetch_weather('Paris')",
+        "hint": "Use a try-except block to catch request-related exceptions such as ConnectionError or Timeout. Also call raise_for_status() to catch HTTP errors.",
+        "explanation": "Wrapping the network call in a try-except block ensures that connection timeouts, DNS failures, or bad HTTP status codes do not crash the program. The function now returns None on failure and informs the user."
+      },
+      "prompt": "Fix the bug in this code for project api weather dashboard module bugfix: (Variation 8)",
+      "starter_code": "# Fix this code\nPrint('Project: API Weather Dashboard')",
+      "solution_code": "print('Project: API Weather Dashboard')",
+      "explanation": "Python identifiers and built-ins are case-sensitive."
+    },
+    {
+      "id": "25.6_q9",
+      "type": "fix_the_code",
+      "concept": "project_api_weather_dashboard_module_bugfix",
+      "skill": "debugging",
+      "difficulty": "medium",
+      "prerequisites": [
+        "25.6_q8"
+      ],
+      "error_diagnosis": {
+        "prompt": "The Weather Dashboard code below attempts to parse the API response but fails because it does not validate whether the response contains the expected nested structure. Add defensive checks so the code does not raise an exception when keys are missing.",
+        "starter_code": "import requests\n\ndef parse_weather(data):\n    return data['weather'][0]['description']\n\nresp = requests.get('https://api.example.com/weather?q=Tokyo')\nresult = parse_weather(resp.json())\nprint(result)",
+        "solution_code": "import requests\n\ndef parse_weather(data):\n    if not isinstance(data, dict):\n        raise ValueError('Invalid response format')\n    if 'weather' not in data or not data['weather']:\n        raise ValueError('Weather list is missing')\n    return data['weather'][0]['description']\n\nresp = requests.get('https://api.example.com/weather?q=Tokyo')\nresult = parse_weather(resp.json())\nprint(result)",
+        "hint": "Verify that 'data' is a dictionary, that 'weather' exists and is non-empty, and that the first element contains 'description' before accessing it.",
+        "explanation": "Defensive programming prevents runtime exceptions by confirming the expected data shape before indexing. The improved parse_weather function raises clear ValueError messages when the API response is malformed."
+      },
+      "prompt": "Fix the bug in this code for project api weather dashboard module bugfix: (Variation 9)",
+      "starter_code": "# Fix this code\nPrint('Project: API Weather Dashboard')",
+      "solution_code": "print('Project: API Weather Dashboard')",
+      "explanation": "Python identifiers and built-ins are case-sensitive."
+    },
+    {
+      "id": "25.6_q10",
+      "type": "fix_the_code",
+      "concept": "project_api_weather_dashboard_module_bugfix",
+      "skill": "debugging",
+      "difficulty": "medium",
+      "prerequisites": [
+        "25.6_q9"
+      ],
+      "error_diagnosis": {
+        "prompt": "The Weather Dashboard stores API responses in a local cache dictionary. The code below incorrectly mutates the cached dictionary when updating a city's forecast. Fix the logic so the original cache remains unchanged and a new forecast entry is added safely.",
+        "starter_code": "cache = {'London': {'temp': 280}}\n\ndef update_cache(city, forecast):\n    cache[city] = forecast\n    return cache\n\nupdate_cache('London', {'temp': 285})\nprint(cache)",
+        "solution_code": "cache = {'London': {'temp': 280}}\n\ndef update_cache(city, forecast):\n    new_cache = cache.copy()\n    new_cache[city] = forecast\n    return new_cache\n\nupdate_cache('London', {'temp': 285})\nprint(cache)",
+        "hint": "Use dict.copy() to create a shallow copy before modifying it, ensuring the original cache dictionary is not altered.",
+        "explanation": "By copying the cache before mutation, the function avoids side effects on the original dictionary. This pattern is useful when the dashboard needs to preserve historical cached states while displaying updated forecasts."
+      },
+      "prompt": "Fix the bug in this code for project api weather dashboard module bugfix: (Variation 10)",
+      "starter_code": "# Fix this code\nPrint('Project: API Weather Dashboard')",
+      "solution_code": "print('Project: API Weather Dashboard')",
+      "explanation": "Python identifiers and built-ins are case-sensitive."
+    },
+    {
+      "id": "25.6_q11",
+      "type": "fix_the_code",
+      "concept": "project_api_weather_dashboard_module_bugfix",
+      "skill": "debugging",
+      "difficulty": "medium",
+      "prerequisites": [
+        "25.6_q10"
+      ],
+      "error_diagnosis": {
+        "prompt": "The Weather Dashboard API client constructs query parameters incorrectly, causing the API to return a 400 Bad Request. The parameters are concatenated into the URL string instead of being passed as a proper dictionary. Correct the URL construction.",
+        "starter_code": "import requests\n\ndef build_url(city, units):\n    base = 'https://api.example.com/weather'\n    params = 'q=' + city + '&units=' + units\n    url = base + '?' + params\n    return requests.get(url)\n\nbuild_url('Berlin', 'metric')",
+        "solution_code": "import requests\n\ndef build_url(city, units):\n    base = 'https://api.example.com/weather'\n    params = {'q': city, 'units': units}\n    return requests.get(base, params=params)\n\nbuild_url('Berlin', 'metric')",
+        "hint": "Pass query parameters as a dictionary to the params argument of requests.get rather than manually appending them to the URL string.",
+        "explanation": "Using the params dictionary lets requests handle proper URL encoding and avoids malformed query strings. This is the standard way to build API requests in Python."
+      },
+      "prompt": "Fix the bug in this code for project api weather dashboard module bugfix: (Variation 11)",
+      "starter_code": "# Fix this code\nPrint('Project: API Weather Dashboard')",
+      "solution_code": "print('Project: API Weather Dashboard')",
+      "explanation": "Python identifiers and built-ins are case-sensitive."
+    },
+    {
+      "id": "25.6_q12",
+      "type": "fix_the_code",
+      "concept": "project_api_weather_dashboard_module_bugfix",
+      "skill": "debugging",
+      "difficulty": "medium",
+      "prerequisites": [
+        "25.6_q11"
+      ],
+      "error_diagnosis": {
+        "prompt": "The Weather Dashboard displays temperature in Fahrenheit when the user requested Celsius. The conversion formula is applied incorrectly, resulting in a value that is too high. Fix the conversion logic in the display function.",
+        "starter_code": "def display_temp(kelvin, scale):\n    if scale == 'C':\n        return (kelvin - 273.15) * 9/5 + 32\n    return kelvin\n\nprint(display_temp(293.15, 'C'))",
+        "solution_code": "def display_temp(kelvin, scale):\n    if scale == 'C':\n        return kelvin - 273.15\n    return kelvin\n\nprint(display_temp(293.15, 'C'))",
+        "hint": "When converting from Kelvin to Celsius, subtract 273.15. The extra multiplication by 9/5 and addition of 32 is a Kelvin-to-Fahrenheit conversion, not Kelvin-to-Celsius.",
+        "explanation": "The original code mistakenly applied a Fahrenheit conversion formula to a Celsius request. Removing the unnecessary arithmetic yields the correct Celsius temperature from the Kelvin base value."
+      },
+      "prompt": "Fix the bug in this code for project api weather dashboard module bugfix: (Variation 12)",
+      "starter_code": "# Fix this code\nPrint('Project: API Weather Dashboard')",
+      "solution_code": "print('Project: API Weather Dashboard')",
+      "explanation": "Python identifiers and built-ins are case-sensitive."
+    },
+    {
+      "id": "25.6_q13",
+      "type": "fill_in_the_blank",
+      "concept": "project_api_weather_dashboard_module_wiring",
+      "skill": "syntax",
+      "difficulty": "medium",
+      "prerequisites": [
+        "25.6_q12"
+      ],
+      "prompt": "To fetch weather data from an external API, you must first import the ___ module so your script can make HTTP requests.",
+      "correct_answer": "requests",
+      "accepted_answers": [
+        "requests",
+        "urllib.request"
+      ],
+      "explanation": "The requests library is the standard third-party tool for sending HTTP requests in Python. While urllib.request is built-in, requests is preferred for its simpler API when wiring modules together in a dashboard project."
+    },
+    {
+      "idx": 14,
+      "id": "25.6_q14",
+      "type": "fill_in_the_blank",
+      "concept": "project_api_weather_dashboard_module_wiring",
+      "skill": "syntax",
+      "difficulty": "medium",
+      "prerequisites": [
+        "25.6_q13"
+      ],
+      "prompt": "After calling response.json(), the weather information is stored in a ___ that you can navigate with keys like 'main' and 'weather'.",
+      "correct_answer": "dictionary",
+      "accepted_answers": [
+        "dictionary",
+        "JSON object"
+      ],
+      "explanation": "The json() method returns a Python dictionary. Understanding this structure is essential for wiring your API response into display functions for the dashboard."
+    },
+    {
+      "idx": 15,
+      "id": "25.6_q15",
+      "type": "fill_in_the_blank",
+      "concept": "project_api_weather_dashboard_module_wiring",
+      "skill": "syntax",
+      "difficulty": "medium",
+      "prerequisites": [
+        "25.6_q14"
+      ],
+      "prompt": "Inside your display function, use an f-string to print: print(f'Temperature: ___\u00b0C') where the variable holding the value is named temp.",
+      "correct_answer": "temp",
+      "accepted_answers": [
+        "temp",
+        "temperature"
+      ],
+      "explanation": "f-strings allow direct variable interpolation. Passing the temp variable into the f-string correctly wires the API data to the user interface layer of your dashboard."
+    },
+    {
+      "idx": 16,
+      "id": "25.6_q16",
+      "type": "fill_in_the_blank",
+      "concept": "project_api_weather_dashboard_module_wiring",
+      "skill": "syntax",
+      "difficulty": "medium",
+      "prerequisites": [
+        "25.6_q15"
+      ],
+      "prompt": "Wrap your API call in a try block and catch exceptions using: except ___ as e: to handle network failures gracefully.",
+      "correct_answer": "Exception",
+      "accepted_answers": [
+        "Exception",
+        "requests.exceptions.RequestException"
+      ],
+      "explanation": "Catching Exception (or the more specific requests.exceptions.RequestException) prevents your dashboard from crashing when the network is unavailable. This is a critical wiring step for robust module integration."
+    },
+    {
+      "idx": 17,
+      "id": "25.6_q17",
+      "type": "fill_in_the_blank",
+      "concept": "project_api_weather_dashboard_module_wiring",
+      "skill": "syntax",
+      "difficulty": "medium",
+      "prerequisites": [
+        "25.6_q16"
+      ],
+      "prompt": "To ensure your script runs only when executed directly, place the main wiring logic inside: if __name__ == '__main__':.",
+      "correct_answer": "__name__",
+      "accepted_answers": [
+        "__name__"
+      ],
+      "explanation": "The __name__ guard allows your API and display modules to be imported elsewhere without triggering the dashboard startup sequence. This keeps module wiring clean and reusable."
+    },
+    {
+      "idx": 18,
+      "id": "25.6_q18",
+      "type": "fill_in_the_blank",
+      "concept": "project_api_weather_dashboard_module_wiring",
+      "skill": "syntax",
+      "difficulty": "medium",
+      "prerequisites": [
+        "25.6_q17"
+      ],
+      "prompt": "To extract the humidity value from the nested API response, use: data['main']['___'].",
+      "correct_answer": "humidity",
+      "accepted_answers": [
+        "humidity",
+        "humidity_percent"
+      ],
+      "explanation": "The OpenWeatherMap API nests 'main' as a dictionary containing 'temp', 'feels_like', 'humidity', and 'pressure'. Accessing the correct key is necessary to wire the humidity reading into your dashboard output."
+    },
+    {
+      "id": "25.6_q19",
+      "type": "write_the_code",
+      "concept": "project_api_weather_dashboard_component",
+      "skill": "implementation",
+      "difficulty": "medium",
+      "prerequisites": [
+        "25.6_q18"
+      ],
+      "prompt": "Coding Challenge 19: Write a statement that prints 'Project: API Weather Dashboard Result 19' to standard output.",
+      "starter_code": "# Write your code below\n",
+      "solution_code": "print('Project: API Weather Dashboard Result 19')",
+      "test_cases": [
+        {
+          "input": "",
+          "expected_output": "Project: API Weather Dashboard Result 19"
+        }
+      ],
+      "hint": "Use print('Project: API Weather Dashboard Result 19') to generate the required output.",
+      "explanation": "Calling print with the exact string produces the expected console output."
+    },
+    {
+      "id": "25.6_q20",
+      "type": "write_the_code",
+      "concept": "project_api_weather_dashboard_component",
+      "skill": "implementation",
+      "difficulty": "medium",
+      "prerequisites": [
+        "25.6_q19"
+      ],
+      "prompt": "Coding Challenge 20: Write a statement that prints 'Project: API Weather Dashboard Result 20' to standard output.",
+      "starter_code": "# Write your code below\n",
+      "solution_code": "print('Project: API Weather Dashboard Result 20')",
+      "test_cases": [
+        {
+          "input": "",
+          "expected_output": "Project: API Weather Dashboard Result 20"
+        }
+      ],
+      "hint": "Use print('Project: API Weather Dashboard Result 20') to generate the required output.",
+      "explanation": "Calling print with the exact string produces the expected console output."
+    },
+    {
+      "id": "25.6_q21",
+      "type": "write_the_code",
+      "concept": "project_api_weather_dashboard_component",
+      "skill": "implementation",
+      "difficulty": "medium",
+      "prerequisites": [
+        "25.6_q20"
+      ],
+      "prompt": "Coding Challenge 21: Write a statement that prints 'Project: API Weather Dashboard Result 21' to standard output.",
+      "starter_code": "# Write your code below\n",
+      "solution_code": "print('Project: API Weather Dashboard Result 21')",
+      "test_cases": [
+        {
+          "input": "",
+          "expected_output": "Project: API Weather Dashboard Result 21"
+        }
+      ],
+      "hint": "Use print('Project: API Weather Dashboard Result 21') to generate the required output.",
+      "explanation": "Calling print with the exact string produces the expected console output."
+    },
+    {
+      "id": "25.6_q22",
+      "type": "write_the_code",
+      "concept": "project_api_weather_dashboard_component",
+      "skill": "implementation",
+      "difficulty": "medium",
+      "prerequisites": [
+        "25.6_q21"
+      ],
+      "prompt": "Coding Challenge 22: Write a statement that prints 'Project: API Weather Dashboard Result 22' to standard output.",
+      "starter_code": "# Write your code below\n",
+      "solution_code": "print('Project: API Weather Dashboard Result 22')",
+      "test_cases": [
+        {
+          "input": "",
+          "expected_output": "Project: API Weather Dashboard Result 22"
+        }
+      ],
+      "hint": "Use print('Project: API Weather Dashboard Result 22') to generate the required output.",
+      "explanation": "Calling print with the exact string produces the expected console output."
+    },
+    {
+      "id": "25.6_q23",
+      "type": "write_the_code",
+      "concept": "project_api_weather_dashboard_milestone",
+      "skill": "integration",
+      "difficulty": "hard",
+      "prerequisites": [
+        "25.6_q22"
+      ],
+      "prompt": "Coding Challenge 23: Write a statement that prints 'Project: API Weather Dashboard Result 23' to standard output.",
+      "starter_code": "# Write your code below\n",
+      "solution_code": "print('Project: API Weather Dashboard Result 23')",
+      "test_cases": [
+        {
+          "input": "",
+          "expected_output": "Project: API Weather Dashboard Result 23"
+        }
+      ],
+      "hint": "Use print('Project: API Weather Dashboard Result 23') to generate the required output.",
+      "explanation": "Calling print with the exact string produces the expected console output."
+    },
+    {
+      "id": "25.6_q24",
+      "type": "write_the_code",
+      "concept": "project_api_weather_dashboard_milestone",
+      "skill": "integration",
+      "difficulty": "hard",
+      "prerequisites": [
+        "25.6_q23"
+      ],
+      "prompt": "Coding Challenge 24: Write a statement that prints 'Project: API Weather Dashboard Result 24' to standard output.",
+      "starter_code": "# Write your code below\n",
+      "solution_code": "print('Project: API Weather Dashboard Result 24')",
+      "test_cases": [
+        {
+          "input": "",
+          "expected_output": "Project: API Weather Dashboard Result 24"
+        }
+      ],
+      "hint": "Use print('Project: API Weather Dashboard Result 24') to generate the required output.",
+      "explanation": "Calling print with the exact string produces the expected console output."
+    },
+    {
+      "id": "25.6_q25",
+      "type": "write_the_code",
+      "title": "Build the Weather Dashboard Skeleton",
+      "concept": "project_api_weather_dashboard_milestone",
+      "skill": "integration",
+      "difficulty": "hard",
+      "prerequisites": [
+        "25.6_q24"
+      ],
+      "prompt": "Create a Tkinter window that displays a title 'Weather Dashboard' and a frame for the weather data. Set up the main application loop.",
+      "starter_code": "import tkinter as tk\n\nroot = tk.Tk()\nroot.title('Weather Dashboard')\n\n# TODO: create a frame for weather data\n\nroot.mainloop()",
+      "solution_code": "import tkinter as tk\n\nroot = tk.Tk()\nroot.title('Weather Dashboard')\n\nweather_frame = tk.Frame(root)\nweather_frame.pack(pady=10)\n\nroot.mainloop()",
+      "test_cases": [
+        "Window opens without error",
+        "Frame is visible and centered"
+      ],
+      "hint": "Use tk.Frame() to create a container and pack() to place it in the window.",
+      "explanation": "A GUI skeleton is essential before integrating API calls. The frame provides a structured area to later display weather information fetched from the network."
+    },
+    {
+      "id": "25.6_q26",
+      "type": "write_the_code",
+      "title": "Fetch Weather Data from an API",
+      "concept": "project_api_weather_dashboard_milestone",
+      "skill": "integration",
+      "difficulty": "hard",
+      "prerequisites": [
+        "25.6_q25"
+      ],
+      "prompt": "Write a function fetch_weather(city) that sends a GET request to a public weather API endpoint and returns the parsed JSON response. Handle common HTTP errors gracefully.",
+      "starter_code": "import requests\n\ndef fetch_weather(city):\n    url = 'https://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=YOUR_KEY'\n    response = requests.get(url)\n    return response.json()",
+      "solution_code": "import requests\n\ndef fetch_weather(city):\n    url = 'https://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=YOUR_KEY'\n    try:\n        response = requests.get(url, timeout=10)\n        response.raise_for_status()\n        return response.json()\n    except requests.exceptions.RequestException as e:\n        print('Error fetching weather:', e)\n        return None",
+      "test_cases": [
+        "Valid city returns JSON-like dict",
+        "Invalid city returns None and prints error"
+      ],
+      "hint": "Use requests.get() with a timeout and call raise_for_status() to catch HTTP errors.",
+      "explanation": "Networking requires robust error handling. A timeout prevents hanging, and raise_for_status() converts bad responses into exceptions that can be caught."
+    },
+    {
+      "id": "25.6_q27",
+      "type": "write_the_code",
+      "title": "Display Temperature and Condition",
+      "concept": "project_api_weather_dashboard_extension",
+      "skill": "extension",
+      "difficulty": "hard",
+      "prerequisites": [
+        "25.6_q26"
+      ],
+      "prompt": "Extend the dashboard to show the temperature in Celsius and the weather condition from the API response. Create labels dynamically.",
+      "starter_code": "import tkinter as tk\n\nroot = tk.Tk()\nroot.title('Weather Dashboard')\n\ndef show_weather(data):\n    # TODO: extract temperature and condition\n    pass",
+      "solution_code": "import tkinter as tk\n\nroot = tk.Tk()\nroot.title('Weather Dashboard')\n\ndef show_weather(data):\n    if data is None:\n        return\n    temp = data.get('main', {}).get('temp', 0)\n    condition = data.get('weather', [{}])[0].get('description', 'N/A')\n    temp_label = tk.Label(root, text=f'Temp: {temp - 273.15:.1f C}')\n    cond_label = tk.Label(root, text=f'Condition: {condition}')\n    temp_label.pack()\n    cond_label.pack()",
+      "test_cases": [
+        "Labels appear with correct temperature value",
+        "Labels appear with correct condition string"
+      ],
+      "hint": "OpenWeatherMap returns Kelvin in 'main.temp'. Subtract 273.15 to convert to Celsius.",
+      "explanation": "Transforming raw API units into user-friendly display values is a critical integration step. Label widgets in Tkinter are created and packed to render text."
+    },
+    {
+      "id": "25.6_q28",
+      "type": "write_the_code",
+      "title": "Add Search and Refresh Buttons",
+      "concept": "project_api_weather_dashboard_extension",
+      "skill": "extension",
+      "difficulty": "hard",
+      "prerequisites": [
+        "25.6_q27"
+      ],
+      "prompt": "Add an Entry widget for city input, a Search button, and a Refresh button. Bind them to functions that call fetch_weather and update the labels.",
+      "starter_code": "import tkinter as tk\n\nroot = tk.Tk()\nroot.title('Weather Dashboard')\n\nentry = tk.Entry(root)\nentry.pack()\n\ndef on_search():\n    pass\n\nsearch_btn = tk.Button(root, text='Search', command=on_search)\nsearch_btn.pack()\n\nrefresh_btn = tk.Button(root, text='Refresh', command=on_search)\nrefresh_btn.pack()\n\nroot.mainloop()",
+      "solution_code": "import tkinter as tk\n\nroot = tk.Tk()\nroot.title('Weather Dashboard')\n\nentry = tk.Entry(root)\nentry.pack()\n\ndef on_search():\n    city = entry.get()\n    data = fetch_weather(city)\n    show_weather(data)\n\nsearch_btn = tk.Button(root, text='Search', command=on_search)\nsearch_btn.pack()\n\nrefresh_btn = tk.Button(root, text='Refresh', command=on_search)\nrefresh_btn.pack()\n\nroot.mainloop()",
+      "test_cases": [
+        "Entering a city and clicking Search updates labels",
+        "Refresh button re-fetches data for the same city"
+      ],
+      "hint": "Use entry.get() to retrieve user input and pass it to fetch_weather.",
+      "explanation": "Event-driven GUI programming connects user actions to backend logic. The same handler can serve multiple widgets by reusing the fetch and display pipeline."
+    },
+    {
+      "id": "25.6_q29",
+      "type": "write_the_code",
+      "title": "Implement Caching to Reduce API Calls",
+      "concept": "project_api_weather_dashboard_extension",
+      "skill": "extension",
+      "difficulty": "hard",
+      "prerequisites": [
+        "25.6_q28"
+      ],
+      "prompt": "Cache API responses in a dictionary with timestamps. If the cached data is less than 5 minutes old, return it instead of making a new network request.",
+      "starter_code": "import time\n\ncache = {}\n\ndef get_cached_weather(city):\n    now = time.time()\n    if city in cache:\n        cached_time, data = cache[city]\n        if now - cached_time < 300:\n            return data\n    return None",
+      "solution_code": "import time\n\ncache = {}\n\ndef get_cached_weather(city):\n    now = time.time()\n    if city in cache:\n        cached_time, data = cache[city]\n        if now - cached_time < 300:\n            return data\n    return None\n\ndef update_cache(city, data):\n    cache[city] = (time.time(), data)",
+      "test_cases": [
+        "First call stores data in cache",
+        "Second call within 5 minutes returns cached data"
+      ],
+      "hint": "Store a tuple of (timestamp, data) in the cache dict and compare timestamps.",
+      "explanation": "Caching improves performance and respects API rate limits. Storing (time.time(), data) pairs allows simple expiration logic without external libraries."
+    },
+    {
+      "id": "25.6_q30",
+      "type": "write_the_code",
+      "title": "Add Unit Tests for Dashboard Functions",
+      "concept": "project_api_weather_dashboard_extension",
+      "skill": "extension",
+      "difficulty": "hard",
+      "prerequisites": [
+        "25.6_q29"
+      ],
+      "prompt": "Write unit tests for fetch_weather and show_weather using unittest and mock to simulate API responses without making real network calls.",
+      "starter_code": "import unittest\nfrom unittest.mock import patch\n\nclass TestWeather(unittest.TestCase):\n    @patch('requests.get')\n    def test_fetch_weather(self, mock_get):\n        mock_response = mock_get.return_value\n        mock_response.json.return_value = {'main': {'temp': 293.15}, 'weather': [{'description': 'clear sky'}]}\n        result = fetch_weather('london')\n        self.assertIsNotNone(result)\n\nif __name__ == '__main__':\n    unittest.main()",
+      "solution_code": "import unittest\nfrom unittest.mock import patch\n\nclass TestWeather(unittest.TestCase):\n    @patch('requests.get')\n    def test_fetch_weather(self, mock_get):\n        mock_response = mock_get.return_value\n        mock_response.json.return_value = {'main': {'temp': 293.15}, 'weather': [{'description': 'clear sky'}]}\n        result = fetch_weather('london')\n        self.assertIsNotNone(result)\n        self.assertEqual(result['main']['temp'], 293.15)\n\n    def test_show_weather_creates_labels(self):\n        root = tk.Tk()\n        data = {'main': {'temp': 293.15}, 'weather': [{'description': 'clear sky'}]}\n        show_weather(data)\n        self.assertIsNotNone(root.winfo_children())\n        root.destroy()\n\nif __name__ == '__main__':\n    unittest.main()",
+      "test_cases": [
+        "fetch_weather returns parsed JSON on success",
+        "show_weather does not crash with valid data"
+      ],
+      "hint": "Use @patch to replace requests.get with a mock object. Verify label creation by inspecting root.winfo_children().",
+      "explanation": "Testing network-dependent code requires mocking to isolate logic from external services. This ensures reliability and prevents flaky tests caused by API downtime."
+    }
+  ]
+}

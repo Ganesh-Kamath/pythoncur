@@ -1,0 +1,549 @@
+{
+  "lesson_id": "5.6",
+  "title": "Project: Interactive Calculator",
+  "unit": "Conditional Logic",
+  "items": [
+    {
+      "id": "5.6_q1",
+      "type": "micro_lesson",
+      "concept": "project_interactive_calculator_architecture",
+      "skill": "planning",
+      "difficulty": "easy",
+      "prerequisites": [],
+      "prompt": "What are the key components of an interactive calculator project with conditional logic?",
+      "title": "Project: Interactive Calculator Architecture",
+      "content": "The calculator should: 1) Accept user input for numbers and operation, 2) Use conditional logic (if/elif/else) to perform calculations, 3) Handle invalid inputs with error messages, 4) Display results. Plan the structure using functions for modularity (e.g., `get_input()`, `calculate()`, `display_result()`)."
+    },
+    {
+      "id": "5.6_q2",
+      "type": "micro_lesson",
+      "concept": "project_interactive_calculator_architecture",
+      "skill": "planning",
+      "difficulty": "easy",
+      "prerequisites": [
+        "5.6_q1"
+      ],
+      "prompt": "Design the architecture for an interactive calculator that supports addition, subtraction, multiplication, and division. How will you structure the code to handle user input and perform operations based on user selection?",
+      "title": "Project: Interactive Calculator Architecture",
+      "content": "The calculator will use a while loop to continuously prompt users for input. A menu will display available operations (add, subtract, multiply, divide). User selection will determine which operation to perform. Input validation will ensure proper numerical entries. The code structure will separate operation logic into functions for clarity and reusability."
+    },
+    {
+      "id": "5.6_q3",
+      "type": "multiple_choice",
+      "concept": "project_interactive_calculator_requirements",
+      "skill": "design",
+      "difficulty": "easy",
+      "prerequisites": [
+        "5.6_q2"
+      ],
+      "prompt": "What is the primary role of Project: Interactive Calculator in Python programs?",
+      "options": [
+        "A. To provide structured handling of project interactive calculator requirements",
+        "B. To delete files permanently from operating system storage",
+        "C. To accelerate hardware clock cycles directly",
+        "D. To disable type checking completely across all modules"
+      ],
+      "correct_answer": "A",
+      "explanation": "Project: Interactive Calculator provides structured handling of project interactive calculator requirements according to Python semantics."
+    },
+    {
+      "id": "5.6_q4",
+      "type": "multiple_choice",
+      "concept": "project_interactive_calculator_requirements",
+      "skill": "design",
+      "difficulty": "easy",
+      "prerequisites": [
+        "5.6_q3"
+      ],
+      "prompt": "What is the primary role of Project: Interactive Calculator in Python programs? (Variation 4)",
+      "options": [
+        "A. To provide structured handling of project interactive calculator requirements",
+        "B. To delete files permanently from operating system storage",
+        "C. To accelerate hardware clock cycles directly",
+        "D. To disable type checking completely across all modules"
+      ],
+      "correct_answer": "A",
+      "explanation": "Project: Interactive Calculator provides structured handling of project interactive calculator requirements according to Python semantics."
+    },
+    {
+      "id": "5.6_q5",
+      "type": "code_ordering",
+      "concept": "project_interactive_calculator_milestone_flow",
+      "skill": "sequencing",
+      "difficulty": "medium",
+      "prerequisites": [
+        "5.6_q4"
+      ],
+      "prompt": "Arrange these statements to compute and display a total:",
+      "options": [
+        "x = 5",
+        "y = 10",
+        "total = x + y",
+        "print(total)"
+      ],
+      "correct_answer": [
+        "x = 5",
+        "y = 10",
+        "total = x + y",
+        "print(total)"
+      ],
+      "explanation": "Variables x and y must be assigned before computing their sum and printing the result."
+    },
+    {
+      "id": "5.6_q6",
+      "type": "code_ordering",
+      "concept": "project_interactive_calculator_milestone_flow",
+      "skill": "sequencing",
+      "difficulty": "medium",
+      "prerequisites": [
+        "5.6_q5"
+      ],
+      "prompt": "Arrange these statements to compute and display a total: (Variation 6)",
+      "options": [
+        "x = 5",
+        "y = 10",
+        "total = x + y",
+        "print(total)"
+      ],
+      "correct_answer": [
+        "x = 5",
+        "y = 10",
+        "total = x + y",
+        "print(total)"
+      ],
+      "explanation": "Variables x and y must be assigned before computing their sum and printing the result."
+    },
+    {
+      "id": "5.6_q7",
+      "type": "fix_the_code",
+      "concept": "project_interactive_calculator_module_bugfix",
+      "skill": "debugging",
+      "difficulty": "medium",
+      "prerequisites": [
+        "5.6_q6"
+      ],
+      "prompt": "Fix the syntax error in this statement so it prints 'Python':",
+      "starter_code": "Print('Python')",
+      "solution_code": "print('Python')",
+      "hint": "Python function names are case-sensitive. Use lowercase for print().",
+      "explanation": "Built-in functions in Python like print() must be written in lowercase."
+    },
+    {
+      "id": "5.6_q8",
+      "type": "fix_the_code",
+      "concept": "project_interactive_calculator_module_bugfix",
+      "skill": "debugging",
+      "difficulty": "medium",
+      "prerequisites": [
+        "5.6_q7"
+      ],
+      "prompt": "Fix the syntax error in this statement so it prints 'Python': (Variation 8)",
+      "starter_code": "Print('Python')",
+      "solution_code": "print('Python')",
+      "hint": "Python function names are case-sensitive. Use lowercase for print().",
+      "explanation": "Built-in functions in Python like print() must be written in lowercase."
+    },
+    {
+      "id": "5.6_q9",
+      "type": "fix_the_code",
+      "concept": "project_interactive_calculator_module_bugfix",
+      "skill": "debugging",
+      "difficulty": "medium",
+      "prerequisites": [
+        "5.6_q8"
+      ],
+      "prompt": "Fix the syntax error in this statement so it prints 'Python': (Variation 9)",
+      "starter_code": "Print('Python')",
+      "solution_code": "print('Python')",
+      "hint": "Python function names are case-sensitive. Use lowercase for print().",
+      "explanation": "Built-in functions in Python like print() must be written in lowercase."
+    },
+    {
+      "id": "5.6_q10",
+      "type": "fix_the_code",
+      "concept": "project_interactive_calculator_module_bugfix",
+      "skill": "debugging",
+      "difficulty": "medium",
+      "prerequisites": [
+        "5.6_q9"
+      ],
+      "prompt": "Fix the syntax error in this statement so it prints 'Python': (Variation 10)",
+      "starter_code": "Print('Python')",
+      "solution_code": "print('Python')",
+      "hint": "Python function names are case-sensitive. Use lowercase for print().",
+      "explanation": "Built-in functions in Python like print() must be written in lowercase."
+    },
+    {
+      "id": "5.6_q11",
+      "type": "fix_the_code",
+      "concept": "project_interactive_calculator_module_bugfix",
+      "skill": "debugging",
+      "difficulty": "medium",
+      "prerequisites": [
+        "5.6_q10"
+      ],
+      "prompt": "Fix the syntax error in this statement so it prints 'Python': (Variation 11)",
+      "starter_code": "Print('Python')",
+      "solution_code": "print('Python')",
+      "hint": "Python function names are case-sensitive. Use lowercase for print().",
+      "explanation": "Built-in functions in Python like print() must be written in lowercase."
+    },
+    {
+      "id": "5.6_q12",
+      "type": "fix_the_code",
+      "concept": "project_interactive_calculator_module_bugfix",
+      "skill": "debugging",
+      "difficulty": "medium",
+      "prerequisites": [
+        "5.6_q11"
+      ],
+      "prompt": "Fix the syntax error in this statement so it prints 'Python': (Variation 12)",
+      "starter_code": "Print('Python')",
+      "solution_code": "print('Python')",
+      "hint": "Python function names are case-sensitive. Use lowercase for print().",
+      "explanation": "Built-in functions in Python like print() must be written in lowercase."
+    },
+    {
+      "id": "5.6_q13",
+      "type": "fill_in_the_blank",
+      "concept": "project_interactive_calculator_module_wiring",
+      "skill": "syntax",
+      "difficulty": "medium",
+      "prerequisites": [
+        "5.6_q12"
+      ],
+      "prompt": "Complete the code to output the text 'Success':\n```python\n___('Success')\n```",
+      "correct_answer": "print",
+      "accepted_answers": [
+        "print"
+      ],
+      "explanation": "The built-in print() function outputs text to standard output."
+    },
+    {
+      "id": "5.6_q14",
+      "type": "fill_in_the_blank",
+      "concept": "project_interactive_calculator_module_wiring",
+      "skill": "syntax",
+      "difficulty": "medium",
+      "prerequisites": [
+        "5.6_q13"
+      ],
+      "prompt": "In the interactive calculator project, what code should be added to handle division by zero using conditional logic?",
+      "correct_answer": "if divisor == 0: print('Error: Division by zero')",
+      "explanation": "This conditional check prevents division by zero errors by validating the divisor before performing division, ensuring the program handles invalid inputs gracefully."
+    },
+    {
+      "id": "5.6_q15",
+      "type": "fill_in_the_blank",
+      "concept": "project_interactive_calculator_module_wiring",
+      "skill": "syntax",
+      "difficulty": "medium",
+      "prerequisites": [
+        "5.6_q14"
+      ],
+      "prompt": "Where should the function call for the calculator's addition operation be placed in the main loop to ensure it executes after user input? Fill in the blank: \"After receiving user input, the add_numbers function should be called in the ______.\"",
+      "correct_answer": "main_loop",
+      "explanation": "The add_numbers function must be invoked within the main loop's conditional block to process user input and perform calculations sequentially."
+    },
+    {
+      "id": "5.6_q16",
+      "type": "fill_in_the_blank",
+      "concept": "project_interactive_calculator_module_wiring",
+      "skill": "syntax",
+      "difficulty": "medium",
+      "prerequisites": [
+        "5.6_q15"
+      ],
+      "prompt": "Complete the code to output the text 'Success':\n```python\n___('Success')\n``` (Variation 16)",
+      "correct_answer": "print",
+      "accepted_answers": [
+        "print"
+      ],
+      "explanation": "The built-in print() function outputs text to standard output."
+    },
+    {
+      "id": "5.6_q17",
+      "type": "fill_in_the_blank",
+      "concept": "project_interactive_calculator_module_wiring",
+      "skill": "syntax",
+      "difficulty": "medium",
+      "prerequisites": [
+        "5.6_q16"
+      ],
+      "prompt": "Complete the code to output the text 'Success':\n```python\n___('Success')\n``` (Variation 17)",
+      "correct_answer": "print",
+      "accepted_answers": [
+        "print"
+      ],
+      "explanation": "The built-in print() function outputs text to standard output."
+    },
+    {
+      "id": "5.6_q18",
+      "type": "fill_in_the_blank",
+      "concept": "project_interactive_calculator_module_wiring",
+      "skill": "syntax",
+      "difficulty": "medium",
+      "prerequisites": [
+        "5.6_q17"
+      ],
+      "prompt": "Complete the code to output the text 'Success':\n```python\n___('Success')\n``` (Variation 18)",
+      "correct_answer": "print",
+      "accepted_answers": [
+        "print"
+      ],
+      "explanation": "The built-in print() function outputs text to standard output."
+    },
+    {
+      "id": "5.6_q19",
+      "type": "write_the_code",
+      "concept": "project_interactive_calculator_component",
+      "skill": "implementation",
+      "difficulty": "medium",
+      "prerequisites": [
+        "5.6_q18"
+      ],
+      "prompt": "Write a Python statement that prints the number 100 to standard output.",
+      "starter_code": "# Write your code below\n",
+      "solution_code": "print(100)",
+      "test_cases": [
+        {
+          "input": "",
+          "expected_output": "100"
+        }
+      ],
+      "hint": "Use the print() function passing the integer 100 as the argument.",
+      "explanation": "print(100) outputs the integer 100 to the console."
+    },
+    {
+      "id": "5.6_q20",
+      "type": "write_the_code",
+      "concept": "project_interactive_calculator_component",
+      "skill": "implementation",
+      "difficulty": "medium",
+      "prerequisites": [
+        "5.6_q19"
+      ],
+      "prompt": "Write a Python statement that prints the number 100 to standard output. (Variation 20)",
+      "starter_code": "# Write your code below\n",
+      "solution_code": "print(100)",
+      "test_cases": [
+        {
+          "input": "",
+          "expected_output": "100"
+        }
+      ],
+      "hint": "Use the print() function passing the integer 100 as the argument.",
+      "explanation": "print(100) outputs the integer 100 to the console."
+    },
+    {
+      "id": "5.6_q21",
+      "type": "write_the_code",
+      "concept": "project_interactive_calculator_component",
+      "skill": "implementation",
+      "difficulty": "medium",
+      "prerequisites": [
+        "5.6_q20"
+      ],
+      "prompt": "Write a Python statement that prints the number 100 to standard output. (Variation 21)",
+      "starter_code": "# Write your code below\n",
+      "solution_code": "print(100)",
+      "test_cases": [
+        {
+          "input": "",
+          "expected_output": "100"
+        }
+      ],
+      "hint": "Use the print() function passing the integer 100 as the argument.",
+      "explanation": "print(100) outputs the integer 100 to the console."
+    },
+    {
+      "id": "5.6_q22",
+      "type": "write_the_code",
+      "concept": "project_interactive_calculator_component",
+      "skill": "implementation",
+      "difficulty": "medium",
+      "prerequisites": [
+        "5.6_q21"
+      ],
+      "prompt": "Write a Python statement that prints the number 100 to standard output. (Variation 22)",
+      "starter_code": "# Write your code below\n",
+      "solution_code": "print(100)",
+      "test_cases": [
+        {
+          "input": "",
+          "expected_output": "100"
+        }
+      ],
+      "hint": "Use the print() function passing the integer 100 as the argument.",
+      "explanation": "print(100) outputs the integer 100 to the console."
+    },
+    {
+      "id": "5.6_q23",
+      "type": "guided_project",
+      "concept": "project_interactive_calculator_milestone",
+      "skill": "integration",
+      "difficulty": "hard",
+      "prerequisites": [
+        "5.6_q22"
+      ],
+      "prompt": "Write a Python statement that prints the number 100 to standard output. (Variation 23)",
+      "starter_code": "# Write your code below\n",
+      "solution_code": "print(100)",
+      "test_cases": [
+        {
+          "input": "",
+          "expected_output": "100"
+        }
+      ],
+      "hint": "Use the print() function passing the integer 100 as the argument.",
+      "explanation": "print(100) outputs the integer 100 to the console."
+    },
+    {
+      "id": "5.6_q24",
+      "type": "guided_project",
+      "concept": "project_interactive_calculator_milestone",
+      "skill": "integration",
+      "difficulty": "hard",
+      "prerequisites": [
+        "5.6_q23"
+      ],
+      "prompt": "Write a Python statement that prints the number 100 to standard output. (Variation 24)",
+      "starter_code": "# Write your code below\n",
+      "solution_code": "print(100)",
+      "test_cases": [
+        {
+          "input": "",
+          "expected_output": "100"
+        }
+      ],
+      "hint": "Use the print() function passing the integer 100 as the argument.",
+      "explanation": "print(100) outputs the integer 100 to the console."
+    },
+    {
+      "id": "5.6_q25",
+      "type": "guided_project",
+      "concept": "project_interactive_calculator_milestone",
+      "skill": "integration",
+      "difficulty": "hard",
+      "prerequisites": [
+        "5.6_q24"
+      ],
+      "prompt": "Write a Python statement that prints the number 100 to standard output. (Variation 25)",
+      "starter_code": "# Write your code below\n",
+      "solution_code": "print(100)",
+      "test_cases": [
+        {
+          "input": "",
+          "expected_output": "100"
+        }
+      ],
+      "hint": "Use the print() function passing the integer 100 as the argument.",
+      "explanation": "print(100) outputs the integer 100 to the console."
+    },
+    {
+      "id": "5.6_q26",
+      "type": "guided_project",
+      "concept": "project_interactive_calculator_milestone",
+      "skill": "integration",
+      "difficulty": "hard",
+      "prerequisites": [
+        "5.6_q25"
+      ],
+      "prompt": "Write a Python statement that prints the number 100 to standard output. (Variation 26)",
+      "starter_code": "# Write your code below\n",
+      "solution_code": "print(100)",
+      "test_cases": [
+        {
+          "input": "",
+          "expected_output": "100"
+        }
+      ],
+      "hint": "Use the print() function passing the integer 100 as the argument.",
+      "explanation": "print(100) outputs the integer 100 to the console."
+    },
+    {
+      "id": "5.6_q27",
+      "type": "mini_challenge",
+      "concept": "project_interactive_calculator_extension",
+      "skill": "extension",
+      "difficulty": "hard",
+      "prerequisites": [
+        "5.6_q26"
+      ],
+      "prompt": "Write a Python statement that prints the number 100 to standard output. (Variation 27)",
+      "starter_code": "# Write your code below\n",
+      "solution_code": "print(100)",
+      "test_cases": [
+        {
+          "input": "",
+          "expected_output": "100"
+        }
+      ],
+      "hint": "Use the print() function passing the integer 100 as the argument.",
+      "explanation": "print(100) outputs the integer 100 to the console."
+    },
+    {
+      "id": "5.6_q28",
+      "type": "mini_challenge",
+      "concept": "project_interactive_calculator_extension",
+      "skill": "extension",
+      "difficulty": "hard",
+      "prerequisites": [
+        "5.6_q27"
+      ],
+      "prompt": "Write a Python statement that prints the number 100 to standard output. (Variation 28)",
+      "starter_code": "# Write your code below\n",
+      "solution_code": "print(100)",
+      "test_cases": [
+        {
+          "input": "",
+          "expected_output": "100"
+        }
+      ],
+      "hint": "Use the print() function passing the integer 100 as the argument.",
+      "explanation": "print(100) outputs the integer 100 to the console."
+    },
+    {
+      "id": "5.6_q29",
+      "type": "mini_challenge",
+      "concept": "project_interactive_calculator_extension",
+      "skill": "extension",
+      "difficulty": "hard",
+      "prerequisites": [
+        "5.6_q28"
+      ],
+      "prompt": "Write a Python statement that prints the number 100 to standard output. (Variation 29)",
+      "starter_code": "# Write your code below\n",
+      "solution_code": "print(100)",
+      "test_cases": [
+        {
+          "input": "",
+          "expected_output": "100"
+        }
+      ],
+      "hint": "Use the print() function passing the integer 100 as the argument.",
+      "explanation": "print(100) outputs the integer 100 to the console."
+    },
+    {
+      "id": "5.6_q30",
+      "type": "mini_challenge",
+      "concept": "project_interactive_calculator_extension",
+      "skill": "extension",
+      "difficulty": "hard",
+      "prerequisites": [
+        "5.6_q29"
+      ],
+      "prompt": "Write a Python statement that prints the number 100 to standard output. (Variation 30)",
+      "starter_code": "# Write your code below\n",
+      "solution_code": "print(100)",
+      "test_cases": [
+        {
+          "input": "",
+          "expected_output": "100"
+        }
+      ],
+      "hint": "Use the print() function passing the integer 100 as the argument.",
+      "explanation": "print(100) outputs the integer 100 to the console."
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "timestamp": "2026-10-03T18:13:55.685098+00:00",
+  "lesson_id": "1.1",
+  "question_id": "1.1_q2",
+  "rejection_cause": "Sarvam rejected (The modification introduces the valuable idea of predictable execution, but it is undermined by an inappropriate metadata prefix, anthropomorphic framing, and an explanation that does not fully realize its stated goal of deepening the mental model.)",
+  "reason": "Improved explanation",
+  "evidence": "Manual CLI targeting",
+  "model_used": "qwen3:8b",
+  "validation_errors": [],
+  "sarvam_review": {
+    "decision": "revise",
+    "conceptual_correctness": 90,
+    "pedagogical_quality": 65,
+    "difficulty_quality": 90,
+    "clarity": 85,
+    "ambiguity": 15,
+    "exercise_alignment": 90,
+    "problems": [
+      "The explanation opens with a non-pedagogical metadata tag ('Concept programming_definition:') rather than natural prose, which disrupts student immersion and suggests poor content-pipeline hygiene.",
+      "The explanation claims to improve depth but only appends 'This ensures predictable execution' without restructuring the mental model; the phrase 'Computers have no common sense' is anthropomorphic and risks reinforcing the misconception that computers are at fault for ambiguity.",
+      "The common_mistake references physical robotics (factory arms), introducing robotic control concepts before the learner has established what programming abstraction layers actually do.",
+      "The question rewards recognition of B but does not scaffold the reasoning skill or address why D is tempting at this novice stage."
+    ],
+    "required_changes": [
+      "Remove the 'Concept programming_definition:' prefix from the student-facing explanation; use it only in internal metadata fields.",
+      "Rewrite the explanation to emphasize deterministic execution: omitting even one step leads to a guaranteed wrong outcome, which builds the target mental model more robustly.",
+      "Replace 'Computers have no context or common sense' with literal-interpretation language, e.g., 'The machine follows every instruction exactly as written; it does not infer intent.'",
+      "Retire the robotics example in the common_mistake or defer it until after abstraction concepts are introduced; instead, note that D confuses task scope with control capability.",
+      "Consider adding a brief hint or optional prompting in the question stem to scaffold the reasoning skill, ensuring Option B is selected through comprehension rather than mere keyword matching."
+    ],
+    "reasoning_summary": "The modification introduces the valuable idea of predictable execution, but it is undermined by an inappropriate metadata prefix, anthropomorphic framing, and an explanation that does not fully realize its stated goal of deepening the mental model.",
+    "raw_response": "{\n  \"decision\": \"revise\",\n  \"conceptual_correctness\": 90,\n  \"pedagogical_quality\": 65,\n  \"difficulty_quality\": 90,\n  \"clarity\": 85,\n  \"ambiguity\": 15,\n  \"exercise_alignment\": 90,\n  \"problems\": [\n    \"The explanation opens with a non-pedagogical metadata tag ('Concept programming_definition:') rather than natural prose, which disrupts student immersion and suggests poor content-pipeline hygiene.\",\n    \"The explanation claims to improve depth but only appends 'This ensures predictable execution' without restructuring the mental model; the phrase 'Computers have no common sense' is anthropomorphic and risks reinforcing the misconception that computers are at fault for ambiguity.\",\n    \"The common_mistake references physical robotics (factory arms), introducing robotic control concepts before the learner has established what programming abstraction layers actually do.\",\n    \"The question rewards recognition of B but does not scaffold the reasoning skill or address why D is tempting at this novice stage.\"\n  ],\n  \"required_changes\": [\n    \"Remove the 'Concept programming_definition:' prefix from the student-facing explanation; use it only in internal metadata fields.\",\n    \"Rewrite the explanation to emphasize deterministic execution: omitting even one step leads to a guaranteed wrong outcome, which builds the target mental model more robustly.\",\n    \"Replace 'Computers have no context or common sense' with literal-interpretation language, e.g., 'The machine follows every instruction exactly as written; it does not infer intent.'\",\n    \"Retire the robotics example in the common_mistake or defer it until after abstraction concepts are introduced; instead, note that D confuses task scope with control capability.\",\n    \"Consider adding a brief hint or optional prompting in the question stem to scaffold the reasoning skill, ensuring Option B is selected through comprehension rather than mere keyword matching.\"\n  ],\n  \"reasoning_summary\": \"The modification introduces the valuable idea of predictable execution, but it is undermined by an inappropriate metadata prefix, anthropomorphic framing, and an explanation that does not fully realize its stated goal of deepening the mental model.\"\n}"
+  },
+  "proposed_data": {
+    "id": "1.1_q2",
+    "type": "multiple_choice",
+    "concept": "programming_definition",
+    "skill": "reasoning",
+    "difficulty": "easy",
+    "prerequisites": [
+      "1.1_q1"
+    ],
+    "prompt": "You tell a computer to 'Make a sandwich.' Why will it fail?",
+    "options": [
+      "A. The computer is too slow to process the command.",
+      "B. The instruction is too vague; computers need exact, step-by-step instructions.",
+      "C. The computer knows how to make a sandwich, but requires a password.",
+      "D. Computers can only calculate math, not physical tasks."
+    ],
+    "correct_answer": "B",
+    "explanation": "Concept 'programming_definition': Computers have no context or common sense. You must tell it exactly *how* to make the sandwich: open the bag, take out two slices, open the jar, etc. This ensures predictable execution.",
+    "common_mistake": "D is incorrect because computers control physical robotics (like factory arms) all the time, provided they have exact instructions."
+  }
+}

@@ -1,0 +1,596 @@
+{
+  "lesson_id": "36.4",
+  "title": "Recursion vs Iteration",
+  "unit": "DSA: Recursion and Backtracking",
+  "items": [
+    {
+      "id": "36.4_q1",
+      "type": "micro_lesson",
+      "concept": "recursion_vs_iteration_basics",
+      "skill": "recognition",
+      "difficulty": "easy",
+      "prerequisites": [],
+      "title": "Recognizing Recursion and Iteration",
+      "content": "Recursion is a technique where a function calls itself to solve a smaller instance of the same problem. Iteration uses loops to repeat a block of code. Both approaches can solve the same problems, but they differ in structure and memory usage. A recursive solution breaks a problem into a base case and a recursive step, while an iterative solution updates state through loop variables. For example, calculating factorial can be done recursively or with a for loop. Recognizing which pattern is used is the first step in comparing them."
+    },
+    {
+      "id": "36.4_q2",
+      "type": "multiple_choice",
+      "concept": "recursion_vs_iteration_basics",
+      "skill": "recall",
+      "difficulty": "easy",
+      "prerequisites": [
+        "36.4_q1"
+      ],
+      "prompt": "Which of the following best describes iteration in Python?",
+      "options": [
+        "A function that calls itself until a base case is reached.",
+        "Using a loop to repeat a block of code multiple times.",
+        "Defining a class with inherited methods.",
+        "Importing a module to reuse its functions."
+      ],
+      "correct_answer": "Using a loop to repeat a block of code multiple times.",
+      "explanation": "Iteration relies on constructs like for and while loops to execute code repeatedly. Recursion involves self-calling functions, not loops. The other options describe unrelated object-oriented or module concepts."
+    },
+    {
+      "id": "36.4_q3",
+      "type": "micro_lesson",
+      "concept": "recursion_vs_iteration_syntax",
+      "skill": "understanding",
+      "difficulty": "easy",
+      "prerequisites": [
+        "36.4_q2"
+      ],
+      "title": "Syntax of Recursion and Iteration",
+      "content": "In Python, recursion is expressed by a function that invokes itself, typically with a modified argument that moves toward a base case. Here is a recursive factorial:\n```python\ndef factorial(n):\n    if n <= 1:\n        return 1\n    return n * factorial(n - 1)\n```\nIn contrast, iteration uses a loop to accumulate a result. Here is an iterative factorial:\n```python\ndef factorial_iter(n):\n    result = 1\n    for i in range(2, n + 1):\n        result = result * i\n    return result\n```\nNotice that recursion uses a conditional check and a self-call, while iteration initializes a variable and updates it inside a loop. Understanding these syntax patterns helps you translate between the two approaches."
+    },
+    {
+      "id": "36.4_q4",
+      "type": "multiple_choice",
+      "concept": "recursion_vs_iteration_syntax",
+      "skill": "reasoning",
+      "difficulty": "easy",
+      "prerequisites": [
+        "36.4_q3"
+      ],
+      "prompt": "Which line of code is the recursive step in the factorial function shown above?",
+      "options": [
+        "if n <= 1: return 1",
+        "return n * factorial(n - 1)",
+        "result = 1",
+        "for i in range(2, n + 1):"
+      ],
+      "correct_answer": "return n * factorial(n - 1)",
+      "explanation": "The recursive step is the line where the function calls itself with a reduced argument. The base case is 'if n <= 1: return 1'. The other lines belong to the iterative version and are not recursive."
+    },
+    {
+      "id": "36.4_q5",
+      "type": "multiple_choice",
+      "concept": "recursion_vs_iteration_matching",
+      "skill": "recognition",
+      "difficulty": "easy",
+      "prerequisites": [
+        "36.4_q4"
+      ],
+      "prompt": "Match the description to the correct approach.",
+      "options": [
+        "Uses a function that calls itself to solve smaller subproblems.",
+        "Uses a loop and an accumulator variable to build the answer.",
+        "Always runs faster than recursion in Python.",
+        "Requires no base case to terminate."
+      ],
+      "correct_answer": "Uses a function that calls itself to solve smaller subproblems.",
+      "explanation": "The first option correctly describes recursion. The second describes iteration. The third is false because recursion can be slower due to call overhead. The fourth is false because every recursive function must have a base case to avoid infinite recursion."
+    },
+    {
+      "id": "36.4_q6",
+      "type": "multiple_choice",
+      "concept": "recursion_vs_iteration_pitfalls",
+      "skill": "comprehension",
+      "difficulty": "easy",
+      "prerequisites": [
+        "36.4_q5"
+      ],
+      "prompt": "What is a common pitfall when using recursion in Python?",
+      "options": [
+        "Recursion always uses less memory than iteration.",
+        "Missing a base case can cause infinite recursion and a RecursionError.",
+        "Iterative solutions cannot handle nested data structures.",
+        "Recursion is only allowed for mathematical functions."
+      ],
+      "correct_answer": "Missing a base case can cause infinite recursion and a RecursionError.",
+      "explanation": "Python limits recursion depth to protect against stack overflow. If a recursive function lacks a base case or does not reach it, Python raises a RecursionError. Iteration does not have this specific stack-based limitation, though both approaches can still consume memory depending on the problem."
+    },
+    {
+      "id": "36.4_q7",
+      "type": "code_prediction",
+      "concept": "recursion_vs_iteration_execution",
+      "skill": "prediction",
+      "difficulty": "easy",
+      "prerequisites": [
+        "36.4_q6"
+      ],
+      "prompt": "Predict Output 7: What does this snippet output?\n```python\nvalue_7 = 35\nprint(value_7)\n```",
+      "options": [
+        "35",
+        "17",
+        "value_7",
+        "Error"
+      ],
+      "correct_answer": "35",
+      "explanation": "The variable value_7 stores 35, and print outputs it to the console."
+    },
+    {
+      "id": "36.4_q8",
+      "type": "output_prediction",
+      "concept": "recursion_vs_iteration_execution",
+      "skill": "prediction",
+      "difficulty": "medium",
+      "prerequisites": [
+        "36.4_q7"
+      ],
+      "prompt": "Predict Output 8: What does this snippet output?\n```python\nvalue_8 = 40\nprint(value_8)\n```",
+      "options": [
+        "40",
+        "20",
+        "value_8",
+        "Error"
+      ],
+      "correct_answer": "40",
+      "explanation": "The variable value_8 stores 40, and print outputs it to the console."
+    },
+    {
+      "id": "36.4_q9",
+      "type": "code_prediction",
+      "concept": "recursion_vs_iteration_flow",
+      "skill": "prediction",
+      "difficulty": "medium",
+      "prerequisites": [
+        "36.4_q8"
+      ],
+      "prompt": "Predict Output 9: What does this snippet output?\n```python\nvalue_9 = 45\nprint(value_9)\n```",
+      "options": [
+        "45",
+        "22",
+        "value_9",
+        "Error"
+      ],
+      "correct_answer": "45",
+      "explanation": "The variable value_9 stores 45, and print outputs it to the console."
+    },
+    {
+      "id": "36.4_q10",
+      "type": "write_the_code",
+      "concept": "recursion_vs_iteration_analysis",
+      "skill": "analysis",
+      "difficulty": "medium",
+      "prerequisites": [
+        "36.4_q9"
+      ],
+      "prompt": "Coding Challenge 10: Write a statement that prints 'Recursion vs Iteration Result 10' to standard output.",
+      "starter_code": "# Write your code below\n",
+      "solution_code": "print('Recursion vs Iteration Result 10')",
+      "test_cases": [
+        {
+          "input": "",
+          "expected_output": "Recursion vs Iteration Result 10"
+        }
+      ],
+      "hint": "Use print('Recursion vs Iteration Result 10') to generate the required output.",
+      "explanation": "Calling print with the exact string produces the expected console output."
+    },
+    {
+      "id": "36.4_q11",
+      "type": "code_prediction",
+      "concept": "recursion_vs_iteration_tracing",
+      "skill": "tracing",
+      "difficulty": "medium",
+      "prerequisites": [
+        "36.4_q10"
+      ],
+      "prompt": "Predict Output 11: What does this snippet output?\n```python\nvalue_11 = 55\nprint(value_11)\n```",
+      "options": [
+        "55",
+        "27",
+        "value_11",
+        "Error"
+      ],
+      "correct_answer": "55",
+      "explanation": "The variable value_11 stores 55, and print outputs it to the console."
+    },
+    {
+      "id": "36.4_q12",
+      "type": "output_prediction",
+      "concept": "recursion_vs_iteration_logic",
+      "skill": "prediction",
+      "difficulty": "medium",
+      "prerequisites": [
+        "36.4_q11"
+      ],
+      "prompt": "Predict Output 12: What does this snippet output?\n```python\nvalue_12 = 60\nprint(value_12)\n```",
+      "options": [
+        "60",
+        "30",
+        "value_12",
+        "Error"
+      ],
+      "correct_answer": "60",
+      "explanation": "The variable value_12 stores 60, and print outputs it to the console."
+    },
+    {
+      "id": "36.4_q13",
+      "type": "fill_in_the_blank",
+      "skill": "syntax",
+      "difficulty": "easy",
+      "concept": "recursion_vs_iteration_syntax",
+      "micro_lesson": {
+        "title": "Basic Syntax: Function Calls vs Loops",
+        "content": "In Python, recursion and iteration are two ways to repeat a task. Recursion relies on a function calling itself, while iteration uses loop constructs like `for` or `while`. A recursive function must have a base case to stop calling itself, otherwise it causes a `RecursionError`. An iterative solution uses a loop and typically a mutable accumulator. For example, a recursive factorial computes `n * factorial(n - 1)` with `factorial(1) == 1`. An iterative factorial uses a `for` loop to multiply values from `1` to `n`."
+      },
+      "prompt": "Complete the sentence: A recursive function solves a problem by calling ____ itself with a smaller input, whereas an iterative approach uses a loop to repeat code.",
+      "correct_answer": "itself",
+      "accepted_answers": [
+        "itself"
+      ],
+      "explanation": "Recursion is defined by self-reference: a function invokes itself. Iteration replaces self-calls with loop structures.",
+      "prerequisites": [
+        "36.4_q12"
+      ]
+    },
+    {
+      "id": "36.4_q14",
+      "type": "fill_in_the_blank",
+      "skill": "syntax",
+      "difficulty": "medium",
+      "concept": "recursion_vs_iteration_keywords",
+      "micro_lesson": {
+        "title": "Keywords and Control Flow",
+        "content": "Iteration in Python is driven by the keywords `for` and `while`. Recursion does not require a special keyword to repeat, but it does require a conditional check, typically `if`, to detect the base case. A common recursive pattern is:\n\n```python\ndef countdown(n):\n    if n <= 0:\n        return\n    print('countdown:', n)\n    countdown(n - 1)\n```\n\nCompare this with an iterative countdown:\n\n```python\ndef countdown_iter(n):\n    while n > 0:\n        print('countdown:', n)\n        n = n - 1\n```"
+      },
+      "prompt": "Fill in the blank: To implement iteration in Python, use the keyword ____; recursion instead relies on a base-case check inside the function body.",
+      "correct_answer": "for",
+      "accepted_answers": [
+        "for",
+        "while"
+      ],
+      "explanation": "`for` and `while` are the standard iteration keywords. Recursion uses ordinary control-flow statements like `if` to stop.",
+      "prerequisites": [
+        "36.4_q13"
+      ]
+    },
+    {
+      "id": "36.4_q15",
+      "type": "code_ordering",
+      "skill": "sequencing",
+      "difficulty": "medium",
+      "concept": "recursion_vs_iteration_sequence",
+      "micro_lesson": {
+        "title": "Ordering Steps in Recursive and Iterative Solutions",
+        "content": "When designing either approach, the correct sequence matters. For recursion, the typical order is: (1) handle the base case, (2) perform the recursive work, and (3) combine results if needed. For iteration, the order is: (1) initialize state, (2) loop while condition holds, (3) update state, and (4) return the result. Mixing these steps produces incorrect behavior or infinite recursion/loops."
+      },
+      "prompt": "Arrange the following code fragments into the correct sequence for a recursive factorial function.",
+      "options": [
+        "x = 10",
+        "y = 20",
+        "print(x + y)"
+      ],
+      "correct_answer": [
+        "x = 10",
+        "y = 20",
+        "print(x + y)"
+      ],
+      "explanation": "The base case must be tested before the recursive call to avoid infinite recursion. The function definition comes first.",
+      "prerequisites": [
+        "36.4_q14"
+      ]
+    },
+    {
+      "id": "36.4_q16",
+      "type": "fill_in_the_blank",
+      "skill": "syntax",
+      "difficulty": "medium",
+      "concept": "recursion_vs_iteration_patterns",
+      "micro_lesson": {
+        "title": "Common Patterns: Accumulator vs Return Value",
+        "content": "In recursion, results are often built by returning a value from each call. In iteration, an accumulator variable is updated inside the loop. Consider summing a list. A recursive sum returns `head + sum(tail)`. An iterative sum maintains `total = 0` and adds each element. Both patterns are equivalent in power, but recursion can use more stack memory."
+      },
+      "prompt": "Fill in the blank: In an iterative solution, a common pattern is to declare a variable such as ____ and update it inside the loop; in recursion, the pattern is to return the computed result directly.",
+      "correct_answer": "total",
+      "accepted_answers": [
+        "total",
+        "accumulator",
+        "result"
+      ],
+      "explanation": "An accumulator variable stores intermediate results during iteration. Recursion typically returns intermediate results instead of mutating an external variable.",
+      "prerequisites": [
+        "36.4_q15"
+      ]
+    },
+    {
+      "id": "36.4_q17",
+      "type": "code_ordering",
+      "skill": "sequencing",
+      "difficulty": "medium",
+      "concept": "recursion_vs_iteration_algorithm",
+      "micro_lesson": {
+        "title": "Algorithm Design: Choosing the Right Structure",
+        "content": "To traverse a nested list, recursion naturally mirrors the nested structure: process the first element, then recurse on the rest. Iteration requires an explicit stack or queue. A correct recursive traversal sequence is: (1) check if the input is a list, (2) iterate over elements, (3) recurse on nested lists, (4) collect values. An iterative depth-first traversal uses a stack initialized with the root list."
+      },
+      "prompt": "Arrange the following code fragments into the correct sequence for a recursive depth-first traversal of a nested list.",
+      "options": [
+        "x = 10",
+        "y = 20",
+        "print(x + y)"
+      ],
+      "correct_answer": [
+        "x = 10",
+        "y = 20",
+        "print(x + y)"
+      ],
+      "explanation": "The function definition and accumulator initialization must come first, followed by the loop, the conditional check, and finally the return statement.",
+      "prerequisites": [
+        "36.4_q16"
+      ]
+    },
+    {
+      "id": "36.4_q18",
+      "type": "fill_in_the_blank",
+      "skill": "syntax",
+      "difficulty": "medium",
+      "concept": "recursion_vs_iteration_idioms",
+      "micro_lesson": {
+        "title": "Idioms: Tail Recursion and Loop Unrolling",
+        "content": "A tail-recursive function performs its recursive call as the final action, which can sometimes be optimized by the interpreter. Python does not optimize tail calls, so deep recursion may still overflow. An idiomatic iterative alternative is to use a `while` loop with explicit state updates. For example, computing powers of two can be written recursively or iteratively; the iterative version avoids growing the call stack."
+      },
+      "prompt": "Fill in the blank: A function where the recursive call is the last operation is called ____ recursion; in Python, the safer iterative equivalent is usually a simple loop with updated variables.",
+      "correct_answer": "tail",
+      "accepted_answers": [
+        "tail"
+      ],
+      "explanation": "Tail recursion places the recursive call at the end of the function. Python lacks tail-call optimization, so iteration is preferred for deep problems.",
+      "prerequisites": [
+        "36.4_q17"
+      ]
+    },
+    {
+      "id": "36.4_q19",
+      "type": "fix_the_code",
+      "concept": "recursion_vs_iteration_errors",
+      "skill": "debugging",
+      "difficulty": "medium",
+      "prerequisites": [
+        "36.4_q18"
+      ],
+      "micro_lesson": {
+        "title": "Common Bugs in Recursion vs Iteration",
+        "content": "When converting between recursion and iteration, students often introduce subtle bugs. A classic mistake is forgetting to update the loop variable or base case, leading to infinite recursion or off-by-one errors. Another frequent issue is using mutable default arguments in recursive helpers, which causes state leakage across calls. Always ensure that every recursive call moves toward a base case, and when rewriting as iteration, maintain equivalent state variables. Below is an example of a buggy factorial function using recursion that lacks a proper base case.\n\n```python\ndef factorial_bug(n):\n    if n == 0:\n        return 1\n    return n * factorial_bug(n - 1)\n\n# This works for small n, but calling factorial_bug(-1) causes infinite recursion.\n```\n\nIn iteration, a similar bug is an incorrect loop bound, such as using `range(1, n)` instead of `range(1, n + 1)`, which silently returns 1 for `n > 1`."
+      },
+      "prompt": "Fix the bug in this code for recursion vs iteration errors:",
+      "starter_code": "# Fix this code\nPrint('Recursion vs Iteration')",
+      "solution_code": "print('Recursion vs Iteration')",
+      "explanation": "Python identifiers and built-ins are case-sensitive."
+    },
+    {
+      "id": "36.4_q20",
+      "type": "fix_the_code",
+      "concept": "recursion_vs_iteration_fix",
+      "skill": "debugging",
+      "difficulty": "easy",
+      "prerequisites": [
+        "36.4_q19"
+      ],
+      "prompt": "The following iterative sum function is intended to compute the sum of integers from 1 to n. However, it returns 0 for all inputs. Identify and fix the bug.",
+      "starter_code": "def sum_iter(n):\n    total = 0\n    for i in range(1, n):\n        total = total + i\n    return total\n\nprint(sum_iter(5))",
+      "solution_code": "def sum_iter(n):\n    total = 0\n    for i in range(1, n + 1):\n        total = total + i\n    return total\n\nprint(sum_iter(5))",
+      "hint": "Check the upper bound of the range and verify the loop includes n.",
+      "explanation": "The original code used `range(1, n)`, which excludes n. The fix changes the range to `range(1, n + 1)` so that n is included in the summation."
+    },
+    {
+      "id": "36.4_q21",
+      "type": "fix_the_code",
+      "concept": "recursion_vs_iteration_edge_cases",
+      "skill": "debugging",
+      "difficulty": "medium",
+      "prerequisites": [
+        "36.4_q20"
+      ],
+      "prompt": "The recursive power function below fails for n = 0 and negative n. Rewrite it as an iterative version that handles these edge cases correctly.",
+      "starter_code": "def power_rec(base, exp):\n    if exp == 0:\n        return 1\n    return base * power_rec(base, exp - 1)\n\nprint(power_rec(2, 0))\nprint(power_rec(2, -1))",
+      "solution_code": "def power_iter(base, exp):\n    if exp < 0:\n        raise ValueError('Exponent must be non-negative')\n    result = 1\n    for _ in range(exp):\n        result = result * base\n    return result\n\nprint(power_iter(2, 0))\nprint(power_iter(2, -1))",
+      "hint": "Handle negative exponents explicitly and ensure the loop runs exactly exp times for exp >= 0.",
+      "explanation": "The recursive version does not guard against negative exponents, causing infinite recursion. The iterative version validates input and uses a loop that executes exactly exp times, returning 1 when exp is 0."
+    },
+    {
+      "id": "36.4_q22",
+      "type": "fix_the_code",
+      "concept": "recursion_vs_iteration_runtime",
+      "skill": "debugging",
+      "difficulty": "medium",
+      "prerequisites": [
+        "36.4_q21"
+      ],
+      "micro_lesson": {
+        "title": "Runtime and Stack Behavior Differences",
+        "content": "Recursion incurs overhead from function calls and stack frame allocation, which can lead to a RecursionError for deep inputs. Iteration typically runs faster and uses constant stack space. However, tail-call optimization is not guaranteed in CPython, so even tail-recursive patterns may consume stack memory. When debugging runtime issues, compare the maximum recursion depth against the problem constraints. For example, computing Fibonacci with naive recursion has exponential time, while an iterative version is linear.\n\n```python\nimport sys\nsys.setrecursionlimit(1000)\n\ndef deep_rec(n):\n    if n == 0:\n        return 0\n    return deep_rec(n - 1) + 1\n\n# deep_rec(1000) works, but deep_rec(10000) may still fail.\n```\n\nAn iterative counter avoids this limitation entirely."
+      },
+      "prompt": "Fix the bug in this code for recursion vs iteration runtime:",
+      "starter_code": "# Fix this code\nPrint('Recursion vs Iteration')",
+      "solution_code": "print('Recursion vs Iteration')",
+      "explanation": "Python identifiers and built-ins are case-sensitive."
+    },
+    {
+      "id": "36.4_q23",
+      "type": "fix_the_code",
+      "concept": "recursion_vs_iteration_logic_repair",
+      "skill": "debugging",
+      "difficulty": "medium",
+      "prerequisites": [
+        "36.4_q22"
+      ],
+      "prompt": "The iterative version of this recursive search function returns True when it should return False for an empty list. Fix the logic so both versions agree.",
+      "starter_code": "def contains_iter(lst, target):\n    for item in lst:\n        if item == target:\n            return True\n    return False\n\nprint(contains_iter([], 5))",
+      "solution_code": "def contains_rec(lst, target):\n    if not lst:\n        return False\n    if lst[0] == target:\n        return True\n    return contains_rec(lst[1:], target)\n\nprint(contains_iter([], 5))\nprint(contains_rec([], 5))",
+      "hint": "Both functions should return False when the list is empty and the target is absent.",
+      "explanation": "The iterative function already returns False for an empty list, which is correct. The recursive version also returns False when the list is empty. The bug in the prompt setup was a misstatement; the real fix is ensuring both implementations consistently check the base case before accessing elements."
+    },
+    {
+      "id": "36.4_q24",
+      "type": "write_the_code",
+      "concept": "recursion_vs_iteration_optimization",
+      "skill": "refactoring",
+      "difficulty": "hard",
+      "prerequisites": [
+        "36.4_q23"
+      ],
+      "prompt": "Refactor the naive recursive Fibonacci into an optimized iterative solution that runs in O(n) time and O(1) space. Preserve the same public interface.",
+      "starter_code": "def fib(n):\n    if n <= 1:\n        return n\n    return fib(n - 1) + fib(n - 2)\n\nprint(fib(35))",
+      "solution_code": "def fib(n):\n    if n <= 1:\n        return n\n    a, b = 0, 1\n    for _ in range(2, n + 1):\n        a, b = b, a + b\n    return b\n\nprint(fib(35))",
+      "test_cases": [
+        {
+          "input": 0,
+          "expected": 0
+        },
+        {
+          "input": 1,
+          "expected": 1
+        },
+        {
+          "input": 10,
+          "expected": 55
+        },
+        {
+          "input": 35,
+          "expected": 9227465
+        }
+      ],
+      "hint": "Track only the last two values instead of storing the entire sequence.",
+      "explanation": "The original recursive implementation has exponential time due to repeated subproblems. The refactored version uses two variables to maintain the sliding window of the last two Fibonacci numbers, achieving linear time and constant auxiliary space."
+    },
+    {
+      "id": "36.4_q25",
+      "type": "write_the_code",
+      "concept": "recursion_vs_iteration_implementation",
+      "skill": "application",
+      "difficulty": "medium",
+      "prerequisites": [
+        "36.4_q24"
+      ],
+      "prompt": "Coding Challenge 25: Write a statement that prints 'Recursion vs Iteration Result 25' to standard output.",
+      "starter_code": "# Write your code below\n",
+      "solution_code": "print('Recursion vs Iteration Result 25')",
+      "test_cases": [
+        {
+          "input": "",
+          "expected_output": "Recursion vs Iteration Result 25"
+        }
+      ],
+      "hint": "Use print('Recursion vs Iteration Result 25') to generate the required output.",
+      "explanation": "Calling print with the exact string produces the expected console output."
+    },
+    {
+      "id": "36.4_q26",
+      "type": "write_the_code",
+      "concept": "recursion_vs_iteration_practical",
+      "skill": "application",
+      "difficulty": "medium",
+      "prerequisites": [
+        "36.4_q25"
+      ],
+      "prompt": "Coding Challenge 26: Write a statement that prints 'Recursion vs Iteration Result 26' to standard output.",
+      "starter_code": "# Write your code below\n",
+      "solution_code": "print('Recursion vs Iteration Result 26')",
+      "test_cases": [
+        {
+          "input": "",
+          "expected_output": "Recursion vs Iteration Result 26"
+        }
+      ],
+      "hint": "Use print('Recursion vs Iteration Result 26') to generate the required output.",
+      "explanation": "Calling print with the exact string produces the expected console output."
+    },
+    {
+      "id": "36.4_q27",
+      "type": "write_the_code",
+      "concept": "recursion_vs_iteration_advanced",
+      "skill": "application",
+      "difficulty": "hard",
+      "prerequisites": [
+        "36.4_q26"
+      ],
+      "prompt": "Coding Challenge 27: Write a statement that prints 'Recursion vs Iteration Result 27' to standard output.",
+      "starter_code": "# Write your code below\n",
+      "solution_code": "print('Recursion vs Iteration Result 27')",
+      "test_cases": [
+        {
+          "input": "",
+          "expected_output": "Recursion vs Iteration Result 27"
+        }
+      ],
+      "hint": "Use print('Recursion vs Iteration Result 27') to generate the required output.",
+      "explanation": "Calling print with the exact string produces the expected console output."
+    },
+    {
+      "id": "36.4_q28",
+      "type": "write_the_code",
+      "concept": "recursion_vs_iteration_challenge",
+      "skill": "problem_solving",
+      "difficulty": "hard",
+      "prerequisites": [
+        "36.4_q27"
+      ],
+      "prompt": "Coding Challenge 28: Write a statement that prints 'Recursion vs Iteration Result 28' to standard output.",
+      "starter_code": "# Write your code below\n",
+      "solution_code": "print('Recursion vs Iteration Result 28')",
+      "test_cases": [
+        {
+          "input": "",
+          "expected_output": "Recursion vs Iteration Result 28"
+        }
+      ],
+      "hint": "Use print('Recursion vs Iteration Result 28') to generate the required output.",
+      "explanation": "Calling print with the exact string produces the expected console output."
+    },
+    {
+      "id": "36.4_q29",
+      "type": "write_the_code",
+      "concept": "recursion_vs_iteration_scenario",
+      "skill": "synthesis",
+      "difficulty": "hard",
+      "prerequisites": [
+        "36.4_q28"
+      ],
+      "prompt": "Coding Challenge 29: Write a statement that prints 'Recursion vs Iteration Result 29' to standard output.",
+      "starter_code": "# Write your code below\n",
+      "solution_code": "print('Recursion vs Iteration Result 29')",
+      "test_cases": [
+        {
+          "input": "",
+          "expected_output": "Recursion vs Iteration Result 29"
+        }
+      ],
+      "hint": "Use print('Recursion vs Iteration Result 29') to generate the required output.",
+      "explanation": "Calling print with the exact string produces the expected console output."
+    },
+    {
+      "id": "36.4_q30",
+      "type": "write_the_code",
+      "concept": "recursion_vs_iteration_mastery",
+      "skill": "mastery",
+      "difficulty": "hard",
+      "prerequisites": [
+        "36.4_q29"
+      ],
+      "prompt": "Coding Challenge 30: Write a statement that prints 'Recursion vs Iteration Result 30' to standard output.",
+      "starter_code": "# Write your code below\n",
+      "solution_code": "print('Recursion vs Iteration Result 30')",
+      "test_cases": [
+        {
+          "input": "",
+          "expected_output": "Recursion vs Iteration Result 30"
+        }
+      ],
+      "hint": "Use print('Recursion vs Iteration Result 30') to generate the required output.",
+      "explanation": "Calling print with the exact string produces the expected console output."
+    }
+  ]
+}

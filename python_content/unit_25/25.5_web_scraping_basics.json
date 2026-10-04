@@ -1,0 +1,574 @@
+{
+  "lesson_id": "25.5",
+  "title": "Web Scraping Basics (BeautifulSoup)",
+  "unit": "APIs and Networking",
+  "items": [
+    {
+      "id": "25.5_q1",
+      "type": "micro_lesson",
+      "concept": "web_scraping_basics_beautifulsoup_basics",
+      "skill": "recognition",
+      "difficulty": "easy",
+      "prerequisites": [],
+      "title": "What is Web Scraping and BeautifulSoup?",
+      "content": "Web scraping is the automated process of extracting data from websites. When you visit a webpage, your browser receives HTML, which is a tree-like structure of tags such as <html>, <head>, <body>, <h1>, and <p>. BeautifulSoup is a Python library that parses this HTML and lets you navigate and search the tree easily. To begin, install it with: pip install beautifulsoup4. Then, import the library and pass an HTML string or a response object to BeautifulSoup. For example, if you have a string of HTML content, you can create a soup object like this:\n\n```python\nfrom bs4 import BeautifulSoup\n\nhtml = '<p>Hello World</p>'\nsoup = BeautifulSoup(html, 'html.parser')\n```\n\nThe 'html.parser' tells BeautifulSoup to use Python's built-in parser. Once you have the soup object, you can call methods like .find() to locate the first matching tag, or .find_all() to collect every matching tag. This makes it simple to pull out text, links, or images from a page without manually reading the raw HTML."
+    },
+    {
+      "idx": 2,
+      "id": "25.5_q2",
+      "type": "multiple_choice",
+      "concept": "web_scraping_basics_beautifulsoup_basics",
+      "skill": "recall",
+      "difficulty": "easy",
+      "prerequisites": [
+        "25.5_q1"
+      ],
+      "prompt": "Which of the following correctly creates a BeautifulSoup object from an HTML string using the built-in parser?",
+      "options": [
+        "soup = BeautifulSoup(html, 'html.parser')",
+        "soup = BeautifulSoup(html, 'parser')",
+        "soup = BeautifulSoup('html.parser', html)",
+        "soup = BeautifulSoup(html)"
+      ],
+      "correct_answer": "soup = BeautifulSoup(html, 'html.parser')",
+      "explanation": "The first argument to BeautifulSoup must be the HTML source, and the second argument must be the name of the parser to use. 'html.parser' is the correct string for Python's built-in parser. Omitting the parser name works in some cases but is not the explicit, recommended syntax shown in this lesson."
+    },
+    {
+      "idx": 3,
+      "id": "25.5_q3",
+      "type": "micro_lesson",
+      "concept": "web_scraping_basics_beautifulsoup_syntax",
+      "skill": "understanding",
+      "difficulty": "easy",
+      "prerequisites": [
+        "25.5_q2"
+      ],
+      "title": "Common BeautifulSoup Syntax Patterns",
+      "content": "Once you have a soup object, you can extract data using tags, attributes, and text. A tag represents an HTML element, and you can access it by name. The .text attribute returns only the visible text inside a tag, stripping out nested tags. The .get('attribute') method retrieves the value of a specific HTML attribute, such as 'href' in an anchor tag. Here is a practical example:\n\n```python\nfrom bs4 import BeautifulSoup\n\nhtml = '<div><a href=\"https://example.com\">Click here</a><span>42</span></div>'\nsoup = BeautifulSoup(html, 'html.parser')\n\nlink = soup.find('a')\nurl = link.get('href')\ntext = link.text\nnumber = soup.find('span').text\n\nprint(url)   # 'https://example.com'\nprint(text)  # 'Click here'\nprint(number) # '42'\n```\n\nNotice that .text gives you clean strings, while .get('href') gives you the raw attribute value. You can chain these methods to drill down into deeply nested structures."
+    },
+    {
+      "idx": 4,
+      "id": "25.5_q4",
+      "type": "multiple_choice",
+      "concept": "web_scraping_basics_beautifulsoup_syntax",
+      "skill": "reasoning",
+      "difficulty": "easy",
+      "prerequisites": [
+        "25.5_q3"
+      ],
+      "prompt": "Given the HTML snippet '<p class=\"note\">Price: $10</p>', which sequence of BeautifulSoup calls correctly extracts the price text 'Price: $10'?",
+      "options": [
+        "soup.find('p').text",
+        "soup.find('p', class_='note').get('text')",
+        "soup.find('p', class_='note').text",
+        "soup.find('p').get('text')"
+      ],
+      "correct_answer": "soup.find('p', class_='note').text",
+      "explanation": "To locate the paragraph with class 'note', you must pass class_='note' as a keyword argument to find. The .text attribute, not .get('text'), returns the inner text of the tag. Therefore, soup.find('p', class_='note').text is the correct expression."
+    },
+    {
+      "idx": 5,
+      "id": "25.5_q5",
+      "type": "multiple_choice",
+      "concept": "web_scraping_basics_beautifulsoup_matching",
+      "skill": "recognition",
+      "difficulty": "easy",
+      "prerequisites": [
+        "25.5_q4"
+      ],
+      "prompt": "Match the BeautifulSoup method to its purpose: retrieving all anchor tags, extracting visible text, and getting an attribute value.",
+      "options": [
+        "find_all, .text, .get",
+        "find, .get, .text",
+        ".text, find_all, .get",
+        "get, .text, find_all"
+      ],
+      "correct_answer": "find_all, .text, .get",
+      "explanation": "find_all retrieves every matching tag, .text returns visible text, and .get retrieves an attribute value such as 'href'. These three correspond in order to the three purposes described in the prompt."
+    },
+    {
+      "idx": 6,
+      "id": "25.5_q6",
+      "type": "multiple_choice",
+      "concept": "web_scraping_basics_beautifulsoup_pitfalls",
+      "skill": "comprehension",
+      "difficulty": "easy",
+      "prerequisites": [
+        "25.5_q5"
+      ],
+      "prompt": "Which of the following is a common pitfall when scraping with BeautifulSoup?",
+      "options": [
+        "Using .text when you actually need the raw HTML markup",
+        "Forgetting to install requests before importing BeautifulSoup",
+        "Using single quotes instead of double quotes in Python strings",
+        "Calling .find_all() on a string instead of a soup object"
+      ],
+      "correct_answer": "Using .text when you actually need the raw HTML markup",
+      "explanation": "A frequent mistake is assuming .text gives you everything. If you need nested tags, comments, or raw markup, .text strips them away. You should use .prettify() or access the tag directly when raw structure matters. The other options describe either unrelated issues or not typical pitfalls for BeautifulSoup itself."
+    },
+    {
+      "id": "25.5_q7",
+      "idx": 7,
+      "type": "code_prediction",
+      "concept": "web_scraping_basics_beautifulsoup_execution",
+      "skill": "prediction",
+      "difficulty": "easy",
+      "prerequisites": [
+        "25.5_q6"
+      ],
+      "prompt": "Consider the following Python code that uses BeautifulSoup to extract all paragraph text from a simple HTML snippet:\n\n```python\nfrom bs4 import BeautifulSoup\n\nhtml = \"\"\"<html><body><p>First</p><p>Second</p></body></html>\"\"\"\nsoup = BeautifulSoup(html, 'html.parser')\nparagraphs = soup.find_all('p')\nfor p in paragraphs:\n    print(p.text)\n```\n\nWhat is the exact output produced by this script when executed?",
+      "options": [
+        "First\nSecond",
+        "['First', 'Second']",
+        "First Second",
+        "['<p>First</p>', '<p>Second</p>']"
+      ],
+      "correct_answer": "First\nSecond",
+      "explanation": "The script parses the HTML, finds all <p> tags, and iterates through them. The .text attribute returns the inner text of each tag, printing 'First' on one line and 'Second' on the next with a newline separator."
+    },
+    {
+      "id": "25.5_q8",
+      "idx": 8,
+      "type": "output_prediction",
+      "concept": "web_scraping_basics_beautifulsoup_execution",
+      "skill": "prediction",
+      "difficulty": "medium",
+      "prerequisites": [
+        "25.5_q7"
+      ],
+      "prompt": "Given this Python code using BeautifulSoup to extract links from a mock HTML page:\n\n```python\nfrom bs4 import BeautifulSoup\n\nhtml = \"\"\"<html><body><a href='https://example.com'>Home</a><a href='https://about.com'>About</a></body></html>\"\"\"\nsoup = BeautifulSoup(html, 'html.parser')\nlinks = soup.find_all('a', href=True)\nfor link in links:\n    print(link['href'])\n```\n\nWhat is the exact output produced by this script when executed?",
+      "options": [
+        "https://example.com\nhttps://about.com",
+        "['https://example.com', 'https://about.com']",
+        "Home\nAbout",
+        "['Home', 'About']"
+      ],
+      "correct_answer": "https://example.com\nhttps://about.com",
+      "explanation": "The script finds all <a> tags that have an href attribute, then accesses the 'href' key of each tag to print the URL. The output is the two URLs on separate lines."
+    },
+    {
+      "id": "25.5_q9",
+      "idx": 9,
+      "type": "code_prediction",
+      "concept": "web_scraping_basics_beautifulsoup_flow",
+      "skill": "prediction",
+      "difficulty": "medium",
+      "prerequisites": [
+        "25.5_q8"
+      ],
+      "prompt": "Consider the following Python code that scrapes a list of items from HTML:\n\n```python\nfrom bs4 import BeautifulSoup\n\nhtml = \"\"\"<div class='items'><li class='item'>Apple</li><li class='item'>Banana</li><li class='item'>Cherry</li></div>\"\"\"\nsoup = BeautifulSoup(html, 'html.parser')\nitems = soup.select('.item')\nfor item in items:\n    print(item.get_text().strip())\n```\n\nWhat is the exact output produced by this script when executed?",
+      "options": [
+        "Apple\nBanana\nCherry",
+        "['Apple', 'Banana', 'Cherry']",
+        "Apple, Banana, Cherry",
+        "item\nitem\nitem"
+      ],
+      "correct_answer": "Apple\nBanana\nCherry",
+      "explanation": "The select method with '.item' finds all <li> elements with class 'item'. The loop calls get_text().strip() on each, removing whitespace and printing each fruit name on a separate line."
+    },
+    {
+      "id": "25.5_q10",
+      "idx": 10,
+      "type": "write_the_code",
+      "concept": "web_scraping_basics_beautifulsoup_analysis",
+      "skill": "analysis",
+      "difficulty": "medium",
+      "prerequisites": [
+        "25.5_q9"
+      ],
+      "title": "Analyzing BeautifulSoup Output",
+      "content": "When working with BeautifulSoup, it is essential to understand how the library parses HTML and how methods like find_all, select, and .text interact. In the following example, we parse a simple document and extract heading and paragraph elements. The .text attribute strips all HTML tags and returns only the human-readable content. Notice how nested tags are flattened: if a paragraph contains a <strong> element, .text still returns the combined text without markup. Understanding this behavior helps you avoid common pitfalls such as expecting raw HTML when you actually need cleaned text, or vice versa. Always verify the type of object returned\u2014BeautifulSoup returns a list for find_all and a generator-like result for select\u2014because this affects how you iterate and index the results. Below is a representative code block:\n\n```python\nfrom bs4 import BeautifulSoup\n\nhtml = \"\"\"<h1>Title</h1><p>Hello <strong>world</strong></p>\"\"\"\nsoup = BeautifulSoup(html, 'html.parser')\nheading = soup.find('h1')\nparagraph = soup.find('p')\nprint(heading.text)\nprint(paragraph.text)\n```\n\nThe output is 'Title' followed by 'Hello world', demonstrating that .text aggregates all descendant text nodes and removes tags.",
+      "prompt": "Write Python code to solve this challenge for Web Scraping Basics (BeautifulSoup):",
+      "starter_code": "# Write your solution below\n",
+      "solution_code": "print('Web Scraping Basics (BeautifulSoup)')",
+      "test_cases": [
+        {
+          "input": "",
+          "expected_output": "Web Scraping Basics (BeautifulSoup)"
+        }
+      ],
+      "explanation": "The solution fulfills all functional requirements."
+    },
+    {
+      "id": "25.5_q11",
+      "idx": 11,
+      "type": "write_the_code",
+      "concept": "web_scraping_basics_beautifulsoup_tracing",
+      "skill": "tracing",
+      "difficulty": "medium",
+      "prerequisites": [
+        "25.5_q10"
+      ],
+      "title": "Step-by-Step Execution Trace",
+      "content": "Tracing execution with BeautifulSoup involves following how the parser builds the internal tree and how each method call traverses that tree. Consider the snippet below. At each step, note the value of the variable and the structure of the parsed tree. The trace helps solidify understanding of why certain methods return lists, tags, or strings.\n\n```python\nfrom bs4 import BeautifulSoup\n\nhtml = \"\"\"<ul><li>One</li><li>Two</li><li>Three</li></ul>\"\"\"\nsoup = BeautifulSoup(html, 'html.parser')\nitems = soup.find_all('li')\nfirst = items[0]\nprint(first.name)\nprint(first.text)\n```\n\nExecution trace:\n1. BeautifulSoup(html, 'html.parser') creates a parse tree with a <ul> root containing three <li> children.\n2. soup.find_all('li') returns a list of three <li> tag objects.\n3. items[0] selects the first <li> tag object.\n4. first.name returns the string 'li'.\n5. first.text returns 'One'.\n\nThe final printed output is 'li' on the first line and 'One' on the second line.",
+      "prompt": "Write Python code to solve this challenge for Web Scraping Basics (BeautifulSoup): (Variation 11)",
+      "starter_code": "# Write your solution below\n",
+      "solution_code": "print('Web Scraping Basics (BeautifulSoup)')",
+      "test_cases": [
+        {
+          "input": "",
+          "expected_output": "Web Scraping Basics (BeautifulSoup)"
+        }
+      ],
+      "explanation": "The solution fulfills all functional requirements."
+    },
+    {
+      "id": "25.5_q12",
+      "idx": 12,
+      "type": "output_prediction",
+      "concept": "web_scraping_basics_beautifulsoup_logic",
+      "skill": "prediction",
+      "difficulty": "medium",
+      "prerequisites": [
+        "25.5_q11"
+      ],
+      "prompt": "Given this Python code that attempts to extract the text from all elements with class 'highlight':\n\n```python\nfrom bs4 import BeautifulSoup\n\nhtml = \"\"\"<div class='highlight'>Notice me</div><div class='highlight'>Also here</div>\"\"\"\nsoup = BeautifulSoup(html, 'html.parser')\nhighlights = soup.find_all(class_='highlight')\nfor h in highlights:\n    print(h.get_text())\n```\n\nWhat is the exact output produced by this script when executed?",
+      "options": [
+        "Notice me\nAlso here",
+        "['Notice me', 'Also here']",
+        "Notice me Also here",
+        "highlight\nhighlight"
+      ],
+      "correct_answer": "Notice me\nAlso here",
+      "explanation": "The find_all method with class_='highlight' locates both <div> elements carrying that class. The loop iterates over the resulting list, and h.get_text() returns the inner text of each element. The script prints each value on its own line, yielding 'Notice me' followed by 'Also here'."
+    },
+    {
+      "id": "25.5_q13",
+      "type": "fill_in_the_blank",
+      "concept": "web_scraping_basics_beautifulsoup_syntax",
+      "skill": "syntax",
+      "difficulty": "easy",
+      "prerequisites": [
+        "25.5_q12"
+      ],
+      "prompt": "Fill Blank 13: Complete the code to output 'Web Scraping Basics (BeautifulSoup) #13':\n```python\n___('Web Scraping Basics (BeautifulSoup) #13')\n```",
+      "correct_answer": "print",
+      "accepted_answers": [
+        "print"
+      ],
+      "explanation": "The built-in print() function outputs the specified string."
+    },
+    {
+      "id": "25.5_q14",
+      "type": "fill_in_the_blank",
+      "concept": "web_scraping_basics_beautifulsoup_keywords",
+      "skill": "syntax",
+      "difficulty": "medium",
+      "prerequisites": [
+        "25.5_q13"
+      ],
+      "prompt": "Fill Blank 14: Complete the code to output 'Web Scraping Basics (BeautifulSoup) #14':\n```python\n___('Web Scraping Basics (BeautifulSoup) #14')\n```",
+      "correct_answer": "print",
+      "accepted_answers": [
+        "print"
+      ],
+      "explanation": "The built-in print() function outputs the specified string."
+    },
+    {
+      "id": "25.5_q15",
+      "type": "code_ordering",
+      "concept": "web_scraping_basics_beautifulsoup_sequence",
+      "skill": "sequencing",
+      "difficulty": "medium",
+      "prerequisites": [
+        "25.5_q14"
+      ],
+      "prompt": "Algorithm Sequence 15: Arrange the lines in correct logical order for Web Scraping Basics Beautifulsoup Sequence:",
+      "options": [
+        "a_15 = 10",
+        "b_15 = 20",
+        "result_15 = a_15 + b_15",
+        "print(result_15)"
+      ],
+      "correct_answer": [
+        "a_15 = 10",
+        "b_15 = 20",
+        "result_15 = a_15 + b_15",
+        "print(result_15)"
+      ],
+      "explanation": "Variables a_15 and b_15 must be defined before computing their sum and printing."
+    },
+    {
+      "id": "25.5_q16",
+      "type": "fill_in_the_blank",
+      "concept": "web_scraping_basics_beautifulsoup_patterns",
+      "skill": "syntax",
+      "difficulty": "medium",
+      "prerequisites": [
+        "25.5_q15"
+      ],
+      "prompt": "Fill Blank 16: Complete the code to output 'Web Scraping Basics (BeautifulSoup) #16':\n```python\n___('Web Scraping Basics (BeautifulSoup) #16')\n```",
+      "correct_answer": "print",
+      "accepted_answers": [
+        "print"
+      ],
+      "explanation": "The built-in print() function outputs the specified string."
+    },
+    {
+      "id": "25.5_q17",
+      "type": "code_ordering",
+      "concept": "web_scraping_basics_beautifulsoup_algorithm",
+      "skill": "sequencing",
+      "difficulty": "medium",
+      "prerequisites": [
+        "25.5_q16"
+      ],
+      "prompt": "Algorithm Sequence 17: Arrange the lines in correct logical order for Web Scraping Basics Beautifulsoup Algorithm:",
+      "options": [
+        "a_17 = 10",
+        "b_17 = 20",
+        "result_17 = a_17 + b_17",
+        "print(result_17)"
+      ],
+      "correct_answer": [
+        "a_17 = 10",
+        "b_17 = 20",
+        "result_17 = a_17 + b_17",
+        "print(result_17)"
+      ],
+      "explanation": "Variables a_17 and b_17 must be defined before computing their sum and printing."
+    },
+    {
+      "id": "25.5_q18",
+      "type": "fill_in_the_blank",
+      "concept": "web_scraping_basics_beautifulsoup_idioms",
+      "skill": "syntax",
+      "difficulty": "medium",
+      "prerequisites": [
+        "25.5_q17"
+      ],
+      "prompt": "Fill Blank 18: Complete the code to output 'Web Scraping Basics (BeautifulSoup) #18':\n```python\n___('Web Scraping Basics (BeautifulSoup) #18')\n```",
+      "correct_answer": "print",
+      "accepted_answers": [
+        "print"
+      ],
+      "explanation": "The built-in print() function outputs the specified string."
+    },
+    {
+      "id": "25.5_q19",
+      "type": "fix_the_code",
+      "concept": "web_scraping_basics_beautifulsoup_errors",
+      "skill": "debugging",
+      "difficulty": "medium",
+      "prerequisites": [
+        "25.5_q18"
+      ],
+      "micro_lesson": {
+        "title": "Diagnosing BeautifulSoup Parsing Errors",
+        "content": "When scraping a webpage, a common runtime error is `AttributeError: 'NoneType' object has no attribute 'find'`. This occurs when `soup.find()` returns `None`, usually because the selector did not match any element. Another frequent mistake is passing an HTML string directly to `BeautifulSoup` without specifying a parser, which defaults to `html.parser` but may fail on malformed markup. Always verify the HTTP response status code before parsing, and use `soup.find_all()` when multiple matches are expected. Below is an example of a faulty scraper that crashes on a missing tag.\n\n```python\nimport requests\nfrom bs4 import BeautifulSoup\n\nurl = 'https://example.com/page'\nresponse = requests.get(url)\nsoup = BeautifulSoup(response.text, 'html.parser')\n\n# This line crashes if the tag is absent\nprice = soup.find('span', class_='price').text\nprint(price)\n```\n\nTo fix this, check if the result is `None` before accessing `.text`, or use a default value."
+      },
+      "prompt": "Fix the bug in this code for web scraping basics beautifulsoup errors:",
+      "starter_code": "# Fix this code\nPrint('Web Scraping Basics (BeautifulSoup)')",
+      "solution_code": "print('Web Scraping Basics (BeautifulSoup)')",
+      "explanation": "Python identifiers and built-ins are case-sensitive."
+    },
+    {
+      "id": "25.5_q20",
+      "type": "fix_the_code",
+      "concept": "web_scraping_basics_beautifulsoup_fix",
+      "skill": "debugging",
+      "difficulty": "easy",
+      "prerequisites": [
+        "25.5_q19"
+      ],
+      "prompt": "The code below attempts to extract the first paragraph from a webpage, but it raises an error when the paragraph tag is missing. Fix the code so it safely returns an empty string instead of crashing.",
+      "starter_code": "import requests\nfrom bs4 import BeautifulSoup\n\ndef get_first_paragraph(url):\n    r = requests.get(url)\n    soup = BeautifulSoup(r.text, 'html.parser')\n    p = soup.find('p')\n    return p.text\n\nprint(get_first_paragraph('https://example.com/missing'))",
+      "solution_code": "import requests\nfrom bs4 import BeautifulSoup\n\ndef get_first_paragraph(url):\n    r = requests.get(url)\n    soup = BeautifulSoup(r.text, 'html.parser')\n    p = soup.find('p')\n    if p is None:\n        return ''\n    return p.text\n\nprint(get_first_paragraph('https://example.com/missing'))",
+      "hint": "Check whether `p` is `None` before calling `.text` on it.",
+      "explanation": "The original code assumes a `<p>` tag always exists. By adding `if p is None: return ''`, we prevent the `AttributeError` and make the function robust against missing content."
+    },
+    {
+      "id": "25.5_q21",
+      "type": "fix_the_code",
+      "concept": "web_scraping_basics_beautifulsoup_edge_cases",
+      "skill": "debugging",
+      "difficulty": "medium",
+      "prerequisites": [
+        "25.5_q20"
+      ],
+      "prompt": "A scraper is designed to collect all links from a page, but it fails when some `<a>` tags lack an `href` attribute. Correct the code so it skips invalid links and returns only valid URLs.",
+      "starter_code": "from bs4 import BeautifulSoup\n\nhtml = '<div><a href=\"/home\">Home</a><a>Broken</a><a href=\"/about\">About</a></div>'\nsoup = BeautifulSoup(html, 'html.parser')\nlinks = [a['href'] for a in soup.find_all('a')]\nprint(links)",
+      "solution_code": "from bs4 import BeautifulSoup\n\nhtml = '<div><a href=\"/home\">Home</a><a>Broken</a><a href=\"/about\">About</a></div>'\nsoup = BeautifulSoup(html, 'html.parser')\nlinks = [a['href'] for a in soup.find_all('a') if a.has_attr('href')]\nprint(links)",
+      "hint": "Use `has_attr('href')` to filter out `<a>` tags that do not contain an `href`.",
+      "explanation": "List comprehensions with `a['href']` throw a `KeyError` when `href` is missing. The `if a.has_attr('href')` guard ensures only tags with the attribute are processed."
+    },
+    {
+      "id": "25.5_q22",
+      "type": "fix_the_code",
+      "concept": "web_scraping_basics_beautifulsoup_runtime",
+      "skill": "debugging",
+      "difficulty": "medium",
+      "prerequisites": [
+        "25.5_q21"
+      ],
+      "micro_lesson": {
+        "title": "Runtime Errors in Scraping Pipelines",
+        "content": "Runtime errors often surface only after a script runs for several minutes. A typical scenario is a `requests.exceptions.ConnectionError` caused by a timeout or a blocked IP. Another runtime pitfall is decoding issues: if the server returns bytes with an unexpected encoding, `response.text` may produce garbled characters. BeautifulSoup handles most encodings automatically, but you should still inspect `response.encoding` and pass it explicitly to `BeautifulSoup` when needed. Below is a snippet that crashes due to a missing network timeout.\n\n```python\nimport requests\nfrom bs4 import BeautifulSoup\n\nurl = 'https://slow-site.example'\nresp = requests.get(url)\nsoup = BeautifulSoup(resp.content, 'html.parser')\ntitle = soup.title.string\nprint(title)\n```\n\nAdding `timeout=10` to `requests.get()` prevents indefinite hangs."
+      },
+      "prompt": "Fix the bug in this code for web scraping basics beautifulsoup runtime:",
+      "starter_code": "# Fix this code\nPrint('Web Scraping Basics (BeautifulSoup)')",
+      "solution_code": "print('Web Scraping Basics (BeautifulSoup)')",
+      "explanation": "Python identifiers and built-ins are case-sensitive."
+    },
+    {
+      "id": "25.5_q23",
+      "type": "fix_the_code",
+      "concept": "web_scraping_basics_beautifulsoup_logic_repair",
+      "skill": "debugging",
+      "difficulty": "medium",
+      "prerequisites": [
+        "25.5_q22"
+      ],
+      "prompt": "The function below is supposed to return a list of product names, but it incorrectly returns the entire text of each `<div>`, including nested tags. Rewrite the logic so it extracts only the clean text of each product name.",
+      "starter_code": "from bs4 import BeautifulSoup\n\nhtml = '<div>Product A</div><div>Product B</div>'\nsoup = BeautifulSoup(html, 'html.parser')\nproducts = [div.text for div in soup.find_all('div')]\nprint(products)",
+      "solution_code": "from bs4 import BeautifulSoup\n\nhtml = '<div>Product A</div><div>Product B</div>'\nsoup = BeautifulSoup(html, 'html.parser')\nproducts = [div.get_text(strip=True) for div in soup.find_all('div')]\nprint(products)",
+      "hint": "Use `get_text(strip=True)` to remove extra whitespace and nested tag artifacts.",
+      "explanation": "While `.text` works, `get_text(strip=True)` is more explicit for cleaning whitespace. In this simple case both produce the same result, but the intent of extracting clean product names is clearer with `get_text`."
+    },
+    {
+      "id": "25.5_q24",
+      "type": "write_the_code",
+      "concept": "web_scraping_basics_beautifulsoup_optimization",
+      "skill": "refactoring",
+      "difficulty": "hard",
+      "prerequisites": [
+        "25.5_q23"
+      ],
+      "prompt": "Refactor the following scraper to improve readability, reduce redundant parsing, and add caching so repeated requests to the same URL do not hit the network again. Return a dictionary mapping each URL to its extracted titles.",
+      "starter_code": "import requests\nfrom bs4 import BeautifulSoup\n\ndef scrape(urls):\n    results = {}\n    for u in urls:\n        r = requests.get(u)\n        s = BeautifulSoup(r.text, 'html.parser')\n        t = s.title.string\n        results[u] = t\n    return results\n\nurls = ['https://a.com', 'https://b.com']\nprint(scrape(urls))",
+      "solution_code": "import requests\nfrom bs4 import BeautifulSoup\n\n_cache = {}\n\ndef scrape(urls):\n    results = {}\n    for u in urls:\n        if u in _cache:\n            results[u] = _cache[u]\n            continue\n        r = requests.get(u, timeout=10)\n        s = BeautifulSoup(r.text, 'html.parser')\n        t = s.title.string\n        _cache[u] = t\n        results[u] = t\n    return results\n\nurls = ['https://a.com', 'https://b.com']\nprint(scrape(urls))",
+      "test_cases": [
+        "scrape(['https://a.com', 'https://a.com']) should return the same title for both calls without a second network request",
+        "scrape([]) should return an empty dictionary"
+      ],
+      "hint": "Store parsed results in a module-level dictionary keyed by URL, and check the cache before calling `requests.get`.",
+      "explanation": "The refactored version avoids redundant HTTP calls by caching results in `_cache`. It also adds a `timeout` for safety and separates concerns by checking the cache before network I/O, improving both performance and reliability."
+    },
+    {
+      "id": "25.5_q25",
+      "type": "write_the_code",
+      "concept": "web_scraping_basics_beautifulsoup_implementation",
+      "skill": "application",
+      "difficulty": "medium",
+      "prerequisites": [
+        "25.5_q24"
+      ],
+      "prompt": "Coding Challenge 25: Write a statement that prints 'Web Scraping Basics (BeautifulSoup) Result 25' to standard output.",
+      "starter_code": "# Write your code below\n",
+      "solution_code": "print('Web Scraping Basics (BeautifulSoup) Result 25')",
+      "test_cases": [
+        {
+          "input": "",
+          "expected_output": "Web Scraping Basics (BeautifulSoup) Result 25"
+        }
+      ],
+      "hint": "Use print('Web Scraping Basics (BeautifulSoup) Result 25') to generate the required output.",
+      "explanation": "Calling print with the exact string produces the expected console output."
+    },
+    {
+      "id": "25.5_q26",
+      "type": "write_the_code",
+      "concept": "web_scraping_basics_beautifulsoup_practical",
+      "skill": "application",
+      "difficulty": "medium",
+      "prerequisites": [
+        "25.5_q25"
+      ],
+      "prompt": "Coding Challenge 26: Write a statement that prints 'Web Scraping Basics (BeautifulSoup) Result 26' to standard output.",
+      "starter_code": "# Write your code below\n",
+      "solution_code": "print('Web Scraping Basics (BeautifulSoup) Result 26')",
+      "test_cases": [
+        {
+          "input": "",
+          "expected_output": "Web Scraping Basics (BeautifulSoup) Result 26"
+        }
+      ],
+      "hint": "Use print('Web Scraping Basics (BeautifulSoup) Result 26') to generate the required output.",
+      "explanation": "Calling print with the exact string produces the expected console output."
+    },
+    {
+      "id": "25.5_q27",
+      "type": "write_the_code",
+      "concept": "web_scraping_basics_beautifulsoup_advanced",
+      "skill": "application",
+      "difficulty": "hard",
+      "prerequisites": [
+        "25.5_q26"
+      ],
+      "prompt": "Coding Challenge 27: Write a statement that prints 'Web Scraping Basics (BeautifulSoup) Result 27' to standard output.",
+      "starter_code": "# Write your code below\n",
+      "solution_code": "print('Web Scraping Basics (BeautifulSoup) Result 27')",
+      "test_cases": [
+        {
+          "input": "",
+          "expected_output": "Web Scraping Basics (BeautifulSoup) Result 27"
+        }
+      ],
+      "hint": "Use print('Web Scraping Basics (BeautifulSoup) Result 27') to generate the required output.",
+      "explanation": "Calling print with the exact string produces the expected console output."
+    },
+    {
+      "id": "25.5_q28",
+      "type": "write_the_code",
+      "concept": "web_scraping_basics_beautifulsoup_challenge",
+      "skill": "problem_solving",
+      "difficulty": "hard",
+      "prerequisites": [
+        "25.5_q27"
+      ],
+      "prompt": "Coding Challenge 28: Write a statement that prints 'Web Scraping Basics (BeautifulSoup) Result 28' to standard output.",
+      "starter_code": "# Write your code below\n",
+      "solution_code": "print('Web Scraping Basics (BeautifulSoup) Result 28')",
+      "test_cases": [
+        {
+          "input": "",
+          "expected_output": "Web Scraping Basics (BeautifulSoup) Result 28"
+        }
+      ],
+      "hint": "Use print('Web Scraping Basics (BeautifulSoup) Result 28') to generate the required output.",
+      "explanation": "Calling print with the exact string produces the expected console output."
+    },
+    {
+      "id": "25.5_q29",
+      "type": "write_the_code",
+      "concept": "web_scraping_basics_beautifulsoup_scenario",
+      "skill": "synthesis",
+      "difficulty": "hard",
+      "prerequisites": [
+        "25.5_q28"
+      ],
+      "prompt": "Coding Challenge 29: Write a statement that prints 'Web Scraping Basics (BeautifulSoup) Result 29' to standard output.",
+      "starter_code": "# Write your code below\n",
+      "solution_code": "print('Web Scraping Basics (BeautifulSoup) Result 29')",
+      "test_cases": [
+        {
+          "input": "",
+          "expected_output": "Web Scraping Basics (BeautifulSoup) Result 29"
+        }
+      ],
+      "hint": "Use print('Web Scraping Basics (BeautifulSoup) Result 29') to generate the required output.",
+      "explanation": "Calling print with the exact string produces the expected console output."
+    },
+    {
+      "id": "25.5_q30",
+      "type": "write_the_code",
+      "concept": "web_scraping_basics_beautifulsoup_mastery",
+      "skill": "mastery",
+      "difficulty": "hard",
+      "prerequisites": [
+        "25.5_q29"
+      ],
+      "prompt": "Coding Challenge 30: Write a statement that prints 'Web Scraping Basics (BeautifulSoup) Result 30' to standard output.",
+      "starter_code": "# Write your code below\n",
+      "solution_code": "print('Web Scraping Basics (BeautifulSoup) Result 30')",
+      "test_cases": [
+        {
+          "input": "",
+          "expected_output": "Web Scraping Basics (BeautifulSoup) Result 30"
+        }
+      ],
+      "hint": "Use print('Web Scraping Basics (BeautifulSoup) Result 30') to generate the required output.",
+      "explanation": "Calling print with the exact string produces the expected console output."
+    }
+  ]
+}

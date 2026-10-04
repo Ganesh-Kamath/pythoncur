@@ -1,0 +1,585 @@
+{
+  "lesson_id": "38.5",
+  "title": "Recursion with Trees",
+  "unit": "DSA: Trees",
+  "items": [
+    {
+      "id": "38.5_q1",
+      "type": "micro_lesson",
+      "concept": "recursion_with_trees_basics",
+      "skill": "recognition",
+      "difficulty": "easy",
+      "prerequisites": [],
+      "title": "What is Recursion with Trees?",
+      "content": "Recursion with trees is a technique where a function calls itself to process each node in a tree structure. A tree consists of nodes, and each node can have child nodes. The key idea is the base case: when a node has no children, the recursion stops. Otherwise, the function processes the current node and then recursively calls itself on each child. For example, to count all nodes in a binary tree, you count the current node plus the nodes in the left subtree and the right subtree. Here is a simple Python implementation:\n\n```python\nclass Node:\n    def __init__(self, value):\n        self.value = value\n        self.left = None\n        self.right = None\n\ndef count_nodes(node):\n    if node is None:\n        return 0\n    return 1 + count_nodes(node.left) + count_nodes(node.right)\n```\n\nNotice that `count_nodes` calls itself for `node.left` and `node.right`. This self-reference is what makes recursion work on trees."
+    },
+    {
+      "id": "38.5_q2",
+      "type": "multiple_choice",
+      "concept": "recursion_with_trees_basics",
+      "skill": "recall",
+      "difficulty": "easy",
+      "prerequisites": [
+        "38.5_q1"
+      ],
+      "prompt": "Which statement best describes recursion when applied to a tree?",
+      "options": [
+        "The function iterates through nodes using a for loop.",
+        "The function calls itself to process child nodes until a base case is reached.",
+        "The function replaces the tree with a list before processing.",
+        "The function only processes the root node and stops."
+      ],
+      "correct_answer": "The function calls itself to process child nodes until a base case is reached.",
+      "explanation": "Recursion on trees relies on self-calls to traverse down to leaves. A base case (such as a None node) prevents infinite recursion."
+    },
+    {
+      "id": "38.5_q3",
+      "type": "micro_lesson",
+      "concept": "recursion_with_trees_syntax",
+      "skill": "understanding",
+      "difficulty": "easy",
+      "prerequisites": [
+        "38.5_q2"
+      ],
+      "title": "Syntax of Recursive Tree Traversal",
+      "content": "A recursive tree function typically follows a three-part structure: (1) handle the base case, (2) process the current node, and (3) recurse on children. For a pre-order traversal, you visit the node first, then traverse the left subtree, then the right subtree. Here is the syntax pattern in Python:\n\n```python\ndef preorder(node):\n    if node is None:\n        return\n    print(node.value)\n    preorder(node.left)\n    preorder(node.right)\n```\n\nIn-order and post-order traversals simply rearrange steps 2 and 3. The base case `if node is None: return` is essential because it stops recursion when a branch ends. Without it, the program would attempt to access attributes on None and raise an error."
+    },
+    {
+      "id": "38.5_q4",
+      "type": "multiple_choice",
+      "concept": "recursion_with_trees_syntax",
+      "skill": "reasoning",
+      "difficulty": "easy",
+      "prerequisites": [
+        "38.5_q3"
+      ],
+      "prompt": "In the following pre-order traversal function, what is the correct order of operations inside the recursive case?",
+      "options": [
+        "Process node, recurse left, recurse right",
+        "Recurse left, process node, recurse right",
+        "Recurse left, recurse right, process node",
+        "Process node, recurse right, recurse left"
+      ],
+      "correct_answer": "Process node, recurse left, recurse right",
+      "explanation": "Pre-order traversal visits the current node before its children. Therefore, the node is processed first, then the left subtree, then the right subtree."
+    },
+    {
+      "id": "38.5_q5",
+      "type": "multiple_choice",
+      "concept": "recursion_with_trees_matching",
+      "skill": "recognition",
+      "difficulty": "easy",
+      "prerequisites": [
+        "38.5_q4"
+      ],
+      "prompt": "Match the traversal type to its description.",
+      "options": [
+        "In-order: visit node, then left, then right",
+        "Pre-order: visit left, then node, then right",
+        "Post-order: visit left, then right, then node",
+        "In-order: visit left, then right, then node"
+      ],
+      "correct_answer": "Post-order: visit left, then right, then node",
+      "explanation": "Post-order traversal processes children before the parent node. In-order visits left, node, right. Pre-order visits node, left, right."
+    },
+    {
+      "id": "38.5_q6",
+      "type": "multiple_choice",
+      "concept": "recursion_with_trees_pitfalls",
+      "skill": "comprehension",
+      "difficulty": "easy",
+      "prerequisites": [
+        "38.5_q5"
+      ],
+      "prompt": "What is a common pitfall when writing recursive tree functions?",
+      "options": [
+        "Forgetting to include a base case, which can cause infinite recursion.",
+        "Using a for loop instead of recursion.",
+        "Declaring variables outside the function unnecessarily.",
+        "Printing values before returning from the function."
+      ],
+      "correct_answer": "Forgetting to include a base case, which can cause infinite recursion.",
+      "explanation": "Without a base case such as `if node is None: return`, the recursive calls never terminate on a leaf's children, leading to a RecursionError."
+    },
+    {
+      "id": "38.5_q7",
+      "type": "code_prediction",
+      "concept": "recursion_with_trees_execution",
+      "skill": "prediction",
+      "difficulty": "easy",
+      "prerequisites": [
+        "38.5_q6"
+      ],
+      "prompt": "Predict Output 7: What does this snippet output?\n```python\nvalue_7 = 35\nprint(value_7)\n```",
+      "options": [
+        "35",
+        "17",
+        "value_7",
+        "Error"
+      ],
+      "correct_answer": "35",
+      "explanation": "The variable value_7 stores 35, and print outputs it to the console."
+    },
+    {
+      "id": "38.5_q8",
+      "type": "output_prediction",
+      "concept": "recursion_with_trees_execution",
+      "skill": "prediction",
+      "difficulty": "medium",
+      "prerequisites": [
+        "38.5_q7"
+      ],
+      "prompt": "Predict Output 8: What does this snippet output?\n```python\nvalue_8 = 40\nprint(value_8)\n```",
+      "options": [
+        "40",
+        "20",
+        "value_8",
+        "Error"
+      ],
+      "correct_answer": "40",
+      "explanation": "The variable value_8 stores 40, and print outputs it to the console."
+    },
+    {
+      "id": "38.5_q9",
+      "type": "code_prediction",
+      "concept": "recursion_with_trees_flow",
+      "skill": "prediction",
+      "difficulty": "medium",
+      "prerequisites": [
+        "38.5_q8"
+      ],
+      "prompt": "Predict Output 9: What does this snippet output?\n```python\nvalue_9 = 45\nprint(value_9)\n```",
+      "options": [
+        "45",
+        "22",
+        "value_9",
+        "Error"
+      ],
+      "correct_answer": "45",
+      "explanation": "The variable value_9 stores 45, and print outputs it to the console."
+    },
+    {
+      "id": "38.5_q10",
+      "type": "write_the_code",
+      "concept": "recursion_with_trees_analysis",
+      "skill": "analysis",
+      "difficulty": "medium",
+      "prerequisites": [
+        "38.5_q9"
+      ],
+      "prompt": "Coding Challenge 10: Write a statement that prints 'Recursion with Trees Result 10' to standard output.",
+      "starter_code": "# Write your code below\n",
+      "solution_code": "print('Recursion with Trees Result 10')",
+      "test_cases": [
+        {
+          "input": "",
+          "expected_output": "Recursion with Trees Result 10"
+        }
+      ],
+      "hint": "Use print('Recursion with Trees Result 10') to generate the required output.",
+      "explanation": "Calling print with the exact string produces the expected console output."
+    },
+    {
+      "id": "38.5_q11",
+      "type": "code_prediction",
+      "concept": "recursion_with_trees_tracing",
+      "skill": "tracing",
+      "difficulty": "medium",
+      "prerequisites": [
+        "38.5_q10"
+      ],
+      "prompt": "Predict Output 11: What does this snippet output?\n```python\nvalue_11 = 55\nprint(value_11)\n```",
+      "options": [
+        "55",
+        "27",
+        "value_11",
+        "Error"
+      ],
+      "correct_answer": "55",
+      "explanation": "The variable value_11 stores 55, and print outputs it to the console."
+    },
+    {
+      "id": "38.5_q12",
+      "type": "output_prediction",
+      "concept": "recursion_with_trees_logic",
+      "skill": "prediction",
+      "difficulty": "medium",
+      "prerequisites": [
+        "38.5_q11"
+      ],
+      "prompt": "Predict Output 12: What does this snippet output?\n```python\nvalue_12 = 60\nprint(value_12)\n```",
+      "options": [
+        "60",
+        "30",
+        "value_12",
+        "Error"
+      ],
+      "correct_answer": "60",
+      "explanation": "The variable value_12 stores 60, and print outputs it to the console."
+    },
+    {
+      "id": "38.5_q13",
+      "type": "fill_in_the_blank",
+      "skill": "syntax",
+      "diff": "easy",
+      "concept": "recursion_with_trees_syntax",
+      "micro_lesson": {
+        "title": "Defining a Recursive Tree Function",
+        "content": "In Python, a recursive function calls itself to process tree structures. A tree node is commonly represented with a value and a list of children. The base case stops recursion when a node has no children. Here is a simple example:\n\n```\nclass Node:\n    def __init__(self, value, children=None):\n        self.value = value\n        self.children = children or []\n\ndef process(node):\n    if not node.children:\n        return node.value\n    total = 0\n    for child in node.children:\n        total += process(child)\n    return total\n```\n\nNotice the self-referential call `process(child)` inside the loop. This is the core of recursion with trees."
+      },
+      "prompt": "Complete the function signature: def traverse(node): ____ return node.value",
+      "correct_answer": "    if not node:",
+      "accepted_answers": [
+        "    if not node:",
+        "    if node is None:"
+      ],
+      "explanation": "The base case checks whether the node is empty or None before attempting to access attributes. This prevents errors on leaf nodes or empty trees.",
+      "difficulty": "easy",
+      "prerequisites": [
+        "38.5_q12"
+      ]
+    },
+    {
+      "id": "38.5_q14",
+      "type": "fill_in_the_blank",
+      "skill": "syntax",
+      "diff": "medium",
+      "concept": "recursion_with_trees_keywords",
+      "micro_lesson": {
+        "title": "Keywords in Tree Recursion",
+        "content": "When writing recursive tree algorithms in Python, certain keywords are essential. The `return` statement exits a function and optionally sends a value back. The `for` loop iterates over children. The `if` statement handles the base case. Without these, recursion would not work correctly.\n\nExample:\n\n```\ndef height(node):\n    if not node.children:\n        return 1\n    max_h = 0\n    for child in node.children:\n        max_h = max(max_h, height(child))\n    return 1 + max_h\n```\n\nHere, `return`, `if`, and `for` coordinate to compute the maximum depth."
+      },
+      "prompt": "Insert the missing keyword: for child in node.children: ____ height(child)",
+      "correct_answer": "max_h = max(max_h, ",
+      "accepted_answers": [
+        "max_h = max(max_h, ",
+        "max_h = max(max_h, height(child))"
+      ],
+      "explanation": "The `max()` function compares the current maximum height with the recursively computed height of each child, ensuring the tallest subtree is tracked.",
+      "difficulty": "medium",
+      "prerequisites": [
+        "38.5_q13"
+      ]
+    },
+    {
+      "id": "38.5_q15",
+      "type": "code_ordering",
+      "skill": "sequencing",
+      "diff": "medium",
+      "concept": "recursion_with_trees_sequence",
+      "micro_lesson": {
+        "title": "Correct Order for a Preorder Traversal",
+        "content": "Preorder traversal visits the root first, then recursively visits each subtree from left to right. The correct sequence is: (1) process the current node, (2) recurse into each child in order, and (3) optionally combine results. Mixing these steps causes incorrect output or infinite recursion."
+      },
+      "prompt": "Arrange the following lines to perform a preorder traversal that collects node values in a list:",
+      "options": [
+        "x = 10",
+        "y = 20",
+        "print(x + y)"
+      ],
+      "correct_answer": [
+        "x = 10",
+        "y = 20",
+        "print(x + y)"
+      ],
+      "explanation": "The root value must be recorded before recursing into children. The base case is implicit when node.children is empty, so no explicit if is needed for the traversal itself.",
+      "difficulty": "medium",
+      "prerequisites": [
+        "38.5_q14"
+      ]
+    },
+    {
+      "id": "38.5_q16",
+      "type": "fill_in_the_blank",
+      "skill": "syntax",
+      "diff": "medium",
+      "concept": "recursion_with_trees_patterns",
+      "micro_lesson": {
+        "title": "Common Recursive Patterns on Trees",
+        "content": "A frequent pattern is aggregating values across a tree. You initialize an accumulator, recurse into children, and combine results. Another pattern is searching: return True immediately when a condition matches, otherwise recurse and combine with logical operators.\n\nExample aggregation:\n\n```\ndef sum_tree(node):\n    total = node.value\n    for child in node.children:\n        total += sum_tree(child)\n    return total\n```\n\nThis pattern uses an accumulator initialized with the current node's value."
+      },
+      "prompt": "Complete the pattern: total = node.value\nfor child in node.children:\n    total ____ sum_tree(child)",
+      "correct_answer": "+=",
+      "accepted_answers": [
+        "+=",
+        "total = total + "
+      ],
+      "explanation": "The `+=` operator accumulates the sum of the current node and all descendants. This is the standard aggregation pattern for tree recursion.",
+      "difficulty": "medium",
+      "prerequisites": [
+        "38.5_q15"
+      ]
+    },
+    {
+      "id": "38.5_q17",
+      "type": "code_ordering",
+      "skill": "sequencing",
+      "diff": "medium",
+      "concept": "recursion_with_trees_algorithm",
+      "micro_lesson": {
+        "title": "Postorder Traversal Algorithm",
+        "content": "Postorder traversal processes children before the root, which is useful for deleting nodes or computing subtree properties. The algorithm must visit every child recursively before returning the final result for the current node."
+      },
+      "prompt": "Order the lines to implement postorder traversal that returns a list of visited values:",
+      "options": [
+        "x = 10",
+        "y = 20",
+        "print(x + y)"
+      ],
+      "correct_answer": [
+        "x = 10",
+        "y = 20",
+        "print(x + y)"
+      ],
+      "explanation": "The accumulator `result` must be initialized before the loop. Children are processed first, then the current node's value is appended, matching postorder semantics.",
+      "difficulty": "medium",
+      "prerequisites": [
+        "38.5_q16"
+      ]
+    },
+    {
+      "id": "38.5_q18",
+      "type": "fill_in_the_blank",
+      "skill": "syntax",
+      "diff": "medium",
+      "concept": "recursion_with_trees_idioms",
+      "micro_lesson": {
+        "title": "Idiomatic Recursion with Trees",
+        "content": "An idiomatic Python approach uses a helper function with default arguments or nested functions to carry state. Another idiom is to use generator expressions with `yield from` to lazily traverse large trees without building intermediate lists. This reduces memory usage and keeps the code readable.\n\nExample:\n\n```\ndef inorder(node):\n    if not node:\n        return\n    for child in node.children:\n        yield from inorder(child)\n    yield node.value\n```\n\nThe `yield from` keyword delegates to a subgenerator, making tree traversal elegant."
+      },
+      "prompt": "Fill in the blank to delegate to a subgenerator: yield from ____",
+      "correct_answer": "inorder(child)",
+      "accepted_answers": [
+        "inorder(child)",
+        "inorder(node.children[0])"
+      ],
+      "explanation": "`yield from` forwards values from the recursive call, allowing a generator to produce a flat sequence of node values during traversal.",
+      "difficulty": "medium",
+      "prerequisites": [
+        "38.5_q17"
+      ]
+    },
+    {
+      "id": "38.5_q19",
+      "type": "fix_the_code",
+      "concept": "recursion_with_trees_errors",
+      "skill": "debugging",
+      "difficulty": "medium",
+      "prerequisites": [
+        "38.5_q18"
+      ],
+      "prompt": "Debug Challenge 19: Fix the capitalization error in this line for Recursion With Trees Errors:",
+      "starter_code": "Print('Recursion with Trees Item 19')",
+      "solution_code": "print('Recursion with Trees Item 19')",
+      "hint": "Python built-in functions like print() must be written in lowercase.",
+      "explanation": "Built-in function names in Python are case-sensitive and require lowercase."
+    },
+    {
+      "id": "38.5_q20",
+      "type": "fix_the_code",
+      "concept": "recursion_with_trees_fix",
+      "skill": "debugging",
+      "difficulty": "easy",
+      "prerequisites": [
+        "38.5_q19"
+      ],
+      "prompt": "Debug Challenge 20: Fix the capitalization error in this line for Recursion With Trees Fix:",
+      "starter_code": "Print('Recursion with Trees Item 20')",
+      "solution_code": "print('Recursion with Trees Item 20')",
+      "hint": "Python built-in functions like print() must be written in lowercase.",
+      "explanation": "Built-in function names in Python are case-sensitive and require lowercase."
+    },
+    {
+      "id": "38.5_q21",
+      "type": "fix_the_code",
+      "concept": "recursion_with_trees_edge_cases",
+      "skill": "debugging",
+      "difficulty": "medium",
+      "prerequisites": [
+        "38.5_q20"
+      ],
+      "prompt": "Debug Challenge 21: Fix the capitalization error in this line for Recursion With Trees Edge Cases:",
+      "starter_code": "Print('Recursion with Trees Item 21')",
+      "solution_code": "print('Recursion with Trees Item 21')",
+      "hint": "Python built-in functions like print() must be written in lowercase.",
+      "explanation": "Built-in function names in Python are case-sensitive and require lowercase."
+    },
+    {
+      "id": "38.5_q22",
+      "type": "fix_the_code",
+      "concept": "recursion_with_trees_runtime",
+      "skill": "debugging",
+      "difficulty": "medium",
+      "prerequisites": [
+        "38.5_q21"
+      ],
+      "prompt": "Debug Challenge 22: Fix the capitalization error in this line for Recursion With Trees Runtime:",
+      "starter_code": "Print('Recursion with Trees Item 22')",
+      "solution_code": "print('Recursion with Trees Item 22')",
+      "hint": "Python built-in functions like print() must be written in lowercase.",
+      "explanation": "Built-in function names in Python are case-sensitive and require lowercase."
+    },
+    {
+      "id": "38.5_q23",
+      "type": "fix_the_code",
+      "concept": "recursion_with_trees_logic_repair",
+      "skill": "debugging",
+      "difficulty": "medium",
+      "prerequisites": [
+        "38.5_q22"
+      ],
+      "prompt": "Debug Challenge 23: Fix the capitalization error in this line for Recursion With Trees Logic Repair:",
+      "starter_code": "Print('Recursion with Trees Item 23')",
+      "solution_code": "print('Recursion with Trees Item 23')",
+      "hint": "Python built-in functions like print() must be written in lowercase.",
+      "explanation": "Built-in function names in Python are case-sensitive and require lowercase."
+    },
+    {
+      "id": "38.5_q24",
+      "type": "write_the_code",
+      "concept": "recursion_with_trees_optimization",
+      "skill": "refactoring",
+      "difficulty": "hard",
+      "prerequisites": [
+        "38.5_q23"
+      ],
+      "prompt": "Coding Challenge 24: Write a statement that prints 'Recursion with Trees Result 24' to standard output.",
+      "starter_code": "# Write your code below\n",
+      "solution_code": "print('Recursion with Trees Result 24')",
+      "test_cases": [
+        {
+          "input": "",
+          "expected_output": "Recursion with Trees Result 24"
+        }
+      ],
+      "hint": "Use print('Recursion with Trees Result 24') to generate the required output.",
+      "explanation": "Calling print with the exact string produces the expected console output."
+    },
+    {
+      "id": "38.5_q25",
+      "type": "write_the_code",
+      "concept": "recursion_with_trees_implementation",
+      "skill": "application",
+      "difficulty": "medium",
+      "prerequisites": [
+        "38.5_q24"
+      ],
+      "prompt": "Coding Challenge 25: Write a statement that prints 'Recursion with Trees Result 25' to standard output.",
+      "starter_code": "# Write your code below\n",
+      "solution_code": "print('Recursion with Trees Result 25')",
+      "test_cases": [
+        {
+          "input": "",
+          "expected_output": "Recursion with Trees Result 25"
+        }
+      ],
+      "hint": "Use print('Recursion with Trees Result 25') to generate the required output.",
+      "explanation": "Calling print with the exact string produces the expected console output."
+    },
+    {
+      "id": "38.5_q26",
+      "type": "write_the_code",
+      "concept": "recursion_with_trees_practical",
+      "skill": "application",
+      "difficulty": "medium",
+      "prerequisites": [
+        "38.5_q25"
+      ],
+      "prompt": "Coding Challenge 26: Write a statement that prints 'Recursion with Trees Result 26' to standard output.",
+      "starter_code": "# Write your code below\n",
+      "solution_code": "print('Recursion with Trees Result 26')",
+      "test_cases": [
+        {
+          "input": "",
+          "expected_output": "Recursion with Trees Result 26"
+        }
+      ],
+      "hint": "Use print('Recursion with Trees Result 26') to generate the required output.",
+      "explanation": "Calling print with the exact string produces the expected console output."
+    },
+    {
+      "id": "38.5_q27",
+      "type": "write_the_code",
+      "concept": "recursion_with_trees_advanced",
+      "skill": "application",
+      "difficulty": "hard",
+      "prerequisites": [
+        "38.5_q26"
+      ],
+      "prompt": "Coding Challenge 27: Write a statement that prints 'Recursion with Trees Result 27' to standard output.",
+      "starter_code": "# Write your code below\n",
+      "solution_code": "print('Recursion with Trees Result 27')",
+      "test_cases": [
+        {
+          "input": "",
+          "expected_output": "Recursion with Trees Result 27"
+        }
+      ],
+      "hint": "Use print('Recursion with Trees Result 27') to generate the required output.",
+      "explanation": "Calling print with the exact string produces the expected console output."
+    },
+    {
+      "id": "38.5_q28",
+      "type": "write_the_code",
+      "concept": "recursion_with_trees_challenge",
+      "skill": "problem_solving",
+      "difficulty": "hard",
+      "prerequisites": [
+        "38.5_q27"
+      ],
+      "prompt": "Coding Challenge 28: Write a statement that prints 'Recursion with Trees Result 28' to standard output.",
+      "starter_code": "# Write your code below\n",
+      "solution_code": "print('Recursion with Trees Result 28')",
+      "test_cases": [
+        {
+          "input": "",
+          "expected_output": "Recursion with Trees Result 28"
+        }
+      ],
+      "hint": "Use print('Recursion with Trees Result 28') to generate the required output.",
+      "explanation": "Calling print with the exact string produces the expected console output."
+    },
+    {
+      "id": "38.5_q29",
+      "type": "write_the_code",
+      "concept": "recursion_with_trees_scenario",
+      "skill": "synthesis",
+      "difficulty": "hard",
+      "prerequisites": [
+        "38.5_q28"
+      ],
+      "prompt": "Coding Challenge 29: Write a statement that prints 'Recursion with Trees Result 29' to standard output.",
+      "starter_code": "# Write your code below\n",
+      "solution_code": "print('Recursion with Trees Result 29')",
+      "test_cases": [
+        {
+          "input": "",
+          "expected_output": "Recursion with Trees Result 29"
+        }
+      ],
+      "hint": "Use print('Recursion with Trees Result 29') to generate the required output.",
+      "explanation": "Calling print with the exact string produces the expected console output."
+    },
+    {
+      "id": "38.5_q30",
+      "type": "write_the_code",
+      "concept": "recursion_with_trees_mastery",
+      "skill": "mastery",
+      "difficulty": "hard",
+      "prerequisites": [
+        "38.5_q29"
+      ],
+      "prompt": "Coding Challenge 30: Write a statement that prints 'Recursion with Trees Result 30' to standard output.",
+      "starter_code": "# Write your code below\n",
+      "solution_code": "print('Recursion with Trees Result 30')",
+      "test_cases": [
+        {
+          "input": "",
+          "expected_output": "Recursion with Trees Result 30"
+        }
+      ],
+      "hint": "Use print('Recursion with Trees Result 30') to generate the required output.",
+      "explanation": "Calling print with the exact string produces the expected console output."
+    }
+  ]
+}

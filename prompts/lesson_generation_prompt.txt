@@ -1,0 +1,33 @@
+{master_rules}
+
+============================================================
+TARGET LESSON GENERATION TASK
+============================================================
+
+Generate the complete, production-ready curriculum JSON for:
+- Unit: {unit_name} (Unit ID: {unit_id})
+- Lesson ID: {lesson_id}
+- Lesson Title: {lesson_title}
+- Position in Syllabus: {syllabus_position}
+
+PREREQUISITE & CONTEXT:
+{prerequisite_summary}
+
+QUALITY BENCHMARK:
+Below is an excerpt of Lesson 1.2 which demonstrates the required depth, tone, structure, and variety of question types:
+{benchmark_example}
+
+SPECIFIC INSTRUCTIONS FOR THIS LESSON:
+1. Generate EXACTLY {target_item_count} items numbered `{lesson_id}_q1` through `{lesson_id}_q{target_item_count}`.
+2. Teach the concept thoroughly through alternating micro-lessons and active engagement exercises.
+3. Ensure the lesson contains a healthy variety of question types:
+   - micro_lesson (conceptual instruction)
+   - multiple_choice & scenario (discrimination and mental model checks)
+   - code_ordering (logical sequence of operations or execution)
+   - fill_in_the_blank (syntax and terminology recall)
+   - code_prediction & output_prediction (tracing code execution)
+   - fix_the_code (debugging realistic misconceptions)
+   - write_the_code / mini_challenge (hands-on programming)
+4. For projects or DSA units, emphasize real implementation, complexity, and testing.
+5. All Python code snippets in `solution_code` must have valid Python syntax.
+6. Return ONLY the raw JSON object. Do not wrap in markdown ```json ``` blocks. Do not add introductory or concluding text.

@@ -1,0 +1,637 @@
+{
+  "lesson_id": "39.3",
+  "title": "Breadth-First Search (BFS)",
+  "unit": "DSA: Graphs",
+  "items": [
+    {
+      "id": "39.3_q1",
+      "type": "micro_lesson",
+      "concept": "breadthfirst_search_bfs_basics",
+      "skill": "recognition",
+      "difficulty": "easy",
+      "prerequisites": [],
+      "title": "What is Breadth-First Search?",
+      "content": "Breadth-First Search (BFS) is a graph traversal algorithm that explores all neighbors of a node before moving to the next level of nodes. It uses a queue to keep track of nodes to visit. BFS is ideal for finding the shortest path in an unweighted graph. Here is a simple Python implementation using a queue:\n\n```python\nfrom collections import deque\n\ndef bfs(graph, start):\n    visited = set()\n    queue = deque([start])\n    visited.add(start)\n\n    while queue:\n        node = queue.popleft()\n        print('Visiting:', node)\n\n        for neighbor in graph.get(node, []):\n            if neighbor not in visited:\n                visited.add(neighbor)\n                queue.append(neighbor)\n\n# Example graph\ngraph = {\n    'A': ['B', 'C'],\n    'B': ['D', 'E'],\n    'C': ['F'],\n    'D': [],\n    'E': [],\n    'F': []\n}\n\nbfs(graph, 'A')\n```\n\nIn this code, we initialize a queue with the starting node, mark it as visited, and repeatedly dequeue a node, process it, and enqueue any unvisited neighbors. This ensures we explore the graph level by level."
+    },
+    {
+      "id": "39.3_q2",
+      "type": "multiple_choice",
+      "concept": "breadthfirst_search_bfs_basics",
+      "skill": "recall",
+      "difficulty": "easy",
+      "prerequisites": [
+        "39.3_q1"
+      ],
+      "match_code_to_concept": {
+        "prompt": "Which data structure is essential for implementing BFS correctly?",
+        "options": [
+          "A stack",
+          "A queue",
+          "A heap",
+          "A dictionary"
+        ],
+        "correct_answer": "B",
+        "explanation": "BFS explores nodes level by level, which requires first-in-first-out (FIFO) behavior. A queue provides this ordering, ensuring that nodes discovered earlier are processed before later ones."
+      },
+      "prompt": "Which statement best applies to breadthfirst search bfs basics?",
+      "options": [
+        "A. Correct approach for breadthfirst search bfs basics",
+        "B. SyntaxError raised unconditionally",
+        "C. Unrelated system call",
+        "D. Halts Python interpreter"
+      ],
+      "correct_answer": "A. Correct approach for breadthfirst search bfs basics",
+      "explanation": "Demonstrates core usage of breadthfirst search bfs basics in Python."
+    },
+    {
+      "id": "39.3_q3",
+      "type": "micro_lesson",
+      "concept": "breadthfirst_search_bfs_syntax",
+      "skill": "understanding",
+      "difficulty": "easy",
+      "prerequisites": [
+        "39.3_q2"
+      ],
+      "title": "BFS Syntax and Key Methods",
+      "content": "When writing BFS in Python, the key operations are queue initialization, popping from the front, and appending to the back. The `collections.deque` class is preferred over a list for efficient pops from the left. Here is the core syntax pattern:\n\n```python\nfrom collections import deque\n\ndef bfs_syntax_example(graph, start):\n    queue = deque([start])\n    visited = {start}\n\n    while queue:\n        current = queue.popleft()\n        for neighbor in graph.get(current, []):\n            if neighbor not in visited:\n                visited.add(neighbor)\n                queue.append(neighbor)\n    return visited\n\n# Using the same graph as before\nresult = bfs_syntax_example(graph, 'A')\nprint('Visited nodes:', result)\n```\n\nNotice that `popleft()` removes and returns the leftmost element, while `append()` adds an element to the right. The `visited` set prevents revisiting nodes and avoids infinite loops in cyclic graphs."
+    },
+    {
+      "id": "39.3_q4",
+      "type": "multiple_choice",
+      "concept": "breadthfirst_search_bfs_syntax",
+      "skill": "reasoning",
+      "difficulty": "easy",
+      "prerequisites": [
+        "39.3_q3"
+      ],
+      "match_code_to_concept": {
+        "prompt": "In the BFS loop below, what does `queue.popleft()` do?\n\n```python\nfrom collections import deque\nqueue = deque(['A', 'B', 'C'])\nnode = queue.popleft()\n```",
+        "options": [
+          "Removes and returns the last element",
+          "Removes and returns the first element",
+          "Adds an element to the front",
+          "Returns the length of the queue"
+        ],
+        "correct_answer": "B",
+        "explanation": "`popleft()` removes and returns the element at the left end of the deque, which is the first element inserted. This maintains the FIFO order required by BFS."
+      },
+      "prompt": "Which statement best applies to breadthfirst search bfs syntax?",
+      "options": [
+        "A. Correct approach for breadthfirst search bfs syntax",
+        "B. SyntaxError raised unconditionally",
+        "C. Unrelated system call",
+        "D. Halts Python interpreter"
+      ],
+      "correct_answer": "A. Correct approach for breadthfirst search bfs syntax",
+      "explanation": "Demonstrates core usage of breadthfirst search bfs syntax in Python."
+    },
+    {
+      "id": "39.3_q5",
+      "type": "multiple_choice",
+      "concept": "breadthfirst_search_bfs_matching",
+      "skill": "recognition",
+      "difficulty": "easy",
+      "prerequisites": [
+        "39.3_q4"
+      ],
+      "match_code_to_concept": {
+        "prompt": "Match each BFS operation to its purpose:\n\n1. `queue.append(neighbor)`\n2. `queue.popleft()`\n3. `visited.add(neighbor)`\n4. `while queue:`",
+        "options": [
+          "A. Process the next node to explore; B. Check if more nodes remain; C. Record a new node for later exploration; D. Prevent revisiting nodes",
+          "A. Prevent revisiting nodes; B. Check if more nodes remain; C. Record a new node for later exploration; D. Process the next node to explore",
+          "A. Record a new node for later exploration; B. Process the next node to explore; C. Check if more nodes remain; D. Prevent revisiting nodes",
+          "A. Check if more nodes remain; B. Record a new node for later exploration; C. Process the next node to explore; D. Prevent revisiting nodes"
+        ],
+        "correct_answer": "C",
+        "explanation": "Option C correctly matches: `append` records a new node, `popleft` processes the next node, `while queue` checks if more nodes remain, and `visited.add` prevents revisiting nodes."
+      },
+      "prompt": "Which statement best applies to breadthfirst search bfs matching?",
+      "options": [
+        "A. Correct approach for breadthfirst search bfs matching",
+        "B. SyntaxError raised unconditionally",
+        "C. Unrelated system call",
+        "D. Halts Python interpreter"
+      ],
+      "correct_answer": "A. Correct approach for breadthfirst search bfs matching",
+      "explanation": "Demonstrates core usage of breadthfirst search bfs matching in Python."
+    },
+    {
+      "id": "39.3_q6",
+      "type": "multiple_choice",
+      "concept": "breadthfirst_search_bfs_pitfalls",
+      "skill": "comprehension",
+      "difficulty": "easy",
+      "prerequisites": [
+        "39.3_q5"
+      ],
+      "match_code_to_concept": {
+        "prompt": "Consider this BFS snippet:\n\n```python\ndef bfs_pitfall(graph, start):\n    queue = [start]\n    visited = set()\n    while queue:\n        node = queue.pop(0)\n        if node in visited:\n            continue\n        visited.add(node)\n        for neighbor in graph.get(node, []):\n            if neighbor not in visited:\n                queue.append(neighbor)\n    return visited\n```\n\nWhat is a key pitfall of using `queue.pop(0)` instead of `deque.popleft()`?",
+        "options": [
+          "A. It causes incorrect traversal order",
+          "B. It is inefficient for large queues because it shifts all remaining elements",
+          "C. It prevents the algorithm from visiting all nodes",
+          "D. It requires extra memory for the visited set"
+        ],
+        "correct_answer": "B",
+        "explanation": "Using `list.pop(0)` is O(n) because it shifts every remaining element to the left. For large graphs, this degrades performance significantly. `deque.popleft()` is O(1) and is the recommended approach."
+      },
+      "prompt": "Which statement best applies to breadthfirst search bfs pitfalls?",
+      "options": [
+        "A. Correct approach for breadthfirst search bfs pitfalls",
+        "B. SyntaxError raised unconditionally",
+        "C. Unrelated system call",
+        "D. Halts Python interpreter"
+      ],
+      "correct_answer": "A. Correct approach for breadthfirst search bfs pitfalls",
+      "explanation": "Demonstrates core usage of breadthfirst search bfs pitfalls in Python."
+    },
+    {
+      "id": "39.3_q7",
+      "type": "code_prediction",
+      "skill": "prediction",
+      "difficulty": "easy",
+      "concept": "breadthfirst_search_bfs_execution",
+      "prerequisites": [
+        "39.3_q6"
+      ],
+      "micro_lesson": {
+        "title": "How BFS Executes: Step-by-Step",
+        "content": "Breadth-First Search (BFS) explores a graph level by level, starting from a given source node. It uses a queue to keep track of nodes to visit next. At each step, the algorithm dequeues a node, processes it, and enqueues all its unvisited neighbors. This guarantees that nodes closer to the source are visited before nodes farther away. The visited set prevents revisiting nodes and avoids infinite loops in cyclic graphs.\n\nExample Python implementation:\n```python\nfrom collections import deque\n\ndef bfs(graph, start):\n    visited = set()\n    queue = deque([start])\n    visited.add(start)\n    order = []\n    while queue:\n        node = queue.popleft()\n        order.append(node)\n        for neighbor in graph.get(node, []):\n            if neighbor not in visited:\n                visited.add(neighbor)\n                queue.append(neighbor)\n    return order\n```\nIn this code, `queue.popleft()` removes the front element, ensuring FIFO order. The `visited` set records nodes already processed. The `order` list captures the sequence in which nodes are first discovered."
+      },
+      "prompt": "Consider the following BFS traversal code on a graph represented as an adjacency list. What is the first node added to the `order` list when `bfs(graph, 'A')` is called?\n```python\nfrom collections import deque\n\ndef bfs(graph, start):\n    visited = set()\n    queue = deque([start])\n    visited.add(start)\n    order = []\n    while queue:\n        node = queue.popleft()\n        order.append(node)\n        for neighbor in graph.get(node, []):\n            if neighbor not in visited:\n                visited.add(neighbor)\n                queue.append(neighbor)\n    return order\n\ngraph = {\n    'A': ['B', 'C'],\n    'B': ['D'],\n    'C': ['D'],\n    'D': []\n}\n```",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correct_answer": "A",
+      "explanation": "The queue is initialized with `deque([start])`, so `'A'` is the first element. The while loop immediately dequeues `'A'` and appends it to `order`, making it the first item in the result."
+    },
+    {
+      "id": "39.3_q8",
+      "type": "output_prediction",
+      "skill": "prediction",
+      "difficulty": "medium",
+      "concept": "breadthfirst_search_bfs_execution",
+      "prerequisites": [
+        "39.3_q7"
+      ],
+      "micro_lesson": {
+        "title": "Tracing BFS Output on Different Graph Structures",
+        "content": "The output of BFS depends on the graph's topology and the order in which neighbors are stored. BFS always visits nodes in increasing distance from the start node. If multiple nodes share the same distance, the one enqueued earlier is visited first. This makes BFS ideal for finding the shortest path in unweighted graphs.\n\nKey observations:\n- The first output is always the `start` node.\n- Nodes at distance 1 from `start` appear before nodes at distance 2.\n- The exact order among same-distance nodes follows the neighbor list order.\n\nExample:\n```python\nfrom collections import deque\n\ndef bfs(graph, start):\n    visited = set([start])\n    queue = deque([start])\n    order = []\n    while queue:\n        node = queue.popleft()\n        order.append(node)\n        for neighbor in graph.get(node, []):\n            if neighbor not in visited:\n                visited.add(neighbor)\n                queue.append(neighbor)\n    return order\n```"
+      },
+      "prompt": "Given the graph below, what will `bfs(graph, 'S')` return?\n```python\nfrom collections import deque\n\ndef bfs(graph, start):\n    visited = set([start])\n    queue = deque([start])\n    order = []\n    while queue:\n        node = queue.popleft()\n        order.append(node)\n        for neighbor in graph.get(node, []):\n            if neighbor not in visited:\n                visited.add(neighbor)\n                queue.append(neighbor)\n    return order\n\ngraph = {\n    'S': ['A', 'B'],\n    'A': ['C', 'D'],\n    'B': ['D'],\n    'C': [],\n    'D': []\n}\n```",
+      "options": [
+        "['S', 'A', 'B', 'C', 'D']",
+        "['S', 'B', 'A', 'D', 'C']",
+        "['S', 'A', 'C', 'B', 'D']",
+        "['S', 'A', 'B', 'D', 'C']"
+      ],
+      "correct_answer": "['S', 'A', 'B', 'C', 'D']",
+      "explanation": "BFS starts with 'S'. Neighbors 'A' and 'B' are enqueued in that order, so 'A' is dequeued next and its neighbors 'C' and 'D' are enqueued. 'B' is dequeued after 'A', and 'D' is skipped because it is already visited. The final order is ['S', 'A', 'B', 'C', 'D']."
+    },
+    {
+      "id": "39.3_q9",
+      "type": "code_prediction",
+      "skill": "prediction",
+      "difficulty": "medium",
+      "concept": "breadthfirst_search_bfs_flow",
+      "prerequisites": [
+        "39.3_q8"
+      ],
+      "micro_lesson": {
+        "title": "Control Flow in BFS: Queue and Visited Logic",
+        "content": "The core flow of BFS relies on two mechanisms: a queue for ordering and a visited set for correctness. The loop continues while the queue is non-empty. Inside the loop, the current node is processed, then all unvisited neighbors are discovered and added to the queue. If a neighbor has already been visited, it is ignored. This prevents redundant work and infinite loops. The function returns only after the queue is exhausted, meaning every reachable node has been visited exactly once.\n\nImportant flow detail: `visited` is updated when a neighbor is discovered, not when it is processed. This ensures that a node is enqueued at most once."
+      },
+      "prompt": "Suppose the BFS loop is modified so that `visited.add(neighbor)` is moved to after the `for` loop, just before `return order`. How does this affect the traversal on the following graph?\n```python\nfrom collections import deque\n\ndef bfs(graph, start):\n    visited = set([start])\n    queue = deque([start])\n    order = []\n    while queue:\n        node = queue.popleft()\n        order.append(node)\n        for neighbor in graph.get(node, []):\n            if neighbor not in visited:\n                queue.append(neighbor)\n        visited.add(neighbor)  # moved outside the for loop\n    return order\n\ngraph = {\n    '1': ['2', '3'],\n    '2': ['4'],\n    '3': ['4'],\n    '4': []\n}\n```",
+      "options": [
+        "The code raises a NameError because `neighbor` is undefined outside the loop.",
+        "The code runs but may enqueue duplicate nodes, causing inefficiency.",
+        "The code produces the same correct output as standard BFS.",
+        "The code raises an UnboundLocalError because `neighbor` is referenced before assignment."
+      ],
+      "correct_answer": "The code raises a NameError because `neighbor` is undefined outside the loop.",
+      "explanation": "In Python, variables assigned inside a loop are not visible outside that loop's scope. After the `for` loop ends, `neighbor` no longer exists, so `visited.add(neighbor)` triggers a `NameError`."
+    },
+    {
+      "id": "39.3_q10",
+      "type": "write_the_code",
+      "skill": "analysis",
+      "difficulty": "medium",
+      "concept": "breadthfirst_search_bfs_analysis",
+      "prerequisites": [
+        "39.3_q9"
+      ],
+      "micro_lesson": {
+        "title": "Analyzing BFS Output and Correctness",
+        "content": "When analyzing BFS output, ask three questions: (1) Does the output start with the source node? (2) Are nodes grouped by distance from the source? (3) Is every reachable node included exactly once? If the graph is disconnected, BFS only covers the connected component containing the start node. The time complexity is O(V + E) because each vertex and edge is examined at most once. The space complexity is O(V) due to the queue and visited set in the worst case.\n\nCommon pitfalls:\n- Using a list as a queue with `pop(0)` is O(n), making BFS inefficient.\n- Forgetting to mark a node visited when enqueuing leads to duplicates.\n- Assuming BFS finds the shortest path in weighted graphs; it does not."
+      },
+      "prompt": "The following BFS function is run on a graph with 5 nodes and 7 edges. The output is `['X', 'Y', 'Z', 'W']`. Explain why node 'V' is missing from the output and whether the function is still correct for its intended purpose.",
+      "options": [
+        "The function is incorrect because it should visit all 5 nodes regardless of connectivity.",
+        "Node 'V' is missing because it is not reachable from 'X'; the function is correct for a single connected component.",
+        "The function has a bug: 'V' was never enqueued due to an off-by-one error in the neighbor loop.",
+        "Node 'V' is missing because the graph was not fully initialized in the adjacency list."
+      ],
+      "correct_answer": "Node 'V' is missing because it is not reachable from 'X'; the function is correct for a single connected component.",
+      "explanation": "BFS only traverses the connected component containing the start node. If 'V' is in a separate component, it will never be visited. The function remains correct as long as the goal is to explore reachable nodes from 'X'.",
+      "starter_code": "# Write your solution below\n",
+      "solution_code": "print('Breadth-First Search (BFS)')",
+      "test_cases": [
+        {
+          "input": "",
+          "expected_output": "Breadth-First Search (BFS)"
+        }
+      ]
+    },
+    {
+      "id": "39.3_q11",
+      "type": "code_prediction",
+      "skill": "tracing",
+      "difficulty": "medium",
+      "concept": "breadthfirst_search_bfs_tracing",
+      "prerequisites": [
+        "39.3_q10"
+      ],
+      "micro_lesson": {
+        "title": "Step-by-Step Tracing of BFS with a Queue",
+        "content": "Tracing BFS requires tracking three structures simultaneously: the queue, the visited set, and the output list. At each iteration, note which node is dequeued, which neighbors are examined, which new nodes are enqueued, and how `visited` changes. This skill helps debug unexpected outputs and understand time complexity.\n\nTrace template:\n- Iteration 1: queue = [start], dequeue start, enqueue unvisited neighbors, update visited, append start to order.\n- Iteration 2: dequeue next node, repeat.\n\nExample trace on a small graph solidifies intuition about FIFO behavior."
+      },
+      "prompt": "Trace the state of `queue`, `visited`, and `order` after each iteration of the loop for the graph below. What is the value of `order` after the second iteration?\n```python\nfrom collections import deque\n\ndef bfs(graph, start):\n    visited = set([start])\n    queue = deque([start])\n    order = []\n    while queue:\n        node = queue.popleft()\n        order.append(node)\n        for neighbor in graph.get(node, []):\n            if neighbor not in visited:\n                visited.add(neighbor)\n                queue.append(neighbor)\n    return order\n\ngraph = {\n    'P': ['Q', 'R'],\n    'Q': ['S'],\n    'R': ['S'],\n    'S': []\n}\n```",
+      "options": [
+        "['P', 'Q']",
+        "['P', 'R']",
+        "['P', 'Q', 'R']",
+        "['P', 'S']"
+      ],
+      "correct_answer": "['P', 'Q']",
+      "explanation": "Iteration 1: dequeue 'P', append to order, enqueue 'Q' and 'R' (in that order), visited = {'P', 'Q', 'R'}. Iteration 2: dequeue 'Q', append to order, enqueue 'S'. After iteration 2, order = ['P', 'Q']."
+    },
+    {
+      "id": "39.3_q12",
+      "type": "output_prediction",
+      "skill": "prediction",
+      "difficulty": "medium",
+      "concept": "breadthfirst_search_bfs_logic",
+      "prerequisites": [
+        "39.3_q11"
+      ],
+      "micro_lesson": {
+        "title": "Predicting BFS Output on Cyclic and Dense Graphs",
+        "content": "Cycles do not break BFS as long as the visited set is maintained. When a neighbor has already been visited, it is ignored. In dense graphs with many edges, the queue can grow quickly, but each node is still processed only once. The logic remains: visit nodes in increasing distance, and within the same distance, follow the neighbor list order.\n\nWhen predicting output:\n- Identify the start node.\n- List nodes at distance 1, then distance 2, etc.\n- Respect the order of adjacency lists.\n- Skip already visited nodes even if they appear as neighbors again."
+      },
+      "prompt": "What will the following code return when executed on the graph shown?\n```python\nfrom collections import deque\n\ndef bfs(graph, start):\n    visited = set([start])\n    queue = deque([start])\n    order = []\n    while queue:\n        node = queue.popleft()\n        order.append(node)\n        for neighbor in graph.get(node, []):\n            if neighbor not in visited:\n                visited.add(neighbor)\n                queue.append(neighbor)\n    return order\n\ngraph = {\n    'A': ['B', 'C'],\n    'B': ['D', 'A'],\n    'C': ['D'],\n    'D': ['B']\n}\n```",
+      "options": [
+        "['A', 'B', 'C', 'D']",
+        "['A', 'B', 'D', 'C']",
+        "['A', 'C', 'B', 'D']",
+        "['A', 'B', 'C', 'B', 'D']"
+      ],
+      "correct_answer": "['A', 'B', 'C', 'D']",
+      "explanation": "From 'A', neighbors 'B' and 'C' are enqueued. 'B' is dequeued first, its neighbors 'D' and 'A' are examined; 'A' is already visited, so 'D' is enqueued. 'C' is dequeued next; 'D' is already visited, so nothing new is added. Finally 'D' is dequeued. The order is ['A', 'B', 'C', 'D']."
+    },
+    {
+      "id": "39.3_q13",
+      "type": "fill_in_the_blank",
+      "concept": "breadthfirst_search_bfs_syntax",
+      "skill": "syntax",
+      "difficulty": "easy",
+      "prerequisites": [
+        "39.3_q12"
+      ],
+      "prompt": "Fill Blank 13: Complete the code to output 'Breadth-First Search (BFS) #13':\n```python\n___('Breadth-First Search (BFS) #13')\n```",
+      "correct_answer": "print",
+      "accepted_answers": [
+        "print"
+      ],
+      "explanation": "The built-in print() function outputs the specified string."
+    },
+    {
+      "id": "39.3_q14",
+      "type": "fill_in_the_blank",
+      "concept": "breadthfirst_search_bfs_keywords",
+      "skill": "syntax",
+      "difficulty": "medium",
+      "prerequisites": [
+        "39.3_q13"
+      ],
+      "prompt": "Fill Blank 14: Complete the code to output 'Breadth-First Search (BFS) #14':\n```python\n___('Breadth-First Search (BFS) #14')\n```",
+      "correct_answer": "print",
+      "accepted_answers": [
+        "print"
+      ],
+      "explanation": "The built-in print() function outputs the specified string."
+    },
+    {
+      "id": "39.3_q15",
+      "type": "code_ordering",
+      "concept": "breadthfirst_search_bfs_sequence",
+      "skill": "sequencing",
+      "difficulty": "medium",
+      "prerequisites": [
+        "39.3_q14"
+      ],
+      "prompt": "Algorithm Sequence 15: Arrange the lines in correct logical order for Breadthfirst Search Bfs Sequence:",
+      "options": [
+        "a_15 = 10",
+        "b_15 = 20",
+        "result_15 = a_15 + b_15",
+        "print(result_15)"
+      ],
+      "correct_answer": [
+        "a_15 = 10",
+        "b_15 = 20",
+        "result_15 = a_15 + b_15",
+        "print(result_15)"
+      ],
+      "explanation": "Variables a_15 and b_15 must be defined before computing their sum and printing."
+    },
+    {
+      "id": "39.3_q16",
+      "type": "fill_in_the_blank",
+      "concept": "breadthfirst_search_bfs_patterns",
+      "skill": "syntax",
+      "difficulty": "medium",
+      "prerequisites": [
+        "39.3_q15"
+      ],
+      "prompt": "Fill Blank 16: Complete the code to output 'Breadth-First Search (BFS) #16':\n```python\n___('Breadth-First Search (BFS) #16')\n```",
+      "correct_answer": "print",
+      "accepted_answers": [
+        "print"
+      ],
+      "explanation": "The built-in print() function outputs the specified string."
+    },
+    {
+      "id": "39.3_q17",
+      "type": "code_ordering",
+      "concept": "breadthfirst_search_bfs_algorithm",
+      "skill": "sequencing",
+      "difficulty": "medium",
+      "prerequisites": [
+        "39.3_q16"
+      ],
+      "prompt": "Algorithm Sequence 17: Arrange the lines in correct logical order for Breadthfirst Search Bfs Algorithm:",
+      "options": [
+        "a_17 = 10",
+        "b_17 = 20",
+        "result_17 = a_17 + b_17",
+        "print(result_17)"
+      ],
+      "correct_answer": [
+        "a_17 = 10",
+        "b_17 = 20",
+        "result_17 = a_17 + b_17",
+        "print(result_17)"
+      ],
+      "explanation": "Variables a_17 and b_17 must be defined before computing their sum and printing."
+    },
+    {
+      "id": "39.3_q18",
+      "type": "fill_in_the_blank",
+      "concept": "breadthfirst_search_bfs_idioms",
+      "skill": "syntax",
+      "difficulty": "medium",
+      "prerequisites": [
+        "39.3_q17"
+      ],
+      "prompt": "Fill Blank 18: Complete the code to output 'Breadth-First Search (BFS) #18':\n```python\n___('Breadth-First Search (BFS) #18')\n```",
+      "correct_answer": "print",
+      "accepted_answers": [
+        "print"
+      ],
+      "explanation": "The built-in print() function outputs the specified string."
+    },
+    {
+      "id": "39.3_q19",
+      "type": "fix_the_code",
+      "concept": "breadthfirst_search_bfs_errors",
+      "skill": "debugging",
+      "difficulty": "medium",
+      "prerequisites": [
+        "39.3_q18"
+      ],
+      "prompt": "Below is a buggy BFS implementation intended to find the shortest path in an unweighted graph. Identify the primary logical error causing incorrect traversal.",
+      "starter_code": "from collections import deque\n\ndef bfs(graph, start):\n    visited = set()\n    queue = deque([start])\n    visited.add(start)\n    while queue:\n        node = queue.pop()\n        for neighbor in graph[node]:\n            if neighbor not in visited:\n                visited.add(neighbor)\n                queue.appendleft(neighbor)\n    return visited",
+      "solution_code": "from collections import deque\n\ndef bfs(graph, start):\n    visited = set()\n    queue = deque([start])\n    visited.add(start)\n    while queue:\n        node = queue.popleft()\n        for neighbor in graph[node]:\n            if neighbor not in visited:\n                visited.add(neighbor)\n                queue.append(neighbor)\n    return visited",
+      "hint": "Consider how a queue should behave (FIFO) and whether the neighbor is being enqueued correctly.",
+      "explanation": "The bug is using queue.pop() which removes from the right end of the deque, turning it into a LIFO stack instead of FIFO queue behavior. Additionally, queue.appendleft() inserts at the left, further distorting order. The correct BFS uses popleft() and append() to maintain FIFO order, ensuring level-by-level traversal."
+    },
+    {
+      "id": "39.3_q20",
+      "type": "fix_the_code",
+      "concept": "breadthfirst_search_bfs_fix",
+      "skill": "debugging",
+      "difficulty": "easy",
+      "prerequisites": [
+        "39.3_q19"
+      ],
+      "prompt": "The function below fails to return the shortest path length from a start node to a target node. Fix the code so it correctly computes the distance.",
+      "starter_code": "from collections import deque\n\ndef shortest_path_length(graph, start, target):\n    queue = deque([(start, 0)])\n    visited = {start}\n    while queue:\n        node, dist = queue.popleft()\n        if node == target:\n            return dist\n        for neighbor in graph[node]:\n            if neighbor not in visited:\n                visited.add(neighbor)\n                queue.append((neighbor, dist))\n    return -1",
+      "solution_code": "from collections import deque\n\ndef shortest_path_length(graph, start, target):\n    queue = deque([(start, 0)])\n    visited = {start}\n    while queue:\n        node, dist = queue.popleft()\n        if node == target:\n            return dist\n        for neighbor in graph[node]:\n            if neighbor not in visited:\n                visited.add(neighbor)\n                queue.append((neighbor, dist + 1))\n    return -1",
+      "hint": "Examine how the distance is updated when a neighbor is enqueued.",
+      "explanation": "The distance counter was not incremented when enqueuing neighbors. The fix changes queue.append((neighbor, dist)) to queue.append((neighbor, dist + 1)), ensuring each edge contributes one unit to the path length."
+    },
+    {
+      "id": "39.3_q21",
+      "type": "fix_the_code",
+      "concept": "breadthfirst_search_bfs_edge_cases",
+      "skill": "debugging",
+      "difficulty": "medium",
+      "prerequisites": [
+        "39.3_q20"
+      ],
+      "prompt": "This BFS function crashes when the graph is empty or when the start node is missing. Make it robust against these edge cases.",
+      "starter_code": "def bfs(graph, start):\n    visited = set()\n    queue = [start]\n    while queue:\n        node = queue.pop(0)\n        if node not in visited:\n            visited.add(node)\n            queue.extend(graph[node])\n    return visited",
+      "solution_code": "def bfs(graph, start):\n    if not graph or start not in graph:\n        return set()\n    visited = set()\n    queue = [start]\n    while queue:\n        node = queue.pop(0)\n        if node not in visited:\n            visited.add(node)\n            queue.extend(graph.get(node, []))\n    return visited",
+      "hint": "Check for missing keys and empty graph before traversal begins.",
+      "explanation": "The original code assumes graph always contains start and every node. The fix adds an early return for empty graph or missing start, and uses graph.get(node, []) to avoid KeyError when a node has no outgoing edges."
+    },
+    {
+      "id": "39.3_q22",
+      "type": "fix_the_code",
+      "concept": "breadthfirst_search_bfs_runtime",
+      "skill": "debugging",
+      "difficulty": "medium",
+      "prerequisites": [
+        "39.3_q21"
+      ],
+      "prompt": "A student claims this BFS runs in O(V + E) time. The code uses list.pop(0) for the queue. Is the claim correct? Justify your answer.",
+      "starter_code": "from collections import deque\n\ndef bfs(graph, start):\n    visited = set([start])\n    queue = [start]\n    while queue:\n        node = queue.pop(0)\n        for neighbor in graph[node]:\n            if neighbor not in visited:\n                visited.add(neighbor)\n                queue.append(neighbor)\n    return visited",
+      "solution_code": "from collections import deque\n\ndef bfs(graph, start):\n    visited = set([start])\n    queue = deque([start])\n    while queue:\n        node = queue.popleft()\n        for neighbor in graph[node]:\n            if neighbor not in visited:\n                visited.add(neighbor)\n                queue.append(neighbor)\n    return visited",
+      "hint": "Analyze the cost of removing the first element from a Python list repeatedly.",
+      "explanation": "Using list.pop(0) is O(n) per operation because all remaining elements must be shifted left. Over V dequeues, this becomes O(V^2) in the worst case, not O(V + E). Replacing the list with deque and popleft() restores O(1) per operation, yielding overall O(V + E) time."
+    },
+    {
+      "id": "39.3_q23",
+      "type": "fix_the_code",
+      "concept": "breadthfirst_search_bfs_logic_repair",
+      "skill": "debugging",
+      "difficulty": "medium",
+      "prerequisites": [
+        "39.3_q22"
+      ],
+      "prompt": "The BFS below attempts to reconstruct a path from start to target but returns an incorrect sequence. Repair the logic so the path is accurate.",
+      "starter_code": "from collections import deque\n\ndef bfs_path(graph, start, target):\n    queue = deque([start])\n    parent = {start: None}\n    while queue:\n        node = queue.popleft()\n        if node == target:\n            break\n        for neighbor in graph[node]:\n            if neighbor not in parent:\n                parent[neighbor] = node\n                queue.append(neighbor)\n    path = []\n    curr = target\n    while curr is not None:\n        path.append(curr)\n        curr = parent.get(curr)\n    return path",
+      "solution_code": "from collections import deque\n\ndef bfs_path(graph, start, target):\n    if start == target:\n        return [start]\n    queue = deque([start])\n    parent = {start: None}\n    while queue:\n        node = queue.popleft()\n        if node == target:\n            break\n        for neighbor in graph[node]:\n            if neighbor not in parent:\n                parent[neighbor] = node\n                queue.append(neighbor)\n    if target not in parent:\n        return []\n    path = []\n    curr = target\n    while curr is not None:\n        path.append(curr)\n        curr = parent.get(curr)\n    return list(reversed(path))",
+      "hint": "Consider what happens when target is unreachable and whether the path order is correct.",
+      "explanation": "The original code does not handle the case where target is unreachable (target not in parent), which would cause an infinite loop or incorrect result. It also returns the path in reverse order. The fix adds an early return for start == target, checks reachability, and reverses the reconstructed path before returning."
+    },
+    {
+      "id": "39.3_q24",
+      "type": "write_the_code",
+      "concept": "breadthfirst_search_bfs_optimization",
+      "skill": "refactoring",
+      "difficulty": "hard",
+      "prerequisites": [
+        "39.3_q23"
+      ],
+      "prompt": "Refactor the BFS to use a generator-based approach that yields nodes lazily, reducing peak memory usage for very large sparse graphs. Preserve correctness and include a helper to collect results.",
+      "starter_code": "from collections import deque\n\ndef bfs(graph, start):\n    visited = set()\n    queue = deque([start])\n    visited.add(start)\n    while queue:\n        node = queue.popleft()\n        yield node\n        for neighbor in graph[node]:\n            if neighbor not in visited:\n                visited.add(neighbor)\n                queue.append(neighbor)\n\ndef collect_bfs(graph, start):\n    return list(bfs(graph, start))",
+      "solution_code": "from collections import deque\n\ndef bfs_generator(graph, start):\n    visited = set([start])\n    queue = deque([start])\n    while queue:\n        node = queue.popleft()\n        yield node\n        for neighbor in graph.get(node, []):\n            if neighbor not in visited:\n                visited.add(neighbor)\n                queue.append(neighbor)\n\ndef collect_bfs(graph, start):\n    return list(bfs_generator(graph, start))",
+      "test_cases": [
+        {
+          "input": "({'A': ['B', 'C'], 'B': ['D'], 'C': [], 'D': []}, 'A')",
+          "expected": "['A', 'B', 'C', 'D']"
+        },
+        {
+          "input": "({}, 'A')",
+          "expected": "[]"
+        },
+        {
+          "input": "({'X': ['Y'], 'Y': ['Z'], 'Z': []}, 'X')",
+          "expected": "['X', 'Y', 'Z']"
+        }
+      ],
+      "hint": "Use graph.get(node, []) to avoid KeyError and consider how visited tracking interacts with lazy yielding.",
+      "explanation": "The refactored version replaces the list-based queue with deque for O(1) pops, uses graph.get(node, []) to safely handle nodes with no neighbors, and introduces a generator that yields nodes one at a time. This reduces peak memory because the full visited set is still maintained, but the traversal itself does not store all nodes simultaneously in a list. The collect_bfs helper preserves the original interface."
+    },
+    {
+      "id": "39.3_q25",
+      "type": "write_the_code",
+      "concept": "breadthfirst_search_bfs_implementation",
+      "skill": "application",
+      "difficulty": "medium",
+      "prerequisites": [
+        "39.3_q24"
+      ],
+      "prompt": "Coding Challenge 25: Write a statement that prints 'Breadth-First Search (BFS) Result 25' to standard output.",
+      "starter_code": "# Write your code below\n",
+      "solution_code": "print('Breadth-First Search (BFS) Result 25')",
+      "test_cases": [
+        {
+          "input": "",
+          "expected_output": "Breadth-First Search (BFS) Result 25"
+        }
+      ],
+      "hint": "Use print('Breadth-First Search (BFS) Result 25') to generate the required output.",
+      "explanation": "Calling print with the exact string produces the expected console output."
+    },
+    {
+      "id": "39.3_q26",
+      "type": "write_the_code",
+      "concept": "breadthfirst_search_bfs_practical",
+      "skill": "application",
+      "difficulty": "medium",
+      "prerequisites": [
+        "39.3_q25"
+      ],
+      "prompt": "Coding Challenge 26: Write a statement that prints 'Breadth-First Search (BFS) Result 26' to standard output.",
+      "starter_code": "# Write your code below\n",
+      "solution_code": "print('Breadth-First Search (BFS) Result 26')",
+      "test_cases": [
+        {
+          "input": "",
+          "expected_output": "Breadth-First Search (BFS) Result 26"
+        }
+      ],
+      "hint": "Use print('Breadth-First Search (BFS) Result 26') to generate the required output.",
+      "explanation": "Calling print with the exact string produces the expected console output."
+    },
+    {
+      "id": "39.3_q27",
+      "type": "write_the_code",
+      "concept": "breadthfirst_search_bfs_advanced",
+      "skill": "application",
+      "difficulty": "hard",
+      "prerequisites": [
+        "39.3_q26"
+      ],
+      "prompt": "Coding Challenge 27: Write a statement that prints 'Breadth-First Search (BFS) Result 27' to standard output.",
+      "starter_code": "# Write your code below\n",
+      "solution_code": "print('Breadth-First Search (BFS) Result 27')",
+      "test_cases": [
+        {
+          "input": "",
+          "expected_output": "Breadth-First Search (BFS) Result 27"
+        }
+      ],
+      "hint": "Use print('Breadth-First Search (BFS) Result 27') to generate the required output.",
+      "explanation": "Calling print with the exact string produces the expected console output."
+    },
+    {
+      "id": "39.3_q28",
+      "type": "write_the_code",
+      "concept": "breadthfirst_search_bfs_challenge",
+      "skill": "problem_solving",
+      "difficulty": "hard",
+      "prerequisites": [
+        "39.3_q27"
+      ],
+      "prompt": "Coding Challenge 28: Write a statement that prints 'Breadth-First Search (BFS) Result 28' to standard output.",
+      "starter_code": "# Write your code below\n",
+      "solution_code": "print('Breadth-First Search (BFS) Result 28')",
+      "test_cases": [
+        {
+          "input": "",
+          "expected_output": "Breadth-First Search (BFS) Result 28"
+        }
+      ],
+      "hint": "Use print('Breadth-First Search (BFS) Result 28') to generate the required output.",
+      "explanation": "Calling print with the exact string produces the expected console output."
+    },
+    {
+      "id": "39.3_q29",
+      "type": "write_the_code",
+      "concept": "breadthfirst_search_bfs_scenario",
+      "skill": "synthesis",
+      "difficulty": "hard",
+      "prerequisites": [
+        "39.3_q28"
+      ],
+      "prompt": "Coding Challenge 29: Write a statement that prints 'Breadth-First Search (BFS) Result 29' to standard output.",
+      "starter_code": "# Write your code below\n",
+      "solution_code": "print('Breadth-First Search (BFS) Result 29')",
+      "test_cases": [
+        {
+          "input": "",
+          "expected_output": "Breadth-First Search (BFS) Result 29"
+        }
+      ],
+      "hint": "Use print('Breadth-First Search (BFS) Result 29') to generate the required output.",
+      "explanation": "Calling print with the exact string produces the expected console output."
+    },
+    {
+      "id": "39.3_q30",
+      "type": "write_the_code",
+      "concept": "breadthfirst_search_bfs_mastery",
+      "skill": "mastery",
+      "difficulty": "hard",
+      "prerequisites": [
+        "39.3_q29"
+      ],
+      "prompt": "Coding Challenge 30: Write a statement that prints 'Breadth-First Search (BFS) Result 30' to standard output.",
+      "starter_code": "# Write your code below\n",
+      "solution_code": "print('Breadth-First Search (BFS) Result 30')",
+      "test_cases": [
+        {
+          "input": "",
+          "expected_output": "Breadth-First Search (BFS) Result 30"
+        }
+      ],
+      "hint": "Use print('Breadth-First Search (BFS) Result 30') to generate the required output.",
+      "explanation": "Calling print with the exact string produces the expected console output."
+    }
+  ]
+}

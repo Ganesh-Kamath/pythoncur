@@ -1,0 +1,549 @@
+{
+  "lesson_id": "6.2",
+  "title": "The while Loop",
+  "unit": "Loops and Repetition",
+  "items": [
+    {
+      "id": "6.2_q1",
+      "type": "micro_lesson",
+      "difficulty": "easy",
+      "prerequisites": [],
+      "concept": "the_while_loop_basics",
+      "skill": "recognition",
+      "title": "What is a while Loop?",
+      "content": "A while loop is a control flow statement that repeatedly executes a block of code as long as a given condition is true. It is used when you do not know in advance how many times the loop should run. The basic idea is: check a condition, and if it evaluates to True, run the indented code; after the block finishes, check the condition again. When the condition becomes False, the loop stops and the program continues with the next statement after the loop.\n\nExample:\n```python\ncount = 0\nwhile count < 3:\n    print('count is', count)\n    count = count + 1\nprint('Done')\n```\nIn this example, the indented block runs three times because count starts at 0 and increases by 1 each iteration. Once count reaches 3, the condition count < 3 is False, so the loop exits."
+    },
+    {
+      "id": "6.2_q2",
+      "type": "multiple_choice",
+      "difficulty": "easy",
+      "prerequisites": [
+        "6.2_q1"
+      ],
+      "concept": "the_while_loop_basics",
+      "skill": "recall",
+      "prompt": "Which statement best describes a while loop?",
+      "options": [
+        "It always runs exactly 5 times.",
+        "It repeats code while a condition is True.",
+        "It runs only once when a condition is False.",
+        "It is used only for printing text."
+      ],
+      "correct_answer": "It repeats code while a condition is True.",
+      "explanation": "A while loop checks a condition before each iteration. If the condition is True, the loop body executes; otherwise, it stops. It does not guarantee a fixed number of runs."
+    },
+    {
+      "id": "6.2_q3",
+      "type": "micro_lesson",
+      "difficulty": "easy",
+      "prerequisites": [
+        "6.2_q2"
+      ],
+      "concept": "the_while_loop_syntax",
+      "skill": "understanding",
+      "title": "while Loop Syntax",
+      "content": "The syntax of a while loop in Python has three main parts:\n\n1. The keyword `while`\n2. A condition that evaluates to True or False\n3. An indented block of code to execute\n\nThe condition is tested before every iteration. If the condition is True, Python executes the indented block. After the block finishes, Python returns to the `while` line and re-evaluates the condition. If it is still True, the block runs again. This continues until the condition becomes False, at which point the loop ends.\n\nImportant syntax rules:\n- The condition must be a boolean expression.\n- The code block must be indented consistently (usually 4 spaces).\n- Forgetting to indent the block causes an `IndentationError`.\n- Forgetting to update the condition inside the loop can create an infinite loop.\n\nExample:\n```python\nnumber = 1\nwhile number <= 4:\n    print('number:', number)\n    number = number + 1\n```\nHere, `number <= 4` is the condition, and the two indented lines form the loop body."
+    },
+    {
+      "id": "6.2_q4",
+      "type": "multiple_choice",
+      "difficulty": "easy",
+      "prerequisites": [
+        "6.2_q3"
+      ],
+      "concept": "the_while_loop_syntax",
+      "skill": "reasoning",
+      "prompt": "Which of the following code snippets correctly uses the while loop syntax?",
+      "options": [
+        "while x > 0:\nprint(x)",
+        "while x > 0:\n    print(x)",
+        "while (x > 0):\n    print(x)",
+        "while x > 0 do:\n    print(x)"
+      ],
+      "correct_answer": "while x > 0:\n    print(x)",
+      "explanation": "Python requires the `while` keyword, a condition, a colon, and an indented block. Option B follows this exactly. Option A lacks indentation. Option C uses unnecessary parentheses. Option D uses invalid syntax (`do`)."
+    },
+    {
+      "id": "6.2_q5",
+      "type": "multiple_choice",
+      "difficulty": "easy",
+      "prerequisites": [
+        "6.2_q4"
+      ],
+      "concept": "the_while_loop_matching",
+      "skill": "recognition",
+      "prompt": "Match each code fragment to its purpose.",
+      "options": [
+        "Initializes a counter: count = 0",
+        "Checks the loop condition: while count < 5:",
+        "Updates the counter: count = count + 1",
+        "Prints the current value: print('count is', count)"
+      ],
+      "correct_answer": "Initializes a counter: count = 0",
+      "explanation": "The line `count = 0` sets up the starting value before the loop begins, which is called initialization. The other options describe condition checking, updating, and output."
+    },
+    {
+      "id": "6.2_q6",
+      "type": "multiple_choice",
+      "difficulty": "easy",
+      "prerequisites": [
+        "6.2_q5"
+      ],
+      "concept": "the_while_loop_pitfalls",
+      "skill": "comprehension",
+      "prompt": "What is a common pitfall when using a while loop?",
+      "options": [
+        "Using a for loop instead of a while loop.",
+        "Forgetting to change the condition inside the loop.",
+        "Always initializing variables after the loop.",
+        "Writing the condition on a separate line without a colon."
+      ],
+      "correct_answer": "Forgetting to change the condition inside the loop.",
+      "explanation": "If the condition never changes to False, the loop runs forever. This is called an infinite loop. You must update at least one variable inside the loop body so the condition eventually becomes False."
+    },
+    {
+      "id": "6.2_q7",
+      "type": "code_prediction",
+      "concept": "the_while_loop_execution",
+      "skill": "prediction",
+      "difficulty": "easy",
+      "prerequisites": [
+        "6.2_q6"
+      ],
+      "prompt": "What will be printed by the following code?\n```python\ncnt = 1\nwhile cnt <= 3:\n    print('Step', cnt)\n    cnt = cnt + 1\n```",
+      "options": [
+        "Step 1 Step 2 Step 3",
+        "Step 1\nStep 2\nStep 3",
+        "Step 1 Step 4",
+        "Nothing is printed"
+      ],
+      "correct_answer": "Step 1\nStep 2\nStep 3",
+      "explanation": "The loop initializes cnt to 1. On each iteration, it prints the current value and increments cnt by 1. The condition cnt <= 3 is true for 1, 2, and 3, so three lines are printed."
+    },
+    {
+      "id": "6.2_q8",
+      "type": "output_prediction",
+      "concept": "the_while_loop_execution",
+      "skill": "prediction",
+      "difficulty": "medium",
+      "prerequisites": [
+        "6.2_q7"
+      ],
+      "prompt": "What is the final output of this program?\n```python\nname = ''\nwhile name != 'quit':\n    name = input('Enter your name: ')\n    if name != '':\n        print('Hello', name)\n```\nAssume the user enters: Alice, then Bob, then quit.",
+      "options": [
+        "Hello Alice\nHello Bob",
+        "Hello Alice\nHello Bob\nHello quit",
+        "Hello Alice\nHello Bob\nHello ",
+        "Hello Alice\nHello Bob\nHello quit\nHello "
+      ],
+      "correct_answer": "Hello Alice\nHello Bob",
+      "explanation": "The loop continues until the user types exactly 'quit'. For Alice and Bob, the names are non-empty, so 'Hello' followed by the name is printed. When 'quit' is entered, the condition name != 'quit' becomes false and the loop stops."
+    },
+    {
+      "id": "6.2_q9",
+      "type": "code_prediction",
+      "concept": "the_while_loop_flow",
+      "skill": "prediction",
+      "difficulty": "medium",
+      "prerequisites": [
+        "6.2_q8"
+      ],
+      "prompt": "What happens when this code runs?\n```python\nx = 0\nwhile x < 5:\n    if x == 3:\n        break\n    print('x is', x)\n    x = x + 1\n```",
+      "options": [
+        "It prints x is 0, x is 1, x is 2, then exits the loop",
+        "It prints x is 0, x is 1, x is 2, x is 3, then exits",
+        "It prints x is 0, x is 1, x is 2, then raises an error",
+        "It prints x is 0, x is 1, x is 2, x is 3, x is 4"
+      ],
+      "correct_answer": "It prints x is 0, x is 1, x is 2, then exits the loop",
+      "explanation": "The break statement immediately terminates the while loop when x becomes 3. Therefore, x is 3 and x is 4 are never printed."
+    },
+    {
+      "id": "6.2_q10",
+      "type": "multiple_choice",
+      "concept": "the_while_loop_analysis",
+      "skill": "analysis",
+      "difficulty": "medium",
+      "prerequisites": [
+        "6.2_q9"
+      ],
+      "prompt": "Consider this code:\n```python\ntotal = 0\ni = 1\nwhile i <= 5:\n    total = total + i\n    i = i + 1\n```\nWhat is the value of total after the loop finishes?",
+      "options": [
+        "10",
+        "15",
+        "21",
+        "5"
+      ],
+      "correct_answer": "15",
+      "explanation": "The loop adds 1, 2, 3, 4, and 5 to total. 1 + 2 + 3 + 4 + 5 equals 15. The loop stops when i becomes 6, which fails the condition i <= 5."
+    },
+    {
+      "id": "6.2_q11",
+      "type": "code_prediction",
+      "concept": "the_while_loop_tracing",
+      "skill": "tracing",
+      "difficulty": "medium",
+      "prerequisites": [
+        "6.2_q10"
+      ],
+      "prompt": "Trace the values of a and b through this code and select the final state:\n```python\na = 10\nb = 0\nwhile a > 0:\n    b = b + 1\n    a = a - 2\n```",
+      "options": [
+        "a = 2, b = 5",
+        "a = 0, b = 5",
+        "a = -2, b = 6",
+        "a = 0, b = 4"
+      ],
+      "correct_answer": "a = 0, b = 5",
+      "explanation": "Iteration 1: a = 10, b = 1, a becomes 8. Iteration 2: a = 8, b = 2, a becomes 6. Iteration 3: a = 6, b = 3, a becomes 4. Iteration 4: a = 4, b = 4, a becomes 2. Iteration 5: a = 2, b = 5, a becomes 0. Now a > 0 is false, so the loop ends."
+    },
+    {
+      "id": "6.2_q12",
+      "type": "output_prediction",
+      "concept": "the_while_loop_logic",
+      "skill": "prediction",
+      "difficulty": "medium",
+      "prerequisites": [
+        "6.2_q11"
+      ],
+      "prompt": "What is printed when the user enters: 5, then 0, then 2, then 0?\n```python\nnum = int(input('Enter a number: '))\nwhile num != 0:\n    print('Positive' if num > 0 else 'Negative')\n    num = int(input('Enter a number: '))\n```",
+      "options": [
+        "Positive\nNegative\nPositive",
+        "Positive\nNegative\nPositive\nNegative",
+        "Positive\nPositive\nPositive",
+        "Negative\nPositive\nNegative"
+      ],
+      "correct_answer": "Positive\nNegative\nPositive",
+      "explanation": "The first input 5 is not 0, so 'Positive' is printed. The second input 0 stops the loop immediately; no further input is requested. Therefore only two lines are printed: 'Positive' and 'Negative'."
+    },
+    {
+      "id": "6.2_q13",
+      "type": "fill_in_the_blank",
+      "concept": "the_while_loop_syntax",
+      "skill": "syntax",
+      "difficulty": "easy",
+      "prerequisites": [
+        "6.2_q12"
+      ],
+      "prompt": "Complete the Python code by filling in the blank: \n```python\ncount = 0\n___ count < 5:\n    print('Counting:', count)\n    count = count + 1\n```",
+      "correct_answer": "while",
+      "accepted_answers": [
+        "while"
+      ],
+      "explanation": "A while loop repeats a block of code as long as a condition is True. The keyword 'while' must precede the condition, and a colon ':' must end the line."
+    },
+    {
+      "id": "6.2_q14",
+      "type": "fill_in_the_blank",
+      "concept": "the_while_loop_keywords",
+      "skill": "syntax",
+      "difficulty": "medium",
+      "prerequisites": [
+        "6.2_q13"
+      ],
+      "prompt": "Fill in the missing keyword to make the loop execute at least once: \n```python\nscore = 0\n___ score < 3:\n    print('Attempt', score)\n    score += 1\n```",
+      "correct_answer": "while True:",
+      "accepted_answers": [
+        "while True:"
+      ],
+      "explanation": "The keyword 'while True:' creates an infinite loop that runs forever unless broken internally. This is useful when you need the loop to execute at least once and exit based on a condition inside the loop."
+    },
+    {
+      "id": "6.2_q15",
+      "type": "code_ordering",
+      "concept": "the_while_loop_sequence",
+      "skill": "sequencing",
+      "difficulty": "medium",
+      "prerequisites": [
+        "6.2_q14"
+      ],
+      "prompt": "Arrange the following lines in the correct order to print numbers 1 through 3 using a while loop:",
+      "options": [
+        "x = 10",
+        "y = 20",
+        "print(x + y)"
+      ],
+      "correct_answer": [
+        "x = 10",
+        "y = 20",
+        "print(x + y)"
+      ],
+      "explanation": "First, initialize the counter to 1. Then, check the condition before entering the loop. Inside, print the current value and increment the counter. If the counter is not updated, the loop becomes infinite."
+    },
+    {
+      "id": "6.2_q16",
+      "type": "fill_in_the_blank",
+      "concept": "the_while_loop_patterns",
+      "skill": "syntax",
+      "difficulty": "medium",
+      "prerequisites": [
+        "6.2_q15"
+      ],
+      "prompt": "Complete the pattern for summing numbers from 1 to 5: \n```python\ntotal = 0\nnum = 1\n___ num <= 5:\n    total = total + num\n    num = num + 1\nprint('Total:', total)\n```",
+      "correct_answer": "while",
+      "accepted_answers": [
+        "while"
+      ],
+      "explanation": "This is a standard accumulation pattern. The while loop continues while the counter 'num' is less than or equal to the target value. Inside, the value is added to 'total' and the counter is incremented."
+    },
+    {
+      "id": "6.2_q17",
+      "type": "code_ordering",
+      "concept": "the_while_loop_algorithm",
+      "skill": "sequencing",
+      "difficulty": "medium",
+      "prerequisites": [
+        "6.2_q16"
+      ],
+      "prompt": "Arrange the steps to find how many even numbers are between 1 and 9:",
+      "options": [
+        "x = 10",
+        "y = 20",
+        "print(x + y)"
+      ],
+      "correct_answer": [
+        "x = 10",
+        "y = 20",
+        "print(x + y)"
+      ],
+      "explanation": "Initialize the counter before the loop. Check the condition, test for evenness with modulo, increment the counter if even, advance the number, and finally print the result after the loop ends."
+    },
+    {
+      "id": "6.2_q18",
+      "type": "fill_in_the_blank",
+      "concept": "the_while_loop_idioms",
+      "skill": "syntax",
+      "difficulty": "medium",
+      "prerequisites": [
+        "6.2_q17"
+      ],
+      "prompt": "Fill in the blank to use the common sentinel-controlled loop idiom: \n```python\nvalue = input('Enter a number (q to quit): ')\n___ value != 'q':\n    number = int(value)\n    print('You entered:', number)\n    value = input('Enter a number (q to quit): ')\n```",
+      "correct_answer": "while",
+      "accepted_answers": [
+        "while"
+      ],
+      "explanation": "The sentinel-controlled loop checks the input before processing. The while loop continues as long as the user has not entered the sentinel value 'q'. This pattern is useful for reading an unknown number of inputs."
+    },
+    {
+      "id": "6.2_q19",
+      "type": "fix_the_code",
+      "skill": "debugging",
+      "difficulty": "medium",
+      "concept": "the_while_loop_errors",
+      "prerequisites": [
+        "6.2_q18"
+      ],
+      "micro_lesson": {
+        "title": "Common Syntax and Logic Errors in while Loops",
+        "content": "A while loop repeats a block of code as long as a condition is True. Beginners often make three common mistakes:\n\n1. Forgetting to update the loop variable, causing an infinite loop.\n2. Using = instead of == in the condition.\n3. Indenting the body incorrectly.\n\nExample of a correct while loop:\n```\ncount = 0\nwhile count < 3:\n    print('count is', count)\n    count = count + 1\n```\nIf you forget `count = count + 1`, the condition `count < 3` never becomes False, and the program hangs forever. Always verify that the loop variable moves toward the exit condition."
+      },
+      "prompt": "Fix the bug in this code for the while loop errors:",
+      "starter_code": "# Fix this code\nPrint('The while Loop')",
+      "solution_code": "print('The while Loop')",
+      "explanation": "Python identifiers and built-ins are case-sensitive."
+    },
+    {
+      "id": "6.2_q20",
+      "type": "fix_the_code",
+      "skill": "debugging",
+      "difficulty": "easy",
+      "concept": "the_while_loop_fix",
+      "prerequisites": [
+        "6.2_q19"
+      ],
+      "prompt": "Below is a simple program that should print numbers from 1 to 3. It has a bug.",
+      "starter_code": "n = 1\nwhile n <= 3:\n    print('n is', n)\n",
+      "solution_code": "n = 1\nwhile n <= 3:\n    print('n is', n)\n    n = n + 1\n",
+      "hint": "The loop variable must change inside the loop so the condition eventually becomes False.",
+      "explanation": "The original code never increments `n`, so the condition `n <= 3` is always True, creating an infinite loop. Adding `n = n + 1` inside the loop ensures the condition will eventually fail after printing 1, 2, and 3."
+    },
+    {
+      "id": "6.2_q21",
+      "type": "fix_the_code",
+      "skill": "debugging",
+      "difficulty": "medium",
+      "concept": "the_while_loop_edge_cases",
+      "prerequisites": [
+        "6.2_q20"
+      ],
+      "prompt": "This program asks for a positive number and repeats until the user enters a value greater than 0. It fails when the user enters 0 or a negative number.",
+      "starter_code": "num = int(input('Enter a positive number: '))\nwhile num <= 0:\n    print('Invalid input.')\n    num = int(input('Try again: '))\nprint('Accepted:', num)\n",
+      "solution_code": "num = int(input('Enter a positive number: '))\nwhile num <= 0:\n    print('Invalid input.')\n    num = int(input('Try again: '))\nprint('Accepted:', num)\n",
+      "hint": "Check what happens on the very first iteration if the initial input is already valid.",
+      "explanation": "The starter code is actually logically correct for repeated input, but it fails as an edge case if the goal is to process at least once even when the first input is valid. To handle the edge case where the initial value should be processed immediately, restructure so the loop only repeats on invalid input, or use a do-while pattern with a flag. The fixed version ensures the first input is always evaluated and only re-prompts when needed."
+    },
+    {
+      "id": "6.2_q22",
+      "type": "fix_the_code",
+      "skill": "debugging",
+      "difficulty": "medium",
+      "concept": "the_while_loop_runtime",
+      "prerequisites": [
+        "6.2_q21"
+      ],
+      "micro_lesson": {
+        "title": "Runtime Errors and Infinite Loops",
+        "content": "Runtime errors in while loops usually stem from conditions that never become False or from operations that raise exceptions mid-loop.\n\nConsider this faulty code:\n```\nx = 10\nwhile x > 0:\n    print('x is', x)\n    x = x - 1\n    if x == 5:\n        x = x + 2\n```\nHere, `x` decreases by 1 each time, but when it reaches 5, it jumps to 7. It will eventually reach 6, then 5 again, bouncing between 5 and 6 forever. This is an infinite loop caused by logic that prevents the exit condition from being satisfied.\n\nTo avoid runtime hangs:\n- Trace the loop variable step by step.\n- Ensure every path updates the variable toward the exit condition.\n- Watch for division by zero or index errors inside the loop."
+      },
+      "prompt": "Fix the bug in this code for the while loop runtime:",
+      "starter_code": "# Fix this code\nPrint('The while Loop')",
+      "solution_code": "print('The while Loop')",
+      "explanation": "Python identifiers and built-ins are case-sensitive."
+    },
+    {
+      "id": "6.2_q23",
+      "type": "fix_the_code",
+      "skill": "debugging",
+      "difficulty": "medium",
+      "concept": "the_while_loop_logic_repair",
+      "prerequisites": [
+        "6.2_q22"
+      ],
+      "prompt": "The goal is to print all even numbers from 2 up to and including 10. The current logic prints odd numbers instead.",
+      "starter_code": "n = 2\nwhile n <= 10:\n    print(n)\n    n = n + 1\n",
+      "solution_code": "n = 2\nwhile n <= 10:\n    print(n)\n    n = n + 2\n",
+      "hint": "Think about how to move from one even number to the next.",
+      "explanation": "The starter code increments by 1, printing 2, 3, 4, 5, 6, 7, 8, 9, 10. To print only even numbers, the loop must jump by 2 each time. Changing `n = n + 1` to `n = n + 2` ensures the sequence is 2, 4, 6, 8, 10, satisfying the requirement."
+    },
+    {
+      "id": "6.2_q24",
+      "type": "fix_the_code",
+      "skill": "refactoring",
+      "difficulty": "hard",
+      "concept": "the_while_loop_optimization",
+      "prerequisites": [
+        "6.2_q23"
+      ],
+      "prompt": "Rewrite this inefficient loop that builds a list of squares into a more optimal and readable form.",
+      "starter_code": "squares = []\ni = 0\nwhile i < 10:\n    squares.append(i * i)\n    i = i + 1\n",
+      "solution_code": "squares = [i * i for i in range(10)]\n",
+      "hint": "Python offers a concise syntax for transforming one sequence into another.",
+      "explanation": "The original while loop manually initializes an empty list, iterates with an index, computes the square, appends it, and increments the counter. This is verbose and error-prone. A list comprehension combined with `range` expresses the same transformation in a single readable line, reducing boilerplate and improving performance."
+    },
+    {
+      "id": "6.2_q25",
+      "type": "write_the_code",
+      "concept": "the_while_loop_implementation",
+      "skill": "application",
+      "difficulty": "medium",
+      "prerequisites": [
+        "6.2_q24"
+      ],
+      "prompt": "Coding Challenge 25: Write a statement that prints 'while Loop Result 25' to standard output.",
+      "starter_code": "# Write your code below\n",
+      "solution_code": "print('while Loop Result 25')",
+      "test_cases": [
+        {
+          "input": "",
+          "expected_output": "while Loop Result 25"
+        }
+      ],
+      "hint": "Use print('while Loop Result 25') to generate the required output.",
+      "explanation": "Calling print with the exact string produces the expected console output."
+    },
+    {
+      "id": "6.2_q26",
+      "type": "write_the_code",
+      "concept": "the_while_loop_practical",
+      "skill": "application",
+      "difficulty": "medium",
+      "prerequisites": [
+        "6.2_q25"
+      ],
+      "prompt": "Coding Challenge 26: Write a statement that prints 'while Loop Result 26' to standard output.",
+      "starter_code": "# Write your code below\n",
+      "solution_code": "print('while Loop Result 26')",
+      "test_cases": [
+        {
+          "input": "",
+          "expected_output": "while Loop Result 26"
+        }
+      ],
+      "hint": "Use print('while Loop Result 26') to generate the required output.",
+      "explanation": "Calling print with the exact string produces the expected console output."
+    },
+    {
+      "id": "6.2_q27",
+      "type": "write_the_code",
+      "concept": "the_while_loop_advanced",
+      "skill": "application",
+      "difficulty": "hard",
+      "prerequisites": [
+        "6.2_q26"
+      ],
+      "prompt": "Coding Challenge 27: Write a statement that prints 'while Loop Result 27' to standard output.",
+      "starter_code": "# Write your code below\n",
+      "solution_code": "print('while Loop Result 27')",
+      "test_cases": [
+        {
+          "input": "",
+          "expected_output": "while Loop Result 27"
+        }
+      ],
+      "hint": "Use print('while Loop Result 27') to generate the required output.",
+      "explanation": "Calling print with the exact string produces the expected console output."
+    },
+    {
+      "id": "6.2_q28",
+      "type": "write_the_code",
+      "concept": "the_while_loop_challenge",
+      "skill": "problem_solving",
+      "difficulty": "hard",
+      "prerequisites": [
+        "6.2_q27"
+      ],
+      "prompt": "Coding Challenge 28: Write a statement that prints 'while Loop Result 28' to standard output.",
+      "starter_code": "# Write your code below\n",
+      "solution_code": "print('while Loop Result 28')",
+      "test_cases": [
+        {
+          "input": "",
+          "expected_output": "while Loop Result 28"
+        }
+      ],
+      "hint": "Use print('while Loop Result 28') to generate the required output.",
+      "explanation": "Calling print with the exact string produces the expected console output."
+    },
+    {
+      "id": "6.2_q29",
+      "type": "write_the_code",
+      "concept": "the_while_loop_scenario",
+      "skill": "synthesis",
+      "difficulty": "hard",
+      "prerequisites": [
+        "6.2_q28"
+      ],
+      "prompt": "Coding Challenge 29: Write a statement that prints 'while Loop Result 29' to standard output.",
+      "starter_code": "# Write your code below\n",
+      "solution_code": "print('while Loop Result 29')",
+      "test_cases": [
+        {
+          "input": "",
+          "expected_output": "while Loop Result 29"
+        }
+      ],
+      "hint": "Use print('while Loop Result 29') to generate the required output.",
+      "explanation": "Calling print with the exact string produces the expected console output."
+    },
+    {
+      "id": "6.2_q30",
+      "type": "write_the_code",
+      "concept": "the_while_loop_mastery",
+      "skill": "mastery",
+      "difficulty": "hard",
+      "prerequisites": [
+        "6.2_q29"
+      ],
+      "prompt": "Coding Challenge 30: Write a statement that prints 'while Loop Result 30' to standard output.",
+      "starter_code": "# Write your code below\n",
+      "solution_code": "print('while Loop Result 30')",
+      "test_cases": [
+        {
+          "input": "",
+          "expected_output": "while Loop Result 30"
+        }
+      ],
+      "hint": "Use print('while Loop Result 30') to generate the required output.",
+      "explanation": "Calling print with the exact string produces the expected console output."
+    }
+  ]
+}

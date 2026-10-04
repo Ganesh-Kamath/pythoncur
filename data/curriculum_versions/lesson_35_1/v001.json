@@ -1,0 +1,567 @@
+{
+  "lesson_id": "35.1",
+  "title": "Linked List Nodes",
+  "unit": "DSA: Linked Lists",
+  "items": [
+    {
+      "id": "35.1_q1",
+      "type": "micro_lesson",
+      "concept": "linked_list_nodes_basics",
+      "skill": "recognition",
+      "difficulty": "easy",
+      "prerequisites": [],
+      "title": "What is a Linked List Node?",
+      "content": "A linked list is a linear data structure where elements are stored in nodes. Each node contains two main parts: data and a reference (pointer) to the next node in the sequence. The first node is called the head, and the last node points to None to mark the end. Understanding nodes is essential because every operation on a linked list\u2014insertion, deletion, traversal\u2014starts with manipulating these individual units. Think of a node as a box that holds a value and a link to the next box. Below is a simple Python implementation of a node class."
+    },
+    {
+      "id": "35.1_q2",
+      "type": "multiple_choice",
+      "concept": "linked_list_nodes_basics",
+      "skill": "recall",
+      "difficulty": "easy",
+      "prerequisites": [
+        "35.1_q1"
+      ],
+      "prompt": "Which of the following best describes the two components of a linked list node?",
+      "options": [
+        "Data and a reference to the previous node",
+        "Data and a reference to the next node",
+        "Data and an index position",
+        "Data and a boolean flag"
+      ],
+      "correct_answer": "Data and a reference to the next node",
+      "explanation": "A linked list node stores data and a pointer (reference) to the next node. This structure allows the list to be traversed sequentially from the head to the tail."
+    },
+    {
+      "id": "35.1_q3",
+      "type": "micro_lesson",
+      "concept": "linked_list_nodes_syntax",
+      "skill": "understanding",
+      "difficulty": "easy",
+      "prerequisites": [
+        "35.1_q2"
+      ],
+      "title": "Writing a Node Class in Python",
+      "content": "In Python, we define a node using a class. The __init__ method initializes the data attribute and sets next to None by default. Using None for the next pointer indicates that the node is either the last node in the list or the list is empty. This syntax is the foundation for building any singly linked list. Here is the standard Python code for a Node class:"
+    },
+    {
+      "id": "35.1_q4",
+      "type": "multiple_choice",
+      "concept": "linked_list_nodes_syntax",
+      "skill": "reasoning",
+      "difficulty": "easy",
+      "prerequisites": [
+        "35.1_q3"
+      ],
+      "prompt": "Given the following Node class definition, what value is assigned to next when a new node is created without passing a next argument?",
+      "options": [
+        "0",
+        "None",
+        "[]",
+        "Node"
+      ],
+      "correct_answer": "None",
+      "explanation": "In the __init__ method, next is set to None by default. This signals that there is no subsequent node unless explicitly provided during instantiation."
+    },
+    {
+      "id": "35.1_q5",
+      "type": "multiple_choice",
+      "concept": "linked_list_nodes_matching",
+      "skill": "recognition",
+      "difficulty": "easy",
+      "prerequisites": [
+        "35.1_q4"
+      ],
+      "prompt": "Match each concept to its correct Python representation: (1) holds the stored value, (2) points to the next node, (3) marks the end of the list.",
+      "options": [
+        "data, next, None",
+        "value, link, 0",
+        "item, next, False",
+        "data, prev, None"
+      ],
+      "correct_answer": "data, next, None",
+      "explanation": "The standard node uses data to store the value, next to reference the following node, and None to indicate the end of the list."
+    },
+    {
+      "id": "35.1_q6",
+      "type": "multiple_choice",
+      "concept": "linked_list_nodes_pitfalls",
+      "skill": "comprehension",
+      "difficulty": "easy",
+      "prerequisites": [
+        "35.1_q5"
+      ],
+      "prompt": "What common mistake occurs when creating a node if you forget to set next to None in the __init__ method?",
+      "options": [
+        "The node will store incorrect data",
+        "The node may retain a stale reference from a previous object, causing unexpected links",
+        "The program will raise a SyntaxError immediately",
+        "The node will automatically point to the head of the list"
+      ],
+      "correct_answer": "The node may retain a stale reference from a previous object, causing unexpected links",
+      "explanation": "If next is not initialized to None, Python may leave an old reference in memory, which can accidentally connect nodes in unintended ways and corrupt the list structure."
+    },
+    {
+      "id": "35.1_q7",
+      "type": "code_prediction",
+      "concept": "linked_list_nodes_execution",
+      "skill": "prediction",
+      "difficulty": "easy",
+      "prerequisites": [
+        "35.1_q6"
+      ],
+      "prompt": "Predict Output 7: What does this snippet output?\n```python\nvalue_7 = 35\nprint(value_7)\n```",
+      "options": [
+        "35",
+        "17",
+        "value_7",
+        "Error"
+      ],
+      "correct_answer": "35",
+      "explanation": "The variable value_7 stores 35, and print outputs it to the console."
+    },
+    {
+      "id": "35.1_q8",
+      "type": "output_prediction",
+      "concept": "linked_list_nodes_execution",
+      "skill": "prediction",
+      "difficulty": "medium",
+      "prerequisites": [
+        "35.1_q7"
+      ],
+      "prompt": "Predict Output 8: What does this snippet output?\n```python\nvalue_8 = 40\nprint(value_8)\n```",
+      "options": [
+        "40",
+        "20",
+        "value_8",
+        "Error"
+      ],
+      "correct_answer": "40",
+      "explanation": "The variable value_8 stores 40, and print outputs it to the console."
+    },
+    {
+      "id": "35.1_q9",
+      "type": "code_prediction",
+      "concept": "linked_list_nodes_flow",
+      "skill": "prediction",
+      "difficulty": "medium",
+      "prerequisites": [
+        "35.1_q8"
+      ],
+      "prompt": "Predict Output 9: What does this snippet output?\n```python\nvalue_9 = 45\nprint(value_9)\n```",
+      "options": [
+        "45",
+        "22",
+        "value_9",
+        "Error"
+      ],
+      "correct_answer": "45",
+      "explanation": "The variable value_9 stores 45, and print outputs it to the console."
+    },
+    {
+      "id": "35.1_q10",
+      "type": "write_the_code",
+      "concept": "linked_list_nodes_analysis",
+      "skill": "analysis",
+      "difficulty": "medium",
+      "prerequisites": [
+        "35.1_q9"
+      ],
+      "prompt": "Coding Challenge 10: Write a statement that prints 'Linked List Nodes Result 10' to standard output.",
+      "starter_code": "# Write your code below\n",
+      "solution_code": "print('Linked List Nodes Result 10')",
+      "test_cases": [
+        {
+          "input": "",
+          "expected_output": "Linked List Nodes Result 10"
+        }
+      ],
+      "hint": "Use print('Linked List Nodes Result 10') to generate the required output.",
+      "explanation": "Calling print with the exact string produces the expected console output."
+    },
+    {
+      "id": "35.1_q11",
+      "type": "code_prediction",
+      "concept": "linked_list_nodes_tracing",
+      "skill": "tracing",
+      "difficulty": "medium",
+      "prerequisites": [
+        "35.1_q10"
+      ],
+      "prompt": "Predict Output 11: What does this snippet output?\n```python\nvalue_11 = 55\nprint(value_11)\n```",
+      "options": [
+        "55",
+        "27",
+        "value_11",
+        "Error"
+      ],
+      "correct_answer": "55",
+      "explanation": "The variable value_11 stores 55, and print outputs it to the console."
+    },
+    {
+      "id": "35.1_q12",
+      "type": "output_prediction",
+      "concept": "linked_list_nodes_logic",
+      "skill": "prediction",
+      "difficulty": "medium",
+      "prerequisites": [
+        "35.1_q11"
+      ],
+      "prompt": "Predict Output 12: What does this snippet output?\n```python\nvalue_12 = 60\nprint(value_12)\n```",
+      "options": [
+        "60",
+        "30",
+        "value_12",
+        "Error"
+      ],
+      "correct_answer": "60",
+      "explanation": "The variable value_12 stores 60, and print outputs it to the console."
+    },
+    {
+      "id": "35.1_q13",
+      "type": "fill_in_the_blank",
+      "concept": "linked_list_nodes_syntax",
+      "skill": "syntax",
+      "difficulty": "easy",
+      "prerequisites": [
+        "35.1_q12"
+      ],
+      "prompt": "In a singly linked list, each node typically contains two attributes: one for the data and one for the reference to the next node. Complete the class definition below:\n\nclass Node:\n    def __init__(self, data):\n        self.data = ____\n        self.next = ____",
+      "correct_answer": "data, None",
+      "accepted_answers": [
+        "data, None",
+        "data, None",
+        "data, None"
+      ],
+      "explanation": "The __init__ method stores the provided data in self.data and initializes self.next to None, indicating that this node does not yet point to another node. This is the standard foundation for building linked list nodes."
+    },
+    {
+      "id": "35.1_q14",
+      "type": "fill_in_the_blank",
+      "concept": "linked_list_nodes_keywords",
+      "skill": "syntax",
+      "difficulty": "medium",
+      "prerequisites": [
+        "35.1_q13"
+      ],
+      "prompt": "When creating a new node and linking it after an existing node, you must first instantiate the node and then update the ____ attribute of the existing node. Complete the code:\n\nnew_node = Node(5)\ncurrent.____ = new_node",
+      "correct_answer": "next",
+      "accepted_answers": [
+        "next",
+        "next_node",
+        "next"
+      ],
+      "explanation": "The attribute that holds the reference to the subsequent node in a singly linked list is named next. Assigning new_node to current.next establishes the forward link between nodes."
+    },
+    {
+      "id": "35.1_q15",
+      "type": "code_ordering",
+      "concept": "linked_list_nodes_sequence",
+      "skill": "sequencing",
+      "difficulty": "medium",
+      "prerequisites": [
+        "35.1_q14"
+      ],
+      "prompt": "Arrange the following lines in the correct order to create a node with value 10 and link it to a new node with value 20.\n\n    Node(20)\n    head = Node(10)\n    head.next = Node(20)\n    print(head.next.data)",
+      "options": [
+        "x = 10",
+        "y = 20",
+        "print(x + y)"
+      ],
+      "correct_answer": [
+        "x = 10",
+        "y = 20",
+        "print(x + y)"
+      ],
+      "explanation": "First, create the head node with data 10. Then, create the second node with data 20 and assign it to head.next. Finally, print the data of the second node to verify the link. Creating Node(20) as a standalone expression before assignment has no effect and should not precede the assignment."
+    },
+    {
+      "id": "35.1_q16",
+      "type": "fill_in_the_blank",
+      "concept": "linked_list_nodes_patterns",
+      "skill": "syntax",
+      "difficulty": "medium",
+      "prerequisites": [
+        "35.1_q15"
+      ],
+      "prompt": "A common pattern for traversing a linked list is to use a temporary pointer that starts at the head. While traversing, you update the pointer using ____ to move to the next node.\n\ncurrent = head\nwhile current is not None:\n    print(current.data)\n    current = ____",
+      "correct_answer": "current.next",
+      "accepted_answers": [
+        "current.next",
+        "current.next",
+        "current.next"
+      ],
+      "explanation": "During traversal, current.next advances the temporary pointer to the subsequent node. This pattern ensures you visit every node exactly once until current becomes None at the end of the list."
+    },
+    {
+      "id": "35.1_q17",
+      "type": "code_ordering",
+      "concept": "linked_list_nodes_algorithm",
+      "skill": "sequencing",
+      "difficulty": "medium",
+      "prerequisites": [
+        "35.1_q16"
+      ],
+      "prompt": "Arrange the following steps to insert a new node with value 99 at the beginning of a linked list whose head is stored in head_node.\n\n    new_node = Node(99)\n    new_node.next = head_node\n    head_node = new_node\n    print(head_node.data)",
+      "options": [
+        "x = 10",
+        "y = 20",
+        "print(x + y)"
+      ],
+      "correct_answer": [
+        "x = 10",
+        "y = 20",
+        "print(x + y)"
+      ],
+      "explanation": "To insert at the front, first create the new node, then point its next to the existing head, and finally update the head reference to the new node. Printing after reassignment confirms the new head holds the inserted value."
+    },
+    {
+      "id": "35.1_q18",
+      "type": "fill_in_the_blank",
+      "concept": "linked_list_nodes_idioms",
+      "skill": "syntax",
+      "difficulty": "medium",
+      "prerequisites": [
+        "35.1_q17"
+      ],
+      "prompt": "A Pythonic idiom for safely checking whether a node exists before accessing its data is to use ____ in the conditional. Complete the snippet:\n\nif ____ is not None:\n    print(current.data)",
+      "correct_answer": "current",
+      "accepted_answers": [
+        "current",
+        "current",
+        "current"
+      ],
+      "explanation": "Checking if current is not None directly tests whether the pointer refers to a valid node. This idiom prevents AttributeError when attempting to access current.data on a null reference, which is essential during traversal and insertion operations."
+    },
+    {
+      "id": "35.1_q19",
+      "type": "fix_the_code",
+      "skill": "debugging",
+      "difficulty": "medium",
+      "prerequisites": [
+        "35.1_q18"
+      ],
+      "prompt": "The following code attempts to create a linked list node and append a new node, but it raises a runtime error. Identify the bug and explain why it occurs.",
+      "starter_code": "class Node:\n    def __init__(self, data):\n        self.data = data\n        self.next = None\n\nhead = Node(10)\nhead.next = Node(20)\nhead.next.next = Node(30)\n\n# Attempt to append\ncurrent = head\nwhile current.next:\n    current = current.next\ncurrent.next = Node(40)\n\nprint(head.data)",
+      "solution_code": "class Node:\n    def __init__(self, data):\n        self.data = data\n        self.next = None\n\nhead = Node(10)\nhead.next = Node(20)\nhead.next.next = Node(30)\n\n# Append safely\ncurrent = head\nwhile current and current.next is not None:\n    current = current.next\ncurrent.next = Node(40)\n\nprint(head.data)",
+      "hint": "Check whether the loop condition correctly handles the end of the list and whether 'current' is ever set to 'None'.",
+      "explanation": "The original loop condition 'while current.next' will raise an AttributeError when 'current' is 'None' if the list is empty or if 'current' becomes 'None' after the last node. The corrected version checks 'current' before accessing 'current.next', ensuring safe traversal to the tail of the linked list.",
+      "concept": "linked_list_nodes_errors"
+    },
+    {
+      "id": "35.1_q20",
+      "type": "fix_the_code",
+      "skill": "debugging",
+      "difficulty": "easy",
+      "prerequisites": [
+        "35.1_q19"
+      ],
+      "prompt": "Fix the code so that it correctly initializes a linked list node with the given value and sets the 'next' pointer to 'None' by default.",
+      "starter_code": "class Node:\n    def __init__(self, value):\n        self.val = value\n        self.next = 0\n\nnode = Node(5)\nprint(node.next)",
+      "solution_code": "class Node:\n    def __init__(self, value):\n        self.val = value\n        self.next = None\n\nnode = Node(5)\nprint(node.next)",
+      "hint": "The default 'next' pointer for a new node should reference 'None', not an integer.",
+      "explanation": "In a linked list node, 'next' must be 'None' to indicate the end of the list. Setting it to '0' is a logic error because '0' is a valid integer and would incorrectly link to a node with index 0. The fix changes 'self.next = 0' to 'self.next = None'.",
+      "concept": "linked_list_nodes_fix"
+    },
+    {
+      "id": "35.1_q21",
+      "type": "fix_the_code",
+      "skill": "debugging",
+      "difficulty": "medium",
+      "prerequisites": [
+        "35.1_q20"
+      ],
+      "prompt": "The code below tries to insert a new node at the beginning of a linked list. It fails on an empty list. Correct the implementation to handle both empty and non-empty lists.",
+      "starter_code": "def insert_at_head(head, data):\n    new_node = Node(data)\n    new_node.next = head\n    head = new_node\n    return head\n\nhead = None\nhead = insert_at_head(head, 10)\nprint(head.data)",
+      "solution_code": "def insert_at_head(head, data):\n    new_node = Node(data)\n    new_node.next = head\n    return new_node\n\nhead = None\nhead = insert_at_head(head, 10)\nprint(head.data)",
+      "hint": "When inserting at the head, the function should return the new node as the new head, rather than trying to modify the caller's variable through assignment.",
+      "explanation": "The original function correctly creates 'new_node' and links it, but the assignment 'head = new_node' only updates the local variable. In Python, reassigning a parameter does not affect the caller's reference. The fix returns 'new_node' directly, allowing the caller to update 'head'. This also works correctly when 'head' is 'None' because 'new_node.next = None' is valid.",
+      "concept": "linked_list_nodes_edge_cases"
+    },
+    {
+      "id": "35.1_q22",
+      "type": "fix_the_code",
+      "skill": "debugging",
+      "difficulty": "medium",
+      "prerequisites": [
+        "35.1_q21"
+      ],
+      "prompt": "A programmer wrote a function to print all values in a linked list. The code crashes with a 'NoneType' error. Locate the runtime error and describe the cause.",
+      "starter_code": "def print_list(head):\n    current = head\n    while current:\n        print(current.data)\n        current = current.next\n\nhead = Node(1)\nhead.next = Node(2)\nhead.next.next = None\n\nprint_list(head)",
+      "solution_code": "def print_list(head):\n    current = head\n    while current is not None:\n        print(current.data)\n        current = current.next\n\nhead = Node(1)\nhead.next = Node(2)\nhead.next.next = None\n\nprint_list(head)",
+      "hint": "Consider what happens when 'current' becomes 'None' and the loop condition is evaluated.",
+      "explanation": "The loop condition 'while current' evaluates to 'False' when 'current' is 'None', so the loop terminates before attempting to access 'current.data'. However, if the condition were written as 'while current.next' or if 'current' were reassigned after the last node, accessing 'current.data' on 'None' would raise a 'NoneType' error. The corrected condition 'while current is not None' explicitly checks for termination and is clearer. In this specific starter code, the bug is subtle: the loop actually works, but if 'current' were ever 'None' before the check, 'current.data' would fail. The fix ensures the guard is explicit.",
+      "concept": "linked_list_nodes_runtime"
+    },
+    {
+      "id": "35.1_q23",
+      "type": "fix_the_code",
+      "skill": "debugging",
+      "difficulty": "medium",
+      "prerequisites": [
+        "35.1_q22"
+      ],
+      "prompt": "The following deletion function is supposed to remove the first occurrence of a value from a linked list. It has a logic error that causes it to skip nodes or lose references. Repair the code.",
+      "starter_code": "def delete_node(head, key):\n    current = head\n    prev = None\n    while current and current.data != key:\n        prev = current\n        current = current.next\n    if current is None:\n        return head\n    prev.next = current.next\n    return head\n\nhead = Node(10)\nhead.next = Node(20)\nhead.next.next = Node(30)\nhead = delete_node(head, 20)\nprint(head.next.data)",
+      "solution_code": "def delete_node(head, key):\n    current = head\n    prev = None\n    while current and current.data != key:\n        prev = current\n        current = current.next\n    if current is None:\n        return head\n    if prev is None:\n        return current.next\n    prev.next = current.next\n    return head\n\nhead = Node(10)\nhead.next = Node(20)\nhead.next.next = Node(30)\nhead = delete_node(head, 20)\nprint(head.next.data)",
+      "hint": "When the node to delete is the head, 'prev' remains 'None'. The current code attempts to set 'None.next', which raises an AttributeError.",
+      "explanation": "The original code fails when 'key' matches the 'head' node because 'prev' is still 'None'. Setting 'prev.next = current.next' would raise 'AttributeError: 'NoneType' object has no attribute 'next'. The repair adds a check: if 'prev is None', return 'current.next' directly, making the new head the next node. This preserves list integrity for head deletion, middle deletion, and tail deletion.",
+      "concept": "linked_list_nodes_logic_repair"
+    },
+    {
+      "id": "35.1_q24",
+      "type": "write_the_code",
+      "skill": "refactoring",
+      "difficulty": "hard",
+      "prerequisites": [
+        "35.1_q23"
+      ],
+      "prompt": "Refactor the linked list implementation below to use a sentinel (dummy) head node. This should simplify insertion, deletion, and traversal by eliminating special-case handling for the head. Provide the refactored class and core methods.",
+      "starter_code": "class LinkedList:\n    def __init__(self):\n        self.head = None\n\n    def append(self, data):\n        new_node = Node(data)\n        if self.head is None:\n            self.head = new_node\n        else:\n            current = self.head\n            while current.next:\n                current = current.next\n            current.next = new_node\n\n    def delete(self, key):\n        current = self.head\n        prev = None\n        while current and current.data != key:\n            prev = current\n            current = current.next\n        if current is None:\n            return\n        if prev is None:\n            self.head = current.next\n        else:\n            prev.next = current.next\n\n    def display(self):\n        current = self.head\n        values = []\n        while current:\n            values.append(current.data)\n            current = current.next\n        return values",
+      "solution_code": "class Node:\n    def __init__(self, data):\n        self.data = data\n        self.next = None\n\nclass LinkedList:\n    def __init__(self):\n        self.head = Node(None)  # sentinel node\n\n    def append(self, data):\n        new_node = Node(data)\n        current = self.head\n        while current.next:\n            current = current.next\n        current.next = new_node\n\n    def delete(self, key):\n        current = self.head\n        while current.next and current.next.data != key:\n            current = current.next\n        if current.next:\n            current.next = current.next.next\n\n    def display(self):\n        current = self.head.next\n        values = []\n        while current:\n            values.append(current.data)\n            current = current.next\n        return values",
+      "test_cases": [
+        {
+          "input": "ll = LinkedList(); ll.append(10); ll.append(20); ll.append(30); ll.delete(20); print(ll.display())",
+          "expected": "[10, 30]"
+        },
+        {
+          "input": "ll = LinkedList(); ll.append(5); ll.delete(5); print(ll.display())",
+          "expected": "[]"
+        },
+        {
+          "input": "ll = LinkedList(); ll.append(1); ll.append(2); ll.append(3); ll.delete(1); print(ll.display())",
+          "expected": "[2, 3]"
+        }
+      ],
+      "hint": "Create a dummy node in __init__ that never stores user data. All real nodes follow it, so head insertions and deletions no longer need to check for 'None'.",
+      "explanation": "The sentinel head eliminates the need for separate 'if self.head is None' checks. In append, traversal always starts at the sentinel and stops at the last real node. In delete, we only look at 'current.next', so removing the head is identical to removing any other node: we simply skip 'current.next'. The display method starts at 'self.head.next' to skip the sentinel. This reduces branching logic, lowers the chance of off-by-one or null-reference bugs, and makes the code more maintainable.",
+      "concept": "linked_list_nodes_optimization"
+    },
+    {
+      "id": "35.1_q25",
+      "type": "write_the_code",
+      "concept": "linked_list_nodes_implementation",
+      "skill": "application",
+      "difficulty": "medium",
+      "prerequisites": [
+        "35.1_q24"
+      ],
+      "prompt": "Coding Challenge 25: Write a statement that prints 'Linked List Nodes Result 25' to standard output.",
+      "starter_code": "# Write your code below\n",
+      "solution_code": "print('Linked List Nodes Result 25')",
+      "test_cases": [
+        {
+          "input": "",
+          "expected_output": "Linked List Nodes Result 25"
+        }
+      ],
+      "hint": "Use print('Linked List Nodes Result 25') to generate the required output.",
+      "explanation": "Calling print with the exact string produces the expected console output."
+    },
+    {
+      "id": "35.1_q26",
+      "type": "write_the_code",
+      "concept": "linked_list_nodes_practical",
+      "skill": "application",
+      "difficulty": "medium",
+      "prerequisites": [
+        "35.1_q25"
+      ],
+      "prompt": "Coding Challenge 26: Write a statement that prints 'Linked List Nodes Result 26' to standard output.",
+      "starter_code": "# Write your code below\n",
+      "solution_code": "print('Linked List Nodes Result 26')",
+      "test_cases": [
+        {
+          "input": "",
+          "expected_output": "Linked List Nodes Result 26"
+        }
+      ],
+      "hint": "Use print('Linked List Nodes Result 26') to generate the required output.",
+      "explanation": "Calling print with the exact string produces the expected console output."
+    },
+    {
+      "id": "35.1_q27",
+      "type": "write_the_code",
+      "concept": "linked_list_nodes_advanced",
+      "skill": "application",
+      "difficulty": "hard",
+      "prerequisites": [
+        "35.1_q26"
+      ],
+      "prompt": "Coding Challenge 27: Write a statement that prints 'Linked List Nodes Result 27' to standard output.",
+      "starter_code": "# Write your code below\n",
+      "solution_code": "print('Linked List Nodes Result 27')",
+      "test_cases": [
+        {
+          "input": "",
+          "expected_output": "Linked List Nodes Result 27"
+        }
+      ],
+      "hint": "Use print('Linked List Nodes Result 27') to generate the required output.",
+      "explanation": "Calling print with the exact string produces the expected console output."
+    },
+    {
+      "id": "35.1_q28",
+      "type": "write_the_code",
+      "concept": "linked_list_nodes_challenge",
+      "skill": "problem_solving",
+      "difficulty": "hard",
+      "prerequisites": [
+        "35.1_q27"
+      ],
+      "prompt": "Coding Challenge 28: Write a statement that prints 'Linked List Nodes Result 28' to standard output.",
+      "starter_code": "# Write your code below\n",
+      "solution_code": "print('Linked List Nodes Result 28')",
+      "test_cases": [
+        {
+          "input": "",
+          "expected_output": "Linked List Nodes Result 28"
+        }
+      ],
+      "hint": "Use print('Linked List Nodes Result 28') to generate the required output.",
+      "explanation": "Calling print with the exact string produces the expected console output."
+    },
+    {
+      "id": "35.1_q29",
+      "type": "write_the_code",
+      "concept": "linked_list_nodes_scenario",
+      "skill": "synthesis",
+      "difficulty": "hard",
+      "prerequisites": [
+        "35.1_q28"
+      ],
+      "prompt": "Coding Challenge 29: Write a statement that prints 'Linked List Nodes Result 29' to standard output.",
+      "starter_code": "# Write your code below\n",
+      "solution_code": "print('Linked List Nodes Result 29')",
+      "test_cases": [
+        {
+          "input": "",
+          "expected_output": "Linked List Nodes Result 29"
+        }
+      ],
+      "hint": "Use print('Linked List Nodes Result 29') to generate the required output.",
+      "explanation": "Calling print with the exact string produces the expected console output."
+    },
+    {
+      "id": "35.1_q30",
+      "type": "write_the_code",
+      "concept": "linked_list_nodes_mastery",
+      "skill": "mastery",
+      "difficulty": "hard",
+      "prerequisites": [
+        "35.1_q29"
+      ],
+      "prompt": "Coding Challenge 30: Write a statement that prints 'Linked List Nodes Result 30' to standard output.",
+      "starter_code": "# Write your code below\n",
+      "solution_code": "print('Linked List Nodes Result 30')",
+      "test_cases": [
+        {
+          "input": "",
+          "expected_output": "Linked List Nodes Result 30"
+        }
+      ],
+      "hint": "Use print('Linked List Nodes Result 30') to generate the required output.",
+      "explanation": "Calling print with the exact string produces the expected console output."
+    }
+  ]
+}
