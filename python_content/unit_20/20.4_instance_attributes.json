@@ -160,24 +160,25 @@
     },
     {
       "id": "20.4_q10",
-      "type": "real_world_scenario",
+      "type": "write_the_code",
       "concept": "instance_attributes_production_transfer",
-      "skill": "application",
+      "skill": "transfer",
       "difficulty": "hard",
       "prerequisites": [
         "20.4_q9"
       ],
-      "prompt": "Apply Instance Attributes to a realistic scenario: process a sequence of records and return only those meeting the business rule:",
-      "starter_code": "records = [{'id': 1, 'active': True}, {'id': 2, 'active': False}]\n# Filter active records\nactive_records = ___",
-      "solution_code": "records = [{'id': 1, 'active': True}, {'id': 2, 'active': False}]\nactive_records = [r for r in records if r['active']]",
+      "prompt": "Transfer Challenge: Solve a practical problem using Instance Attributes. Implement the function below to satisfy the stated contract.",
+      "starter_code": "def handle_domain_task(val):\n    # Implement domain logic for Instance Attributes\n    return str(val).strip()",
+      "solution_code": "def handle_domain_task(val):\n    return str(val).strip().upper()",
       "test_cases": [
         {
-          "input": "",
-          "expected_output": "Instance Attributes Result 10"
+          "input": "'  python  '",
+          "expected_output": "'PYTHON'",
+          "description": "domain sanitization"
         }
       ],
       "hint": "Use a list comprehension to filter records where 'active' is True.",
-      "explanation": "In production Python code, Instance Attributes is frequently combined with data filtering to process structured domain models efficiently."
+      "explanation": "Applying clean functional contracts for Instance Attributes ensures testable domain operations."
     },
     {
       "id": "20.4_q11",
@@ -439,8 +440,16 @@
       "starter_code": "class Box:\n    def __init__(self, width, height):\n        w = width\n        h = height\n        self.width = w\n        self.height = h\n        self.area = w * h\n\n    def get_area(self):\n        return self.area",
       "solution_code": "class Box:\n    def __init__(self, width, height):\n        self.width = width\n        self.height = height\n        self.area = width * height\n\n    def get_area(self):\n        return self.area",
       "test_cases": [
-        "b = Box(4, 5)\nassert b.width == 4\nassert b.height == 5\nassert b.area == 20\nassert b.get_area() == 20",
-        "b2 = Box(3, 7)\nassert b2.get_area() == 21"
+        {
+          "input": "b = Box(4, 5)\nassert b.width",
+          "expected_output": "4\nassert b.height == 5\nassert b.area == 20\nassert b.get_area() == 20",
+          "description": "Verifies: b = Box(4, 5)\nassert b.width == 4\nassert b.height == 5\nassert b.area == 20\nassert b.get_area() == 20"
+        },
+        {
+          "input": "b2 = Box(3, 7)\nassert b2.get_area()",
+          "expected_output": "21",
+          "description": "Verifies: b2 = Box(3, 7)\nassert b2.get_area() == 21"
+        }
       ],
       "hint": "Remove the intermediate variables w and h; assign width and height directly to self.width and self.height. Then compute area using the same values.",
       "explanation": "The original code introduced unnecessary local variables w and h, which added clutter without benefit. Direct assignment to self.width and self.height simplifies the logic and makes the code easier to maintain while preserving identical behavior."
@@ -458,10 +467,26 @@
       "starter_code": "class Book:\n    def __init__(self, title, author, pages):\n        # TODO: store instance attributes here\n        pass\n\n    def display_info(self):\n        # TODO: print the stored attributes\n        pass\n\n# Example usage\nmy_book = Book('The Python Guide', 'Alice Smith', 350)\nmy_book.display_info()",
       "solution_code": "class Book:\n    def __init__(self, title, author, pages):\n        self.title = title\n        self.author = author\n        self.pages = pages\n\n    def display_info(self):\n        print('Title:', self.title)\n        print('Author:', self.author)\n        print('Pages:', self.pages)\n\n# Example usage\nmy_book = Book('The Python Guide', 'Alice Smith', 350)\nmy_book.display_info()",
       "test_cases": [
-        "assert my_book.title == 'The Python Guide'",
-        "assert my_book.author == 'Alice Smith'",
-        "assert my_book.pages == 350",
-        "assert my_book.display_info() is None"
+        {
+          "input": "assert my_book.title",
+          "expected_output": "'The Python Guide'",
+          "description": "Verifies: assert my_book.title == 'The Python Guide'"
+        },
+        {
+          "input": "assert my_book.author",
+          "expected_output": "'Alice Smith'",
+          "description": "Verifies: assert my_book.author == 'Alice Smith'"
+        },
+        {
+          "input": "assert my_book.pages",
+          "expected_output": "350",
+          "description": "Verifies: assert my_book.pages == 350"
+        },
+        {
+          "input": "",
+          "expected_output": "assert my_book.display_info() is None",
+          "description": "assert my_book.display_info() is None"
+        }
       ],
       "hint": "Use self.attribute_name = parameter_name inside __init__ to bind values to the instance.",
       "explanation": "Instance attributes are variables defined inside __init__ and prefixed with self. They belong to a specific object and persist for the lifetime of that object."
@@ -479,10 +504,26 @@
       "starter_code": "class Employee:\n    def __init__(self, name, employee_id, salary):\n        # TODO: initialize instance attributes\n        pass\n\n    def raise_salary(self, percent):\n        # TODO: increase salary by percent\n        pass\n\n    def to_string(self):\n        # TODO: return formatted string\n        pass\n\nemp = Employee('Bob Jones', 'E102', 60000)\nemp.raise_salary(10)\nprint(emp.to_string())",
       "solution_code": "class Employee:\n    def __init__(self, name, employee_id, salary):\n        self.name = name\n        self.employee_id = employee_id\n        self.salary = salary\n\n    def raise_salary(self, percent):\n        self.salary = self.salary * (1 + percent / 100)\n\n    def to_string(self):\n        return 'Employee: ' + self.name + ', ID: ' + self.employee_id + ', Salary: $' + str(self.salary)\n\nemp = Employee('Bob Jones', 'E102', 60000)\nemp.raise_salary(10)\nprint(emp.to_string())",
       "test_cases": [
-        "assert emp.name == 'Bob Jones'",
-        "assert emp.employee_id == 'E102'",
-        "assert emp.salary == 66000.0",
-        "assert emp.to_string() == 'Employee: Bob Jones, ID: E102, Salary: $66000.0'"
+        {
+          "input": "assert emp.name",
+          "expected_output": "'Bob Jones'",
+          "description": "Verifies: assert emp.name == 'Bob Jones'"
+        },
+        {
+          "input": "assert emp.employee_id",
+          "expected_output": "'E102'",
+          "description": "Verifies: assert emp.employee_id == 'E102'"
+        },
+        {
+          "input": "assert emp.salary",
+          "expected_output": "66000.0",
+          "description": "Verifies: assert emp.salary == 66000.0"
+        },
+        {
+          "input": "assert emp.to_string()",
+          "expected_output": "'Employee: Bob Jones, ID: E102, Salary: $66000.0'",
+          "description": "Verifies: assert emp.to_string() == 'Employee: Bob Jones, ID: E102, Salary: $66000.0'"
+        }
       ],
       "hint": "Remember that instance attributes are accessed with self. and methods can modify them directly.",
       "explanation": "Practical use of instance attributes includes storing mutable and immutable data per object, such as employee records, and updating them through methods."
@@ -500,10 +541,26 @@
       "starter_code": "class Vehicle:\n    def __init__(self, make, model, year):\n        # TODO: initialize base attributes\n        pass\n\n    def describe(self):\n        # TODO: print base attributes\n        pass\n\nclass ElectricCar(Vehicle):\n    def __init__(self, make, model, year, battery_size):\n        # TODO: call super and initialize battery_size\n        pass\n\n    def describe(self):\n        # TODO: print all attributes\n        pass\n\ncar = ElectricCar('Tesla', 'Model S', 2023, 75)\ncar.describe()",
       "solution_code": "class Vehicle:\n    def __init__(self, make, model, year):\n        self.make = make\n        self.model = model\n        self.year = year\n\n    def describe(self):\n        print('Vehicle: ' + self.make + ' ' + self.model + ' (' + str(self.year) + ')')\n\nclass ElectricCar(Vehicle):\n    def __init__(self, make, model, year, battery_size):\n        super().__init__(make, model, year)\n        self.battery_size = battery_size\n\n    def describe(self):\n        print('Electric Car: ' + self.make + ' ' + self.model + ' (' + str(self.year) + '), Battery: ' + str(self.battery_size) + ' kWh')\n\ncar = ElectricCar('Tesla', 'Model S', 2023, 75)\ncar.describe()",
       "test_cases": [
-        "assert isinstance(car, ElectricCar)",
-        "assert car.make == 'Tesla'",
-        "assert car.battery_size == 75",
-        "assert car.describe() is None"
+        {
+          "input": "",
+          "expected_output": "assert isinstance(car, ElectricCar)",
+          "description": "assert isinstance(car, ElectricCar)"
+        },
+        {
+          "input": "assert car.make",
+          "expected_output": "'Tesla'",
+          "description": "Verifies: assert car.make == 'Tesla'"
+        },
+        {
+          "input": "assert car.battery_size",
+          "expected_output": "75",
+          "description": "Verifies: assert car.battery_size == 75"
+        },
+        {
+          "input": "",
+          "expected_output": "assert car.describe() is None",
+          "description": "assert car.describe() is None"
+        }
       ],
       "hint": "Use super().__init__(...) to initialize inherited attributes, then add the subclass-specific attribute with self.",
       "explanation": "Instance attributes can be defined in both base and derived classes. Inheritance allows subclasses to extend objects with additional state while reusing existing attributes."
@@ -521,9 +578,21 @@
       "starter_code": "class Rectangle:\n    def __init__(self, width, height):\n        # TODO: store width and height\n        pass\n\n    def area(self):\n        # TODO: compute and return area\n        pass\n\nr1 = Rectangle(5, 4)\nr2 = Rectangle(6, 3)\nprint(max(r1.area(), r2.area()))",
       "solution_code": "class Rectangle:\n    def __init__(self, width, height):\n        self.width = width\n        self.height = height\n\n    def area(self):\n        return self.width * self.height\n\nr1 = Rectangle(5, 4)\nr2 = Rectangle(6, 3)\nprint(max(r1.area(), r2.area()))",
       "test_cases": [
-        "assert r1.area() == 20",
-        "assert r2.area() == 18",
-        "assert max(r1.area(), r2.area()) == 20"
+        {
+          "input": "assert r1.area()",
+          "expected_output": "20",
+          "description": "Verifies: assert r1.area() == 20"
+        },
+        {
+          "input": "assert r2.area()",
+          "expected_output": "18",
+          "description": "Verifies: assert r2.area() == 18"
+        },
+        {
+          "input": "assert max(r1.area(), r2.area())",
+          "expected_output": "20",
+          "description": "Verifies: assert max(r1.area(), r2.area()) == 20"
+        }
       ],
       "hint": "Instance attributes must be assigned before they are used inside methods.",
       "explanation": "This challenge reinforces that instance attributes hold object-specific data and methods operate on that data to produce results."
@@ -541,12 +610,36 @@
       "starter_code": "class Book:\n    def __init__(self, title, author, isbn, available):\n        # TODO: store instance attributes\n        pass\n\n    def checkout(self):\n        # TODO: mark as unavailable\n        pass\n\n    def return_book(self):\n        # TODO: mark as available\n        pass\n\nnovel = Book('1984', 'George Orwell', '9780451524935', True)\nprint(novel.available)\nnovel.checkout()\nprint(novel.available)\nnovel.return_book()\nprint(novel.available)",
       "solution_code": "class Book:\n    def __init__(self, title, author, isbn, available):\n        self.title = title\n        self.author = author\n        self.isbn = isbn\n        self.available = available\n\n    def checkout(self):\n        self.available = False\n\n    def return_book(self):\n        self.available = True\n\nnovel = Book('1984', 'George Orwell', '9780451524935', True)\nprint(novel.available)\nnovel.checkout()\nprint(novel.available)\nnovel.return_book()\nprint(novel.available)",
       "test_cases": [
-        "assert novel.title == '1984'",
-        "assert novel.available == True",
-        "assert novel.checkout() is None",
-        "assert novel.available == False",
-        "assert novel.return_book() is None",
-        "assert novel.available == True"
+        {
+          "input": "assert novel.title",
+          "expected_output": "'1984'",
+          "description": "Verifies: assert novel.title == '1984'"
+        },
+        {
+          "input": "assert novel.available",
+          "expected_output": "True",
+          "description": "Verifies: assert novel.available == True"
+        },
+        {
+          "input": "",
+          "expected_output": "assert novel.checkout() is None",
+          "description": "assert novel.checkout() is None"
+        },
+        {
+          "input": "assert novel.available",
+          "expected_output": "False",
+          "description": "Verifies: assert novel.available == False"
+        },
+        {
+          "input": "",
+          "expected_output": "assert novel.return_book() is None",
+          "description": "assert novel.return_book() is None"
+        },
+        {
+          "input": "assert novel.available",
+          "expected_output": "True",
+          "description": "Verifies: assert novel.available == True"
+        }
       ],
       "hint": "Boolean state is a common instance attribute pattern for tracking object status over time.",
       "explanation": "Real-world scenarios demonstrate how instance attributes represent dynamic state, such as whether a library book is currently checked out, enabling behavior changes through methods."
@@ -564,11 +657,31 @@
       "starter_code": "class BankAccount:\n    def __init__(self, owner, account_number, balance):\n        # TODO: initialize instance attributes\n        pass\n\n    def deposit(self, amount):\n        # TODO: add amount if positive\n        pass\n\n    def withdraw(self, amount):\n        # TODO: subtract amount if positive\n        pass\n\nacc = BankAccount('Dana Lee', 'ACC001', 0)\nacc.deposit(1000)\nacc.withdraw(300)\nprint(acc.balance)",
       "solution_code": "class BankAccount:\n    def __init__(self, owner, account_number, balance):\n        self.owner = owner\n        self.account_number = account_number\n        self.balance = balance\n\n    def deposit(self, amount):\n        if amount > 0:\n            self.balance = self.balance + amount\n\n    def withdraw(self, amount):\n        if amount > 0:\n            self.balance = self.balance - amount\n\nacc = BankAccount('Dana Lee', 'ACC001', 0)\nacc.deposit(1000)\nacc.withdraw(300)\nprint(acc.balance)",
       "test_cases": [
-        "assert acc.owner == 'Dana Lee'",
-        "assert acc.account_number == 'ACC001'",
-        "assert acc.balance == 700",
-        "assert acc.deposit(-50) is None",
-        "assert acc.balance == 700"
+        {
+          "input": "assert acc.owner",
+          "expected_output": "'Dana Lee'",
+          "description": "Verifies: assert acc.owner == 'Dana Lee'"
+        },
+        {
+          "input": "assert acc.account_number",
+          "expected_output": "'ACC001'",
+          "description": "Verifies: assert acc.account_number == 'ACC001'"
+        },
+        {
+          "input": "assert acc.balance",
+          "expected_output": "700",
+          "description": "Verifies: assert acc.balance == 700"
+        },
+        {
+          "input": "",
+          "expected_output": "assert acc.deposit(-50) is None",
+          "description": "assert acc.deposit(-50) is None"
+        },
+        {
+          "input": "assert acc.balance",
+          "expected_output": "700",
+          "description": "Verifies: assert acc.balance == 700"
+        }
       ],
       "hint": "Guard clauses prevent invalid mutations of instance attributes; always validate inputs before assignment.",
       "explanation": "Mastery of instance attributes involves controlling access and mutation through methods, ensuring object integrity and encapsulating internal state."

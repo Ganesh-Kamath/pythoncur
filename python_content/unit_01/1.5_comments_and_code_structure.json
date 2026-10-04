@@ -416,7 +416,13 @@
       ],
       "prompt": "A developer updates an algorithm to calculate a 15% discount, but leaves an old comment saying `# Calculate 10% discount`. Why is this worse than having no comment at all?",
       "correct_answer": "B",
-      "explanation": "A misleading comment is dangerous because it misleads human readers about what the program is doing."
+      "explanation": "A misleading comment is dangerous because it misleads human readers about what the program is doing.",
+      "options": [
+        "A. An outdated comment causes a SyntaxError during parsing.",
+        "B. A misleading comment misinforms human developers reading the code, making maintenance and debugging much harder.",
+        "C. CPython verifies that comments match the math and raises an assertion error.",
+        "D. Comments are compiled into bytecode and slow down program execution."
+      ]
     },
     {
       "id": "1.5_q26",
@@ -485,7 +491,13 @@
       ],
       "prompt": "You are reviewing code from a teammate:\n```python\na = 0.0825  # Sales tax rate for Travis County, TX\n```\nIs this a good comment, and why?",
       "correct_answer": "B",
-      "explanation": "Explaining the real-world origin and meaning of specific numeric constants is one of the best uses of comments."
+      "explanation": "Explaining the real-world origin and meaning of specific numeric constants is one of the best uses of comments.",
+      "options": [
+        "A. Add comments on every line repeating what the code does.",
+        "B. Replace mysterious numeric literals with descriptive constant names and explain domain business rules.",
+        "C. Remove all comments and make variable names as short as possible.",
+        "D. Convert all numbers into strings to prevent rounding errors."
+      ]
     },
     {
       "id": "1.5_q30",
@@ -501,7 +513,13 @@
       ],
       "prompt": "Which of the following summarizes the best practices for Python comments and code structure?",
       "correct_answer": "B",
-      "explanation": "This encapsulates clean Python code structure according to PEP 8 and professional engineering standards."
+      "explanation": "This encapsulates clean Python code structure according to PEP 8 and professional engineering standards.",
+      "options": [
+        "A. Code should be written on a single continuous line without indentation.",
+        "B. Follow PEP 8: 4 spaces per indentation level, clear snake_case names, and comments that explain why rather than what.",
+        "C. Use tabs and spaces interchangeably throughout the file.",
+        "D. Always write code in all capital letters for readability."
+      ]
     }
   ],
   "unit_num": 1,

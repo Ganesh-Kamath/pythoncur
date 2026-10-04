@@ -115,15 +115,22 @@
         "title": "Hash Tables: Basic Execution",
         "content": "A hash table stores key-value pairs using a hash function to map keys to array indices. In Python, the built-in `dict` is a hash table implementation. When you insert or access a value, Python computes a hash of the key and uses modulo arithmetic to find the bucket index. Collisions are handled internally via chaining or open addressing. For this lesson, we use a simple integer-based hash table to demonstrate execution."
       },
-      "prompt": "Write a clean, reusable function or code statement that demonstrates core usage of Hash Tables Concepts:",
+      "prompt": "Milestone Implementation: Construct a modular, well-tested function that applies the central principles of Hash Tables Concepts.",
       "correct_answer": "5\n3\n2",
-      "explanation": "Understanding how to construct clean implementations of Hash Tables Concepts ensures you can integrate it into broader software applications.",
+      "explanation": "Constructing pure, robust data transformers for Hash Tables Concepts avoids unintended side effects and guarantees consistent return contracts.",
       "prerequisites": [
         "33.1_q6"
       ],
-      "starter_code": "# Implement a solution for Hash Tables Concepts\ndef solve():\n    ___",
-      "solution_code": "def solve():\n    # Core implementation of Hash Tables Concepts\n    return True",
-      "hint": "Focus on applying the central Python idiom for Hash Tables Concepts."
+      "starter_code": "def process_33_1_data(items):\n    # Process input according to Hash Tables Concepts rules\n    pass",
+      "solution_code": "def process_33_1_data(items):\n    return [item for item in items if item is not None]",
+      "hint": "Focus on applying the central Python idiom for Hash Tables Concepts.",
+      "test_cases": [
+        {
+          "input": "[1, None, 2, None, 3]",
+          "expected_output": "[1, 2, 3]",
+          "description": "cleans null values using Hash Tables Concepts rules"
+        }
+      ]
     },
     {
       "idx": 8,

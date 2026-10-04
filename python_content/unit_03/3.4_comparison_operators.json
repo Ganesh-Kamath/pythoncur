@@ -489,7 +489,13 @@
       ],
       "prompt": "A highway speed monitor triggers a fine if a vehicle's `speed` is strictly greater than `65`. What is the condition?",
       "correct_answer": "A",
-      "explanation": "This exercise tests `speed limit violation` in Comparison Operators. When Python validates this code, it applies the standard rules of speed limit violation. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
+      "explanation": "This exercise tests `speed limit violation` in Comparison Operators. When Python validates this code, it applies the standard rules of speed limit violation. Understanding how this construct behaves prevents common programming errors and ensures predictable execution.",
+      "options": [
+        "A. speed > speed_limit",
+        "B. speed >= speed_limit",
+        "C. speed == speed_limit",
+        "D. speed != speed_limit"
+      ]
     },
     {
       "id": "3.4_q29",
@@ -526,7 +532,13 @@
       ],
       "prompt": "Which of the following summaries regarding Python comparison operators is completely TRUE?",
       "correct_answer": "A",
-      "explanation": "This encapsulates all comparison operators, lexicographical string comparison, chaining, type restrictions, and identity vs equality."
+      "explanation": "This encapsulates all comparison operators, lexicographical string comparison, chaining, type restrictions, and identity vs equality.",
+      "options": [
+        "A. Comparison operators evaluate to boolean True or False, support chaining (e.g., 0 < x < 10), and distinguish == (equality) from is (identity).",
+        "B. Comparison operators return integers: 1 for true and 0 for false.",
+        "C. Chained comparisons like 1 < x < 5 are syntax errors in Python.",
+        "D. 'apple' > 'banana' evaluates to True because 'apple' is shorter."
+      ]
     }
   ],
   "unit_num": 3,

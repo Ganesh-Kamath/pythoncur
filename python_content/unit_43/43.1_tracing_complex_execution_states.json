@@ -466,9 +466,21 @@
       "starter_code": "def even_squares(limit):\n    result = []\n    for n in range(limit):\n        if n % 2 == 0:\n            result.append(n ** 2)\n    return result\n\nfor value in even_squares(1000000):\n    print(value)",
       "solution_code": "def even_squares(limit):\n    for n in range(limit):\n        if n % 2 == 0:\n            yield n ** 2\n\nfor value in even_squares(1000000):\n    print(value)",
       "test_cases": [
-        "assert list(even_squares(5)) == [0, 4, 16, 36, 64]",
-        "assert list(even_squares(1)) == [0]",
-        "assert list(even_squares(0)) == []"
+        {
+          "input": "assert list(even_squares(5))",
+          "expected_output": "[0, 4, 16, 36, 64]",
+          "description": "Verifies: assert list(even_squares(5)) == [0, 4, 16, 36, 64]"
+        },
+        {
+          "input": "assert list(even_squares(1))",
+          "expected_output": "[0]",
+          "description": "Verifies: assert list(even_squares(1)) == [0]"
+        },
+        {
+          "input": "assert list(even_squares(0))",
+          "expected_output": "[]",
+          "description": "Verifies: assert list(even_squares(0)) == []"
+        }
       ],
       "hint": "Replace the list accumulation with a yield statement and adjust the function signature to be a generator.",
       "explanation": "The original implementation eagerly constructs a list of up to limit/2 elements, consuming O(limit) memory. The refactored version is a generator that yields each squared even number on demand, reducing memory to O(1) during iteration. The execution trace now shows a single loop frame with a local n variable, and the caller consumes values one at a time. This is especially beneficial when the consumer breaks early or processes a stream, as the full sequence is never materialized."
@@ -486,9 +498,21 @@
       "starter_code": "def trace_execution(nums):\n    count = 0\n\n    def helper(index):\n        nonlocal count\n        count += 1\n        if index >= len(nums):\n            return 0\n        current = nums[index]\n        rest = helper(index + 1)\n        if current % 2 == 0:\n            return current + rest\n        return rest\n\n    total = helper(0)\n    return (total, count)",
       "solution_code": "def trace_execution(nums):\n    count = 0\n\n    def helper(index):\n        nonlocal count\n        count += 1\n        if index >= len(nums):\n            return 0\n        current = nums[index]\n        rest = helper(index + 1)\n        if current % 2 == 0:\n            return current + rest\n        return rest\n\n    total = helper(0)\n    return (total, count)",
       "test_cases": [
-        "[1, 2, 3, 4, 5] -> (6, 5)",
-        "[2, 4, 6] -> (12, 3)",
-        "[] -> (0, 1)"
+        {
+          "input": "",
+          "expected_output": "[1, 2, 3, 4, 5] -> (6, 5)",
+          "description": "[1, 2, 3, 4, 5] -> (6, 5)"
+        },
+        {
+          "input": "",
+          "expected_output": "[2, 4, 6] -> (12, 3)",
+          "description": "[2, 4, 6] -> (12, 3)"
+        },
+        {
+          "input": "",
+          "expected_output": "[] -> (0, 1)",
+          "description": "[] -> (0, 1)"
+        }
       ],
       "hint": "Use a nested helper with a nonlocal counter to track each recursive invocation.",
       "explanation": "The helper function recursively processes each element. The nonlocal variable count increments on every call, including the base case. Only even numbers contribute to the sum."
@@ -506,9 +530,21 @@
       "starter_code": "def trace_state(values):\n    comparisons = 0\n    running_max = None\n    for v in values:\n        if running_max is None or v > running_max:\n            running_max = v\n        comparisons += 1\n    return (running_max, comparisons)",
       "solution_code": "def trace_state(values):\n    comparisons = 0\n    running_max = None\n    for v in values:\n        if running_max is None or v > running_max:\n            running_max = v\n        comparisons += 1\n    return (running_max, comparisons)",
       "test_cases": [
-        "[3, 1, 4, 2] -> (4, 4)",
-        "[5, 5, 5] -> (5, 3)",
-        "[-2, -5, -1] -> (-1, 3)"
+        {
+          "input": "",
+          "expected_output": "[3, 1, 4, 2] -> (4, 4)",
+          "description": "[3, 1, 4, 2] -> (4, 4)"
+        },
+        {
+          "input": "",
+          "expected_output": "[5, 5, 5] -> (5, 3)",
+          "description": "[5, 5, 5] -> (5, 3)"
+        },
+        {
+          "input": "",
+          "expected_output": "[-2, -5, -1] -> (-1, 3)",
+          "description": "[-2, -5, -1] -> (-1, 3)"
+        }
       ],
       "hint": "Initialize running_max to None so the first element always updates it, and increment comparisons for every element.",
       "explanation": "Each loop iteration performs one comparison. The running maximum is updated only when a strictly greater value is found, but the comparison itself always counts."
@@ -526,9 +562,21 @@
       "starter_code": "def trace_calls(func):\n    total_calls = 0\n    sum_returns = 0\n    max_return = None\n\n    def wrapper(*args, **kwargs):\n        nonlocal total_calls, sum_returns, max_return\n        total_calls += 1\n        result = func(*args, **kwargs)\n        sum_returns += result\n        if max_return is None or result > max_return:\n            max_return = result\n        return result\n\n    def get_stats():\n        return (total_calls, sum_returns, max_return)\n\n    wrapper.get_stats = get_stats\n    return wrapper",
       "solution_code": "def trace_calls(func):\n    total_calls = 0\n    sum_returns = 0\n    max_return = None\n\n    def wrapper(*args, **kwargs):\n        nonlocal total_calls, sum_returns, max_return\n        total_calls += 1\n        result = func(*args, **kwargs)\n        sum_returns += result\n        if max_return is None or result > max_return:\n            max_return = result\n        return result\n\n    def get_stats():\n        return (total_calls, sum_returns, max_return)\n\n    wrapper.get_stats = get_stats\n    return wrapper",
       "test_cases": [
-        "trace_calls(lambda x: x * 2)(3) -> 6, stats=(1, 6, 6)",
-        "trace_calls(lambda x: x * 2)(5) -> 10, stats=(2, 16, 10)",
-        "trace_calls(lambda: 1)() -> 1, stats=(3, 17, 10)"
+        {
+          "input": "",
+          "expected_output": "trace_calls(lambda x: x * 2)(3) -> 6, stats=(1, 6, 6)",
+          "description": "trace_calls(lambda x: x * 2)(3) -> 6, stats=(1, 6, 6)"
+        },
+        {
+          "input": "",
+          "expected_output": "trace_calls(lambda x: x * 2)(5) -> 10, stats=(2, 16, 10)",
+          "description": "trace_calls(lambda x: x * 2)(5) -> 10, stats=(2, 16, 10)"
+        },
+        {
+          "input": "",
+          "expected_output": "trace_calls(lambda: 1)() -> 1, stats=(3, 17, 10)",
+          "description": "trace_calls(lambda: 1)() -> 1, stats=(3, 17, 10)"
+        }
       ],
       "hint": "Use nonlocal to mutate closure variables inside the wrapper, and attach get_stats as an attribute to expose state without returning it on every call.",
       "explanation": "The decorator creates a closure over three counters. Each invocation updates them, and get_stats exposes the accumulated state. The wrapper preserves the original function signature via *args and **kwargs."
@@ -546,9 +594,21 @@
       "starter_code": "def deep_trace(nested):\n    total = 0\n    leaves = 0\n\n    def helper(item):\n        nonlocal total, leaves\n        if isinstance(item, list):\n            for sub in item:\n                helper(sub)\n        else:\n            leaves += 1\n            if item % 2 == 0:\n                total += item\n\n    helper(nested)\n    return (total, leaves)",
       "solution_code": "def deep_trace(nested):\n    total = 0\n    leaves = 0\n\n    def helper(item):\n        nonlocal total, leaves\n        if isinstance(item, list):\n            for sub in item:\n                helper(sub)\n        else:\n            leaves += 1\n            if item % 2 == 0:\n                total += item\n\n    helper(nested)\n    return (total, leaves)",
       "test_cases": [
-        "[[1, 2], [3, [4, 5]]] -> (6, 5)",
-        "[2, [4, [6]]] -> (12, 4)",
-        "[] -> (0, 0)"
+        {
+          "input": "",
+          "expected_output": "[[1, 2], [3, [4, 5]]] -> (6, 5)",
+          "description": "[[1, 2], [3, [4, 5]]] -> (6, 5)"
+        },
+        {
+          "input": "",
+          "expected_output": "[2, [4, [6]]] -> (12, 4)",
+          "description": "[2, [4, [6]]] -> (12, 4)"
+        },
+        {
+          "input": "",
+          "expected_output": "[] -> (0, 0)",
+          "description": "[] -> (0, 0)"
+        }
       ],
       "hint": "A leaf node is any non-list element. Recurse into sublists but only increment leaves and total when encountering an integer.",
       "explanation": "The helper distinguishes between lists and atomic values. Every atomic value counts as one leaf, and only even values contribute to the sum. The nonlocal totals accumulate across all recursive levels."
@@ -566,9 +626,21 @@
       "starter_code": "def expense_trace(data):\n    total = 0\n    examined = 0\n\n    def walk(node):\n        nonlocal total, examined\n        if isinstance(node, dict):\n            examined += 1\n            if node.get('category') == 'travel':\n                total += node.get('amount', 0)\n            for value in node.values():\n                walk(value)\n        elif isinstance(node, list):\n            for item in node:\n                walk(item)\n\n    walk(data)\n    return (total, examined)",
       "solution_code": "def expense_trace(data):\n    total = 0\n    examined = 0\n\n    def walk(node):\n        nonlocal total, examined\n        if isinstance(node, dict):\n            examined += 1\n            if node.get('category') == 'travel':\n                total += node.get('amount', 0)\n            for value in node.values():\n                walk(value)\n        elif isinstance(node, list):\n            for item in node:\n                walk(item)\n\n    walk(data)\n    return (total, examined)",
       "test_cases": [
-        "{'category': 'travel', 'amount': 100} -> (100, 1)",
-        "{'expenses': [{'category': 'travel', 'amount': 50}, {'category': 'food', 'amount': 20}]} -> (50, 3)",
-        "{'q1': {'expenses': [{'category': 'travel', 'amount': 75}]}} -> (75, 3)"
+        {
+          "input": "",
+          "expected_output": "{'category': 'travel', 'amount': 100} -> (100, 1)",
+          "description": "{'category': 'travel', 'amount': 100} -> (100, 1)"
+        },
+        {
+          "input": "",
+          "expected_output": "{'expenses': [{'category': 'travel', 'amount': 50}, {'category': 'food', 'amount': 20}]} -> (50, 3)",
+          "description": "{'expenses': [{'category': 'travel', 'amount': 50}, {'category': 'food', 'amount': 20}]} -> (50, 3)"
+        },
+        {
+          "input": "",
+          "expected_output": "{'q1': {'expenses': [{'category': 'travel', 'amount': 75}]}} -> (75, 3)",
+          "description": "{'q1': {'expenses': [{'category': 'travel', 'amount': 75}]}} -> (75, 3)"
+        }
       ],
       "hint": "Every dictionary represents one expense record. Recurse into both dictionary values and list elements, but only add to total when category matches 'travel'.",
       "explanation": "The walk function performs a depth-first traversal. examined increments for every dictionary encountered, while total accumulates only qualifying travel amounts. This models real-world nested reporting structures."
@@ -586,9 +658,21 @@
       "starter_code": "def master_trace(n):\n    cache = {}\n\n    def helper(k):\n        if k in cache:\n            return cache[k]\n        if k <= 1:\n            return k\n        result = helper(k - 1) + helper(k - 2)\n        cache[k] = result\n        return result\n\n    fib = helper(n)\n    return (fib, 0, 0)",
       "solution_code": "def master_trace(n):\n    cache = {}\n    calls = 0\n    hits = 0\n\n    def helper(k):\n        nonlocal calls, hits\n        calls += 1\n        if k in cache:\n            hits += 1\n            return cache[k]\n        if k <= 1:\n            result = k\n        else:\n            result = helper(k - 1) + helper(k - 2)\n        cache[k] = result\n        return result\n\n    fib = helper(n)\n    return (fib, calls, hits)",
       "test_cases": [
-        "master_trace(5) -> (5, 9, 0)",
-        "master_trace(6) -> (8, 15, 0)",
-        "master_trace(7) -> (13, 25, 1)"
+        {
+          "input": "",
+          "expected_output": "master_trace(5) -> (5, 9, 0)",
+          "description": "master_trace(5) -> (5, 9, 0)"
+        },
+        {
+          "input": "",
+          "expected_output": "master_trace(6) -> (8, 15, 0)",
+          "description": "master_trace(6) -> (8, 15, 0)"
+        },
+        {
+          "input": "",
+          "expected_output": "master_trace(7) -> (13, 25, 1)",
+          "description": "master_trace(7) -> (13, 25, 1)"
+        }
       ],
       "hint": "Track calls with a nonlocal counter on every helper invocation. Increment hits only when a cached value is returned before any further recursion.",
       "explanation": "Without memoization, Fibonacci has exponential calls. With the cache, repeated subproblems are resolved in O(1). The counter captures the true recursive workload, and cache_hits measures reuse efficiency."

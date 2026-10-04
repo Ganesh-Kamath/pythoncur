@@ -120,13 +120,20 @@
       "prerequisites": [
         "15.3_q6"
       ],
-      "prompt": "Write a clean, reusable function or code statement that demonstrates core usage of Variable-Length Arguments (*args):",
+      "prompt": "Milestone Implementation: Construct a modular, well-tested function that applies the central principles of Variable-Length Arguments (*args).",
       "correct_answer": "apple\nbanana\ncherry",
-      "explanation": "Understanding how to construct clean implementations of Variable-Length Arguments (*args) ensures you can integrate it into broader software applications.",
+      "explanation": "Constructing pure, robust data transformers for Variable-Length Arguments (*args) avoids unintended side effects and guarantees consistent return contracts.",
       "difficulty": "medium",
-      "starter_code": "# Implement a solution for Variable-Length Arguments (*args)\ndef solve():\n    ___",
-      "solution_code": "def solve():\n    # Core implementation of Variable-Length Arguments (*args)\n    return True",
-      "hint": "Focus on applying the central Python idiom for Variable-Length Arguments (*args)."
+      "starter_code": "def process_15_3_data(items):\n    # Process input according to Variable-Length Arguments (*args) rules\n    pass",
+      "solution_code": "def process_15_3_data(items):\n    return [item for item in items if item is not None]",
+      "hint": "Focus on applying the central Python idiom for Variable-Length Arguments (*args).",
+      "test_cases": [
+        {
+          "input": "[1, None, 2, None, 3]",
+          "expected_output": "[1, 2, 3]",
+          "description": "cleans null values using Variable-Length Arguments (*args) rules"
+        }
+      ]
     },
     {
       "id": "15.3_q8",
@@ -456,9 +463,21 @@
       "starter_code": "def compute_stats(*args):\n    n = 0\n    total = 0\n    for v in args:\n        n = n + 1\n        total = total + v\n    avg = total / n\n    return n, total, avg\n\nprint(compute_stats(1, 2, 3, 4, 5))",
       "solution_code": "def compute_stats(*args):\n    if not args:\n        raise ValueError('At least one numeric argument required')\n    n = len(args)\n    total = sum(args)\n    avg = total / n\n    return n, total, avg\n\nprint(compute_stats(1, 2, 3, 4, 5))",
       "test_cases": [
-        "compute_stats(10, 20, 30)",
-        "compute_stats(7)",
-        "compute_stats(1.5, 2.5, 3.0) and verify avg equals 2.3333333333333335"
+        {
+          "input": "",
+          "expected_output": "compute_stats(10, 20, 30)",
+          "description": "compute_stats(10, 20, 30)"
+        },
+        {
+          "input": "",
+          "expected_output": "compute_stats(7)",
+          "description": "compute_stats(7)"
+        },
+        {
+          "input": "",
+          "expected_output": "compute_stats(1.5, 2.5, 3.0) and verify avg equals 2.3333333333333335",
+          "description": "compute_stats(1.5, 2.5, 3.0) and verify avg equals 2.3333333333333335"
+        }
       ],
       "hint": "Replace the manual loop with Python built-ins that operate on sequences.",
       "explanation": "The original implementation manually accumulated count and sum with a for loop, which is verbose and error-prone. The refactored version leverages len() and sum() for clarity and performance. It also validates input to prevent division by zero, returning (5, 15, 3.0) for the sample call.",

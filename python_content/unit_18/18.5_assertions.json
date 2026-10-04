@@ -445,11 +445,31 @@
       "starter_code": "def register_user(name, age, active):\n    assert name != '', 'Name is required'\n    assert age > 0, 'Age must be positive'\n    assert age < 120, 'Age seems unrealistic'\n    assert isinstance(active, bool), 'Active must be a boolean'\n    return {'name': name, 'age': age, 'active': active}",
       "solution_code": "def _assert(condition, message):\n    assert condition, message\n\ndef register_user(name, age, active):\n    _assert(name != '', 'Name is required')\n    _assert(0 < age < 120, 'Age must be positive and below 120')\n    _assert(isinstance(active, bool), 'Active must be a boolean')\n    return {'name': name, 'age': age, 'active': active}",
       "test_cases": [
-        "register_user('Alice', 25, True)",
-        "register_user('', 25, True)",
-        "register_user('Bob', -1, True)",
-        "register_user('Carol', 200, True)",
-        "register_user('Dave', 30, 'yes')"
+        {
+          "input": "",
+          "expected_output": "register_user('Alice', 25, True)",
+          "description": "register_user('Alice', 25, True)"
+        },
+        {
+          "input": "",
+          "expected_output": "register_user('', 25, True)",
+          "description": "register_user('', 25, True)"
+        },
+        {
+          "input": "",
+          "expected_output": "register_user('Bob', -1, True)",
+          "description": "register_user('Bob', -1, True)"
+        },
+        {
+          "input": "",
+          "expected_output": "register_user('Carol', 200, True)",
+          "description": "register_user('Carol', 200, True)"
+        },
+        {
+          "input": "",
+          "expected_output": "register_user('Dave', 30, 'yes')",
+          "description": "register_user('Dave', 30, 'yes')"
+        }
       ],
       "hint": "Create a private helper that accepts a condition and message, then use it for each validation. Combine the age bounds into a single chained comparison.",
       "explanation": "The refactored version introduces `_assert` to eliminate repetition and improve maintainability. It also merges the two age checks into one chained comparison, reducing the number of assertions from three to two while preserving the same logical constraints and error semantics."
@@ -467,10 +487,26 @@
       "starter_code": "def check_positive(n):\n    # TODO: Add your assertion here\n    return n > 0",
       "solution_code": "def check_positive(n):\n    \"\"\"Return True if n is a positive integer, otherwise raise AssertionError.\"\"\"\n    assert isinstance(n, int) and n > 0, f'Expected positive integer, got {n!r}'\n    return True",
       "test_cases": [
-        "check_positive(5)  # should return True",
-        "check_positive(0)  # should raise AssertionError",
-        "check_positive(-3)  # should raise AssertionError",
-        "check_positive(3.5)  # should raise AssertionError"
+        {
+          "input": "",
+          "expected_output": "check_positive(5)  # should return True",
+          "description": "check_positive(5)  # should return True"
+        },
+        {
+          "input": "",
+          "expected_output": "check_positive(0)  # should raise AssertionError",
+          "description": "check_positive(0)  # should raise AssertionError"
+        },
+        {
+          "input": "",
+          "expected_output": "check_positive(-3)  # should raise AssertionError",
+          "description": "check_positive(-3)  # should raise AssertionError"
+        },
+        {
+          "input": "",
+          "expected_output": "check_positive(3.5)  # should raise AssertionError",
+          "description": "check_positive(3.5)  # should raise AssertionError"
+        }
       ],
       "hint": "Use the `assert` statement with a condition and a descriptive message. Remember to check both the type and the value.",
       "explanation": "Assertions are debugging aids that verify conditions during development. The `assert` statement checks if a condition is true; if not, it raises an `AssertionError`. This is useful for validating assumptions about inputs in functions."
@@ -488,10 +524,26 @@
       "starter_code": "def safe_divide(a, b):\n    # TODO: Add your assertions and perform division\n    return a / b",
       "solution_code": "def safe_divide(a, b):\n    \"\"\"Divide a by b after asserting valid inputs.\"\"\"\n    assert isinstance(a, (int, float)), f'a must be numeric, got {type(a).__name__}'\n    assert isinstance(b, (int, float)), f'b must be numeric, got {type(b).__name__}'\n    assert b != 0, 'Division by zero is not allowed'\n    return a / b",
       "test_cases": [
-        "safe_divide(10, 2)  # should return 5.0",
-        "safe_divide(7, 0)   # should raise AssertionError",
-        "safe_divide('10', 2)  # should raise AssertionError",
-        "safe_divide(5.5, 2)  # should return 2.75"
+        {
+          "input": "",
+          "expected_output": "safe_divide(10, 2)  # should return 5.0",
+          "description": "safe_divide(10, 2)  # should return 5.0"
+        },
+        {
+          "input": "",
+          "expected_output": "safe_divide(7, 0)   # should raise AssertionError",
+          "description": "safe_divide(7, 0)   # should raise AssertionError"
+        },
+        {
+          "input": "",
+          "expected_output": "safe_divide('10', 2)  # should raise AssertionError",
+          "description": "safe_divide('10', 2)  # should raise AssertionError"
+        },
+        {
+          "input": "",
+          "expected_output": "safe_divide(5.5, 2)  # should return 2.75",
+          "description": "safe_divide(5.5, 2)  # should return 2.75"
+        }
       ],
       "hint": "Check the type of each argument using `isinstance` and verify that `b` is not zero before performing division.",
       "explanation": "Practical use of assertions involves validating preconditions before executing operations. This prevents runtime errors like division by zero and ensures type safety in mathematical functions."
@@ -509,10 +561,26 @@
       "starter_code": "def require_positive_args(func):\n    def wrapper(*args):\n        # TODO: Add assertions for positive args\n        return func(*args)\n    return wrapper\n\n@require_positive_args\ndef compute_area(length, width):\n    return length * width",
       "solution_code": "def require_positive_args(func):\n    def wrapper(*args):\n        for i, arg in enumerate(args):\n            assert isinstance(arg, (int, float)), f'Argument {i} must be numeric'\n            assert arg > 0, f'Argument {i} must be positive, got {arg}'\n        return func(*args)\n    return wrapper\n\n@require_positive_args\ndef compute_area(length, width):\n    \"\"\"Return the area of a rectangle given positive length and width.\"\"\"\n    return length * width",
       "test_cases": [
-        "compute_area(4, 5)  # should return 20",
-        "compute_area(4, -5)  # should raise AssertionError",
-        "compute_area(0, 5)   # should raise AssertionError",
-        "compute_area('4', 5)  # should raise AssertionError"
+        {
+          "input": "",
+          "expected_output": "compute_area(4, 5)  # should return 20",
+          "description": "compute_area(4, 5)  # should return 20"
+        },
+        {
+          "input": "",
+          "expected_output": "compute_area(4, -5)  # should raise AssertionError",
+          "description": "compute_area(4, -5)  # should raise AssertionError"
+        },
+        {
+          "input": "",
+          "expected_output": "compute_area(0, 5)   # should raise AssertionError",
+          "description": "compute_area(0, 5)   # should raise AssertionError"
+        },
+        {
+          "input": "",
+          "expected_output": "compute_area('4', 5)  # should raise AssertionError",
+          "description": "compute_area('4', 5)  # should raise AssertionError"
+        }
       ],
       "hint": "Iterate over `*args` with `enumerate` to access both the index and value. Check type and positivity for each argument before calling the original function.",
       "explanation": "Advanced assertions can be encapsulated in decorators to enforce contracts across multiple functions. This promotes reusable validation logic and cleaner function bodies."
@@ -530,10 +598,26 @@
       "starter_code": "def process_scores(scores):\n    total = 0\n    for s in scores:\n        total += s\n    return total / len(scores)\n\n# This fails when scores contain invalid data",
       "solution_code": "def process_scores(scores):\n    \"\"\"Calculate the average of valid integer scores between 0 and 100.\"\"\"\n    assert isinstance(scores, list), 'scores must be a list'\n    for s in scores:\n        assert isinstance(s, int), f'Score {s!r} must be an integer'\n        assert 0 <= s <= 100, f'Score {s!r} must be between 0 and 100'\n    return sum(scores) / len(scores)",
       "test_cases": [
-        "process_scores([80, 90, 100])  # should return 90.0",
-        "process_scores([80, -5, 100])  # should raise AssertionError",
-        "process_scores([80, 90.5, 100])  # should raise AssertionError",
-        "process_scores([])  # should raise AssertionError (empty list)"
+        {
+          "input": "",
+          "expected_output": "process_scores([80, 90, 100])  # should return 90.0",
+          "description": "process_scores([80, 90, 100])  # should return 90.0"
+        },
+        {
+          "input": "",
+          "expected_output": "process_scores([80, -5, 100])  # should raise AssertionError",
+          "description": "process_scores([80, -5, 100])  # should raise AssertionError"
+        },
+        {
+          "input": "",
+          "expected_output": "process_scores([80, 90.5, 100])  # should raise AssertionError",
+          "description": "process_scores([80, 90.5, 100])  # should raise AssertionError"
+        },
+        {
+          "input": "",
+          "expected_output": "process_scores([])  # should raise AssertionError (empty list)",
+          "description": "process_scores([])  # should raise AssertionError (empty list)"
+        }
       ],
       "hint": "Add assertions before the loop to validate the list type and each element. Handle the empty list case explicitly or let the division raise a ZeroDivisionError.",
       "explanation": "This challenge requires combining multiple assertions to enforce data integrity. Validating inputs early prevents silent logical errors and makes debugging easier."
@@ -551,10 +635,26 @@
       "starter_code": "def validate_config(cfg):\n    # TODO: Add comprehensive assertions for the config dictionary\n    return True\n\nconfig = {\n    'max_retries': 3,\n    'timeout': 30.5,\n    'log_level': 'INFO'\n}",
       "solution_code": "VALID_LOG_LEVELS = {'DEBUG', 'INFO', 'WARNING', 'ERROR', 'CRITICAL'}\n\ndef validate_config(cfg):\n    \"\"\"Validate a configuration dictionary with domain-specific assertions.\"\"\"\n    assert isinstance(cfg, dict), 'config must be a dictionary'\n    assert 'max_retries' in cfg, 'missing required key: max_retries'\n    assert isinstance(cfg['max_retries'], int), 'max_retries must be an integer'\n    assert cfg['max_retries'] >= 0, 'max_retries must be non-negative'\n    assert 'timeout' in cfg, 'missing required key: timeout'\n    assert isinstance(cfg['timeout'], (int, float)), 'timeout must be numeric'\n    assert cfg['timeout'] > 0, 'timeout must be positive'\n    assert 'log_level' in cfg, 'missing required key: log_level'\n    assert cfg['log_level'] in VALID_LOG_LEVELS, f\"log_level must be one of {VALID_LOG_LEVELS}\"\n    return True",
       "test_cases": [
-        "validate_config({'max_retries': 3, 'timeout': 30.5, 'log_level': 'INFO'})  # should return True",
-        "validate_config({'max_retries': -1, 'timeout': 30.5, 'log_level': 'INFO'})  # should raise AssertionError",
-        "validate_config({'max_retries': 3, 'timeout': 0, 'log_level': 'INFO'})  # should raise AssertionError",
-        "validate_config({'max_retries': 3, 'timeout': 30.5})  # should raise AssertionError"
+        {
+          "input": "",
+          "expected_output": "validate_config({'max_retries': 3, 'timeout': 30.5, 'log_level': 'INFO'})  # should return True",
+          "description": "validate_config({'max_retries': 3, 'timeout': 30.5, 'log_level': 'INFO'})  # should return True"
+        },
+        {
+          "input": "",
+          "expected_output": "validate_config({'max_retries': -1, 'timeout': 30.5, 'log_level': 'INFO'})  # should raise AssertionError",
+          "description": "validate_config({'max_retries': -1, 'timeout': 30.5, 'log_level': 'INFO'})  # should raise AssertionError"
+        },
+        {
+          "input": "",
+          "expected_output": "validate_config({'max_retries': 3, 'timeout': 0, 'log_level': 'INFO'})  # should raise AssertionError",
+          "description": "validate_config({'max_retries': 3, 'timeout': 0, 'log_level': 'INFO'})  # should raise AssertionError"
+        },
+        {
+          "input": "",
+          "expected_output": "validate_config({'max_retries': 3, 'timeout': 30.5})  # should raise AssertionError",
+          "description": "validate_config({'max_retries': 3, 'timeout': 30.5})  # should raise AssertionError"
+        }
       ],
       "hint": "Define the allowed log levels as a constant set for membership testing. Check each required key with `in` before accessing its value.",
       "explanation": "Real-world scenarios demand layered assertions that encode business rules. This ensures configuration data conforms to expected schemas before downstream processing, reducing runtime failures."
@@ -572,10 +672,26 @@
       "starter_code": "class InvalidStateError(Exception):\n    pass\n\ndef process_batch(items):\n    if not isinstance(items, list):\n        raise InvalidStateError('items must be a list')\n    if len(items) == 0:\n        raise InvalidStateError('items cannot be empty')\n    for item in items:\n        if not hasattr(item, 'process'):\n            raise InvalidStateError('each item must have a process method')\n    return len(items)",
       "solution_code": "class InvalidStateError(Exception):\n    pass\n\ndef process_batch(items):\n    \"\"\"Process a batch of items after asserting valid state.\"\"\"\n    assert isinstance(items, list), 'items must be a list' or InvalidStateError('items must be a list')\n    assert len(items) > 0, 'items cannot be empty' or InvalidStateError('items cannot be empty')\n    for item in items:\n        assert hasattr(item, 'process'), 'each item must have a process method' or InvalidStateError('each item must have a process method')\n    return len(items)\n\n# Note: In optimized mode (-O), assertions are skipped.\n# To maintain safety, wrap calls with try/except or use a wrapper if needed.",
       "test_cases": [
-        "process_batch([object()])  # should return 1 if object has no process; raises InvalidStateError or AssertionError",
-        "process_batch([])  # should raise InvalidStateError or AssertionError",
-        "process_batch('not a list')  # should raise InvalidStateError or AssertionError",
-        "process_batch([1, 2, 3])  # should raise InvalidStateError or AssertionError (no process method)"
+        {
+          "input": "",
+          "expected_output": "process_batch([object()])  # should return 1 if object has no process; raises InvalidStateError or AssertionError",
+          "description": "process_batch([object()])  # should return 1 if object has no process; raises InvalidStateError or AssertionError"
+        },
+        {
+          "input": "",
+          "expected_output": "process_batch([])  # should raise InvalidStateError or AssertionError",
+          "description": "process_batch([])  # should raise InvalidStateError or AssertionError"
+        },
+        {
+          "input": "",
+          "expected_output": "process_batch('not a list')  # should raise InvalidStateError or AssertionError",
+          "description": "process_batch('not a list')  # should raise InvalidStateError or AssertionError"
+        },
+        {
+          "input": "",
+          "expected_output": "process_batch([1, 2, 3])  # should raise InvalidStateError or AssertionError (no process method)",
+          "description": "process_batch([1, 2, 3])  # should raise InvalidStateError or AssertionError (no process method)"
+        }
       ],
       "hint": "Use `assert condition, message or exception_instance` to provide a fallback. However, note that `or` short-circuits: if the condition is true, the exception is not raised. For guaranteed safety in optimized mode, consider a wrapper that checks conditions explicitly.",
       "explanation": "Mastery involves understanding that assertions can be disabled with the `-O` flag. Therefore, critical validations should not rely solely on assertions in production-critical paths. This challenge highlights the trade-off between concise debugging checks and guaranteed runtime safety."

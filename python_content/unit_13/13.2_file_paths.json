@@ -461,9 +461,21 @@
       "starter_code": "import os\n\ninput_dir = 'input'\ninput_file = 'data.json'\noutput_dir = 'output'\noutput_file = 'summary.txt'\n\ninput_path = os.path.join(input_dir, input_file)\noutput_path = os.path.join(output_dir, output_file)\n\nif not os.path.exists(output_dir):\n    os.makedirs(output_dir)\n\nwith open(input_path, 'r') as f:\n    data = f.read()\n\nwith open(output_path, 'w') as f:\n    f.write('Processed ' + str(len(data)) + ' characters.')",
       "solution_code": "from pathlib import Path\n\ninput_path = Path('input') / 'data.json'\noutput_path = Path('output') / 'summary.txt'\n\noutput_path.parent.mkdir(parents=True, exist_ok=True)\n\nwith open(input_path, 'r') as f:\n    data = f.read()\n\nwith open(output_path, 'w') as f:\n    f.write('Processed ' + str(len(data)) + ' characters.')",
       "test_cases": [
-        "Run the script when 'input/data.json' exists and 'output' does not; verify 'output/summary.txt' is created.",
-        "Run the script when 'input/data.json' is missing; verify a FileNotFoundError is raised.",
-        "Run the script on Windows and Linux; verify the paths resolve correctly on both platforms."
+        {
+          "input": "",
+          "expected_output": "Run the script when 'input/data.json' exists and 'output' does not; verify 'output/summary.txt' is created.",
+          "description": "Run the script when 'input/data.json' exists and 'output' does not; verify 'output/summary.txt' is created."
+        },
+        {
+          "input": "",
+          "expected_output": "Run the script when 'input/data.json' is missing; verify a FileNotFoundError is raised.",
+          "description": "Run the script when 'input/data.json' is missing; verify a FileNotFoundError is raised."
+        },
+        {
+          "input": "",
+          "expected_output": "Run the script on Windows and Linux; verify the paths resolve correctly on both platforms.",
+          "description": "Run the script on Windows and Linux; verify the paths resolve correctly on both platforms."
+        }
       ],
       "hint": "Path('a') / 'b' uses the / operator to join components. mkdir(parents=True, exist_ok=True) creates intermediate directories without raising an error if they already exist.",
       "explanation": "Refactoring to pathlib improves readability and portability. The / operator replaces os.path.join(), and mkdir(parents=True, exist_ok=True) atomically creates the output directory and its parents if absent. This eliminates manual os.path.exists() checks and reduces boilerplate, making the code more maintainable and less error-prone across operating systems."
@@ -481,10 +493,26 @@
       "starter_code": "import os\n\ndef split_path(path):\n    # TODO: implement this function\n    pass\n\n# Example usage\npath = '/home/user/documents/report.txt'\nsplit_path(path)",
       "solution_code": "import os\n\ndef split_path(path):\n    directory = os.path.dirname(path)\n    basename = os.path.basename(path)\n    print('Directory:', directory)\n    print('Base name:', basename)\n\n# Example usage\npath = '/home/user/documents/report.txt'\nsplit_path(path)",
       "test_cases": [
-        "path = 'C:\\\\Users\\\\Admin\\\\notes.md'",
-        "path = 'data/input.csv'",
-        "path = '/var/log/system.log'",
-        "path = 'script.py'"
+        {
+          "input": "",
+          "expected_output": "path = 'C:\\\\Users\\\\Admin\\\\notes.md'",
+          "description": "path = 'C:\\\\Users\\\\Admin\\\\notes.md'"
+        },
+        {
+          "input": "",
+          "expected_output": "path = 'data/input.csv'",
+          "description": "path = 'data/input.csv'"
+        },
+        {
+          "input": "",
+          "expected_output": "path = '/var/log/system.log'",
+          "description": "path = '/var/log/system.log'"
+        },
+        {
+          "input": "",
+          "expected_output": "path = 'script.py'",
+          "description": "path = 'script.py'"
+        }
       ],
       "hint": "Use os.path.dirname() to get the directory and os.path.basename() to get the file name.",
       "explanation": "os.path.dirname() extracts the folder portion of a path, while os.path.basename() extracts only the file name. This is essential when you need to manipulate file locations without hardcoding directory separators."
@@ -502,10 +530,26 @@
       "starter_code": "import os\n\ndef check_file(path):\n    # TODO: check if path exists and is a file\n    pass\n\n# Example usage\ncheck_file('example.txt')",
       "solution_code": "import os\n\ndef check_file(path):\n    if os.path.exists(path):\n        if os.path.isfile(path):\n            print('The path exists and is a file.')\n        else:\n            print('The path exists but is a directory.')\n    else:\n        print('The path does not exist.')\n\n# Example usage\ncheck_file('example.txt')",
       "test_cases": [
-        "check_file('existing_file.txt')",
-        "check_file('existing_folder')",
-        "check_file('nonexistent.txt')",
-        "check_file('/etc/passwd')"
+        {
+          "input": "",
+          "expected_output": "check_file('existing_file.txt')",
+          "description": "check_file('existing_file.txt')"
+        },
+        {
+          "input": "",
+          "expected_output": "check_file('existing_folder')",
+          "description": "check_file('existing_folder')"
+        },
+        {
+          "input": "",
+          "expected_output": "check_file('nonexistent.txt')",
+          "description": "check_file('nonexistent.txt')"
+        },
+        {
+          "input": "",
+          "expected_output": "check_file('/etc/passwd')",
+          "description": "check_file('/etc/passwd')"
+        }
       ],
       "hint": "Use os.path.exists() to verify presence and os.path.isfile() to confirm it is a file.",
       "explanation": "Combining os.path.exists() with os.path.isfile() prevents errors when trying to open directories as files. This pattern is critical in robust file-handling workflows."
@@ -523,10 +567,26 @@
       "starter_code": "import os\n\ndef normalize_path(path):\n    # TODO: resolve relative segments and return absolute path\n    pass\n\n# Example usage\nprint(normalize_path('../data/../config/settings.json'))",
       "solution_code": "import os\n\ndef normalize_path(path):\n    normalized = os.path.normpath(path)\n    absolute = os.path.abspath(normalized)\n    return absolute\n\n# Example usage\nprint(normalize_path('../data/../config/settings.json'))",
       "test_cases": [
-        "normalize_path('./folder/../file.txt')",
-        "normalize_path('../../config')",
-        "normalize_path('/var/www/./html/index.html')",
-        "normalize_path('C:\\\\Users\\\\..\\\\..\\\\test.py')"
+        {
+          "input": "",
+          "expected_output": "normalize_path('./folder/../file.txt')",
+          "description": "normalize_path('./folder/../file.txt')"
+        },
+        {
+          "input": "",
+          "expected_output": "normalize_path('../../config')",
+          "description": "normalize_path('../../config')"
+        },
+        {
+          "input": "",
+          "expected_output": "normalize_path('/var/www/./html/index.html')",
+          "description": "normalize_path('/var/www/./html/index.html')"
+        },
+        {
+          "input": "",
+          "expected_output": "normalize_path('C:\\\\Users\\\\..\\\\..\\\\test.py')",
+          "description": "normalize_path('C:\\\\Users\\\\..\\\\..\\\\test.py')"
+        }
       ],
       "hint": "Use os.path.normpath() to clean up redundant segments and os.path.abspath() to convert to an absolute path.",
       "explanation": "os.path.normpath() removes redundant separators and resolves '.' and '..' segments, while os.path.abspath() anchors the path to the current working directory. Together they produce a canonical, unambiguous path."
@@ -544,10 +604,26 @@
       "starter_code": "import os\n\ndef absolute_files(paths):\n    # TODO: return absolute paths of existing regular files\n    pass\n\npaths = ['data/report.csv', 'logs/', 'README.md', 'scripts/']\nprint(absolute_files(paths))",
       "solution_code": "import os\n\ndef absolute_files(paths):\n    result = []\n    for p in paths:\n        if os.path.isfile(p):\n            result.append(os.path.abspath(p))\n    return result\n\npaths = ['data/report.csv', 'logs/', 'README.md', 'scripts/']\nprint(absolute_files(paths))",
       "test_cases": [
-        "absolute_files(['a.txt', 'b.dir', 'c.md'])",
-        "absolute_files(['/tmp/x.log', '/tmp/y.dir'])",
-        "absolute_files(['../valid.py', './invalid/', 'notes.txt'])",
-        "absolute_files([])"
+        {
+          "input": "",
+          "expected_output": "absolute_files(['a.txt', 'b.dir', 'c.md'])",
+          "description": "absolute_files(['a.txt', 'b.dir', 'c.md'])"
+        },
+        {
+          "input": "",
+          "expected_output": "absolute_files(['/tmp/x.log', '/tmp/y.dir'])",
+          "description": "absolute_files(['/tmp/x.log', '/tmp/y.dir'])"
+        },
+        {
+          "input": "",
+          "expected_output": "absolute_files(['../valid.py', './invalid/', 'notes.txt'])",
+          "description": "absolute_files(['../valid.py', './invalid/', 'notes.txt'])"
+        },
+        {
+          "input": "",
+          "expected_output": "absolute_files([])",
+          "description": "absolute_files([])"
+        }
       ],
       "hint": "Iterate through the list and use os.path.isfile() to test each entry before calling os.path.abspath().",
       "explanation": "This challenge combines iteration, path validation, and normalization. It mirrors real-world tasks such as collecting valid input files before processing them."
@@ -565,10 +641,26 @@
       "starter_code": "import os\nimport shutil\n\ndef backup_file(source, backup_root):\n    # TODO: validate source, build backup path, and copy file\n    pass\n\n# Example usage\nbackup_file('photos/vacation.jpg', 'backups/2024')",
       "solution_code": "import os\nimport shutil\n\ndef backup_file(source, backup_root):\n    if not os.path.isfile(source):\n        raise FileNotFoundError('Source is not a valid file.')\n    \n    filename = os.path.basename(source)\n    backup_dir = os.path.join(backup_root, os.path.dirname(source))\n    os.makedirs(backup_dir, exist_ok=True)\n    \n    backup_path = os.path.join(backup_dir, filename)\n    shutil.copy2(source, backup_path)\n    return backup_path\n\n# Example usage\nbackup_file('photos/vacation.jpg', 'backups/2024')",
       "test_cases": [
-        "backup_file('docs/report.pdf', 'archive/2024')",
-        "backup_file('data/input.csv', 'archive/2024')",
-        "backup_file('scripts/run.py', 'archive/2024')",
-        "backup_file('missing.txt', 'archive/2024')"
+        {
+          "input": "",
+          "expected_output": "backup_file('docs/report.pdf', 'archive/2024')",
+          "description": "backup_file('docs/report.pdf', 'archive/2024')"
+        },
+        {
+          "input": "",
+          "expected_output": "backup_file('data/input.csv', 'archive/2024')",
+          "description": "backup_file('data/input.csv', 'archive/2024')"
+        },
+        {
+          "input": "",
+          "expected_output": "backup_file('scripts/run.py', 'archive/2024')",
+          "description": "backup_file('scripts/run.py', 'archive/2024')"
+        },
+        {
+          "input": "",
+          "expected_output": "backup_file('missing.txt', 'archive/2024')",
+          "description": "backup_file('missing.txt', 'archive/2024')"
+        }
       ],
       "hint": "First validate with os.path.isfile(), then use os.path.basename() and os.path.join() to preserve structure under the backup root.",
       "explanation": "In production, always validate inputs before performing I/O. os.path.join() builds platform-independent paths, and os.makedirs(exist_ok=True) safely creates nested directories without raising errors."
@@ -586,10 +678,26 @@
       "starter_code": "import os\n\ndef resolve_path(raw_path):\n    # TODO: normalize, validate, and return absolute path\n    pass\n\n# Example usage\nprint(resolve_path('../valid/file.txt'))",
       "solution_code": "import os\n\ndef resolve_path(raw_path):\n    normalized = os.path.normpath(raw_path)\n    absolute = os.path.abspath(normalized)\n    if not os.path.isfile(absolute):\n        raise ValueError('Resolved path is not an existing regular file: ' + absolute)\n    return absolute\n\n# Example usage\nprint(resolve_path('../valid/file.txt'))",
       "test_cases": [
-        "resolve_path('valid_file.txt')",
-        "resolve_path('../valid/file.txt')",
-        "resolve_path('invalid/path/file.txt')",
-        "resolve_path('C:\\\\temp\\\\missing.dat')"
+        {
+          "input": "",
+          "expected_output": "resolve_path('valid_file.txt')",
+          "description": "resolve_path('valid_file.txt')"
+        },
+        {
+          "input": "",
+          "expected_output": "resolve_path('../valid/file.txt')",
+          "description": "resolve_path('../valid/file.txt')"
+        },
+        {
+          "input": "",
+          "expected_output": "resolve_path('invalid/path/file.txt')",
+          "description": "resolve_path('invalid/path/file.txt')"
+        },
+        {
+          "input": "",
+          "expected_output": "resolve_path('C:\\\\temp\\\\missing.dat')",
+          "description": "resolve_path('C:\\\\temp\\\\missing.dat')"
+        }
       ],
       "hint": "Chain normpath, abspath, and isfile in sequence, then raise ValueError with the absolute path if the file check fails.",
       "explanation": "This mastery item enforces defensive programming: every transformation step is explicit, and failure modes are communicated through exceptions. This pattern scales to large applications where incorrect paths cause silent bugs."

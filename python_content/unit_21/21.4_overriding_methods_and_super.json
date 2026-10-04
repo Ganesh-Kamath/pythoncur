@@ -483,8 +483,16 @@
       "starter_code": "class Animal:\n    def speak(self):\n        return 'Some sound'\n\nclass Dog(Animal):\n    def speak(self):\n        # TODO: call super and return combined result\n        pass\n\nprint(Dog().speak())",
       "solution_code": "class Animal:\n    def speak(self):\n        return 'Some sound'\n\nclass Dog(Animal):\n    def speak(self):\n        return super().speak() + ' Woof'\n\nprint(Dog().speak())",
       "test_cases": [
-        "Dog().speak() == 'Some sound Woof'",
-        "Animal().speak() == 'Some sound'"
+        {
+          "input": "Dog().speak()",
+          "expected_output": "'Some sound Woof'",
+          "description": "Verifies: Dog().speak() == 'Some sound Woof'"
+        },
+        {
+          "input": "Animal().speak()",
+          "expected_output": "'Some sound'",
+          "description": "Verifies: Animal().speak() == 'Some sound'"
+        }
       ],
       "hint": "Use super().speak() inside Dog.speak() and concatenate a string.",
       "explanation": "Dog overrides Animal.speak(). By calling super().speak(), it accesses the parent implementation. The result is combined with the subclass-specific suffix.",
@@ -504,8 +512,16 @@
       "starter_code": "class Payment:\n    def process(self):\n        return 'Paid'\n\nclass CreditCard(Payment):\n    def process(self):\n        # TODO: extend parent behavior\n        pass\n\nprint(CreditCard().process())",
       "solution_code": "class Payment:\n    def process(self):\n        return 'Paid'\n\nclass CreditCard(Payment):\n    def process(self):\n        return 'Card: ' + super().process()\n\nprint(CreditCard().process())",
       "test_cases": [
-        "CreditCard().process() == 'Card: Paid'",
-        "Payment().process() == 'Paid'"
+        {
+          "input": "CreditCard().process()",
+          "expected_output": "'Card: Paid'",
+          "description": "Verifies: CreditCard().process() == 'Card: Paid'"
+        },
+        {
+          "input": "Payment().process()",
+          "expected_output": "'Paid'",
+          "description": "Verifies: Payment().process() == 'Paid'"
+        }
       ],
       "hint": "Concatenate a prefix with super().process().",
       "explanation": "CreditCard overrides process() but delegates to Payment.process() via super(). This keeps the original payment logic intact while adding context.",
@@ -525,8 +541,16 @@
       "starter_code": "class A:\n    def run(self):\n        return 'A'\n\nclass B(A):\n    def run(self):\n        return 'B: ' + super().run()\n\nclass C(A):\n    def run(self):\n        return 'C: ' + super().run()\n\nclass D(B, C):\n    def run(self):\n        return 'D: ' + super().run()\n\nprint(D().run())\nprint(D.__mro__)",
       "solution_code": "class A:\n    def run(self):\n        return 'A'\n\nclass B(A):\n    def run(self):\n        return 'B: ' + super().run()\n\nclass C(A):\n    def run(self):\n        return 'C: ' + super().run()\n\nclass D(B, C):\n    def run(self):\n        return 'D: ' + super().run()\n\nprint(D().run())\nprint(D.__mro__)",
       "test_cases": [
-        "D().run() == 'D: B: C: A'",
-        "D.__mro__ == (D, B, C, A, object)"
+        {
+          "input": "D().run()",
+          "expected_output": "'D: B: C: A'",
+          "description": "Verifies: D().run() == 'D: B: C: A'"
+        },
+        {
+          "input": "D.__mro__",
+          "expected_output": "(D, B, C, A, object)",
+          "description": "Verifies: D.__mro__ == (D, B, C, A, object)"
+        }
       ],
       "hint": "MRO for D(B, C) is D, B, C, A, object. super().run() follows this chain.",
       "explanation": "super().run() in D invokes B.run(), which in turn calls super().run() and follows the MRO to C, then A. This demonstrates cooperative inheritance.",
@@ -546,8 +570,16 @@
       "starter_code": "class Employee:\n    def work(self):\n        return 'Task done'\n\nclass Manager(Employee):\n    def work(self):\n        return super().work() + ' (managed)'\n\nprint(Manager().work())",
       "solution_code": "class Employee:\n    def work(self):\n        return 'Task done'\n\nclass Manager(Employee):\n    def work(self):\n        return super().work() + ' (managed)'\n\nprint(Manager().work())",
       "test_cases": [
-        "Manager().work() == 'Task done (managed)'",
-        "Employee().work() == 'Task done'"
+        {
+          "input": "Manager().work()",
+          "expected_output": "'Task done (managed)'",
+          "description": "Verifies: Manager().work() == 'Task done (managed)'"
+        },
+        {
+          "input": "Employee().work()",
+          "expected_output": "'Task done'",
+          "description": "Verifies: Employee().work() == 'Task done'"
+        }
       ],
       "hint": "The starter code is already correct; verify that super() is called before concatenation.",
       "explanation": "Manager.work() overrides Employee.work() and extends the result by calling super().work(). No state mutation is involved, but the pattern applies when attributes are updated.",
@@ -567,9 +599,21 @@
       "starter_code": "class Widget:\n    def draw(self):\n        return 'Widget draw'\n\nclass Button(Widget):\n    def draw(self):\n        return 'Button draw: ' + super().draw()\n\nclass IconButton(Button):\n    def draw(self):\n        return 'Icon: ' + super().draw()\n\nprint(IconButton().draw())",
       "solution_code": "class Widget:\n    def draw(self):\n        return 'Widget draw'\n\nclass Button(Widget):\n    def draw(self):\n        return 'Button draw: ' + super().draw()\n\nclass IconButton(Button):\n    def draw(self):\n        return 'Icon: ' + super().draw()\n\nprint(IconButton().draw())",
       "test_cases": [
-        "IconButton().draw() == 'Icon: Button draw: Widget draw'",
-        "Widget().draw() == 'Widget draw'",
-        "Button().draw() == 'Button draw: Widget draw'"
+        {
+          "input": "IconButton().draw()",
+          "expected_output": "'Icon: Button draw: Widget draw'",
+          "description": "Verifies: IconButton().draw() == 'Icon: Button draw: Widget draw'"
+        },
+        {
+          "input": "Widget().draw()",
+          "expected_output": "'Widget draw'",
+          "description": "Verifies: Widget().draw() == 'Widget draw'"
+        },
+        {
+          "input": "Button().draw()",
+          "expected_output": "'Button draw: Widget draw'",
+          "description": "Verifies: Button().draw() == 'Button draw: Widget draw'"
+        }
       ],
       "hint": "Follow the MRO: IconButton -> Button -> Widget -> object.",
       "explanation": "Each subclass overrides draw() and delegates upward via super(). This mirrors real UI frameworks where common initialization is preserved across specialized components.",
@@ -589,9 +633,21 @@
       "starter_code": "class Account:\n    def withdraw(self, amount):\n        return 'Withdrew ' + str(amount)\n\nclass Savings(Account):\n    def withdraw(self, amount):\n        # TODO: validate and delegate\n        pass\n\nprint(Savings().withdraw(100))\nprint(Savings().withdraw(-50))",
       "solution_code": "class Account:\n    def withdraw(self, amount):\n        return 'Withdrew ' + str(amount)\n\nclass Savings(Account):\n    def withdraw(self, amount):\n        if amount <= 0:\n            return 'Invalid amount'\n        return super().withdraw(amount)\n\nprint(Savings().withdraw(100))\nprint(Savings().withdraw(-50))",
       "test_cases": [
-        "Savings().withdraw(100) == 'Withdrew 100'",
-        "Savings().withdraw(-50) == 'Invalid amount'",
-        "Account().withdraw(100) == 'Withdrew 100'"
+        {
+          "input": "Savings().withdraw(100)",
+          "expected_output": "'Withdrew 100'",
+          "description": "Verifies: Savings().withdraw(100) == 'Withdrew 100'"
+        },
+        {
+          "input": "Savings().withdraw(-50)",
+          "expected_output": "'Invalid amount'",
+          "description": "Verifies: Savings().withdraw(-50) == 'Invalid amount'"
+        },
+        {
+          "input": "Account().withdraw(100)",
+          "expected_output": "'Withdrew 100'",
+          "description": "Verifies: Account().withdraw(100) == 'Withdrew 100'"
+        }
       ],
       "hint": "Check amount > 0 before calling super().",
       "explanation": "Savings overrides withdraw() to add validation. Only positive amounts reach Account.withdraw() via super(). This demonstrates safe extension of behavior.",

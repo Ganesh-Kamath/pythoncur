@@ -479,8 +479,16 @@
       "starter_code": "for i in range(1, 11):\n    print(i)",
       "solution_code": "for i in range(1, 11):\n    print(i)",
       "test_cases": [
-        "Output should contain 10 lines with numbers 1 through 10.",
-        "No extra text or symbols should appear before or after each number."
+        {
+          "input": "",
+          "expected_output": "Output should contain 10 lines with numbers 1 through 10.",
+          "description": "Output should contain 10 lines with numbers 1 through 10."
+        },
+        {
+          "input": "",
+          "expected_output": "No extra text or symbols should appear before or after each number.",
+          "description": "No extra text or symbols should appear before or after each number."
+        }
       ],
       "hint": "Use range(1, 11) to generate numbers starting at 1 up to and including 10.",
       "explanation": "The for loop iterates over a sequence created by range(1, 11). Each iteration assigns the next integer to i, and print(i) displays it. This demonstrates the basic structure of a for loop in Python."
@@ -498,8 +506,16 @@
       "starter_code": "for item in range(1, 6):\n    print('Item ' + item)",
       "solution_code": "for item in range(1, 6):\n    print('Item ' + str(item))",
       "test_cases": [
-        "Output must show 'Item 1' through 'Item 5' on separate lines.",
-        "Each line must exactly match the format 'Item X' with no extra spaces."
+        {
+          "input": "",
+          "expected_output": "Output must show 'Item 1' through 'Item 5' on separate lines.",
+          "description": "Output must show 'Item 1' through 'Item 5' on separate lines."
+        },
+        {
+          "input": "",
+          "expected_output": "Each line must exactly match the format 'Item X' with no extra spaces.",
+          "description": "Each line must exactly match the format 'Item X' with no extra spaces."
+        }
       ],
       "hint": "Remember that range produces integers, but string concatenation requires both operands to be strings, so convert the number using str().",
       "explanation": "This task reinforces string formatting inside a loop. Without str(), Python raises a TypeError because you cannot concatenate an int and a str. Converting to str() ensures valid concatenation."
@@ -517,8 +533,16 @@
       "starter_code": "for num in range(1, 21):\n    if num % 2 == 0:\n        print(num)",
       "solution_code": "for num in range(2, 21, 2):\n    print(num)",
       "test_cases": [
-        "Output must list 2, 4, 6, 8, 10, 12, 14, 16, 18, 20.",
-        "No odd numbers should appear in the output."
+        {
+          "input": "",
+          "expected_output": "Output must list 2, 4, 6, 8, 10, 12, 14, 16, 18, 20.",
+          "description": "Output must list 2, 4, 6, 8, 10, 12, 14, 16, 18, 20."
+        },
+        {
+          "input": "",
+          "expected_output": "No odd numbers should appear in the output.",
+          "description": "No odd numbers should appear in the output."
+        }
       ],
       "hint": "range accepts a step argument. Setting the step to 2 starts at 2 and skips every other number, automatically yielding only even values.",
       "explanation": "Using range(2, 21, 2) is more efficient than checking every number with an if statement. The step parameter controls the increment, so the loop visits only even integers without additional conditional logic inside the loop body."
@@ -536,8 +560,16 @@
       "starter_code": "for row in range(1, 4):\n    for col in range(1, 4):\n        print(row * col)",
       "solution_code": "for row in range(1, 4):\n    for col in range(1, 4):\n        print(row * col, end='\t')\n    print()",
       "test_cases": [
-        "Output must contain 3 rows and 3 columns of products.",
-        "Each row should be separated by a newline, and values within a row should be separated by a tab character."
+        {
+          "input": "",
+          "expected_output": "Output must contain 3 rows and 3 columns of products.",
+          "description": "Output must contain 3 rows and 3 columns of products."
+        },
+        {
+          "input": "",
+          "expected_output": "Each row should be separated by a newline, and values within a row should be separated by a tab character.",
+          "description": "Each row should be separated by a newline, and values within a row should be separated by a tab character."
+        }
       ],
       "hint": "Use end='\\t' inside the inner print to place a tab after each product, and call print() with no arguments after the inner loop to move to the next line.",
       "explanation": "Nested loops allow one loop to run completely for each iteration of the outer loop. The inner loop computes row * col for every column, and end='\\t' plus an empty print() call formats the grid cleanly."
@@ -555,8 +587,16 @@
       "starter_code": "prices = [12.5, 3.0, 7.75, 15.2]\ntotal = 0.0\nfor price in prices:\n    total += price\nprint('Total:', total)",
       "solution_code": "prices = [12.5, 3.0, 7.75, 15.2]\ntotal = 0.0\nfor price in prices:\n    total += price\nprint('Total inventory value: $' + str(round(total, 2)))",
       "test_cases": [
-        "The total must equal 38.45.",
-        "The output string must include the dollar sign and the rounded value to two decimal places."
+        {
+          "input": "",
+          "expected_output": "The total must equal 38.45.",
+          "description": "The total must equal 38.45."
+        },
+        {
+          "input": "",
+          "expected_output": "The output string must include the dollar sign and the rounded value to two decimal places.",
+          "description": "The output string must include the dollar sign and the rounded value to two decimal places."
+        }
       ],
       "hint": "Use round(total, 2) to format the monetary value to two decimal places before converting it to a string for concatenation.",
       "explanation": "This scenario combines list storage with iterative accumulation. The for loop traverses each element of the prices list, adding it to total. Rounding ensures standard currency formatting, and string concatenation produces a readable report line."
@@ -574,8 +614,16 @@
       "starter_code": "fruits = ['apple', 'banana', 'cherry']\nfor index, fruit in enumerate(fruits):\n    print(index, fruit)",
       "solution_code": "fruits = ['apple', 'banana', 'cherry']\nfor index, fruit in enumerate(fruits):\n    print('Index ' + str(index) + ': ' + fruit)",
       "test_cases": [
-        "Output must show three lines with indices 0, 1, and 2 paired with their corresponding fruit names.",
-        "Each line must follow the exact format 'Index X: Y' with a space after the colon."
+        {
+          "input": "",
+          "expected_output": "Output must show three lines with indices 0, 1, and 2 paired with their corresponding fruit names.",
+          "description": "Output must show three lines with indices 0, 1, and 2 paired with their corresponding fruit names."
+        },
+        {
+          "input": "",
+          "expected_output": "Each line must follow the exact format 'Index X: Y' with a space after the colon.",
+          "description": "Each line must follow the exact format 'Index X: Y' with a space after the colon."
+        }
       ],
       "hint": "enumerate returns pairs of (index, value). Convert both index and fruit to strings before concatenating them into the final output message.",
       "explanation": "enumerate is a built-in function that simplifies indexed iteration. It yields a tuple containing the counter and the current item on each iteration. Using it avoids manual counter management and makes the code clearer and less error-prone."

@@ -437,7 +437,13 @@
       ],
       "prompt": "An online store applies discounts. A customer buys an item for $100 with a $20 coupon. The order completes successfully, but the invoice charges the customer $120. Which diagnosis is correct?",
       "correct_answer": "B",
-      "explanation": "Because the transaction completed without errors, the syntax and system operations were valid. The error was purely algorithmic: adding instead of subtracting."
+      "explanation": "Because the transaction completed without errors, the syntax and system operations were valid. The error was purely algorithmic: adding instead of subtracting.",
+      "options": [
+        "A. A syntax error prevented the coupon discount from being calculated.",
+        "B. A logic error occurred where the program added the coupon value instead of subtracting it.",
+        "C. A runtime exception caused the database to restore the default full price.",
+        "D. A hardware glitch corrupted the floating-point register."
+      ]
     },
     {
       "id": "1.1_q26",
@@ -509,7 +515,13 @@
       ],
       "prompt": "A smart thermostat measures room temperature at 65°F. Its target is 72°F. It calculates that the temperature is below target and turns on the heater. Which element represents the 'Processing' step?",
       "correct_answer": "B",
-      "explanation": "The sensor reading is the Input. The furnace activating is the Output (action). The decision logic comparing current vs target temperature is the Processing."
+      "explanation": "The sensor reading is the Input. The furnace activating is the Output (action). The decision logic comparing current vs target temperature is the Processing.",
+      "options": [
+        "A. Measuring the room temperature at 65°F via the thermometer sensor.",
+        "B. Evaluating whether the current temperature (65°F) is below the target (72°F) to decide whether to heat.",
+        "C. Sending the electric current to ignite the heating element.",
+        "D. Displaying the current temperature on the digital thermostat display."
+      ]
     },
     {
       "id": "1.1_q30",
@@ -525,7 +537,13 @@
       ],
       "prompt": "Which of the following best summarizes the ultimate goal of learning to program in Python?",
       "correct_answer": "B",
-      "explanation": "Programming is fundamentally about problem solving: transforming vague human goals into precise, robust, and automated algorithmic procedures."
+      "explanation": "Programming is fundamentally about problem solving: transforming vague human goals into precise, robust, and automated algorithmic procedures.",
+      "options": [
+        "A. Writing code with the maximum number of lines and complex keywords.",
+        "B. Decomposing complex real-world problems into unambiguous computational instructions to automate solutions.",
+        "C. Memorizing every built-in function in the Python standard library.",
+        "D. Preventing the computer from communicating with external networks."
+      ]
     }
   ],
   "unit_num": 1,

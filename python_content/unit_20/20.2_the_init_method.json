@@ -428,9 +428,21 @@
       "starter_code": "class Employee:\n    def __init__(self, name, department, salary):\n        self.name = name\n        self.department = department\n        self.salary = salary\n        self.email = name.lower() + '@company.com'\n        self.full_name = name\n        self.dept = department\n\nemp = Employee('Alice Johnson', 'Engineering', 95000)\nprint(emp.email)",
       "solution_code": "class Employee:\n    def __init__(self, name, department, salary):\n        self.name = name\n        self.department = department\n        self.salary = salary\n        self.email = f'{name.lower()}@company.com'\n\nemp = Employee('Alice Johnson', 'Engineering', 95000)\nprint(emp.email)",
       "test_cases": [
-        "Employee('Bob Smith', 'HR', 70000).email == 'bob.smith@company.com'",
-        "Employee('Carol White', 'Sales', 82000).email == 'carol.white@company.com'",
-        "Employee('Dave Lee', 'Marketing', 65000).department == 'Marketing'"
+        {
+          "input": "Employee('Bob Smith', 'HR', 70000).email",
+          "expected_output": "'bob.smith@company.com'",
+          "description": "Verifies: Employee('Bob Smith', 'HR', 70000).email == 'bob.smith@company.com'"
+        },
+        {
+          "input": "Employee('Carol White', 'Sales', 82000).email",
+          "expected_output": "'carol.white@company.com'",
+          "description": "Verifies: Employee('Carol White', 'Sales', 82000).email == 'carol.white@company.com'"
+        },
+        {
+          "input": "Employee('Dave Lee', 'Marketing', 65000).department",
+          "expected_output": "'Marketing'",
+          "description": "Verifies: Employee('Dave Lee', 'Marketing', 65000).department == 'Marketing'"
+        }
       ],
       "hint": "Remove duplicate attribute assignments and use an f-string for cleaner email construction.",
       "explanation": "The original code assigned self.full_name to the same value as self.name and created a redundant self.dept alias. Using an f-string for email is more readable and efficient. Removing duplicates keeps the object lightweight and easier to maintain."
@@ -448,8 +460,16 @@
       "starter_code": "class Book:\n    pass\n\n# Create an instance of Book\nmy_book = Book('1984', 'George Orwell')",
       "solution_code": "class Book:\n    def __init__(self, title, author):\n        self.title = title\n        self.author = author\n\n# Create an instance of Book\nmy_book = Book('1984', 'George Orwell')\n\n# Print the attributes to verify\nprint(my_book.title)\nprint(my_book.author)",
       "test_cases": [
-        "assert my_book.title == '1984'",
-        "assert my_book.author == 'George Orwell'"
+        {
+          "input": "assert my_book.title",
+          "expected_output": "'1984'",
+          "description": "Verifies: assert my_book.title == '1984'"
+        },
+        {
+          "input": "assert my_book.author",
+          "expected_output": "'George Orwell'",
+          "description": "Verifies: assert my_book.author == 'George Orwell'"
+        }
       ],
       "hint": "Remember that the first parameter of __init__ is always self, followed by the custom parameters you want to accept.",
       "explanation": "The __init__ method is a special method in Python classes that acts as a constructor. It is automatically called when a new instance of the class is created. By defining self.title and self.author inside __init__, you store the provided values as instance attributes that can be accessed later via dot notation."
@@ -467,8 +487,16 @@
       "starter_code": "class Book:\n    def __init__(self, title, author, pages=0):\n        self.title = title\n        self.author = author\n        self.pages = pages\n\n# TODO: add describe method and test with a book that has 350 pages",
       "solution_code": "class Book:\n    def __init__(self, title, author, pages=0):\n        self.title = title\n        self.author = author\n        self.pages = pages\n\n    def describe(self):\n        return f\"{self.title} by {self.author} ({self.pages} pages)\"\n\n# Test with a book that has 350 pages\nmy_book = Book('Dune', 'Frank Herbert', 350)\nprint(my_book.describe())",
       "test_cases": [
-        "assert my_book.describe() == 'Dune by Frank Herbert (350 pages)'",
-        "assert my_book.pages == 350"
+        {
+          "input": "assert my_book.describe()",
+          "expected_output": "'Dune by Frank Herbert (350 pages)'",
+          "description": "Verifies: assert my_book.describe() == 'Dune by Frank Herbert (350 pages)'"
+        },
+        {
+          "input": "assert my_book.pages",
+          "expected_output": "350",
+          "description": "Verifies: assert my_book.pages == 350"
+        }
       ],
       "hint": "Use a default value in the __init__ signature and build the describe method to access self.title, self.author, and self.pages.",
       "explanation": "Default parameters allow __init__ to be called with fewer arguments, making the class more flexible. The describe method demonstrates how instance attributes set in __init__ can be used by other methods to produce meaningful output."
@@ -486,8 +514,16 @@
       "starter_code": "class BankAccount:\n    def __init__(self, holder_name, initial_balance):\n        self.holder_name = holder_name\n        # TODO: validate initial_balance and raise ValueError if negative",
       "solution_code": "class BankAccount:\n    def __init__(self, holder_name, initial_balance):\n        if initial_balance < 0:\n            raise ValueError('Initial balance cannot be negative')\n        self.holder_name = holder_name\n        self.balance = initial_balance\n\n# Valid case\nacc1 = BankAccount('Alice', 500)\nprint(acc1.balance)\n\n# Invalid case\ntry:\n    acc2 = BankAccount('Bob', -100)\nexcept ValueError as e:\n    print(e)",
       "test_cases": [
-        "assert acc1.balance == 500",
-        "assert str(e) == 'Initial balance cannot be negative'"
+        {
+          "input": "assert acc1.balance",
+          "expected_output": "500",
+          "description": "Verifies: assert acc1.balance == 500"
+        },
+        {
+          "input": "assert str(e)",
+          "expected_output": "'Initial balance cannot be negative'",
+          "description": "Verifies: assert str(e) == 'Initial balance cannot be negative'"
+        }
       ],
       "hint": "Use an if statement inside __init__ to check the value before assigning it to self.balance.",
       "explanation": "Validating inputs inside __init__ ensures that objects are created in a valid state. Raising an exception immediately prevents the creation of an invalid BankAccount instance and makes debugging easier for the caller."
@@ -505,9 +541,21 @@
       "starter_code": "class Rectangle:\n    def __init__(self, width, height):\n        # TODO: assign width, height, and compute area\n        pass\n\nrect = Rectangle(4, 5)\nprint(rect.area)",
       "solution_code": "class Rectangle:\n    def __init__(self, width, height):\n        self.width = width\n        self.height = height\n        self.area = width * height\n\nrect = Rectangle(4, 5)\nprint(rect.area)",
       "test_cases": [
-        "assert rect.width == 4",
-        "assert rect.height == 5",
-        "assert rect.area == 20"
+        {
+          "input": "assert rect.width",
+          "expected_output": "4",
+          "description": "Verifies: assert rect.width == 4"
+        },
+        {
+          "input": "assert rect.height",
+          "expected_output": "5",
+          "description": "Verifies: assert rect.height == 5"
+        },
+        {
+          "input": "assert rect.area",
+          "expected_output": "20",
+          "description": "Verifies: assert rect.area == 20"
+        }
       ],
       "hint": "Compute the area immediately after storing width and height, then assign it to self.area.",
       "explanation": "Performing derived calculations inside __init__ keeps related data synchronized. Whenever width or height changes later, you would need a setter or method to recompute area, but initializing it at creation time is a common pattern."
@@ -525,10 +573,26 @@
       "starter_code": "class Employee:\n    def __init__(self, name, employee_id, department, salary):\n        # TODO: validate salary and assign all attributes\n        pass\n\nemployee = Employee('Carol', 'E102', 'Engineering', 85000.50)\nprint(employee.name)\nprint(employee.salary)",
       "solution_code": "class Employee:\n    def __init__(self, name, employee_id, department, salary):\n        if salary <= 0:\n            salary = 0.0\n        self.name = name\n        self.employee_id = employee_id\n        self.department = department\n        self.salary = float(salary)\n\nemployee = Employee('Carol', 'E102', 'Engineering', 85000.50)\nprint(employee.name)\nprint(employee.salary)",
       "test_cases": [
-        "assert employee.name == 'Carol'",
-        "assert employee.employee_id == 'E102'",
-        "assert employee.department == 'Engineering'",
-        "assert employee.salary == 85000.5"
+        {
+          "input": "assert employee.name",
+          "expected_output": "'Carol'",
+          "description": "Verifies: assert employee.name == 'Carol'"
+        },
+        {
+          "input": "assert employee.employee_id",
+          "expected_output": "'E102'",
+          "description": "Verifies: assert employee.employee_id == 'E102'"
+        },
+        {
+          "input": "assert employee.department",
+          "expected_output": "'Engineering'",
+          "description": "Verifies: assert employee.department == 'Engineering'"
+        },
+        {
+          "input": "assert employee.salary",
+          "expected_output": "85000.5",
+          "description": "Verifies: assert employee.salary == 85000.5"
+        }
       ],
       "hint": "Check if salary is less than or equal to zero, and convert the final value to float to guarantee a numeric type.",
       "explanation": "In real-world applications, constructors often enforce business rules such as non-negative salaries. Normalizing inputs in __init__ prevents invalid data from propagating through the system and simplifies later logic."
@@ -546,9 +610,21 @@
       "starter_code": "class Vehicle:\n    def __init__(self, make, model):\n        # TODO: store make and model\n        pass\n\nclass ElectricCar(Vehicle):\n    def __init__(self, make, model, battery_size):\n        # TODO: call super().__init__ and store battery_size\n        pass\n\nec = ElectricCar('Tesla', 'Model 3', 75)\nprint(ec.make)\nprint(ec.battery_size)",
       "solution_code": "class Vehicle:\n    def __init__(self, make, model):\n        self.make = make\n        self.model = model\n\nclass ElectricCar(Vehicle):\n    def __init__(self, make, model, battery_size):\n        super().__init__(make, model)\n        self.battery_size = battery_size\n\nec = ElectricCar('Tesla', 'Model 3', 75)\nprint(ec.make)\nprint(ec.battery_size)",
       "test_cases": [
-        "assert ec.make == 'Tesla'",
-        "assert ec.model == 'Model 3'",
-        "assert ec.battery_size == 75"
+        {
+          "input": "assert ec.make",
+          "expected_output": "'Tesla'",
+          "description": "Verifies: assert ec.make == 'Tesla'"
+        },
+        {
+          "input": "assert ec.model",
+          "expected_output": "'Model 3'",
+          "description": "Verifies: assert ec.model == 'Model 3'"
+        },
+        {
+          "input": "assert ec.battery_size",
+          "expected_output": "75",
+          "description": "Verifies: assert ec.battery_size == 75"
+        }
       ],
       "hint": "Use super().__init__(make, model) inside ElectricCar.__init__ before assigning self.battery_size.",
       "explanation": "Using super() in a subclass constructor delegates initialization to the parent class, promoting code reuse and maintaining the object's full state. This pattern is essential when building class hierarchies in object-oriented design."

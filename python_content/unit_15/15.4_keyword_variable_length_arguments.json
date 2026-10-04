@@ -479,8 +479,16 @@
       "starter_code": "def display_user_info(name):\n    pass\n\n# Example usage\ndisplay_user_info('Alice', age=25, city='New York')",
       "solution_code": "def display_user_info(name, **kwargs):\n    print(f'Name: {name}')\n    for key, value in kwargs.items():\n        print(f'{key}: {value}')\n\n# Example usage\ndisplay_user_info('Alice', age=25, city='New York')",
       "test_cases": [
-        "display_user_info('Bob', role='Engineer', dept='IT')",
-        "display_user_info('Carol', age=30, hobby='Painting', active=True)"
+        {
+          "input": "",
+          "expected_output": "display_user_info('Bob', role='Engineer', dept='IT')",
+          "description": "display_user_info('Bob', role='Engineer', dept='IT')"
+        },
+        {
+          "input": "",
+          "expected_output": "display_user_info('Carol', age=30, hobby='Painting', active=True)",
+          "description": "display_user_info('Carol', age=30, hobby='Painting', active=True)"
+        }
       ],
       "hint": "Use `**kwargs` in the parameter list to capture extra keyword arguments as a dictionary.",
       "explanation": "The `**kwargs` syntax collects all unmatched keyword arguments into a dictionary named `kwargs`. Inside the function, you can iterate over `.items()` to access each key and value. This allows flexible function signatures without predefined parameters."
@@ -498,8 +506,16 @@
       "starter_code": "def build_config(name):\n    pass\n\n# Example usage\ncfg = build_config('Server1', port=8080, debug=False, host='localhost')",
       "solution_code": "def build_config(name, **settings):\n    config = {'name': name}\n    config.update(settings)\n    return config\n\n# Example usage\ncfg = build_config('Server1', port=8080, debug=False, host='localhost')\nprint(cfg)",
       "test_cases": [
-        "build_config('App1', version='1.0', env='prod')",
-        "build_config('DB1', engine='PostgreSQL', port=5432, user='admin')"
+        {
+          "input": "",
+          "expected_output": "build_config('App1', version='1.0', env='prod')",
+          "description": "build_config('App1', version='1.0', env='prod')"
+        },
+        {
+          "input": "",
+          "expected_output": "build_config('DB1', engine='PostgreSQL', port=5432, user='admin')",
+          "description": "build_config('DB1', engine='PostgreSQL', port=5432, user='admin')"
+        }
       ],
       "hint": "Initialize a dictionary with the required field, then use `.update()` to merge the `**settings` dictionary.",
       "explanation": "This pattern is common when building configuration objects dynamically. Starting with a base dictionary and updating it with `**kwargs` ensures all provided settings are preserved without hardcoding expected keys."
@@ -517,8 +533,16 @@
       "starter_code": "def merge_records(record_id):\n    pass\n\n# Example usage\nresult = merge_records('REC001', status='active', count=5)\nprint(result)",
       "solution_code": "def merge_records(record_id, **fields):\n    result = {'record_id': record_id}\n    for key, value in fields.items():\n        if not isinstance(value, (str, int)):\n            raise TypeError(f'Value for {key} must be str or int, got {type(value).__name__}')\n        result[key] = value\n    return result\n\n# Example usage\nresult = merge_records('REC001', status='active', count=5)\nprint(result)",
       "test_cases": [
-        "merge_records('REC002', name='Widget', qty=10)",
-        "merge_records('REC003', flag=True)  # should raise TypeError"
+        {
+          "input": "",
+          "expected_output": "merge_records('REC002', name='Widget', qty=10)",
+          "description": "merge_records('REC002', name='Widget', qty=10)"
+        },
+        {
+          "input": "",
+          "expected_output": "merge_records('REC003', flag=True)  # should raise TypeError",
+          "description": "merge_records('REC003', flag=True)  # should raise TypeError"
+        }
       ],
       "hint": "Iterate through `**fields.items()`, check `isinstance(value, (str, int))`, and raise `TypeError` with a descriptive message if validation fails.",
       "explanation": "Advanced `**kwargs` usage includes runtime validation and type enforcement. By checking each incoming value, you create safer, more predictable APIs. The `isinstance` check against a tuple of allowed types is efficient and explicit."
@@ -536,8 +560,16 @@
       "starter_code": "def log_event(event_name):\n    pass\n\n# Example usage\nlog_event('login', user='alice', status='success')",
       "solution_code": "def log_event(event_name, **kwargs):\n    parts = [f'Event: {event_name}']\n    for key, value in kwargs.items():\n        parts.append(f'{key}={value}')\n    print(' | '.join(parts))\n    return all(isinstance(v, str) for v in kwargs.values())\n\n# Example usage\nlog_event('login', user='alice', status='success')\nprint(log_event('error', code=404, msg='Not Found'))",
       "test_cases": [
-        "log_event('signup', email='bob@example.com', verified=True)",
-        "log_event('purchase', item='Book', price=19.99)"
+        {
+          "input": "",
+          "expected_output": "log_event('signup', email='bob@example.com', verified=True)",
+          "description": "log_event('signup', email='bob@example.com', verified=True)"
+        },
+        {
+          "input": "",
+          "expected_output": "log_event('purchase', item='Book', price=19.99)",
+          "description": "log_event('purchase', item='Book', price=19.99)"
+        }
       ],
       "hint": "Use `all()` with a generator expression to verify every value is a string without explicit loops and conditional branches.",
       "explanation": "This challenge tests conditional logic combined with `**kwargs`. The `all()` function short-circuits on the first non-string value, making it both readable and efficient. Returning a boolean based on validation demonstrates how `**kwargs` can drive decision-making in functions."
@@ -555,8 +587,16 @@
       "starter_code": "def create_request(method):\n    pass\n\n# Example usage\nreq = create_request('POST', auth='Bearer xyz', payload={'id': 123, 'name': 'Test'})",
       "solution_code": "def create_request(method, **kwargs):\n    request = {'method': method}\n    headers = {}\n    body = {}\n    for key, value in kwargs.items():\n        if isinstance(value, dict):\n            body[key] = value\n        else:\n            headers[key] = value\n    if headers:\n        request['headers'] = headers\n    if body:\n        request['body'] = body\n    return request\n\n# Example usage\nreq = create_request('POST', auth='Bearer xyz', payload={'id': 123, 'name': 'Test'})\nprint(req)",
       "test_cases": [
-        "create_request('GET', accept='application/json', version=2)",
-        "create_request('PUT', token='abc123', data={'action': 'update', 'id': 42})"
+        {
+          "input": "",
+          "expected_output": "create_request('GET', accept='application/json', version=2)",
+          "description": "create_request('GET', accept='application/json', version=2)"
+        },
+        {
+          "input": "",
+          "expected_output": "create_request('PUT', token='abc123', data={'action': 'update', 'id': 42})",
+          "description": "create_request('PUT', token='abc123', data={'action': 'update', 'id': 42})"
+        }
       ],
       "hint": "Separate keyword arguments into headers and body by inspecting whether each value is a dictionary using `isinstance(value, dict)`.",
       "explanation": "In real-world REST API design, flexible request builders use `**kwargs` to accept arbitrary configuration. Distinguishing headers from body parameters based on value type mirrors how HTTP clients parse payloads. This synthesis exercise connects dictionary manipulation, type inspection, and API modeling."
@@ -574,8 +614,16 @@
       "starter_code": "def apply_to_all(func):\n    pass\n\n# Example usage\nmultiplier = apply_to_all(lambda x, y=2, z=3: x * y * z)\nresult = multiplier(5)\nprint(result)  # Expected: 30",
       "solution_code": "def apply_to_all(func, **kwargs):\n    def inner(value):\n        return func(value, **kwargs)\n    return inner\n\n# Example usage\nmultiplier = apply_to_all(lambda x, y=2, z=3: x * y * z)\nresult = multiplier(5)\nprint(result)  # 30",
       "test_cases": [
-        "adder = apply_to_all(lambda a, b=1, c=1: a + b + c)\nprint(adder(10))  # 12",
-        "power = apply_to_all(lambda base, exp=2: base ** exp)\nprint(power(3))  # 9"
+        {
+          "input": "",
+          "expected_output": "adder = apply_to_all(lambda a, b=1, c=1: a + b + c)\nprint(adder(10))  # 12",
+          "description": "adder = apply_to_all(lambda a, b=1, c=1: a + b + c)\nprint(adder(10))  # 12"
+        },
+        {
+          "input": "",
+          "expected_output": "power = apply_to_all(lambda base, exp=2: base ** exp)\nprint(power(3))  # 9",
+          "description": "power = apply_to_all(lambda base, exp=2: base ** exp)\nprint(power(3))  # 9"
+        }
       ],
       "hint": "The returned function must close over `**kwargs` and accept one positional argument, then invoke `func(value, **kwargs)`.",
       "explanation": "This mastery item demonstrates closure and `**kwargs` interoperability. `apply_to_all` partially applies keyword arguments, creating specialized functions dynamically. This pattern underpins decorators and functional programming techniques in Python, showing how variable-length keyword arguments enable powerful abstraction."

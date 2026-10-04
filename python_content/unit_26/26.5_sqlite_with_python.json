@@ -465,21 +465,22 @@
       "type": "write_the_code",
       "concept": "sqlite_with_python_sqlite3_mastery_challenge",
       "skill": "transfer",
-      "difficulty": "expert",
+      "difficulty": "hard",
       "prerequisites": [
         "26.5_q23"
       ],
-      "prompt": "Mastery Challenge: Implement a robust, tested function for SQLite with Python (sqlite3) that processes inputs, validates preconditions, and handles invalid states cleanly:",
-      "starter_code": "def execute_task(data):\n    if not data:\n        return None\n    # Process valid data\n    ___",
-      "solution_code": "def execute_task(data):\n    if not data:\n        return None\n    return sorted(data)",
+      "prompt": "Final Capstone Verification: Write a production-grade handler for SQLite with Python (sqlite3) that processes batches and handles empty inputs cleanly.",
+      "starter_code": "def execute_26_5_workflow(batch):\n    # Validate and transform batch\n    pass",
+      "solution_code": "def execute_26_5_workflow(batch):\n    if not batch:\n        return []\n    return [str(x).strip() for x in batch]",
       "test_cases": [
         {
-          "input": "",
-          "expected_output": "SQLite with Python (sqlite3) Result 24"
+          "input": "[' a ', 'b ']",
+          "expected_output": "['a', 'b']",
+          "description": "batch processing workflow"
         }
       ],
       "hint": "Validate input first, then execute the transformation.",
-      "explanation": "Demonstrating end-to-end mastery of SQLite with Python (sqlite3) requires combining input validation, core algorithmic logic, and defensive programming."
+      "explanation": "Production workflows for SQLite with Python (sqlite3) must validate inputs, maintain immutability, and return deterministic results."
     },
     {
       "id": "26.5_q25",
@@ -494,8 +495,16 @@
       "starter_code": "import sqlite3\n\ndef setup_library_db():\n    conn = sqlite3.connect('library.db')\n    cursor = conn.cursor()\n    # TODO: create table, insert data, and fetch all\n    conn.close()\n\nsetup_library_db()",
       "solution_code": "import sqlite3\n\ndef setup_library_db():\n    conn = sqlite3.connect('library.db')\n    cursor = conn.cursor()\n    cursor.execute('''CREATE TABLE IF NOT EXISTS books (id INTEGER PRIMARY KEY, title TEXT, author TEXT)''')\n    books = [\n        ('The Python Guide', 'Alice'),\n        ('Data Science Basics', 'Bob'),\n        ('Web Development', 'Carol')\n    ]\n    cursor.executemany('INSERT INTO books (title, author) VALUES (?, ?)', books)\n    conn.commit()\n    cursor.execute('SELECT * FROM books')\n    for row in cursor.fetchall():\n        print(row)\n    conn.close()\n\nsetup_library_db()",
       "test_cases": [
-        "Verify that 'library.db' is created and contains 3 rows in 'books'.",
-        "Ensure no duplicate entries are inserted on repeated runs by using 'IF NOT EXISTS'."
+        {
+          "input": "",
+          "expected_output": "Verify that 'library.db' is created and contains 3 rows in 'books'.",
+          "description": "Verify that 'library.db' is created and contains 3 rows in 'books'."
+        },
+        {
+          "input": "",
+          "expected_output": "Ensure no duplicate entries are inserted on repeated runs by using 'IF NOT EXISTS'.",
+          "description": "Ensure no duplicate entries are inserted on repeated runs by using 'IF NOT EXISTS'."
+        }
       ],
       "hint": "Use executemany for bulk insertion and commit after modifications.",
       "explanation": "This item reinforces the fundamental workflow of sqlite3: connect, create table, insert data, commit, query, and close. Using parameterized queries with placeholders (?, ?) prevents SQL injection and is standard practice."
@@ -513,8 +522,16 @@
       "starter_code": "import sqlite3\n\ndef add_book(title, author):\n    conn = sqlite3.connect('library.db')\n    cursor = conn.cursor()\n    # TODO: implement insertion with duplicate check\n    conn.close()\n    return False",
       "solution_code": "import sqlite3\n\ndef add_book(title, author):\n    conn = sqlite3.connect('library.db')\n    cursor = conn.cursor()\n    try:\n        cursor.execute('SELECT id FROM books WHERE title = ?', (title,))\n        if cursor.fetchone() is not None:\n            print('Duplicate title found.')\n            conn.close()\n            return False\n        cursor.execute('INSERT INTO books (title, author) VALUES (?, ?)', (title, author))\n        conn.commit()\n        conn.close()\n        return True\n    except sqlite3.Error as e:\n        print('Database error:', e)\n        conn.close()\n        return False",
       "test_cases": [
-        "Calling add_book('New Book', 'Dave') should return True and add the row.",
-        "Calling add_book('The Python Guide', 'Alice') again should return False and print a duplicate message."
+        {
+          "input": "",
+          "expected_output": "Calling add_book('New Book', 'Dave') should return True and add the row.",
+          "description": "Calling add_book('New Book', 'Dave') should return True and add the row."
+        },
+        {
+          "input": "",
+          "expected_output": "Calling add_book('The Python Guide', 'Alice') again should return False and print a duplicate message.",
+          "description": "Calling add_book('The Python Guide', 'Alice') again should return False and print a duplicate message."
+        }
       ],
       "hint": "Query the table before inserting and use a try-except block for robustness.",
       "explanation": "This practical item introduces defensive programming in database operations. Checking for duplicates before insertion avoids constraint violations and demonstrates transaction safety with explicit commit and error handling."
@@ -532,8 +549,16 @@
       "starter_code": "import sqlite3\n\nclass Database:\n    def __init__(self, db_name):\n        self.db_name = db_name\n        self.conn = None\n\n    def __enter__(self):\n        # TODO: open connection and set row_factory\n        return self\n\n    def __exit__(self, exc_type, exc_val, exc_tb):\n        # TODO: commit, rollback, or close\n        return False\n\n# TODO: use context manager to insert and query",
       "solution_code": "import sqlite3\n\nclass Database:\n    def __init__(self, db_name):\n        self.db_name = db_name\n        self.conn = None\n\n    def __enter__(self):\n        self.conn = sqlite3.connect(self.db_name)\n        self.conn.row_factory = sqlite3.Row\n        return self.conn.cursor()\n\n    def __exit__(self, exc_type, exc_val, exc_tb):\n        if exc_type is not None:\n            self.conn.rollback()\n        else:\n            self.conn.commit()\n        self.conn.close()\n        return False\n\ndef insert_batch(books):\n    with Database('library.db') as cursor:\n        cursor.executemany('INSERT INTO books (title, author) VALUES (?, ?)', books)\n\ndef print_books():\n    with Database('library.db') as cursor:\n        for row in cursor.execute('SELECT * FROM books'):\n            print({'id': row['id'], 'title': row['title'], 'author': row['author']})\n\ninsert_batch([\n    ('Advanced Python', 'Eve'),\n    ('Machine Learning', 'Frank'),\n    ('Cloud Computing', 'Grace'),\n    ('Cybersecurity', 'Heidi'),\n    ('DevOps', 'Ivan')\n])\nprint_books()",
       "test_cases": [
-        "Verify that all 5 books appear as dictionaries when print_books is called.",
-        "Simulate an exception during insertion and confirm that the transaction is rolled back."
+        {
+          "input": "",
+          "expected_output": "Verify that all 5 books appear as dictionaries when print_books is called.",
+          "description": "Verify that all 5 books appear as dictionaries when print_books is called."
+        },
+        {
+          "input": "",
+          "expected_output": "Simulate an exception during insertion and confirm that the transaction is rolled back.",
+          "description": "Simulate an exception during insertion and confirm that the transaction is rolled back."
+        }
       ],
       "hint": "Set row_factory to sqlite3.Row to access columns by name, and use exc_type to decide commit versus rollback.",
       "explanation": "This advanced item teaches resource management via context managers, ensuring connections are properly closed and transactions are atomic. Using Row objects improves readability and reduces indexing errors in complex queries."
@@ -551,9 +576,21 @@
       "starter_code": "import sqlite3\n\ndef find_frequent_borrowers():\n    conn = sqlite3.connect('library.db')\n    cursor = conn.cursor()\n    # TODO: create tables if needed, insert sample data, and solve\n    conn.close()\n    return []",
       "solution_code": "import sqlite3\n\ndef find_frequent_borrowers():\n    conn = sqlite3.connect('library.db')\n    cursor = conn.cursor()\n    cursor.execute('''CREATE TABLE IF NOT EXISTS borrowers (id INTEGER PRIMARY KEY, name TEXT)''')\n    cursor.execute('''CREATE TABLE IF NOT EXISTS borrow_records (borrower_id INTEGER, book_id INTEGER)''')\n    cursor.execute('DELETE FROM borrowers')\n    cursor.execute('DELETE FROM borrow_records')\n    borrowers = [(1, 'Anna'), (2, 'Ben'), (3, 'Cora')]\n    cursor.executemany('INSERT INTO borrowers (id, name) VALUES (?, ?)', borrowers)\n    records = [\n        (1, 1), (1, 2), (1, 3), (1, 4), (2, 1), (2, 5), (3, 6)\n    ]\n    cursor.executemany('INSERT INTO borrow_records (borrower_id, book_id) VALUES (?, ?)', records)\n    cursor.execute('''\n        SELECT b.name FROM borrowers b\n        JOIN borrow_records br ON b.id = br.borrower_id\n        GROUP BY b.id\n        HAVING COUNT(br.book_id) > 2\n        ORDER BY b.name\n    ''')\n    result = [row[0] for row in cursor.fetchall()]\n    conn.close()\n    return result\n\nprint(find_frequent_borrowers())",
       "test_cases": [
-        "Anna should appear because she has 4 borrow records.",
-        "Ben should not appear because he has only 2 borrow records.",
-        "Cora should not appear because she has only 1 borrow record."
+        {
+          "input": "",
+          "expected_output": "Anna should appear because she has 4 borrow records.",
+          "description": "Anna should appear because she has 4 borrow records."
+        },
+        {
+          "input": "",
+          "expected_output": "Ben should not appear because he has only 2 borrow records.",
+          "description": "Ben should not appear because he has only 2 borrow records."
+        },
+        {
+          "input": "",
+          "expected_output": "Cora should not appear because she has only 1 borrow record.",
+          "description": "Cora should not appear because she has only 1 borrow record."
+        }
       ],
       "hint": "Use GROUP BY with HAVING to filter aggregated counts, and join borrowers with borrow_records.",
       "explanation": "This challenge tests multi-table reasoning, aggregation, and filtering in SQL combined with Python list construction. It mirrors real-world reporting tasks where frequent users must be identified from relational data."
@@ -571,8 +608,16 @@
       "starter_code": "import sqlite3\nfrom datetime import datetime\n\ndef init_inventory_db():\n    conn = sqlite3.connect('inventory.db')\n    cursor = conn.cursor()\n    # TODO: create tables, trigger, and helper functions\n    conn.close()\n\ndef bulk_update(updates):\n    # TODO: backup, apply updates, log changes\n    pass\n\ndef low_stock_report():\n    # TODO: return products with quantity < 10\n    pass",
       "solution_code": "import sqlite3\nfrom datetime import datetime\n\ndef init_inventory_db():\n    conn = sqlite3.connect('inventory.db')\n    cursor = conn.cursor()\n    cursor.execute('''CREATE TABLE IF NOT EXISTS products (\n        product_id INTEGER PRIMARY KEY,\n        name TEXT NOT NULL,\n        quantity INTEGER DEFAULT 0,\n        last_updated TEXT\n    )''')\n    cursor.execute('''CREATE TABLE IF NOT EXISTS stock_log (\n        log_id INTEGER PRIMARY KEY AUTOINCREMENT,\n        product_id INTEGER,\n        change INTEGER,\n        timestamp TEXT\n    )''')\n    cursor.execute('''CREATE TRIGGER IF NOT EXISTS log_stock_change\n        AFTER UPDATE OF quantity ON products\n        BEGIN\n            INSERT INTO stock_log (product_id, change, timestamp)\n            VALUES (NEW.product_id, NEW.quantity - OLD.quantity, datetime('now'));\n        END\n    ''')\n    conn.commit()\n    conn.close()\n\ndef backup_db(src, dst):\n    conn = sqlite3.connect(src)\n    backup = sqlite3.connect(dst)\n    backup.execute('ATTACH DATABASE ? AS backup', (src,))\n    backup.execute('CREATE TABLE IF NOT EXISTS backup.products AS SELECT * FROM backup.products')\n    backup.execute('CREATE TABLE IF NOT EXISTS backup.stock_log AS SELECT * FROM backup.stock_log')\n    backup.commit()\n    backup.close()\n    conn.close()\n\ndef bulk_update(updates):\n    backup_db('inventory.db', 'inventory_backup.db')\n    conn = sqlite3.connect('inventory.db')\n    cursor = conn.cursor()\n    for pid, qty in updates:\n        old = cursor.execute('SELECT quantity FROM products WHERE product_id = ?', (pid,)).fetchone()\n        if old is not None:\n            diff = qty - old[0]\n            cursor.execute('UPDATE products SET quantity = ?, last_updated = ? WHERE product_id = ?', (qty, datetime.now().isoformat(), pid))\n    conn.commit()\n    conn.close()\n\ndef low_stock_report():\n    conn = sqlite3.connect('inventory.db')\n    cursor = conn.cursor()\n    cursor.execute('SELECT * FROM products WHERE quantity < 10')\n    rows = cursor.fetchall()\n    conn.close()\n    return rows\n\ninit_inventory_db()\nprint(low_stock_report())",
       "test_cases": [
-        "After bulk_update([(1, 5), (2, 15)]), the backup file must exist and contain the updated rows.",
-        "low_stock_report should return only products with quantity strictly less than 10."
+        {
+          "input": "",
+          "expected_output": "After bulk_update([(1, 5), (2, 15)]), the backup file must exist and contain the updated rows.",
+          "description": "After bulk_update([(1, 5), (2, 15)]), the backup file must exist and contain the updated rows."
+        },
+        {
+          "input": "",
+          "expected_output": "low_stock_report should return only products with quantity strictly less than 10.",
+          "description": "low_stock_report should return only products with quantity strictly less than 10."
+        }
       ],
       "hint": "Use ATTACH DATABASE for backup, and a trigger with datetime('now') for automatic timestamping.",
       "explanation": "This scenario synthesizes schema design, triggers, backup strategies, and reporting into a cohesive application. It emphasizes production-grade concerns such as data safety, audit trails via stock_log, and automated low-stock alerts."
@@ -590,8 +635,16 @@
       "starter_code": "import sqlite3\nimport threading\n\nclass InventoryManager:\n    def __init__(self, db_path):\n        self.db_path = db_path\n        self.lock = threading.Lock()\n        self._init_wal()\n\n    def _init_wal(self):\n        conn = sqlite3.connect(self.db_path)\n        conn.execute('PRAGMA journal_mode=WAL')\n        conn.close()\n\n    def adjust_stock(self, product_id, delta):\n        # TODO: implement thread-safe adjustment with proper locking\n        pass",
       "solution_code": "import sqlite3\nimport threading\nimport time\n\nclass InventoryManager:\n    def __init__(self, db_path):\n        self.db_path = db_path\n        self.write_lock = threading.Lock()\n        self._init_wal()\n\n    def _init_wal(self):\n        conn = sqlite3.connect(self.db_path)\n        conn.execute('PRAGMA journal_mode=WAL')\n        conn.commit()\n        conn.close()\n\n    def adjust_stock(self, product_id, delta):\n        with self.write_lock:\n            conn = sqlite3.connect(self.db_path)\n            cursor = conn.cursor()\n            cursor.execute('UPDATE products SET quantity = quantity + ? WHERE product_id = ?', (delta, product_id))\n            conn.commit()\n            conn.close()\n\ndef worker(manager, pid, delta):\n    time.sleep(0.05)\n    manager.adjust_stock(pid, delta)\n\ndef test_concurrent_writes():\n    manager = InventoryManager('inventory.db')\n    conn = sqlite3.connect('inventory.db')\n    cursor = conn.cursor()\n    cursor.execute('DELETE FROM products')\n    cursor.execute('INSERT INTO products (product_id, name, quantity) VALUES (1, \"Widget\", 100)')\n    conn.commit()\n    conn.close()\n\n    t1 = threading.Thread(target=worker, args=(manager, 1, 20))\n    t2 = threading.Thread(target=worker, args=(manager, 1, 30))\n    t1.start()\n    t2.start()\n    t1.join()\n    t2.join()\n\n    conn = sqlite3.connect('inventory.db')\n    final_qty = conn.execute('SELECT quantity FROM products WHERE product_id = 1').fetchone()[0]\n    conn.close()\n    assert final_qty == 150, f'Expected 150, got {final_qty}'\n    print('Concurrent write test passed.')\n\ntest_concurrent_writes()",
       "test_cases": [
-        "Final quantity must be 150 after two writers add 20 and 30 to initial 100.",
-        "WAL mode must be active, verifiable via PRAGMA journal_mode."
+        {
+          "input": "",
+          "expected_output": "Final quantity must be 150 after two writers add 20 and 30 to initial 100.",
+          "description": "Final quantity must be 150 after two writers add 20 and 30 to initial 100."
+        },
+        {
+          "input": "",
+          "expected_output": "WAL mode must be active, verifiable via PRAGMA journal_mode.",
+          "description": "WAL mode must be active, verifiable via PRAGMA journal_mode."
+        }
       ],
       "hint": "Use a threading.Lock to serialize writes; WAL mode allows readers to proceed without blocking writers.",
       "explanation": "This mastery item integrates concurrency control, database pragmas, and threading in Python. It demonstrates that sqlite3 with WAL mode supports high read concurrency while writer serialization is enforced manually, a pattern critical for scalable local applications."

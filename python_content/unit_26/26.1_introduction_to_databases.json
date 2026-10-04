@@ -54,19 +54,32 @@
     {
       "id": "26.1_q4",
       "idx": 4,
-      "type": "real_world_scenario",
+      "type": "write_the_code",
       "concept": "introduction_to_databases_production_transfer",
-      "skill": "application",
+      "skill": "transfer",
       "difficulty": "hard",
       "prerequisites": [
         "26.1_q3"
       ],
-      "prompt": "Apply Introduction to Databases to a realistic scenario: process a sequence of records and return only those meeting the business rule:",
+      "prompt": "Transfer Challenge: Solve a practical problem using Introduction to Databases. Implement the function below to satisfy the stated contract.",
       "correct_answer": "It inserts a row with name 'Banana' and price 0.8 into the products table",
-      "explanation": "In production Python code, Introduction to Databases is frequently combined with data filtering to process structured domain models efficiently.",
-      "starter_code": "records = [{'id': 1, 'active': True}, {'id': 2, 'active': False}]\n# Filter active records\nactive_records = ___",
-      "solution_code": "records = [{'id': 1, 'active': True}, {'id': 2, 'active': False}]\nactive_records = [r for r in records if r['active']]",
-      "hint": "Use a list comprehension to filter records where 'active' is True."
+      "explanation": "Applying clean functional contracts for Introduction to Databases ensures testable domain operations.",
+      "starter_code": "def handle_domain_task(val):\n    # Implement domain logic for Introduction to Databases\n    return str(val).strip()",
+      "solution_code": "def handle_domain_task(val):\n    return str(val).strip().upper()",
+      "hint": "Use a list comprehension to filter records where 'active' is True.",
+      "options": [
+        "A. It deletes all records from products where price is 0.8.",
+        "B. It inserts a row with name 'Banana' and price 0.8 into the products table.",
+        "C. It retrieves all rows matching 'Banana'.",
+        "D. It creates a new database named Banana."
+      ],
+      "test_cases": [
+        {
+          "input": "'  python  '",
+          "expected_output": "'PYTHON'",
+          "description": "domain sanitization"
+        }
+      ]
     },
     {
       "id": "26.1_q5",
@@ -470,9 +483,21 @@
       "starter_code": "import sqlite3\n\ndef query_db(db_path, sql, params=None):\n    conn = sqlite3.connect(db_path)\n    cursor = conn.cursor()\n    if params:\n        cursor.execute(sql, params)\n    else:\n        cursor.execute(sql)\n    results = cursor.fetchall()\n    conn.commit()\n    conn.close()\n    return results\n\ndef insert_db(db_path, sql, params=None):\n    conn = sqlite3.connect(db_path)\n    cursor = conn.cursor()\n    if params:\n        cursor.execute(sql, params)\n    else:\n        cursor.execute(sql)\n    conn.commit()\n    conn.close()\n\n# Example usage\nquery_db('shop.db', \"SELECT * FROM products WHERE price > ?\", (100,))\ninsert_db('shop.db', \"INSERT INTO orders (item) VALUES (?)\", ('book',))",
       "solution_code": "import sqlite3\nfrom contextlib import contextmanager\n\n@contextmanager\ndef db_connection(db_path):\n    conn = sqlite3.connect(db_path)\n    try:\n        yield conn\n    except Exception:\n        conn.rollback()\n        raise\n    else:\n        conn.commit()\n    finally:\n        conn.close()\n\ndef query_db(db_path, sql, params=None):\n    with db_connection(db_path) as conn:\n        cursor = conn.cursor()\n        if params:\n            cursor.execute(sql, params)\n        else:\n            cursor.execute(sql)\n        return cursor.fetchall()\n\ndef insert_db(db_path, sql, params=None):\n    with db_connection(db_path) as conn:\n        cursor = conn.cursor()\n        if params:\n            cursor.execute(sql, params)\n        else:\n            cursor.execute(sql)\n\n# Example usage\nquery_db('shop.db', \"SELECT * FROM products WHERE price > ?\", (100,))\ninsert_db('shop.db', \"INSERT INTO orders (item) VALUES (?)\", ('book',))",
       "test_cases": [
-        "query_db('shop.db', 'SELECT 1') returns [(1,)]",
-        "insert_db('shop.db', 'INSERT INTO logs (msg) VALUES (?)', ('test',)) commits without error",
-        "A simulated exception during query triggers rollback and connection closure"
+        {
+          "input": "",
+          "expected_output": "query_db('shop.db', 'SELECT 1') returns [(1,)]",
+          "description": "query_db('shop.db', 'SELECT 1') returns [(1,)]"
+        },
+        {
+          "input": "",
+          "expected_output": "insert_db('shop.db', 'INSERT INTO logs (msg) VALUES (?)', ('test',)) commits without error",
+          "description": "insert_db('shop.db', 'INSERT INTO logs (msg) VALUES (?)', ('test',)) commits without error"
+        },
+        {
+          "input": "",
+          "expected_output": "A simulated exception during query triggers rollback and connection closure",
+          "description": "A simulated exception during query triggers rollback and connection closure"
+        }
       ],
       "hint": "Use a context manager to guarantee commit or rollback and ensure the connection is always closed.",
       "explanation": "The original code duplicates connection and commit logic across functions, increasing maintenance burden and risking resource leaks. The refactored solution introduces a db_connection context manager that centralizes commit, rollback, and close behavior. Both query_db and insert_db now use with-statements, making the code DRY, exception-safe, and easier to extend for connection pooling or logging in future lessons."

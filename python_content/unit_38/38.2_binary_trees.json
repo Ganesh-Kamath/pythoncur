@@ -443,9 +443,21 @@
       "starter_code": "def search(root, target):\n    if root is None:\n        return False\n    if root['value'] == target:\n        return True\n    if target < root['value']:\n        return search(root['left'], target)\n    return search(root['right'], target)\n\n# Test\nroot = {'value': 50, 'left': {'value': 30, 'left': None, 'right': None}, 'right': {'value': 70, 'left': None, 'right': None}}\nprint(search(root, 70))",
       "solution_code": "def search(root, target):\n    stack = [root]\n    while stack:\n        node = stack.pop()\n        if node is None:\n            continue\n        if node['value'] == target:\n            return True\n        if target < node['value']:\n            stack.append(node['right'])\n            stack.append(node['left'])\n        else:\n            stack.append(node['left'])\n            stack.append(node['right'])\n    return False\n\ndef search_generator(root, target):\n    stack = [root]\n    while stack:\n        node = stack.pop()\n        if node is None:\n            continue\n        if node['value'] == target:\n            yield True\n            return\n        if target < node['value']:\n            stack.append(node['right'])\n            stack.append(node['left'])\n        else:\n            stack.append(node['left'])\n            stack.append(node['right'])\n\n# Test\nroot = {'value': 50, 'left': {'value': 30, 'left': None, 'right': None}, 'right': {'value': 70, 'left': None, 'right': None}}\nprint(search(root, 70))\nprint(next(search_generator(root, 70), False))",
       "test_cases": [
-        "search(root, 30) should return True",
-        "search(root, 99) should return False",
-        "search_generator(root, 99) should yield False when next is called with default"
+        {
+          "input": "",
+          "expected_output": "search(root, 30) should return True",
+          "description": "search(root, 30) should return True"
+        },
+        {
+          "input": "",
+          "expected_output": "search(root, 99) should return False",
+          "description": "search(root, 99) should return False"
+        },
+        {
+          "input": "",
+          "expected_output": "search_generator(root, 99) should yield False when next is called with default",
+          "description": "search_generator(root, 99) should yield False when next is called with default"
+        }
       ],
       "hint": "Use a list as a stack and push children in the correct order; yield when the target is found.",
       "explanation": "The recursive version risks stack overflow on deep trees. The iterative refactor uses an explicit stack and short-circuits on success. The generator version enables lazy evaluation, useful when searching large or streamed trees. Both preserve BST correctness by exploring left before right when the target is smaller, and right before left otherwise."

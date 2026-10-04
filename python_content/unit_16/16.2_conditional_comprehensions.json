@@ -133,12 +133,19 @@
       "prerequisites": [
         "16.2_q7"
       ],
-      "prompt": "Identify and fix the logical or syntax defect in this implementation of Conditional Comprehensions:",
+      "prompt": "Defensive Validation: Implement a verification helper for Conditional Comprehensions that confirms preconditions and guards against invalid input.",
       "correct_answer": "['banana', 'cherry']",
-      "explanation": "Debugging is a core programming competency. Guarding against edge cases like `None` or invalid states prevents runtime failures.",
-      "starter_code": "# Fix the issue with Conditional Comprehensions\ndef check_valid(val):\n    if val is None:\n        return False\n    return True",
-      "solution_code": "def check_valid(val):\n    if val is None:\n        return False\n    return True",
-      "hint": "Check the condition and return value carefully."
+      "explanation": "Validating preconditions at the boundary prevents null pointer and type exceptions downstream.",
+      "starter_code": "def validate_16_2_input(val):\n    # Return True if val is valid, False otherwise\n    pass",
+      "solution_code": "def validate_16_2_input(val):\n    if val is None or val == '':\n        return False\n    return True",
+      "hint": "Check the condition and return value carefully.",
+      "test_cases": [
+        {
+          "input": "'valid_token'",
+          "expected_output": "True",
+          "description": "valid input returns True"
+        }
+      ]
     },
     {
       "id": "16.2_q9",

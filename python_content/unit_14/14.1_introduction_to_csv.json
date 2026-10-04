@@ -456,8 +456,16 @@
       "starter_code": "import csv\n\ndef read_csv_to_dict_list(filename):\n    result = []\n    with open(filename, mode='r') as file:\n        reader = csv.reader(file)\n        headers = next(reader)\n        for row in reader:\n            # convert row to dictionary\n            record = {}\n            for i in range(len(headers)):\n                record[headers[i]] = row[i]\n            result.append(record)\n    return result\n\nif __name__ == '__main__':\n    data = read_csv_to_dict_list('data.csv')\n    print(data)",
       "solution_code": "import csv\n\ndef read_csv_to_dict_list(filename):\n    result = []\n    with open(filename, mode='r', newline='') as file:\n        reader = csv.DictReader(file)\n        for row in reader:\n            result.append(dict(row))\n    return result\n\nif __name__ == '__main__':\n    data = read_csv_to_dict_list('data.csv')\n    print(data)",
       "test_cases": [
-        "data.csv contains: name,age,grade\\nAlice,20,A\\nBob,21,B",
-        "data.csv contains: name,age,grade\\nCharlie,19,A"
+        {
+          "input": "",
+          "expected_output": "data.csv contains: name,age,grade\\nAlice,20,A\\nBob,21,B",
+          "description": "data.csv contains: name,age,grade\\nAlice,20,A\\nBob,21,B"
+        },
+        {
+          "input": "",
+          "expected_output": "data.csv contains: name,age,grade\\nCharlie,19,A",
+          "description": "data.csv contains: name,age,grade\\nCharlie,19,A"
+        }
       ],
       "hint": "Use csv.DictReader to automatically map headers to row values and build the list of dictionaries.",
       "explanation": "csv.DictReader reads each row and returns an OrderedDict-like object where keys are the header names. Converting each row to a plain dict and appending it to a list produces the desired list-of-dictionaries structure."
@@ -501,8 +509,16 @@
       "starter_code": "import csv\nfrom datetime import datetime\n\ndef filter_and_transform(input_file, output_file):\n    filtered = []\n    cutoff = datetime.strptime('2024-01-01', '%Y-%m-%d')\n    with open(input_file, mode='r') as infile:\n        reader = csv.DictReader(infile)\n        for row in reader:\n            trans_date = datetime.strptime(row['date'], '%Y-%m-%d')\n            if trans_date > cutoff:\n                row['year'] = trans_date.year\n                filtered.append(row)\n    \n    with open(output_file, mode='w', newline='') as outfile:\n        writer = csv.DictWriter(outfile, fieldnames=list(filtered[0].keys()) if filtered else ['date', 'description', 'amount', 'year'])\n        writer.writeheader()\n        writer.writerows(filtered)\n\nif __name__ == '__main__':\n    filter_and_transform('transactions.csv', 'filtered.csv')",
       "solution_code": "import csv\nfrom datetime import datetime\n\ndef filter_and_transform(input_file, output_file):\n    cutoff = datetime.strptime('2024-01-01', '%Y-%m-%d')\n    fieldnames = ['date', 'description', 'amount', 'year']\n    filtered = []\n\n    with open(input_file, mode='r', newline='') as infile:\n        reader = csv.DictReader(infile)\n        for row in reader:\n            trans_date = datetime.strptime(row['date'], '%Y-%m-%d')\n            if trans_date > cutoff:\n                row['year'] = trans_date.year\n                filtered.append(row)\n\n    with open(output_file, mode='w', newline='') as outfile:\n        writer = csv.DictWriter(outfile, fieldnames=fieldnames)\n        writer.writeheader()\n        writer.writerows(filtered)\n\nif __name__ == '__main__':\n    filter_and_transform('transactions.csv', 'filtered.csv')",
       "test_cases": [
-        "transactions.csv: date,description,amount\\n2023-12-31,Old,100.00\\n2024-02-15,New,250.00",
-        "transactions.csv: date,description,amount\\n2024-01-01,Boundary,50.00\\n2024-06-01,Mid,75.00"
+        {
+          "input": "",
+          "expected_output": "transactions.csv: date,description,amount\\n2023-12-31,Old,100.00\\n2024-02-15,New,250.00",
+          "description": "transactions.csv: date,description,amount\\n2023-12-31,Old,100.00\\n2024-02-15,New,250.00"
+        },
+        {
+          "input": "",
+          "expected_output": "transactions.csv: date,description,amount\\n2024-01-01,Boundary,50.00\\n2024-06-01,Mid,75.00",
+          "description": "transactions.csv: date,description,amount\\n2024-01-01,Boundary,50.00\\n2024-06-01,Mid,75.00"
+        }
       ],
       "hint": "Ensure fieldnames are defined before writer initialization to avoid KeyError when writing the header.",
       "explanation": "This advanced task combines date parsing, conditional filtering, and dynamic column addition. Defining fieldnames explicitly prevents runtime errors when the output file is created, and using datetime comparison ensures only records after the cutoff are retained."
@@ -520,8 +536,16 @@
       "starter_code": "import csv\n\ndef clean_csv(filename):\n    cleaned = []\n    with open(filename, mode='r') as file:\n        reader = csv.DictReader(file)\n        for row in reader:\n            if not row:\n                continue\n            # validate and convert\n            try:\n                row['age'] = int(row['age'])\n            except ValueError:\n                row['age'] = 0\n            try:\n                row['salary'] = float(row['salary'])\n            except ValueError:\n                row['salary'] = 0.0\n            cleaned.append(row)\n    return cleaned\n\nif __name__ == '__main__':\n    result = clean_csv('bad_data.csv')\n    print(result)",
       "solution_code": "import csv\n\ndef clean_csv(filename):\n    cleaned = []\n    with open(filename, mode='r', newline='') as file:\n        reader = csv.DictReader(file)\n        for row in reader:\n            if not any(row.values()):\n                continue\n            row['age'] = int(row.get('age', '0')) if row.get('age', '').strip() else 0\n            row['salary'] = float(row.get('salary', '0')) if row.get('salary', '').strip() else 0.0\n            cleaned.append(row)\n    return cleaned\n\nif __name__ == '__main__':\n    result = clean_csv('bad_data.csv')\n    print(result)",
       "test_cases": [
-        "bad_data.csv: name,age,salary\\nAlice,25,50000\\n,\\nBob,,abc\\nCharlie,30,75000",
-        "bad_data.csv: name,age,salary\\n, ,\\nDave,40,90000"
+        {
+          "input": "",
+          "expected_output": "bad_data.csv: name,age,salary\\nAlice,25,50000\\n,\\nBob,,abc\\nCharlie,30,75000",
+          "description": "bad_data.csv: name,age,salary\\nAlice,25,50000\\n,\\nBob,,abc\\nCharlie,30,75000"
+        },
+        {
+          "input": "",
+          "expected_output": "bad_data.csv: name,age,salary\\n, ,\\nDave,40,90000",
+          "description": "bad_data.csv: name,age,salary\\n, ,\\nDave,40,90000"
+        }
       ],
       "hint": "Use row.get to safely access keys and check for empty or whitespace-only strings before conversion.",
       "explanation": "Robust CSV processing requires handling missing or malformed data gracefully. Skipping entirely empty rows and using safe conversion with fallback values ensures the output remains consistent and usable for downstream JSON or analysis tasks."
@@ -539,8 +563,16 @@
       "starter_code": "import csv\nimport json\nfrom collections import defaultdict\n\ndef process_sales(input_file):\n    store_day = defaultdict(float)\n    with open(input_file, mode='r', newline='') as infile:\n        reader = csv.DictReader(infile)\n        for row in reader:\n            if int(row['quantity']) < 0:\n                continue\n            revenue = int(row['quantity']) * float(row['price'])\n            key = (row['store'], row['date'])\n            store_day[key] += revenue\n    \n    summary = []\n    for (store, date), total in store_day.items():\n        summary.append({'store': store, 'date': date, 'total_revenue': total})\n    \n    with open('daily_summary.csv', mode='w', newline='') as csvfile:\n        writer = csv.DictWriter(csvfile, fieldnames=['store', 'date', 'total_revenue'])\n        writer.writeheader()\n        writer.writerows(summary)\n    \n    with open('daily_summary.json', mode='w') as jsonfile:\n        json.dump(summary, jsonfile)\n\nif __name__ == '__main__':\n    process_sales('daily_sales.csv')",
       "solution_code": "import csv\nimport json\nfrom collections import defaultdict\n\ndef process_sales(input_file):\n    store_day = defaultdict(float)\n    with open(input_file, mode='r', newline='') as infile:\n        reader = csv.DictReader(infile)\n        for row in reader:\n            quantity = int(row['quantity'])\n            if quantity < 0:\n                continue\n            revenue = quantity * float(row['price'])\n            key = (row['store'], row['date'])\n            store_day[key] += revenue\n\n    summary = [{'store': s, 'date': d, 'total_revenue': r} for (d, s), r in store_day.items()]\n    summary.sort(key=lambda x: (x['date'], x['store']))\n\n    with open('daily_summary.csv', mode='w', newline='') as csvfile:\n        writer = csv.DictWriter(csvfile, fieldnames=['store', 'date', 'total_revenue'])\n        writer.writeheader()\n        writer.writerows(summary)\n\n    with open('daily_summary.json', mode='w') as jsonfile:\n        json.dump(summary, jsonfile, indent=2)\n\nif __name__ == '__main__':\n    process_sales('daily_sales.csv')",
       "test_cases": [
-        "daily_sales.csv: store,date,product,quantity,price\\nStoreA,2024-03-01,A,10,5.00\\nStoreA,2024-03-01,B,-2,10.00\\nStoreB,2024-03-01,A,5,5.00",
-        "daily_sales.csv: store,date,product,quantity,price\\nStoreA,2024-03-02,A,3,5.00\\nStoreB,2024-03-02,A,2,5.00\\nStoreA,2024-03-02,B,4,10.00"
+        {
+          "input": "",
+          "expected_output": "daily_sales.csv: store,date,product,quantity,price\\nStoreA,2024-03-01,A,10,5.00\\nStoreA,2024-03-01,B,-2,10.00\\nStoreB,2024-03-01,A,5,5.00",
+          "description": "daily_sales.csv: store,date,product,quantity,price\\nStoreA,2024-03-01,A,10,5.00\\nStoreA,2024-03-01,B,-2,10.00\\nStoreB,2024-03-01,A,5,5.00"
+        },
+        {
+          "input": "",
+          "expected_output": "daily_sales.csv: store,date,product,quantity,price\\nStoreA,2024-03-02,A,3,5.00\\nStoreB,2024-03-02,A,2,5.00\\nStoreA,2024-03-02,B,4,10.00",
+          "description": "daily_sales.csv: store,date,product,quantity,price\\nStoreA,2024-03-02,A,3,5.00\\nStoreB,2024-03-02,A,2,5.00\\nStoreA,2024-03-02,B,4,10.00"
+        }
       ],
       "hint": "Sort the summary list before writing JSON to guarantee deterministic ordering, and use indent=2 for human-readable JSON.",
       "explanation": "This scenario synthesizes CSV reading, filtering, aggregation, dual-format output (CSV and JSON), and sorting. It mirrors real data-processing pipelines where raw exports must be cleaned and transformed before analytics or reporting."
@@ -558,8 +590,16 @@
       "starter_code": "import csv\nimport unittest\n\ndef load_csv(path):\n    with open(path, mode='r', newline='') as f:\n        reader = csv.DictReader(f)\n        return [row for row in reader]\n\ndef save_csv(data, path):\n    if not data:\n        return\n    with open(path, mode='w', newline='') as f:\n        writer = csv.DictWriter(f, fieldnames=data[0].keys())\n        writer.writeheader()\n        writer.writerows(data)\n\ndef merge_csvs(paths, output_path):\n    merged = []\n    for p in paths:\n        merged.extend(load_csv(p))\n    save_csv(merged, output_path)\n\nclass TestCSVUtil(unittest.TestCase):\n    def test_load_save(self):\n        sample = [{'name': 'X', 'value': 1}]\n        save_csv(sample, 'temp.csv')\n        self.assertEqual(load_csv('temp.csv'), sample)\n\nif __name__ == '__main__':\n    unittest.main()",
       "solution_code": "import csv\nimport unittest\nimport os\n\ndef load_csv(path):\n    with open(path, mode='r', newline='') as f:\n        reader = csv.DictReader(f)\n        return [dict(row) for row in reader]\n\ndef save_csv(data, path):\n    if not data:\n        return\n    fieldnames = list(data[0].keys())\n    with open(path, mode='w', newline='') as f:\n        writer = csv.DictWriter(f, fieldnames=fieldnames)\n        writer.writeheader()\n        writer.writerows(data)\n\ndef merge_csvs(paths, output_path):\n    merged = []\n    for p in paths:\n        if os.path.exists(p):\n            merged.extend(load_csv(p))\n    save_csv(merged, output_path)\n\nclass TestCSVUtil(unittest.TestCase):\n    def setUp(self):\n        self.tmp = 'temp_test.csv'\n        self.sample = [{'name': 'A', 'value': 10}]\n        save_csv(self.sample, self.tmp)\n\n    def tearDown(self):\n        if os.path.exists(self.tmp):\n            os.remove(self.tmp)\n\n    def test_load_save(self):\n        loaded = load_csv(self.tmp)\n        self.assertEqual(loaded, self.sample)\n\n    def test_merge_csvs(self):\n        second = [{'name': 'B', 'value': 20}]\n        save_csv(second, self.tmp)\n        merge_csvs([self.tmp, self.tmp], 'merged.csv')\n        merged = load_csv('merged.csv')\n        self.assertEqual(len(merged), 2)\n        self.assertEqual(merged[0], {'name': 'A', 'value': 10})\n        self.assertEqual(merged[1], {'name': 'B', 'value': 20})\n\nif __name__ == '__main__':\n    unittest.main()",
       "test_cases": [
-        "Two CSVs with identical headers: a.csv: id,val\\n1,100\\n2,200\\nb.csv: id,val\\n3,300",
-        "Empty CSV: empty.csv: name,score\\n(no rows)"
+        {
+          "input": "",
+          "expected_output": "Two CSVs with identical headers: a.csv: id,val\\n1,100\\n2,200\\nb.csv: id,val\\n3,300",
+          "description": "Two CSVs with identical headers: a.csv: id,val\\n1,100\\n2,200\\nb.csv: id,val\\n3,300"
+        },
+        {
+          "input": "",
+          "expected_output": "Empty CSV: empty.csv: name,score\\n(no rows)",
+          "description": "Empty CSV: empty.csv: name,score\\n(no rows)"
+        }
       ],
       "hint": "Always copy row dictionaries with dict(row) to avoid shared mutable state, and clean up temporary files in tearDown.",
       "explanation": "This mastery challenge requires building a reusable, tested CSV utility. Key improvements include defensive copying of rows, explicit fieldnames in save_csv, existence checks in merge_csvs, and proper test lifecycle management with setUp and tearDown. These practices ensure reliability when integrating CSV handling into larger data-processing workflows."

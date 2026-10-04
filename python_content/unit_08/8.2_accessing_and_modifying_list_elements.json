@@ -114,12 +114,19 @@
       "prerequisites": [
         "8.2_q6"
       ],
-      "prompt": "Write a clean, reusable function or code statement that demonstrates core usage of Accessing and Modifying List Elements:",
+      "prompt": "Milestone Implementation: Construct a modular, well-tested function that applies the central principles of Accessing and Modifying List Elements.",
       "correct_answer": "blueberry",
-      "explanation": "Understanding how to construct clean implementations of Accessing and Modifying List Elements ensures you can integrate it into broader software applications.",
-      "starter_code": "# Implement a solution for Accessing and Modifying List Elements\ndef solve():\n    ___",
-      "solution_code": "def solve():\n    # Core implementation of Accessing and Modifying List Elements\n    return True",
-      "hint": "Focus on applying the central Python idiom for Accessing and Modifying List Elements."
+      "explanation": "Constructing pure, robust data transformers for Accessing and Modifying List Elements avoids unintended side effects and guarantees consistent return contracts.",
+      "starter_code": "def process_8_2_data(items):\n    # Process input according to Accessing and Modifying List Elements rules\n    pass",
+      "solution_code": "def process_8_2_data(items):\n    return [item for item in items if item is not None]",
+      "hint": "Focus on applying the central Python idiom for Accessing and Modifying List Elements.",
+      "test_cases": [
+        {
+          "input": "[1, None, 2, None, 3]",
+          "expected_output": "[1, 2, 3]",
+          "description": "cleans null values using Accessing and Modifying List Elements rules"
+        }
+      ]
     },
     {
       "id": "8.2_q8",

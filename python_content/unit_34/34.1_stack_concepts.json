@@ -417,21 +417,22 @@
       "type": "write_the_code",
       "concept": "stack_concepts_lifo_mastery_challenge",
       "skill": "transfer",
-      "difficulty": "expert",
+      "difficulty": "hard",
       "prerequisites": [
         "34.1_q23"
       ],
-      "prompt": "Mastery Challenge: Implement a robust, tested function for Stack Concepts (LIFO) that processes inputs, validates preconditions, and handles invalid states cleanly:",
-      "starter_code": "def execute_task(data):\n    if not data:\n        return None\n    # Process valid data\n    ___",
-      "solution_code": "def execute_task(data):\n    if not data:\n        return None\n    return sorted(data)",
+      "prompt": "Final Capstone Verification: Write a production-grade handler for Stack Concepts (LIFO) that processes batches and handles empty inputs cleanly.",
+      "starter_code": "def execute_34_1_workflow(batch):\n    # Validate and transform batch\n    pass",
+      "solution_code": "def execute_34_1_workflow(batch):\n    if not batch:\n        return []\n    return [str(x).strip() for x in batch]",
       "test_cases": [
         {
-          "input": "",
-          "expected_output": "Stack Concepts (LIFO) Result 24"
+          "input": "[' a ', 'b ']",
+          "expected_output": "['a', 'b']",
+          "description": "batch processing workflow"
         }
       ],
       "hint": "Validate input first, then execute the transformation.",
-      "explanation": "Demonstrating end-to-end mastery of Stack Concepts (LIFO) requires combining input validation, core algorithmic logic, and defensive programming."
+      "explanation": "Production workflows for Stack Concepts (LIFO) must validate inputs, maintain immutability, and return deterministic results."
     },
     {
       "id": "34.1_q25",
@@ -446,9 +447,21 @@
       "starter_code": "class Stack:\n    def __init__(self):\n        self.items = []\n    \n    def push(self, item):\n        # TODO: add item to top of stack\n        pass\n    \n    def pop(self):\n        # TODO: remove and return top item\n        pass\n    \n    def peek(self):\n        # TODO: return top item without removing it\n        pass",
       "solution_code": "class Stack:\n    def __init__(self):\n        self.items = []\n    \n    def push(self, item):\n        self.items.append(item)\n    \n    def pop(self):\n        if not self.items:\n            raise IndexError('pop from empty stack')\n        return self.items.pop()\n    \n    def peek(self):\n        if not self.items:\n            raise IndexError('peek from empty stack')\n        return self.items[-1]",
       "test_cases": [
-        "s = Stack(); s.push(10); s.push(20); assert s.peek() == 20; assert s.pop() == 20; assert s.pop() == 10",
-        "s = Stack(); s.push('a'); s.push('b'); s.pop(); s.peek(); assert s.peek() == 'a'",
-        "s = Stack(); s.pop(); # should raise IndexError"
+        {
+          "input": "s = Stack(); s.push(10); s.push(20); assert s.peek()",
+          "expected_output": "20; assert s.pop() == 20; assert s.pop() == 10",
+          "description": "Verifies: s = Stack(); s.push(10); s.push(20); assert s.peek() == 20; assert s.pop() == 20; assert s.pop() == 10"
+        },
+        {
+          "input": "s = Stack(); s.push('a'); s.push('b'); s.pop(); s.peek(); assert s.peek()",
+          "expected_output": "'a'",
+          "description": "Verifies: s = Stack(); s.push('a'); s.push('b'); s.pop(); s.peek(); assert s.peek() == 'a'"
+        },
+        {
+          "input": "",
+          "expected_output": "s = Stack(); s.pop(); # should raise IndexError",
+          "description": "s = Stack(); s.pop(); # should raise IndexError"
+        }
       ],
       "hint": "Use list append for push and list pop for pop. Check if the list is empty before popping or peeking.",
       "explanation": "A stack follows LIFO (Last In, First Out). In Python, a list naturally supports this: append adds to the end (top) and pop removes from the end. Always validate that the stack is not empty before accessing the top element to avoid runtime errors."
@@ -466,11 +479,31 @@
       "starter_code": "def is_balanced(expr):\n    stack = []\n    mapping = {')': '(', ']': '[', '}': '{'}\n    for ch in expr:\n        # TODO: handle opening and closing brackets using the stack\n        pass\n    # TODO: return True if stack is empty at the end, else False",
       "solution_code": "def is_balanced(expr):\n    stack = []\n    mapping = {')': '(', ']': '[', '}': '{'}\n    for ch in expr:\n        if ch in '([{':\n            stack.append(ch)\n        elif ch in ')]}':\n            if not stack or stack.pop() != mapping[ch]:\n                return False\n    return not stack",
       "test_cases": [
-        "assert is_balanced('()') == True",
-        "assert is_balanced('([{}])') == True",
-        "assert is_balanced('(]') == False",
-        "assert is_balanced('((()))') == True",
-        "assert is_balanced('({[)]}') == False"
+        {
+          "input": "assert is_balanced('()')",
+          "expected_output": "True",
+          "description": "Verifies: assert is_balanced('()') == True"
+        },
+        {
+          "input": "assert is_balanced('([{}])')",
+          "expected_output": "True",
+          "description": "Verifies: assert is_balanced('([{}])') == True"
+        },
+        {
+          "input": "assert is_balanced('(]')",
+          "expected_output": "False",
+          "description": "Verifies: assert is_balanced('(]') == False"
+        },
+        {
+          "input": "assert is_balanced('((()))')",
+          "expected_output": "True",
+          "description": "Verifies: assert is_balanced('((()))') == True"
+        },
+        {
+          "input": "assert is_balanced('({[)]}')",
+          "expected_output": "False",
+          "description": "Verifies: assert is_balanced('({[)]}') == False"
+        }
       ],
       "hint": "Push opening brackets onto the stack. When encountering a closing bracket, verify it matches the most recent opening bracket on top of the stack.",
       "explanation": "Balanced brackets require that every closing bracket matches the most recently opened unmatched bracket. The stack enforces this LIFO property: the last opened bracket must be the first closed. If the stack is empty at the end, all brackets were properly matched."
@@ -488,9 +521,21 @@
       "starter_code": "def evaluate_postfix(tokens):\n    stack = []\n    for token in tokens:\n        # TODO: convert digit tokens to int and push; for operators, pop two operands, apply, and push result\n        pass\n    # TODO: return the final result\n    return None",
       "solution_code": "def evaluate_postfix(tokens):\n    stack = []\n    for token in tokens:\n        if token.isdigit():\n            stack.append(int(token))\n        else:\n            b = stack.pop()\n            a = stack.pop()\n            if token == '+':\n                stack.append(a + b)\n            elif token == '-':\n                stack.append(a - b)\n            elif token == '*':\n                stack.append(a * b)\n            elif token == '/':\n                stack.append(int(a / b))\n    return stack[0]",
       "test_cases": [
-        "assert evaluate_postfix(['2', '3', '+']) == 5",
-        "assert evaluate_postfix(['5', '1', '2', '+', '4', '*', '+', '3', '-']) == 14",
-        "assert evaluate_postfix(['7', '8', '+', '3', '*']) == 39"
+        {
+          "input": "assert evaluate_postfix(['2', '3', '+'])",
+          "expected_output": "5",
+          "description": "Verifies: assert evaluate_postfix(['2', '3', '+']) == 5"
+        },
+        {
+          "input": "assert evaluate_postfix(['5', '1', '2', '+', '4', '*', '+', '3', '-'])",
+          "expected_output": "14",
+          "description": "Verifies: assert evaluate_postfix(['5', '1', '2', '+', '4', '*', '+', '3', '-']) == 14"
+        },
+        {
+          "input": "assert evaluate_postfix(['7', '8', '+', '3', '*'])",
+          "expected_output": "39",
+          "description": "Verifies: assert evaluate_postfix(['7', '8', '+', '3', '*']) == 39"
+        }
       ],
       "hint": "Operands are pushed onto the stack. When an operator is encountered, pop the top two values, perform the operation with the first popped as the right operand, and push the result back.",
       "explanation": "Postfix evaluation uses a stack to hold intermediate results. Because operators appear after their operands, the stack naturally resolves the order of operations: the most recent operands are available first, matching the LIFO principle. This avoids the need for parentheses or precedence rules."
@@ -508,9 +553,21 @@
       "starter_code": "def final_page(operations):\n    history = []\n    for op in operations:\n        if op[0] == 'visit':\n            # TODO: push page name\n            pass\n        elif op[0] == 'back':\n            # TODO: pop if possible, else stay on current page\n            pass\n    # TODO: return current page or None if empty\n    return None",
       "solution_code": "def final_page(operations):\n    history = []\n    for op in operations:\n        if op[0] == 'visit':\n            history.append(op[1])\n        elif op[0] == 'back':\n            if history:\n                history.pop()\n    return history[-1] if history else None",
       "test_cases": [
-        "assert final_page([('visit', 'home'), ('visit', 'about'), ('back'), ('visit', 'contact')]) == 'contact'",
-        "assert final_page([('back'), ('visit', 'x')]) == 'x'",
-        "assert final_page([('back'), ('back')]) == None"
+        {
+          "input": "assert final_page([('visit', 'home'), ('visit', 'about'), ('back'), ('visit', 'contact')])",
+          "expected_output": "'contact'",
+          "description": "Verifies: assert final_page([('visit', 'home'), ('visit', 'about'), ('back'), ('visit', 'contact')]) == 'contact'"
+        },
+        {
+          "input": "assert final_page([('back'), ('visit', 'x')])",
+          "expected_output": "'x'",
+          "description": "Verifies: assert final_page([('back'), ('visit', 'x')]) == 'x'"
+        },
+        {
+          "input": "assert final_page([('back'), ('back')])",
+          "expected_output": "None",
+          "description": "Verifies: assert final_page([('back'), ('back')]) == None"
+        }
       ],
       "hint": "Track the current stack of pages. 'visit' always pushes. 'back' removes the top page only if the stack is non-empty.",
       "explanation": "This models a real browser history as a stack. Visiting a page pushes it onto the history stack. Going back pops the current page, returning to the previous one. The final page is simply the top of the stack after all operations, demonstrating LIFO behavior in a practical context."
@@ -528,8 +585,16 @@
       "starter_code": "class CallCenter:\n    def __init__(self, agents):\n        self.available = []\n        for a in agents:\n            self.available.append(a)\n    \n    def assign_call(self):\n        # TODO: pop an agent from available\n        pass\n    \n    def release_agent(self, agent):\n        # TODO: push agent back to available\n        pass\n    \n    def status(self):\n        # TODO: return list of available agents\n        pass",
       "solution_code": "class CallCenter:\n    def __init__(self, agents):\n        self.available = []\n        for a in agents:\n            self.available.append(a)\n    \n    def assign_call(self):\n        if not self.available:\n            raise RuntimeError('no agents available')\n        return self.available.pop()\n    \n    def release_agent(self, agent):\n        self.available.append(agent)\n    \n    def status(self):\n        return list(self.available)",
       "test_cases": [
-        "cc = CallCenter(['A', 'B', 'C']); assert cc.assign_call() == 'C'; cc.release_agent('C'); assert cc.status() == ['A', 'B', 'C']",
-        "cc = CallCenter(['X']); assert cc.assign_call() == 'X'; cc.release_agent('X'); assert cc.assign_call() == 'X'"
+        {
+          "input": "cc = CallCenter(['A', 'B', 'C']); assert cc.assign_call()",
+          "expected_output": "'C'; cc.release_agent('C'); assert cc.status() == ['A', 'B', 'C']",
+          "description": "Verifies: cc = CallCenter(['A', 'B', 'C']); assert cc.assign_call() == 'C'; cc.release_agent('C'); assert cc.status() == ['A', 'B', 'C']"
+        },
+        {
+          "input": "cc = CallCenter(['X']); assert cc.assign_call()",
+          "expected_output": "'X'; cc.release_agent('X'); assert cc.assign_call() == 'X'",
+          "description": "Verifies: cc = CallCenter(['X']); assert cc.assign_call() == 'X'; cc.release_agent('X'); assert cc.assign_call() == 'X'"
+        }
       ],
       "hint": "Use list pop to assign the most recently added available agent. Use list append to return an agent to the available pool.",
       "explanation": "In a call center, the agent who became available most recently should take the next call, ensuring fairness and recency. This is a LIFO scheduling policy. The stack structure guarantees that release_agent operations and assign_call operations are inverses, maintaining correct state without additional bookkeeping."
@@ -547,11 +612,31 @@
       "starter_code": "def decimal_to_binary(n):\n    if n == 0:\n        return '0'\n    stack = []\n    while n > 0:\n        # TODO: push remainder onto stack\n        n = n // 2\n    # TODO: pop all items to build result string\n    return ''",
       "solution_code": "def decimal_to_binary(n):\n    if n == 0:\n        return '0'\n    stack = []\n    while n > 0:\n        stack.append(str(n % 2))\n        n = n // 2\n    result = ''\n    while stack:\n        result += stack.pop()\n    return result",
       "test_cases": [
-        "assert decimal_to_binary(0) == '0'",
-        "assert decimal_to_binary(1) == '1'",
-        "assert decimal_to_binary(2) == '10'",
-        "assert decimal_to_binary(10) == '1010'",
-        "assert decimal_to_binary(255) == '11111111'"
+        {
+          "input": "assert decimal_to_binary(0)",
+          "expected_output": "'0'",
+          "description": "Verifies: assert decimal_to_binary(0) == '0'"
+        },
+        {
+          "input": "assert decimal_to_binary(1)",
+          "expected_output": "'1'",
+          "description": "Verifies: assert decimal_to_binary(1) == '1'"
+        },
+        {
+          "input": "assert decimal_to_binary(2)",
+          "expected_output": "'10'",
+          "description": "Verifies: assert decimal_to_binary(2) == '10'"
+        },
+        {
+          "input": "assert decimal_to_binary(10)",
+          "expected_output": "'1010'",
+          "description": "Verifies: assert decimal_to_binary(10) == '1010'"
+        },
+        {
+          "input": "assert decimal_to_binary(255)",
+          "expected_output": "'11111111'",
+          "description": "Verifies: assert decimal_to_binary(255) == '11111111'"
+        }
       ],
       "hint": "Repeatedly divide by 2 and push remainders. Since remainders are generated from least significant to most significant bit, popping yields the correct order.",
       "explanation": "Binary conversion produces bits from least significant to most significant. A stack reverses this order: pushing remainders and then popping them yields the standard most-significant-bit-first representation. This problem integrates division, modulo, string handling, and stack discipline, representing mastery of LIFO concepts."

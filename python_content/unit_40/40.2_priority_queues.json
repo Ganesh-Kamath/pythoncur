@@ -413,21 +413,22 @@
       "type": "write_the_code",
       "concept": "priority_queues_mastery_challenge",
       "skill": "transfer",
-      "difficulty": "expert",
+      "difficulty": "hard",
       "prerequisites": [
         "40.2_q23"
       ],
-      "prompt": "Mastery Challenge: Implement a robust, tested function for Priority Queues that processes inputs, validates preconditions, and handles invalid states cleanly:",
-      "starter_code": "def execute_task(data):\n    if not data:\n        return None\n    # Process valid data\n    ___",
-      "solution_code": "def execute_task(data):\n    if not data:\n        return None\n    return sorted(data)",
+      "prompt": "Final Capstone Verification: Write a production-grade handler for Priority Queues that processes batches and handles empty inputs cleanly.",
+      "starter_code": "def execute_40_2_workflow(batch):\n    # Validate and transform batch\n    pass",
+      "solution_code": "def execute_40_2_workflow(batch):\n    if not batch:\n        return []\n    return [str(x).strip() for x in batch]",
       "test_cases": [
         {
-          "input": "",
-          "expected_output": "Priority Queues Result 24"
+          "input": "[' a ', 'b ']",
+          "expected_output": "['a', 'b']",
+          "description": "batch processing workflow"
         }
       ],
       "hint": "Validate input first, then execute the transformation.",
-      "explanation": "Demonstrating end-to-end mastery of Priority Queues requires combining input validation, core algorithmic logic, and defensive programming."
+      "explanation": "Production workflows for Priority Queues must validate inputs, maintain immutability, and return deterministic results."
     },
     {
       "id": "40.2_q25",
@@ -443,9 +444,21 @@
       "starter_code": "class MinPriorityQueue:\n    def __init__(self):\n        self.heap = []\n\n    def insert(self, key, value):\n        pass\n\n    def extract_min(self):\n        pass\n\n    def peek(self):\n        pass",
       "solution_code": "class MinPriorityQueue:\n    def __init__(self):\n        self.heap = []\n\n    def insert(self, key, value):\n        self.heap.append((key, value))\n        self._heapify_up(len(self.heap) - 1)\n\n    def extract_min(self):\n        if not self.heap:\n            raise IndexError('extract_min from empty queue')\n        min_item = self.heap[0]\n        last_item = self.heap.pop()\n        if self.heap:\n            self.heap[0] = last_item\n            self._heapify_down(0)\n        return min_item\n\n    def peek(self):\n        if not self.heap:\n            raise IndexError('peek from empty queue')\n        return self.heap[0]\n\n    def _heapify_up(self, idx):\n        while idx > 0:\n            parent = (idx - 1) // 2\n            if self.heap[parent][0] <= self.heap[idx][0]:\n                break\n            self.heap[parent], self.heap[idx] = self.heap[idx], self.heap[parent]\n            idx = parent\n\n    def _heapify_down(self, idx):\n        n = len(self.heap)\n        while True:\n            left = 2 * idx + 1\n            right = 2 * idx + 2\n            smallest = idx\n            if left < n and self.heap[left][0] < self.heap[smallest][0]:\n                smallest = left\n            if right < n and self.heap[right][0] < self.heap[smallest][0]:\n                smallest = right\n            if smallest == idx:\n                break\n            self.heap[idx], self.heap[smallest] = self.heap[smallest], self.heap[idx]\n            idx = smallest",
       "test_cases": [
-        "q = MinPriorityQueue(); q.insert(3, 'a'); q.insert(1, 'b'); q.insert(2, 'c'); assert q.extract_min() == (1, 'b')",
-        "q = MinPriorityQueue(); q.insert(5, 'x'); assert q.peek() == (5, 'x'); q.extract_min() == (5, 'x')",
-        "q = MinPriorityQueue(); q.insert(1, 'p'); q.insert(1, 'q'); assert q.extract_min()[1] == 'p'; q.extract_min()[1] == 'q'"
+        {
+          "input": "q = MinPriorityQueue(); q.insert(3, 'a'); q.insert(1, 'b'); q.insert(2, 'c'); assert q.extract_min()",
+          "expected_output": "(1, 'b')",
+          "description": "Verifies: q = MinPriorityQueue(); q.insert(3, 'a'); q.insert(1, 'b'); q.insert(2, 'c'); assert q.extract_min() == (1, 'b')"
+        },
+        {
+          "input": "q = MinPriorityQueue(); q.insert(5, 'x'); assert q.peek()",
+          "expected_output": "(5, 'x'); q.extract_min() == (5, 'x')",
+          "description": "Verifies: q = MinPriorityQueue(); q.insert(5, 'x'); assert q.peek() == (5, 'x'); q.extract_min() == (5, 'x')"
+        },
+        {
+          "input": "q = MinPriorityQueue(); q.insert(1, 'p'); q.insert(1, 'q'); assert q.extract_min()[1]",
+          "expected_output": "'p'; q.extract_min()[1] == 'q'",
+          "description": "Verifies: q = MinPriorityQueue(); q.insert(1, 'p'); q.insert(1, 'q'); assert q.extract_min()[1] == 'p'; q.extract_min()[1] == 'q'"
+        }
       ],
       "hint": "Append the new element at the end of the list, then swap it upward until the parent is smaller or it reaches the root. For extract_min, replace the root with the last element and swap downward.",
       "explanation": "A priority queue orders elements by priority. Using a binary heap stored in a list, insertion is O(log n) via heapify-up, and extract_min is O(log n) via heapify-down. The heap property ensures the smallest key is always at index 0."
@@ -464,9 +477,21 @@
       "starter_code": "import heapq\n\ndef schedule_tasks(tasks):\n    # tasks is list of (priority, duration)\n    pass\n\n# Example:\n# tasks = [(2, 5), (1, 3), (3, 2)]\n# Expected order: (1, 3), (2, 5), (3, 2)",
       "solution_code": "import heapq\n\ndef schedule_tasks(tasks):\n    pq = []\n    for priority, duration in tasks:\n        heapq.heappush(pq, (priority, duration))\n    order = []\n    while pq:\n        order.append(heapq.heappop(pq))\n    return order",
       "test_cases": [
-        "assert schedule_tasks([(2, 5), (1, 3), (3, 2)]) == [(1, 3), (2, 5), (3, 2)]",
-        "assert schedule_tasks([(1, 1), (1, 2), (2, 4)]) == [(1, 1), (1, 2), (2, 4)]",
-        "assert schedule_tasks([]) == []"
+        {
+          "input": "assert schedule_tasks([(2, 5), (1, 3), (3, 2)])",
+          "expected_output": "[(1, 3), (2, 5), (3, 2)]",
+          "description": "Verifies: assert schedule_tasks([(2, 5), (1, 3), (3, 2)]) == [(1, 3), (2, 5), (3, 2)]"
+        },
+        {
+          "input": "assert schedule_tasks([(1, 1), (1, 2), (2, 4)])",
+          "expected_output": "[(1, 1), (1, 2), (2, 4)]",
+          "description": "Verifies: assert schedule_tasks([(1, 1), (1, 2), (2, 4)]) == [(1, 1), (1, 2), (2, 4)]"
+        },
+        {
+          "input": "assert schedule_tasks([])",
+          "expected_output": "[]",
+          "description": "Verifies: assert schedule_tasks([]) == []"
+        }
       ],
       "hint": "Use heapq.heappush to add all tasks, then repeatedly call heapq.heappop to retrieve the smallest priority.",
       "explanation": "Python's heapq module implements a min-heap. By pushing all tasks and popping in order, we simulate a priority queue. This is efficient for scheduling where urgent tasks must run first."
@@ -485,9 +510,21 @@
       "starter_code": "import heapq\n\ndef k_nearest_neighbors(points, k):\n    # Use a max-heap by storing negative squared distance\n    max_heap = []\n    for x, y in points:\n        dist_sq = x*x + y*y\n        pass\n    # Return sorted by actual distance\n    pass",
       "solution_code": "import heapq\n\ndef k_nearest_neighbors(points, k):\n    max_heap = []\n    for x, y in points:\n        dist_sq = x*x + y*y\n        if len(max_heap) < k:\n            heapq.heappush(max_heap, (-dist_sq, (x, y)))\n        elif dist_sq < -max_heap[0][0]:\n            heapq.heapreplace(max_heap, (-dist_sq, (x, y)))\n    result = sorted(max_heap, key=lambda item: -item[0])\n    return [item[1] for item in result]",
       "test_cases": [
-        "assert k_nearest_neighbors([(1, 1), (2, 2), (0, 3)], 2) == [(1, 1), (2, 2)]",
-        "assert k_nearest_neighbors([(3, 4), (1, 1), (0, 0)], 3) == [(0, 0), (1, 1), (3, 4)]",
-        "assert k_nearest_neighbors([(5, 5)], 1) == [(5, 5)]"
+        {
+          "input": "assert k_nearest_neighbors([(1, 1), (2, 2), (0, 3)], 2)",
+          "expected_output": "[(1, 1), (2, 2)]",
+          "description": "Verifies: assert k_nearest_neighbors([(1, 1), (2, 2), (0, 3)], 2) == [(1, 1), (2, 2)]"
+        },
+        {
+          "input": "assert k_nearest_neighbors([(3, 4), (1, 1), (0, 0)], 3)",
+          "expected_output": "[(0, 0), (1, 1), (3, 4)]",
+          "description": "Verifies: assert k_nearest_neighbors([(3, 4), (1, 1), (0, 0)], 3) == [(0, 0), (1, 1), (3, 4)]"
+        },
+        {
+          "input": "assert k_nearest_neighbors([(5, 5)], 1)",
+          "expected_output": "[(5, 5)]",
+          "description": "Verifies: assert k_nearest_neighbors([(5, 5)], 1) == [(5, 5)]"
+        }
       ],
       "hint": "A max-heap of size k keeps only the k smallest distances. Since heapq is a min-heap, negate the distance. Use heapreplace when a closer point is found.",
       "explanation": "Maintaining a max-heap of fixed size k allows O(n log k) selection of k nearest neighbors. This avoids sorting all n points, which is beneficial when n is large and k is small."
@@ -506,9 +543,21 @@
       "starter_code": "import heapq\n\ndef dijkstra(graph, source):\n    distances = {node: float('inf') for node in graph}\n    distances[source] = 0\n    pq = [(0, source)]\n    while pq:\n        pass\n    return distances",
       "solution_code": "import heapq\n\ndef dijkstra(graph, source):\n    distances = {node: float('inf') for node in graph}\n    distances[source] = 0\n    pq = [(0, source)]\n    while pq:\n        dist, node = heapq.heappop(pq)\n        if dist > distances[node]:\n            continue\n        for neighbor, weight in graph.get(node, []):\n            new_dist = dist + weight\n            if new_dist < distances[neighbor]:\n                distances[neighbor] = new_dist\n                heapq.heappush(pq, (new_dist, neighbor))\n    return distances",
       "test_cases": [
-        "graph = {'A': [('B', 2), ('C', 5)], 'B': [('C', 1)], 'C': []}; assert dijkstra(graph, 'A') == {'A': 0, 'B': 2, 'C': 3}",
-        "graph = {'S': [('A', 4), ('B', 2)], 'A': [('B', 1), ('C', 5)], 'B': [('C', 8)], 'C': []}; assert dijkstra(graph, 'S') == {'S': 0, 'A': 4, 'B': 3, 'C': 11}",
-        "graph = {}; assert dijkstra(graph, 'X') == {'X': 0}"
+        {
+          "input": "graph = {'A': [('B', 2), ('C', 5)], 'B': [('C', 1)], 'C': []}; assert dijkstra(graph, 'A')",
+          "expected_output": "{'A': 0, 'B': 2, 'C': 3}",
+          "description": "Verifies: graph = {'A': [('B', 2), ('C', 5)], 'B': [('C', 1)], 'C': []}; assert dijkstra(graph, 'A') == {'A': 0, 'B': 2, 'C': 3}"
+        },
+        {
+          "input": "graph = {'S': [('A', 4), ('B', 2)], 'A': [('B', 1), ('C', 5)], 'B': [('C', 8)], 'C': []}; assert dijkstra(graph, 'S')",
+          "expected_output": "{'S': 0, 'A': 4, 'B': 3, 'C': 11}",
+          "description": "Verifies: graph = {'S': [('A', 4), ('B', 2)], 'A': [('B', 1), ('C', 5)], 'B': [('C', 8)], 'C': []}; assert dijkstra(graph, 'S') == {'S': 0, 'A': 4, 'B': 3, 'C': 11}"
+        },
+        {
+          "input": "graph = {}; assert dijkstra(graph, 'X')",
+          "expected_output": "{'X': 0}",
+          "description": "Verifies: graph = {}; assert dijkstra(graph, 'X') == {'X': 0}"
+        }
       ],
       "hint": "Pop the smallest tentative distance, skip outdated entries, and push updated distances for neighbors only when a shorter path is discovered.",
       "explanation": "Dijkstra's algorithm relies on a priority queue to always expand the currently closest unvisited node. The heap ensures O((V + E) log V) time, making it suitable for sparse graphs."
@@ -527,8 +576,16 @@
       "starter_code": "import heapq\n\nclass EmergencyTriage:\n    def __init__(self):\n        self.counter = 0\n        self.pq = []\n\n    def admit(self, patient_id, severity):\n        # severity 1 is most critical\n        pass\n\n    def treat_next(self):\n        # Return (patient_id, severity) of next patient\n        pass",
       "solution_code": "import heapq\n\nclass EmergencyTriage:\n    def __init__(self):\n        self.counter = 0\n        self.pq = []\n\n    def admit(self, patient_id, severity):\n        heapq.heappush(self.pq, (severity, self.counter, patient_id))\n        self.counter += 1\n\n    def treat_next(self):\n        if not self.pq:\n            raise IndexError('no patients in triage')\n        severity, _, patient_id = heapq.heappop(self.pq)\n        return (patient_id, severity)",
       "test_cases": [
-        "triage = EmergencyTriage(); triage.admit('P1', 3); triage.admit('P2', 1); triage.admit('P3', 2); assert triage.treat_next() == ('P2', 1); assert triage.treat_next() == ('P3', 2); assert triage.treat_next() == ('P1', 3)",
-        "triage = EmergencyTriage(); triage.admit('A', 2); triage.admit('B', 2); triage.admit('C', 1); assert triage.treat_next() == ('C', 1); assert triage.treat_next() == ('A', 2); assert triage.treat_next() == ('B', 2)"
+        {
+          "input": "triage = EmergencyTriage(); triage.admit('P1', 3); triage.admit('P2', 1); triage.admit('P3', 2); assert triage.treat_next()",
+          "expected_output": "('P2', 1); assert triage.treat_next() == ('P3', 2); assert triage.treat_next() == ('P1', 3)",
+          "description": "Verifies: triage = EmergencyTriage(); triage.admit('P1', 3); triage.admit('P2', 1); triage.admit('P3', 2); assert triage.treat_next() == ('P2', 1); assert triage.treat_next() == ('P3', 2); assert triage.treat_next() == ('P1', 3)"
+        },
+        {
+          "input": "triage = EmergencyTriage(); triage.admit('A', 2); triage.admit('B', 2); triage.admit('C', 1); assert triage.treat_next()",
+          "expected_output": "('C', 1); assert triage.treat_next() == ('A', 2); assert triage.treat_next() == ('B', 2)",
+          "description": "Verifies: triage = EmergencyTriage(); triage.admit('A', 2); triage.admit('B', 2); triage.admit('C', 1); assert triage.treat_next() == ('C', 1); assert triage.treat_next() == ('A', 2); assert triage.treat_next() == ('B', 2)"
+        }
       ],
       "hint": "Use a tuple (severity, arrival_order, patient_id) in the heap so that Python compares elements left-to-right and breaks ties by arrival time.",
       "explanation": "In real-world systems, priority queues must handle tie-breaking and ordering guarantees. Here, severity is primary and FIFO arrival is secondary. This models hospital triage where critical cases are seen first, and equal cases are handled by wait time."
@@ -547,9 +604,21 @@
       "starter_code": "import heapq\n\ndef max_non_overlapping_meetings(intervals):\n    # intervals: list of (start, end)\n    # Sort by start time\n    intervals.sort(key=lambda x: x[0])\n    selected = []\n    pq = []\n    for s, e in intervals:\n        pass\n    return len(selected), selected",
       "solution_code": "import heapq\n\ndef max_non_overlapping_meetings(intervals):\n    if not intervals:\n        return 0, []\n    intervals.sort(key=lambda x: x[0])\n    selected = []\n    pq = []\n    for s, e in intervals:\n        while pq and pq[0] <= s:\n            heapq.heappop(pq)\n        heapq.heappush(pq, e)\n        if len(pq) == 1:\n            selected.append((s, e))\n        else:\n            selected[-1] = (selected[-1][0], e)\n    return len(selected), selected",
       "test_cases": [
-        "assert max_non_overlapping_meetings([(1, 4), (3, 5), (0, 6), (5, 7), (3, 9), (5, 9), (6, 10), (8, 11), (8, 12), (2, 14), (12, 16)]) == (4, [(1, 4), (5, 7), (8, 11), (12, 16)])",
-        "assert max_non_overlapping_meetings([(1, 2), (2, 3), (3, 4)]) == (3, [(1, 2), (2, 3), (3, 4)])",
-        "assert max_non_overlapping_meetings([(1, 5), (2, 3), (4, 6)]) == (2, [(2, 3), (4, 6)])"
+        {
+          "input": "assert max_non_overlapping_meetings([(1, 4), (3, 5), (0, 6), (5, 7), (3, 9), (5, 9), (6, 10), (8, 11), (8, 12), (2, 14), (12, 16)])",
+          "expected_output": "(4, [(1, 4), (5, 7), (8, 11), (12, 16)])",
+          "description": "Verifies: assert max_non_overlapping_meetings([(1, 4), (3, 5), (0, 6), (5, 7), (3, 9), (5, 9), (6, 10), (8, 11), (8, 12), (2, 14), (12, 16)]) == (4, [(1, 4), (5, 7), (8, 11), (12, 16)])"
+        },
+        {
+          "input": "assert max_non_overlapping_meetings([(1, 2), (2, 3), (3, 4)])",
+          "expected_output": "(3, [(1, 2), (2, 3), (3, 4)])",
+          "description": "Verifies: assert max_non_overlapping_meetings([(1, 2), (2, 3), (3, 4)]) == (3, [(1, 2), (2, 3), (3, 4)])"
+        },
+        {
+          "input": "assert max_non_overlapping_meetings([(1, 5), (2, 3), (4, 6)])",
+          "expected_output": "(2, [(2, 3), (4, 6)])",
+          "description": "Verifies: assert max_non_overlapping_meetings([(1, 5), (2, 3), (4, 6)]) == (2, [(2, 3), (4, 6)])"
+        }
       ],
       "hint": "Maintain a min-heap of end times. Remove all meetings that finish before or at the current start, then add the current meeting. Track the last selected meeting to ensure non-overlap.",
       "explanation": "This greedy interval scheduling problem uses a priority queue to dynamically manage candidate meetings by earliest finish time. The heap allows efficient removal of expired intervals, yielding an O(n log n) solution that maximizes throughput in resource allocation scenarios."

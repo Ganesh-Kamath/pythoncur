@@ -453,10 +453,26 @@
       "starter_code": "def unique_chars(s):\n    result = ''\n    for ch in s:\n        if ch not in result:\n            result = result + ch\n    return result\n\nprint(unique_chars('banana'))",
       "solution_code": "def unique_chars(s):\n    seen = set()\n    result = []\n    for ch in s:\n        if ch not in seen:\n            seen.add(ch)\n            result.append(ch)\n    return ''.join(result)\n\nprint(unique_chars('banana'))  # 'ban'",
       "test_cases": [
-        "assert unique_chars('banana') == 'ban'",
-        "assert unique_chars('abcabc') == 'abc'",
-        "assert unique_chars('') == ''",
-        "assert unique_chars('aabbaa') == 'ab'"
+        {
+          "input": "assert unique_chars('banana')",
+          "expected_output": "'ban'",
+          "description": "Verifies: assert unique_chars('banana') == 'ban'"
+        },
+        {
+          "input": "assert unique_chars('abcabc')",
+          "expected_output": "'abc'",
+          "description": "Verifies: assert unique_chars('abcabc') == 'abc'"
+        },
+        {
+          "input": "assert unique_chars('')",
+          "expected_output": "''",
+          "description": "Verifies: assert unique_chars('') == ''"
+        },
+        {
+          "input": "assert unique_chars('aabbaa')",
+          "expected_output": "'ab'",
+          "description": "Verifies: assert unique_chars('aabbaa') == 'ab'"
+        }
       ],
       "hint": "Repeated 'in' checks on a growing string are O(n^2). Consider a set for O(1) membership tests and a list for ordered accumulation.",
       "explanation": "The original approach uses string concatenation inside a loop, which is O(n^2) because strings are immutable and each concatenation creates a new object. By using a set to track seen characters and a list to build the result, membership checks become O(1). Joining the list at the end produces the final string efficiently, yielding an overall O(n) time complexity."
@@ -470,9 +486,21 @@
       "starter_code": "def char_frequency(s):\n    freq = {}\n    # TODO: iterate through s and populate freq\n    return freq\n\n# Example usage\nprint(char_frequency('banana'))",
       "solution_code": "def char_frequency(s):\n    freq = {}\n    for ch in s:\n        freq[ch] = freq.get(ch, 0) + 1\n    return freq\n\nprint(char_frequency('banana'))",
       "test_cases": [
-        "char_frequency('apple') == {'a': 1, 'p': 2, 'l': 1, 'e': 1}",
-        "char_frequency('') == {}",
-        "char_frequency('Aa') == {'A': 1, 'a': 1}"
+        {
+          "input": "char_frequency('apple')",
+          "expected_output": "{'a': 1, 'p': 2, 'l': 1, 'e': 1}",
+          "description": "Verifies: char_frequency('apple') == {'a': 1, 'p': 2, 'l': 1, 'e': 1}"
+        },
+        {
+          "input": "char_frequency('')",
+          "expected_output": "{}",
+          "description": "Verifies: char_frequency('') == {}"
+        },
+        {
+          "input": "char_frequency('Aa')",
+          "expected_output": "{'A': 1, 'a': 1}",
+          "description": "Verifies: char_frequency('Aa') == {'A': 1, 'a': 1}"
+        }
       ],
       "hint": "Use `dict.get(key, default)` to handle missing keys gracefully.",
       "explanation": "This exercise applies string iteration and dictionary-based frequency counting, a core array-and-string concept. It teaches O(n) time complexity and safe key insertion.",
@@ -492,9 +520,21 @@
       "starter_code": "def even_index_elements(arr):\n    result = []\n    # TODO: loop with index and collect even-indexed items\n    return result\n\nprint(even_index_elements([10, 20, 30, 40, 50]))",
       "solution_code": "def even_index_elements(arr):\n    result = []\n    for i in range(len(arr)):\n        if i % 2 == 0:\n            result.append(arr[i])\n    return result\n\nprint(even_index_elements([10, 20, 30, 40, 50]))",
       "test_cases": [
-        "even_index_elements([0, 1, 2, 3]) == [0, 2]",
-        "even_index_elements([7]) == [7]",
-        "even_index_elements([]) == []"
+        {
+          "input": "even_index_elements([0, 1, 2, 3])",
+          "expected_output": "[0, 2]",
+          "description": "Verifies: even_index_elements([0, 1, 2, 3]) == [0, 2]"
+        },
+        {
+          "input": "even_index_elements([7])",
+          "expected_output": "[7]",
+          "description": "Verifies: even_index_elements([7]) == [7]"
+        },
+        {
+          "input": "even_index_elements([])",
+          "expected_output": "[]",
+          "description": "Verifies: even_index_elements([]) == []"
+        }
       ],
       "hint": "Use `range(len(arr))` to access both index and value.",
       "explanation": "This task strengthens understanding of zero-based indexing and list traversal, essential for array manipulation in DSA.",
@@ -514,9 +554,21 @@
       "starter_code": "def longest_palindrome(s):\n    best = ''\n    n = len(s)\n    # TODO: expand around centers or use DP\n    return best\n\nprint(longest_palindrome('babad'))",
       "solution_code": "def longest_palindrome(s):\n    best = ''\n    n = len(s)\n    for center in range(2 * n - 1):\n        left = center // 2\n        right = left + center % 2\n        while left >= 0 and right < n and s[left] == s[right]:\n            if right - left + 1 > len(best):\n                best = s[left:right + 1]\n            left -= 1\n            right += 1\n    return best\n\nprint(longest_palindrome('babad'))",
       "test_cases": [
-        "longest_palindrome('cbbd') in ['bb', 'cbbd']",
-        "longest_palindrome('a') == 'a'",
-        "longest_palindrome('ac') in ['a', 'c']"
+        {
+          "input": "",
+          "expected_output": "longest_palindrome('cbbd') in ['bb', 'cbbd']",
+          "description": "longest_palindrome('cbbd') in ['bb', 'cbbd']"
+        },
+        {
+          "input": "longest_palindrome('a')",
+          "expected_output": "'a'",
+          "description": "Verifies: longest_palindrome('a') == 'a'"
+        },
+        {
+          "input": "",
+          "expected_output": "longest_palindrome('ac') in ['a', 'c']",
+          "description": "longest_palindrome('ac') in ['a', 'c']"
+        }
       ],
       "hint": "Treat each character and each gap between characters as a potential center of a palindrome.",
       "explanation": "This advanced problem uses center expansion to achieve O(n^2) time, reinforcing string indexing, slicing, and palindrome logic.",
@@ -536,9 +588,21 @@
       "starter_code": "def merge_sorted(a, b):\n    merged = []\n    i = j = 0\n    # TODO: compare and append the smaller element\n    return merged\n\nprint(merge_sorted([1, 3, 5], [2, 4, 6]))",
       "solution_code": "def merge_sorted(a, b):\n    merged = []\n    i = j = 0\n    while i < len(a) and j < len(b):\n        if a[i] <= b[j]:\n            merged.append(a[i])\n            i += 1\n        else:\n            merged.append(b[j])\n            j += 1\n    while i < len(a):\n        merged.append(a[i])\n        i += 1\n    while j < len(b):\n        merged.append(b[j])\n        j += 1\n    return merged\n\nprint(merge_sorted([1, 3, 5], [2, 4, 6]))",
       "test_cases": [
-        "merge_sorted([1, 4], [2, 3, 5]) == [1, 2, 3, 4, 5]",
-        "merge_sorted([], [1, 2]) == [1, 2]",
-        "merge_sorted([2, 2], [2, 2]) == [2, 2, 2, 2]"
+        {
+          "input": "merge_sorted([1, 4], [2, 3, 5])",
+          "expected_output": "[1, 2, 3, 4, 5]",
+          "description": "Verifies: merge_sorted([1, 4], [2, 3, 5]) == [1, 2, 3, 4, 5]"
+        },
+        {
+          "input": "merge_sorted([], [1, 2])",
+          "expected_output": "[1, 2]",
+          "description": "Verifies: merge_sorted([], [1, 2]) == [1, 2]"
+        },
+        {
+          "input": "merge_sorted([2, 2], [2, 2])",
+          "expected_output": "[2, 2, 2, 2]",
+          "description": "Verifies: merge_sorted([2, 2], [2, 2]) == [2, 2, 2, 2]"
+        }
       ],
       "hint": "Use two pointers and append the smaller current element until one list is exhausted.",
       "explanation": "This mini-challenge tests linear-time merging of sorted arrays, a fundamental DSA operation for arrays and ordered data.",
@@ -558,9 +622,21 @@
       "starter_code": "def summarize_errors(logs):\n    counts = {}\n    # TODO: filter for 'ERROR', extract message, and tally\n    return counts\n\nlogs = [\n    '2024-01-01 10:00:00 INFO Start',\n    '2024-01-01 10:01:00 ERROR Disk full',\n    '2024-01-01 10:02:00 ERROR Disk full',\n    '2024-01-01 10:03:00 INFO Shutdown'\n]\nprint(summarize_errors(logs))",
       "solution_code": "def summarize_errors(logs):\n    counts = {}\n    for entry in logs:\n        if 'ERROR' in entry:\n            msg = entry.split('ERROR ')[1]\n            counts[msg] = counts.get(msg, 0) + 1\n    return counts\n\nlogs = [\n    '2024-01-01 10:00:00 INFO Start',\n    '2024-01-01 10:01:00 ERROR Disk full',\n    '2024-01-01 10:02:00 ERROR Disk full',\n    '2024-01-01 10:03:00 INFO Shutdown'\n]\nprint(summarize_errors(logs))",
       "test_cases": [
-        "summarize_errors(['ERROR A', 'INFO B', 'ERROR A']) == {'A': 2}",
-        "summarize_errors([]) == {}",
-        "summarize_errors(['INFO only']) == {}"
+        {
+          "input": "summarize_errors(['ERROR A', 'INFO B', 'ERROR A'])",
+          "expected_output": "{'A': 2}",
+          "description": "Verifies: summarize_errors(['ERROR A', 'INFO B', 'ERROR A']) == {'A': 2}"
+        },
+        {
+          "input": "summarize_errors([])",
+          "expected_output": "{}",
+          "description": "Verifies: summarize_errors([]) == {}"
+        },
+        {
+          "input": "summarize_errors(['INFO only'])",
+          "expected_output": "{}",
+          "description": "Verifies: summarize_errors(['INFO only']) == {}"
+        }
       ],
       "hint": "Use `in` to detect 'ERROR', then `split()` to isolate the message part.",
       "explanation": "This real-world scenario applies string searching, splitting, and dictionary aggregation, demonstrating how array traversal and string parsing solve practical data-processing tasks.",
@@ -580,10 +656,26 @@
       "starter_code": "def is_balanced(s):\n    stack = []\n    pairs = {')': '(', ']': '[', '}': '{'}\n    for ch in s:\n        if ch in '({[':\n            stack.append(ch)\n        elif ch in ')}]':\n            # TODO: check matching top of stack\n    return len(stack) == 0\n\nprint(is_balanced('({[]})'))",
       "solution_code": "def is_balanced(s):\n    stack = []\n    pairs = {')': '(', ']': '[', '}': '{'}\n    for ch in s:\n        if ch in '({[':\n            stack.append(ch)\n        elif ch in ')}]':\n            if not stack or stack.pop() != pairs[ch]:\n                return False\n    return len(stack) == 0\n\nprint(is_balanced('({[]})'))",
       "test_cases": [
-        "is_balanced('({[]})') == True",
-        "is_balanced('([)]') == False",
-        "is_balanced('') == True",
-        "is_balanced('(((') == False"
+        {
+          "input": "is_balanced('({[]})')",
+          "expected_output": "True",
+          "description": "Verifies: is_balanced('({[]})') == True"
+        },
+        {
+          "input": "is_balanced('([)]')",
+          "expected_output": "False",
+          "description": "Verifies: is_balanced('([)]') == False"
+        },
+        {
+          "input": "is_balanced('')",
+          "expected_output": "True",
+          "description": "Verifies: is_balanced('') == True"
+        },
+        {
+          "input": "is_balanced('(((')",
+          "expected_output": "False",
+          "description": "Verifies: is_balanced('(((') == False"
+        }
       ],
       "hint": "Pop from the stack and compare with the expected matching opener for each closing bracket.",
       "explanation": "This mastery challenge uses a list as a stack to validate nested structures, combining string iteration, dictionary lookup, and LIFO behavior—key array and string concepts in algorithm design.",

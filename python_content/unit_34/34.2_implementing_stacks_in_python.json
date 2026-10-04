@@ -456,8 +456,16 @@
       "starter_code": "class Stack:\n    def __init__(self):\n        self.items = []\n    def push(self, item):\n        self.items.append(item)\n    def pop(self):\n        if self.is_empty():\n            return None\n        return self.items.pop()\n    def peek(self):\n        if self.is_empty():\n            return None\n        return self.items[-1]\n    def size(self):\n        return len(self.items)\n    def is_empty(self):\n        return len(self.items) == 0",
       "solution_code": "from typing import Any, Optional\n\nclass Stack:\n    def __init__(self) -> None:\n        self._items: list[Any] = []\n        self._size: int = 0\n\n    def push(self, item: Any) -> None:\n        self._items.append(item)\n        self._size += 1\n\n    def pop(self) -> Optional[Any]:\n        if self.is_empty():\n            return None\n        self._size -= 1\n        return self._items.pop()\n\n    def peek(self) -> Optional[Any]:\n        if self.is_empty():\n            return None\n        return self._items[-1]\n\n    def size(self) -> int:\n        return self._size\n\n    def is_empty(self) -> bool:\n        return self._size == 0",
       "test_cases": [
-        "s = Stack(); s.push(1); assert s.size() == 1; assert s.pop() == 1; assert s.is_empty()",
-        "s = Stack(); assert s.peek() is None; assert s.pop() is None; s.push('a'); s.push('b'); assert s.size() == 2"
+        {
+          "input": "s = Stack(); s.push(1); assert s.size()",
+          "expected_output": "1; assert s.pop() == 1; assert s.is_empty()",
+          "description": "Verifies: s = Stack(); s.push(1); assert s.size() == 1; assert s.pop() == 1; assert s.is_empty()"
+        },
+        {
+          "input": "s = Stack(); assert s.peek() is None; assert s.pop() is None; s.push('a'); s.push('b'); assert s.size()",
+          "expected_output": "2",
+          "description": "Verifies: s = Stack(); assert s.peek() is None; assert s.pop() is None; s.push('a'); s.push('b'); assert s.size() == 2"
+        }
       ],
       "hint": "Maintain `_size` in sync during `push` and `pop`, and make `_items` name-mangled by prefixing with an underscore.",
       "explanation": "The refactored class encapsulates the internal list as `_items`, adds full type hints for clarity, and caches the size in `_size` to make `size()` O(1) instead of O(n). `push` and `pop` update `_size` accordingly, preserving correctness while improving performance for frequent size queries."
@@ -475,8 +483,16 @@
       "starter_code": "class Stack:\n    def __init__(self):\n        self.items = []\n    \n    def push(self, item):\n        pass\n    \n    def pop(self):\n        pass\n    \n    def peek(self):\n        pass\n    \n    def is_empty(self):\n        pass\n\ns = Stack()\ns.push('a')\ns.push('b')\nprint(s.peek())\nprint(s.pop())\nprint(s.is_empty())",
       "solution_code": "class Stack:\n    def __init__(self):\n        self.items = []\n    \n    def push(self, item):\n        self.items.append(item)\n    \n    def pop(self):\n        if not self.is_empty():\n            return self.items.pop()\n        raise IndexError('pop from empty stack')\n    \n    def peek(self):\n        if not self.is_empty():\n            return self.items[-1]\n        raise IndexError('peek from empty stack')\n    \n    def is_empty(self):\n        return len(self.items) == 0\n\ns = Stack()\ns.push('a')\ns.push('b')\nprint(s.peek())\nprint(s.pop())\nprint(s.is_empty())",
       "test_cases": [
-        "stack = Stack(); stack.push(1); assert stack.peek() == 1; stack.pop(); assert stack.is_empty() == True",
-        "stack = Stack(); stack.push('x'); stack.push('y'); assert stack.pop() == 'y'; assert stack.pop() == 'x'; assert stack.is_empty() == True"
+        {
+          "input": "stack = Stack(); stack.push(1); assert stack.peek()",
+          "expected_output": "1; stack.pop(); assert stack.is_empty() == True",
+          "description": "Verifies: stack = Stack(); stack.push(1); assert stack.peek() == 1; stack.pop(); assert stack.is_empty() == True"
+        },
+        {
+          "input": "stack = Stack(); stack.push('x'); stack.push('y'); assert stack.pop()",
+          "expected_output": "'y'; assert stack.pop() == 'x'; assert stack.is_empty() == True",
+          "description": "Verifies: stack = Stack(); stack.push('x'); stack.push('y'); assert stack.pop() == 'y'; assert stack.pop() == 'x'; assert stack.is_empty() == True"
+        }
       ],
       "hint": "Use list append for push and list pop for pop. Check length for is_empty.",
       "explanation": "A stack is a LIFO structure. Python lists provide append and pop at the end in O(1) time, making them ideal for stack implementation. The peek method returns the last element without removing it."
@@ -494,10 +510,26 @@
       "starter_code": "def is_balanced(s):\n    stack = []\n    for ch in s:\n        if ch == '(':\n            stack.append(ch)\n        elif ch == ')':\n            if not stack:\n                return False\n            stack.pop()\n    return len(stack) == 0\n\nprint(is_balanced('(()())'))\nprint(is_balanced('(()'))",
       "solution_code": "def is_balanced(s):\n    stack = []\n    for ch in s:\n        if ch == '(':\n            stack.append(ch)\n        elif ch == ')':\n            if not stack:\n                return False\n            stack.pop()\n    return len(stack) == 0\n\nprint(is_balanced('(()())'))\nprint(is_balanced('(()'))",
       "test_cases": [
-        "assert is_balanced('()()()') == True",
-        "assert is_balanced('(()(()))') == True",
-        "assert is_balanced('(()))') == False",
-        "assert is_balanced('(((') == False"
+        {
+          "input": "assert is_balanced('()()()')",
+          "expected_output": "True",
+          "description": "Verifies: assert is_balanced('()()()') == True"
+        },
+        {
+          "input": "assert is_balanced('(()(()))')",
+          "expected_output": "True",
+          "description": "Verifies: assert is_balanced('(()(()))') == True"
+        },
+        {
+          "input": "assert is_balanced('(()))')",
+          "expected_output": "False",
+          "description": "Verifies: assert is_balanced('(()))') == False"
+        },
+        {
+          "input": "assert is_balanced('(((')",
+          "expected_output": "False",
+          "description": "Verifies: assert is_balanced('(((') == False"
+        }
       ],
       "hint": "Every closing parenthesis must match a prior opening parenthesis. Use stack to track unmatched opening symbols.",
       "explanation": "Balanced parentheses require every ')' to have a corresponding '('. The stack records opening parentheses; when a closing parenthesis is found, we verify there is a matching opening one by popping."
@@ -515,8 +547,16 @@
       "starter_code": "class MinStack:\n    def __init__(self):\n        self.stack = []\n        self.min_stack = []\n    \n    def push(self, val):\n        self.stack.append(val)\n        if not self.min_stack:\n            self.min_stack.append(val)\n        else:\n            self.min_stack.append(min(val, self.min_stack[-1]))\n    \n    def pop(self):\n        if self.stack:\n            self.min_stack.pop()\n            return self.stack.pop()\n    \n    def get_min(self):\n        return self.min_stack[-1] if self.min_stack else None\n\ns = MinStack()\ns.push(5)\ns.push(2)\nprint(s.get_min())\nprint(s.pop())\nprint(s.get_min())",
       "solution_code": "class MinStack:\n    def __init__(self):\n        self.stack = []\n        self.min_stack = []\n    \n    def push(self, val):\n        self.stack.append(val)\n        if not self.min_stack:\n            self.min_stack.append(val)\n        else:\n            self.min_stack.append(min(val, self.min_stack[-1]))\n    \n    def pop(self):\n        if self.stack:\n            self.min_stack.pop()\n            return self.stack.pop()\n        raise IndexError('pop from empty stack')\n    \n    def get_min(self):\n        if self.min_stack:\n            return self.min_stack[-1]\n        raise IndexError('get_min from empty stack')\n\ns = MinStack()\ns.push(5)\ns.push(2)\nprint(s.get_min())\nprint(s.pop())\nprint(s.get_min())",
       "test_cases": [
-        "ms = MinStack(); ms.push(0); ms.push(1); assert ms.get_min() == 0; ms.pop(); assert ms.get_min() == 0",
-        "ms = MinStack(); ms.push(-2); ms.push(0); ms.push(-3); assert ms.get_min() == -3; ms.pop(); assert ms.get_min() == -2"
+        {
+          "input": "ms = MinStack(); ms.push(0); ms.push(1); assert ms.get_min()",
+          "expected_output": "0; ms.pop(); assert ms.get_min() == 0",
+          "description": "Verifies: ms = MinStack(); ms.push(0); ms.push(1); assert ms.get_min() == 0; ms.pop(); assert ms.get_min() == 0"
+        },
+        {
+          "input": "ms = MinStack(); ms.push(-2); ms.push(0); ms.push(-3); assert ms.get_min()",
+          "expected_output": "-3; ms.pop(); assert ms.get_min() == -2",
+          "description": "Verifies: ms = MinStack(); ms.push(-2); ms.push(0); ms.push(-3); assert ms.get_min() == -3; ms.pop(); assert ms.get_min() == -2"
+        }
       ],
       "hint": "Maintain a secondary stack where each entry stores the minimum seen so far. Update it during push and pop in sync with the main stack.",
       "explanation": "By storing the running minimum at each push, get_min becomes an O(1) lookup of the top of the min_stack. This avoids scanning the entire stack on every query."
@@ -534,9 +574,21 @@
       "starter_code": "def evaluate_postfix(expr):\n    stack = []\n    for token in expr.split():\n        if token.isalpha():\n            stack.append(token)\n        else:\n            b = stack.pop()\n            a = stack.pop()\n            if token == '+':\n                stack.append(a + b)\n            elif token == '-':\n                stack.append(a - b)\n            elif token == '*':\n                stack.append(a * b)\n            elif token == '/':\n                stack.append(a / b)\n    return stack[0]\n\nprint(evaluate_postfix('a b +'))",
       "solution_code": "def evaluate_postfix(expr):\n    stack = []\n    for token in expr.split():\n        if token.isalpha():\n            stack.append(token)\n        else:\n            if len(stack) < 2:\n                raise ValueError('invalid postfix expression')\n            b = stack.pop()\n            a = stack.pop()\n            if token == '+':\n                stack.append(a + b)\n            elif token == '-':\n                stack.append(a - b)\n            elif token == '*':\n                stack.append(a * b)\n            elif token == '/':\n                stack.append(a / b)\n    if len(stack) != 1:\n        raise ValueError('invalid postfix expression')\n    return stack[0]\n\nprint(evaluate_postfix('a b +'))\nprint(evaluate_postfix('a b c + *'))",
       "test_cases": [
-        "assert evaluate_postfix('a b +') == 'ab'",
-        "assert evaluate_postfix('a b c + *') == 'abc+'",
-        "assert evaluate_postfix('a b + c *') == 'ab+c*'"
+        {
+          "input": "assert evaluate_postfix('a b +')",
+          "expected_output": "'ab'",
+          "description": "Verifies: assert evaluate_postfix('a b +') == 'ab'"
+        },
+        {
+          "input": "assert evaluate_postfix('a b c + *')",
+          "expected_output": "'abc+'",
+          "description": "Verifies: assert evaluate_postfix('a b c + *') == 'abc+'"
+        },
+        {
+          "input": "assert evaluate_postfix('a b + c *')",
+          "expected_output": "'ab+c*'",
+          "description": "Verifies: assert evaluate_postfix('a b + c *') == 'ab+c*'"
+        }
       ],
       "hint": "Operands are pushed onto the stack. When an operator is encountered, pop the top two operands, apply the operator, and push the result back.",
       "explanation": "Postfix evaluation naturally maps to a stack: operands are stored, and operators consume the most recent operands. The final stack contains the single result if the expression is valid."
@@ -554,8 +606,16 @@
       "starter_code": "class TextEditor:\n    def __init__(self):\n        self.current = ''\n        self.history = []\n    \n    def save_state(self, new_text):\n        self.history.append(self.current)\n        self.current = new_text\n    \n    def undo(self):\n        if not self.history:\n            return\n        self.current = self.history.pop()\n    \n    def get_history(self):\n        return self.history.copy()\n\neditor = TextEditor()\neditor.save_state('hello')\neditor.save_state('hello world')\nprint(editor.get_history())\nprint(editor.undo())\nprint(editor.current)",
       "solution_code": "class TextEditor:\n    def __init__(self):\n        self.current = ''\n        self.history = []\n    \n    def save_state(self, new_text):\n        self.history.append(self.current)\n        self.current = new_text\n    \n    def undo(self):\n        if not self.history:\n            raise RuntimeError('nothing to undo')\n        self.current = self.history.pop()\n        return self.current\n    \n    def get_history(self):\n        return self.history.copy()\n\neditor = TextEditor()\neditor.save_state('hello')\neditor.save_state('hello world')\nprint(editor.get_history())\nprint(editor.undo())\nprint(editor.current)",
       "test_cases": [
-        "ed = TextEditor(); ed.save_state('a'); ed.save_state('ab'); assert ed.undo() == 'a'; assert ed.current == 'a'",
-        "ed = TextEditor(); ed.save_state('x'); assert ed.get_history() == ['']"
+        {
+          "input": "ed = TextEditor(); ed.save_state('a'); ed.save_state('ab'); assert ed.undo()",
+          "expected_output": "'a'; assert ed.current == 'a'",
+          "description": "Verifies: ed = TextEditor(); ed.save_state('a'); ed.save_state('ab'); assert ed.undo() == 'a'; assert ed.current == 'a'"
+        },
+        {
+          "input": "ed = TextEditor(); ed.save_state('x'); assert ed.get_history()",
+          "expected_output": "['']",
+          "description": "Verifies: ed = TextEditor(); ed.save_state('x'); assert ed.get_history() == ['']"
+        }
       ],
       "hint": "Before changing the current text, push the existing state onto the history stack. Undo restores the top of the stack to current.",
       "explanation": "The undo feature is a classic stack use case: each saved state is pushed before modification, and undo pops the latest saved state to revert. This provides O(1) save and undo operations."
@@ -573,9 +633,21 @@
       "starter_code": "def reverse_iterative(s):\n    stack = []\n    for ch in s:\n        stack.append(ch)\n    result = ''\n    while stack:\n        result += stack.pop()\n    return result\n\nprint(reverse_iterative('stack'))",
       "solution_code": "def reverse_iterative(s):\n    stack = []\n    for ch in s:\n        stack.append(ch)\n    result = ''\n    while stack:\n        result += stack.pop()\n    return result\n\ndef reverse_recursive(s):\n    if len(s) <= 1:\n        return s\n    return reverse_recursive(s[1:]) + s[0]\n\nprint(reverse_iterative('stack'))\nprint(reverse_recursive('stack'))\nprint('iterative extra space:', 'O(n)')\nprint('recursive call stack space:', 'O(n)')",
       "test_cases": [
-        "assert reverse_iterative('abc') == 'cba'",
-        "assert reverse_iterative('') == ''",
-        "assert reverse_recursive('abc') == 'cba'"
+        {
+          "input": "assert reverse_iterative('abc')",
+          "expected_output": "'cba'",
+          "description": "Verifies: assert reverse_iterative('abc') == 'cba'"
+        },
+        {
+          "input": "assert reverse_iterative('')",
+          "expected_output": "''",
+          "description": "Verifies: assert reverse_iterative('') == ''"
+        },
+        {
+          "input": "assert reverse_recursive('abc')",
+          "expected_output": "'cba'",
+          "description": "Verifies: assert reverse_recursive('abc') == 'cba'"
+        }
       ],
       "hint": "Push all characters onto a stack, then pop them to build the reversed string. For the recursive version, the call stack itself acts as the implicit stack.",
       "explanation": "Both approaches use O(n) auxiliary space. The iterative version explicitly uses a list as a stack, while the recursive version relies on the program call stack. Time complexity is O(n) for both."

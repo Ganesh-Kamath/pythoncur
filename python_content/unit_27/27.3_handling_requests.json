@@ -160,24 +160,25 @@
     },
     {
       "id": "27.3_q10",
-      "type": "real_world_scenario",
+      "type": "write_the_code",
       "concept": "handling_requests_production_transfer",
-      "skill": "application",
+      "skill": "transfer",
       "difficulty": "hard",
       "prerequisites": [
         "27.3_q9"
       ],
-      "prompt": "Apply Handling Requests to a realistic scenario: process a sequence of records and return only those meeting the business rule:",
-      "starter_code": "records = [{'id': 1, 'active': True}, {'id': 2, 'active': False}]\n# Filter active records\nactive_records = ___",
-      "solution_code": "records = [{'id': 1, 'active': True}, {'id': 2, 'active': False}]\nactive_records = [r for r in records if r['active']]",
+      "prompt": "Transfer Challenge: Solve a practical problem using Handling Requests. Implement the function below to satisfy the stated contract.",
+      "starter_code": "def handle_domain_task(val):\n    # Implement domain logic for Handling Requests\n    return str(val).strip()",
+      "solution_code": "def handle_domain_task(val):\n    return str(val).strip().upper()",
       "test_cases": [
         {
-          "input": "",
-          "expected_output": "Handling Requests Result 10"
+          "input": "'  python  '",
+          "expected_output": "'PYTHON'",
+          "description": "domain sanitization"
         }
       ],
       "hint": "Use a list comprehension to filter records where 'active' is True.",
-      "explanation": "In production Python code, Handling Requests is frequently combined with data filtering to process structured domain models efficiently."
+      "explanation": "Applying clean functional contracts for Handling Requests ensures testable domain operations."
     },
     {
       "id": "27.3_q11",
@@ -458,8 +459,16 @@
       "starter_code": "import requests\n\ndef get_data(url):\n    r = requests.get(url)\n    return r.json()\n\ndef post_data(url, payload):\n    r = requests.post(url, json=payload)\n    return r.json()",
       "solution_code": "import requests\nfrom functools import lru_cache\n\nclass APIClient:\n    def __init__(self, base_url, timeout=10):\n        self.base_url = base_url.rstrip('/') + '/'\n        self.timeout = timeout\n        self.session = requests.Session()\n\n    def _request(self, method, endpoint, **kwargs):\n        url = self.base_url + endpoint.lstrip('/')\n        kwargs.setdefault('timeout', self.timeout)\n        resp = self.session.request(method, url, **kwargs)\n        resp.raise_for_status()\n        return resp\n\n    def get(self, endpoint, cache=False):\n        if cache:\n            return self._request('GET', endpoint).json()\n        return self._request('GET', endpoint).json()\n\n    def post(self, endpoint, payload):\n        return self._request('POST', endpoint, json=payload).json()",
       "test_cases": [
-        "client = APIClient('https://api.example.com'); client.post('items', {'name': 'widget'}); client.get('items', cache=True); client.session.close()",
-        "client = APIClient('https://api.example.com', timeout=5); client.get('status')"
+        {
+          "input": "",
+          "expected_output": "client = APIClient('https://api.example.com'); client.post('items', {'name': 'widget'}); client.get('items', cache=True); client.session.close()",
+          "description": "client = APIClient('https://api.example.com'); client.post('items', {'name': 'widget'}); client.get('items', cache=True); client.session.close()"
+        },
+        {
+          "input": "",
+          "expected_output": "client = APIClient('https://api.example.com', timeout=5); client.get('status')",
+          "description": "client = APIClient('https://api.example.com', timeout=5); client.get('status')"
+        }
       ],
       "hint": "Encapsulate the session in a class, default timeout, and use a private _request helper to avoid duplication.",
       "explanation": "The refactored design introduces a class-based client with session reuse, centralized timeout, and a private request method. This reduces redundant code, improves maintainability, and prepares the backend for scaling."
@@ -477,9 +486,21 @@
       "starter_code": "from flask import Flask, request, jsonify\n\napp = Flask(__name__)\n\n@app.route('/echo', methods=['GET', 'POST'])\ndef echo():\n    # TODO: implement GET and POST handling\n    pass\n\nif __name__ == '__main__':\n    app.run(debug=True)",
       "solution_code": "from flask import Flask, request, jsonify\n\napp = Flask(__name__)\n\n@app.route('/echo', methods=['GET', 'POST'])\ndef echo():\n    if request.method == 'GET':\n        return jsonify({'message': 'Welcome to the echo service!'})\n    elif request.method == 'POST':\n        data = request.get_json()\n        name = data.get('name', 'Guest')\n        return jsonify({'received_name': name})\n\nif __name__ == '__main__':\n    app.run(debug=True)",
       "test_cases": [
-        "GET /echo returns {'message': 'Welcome to the echo service!'}",
-        "POST /echo with body {'name': 'Alice'} returns {'received_name': 'Alice'}",
-        "POST /echo with missing 'name' returns {'received_name': 'Guest'}"
+        {
+          "input": "",
+          "expected_output": "GET /echo returns {'message': 'Welcome to the echo service!'}",
+          "description": "GET /echo returns {'message': 'Welcome to the echo service!'}"
+        },
+        {
+          "input": "",
+          "expected_output": "POST /echo with body {'name': 'Alice'} returns {'received_name': 'Alice'}",
+          "description": "POST /echo with body {'name': 'Alice'} returns {'received_name': 'Alice'}"
+        },
+        {
+          "input": "",
+          "expected_output": "POST /echo with missing 'name' returns {'received_name': 'Guest'}",
+          "description": "POST /echo with missing 'name' returns {'received_name': 'Guest'}"
+        }
       ],
       "hint": "Use request.method to differentiate between GET and POST. Use request.get_json() to parse incoming JSON.",
       "explanation": "This exercise teaches students to branch logic based on HTTP method and to safely extract JSON payloads using Flask's request object. Validating the method prevents accidental processing of unsupported requests."
@@ -497,9 +518,21 @@
       "starter_code": "from flask import Flask, request, jsonify\n\napp = Flask(__name__)\n\n@app.route('/users', methods=['POST'])\ndef create_user():\n    # TODO: validate input and return appropriate response\n    pass\n\nif __name__ == '__main__':\n    app.run(debug=True)",
       "solution_code": "from flask import Flask, request, jsonify\n\napp = Flask(__name__)\n\n@app.route('/users', methods=['POST'])\ndef create_user():\n    data = request.get_json()\n    if not data or 'username' not in data or 'email' not in data:\n        return jsonify({'error': 'Missing username or email'}), 400\n    return jsonify({'status': 'created', 'user': data}), 201\n\nif __name__ == '__main__':\n    app.run(debug=True)",
       "test_cases": [
-        "POST /users with {'username': 'bob', 'email': 'bob@example.com'} returns 201 with created user",
-        "POST /users with {} returns 400 with error message",
-        "POST /users with {'username': 'bob'} returns 400 with error message"
+        {
+          "input": "",
+          "expected_output": "POST /users with {'username': 'bob', 'email': 'bob@example.com'} returns 201 with created user",
+          "description": "POST /users with {'username': 'bob', 'email': 'bob@example.com'} returns 201 with created user"
+        },
+        {
+          "input": "",
+          "expected_output": "POST /users with {} returns 400 with error message",
+          "description": "POST /users with {} returns 400 with error message"
+        },
+        {
+          "input": "",
+          "expected_output": "POST /users with {'username': 'bob'} returns 400 with error message",
+          "description": "POST /users with {'username': 'bob'} returns 400 with error message"
+        }
       ],
       "hint": "Check for missing keys using the 'in' operator. Return a tuple (response, status_code) to set the HTTP status.",
       "explanation": "Practical validation ensures data integrity before persistence. Returning explicit status codes helps clients understand whether the request succeeded or failed, which is essential for robust API design."
@@ -517,9 +550,21 @@
       "starter_code": "from flask import Flask, request, jsonify\n\napp = Flask(__name__)\n\n@app.route('/tasks', methods=['POST'])\ndef manage_tasks():\n    # TODO: add robust error handling and sorting\n    pass\n\nif __name__ == '__main__':\n    app.run(debug=True)",
       "solution_code": "from flask import Flask, request, jsonify\n\napp = Flask(__name__)\n\n@app.route('/tasks', methods=['POST'])\ndef manage_tasks():\n    try:\n        payload = request.get_json()\n        tasks = payload['tasks']\n    except Exception as e:\n        return jsonify({'error': 'Invalid payload', 'details': str(e)}), 422\n    \n    if not isinstance(tasks, list):\n        return jsonify({'error': 'tasks must be a list'}), 422\n    \n    sorted_tasks = sorted(tasks)\n    return jsonify({'sorted_tasks': sorted_tasks})\n\nif __name__ == '__main__':\n    app.run(debug=True)",
       "test_cases": [
-        "POST /tasks with {'tasks': ['zebra', 'apple']} returns sorted list",
-        "POST /tasks with invalid JSON returns 422 with error details",
-        "POST /tasks with missing 'tasks' key returns 422 with error details"
+        {
+          "input": "",
+          "expected_output": "POST /tasks with {'tasks': ['zebra', 'apple']} returns sorted list",
+          "description": "POST /tasks with {'tasks': ['zebra', 'apple']} returns sorted list"
+        },
+        {
+          "input": "",
+          "expected_output": "POST /tasks with invalid JSON returns 422 with error details",
+          "description": "POST /tasks with invalid JSON returns 422 with error details"
+        },
+        {
+          "input": "",
+          "expected_output": "POST /tasks with missing 'tasks' key returns 422 with error details",
+          "description": "POST /tasks with missing 'tasks' key returns 422 with error details"
+        }
       ],
       "hint": "Catch broad exceptions during JSON parsing and key access. Use isinstance to verify the expected data type before sorting.",
       "explanation": "Advanced handling combines exception management with type checking. This pattern mirrors production-grade APIs where malformed input must be rejected gracefully without crashing the server."
@@ -537,9 +582,21 @@
       "starter_code": "from flask import Flask, request, jsonify\n\napp = Flask(__name__)\n\nmock_db = {'101': 'alpha', '202': 'beta'}\n\n@app.route('/items/<item_id>', methods=['DELETE'])\ndef delete_item(item_id):\n    # TODO: implement conditional status code logic\n    pass\n\nif __name__ == '__main__':\n    app.run(debug=True)",
       "solution_code": "from flask import Flask, request, jsonify\n\napp = Flask(__name__)\n\nmock_db = {'101': 'alpha', '202': 'beta'}\n\n@app.route('/items/<item_id>', methods=['DELETE'])\ndef delete_item(item_id):\n    if request.method != 'DELETE':\n        return '', 405\n    \n    if item_id not in mock_db:\n        return jsonify({'error': 'Not found'}), 404\n    \n    del mock_db[item_id]\n    return '', 204\n\nif __name__ == '__main__':\n    app.run(debug=True)",
       "test_cases": [
-        "DELETE /items/101 returns 204 and removes 'alpha' from mock_db",
-        "DELETE /items/303 returns 404 with error message",
-        "GET /items/101 returns 405"
+        {
+          "input": "",
+          "expected_output": "DELETE /items/101 returns 204 and removes 'alpha' from mock_db",
+          "description": "DELETE /items/101 returns 204 and removes 'alpha' from mock_db"
+        },
+        {
+          "input": "",
+          "expected_output": "DELETE /items/303 returns 404 with error message",
+          "description": "DELETE /items/303 returns 404 with error message"
+        },
+        {
+          "input": "",
+          "expected_output": "GET /items/101 returns 405",
+          "description": "GET /items/101 returns 405"
+        }
       ],
       "hint": "Compare request.method against 'DELETE' explicitly. Return an empty string with status 204 for successful deletion per REST conventions.",
       "explanation": "This challenge reinforces RESTful conventions: 405 for unsupported methods, 404 for missing resources, and 204 for successful deletion with no content. Proper status codes are critical for client-side automation."
@@ -557,9 +614,21 @@
       "starter_code": "from flask import Flask, request, jsonify\nfrom datetime import datetime\n\napp = Flask(__name__)\n\n@app.route('/reservations', methods=['POST'])\ndef create_reservation():\n    # TODO: implement business rule validation and ID generation\n    pass\n\nif __name__ == '__main__':\n    app.run(debug=True)",
       "solution_code": "from flask import Flask, request, jsonify\nfrom datetime import datetime\nimport uuid\n\napp = Flask(__name__)\n\n@app.route('/reservations', methods=['POST'])\ndef create_reservation():\n    data = request.get_json()\n    \n    if not data.get('guest_name') or not data.get('check_in') or not data.get('check_out'):\n        return jsonify({'error': 'Missing required fields'}), 400\n    \n    try:\n        check_in = datetime.fromisoformat(data['check_in'])\n        check_out = datetime.fromisoformat(data['check_out'])\n    except ValueError:\n        return jsonify({'error': 'Invalid date format'}), 400\n    \n    if check_out <= check_in:\n        return jsonify({'error': 'check_out must be after check_in'}), 400\n    \n    reservation_id = str(uuid.uuid4())\n    return jsonify({'status': 'confirmed', 'reservation_id': reservation_id}), 201\n\nif __name__ == '__main__':\n    app.run(debug=True)",
       "test_cases": [
-        "POST /reservations with valid dates returns 201 with reservation_id",
-        "POST /reservations with check_out before check_in returns 400",
-        "POST /reservations with empty guest_name returns 400"
+        {
+          "input": "",
+          "expected_output": "POST /reservations with valid dates returns 201 with reservation_id",
+          "description": "POST /reservations with valid dates returns 201 with reservation_id"
+        },
+        {
+          "input": "",
+          "expected_output": "POST /reservations with check_out before check_in returns 400",
+          "description": "POST /reservations with check_out before check_in returns 400"
+        },
+        {
+          "input": "",
+          "expected_output": "POST /reservations with empty guest_name returns 400",
+          "description": "POST /reservations with empty guest_name returns 400"
+        }
       ],
       "hint": "Use datetime.fromisoformat to parse ISO-formatted date strings. Generate a unique ID with uuid.uuid4() and convert it to a string.",
       "explanation": "Real-world scenarios require combining multiple validation layers: presence checks, type conversion, and business logic constraints. Returning structured confirmation data improves client experience and supports downstream systems."
@@ -577,9 +646,21 @@
       "starter_code": "from flask import Flask, request, jsonify\n\napp = Flask(__name__)\nrequest_log = []\n\n@app.route('/submit', methods=['POST'])\ndef submit():\n    # TODO: add logging via before_request and implement validation\n    pass\n\nif __name__ == '__main__':\n    app.run(debug=True)",
       "solution_code": "from flask import Flask, request, jsonify\n\napp = Flask(__name__)\nrequest_log = []\n\n@app.before_request\ndef log_request():\n    request_log.append({'method': request.method, 'path': request.path})\n\n@app.route('/submit', methods=['POST'])\ndef submit():\n    data = request.get_json()\n    if not data or not isinstance(data, dict):\n        return jsonify({'error': 'payload must be a dictionary'}), 400\n    return jsonify({'keys': list(data.keys())}), 200\n\nif __name__ == '__main__':\n    app.run(debug=True)",
       "test_cases": [
-        "POST /submit with {'payload': {'x': 1}} returns 200 with keys list",
-        "POST /submit with invalid JSON returns 400",
-        "request_log contains {'method': 'POST', 'path': '/submit'} after a valid request"
+        {
+          "input": "",
+          "expected_output": "POST /submit with {'payload': {'x': 1}} returns 200 with keys list",
+          "description": "POST /submit with {'payload': {'x': 1}} returns 200 with keys list"
+        },
+        {
+          "input": "",
+          "expected_output": "POST /submit with invalid JSON returns 400",
+          "description": "POST /submit with invalid JSON returns 400"
+        },
+        {
+          "input": "",
+          "expected_output": "request_log contains {'method': 'POST', 'path': '/submit'} after a valid request",
+          "description": "request_log contains {'method': 'POST', 'path': '/submit'} after a valid request"
+        }
       ],
       "hint": "Use @app.before_request to register a function that runs before each request. Inside the route, check isinstance(data, dict) after parsing JSON.",
       "explanation": "Mastery of request handling includes understanding Flask's request lifecycle. before_request hooks allow cross-cutting concerns like logging to be centralized, keeping route handlers focused on business logic and improving maintainability."

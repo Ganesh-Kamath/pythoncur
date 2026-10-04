@@ -123,12 +123,19 @@
       "prerequisites": [
         "34.4_q6"
       ],
-      "prompt": "Write a clean, reusable function or code statement that demonstrates core usage of Queue Concepts (FIFO):",
+      "prompt": "Milestone Implementation: Construct a modular, well-tested function that applies the central principles of Queue Concepts (FIFO).",
       "correct_answer": "apple banana",
-      "explanation": "Understanding how to construct clean implementations of Queue Concepts (FIFO) ensures you can integrate it into broader software applications.",
-      "starter_code": "# Implement a solution for Queue Concepts (FIFO)\ndef solve():\n    ___",
-      "solution_code": "def solve():\n    # Core implementation of Queue Concepts (FIFO)\n    return True",
-      "hint": "Focus on applying the central Python idiom for Queue Concepts (FIFO)."
+      "explanation": "Constructing pure, robust data transformers for Queue Concepts (FIFO) avoids unintended side effects and guarantees consistent return contracts.",
+      "starter_code": "def process_34_4_data(items):\n    # Process input according to Queue Concepts (FIFO) rules\n    pass",
+      "solution_code": "def process_34_4_data(items):\n    return [item for item in items if item is not None]",
+      "hint": "Focus on applying the central Python idiom for Queue Concepts (FIFO).",
+      "test_cases": [
+        {
+          "input": "[1, None, 2, None, 3]",
+          "expected_output": "[1, 2, 3]",
+          "description": "cleans null values using Queue Concepts (FIFO) rules"
+        }
+      ]
     },
     {
       "id": "34.4_q8",
@@ -429,9 +436,21 @@
       "starter_code": "class Queue:\n    def __init__(self):\n        self.data = []\n    def enqueue(self, val):\n        self.data.append(val)\n    def dequeue(self):\n        if not self.data:\n            return None\n        return self.data.pop(0)\n    def is_empty(self):\n        return len(self.data) == 0\n\nq = Queue()\nfor i in range(5):\n    q.enqueue(i)\nprint([q.dequeue() for _ in range(5)])",
       "solution_code": "class CircularQueue:\n    def __init__(self, capacity):\n        self.capacity = capacity\n        self.data = [None] * capacity\n        self.front = 0\n        self.rear = -1\n        self.size = 0\n\n    def enqueue(self, val):\n        if self.size == self.capacity:\n            raise OverflowError('Queue is full')\n        self.rear = (self.rear + 1) % self.capacity\n        self.data[self.rear] = val\n        self.size += 1\n\n    def dequeue(self):\n        if self.size == 0:\n            return None\n        val = self.data[self.front]\n        self.data[self.front] = None\n        self.front = (self.front + 1) % self.capacity\n        self.size -= 1\n        return val\n\n    def is_empty(self):\n        return self.size == 0\n\nq = CircularQueue(5)\nfor i in range(5):\n    q.enqueue(i)\nprint([q.dequeue() for _ in range(5)])",
       "test_cases": [
-        "q = CircularQueue(3); q.enqueue(10); q.enqueue(20); assert q.dequeue() == 10; assert q.dequeue() == 20; q.enqueue(30); assert q.dequeue() == 30",
-        "q = CircularQueue(2); q.enqueue(5); q.enqueue(6); assert q.is_empty() == False; q.dequeue(); q.dequeue(); assert q.is_empty() == True",
-        "q = CircularQueue(4); for i in range(4): q.enqueue(i); assert q.dequeue() == 0; q.enqueue(4); assert q.dequeue() == 1; assert q.dequeue() == 2; assert q.dequeue() == 3; assert q.dequeue() == 4"
+        {
+          "input": "q = CircularQueue(3); q.enqueue(10); q.enqueue(20); assert q.dequeue()",
+          "expected_output": "10; assert q.dequeue() == 20; q.enqueue(30); assert q.dequeue() == 30",
+          "description": "Verifies: q = CircularQueue(3); q.enqueue(10); q.enqueue(20); assert q.dequeue() == 10; assert q.dequeue() == 20; q.enqueue(30); assert q.dequeue() == 30"
+        },
+        {
+          "input": "q = CircularQueue(2); q.enqueue(5); q.enqueue(6); assert q.is_empty()",
+          "expected_output": "False; q.dequeue(); q.dequeue(); assert q.is_empty() == True",
+          "description": "Verifies: q = CircularQueue(2); q.enqueue(5); q.enqueue(6); assert q.is_empty() == False; q.dequeue(); q.dequeue(); assert q.is_empty() == True"
+        },
+        {
+          "input": "q = CircularQueue(4); for i in range(4): q.enqueue(i); assert q.dequeue()",
+          "expected_output": "0; q.enqueue(4); assert q.dequeue() == 1; assert q.dequeue() == 2; assert q.dequeue() == 3; assert q.dequeue() == 4",
+          "description": "Verifies: q = CircularQueue(4); for i in range(4): q.enqueue(i); assert q.dequeue() == 0; q.enqueue(4); assert q.dequeue() == 1; assert q.dequeue() == 2; assert q.dequeue() == 3; assert q.dequeue() == 4"
+        }
       ],
       "hint": "Use modulo arithmetic to wrap front and rear indices. Track size explicitly to distinguish full from empty states.",
       "explanation": "The refactored circular queue avoids O(n) shifts by reusing array slots. front and rear wrap around using modulo, and an explicit size counter prevents ambiguity between a full and empty queue."
@@ -449,8 +468,16 @@
       "starter_code": "from collections import deque\n\nclass FIFOQueue:\n    def __init__(self):\n        self.items = deque()\n    \n    def enqueue(self, item):\n        pass\n    \n    def dequeue(self):\n        pass\n    \n    def peek(self):\n        pass\n    \n    def is_empty(self):\n        pass",
       "solution_code": "from collections import deque\n\nclass FIFOQueue:\n    def __init__(self):\n        self.items = deque()\n    \n    def enqueue(self, item):\n        self.items.append(item)\n    \n    def dequeue(self):\n        if self.is_empty():\n            raise IndexError('Queue is empty')\n        return self.items.popleft()\n    \n    def peek(self):\n        if self.is_empty():\n            raise IndexError('Queue is empty')\n        return self.items[0]\n    \n    def is_empty(self):\n        return len(self.items) == 0",
       "test_cases": [
-        "q = FIFOQueue(); q.enqueue(10); q.enqueue(20); assert q.dequeue() == 10; assert q.peek() == 20; assert q.is_empty() == False",
-        "q = FIFOQueue(); assert q.is_empty() == True; q.enqueue('a'); q.enqueue('b'); q.enqueue('c'); assert q.dequeue() == 'a'; assert q.dequeue() == 'b'; assert q.dequeue() == 'c'; assert q.is_empty() == True"
+        {
+          "input": "q = FIFOQueue(); q.enqueue(10); q.enqueue(20); assert q.dequeue()",
+          "expected_output": "10; assert q.peek() == 20; assert q.is_empty() == False",
+          "description": "Verifies: q = FIFOQueue(); q.enqueue(10); q.enqueue(20); assert q.dequeue() == 10; assert q.peek() == 20; assert q.is_empty() == False"
+        },
+        {
+          "input": "q = FIFOQueue(); assert q.is_empty()",
+          "expected_output": "True; q.enqueue('a'); q.enqueue('b'); q.enqueue('c'); assert q.dequeue() == 'a'; assert q.dequeue() == 'b'; assert q.dequeue() == 'c'; assert q.is_empty() == True",
+          "description": "Verifies: q = FIFOQueue(); assert q.is_empty() == True; q.enqueue('a'); q.enqueue('b'); q.enqueue('c'); assert q.dequeue() == 'a'; assert q.dequeue() == 'b'; assert q.dequeue() == 'c'; assert q.is_empty() == True"
+        }
       ],
       "hint": "Use append() to add to the right end and popleft() to remove from the left end of a deque.",
       "explanation": "A FIFO queue follows First-In-First-Out semantics. collections.deque provides O(1) append and popleft operations, making it ideal for queue implementations. enqueue adds to the right, dequeue removes from the left, and peek inspects the front element without removing it."
@@ -468,8 +495,16 @@
       "starter_code": "from collections import deque\n\nclass FIFOQueue:\n    def __init__(self):\n        self.items = deque()\n    \n    def enqueue(self, item):\n        self.items.append(item)\n    \n    def dequeue(self):\n        if self.is_empty():\n            raise IndexError('Queue is empty')\n        return self.items.popleft()\n    \n    def peek(self):\n        if self.is_empty():\n            raise IndexError('Queue is empty')\n        return self.items[0]\n    \n    def is_empty(self):\n        return len(self.items) == 0\n    \n    def size(self):\n        pass\n    \n    def clear(self):\n        pass",
       "solution_code": "from collections import deque\n\nclass FIFOQueue:\n    def __init__(self):\n        self.items = deque()\n    \n    def enqueue(self, item):\n        self.items.append(item)\n    \n    def dequeue(self):\n        if self.is_empty():\n            raise IndexError('Queue is empty')\n        return self.items.popleft()\n    \n    def peek(self):\n        if self.is_empty():\n            raise IndexError('Queue is empty')\n        return self.items[0]\n    \n    def is_empty(self):\n        return len(self.items) == 0\n    \n    def size(self):\n        return len(self.items)\n    \n    def clear(self):\n        self.items.clear()",
       "test_cases": [
-        "q = FIFOQueue(); q.enqueue(1); q.enqueue(2); assert q.size() == 2; q.clear(); assert q.size() == 0; assert q.is_empty() == True",
-        "q = FIFOQueue(); for i in range(5): q.enqueue(i); assert q.size() == 5; q.clear(); assert q.is_empty() == True"
+        {
+          "input": "q = FIFOQueue(); q.enqueue(1); q.enqueue(2); assert q.size()",
+          "expected_output": "2; q.clear(); assert q.size() == 0; assert q.is_empty() == True",
+          "description": "Verifies: q = FIFOQueue(); q.enqueue(1); q.enqueue(2); assert q.size() == 2; q.clear(); assert q.size() == 0; assert q.is_empty() == True"
+        },
+        {
+          "input": "q = FIFOQueue(); for i in range(5): q.enqueue(i); assert q.size()",
+          "expected_output": "5; q.clear(); assert q.is_empty() == True",
+          "description": "Verifies: q = FIFOQueue(); for i in range(5): q.enqueue(i); assert q.size() == 5; q.clear(); assert q.is_empty() == True"
+        }
       ],
       "hint": "len(deque) returns the number of elements. deque has a built-in clear method.",
       "explanation": "The size() method leverages the O(1) len operation on deque. The clear() method empties the queue in O(1) time by resetting the internal structure, which is more efficient than repeatedly dequeuing all elements."
@@ -487,8 +522,16 @@
       "starter_code": "class QueueFull(Exception):\n    pass\n\nclass QueueEmpty(Exception):\n    pass\n\nfrom collections import deque\n\nclass BoundedFIFOQueue:\n    def __init__(self, capacity):\n        self.capacity = capacity\n        self.items = deque()\n    \n    def enqueue(self, item):\n        pass\n    \n    def dequeue(self):\n        pass\n    \n    def peek(self):\n        pass\n    \n    def is_full(self):\n        pass\n    \n    def is_empty(self):\n        pass",
       "solution_code": "class QueueFull(Exception):\n    pass\n\nclass QueueEmpty(Exception):\n    pass\n\nfrom collections import deque\n\nclass BoundedFIFOQueue:\n    def __init__(self, capacity):\n        self.capacity = capacity\n        self.items = deque()\n    \n    def enqueue(self, item):\n        if self.is_full():\n            raise QueueFull('Queue is full')\n        self.items.append(item)\n    \n    def dequeue(self):\n        if self.is_empty():\n            raise QueueEmpty('Queue is empty')\n        return self.items.popleft()\n    \n    def peek(self):\n        if self.is_empty():\n            raise QueueEmpty('Queue is empty')\n        return self.items[0]\n    \n    def is_full(self):\n        return len(self.items) >= self.capacity\n    \n    def is_empty(self):\n        return len(self.items) == 0",
       "test_cases": [
-        "q = BoundedFIFOQueue(2); q.enqueue(1); q.enqueue(2); assert q.is_full() == True; try: q.enqueue(3); except QueueFull: pass; else: assert False; q.dequeue(); assert q.is_full() == False; q.enqueue(3); assert q.is_full() == False",
-        "q = BoundedFIFOQueue(3); q.enqueue('x'); q.enqueue('y'); q.enqueue('z'); q.dequeue(); q.dequeue(); q.dequeue(); assert q.is_empty() == True; try: q.dequeue(); except QueueEmpty: pass; else: assert False"
+        {
+          "input": "q = BoundedFIFOQueue(2); q.enqueue(1); q.enqueue(2); assert q.is_full()",
+          "expected_output": "True; try: q.enqueue(3); except QueueFull: pass; else: assert False; q.dequeue(); assert q.is_full() == False; q.enqueue(3); assert q.is_full() == False",
+          "description": "Verifies: q = BoundedFIFOQueue(2); q.enqueue(1); q.enqueue(2); assert q.is_full() == True; try: q.enqueue(3); except QueueFull: pass; else: assert False; q.dequeue(); assert q.is_full() == False; q.enqueue(3); assert q.is_full() == False"
+        },
+        {
+          "input": "q = BoundedFIFOQueue(3); q.enqueue('x'); q.enqueue('y'); q.enqueue('z'); q.dequeue(); q.dequeue(); q.dequeue(); assert q.is_empty()",
+          "expected_output": "True; try: q.dequeue(); except QueueEmpty: pass; else: assert False",
+          "description": "Verifies: q = BoundedFIFOQueue(3); q.enqueue('x'); q.enqueue('y'); q.enqueue('z'); q.dequeue(); q.dequeue(); q.dequeue(); assert q.is_empty() == True; try: q.dequeue(); except QueueEmpty: pass; else: assert False"
+        }
       ],
       "hint": "Check the length of the deque against capacity before appending. Raise custom exceptions with descriptive messages.",
       "explanation": "A bounded queue prevents unbounded memory growth by enforcing a capacity limit. Custom exceptions make error handling explicit for callers. is_full uses >= because the queue cannot exceed capacity, and is_empty checks for zero elements."
@@ -506,8 +549,16 @@
       "starter_code": "from collections import deque\n\nclass BoundedFIFOQueue:\n    def __init__(self, capacity):\n        self.capacity = capacity\n        self.items = deque()\n    \n    def enqueue(self, item):\n        if len(self.items) >= self.capacity:\n            raise Exception('Full')\n        self.items.append(item)\n    \n    def dequeue(self):\n        if not self.items:\n            raise Exception('Empty')\n        return self.items.popleft()\n    \n    def __repr__(self):\n        return f'BoundedFIFOQueue({list(self.items)})'\n\nq = BoundedFIFOQueue(3)\nq.enqueue(10)\nq.enqueue(20)\nq.enqueue(30)\nq.dequeue()\nq.enqueue(40)\nq.dequeue()\nq.dequeue()\nq.enqueue(50)\nprint(q)",
       "solution_code": "from collections import deque\n\nclass BoundedFIFOQueue:\n    def __init__(self, capacity):\n        self.capacity = capacity\n        self.items = deque()\n    \n    def enqueue(self, item):\n        if len(self.items) >= self.capacity:\n            raise Exception('Full')\n        self.items.append(item)\n    \n    def dequeue(self):\n        if not self.items:\n            raise Exception('Empty')\n        return self.items.popleft()\n    \n    def __repr__(self):\n        return f'BoundedFIFOQueue({list(self.items)})'\n\nq = BoundedFIFOQueue(3)\nq.enqueue(10)   # [10]\nq.enqueue(20)   # [10, 20]\nq.enqueue(30)   # [10, 20, 30]\nq.dequeue()     # [20, 30], returns 10\nq.enqueue(40)   # [20, 30, 40]\nq.dequeue()     # [30, 40], returns 20\nq.dequeue()     # [40], returns 30\nq.enqueue(50)   # [40, 50]\nprint(q)  # BoundedFIFOQueue([40, 50])",
       "test_cases": [
-        "assert list(q) == [40, 50]",
-        "assert q.dequeue() == 40; assert q.dequeue() == 50; assert q.is_empty() == True"
+        {
+          "input": "assert list(q)",
+          "expected_output": "[40, 50]",
+          "description": "Verifies: assert list(q) == [40, 50]"
+        },
+        {
+          "input": "assert q.dequeue()",
+          "expected_output": "40; assert q.dequeue() == 50; assert q.is_empty() == True",
+          "description": "Verifies: assert q.dequeue() == 40; assert q.dequeue() == 50; assert q.is_empty() == True"
+        }
       ],
       "hint": "Trace each operation step by step, tracking the deque contents after every call.",
       "explanation": "After enqueue(10), enqueue(20), enqueue(30), the queue is [10, 20, 30]. Dequeue removes 10, leaving [20, 30]. Enqueue(40) replaces 30? No, capacity is 3, so [20, 30, 40] becomes [20, 30, 40], then dequeue removes 20 -> [30, 40], another dequeue removes 30 -> [40], then enqueue(50) -> [40, 50]. The final state is [40, 50]."
@@ -525,8 +576,16 @@
       "starter_code": "from collections import deque\n\nclass PrintServer:\n    def __init__(self, max_jobs):\n        self.max_jobs = max_jobs\n        self.jobs = deque()\n    \n    def add_job(self, job_id):\n        pass\n    \n    def process_next_job(self):\n        pass\n    \n    def get_pending_count(self):\n        pass\n    \n    def __repr__(self):\n        return f'PrintServer(pending={len(self.jobs)})'",
       "solution_code": "from collections import deque\n\nclass PrintServer:\n    def __init__(self, max_jobs=10):\n        self.max_jobs = max_jobs\n        self.jobs = deque()\n    \n    def add_job(self, job_id):\n        if len(self.jobs) >= self.max_jobs:\n            raise RuntimeError('Print server queue full')\n        self.jobs.append(job_id)\n        return f'Job {job_id} queued'\n    \n    def process_next_job(self):\n        if not self.jobs:\n            return 'No jobs to process'\n        job_id = self.jobs.popleft()\n        return f'Processing job {job_id}'\n    \n    def get_pending_count(self):\n        return len(self.jobs)\n    \n    def __repr__(self):\n        return f'PrintServer(pending={len(self.jobs)})'",
       "test_cases": [
-        "ps = PrintServer(3); ps.add_job('A'); ps.add_job('B'); ps.add_job('C'); assert ps.get_pending_count() == 3; ps.process_next_job(); assert ps.get_pending_count() == 2; ps.add_job('D'); assert ps.get_pending_count() == 3",
-        "ps = PrintServer(2); ps.add_job('X'); ps.add_job('Y'); try: ps.add_job('Z'); except RuntimeError: pass; else: assert False; ps.process_next_job(); ps.process_next_job(); assert ps.get_pending_count() == 0"
+        {
+          "input": "ps = PrintServer(3); ps.add_job('A'); ps.add_job('B'); ps.add_job('C'); assert ps.get_pending_count()",
+          "expected_output": "3; ps.process_next_job(); assert ps.get_pending_count() == 2; ps.add_job('D'); assert ps.get_pending_count() == 3",
+          "description": "Verifies: ps = PrintServer(3); ps.add_job('A'); ps.add_job('B'); ps.add_job('C'); assert ps.get_pending_count() == 3; ps.process_next_job(); assert ps.get_pending_count() == 2; ps.add_job('D'); assert ps.get_pending_count() == 3"
+        },
+        {
+          "input": "ps = PrintServer(2); ps.add_job('X'); ps.add_job('Y'); try: ps.add_job('Z'); except RuntimeError: pass; else: assert False; ps.process_next_job(); ps.process_next_job(); assert ps.get_pending_count()",
+          "expected_output": "0",
+          "description": "Verifies: ps = PrintServer(2); ps.add_job('X'); ps.add_job('Y'); try: ps.add_job('Z'); except RuntimeError: pass; else: assert False; ps.process_next_job(); ps.process_next_job(); assert ps.get_pending_count() == 0"
+        }
       ],
       "hint": "Use a bounded queue to prevent memory exhaustion. FIFO ensures the earliest submitted job is handled first.",
       "explanation": "FIFO ordering guarantees that no job waits indefinitely while newer jobs are processed first, which is the definition of starvation-free scheduling. The bounded capacity prevents denial-of-service via queue flooding. add_job appends to the right, process_next_job removes from the left, and get_pending_count reports the deque length."
@@ -544,8 +603,16 @@
       "starter_code": "class CircularFIFOQueue:\n    def __init__(self, capacity):\n        self.capacity = capacity\n        self.buffer = [None] * capacity\n        self.front = 0\n        self.rear = 0\n        self.size = 0\n    \n    def enqueue(self, item):\n        pass\n    \n    def dequeue(self):\n        pass\n    \n    def is_empty(self):\n        pass\n    \n    def __repr__(self):\n        items = []\n        idx = self.front\n        for _ in range(self.size):\n            items.append(self.buffer[idx])\n            idx = (idx + 1) % self.capacity\n        return f'CircularFIFOQueue({items})'",
       "solution_code": "class CircularFIFOQueue:\n    def __init__(self, capacity):\n        self.capacity = capacity\n        self.buffer = [None] * capacity\n        self.front = 0\n        self.rear = 0\n        self.size = 0\n    \n    def enqueue(self, item):\n        if self.size == self.capacity:\n            raise RuntimeError('Queue full')\n        self.buffer[self.rear] = item\n        self.rear = (self.rear + 1) % self.capacity\n        self.size += 1\n    \n    def dequeue(self):\n        if self.is_empty():\n            raise RuntimeError('Queue empty')\n        item = self.buffer[self.front]\n        self.buffer[self.front] = None\n        self.front = (self.front + 1) % self.capacity\n        self.size -= 1\n        return item\n    \n    def is_empty(self):\n        return self.size == 0\n    \n    def __repr__(self):\n        items = []\n        idx = self.front\n        for _ in range(self.size):\n            items.append(self.buffer[idx])\n            idx = (idx + 1) % self.capacity\n        return f'CircularFIFOQueue({items})'",
       "test_cases": [
-        "q = CircularFIFOQueue(4); q.enqueue(1); q.enqueue(2); q.enqueue(3); q.dequeue(); assert q.__repr__() == 'CircularFIFOQueue([2, 3])'; q.enqueue(4); q.enqueue(5); q.enqueue(6); assert q.__repr__() == 'CircularFIFOQueue([2, 3, 4, 5, 6)'",
-        "q = CircularFIFOQueue(3); q.enqueue('a'); q.enqueue('b'); q.enqueue('c'); q.dequeue(); q.dequeue(); q.dequeue(); assert q.is_empty() == True; try: q.dequeue(); except RuntimeError: pass; else: assert False"
+        {
+          "input": "q = CircularFIFOQueue(4); q.enqueue(1); q.enqueue(2); q.enqueue(3); q.dequeue(); assert q.__repr__()",
+          "expected_output": "'CircularFIFOQueue([2, 3])'; q.enqueue(4); q.enqueue(5); q.enqueue(6); assert q.__repr__() == 'CircularFIFOQueue([2, 3, 4, 5, 6)'",
+          "description": "Verifies: q = CircularFIFOQueue(4); q.enqueue(1); q.enqueue(2); q.enqueue(3); q.dequeue(); assert q.__repr__() == 'CircularFIFOQueue([2, 3])'; q.enqueue(4); q.enqueue(5); q.enqueue(6); assert q.__repr__() == 'CircularFIFOQueue([2, 3, 4, 5, 6)'"
+        },
+        {
+          "input": "q = CircularFIFOQueue(3); q.enqueue('a'); q.enqueue('b'); q.enqueue('c'); q.dequeue(); q.dequeue(); q.dequeue(); assert q.is_empty()",
+          "expected_output": "True; try: q.dequeue(); except RuntimeError: pass; else: assert False",
+          "description": "Verifies: q = CircularFIFOQueue(3); q.enqueue('a'); q.enqueue('b'); q.enqueue('c'); q.dequeue(); q.dequeue(); q.dequeue(); assert q.is_empty() == True; try: q.dequeue(); except RuntimeError: pass; else: assert False"
+        }
       ],
       "hint": "Maintain front and rear pointers modulo capacity. When size equals capacity, the queue is full. When size is 0, the queue is empty.",
       "explanation": "A circular buffer reuses allocated memory by wrapping indices with modulo arithmetic. enqueue writes at rear and advances rear; dequeue reads at front and advances front. The size field disambiguates between front == rear (empty) and a full queue (front == rear with size == capacity). This achieves O(1) amortized operations without dynamic resizing overhead."

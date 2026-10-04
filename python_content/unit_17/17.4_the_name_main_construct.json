@@ -478,8 +478,16 @@
       "starter_code": "import time\n\ndef build_index(data):\n    time.sleep(1)\n    return {x: i for i, x in enumerate(data)}\n\nRAW_DATA = [f'item_{i}' for i in range(1000)]\nINDEX = build_index(RAW_DATA)\n\nif __name__ == '__main__':\n    print('Index built:', len(INDEX))\n    print('Sample:', INDEX['item_5'])",
       "solution_code": "import time\n\ndef build_index(data):\n    time.sleep(1)\n    return {x: i for i, x in enumerate(data)}\n\nRAW_DATA = [f'item_{i}' for i in range(1000)]\n\nINDEX = None\n\ndef get_index():\n    global INDEX\n    if INDEX is None:\n        INDEX = build_index(RAW_DATA)\n    return INDEX\n\nif __name__ == '__main__':\n    INDEX = build_index(RAW_DATA)\n    print('Index built:', len(INDEX))\n    print('Sample:', INDEX['item_5'])",
       "test_cases": [
-        "import module; assert module.get_index() is not None",
-        "Run as script; verify 1-second delay occurs only once and index is accessible"
+        {
+          "input": "",
+          "expected_output": "import module; assert module.get_index() is not None",
+          "description": "import module; assert module.get_index() is not None"
+        },
+        {
+          "input": "",
+          "expected_output": "Run as script; verify 1-second delay occurs only once and index is accessible",
+          "description": "Run as script; verify 1-second delay occurs only once and index is accessible"
+        }
       ],
       "hint": "Delay heavy work until __name__ == '__main__' or lazily initialize on first access.",
       "explanation": "The original code built INDEX at import time, slowing down every import and causing side effects. The refactored version defers construction until direct execution or first use via get_index(), making the module lightweight to import while preserving functionality when executed directly."

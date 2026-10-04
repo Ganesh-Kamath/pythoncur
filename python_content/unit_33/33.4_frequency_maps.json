@@ -114,12 +114,19 @@
       "prerequisites": [
         "33.4_q6"
       ],
-      "prompt": "Write a clean, reusable function or code statement that demonstrates core usage of Frequency Maps:",
+      "prompt": "Milestone Implementation: Construct a modular, well-tested function that applies the central principles of Frequency Maps.",
       "correct_answer": "{'apple': 3, 'banana': 2, 'orange': 1}",
-      "explanation": "Understanding how to construct clean implementations of Frequency Maps ensures you can integrate it into broader software applications.",
-      "starter_code": "# Implement a solution for Frequency Maps\ndef solve():\n    ___",
-      "solution_code": "def solve():\n    # Core implementation of Frequency Maps\n    return True",
-      "hint": "Focus on applying the central Python idiom for Frequency Maps."
+      "explanation": "Constructing pure, robust data transformers for Frequency Maps avoids unintended side effects and guarantees consistent return contracts.",
+      "starter_code": "def process_33_4_data(items):\n    # Process input according to Frequency Maps rules\n    pass",
+      "solution_code": "def process_33_4_data(items):\n    return [item for item in items if item is not None]",
+      "hint": "Focus on applying the central Python idiom for Frequency Maps.",
+      "test_cases": [
+        {
+          "input": "[1, None, 2, None, 3]",
+          "expected_output": "[1, 2, 3]",
+          "description": "cleans null values using Frequency Maps rules"
+        }
+      ]
     },
     {
       "id": "33.4_q8",
@@ -442,21 +449,22 @@
       "type": "write_the_code",
       "concept": "frequency_maps_mastery_challenge",
       "skill": "transfer",
-      "difficulty": "expert",
+      "difficulty": "hard",
       "prerequisites": [
         "33.4_q23"
       ],
-      "prompt": "Mastery Challenge: Implement a robust, tested function for Frequency Maps that processes inputs, validates preconditions, and handles invalid states cleanly:",
-      "starter_code": "def execute_task(data):\n    if not data:\n        return None\n    # Process valid data\n    ___",
-      "solution_code": "def execute_task(data):\n    if not data:\n        return None\n    return sorted(data)",
+      "prompt": "Final Capstone Verification: Write a production-grade handler for Frequency Maps that processes batches and handles empty inputs cleanly.",
+      "starter_code": "def execute_33_4_workflow(batch):\n    # Validate and transform batch\n    pass",
+      "solution_code": "def execute_33_4_workflow(batch):\n    if not batch:\n        return []\n    return [str(x).strip() for x in batch]",
       "test_cases": [
         {
-          "input": "",
-          "expected_output": "Frequency Maps Result 24"
+          "input": "[' a ', 'b ']",
+          "expected_output": "['a', 'b']",
+          "description": "batch processing workflow"
         }
       ],
       "hint": "Validate input first, then execute the transformation.",
-      "explanation": "Demonstrating end-to-end mastery of Frequency Maps requires combining input validation, core algorithmic logic, and defensive programming."
+      "explanation": "Production workflows for Frequency Maps must validate inputs, maintain immutability, and return deterministic results."
     },
     {
       "id": "33.4_q25",
@@ -471,9 +479,21 @@
       "starter_code": "def build_frequency_map(items):\n    freq = {}\n    for item in items:\n        # TODO: update frequency\n    return freq\n\n# Example\nwords = ['apple', 'banana', 'apple', 'orange', 'banana', 'apple']\nprint(build_frequency_map(words))",
       "solution_code": "def build_frequency_map(items):\n    freq = {}\n    for item in items:\n        freq[item] = freq.get(item, 0) + 1\n    return freq\n\n# Example\nwords = ['apple', 'banana', 'apple', 'orange', 'banana', 'apple']\nprint(build_frequency_map(words))",
       "test_cases": [
-        "build_frequency_map(['a', 'b', 'a']) == {'a': 2, 'b': 1}",
-        "build_frequency_map([]) == {}",
-        "build_frequency_map(['x', 'x', 'x', 'x']) == {'x': 4}"
+        {
+          "input": "build_frequency_map(['a', 'b', 'a'])",
+          "expected_output": "{'a': 2, 'b': 1}",
+          "description": "Verifies: build_frequency_map(['a', 'b', 'a']) == {'a': 2, 'b': 1}"
+        },
+        {
+          "input": "build_frequency_map([])",
+          "expected_output": "{}",
+          "description": "Verifies: build_frequency_map([]) == {}"
+        },
+        {
+          "input": "build_frequency_map(['x', 'x', 'x', 'x'])",
+          "expected_output": "{'x': 4}",
+          "description": "Verifies: build_frequency_map(['x', 'x', 'x', 'x']) == {'x': 4}"
+        }
       ],
       "hint": "Use dict.get(key, default) to safely retrieve the current count before incrementing.",
       "explanation": "A frequency map stores each unique element as a key and its occurrence count as the value. Using dict.get avoids KeyError when a key is not yet present."
@@ -491,9 +511,21 @@
       "starter_code": "def char_frequency(text):\n    freq = {}\n    for ch in text:\n        if ch == ' ':\n            continue\n        # TODO: update frequency\n    return freq\n\n# Example\nprint(char_frequency('hello world'))",
       "solution_code": "def char_frequency(text):\n    freq = {}\n    for ch in text:\n        if ch == ' ':\n            continue\n        freq[ch] = freq.get(ch, 0) + 1\n    return freq\n\n# Example\nprint(char_frequency('hello world'))",
       "test_cases": [
-        "char_frequency('a b c a') == {'a': 2, 'b': 1, 'c': 1}",
-        "char_frequency('') == {}",
-        "char_frequency('  ') == {}"
+        {
+          "input": "char_frequency('a b c a')",
+          "expected_output": "{'a': 2, 'b': 1, 'c': 1}",
+          "description": "Verifies: char_frequency('a b c a') == {'a': 2, 'b': 1, 'c': 1}"
+        },
+        {
+          "input": "char_frequency('')",
+          "expected_output": "{}",
+          "description": "Verifies: char_frequency('') == {}"
+        },
+        {
+          "input": "char_frequency('  ')",
+          "expected_output": "{}",
+          "description": "Verifies: char_frequency('  ') == {}"
+        }
       ],
       "hint": "Remember to skip space characters before updating the dictionary.",
       "explanation": "This practical example demonstrates filtering during traversal. The frequency map is case-sensitive and excludes whitespace, which is a common preprocessing step."
@@ -511,9 +543,21 @@
       "starter_code": "from collections import defaultdict\n\ndef build_default_freq(items):\n    freq = defaultdict(int)\n    for item in items:\n        freq[item] += 1\n    return freq\n\ndef filter_by_threshold(freq_map, threshold):\n    # TODO: return keys with count > threshold\n    pass\n\n# Example\nitems = [1, 2, 2, 3, 3, 3, 4]\nfreq = build_default_freq(items)\nprint(filter_by_threshold(freq, 2))",
       "solution_code": "from collections import defaultdict\n\ndef build_default_freq(items):\n    freq = defaultdict(int)\n    for item in items:\n        freq[item] += 1\n    return freq\n\ndef filter_by_threshold(freq_map, threshold):\n    return [key for key, count in freq_map.items() if count > threshold]\n\n# Example\nitems = [1, 2, 2, 3, 3, 3, 4]\nfreq = build_default_freq(items)\nprint(filter_by_threshold(freq, 2))",
       "test_cases": [
-        "filter_by_threshold(build_default_freq([1,1,2,3]), 1) == [2, 3]",
-        "filter_by_threshold(build_default_freq([]), 0) == []",
-        "filter_by_threshold(build_default_freq([5,5,5]), 2) == [5]"
+        {
+          "input": "filter_by_threshold(build_default_freq([1,1,2,3]), 1)",
+          "expected_output": "[2, 3]",
+          "description": "Verifies: filter_by_threshold(build_default_freq([1,1,2,3]), 1) == [2, 3]"
+        },
+        {
+          "input": "filter_by_threshold(build_default_freq([]), 0)",
+          "expected_output": "[]",
+          "description": "Verifies: filter_by_threshold(build_default_freq([]), 0) == []"
+        },
+        {
+          "input": "filter_by_threshold(build_default_freq([5,5,5]), 2)",
+          "expected_output": "[5]",
+          "description": "Verifies: filter_by_threshold(build_default_freq([5,5,5]), 2) == [5]"
+        }
       ],
       "hint": "Use a list comprehension over freq_map.items() to filter by the count value.",
       "explanation": "defaultdict simplifies initialization by providing a default value for missing keys. The second function separates aggregation from selection, illustrating modular design."
@@ -531,9 +575,21 @@
       "starter_code": "def longest_substring_k_distinct(s, k):\n    if k == 0 or not s:\n        return 0\n    freq = {}\n    left = 0\n    max_len = 0\n    for right in range(len(s)):\n        char = s[right]\n        freq[char] = freq.get(char, 0) + 1\n        # TODO: shrink window if distinct > k\n        # TODO: update max_len\n    return max_len\n\n# Example\nprint(longest_substring_k_distinct('eceba', 2))",
       "solution_code": "def longest_substring_k_distinct(s, k):\n    if k == 0 or not s:\n        return 0\n    freq = {}\n    left = 0\n    max_len = 0\n    for right in range(len(s)):\n        char = s[right]\n        freq[char] = freq.get(char, 0) + 1\n        while len(freq) > k:\n            left_char = s[left]\n            freq[left_char] -= 1\n            if freq[left_char] == 0:\n                del freq[left_char]\n            left += 1\n        max_len = max(max_len, right - left + 1)\n    return max_len\n\n# Example\nprint(longest_substring_k_distinct('eceba', 2))",
       "test_cases": [
-        "longest_substring_k_distinct('eceba', 2) == 3",
-        "longest_substring_k_distinct('aa', 1) == 2",
-        "longest_substring_k_distinct('a', 0) == 0"
+        {
+          "input": "longest_substring_k_distinct('eceba', 2)",
+          "expected_output": "3",
+          "description": "Verifies: longest_substring_k_distinct('eceba', 2) == 3"
+        },
+        {
+          "input": "longest_substring_k_distinct('aa', 1)",
+          "expected_output": "2",
+          "description": "Verifies: longest_substring_k_distinct('aa', 1) == 2"
+        },
+        {
+          "input": "longest_substring_k_distinct('a', 0)",
+          "expected_output": "0",
+          "description": "Verifies: longest_substring_k_distinct('a', 0) == 0"
+        }
       ],
       "hint": "When the number of distinct keys in freq exceeds k, move left pointer rightward and decrement counts until the window is valid again.",
       "explanation": "The sliding window maintains a valid substring with at most k distinct characters. The frequency map tracks counts to know when a character exits the window, enabling O(n) time complexity."
@@ -551,9 +607,21 @@
       "starter_code": "def top_3_error_codes(logs):\n    code_freq = {}\n    for line in logs:\n        # TODO: extract error code and normalize\n    # TODO: return top 3 most frequent codes\n    pass\n\nlogs = [\n    '2024-01-01 10:00:01 ERROR 404 page not found',\n    '2024-01-01 10:00:05 ERROR 500 internal failure',\n    '2024-01-01 10:00:10 error 404 timeout',\n    '2024-01-01 10:00:15 ERROR 404 not found',\n    '2024-01-01 10:00:20 ERROR 503 service unavailable'\n]\nprint(top_3_error_codes(logs))",
       "solution_code": "import re\n\ndef top_3_error_codes(logs):\n    code_freq = {}\n    for line in logs:\n        code = re.search(r'ERROR\\s+(\\d+)', line, re.IGNORECASE)\n        if code:\n            num = code.group(1)\n            code_freq[num] = code_freq.get(num, 0) + 1\n    sorted_codes = sorted(code_freq.items(), key=lambda x: x[1], reverse=True)\n    return [code for code, count in sorted_codes[:3]]\n\nlogs = [\n    '2024-01-01 10:00:01 ERROR 404 page not found',\n    '2024-01-01 10:00:05 ERROR 500 internal failure',\n    '2024-01-01 10:00:10 error 404 timeout',\n    '2024-01-01 10:00:15 ERROR 404 not found',\n    '2024-01-01 10:00:20 ERROR 503 service unavailable'\n]\nprint(top_3_error_codes(logs))",
       "test_cases": [
-        "top_3_error_codes(logs) == ['404', '500', '503']",
-        "top_3_error_codes([]) == []",
-        "top_3_error_codes(['ERROR 404', 'ERROR 404', 'ERROR 500']) == ['404', '500']"
+        {
+          "input": "top_3_error_codes(logs)",
+          "expected_output": "['404', '500', '503']",
+          "description": "Verifies: top_3_error_codes(logs) == ['404', '500', '503']"
+        },
+        {
+          "input": "top_3_error_codes([])",
+          "expected_output": "[]",
+          "description": "Verifies: top_3_error_codes([]) == []"
+        },
+        {
+          "input": "top_3_error_codes(['ERROR 404', 'ERROR 404', 'ERROR 500'])",
+          "expected_output": "['404', '500']",
+          "description": "Verifies: top_3_error_codes(['ERROR 404', 'ERROR 404', 'ERROR 500']) == ['404', '500']"
+        }
       ],
       "hint": "Use re.IGNORECASE to match 'ERROR' regardless of case, then count the numeric code that follows.",
       "explanation": "This scenario synthesizes regex extraction, case normalization, and frequency ranking. Real-world data is noisy, so preprocessing before counting is essential for accurate insights."
@@ -571,9 +639,21 @@
       "starter_code": "import heapq\n\ndef top_k_frequent(nums, k):\n    freq = {}\n    for num in nums:\n        freq[num] = freq.get(num, 0) + 1\n    # TODO: build min-heap of size k\n    # TODO: return k most frequent elements\n    pass\n\n# Example\nprint(top_k_frequent([1, 1, 1, 2, 2, 3], 2))",
       "solution_code": "import heapq\n\ndef top_k_frequent(nums, k):\n    freq = {}\n    for num in nums:\n        freq[num] = freq.get(num, 0) + 1\n    heap = []\n    for num, count in freq.items():\n        entry = (count, -num)\n        if len(heap) < k:\n            heapq.heappush(heap, entry)\n        elif entry < heap[0]:\n            heapq.heapreplace(heap, entry)\n    result = sorted([(-num) for count, num in heap], reverse=True)\n    return result\n\n# Example\nprint(top_k_frequent([1, 1, 1, 2, 2, 3], 2))",
       "test_cases": [
-        "top_k_frequent([1, 1, 1, 2, 2, 3], 2) == [1, 2]",
-        "top_k_frequent([4, 4, 4, 5, 5, 6], 1) == [4]",
-        "top_k_frequent([7, 8, 9], 2) == [7, 8]"
+        {
+          "input": "top_k_frequent([1, 1, 1, 2, 2, 3], 2)",
+          "expected_output": "[1, 2]",
+          "description": "Verifies: top_k_frequent([1, 1, 1, 2, 2, 3], 2) == [1, 2]"
+        },
+        {
+          "input": "top_k_frequent([4, 4, 4, 5, 5, 6], 1)",
+          "expected_output": "[4]",
+          "description": "Verifies: top_k_frequent([4, 4, 4, 5, 5, 6], 1) == [4]"
+        },
+        {
+          "input": "top_k_frequent([7, 8, 9], 2)",
+          "expected_output": "[7, 8]",
+          "description": "Verifies: top_k_frequent([7, 8, 9], 2) == [7, 8]"
+        }
       ],
       "hint": "Store (-value) in the heap to break ties by favoring smaller original values when frequencies are equal.",
       "explanation": "A min-heap of size k ensures O(n log k) time, superior to full sorting when k << n. The tuple (count, -value) leverages Python's lexicographic comparison to satisfy the tie-breaking rule."

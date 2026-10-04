@@ -511,9 +511,21 @@
       "starter_code": "def apply_square(numbers):\n    # TODO: use a lambda with map to square each number\n    return list(map(lambda x: x ** 2, numbers))\n\nprint(apply_square([1, 2, 3, 4]))",
       "solution_code": "def apply_square(numbers):\n    return list(map(lambda x: x ** 2, numbers))\n\nprint(apply_square([1, 2, 3, 4]))",
       "test_cases": [
-        "[1, 2, 3, 4]",
-        "[-1, -2, 0]",
-        "[5, 10, 15]"
+        {
+          "input": "",
+          "expected_output": "[1, 2, 3, 4]",
+          "description": "[1, 2, 3, 4]"
+        },
+        {
+          "input": "",
+          "expected_output": "[-1, -2, 0]",
+          "description": "[-1, -2, 0]"
+        },
+        {
+          "input": "",
+          "expected_output": "[5, 10, 15]",
+          "description": "[5, 10, 15]"
+        }
       ],
       "hint": "Recall that `map()` applies a function to every item of an iterable. A lambda is a concise anonymous function defined with `lambda arguments: expression`.",
       "explanation": "The lambda `lambda x: x ** 2` takes one argument `x` and returns its square. `map()` applies this lambda to each element of the input list, and `list()` converts the resulting map object into a list."
@@ -532,9 +544,21 @@
       "starter_code": "students = [\n    {'name': 'Alice', 'score': 85},\n    {'name': 'Bob', 'score': 58},\n    {'name': 'Charlie', 'score': 72},\n    {'name': 'Diana', 'score': 49}\n]\n\ndef passing_students(data):\n    # TODO: filter and sort using lambdas\n    pass\n\nprint(passing_students(students))",
       "solution_code": "students = [\n    {'name': 'Alice', 'score': 85},\n    {'name': 'Bob', 'score': 58},\n    {'name': 'Charlie', 'score': 72},\n    {'name': 'Diana', 'score': 49}\n]\n\ndef passing_students(data):\n    filtered = filter(lambda s: s['score'] >= 60, data)\n    sorted_list = sorted(filtered, key=lambda s: s['score'], reverse=True)\n    return [s['name'] for s in sorted_list]\n\nprint(passing_students(students))",
       "test_cases": [
-        "students",
-        "[{'name': 'Eve', 'score': 60}, {'name': 'Frank', 'score': 59}]",
-        "[]"
+        {
+          "input": "",
+          "expected_output": "students",
+          "description": "students"
+        },
+        {
+          "input": "",
+          "expected_output": "[{'name': 'Eve', 'score': 60}, {'name': 'Frank', 'score': 59}]",
+          "description": "[{'name': 'Eve', 'score': 60}, {'name': 'Frank', 'score': 59}]"
+        },
+        {
+          "input": "",
+          "expected_output": "[]",
+          "description": "[]"
+        }
       ],
       "hint": "Use `filter()` with a lambda that checks `score >= 60`. Then use `sorted()` with a `key` lambda that extracts `score`, setting `reverse=True` for descending order.",
       "explanation": "The `filter()` lambda keeps only passing students. The `sorted()` lambda uses `key=lambda s: s['score']` to sort by score. Finally, a list comprehension extracts just the names."
@@ -553,9 +577,21 @@
       "starter_code": "def make_multiplier(factor):\n    # TODO: return a lambda that multiplies by factor\n    return lambda n: n * factor\n\nmult3 = make_multiplier(3)\nmult5 = make_multiplier(5)\nprint(mult3(4), mult5(7))",
       "solution_code": "def make_multiplier(factor):\n    return lambda n: n * factor\n\nmult3 = make_multiplier(3)\nmult5 = make_multiplier(5)\nprint(mult3(4), mult5(7))",
       "test_cases": [
-        "make_multiplier(2)(10)",
-        "make_multiplier(10)(1)(5)",
-        "make_multiplier(0)(99)"
+        {
+          "input": "",
+          "expected_output": "make_multiplier(2)(10)",
+          "description": "make_multiplier(2)(10)"
+        },
+        {
+          "input": "",
+          "expected_output": "make_multiplier(10)(1)(5)",
+          "description": "make_multiplier(10)(1)(5)"
+        },
+        {
+          "input": "",
+          "expected_output": "make_multiplier(0)(99)",
+          "description": "make_multiplier(0)(99)"
+        }
       ],
       "hint": "A lambda can capture variables from its enclosing scope. The `factor` parameter is closed over by the lambda returned from `make_multiplier`.",
       "explanation": "`make_multiplier(factor)` returns a lambda that remembers the value of `factor`. When called later with `n`, it computes `n * factor`, demonstrating a closure with an anonymous function."
@@ -574,9 +610,21 @@
       "starter_code": "inventory = [\n    ('laptop', 800, 2),\n    ('mouse', 25, 10),\n    ('keyboard', 120, 5),\n    ('monitor', 300, 3)\n]\n\ndef top_products(data):\n    # TODO: use map, filter, and sorted with lambdas\n    pass\n\nprint(top_products(inventory))",
       "solution_code": "inventory = [\n    ('laptop', 800, 2),\n    ('mouse', 25, 10),\n    ('keyboard', 120, 5),\n    ('monitor', 300, 3)\n]\n\ndef top_products(data):\n    with_total = map(lambda t: (t[0], t[1] * t[2]), data)\n    filtered = filter(lambda t: t[1] > 500, with_total)\n    sorted_list = sorted(filtered, key=lambda t: t[1], reverse=True)\n    return sorted_list[:2]\n\nprint(top_products(inventory))",
       "test_cases": [
-        "inventory",
-        "[(x, 10) for x in range(5)]",
-        "[]"
+        {
+          "input": "",
+          "expected_output": "inventory",
+          "description": "inventory"
+        },
+        {
+          "input": "",
+          "expected_output": "[(x, 10) for x in range(5)]",
+          "description": "[(x, 10) for x in range(5)]"
+        },
+        {
+          "input": "",
+          "expected_output": "[]",
+          "description": "[]"
+        }
       ],
       "hint": "Chain `map()` to compute totals, `filter()` to keep values above 500, and `sorted()` with `reverse=True` to get the highest values first.",
       "explanation": "The pipeline computes total value per product, removes low-value items, sorts descending by total value, and slices the top two. Each stage uses a lambda to encapsulate the logic concisely."
@@ -595,9 +643,21 @@
       "starter_code": "records = [\n    {'date': '2024-01-01', 'region': 'NA', 'amount': 100, 'currency': 'USD'},\n    {'date': '2024-01-02', 'region': 'EMEA', 'amount': 90, 'currency': 'EUR'},\n    {'date': '2024-01-03', 'region': 'APAC', 'amount': 120, 'currency': 'USD'},\n    {'date': '2024-01-04', 'region': 'EMEA', 'amount': 80, 'currency': 'GBP'}\n]\n\nexchange = {'USD': 1.0, 'EUR': 1.1, 'GBP': 1.25}\n\ndef process_sales(data, rates):\n    # TODO: convert to USD, filter EMEA, group by region and sum\n    pass\n\nprint(process_sales(records, exchange))",
       "solution_code": "records = [\n    {'date': '2024-01-01', 'region': 'NA', 'amount': 100, 'currency': 'USD'},\n    {'date': '2024-01-02', 'region': 'EMEA', 'amount': 90, 'currency': 'EUR'},\n    {'date': '2024-01-03', 'region': 'APAC', 'amount': 120, 'currency': 'USD'},\n    {'date': '2024-01-04', 'region': 'EMEA', 'amount': 80, 'currency': 'GBP'}\n]\n\nexchange = {'USD': 1.0, 'EUR': 1.1, 'GBP': 1.25}\n\ndef process_sales(data, rates):\n    usd_records = map(\n        lambda r: {**r, 'amount_usd': r['amount'] * rates[r['currency']]},\n        data\n    )\n    emea = filter(lambda r: r['region'] == 'EMEA', usd_records)\n    from collections import defaultdict\n    totals = defaultdict(float)\n    for r in emea:\n        totals[r['region']] += r['amount_usd']\n    return dict(totals)\n\nprint(process_sales(records, exchange))",
       "test_cases": [
-        "records",
-        "[{'a': 1}, {'a': 2}]",
-        "[]"
+        {
+          "input": "",
+          "expected_output": "records",
+          "description": "records"
+        },
+        {
+          "input": "",
+          "expected_output": "[{'a': 1}, {'a': 2}]",
+          "description": "[{'a': 1}, {'a': 2}]"
+        },
+        {
+          "input": "",
+          "expected_output": "[]",
+          "description": "[]"
+        }
       ],
       "hint": "Use `map()` to add `amount_usd`. Use `filter()` for EMEA. Then aggregate with a `defaultdict` or `reduce()`.",
       "explanation": "In production data pipelines, lambdas allow inline transformations without defining named helper functions. Here we convert currencies, isolate a region, and aggregate totals efficiently."
@@ -616,9 +676,21 @@
       "starter_code": "from functools import reduce\n\ndef even_product(nums):\n    # TODO: use reduce and a lambda with conditional logic\n    pass\n\nprint(even_product([2, 3, 4, 5]))\nprint(even_product([1, 3, 5]))",
       "solution_code": "from functools import reduce\n\ndef even_product(nums):\n    evens = list(filter(lambda x: x % 2 == 0, nums))\n    if not evens:\n        return 0\n    return reduce(lambda a, b: a * b, evens)\n\nprint(even_product([2, 3, 4, 5]))\nprint(even_product([1, 3, 5]))",
       "test_cases": [
-        "[2, 4, 6]",
-        "[0, 5, 8]",
-        "[1, 2, 3, 4, 5, 6]"
+        {
+          "input": "",
+          "expected_output": "[2, 4, 6]",
+          "description": "[2, 4, 6]"
+        },
+        {
+          "input": "",
+          "expected_output": "[0, 5, 8]",
+          "description": "[0, 5, 8]"
+        },
+        {
+          "input": "",
+          "expected_output": "[1, 2, 3, 4, 5, 6]",
+          "description": "[1, 2, 3, 4, 5, 6]"
+        }
       ],
       "hint": "First isolate even numbers with `filter()` and `lambda`. Then use `reduce()` with a multiplication lambda. Handle the empty case before reducing.",
       "explanation": "This exercise demonstrates mastery by combining `filter()`, `reduce()`, and a conditional check—all orchestrated through anonymous functions. `reduce(lambda a, b: a * b, evens)` accumulates the product, and the guard clause ensures correctness for edge cases."

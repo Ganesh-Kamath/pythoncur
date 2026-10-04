@@ -541,7 +541,7 @@
     },
     {
       "id": "4.1_q28",
-      "type": "real_world_scenario",
+      "type": "write_the_code",
       "concept": "command_line_confirmation",
       "skill": "application",
       "difficulty": "hard",
@@ -554,7 +554,8 @@
       "test_cases": [
         {
           "input": "",
-          "expected_output": "input() Result 28"
+          "expected_output": "Confirmed",
+          "description": "handles y confirmation"
         }
       ],
       "hint": "Use `.lower()` to normalize the response before comparing with 'y'.",

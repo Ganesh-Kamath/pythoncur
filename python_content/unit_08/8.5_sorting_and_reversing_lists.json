@@ -219,16 +219,23 @@
       "type": "write_the_code",
       "concept": "sorting_and_reversing_lists_mastery_challenge",
       "skill": "transfer",
-      "difficulty": "expert",
+      "difficulty": "hard",
       "prerequisites": [
         "8.5_q11"
       ],
-      "prompt": "Mastery Challenge: Implement a robust, tested function for Sorting and Reversing Lists that processes inputs, validates preconditions, and handles invalid states cleanly:",
+      "prompt": "Final Capstone Verification: Write a production-grade handler for Sorting and Reversing Lists that processes batches and handles empty inputs cleanly.",
       "correct_answer": "['Apple', 'banana', 'cherry']",
-      "explanation": "Demonstrating end-to-end mastery of Sorting and Reversing Lists requires combining input validation, core algorithmic logic, and defensive programming.",
-      "starter_code": "def execute_task(data):\n    if not data:\n        return None\n    # Process valid data\n    ___",
-      "solution_code": "def execute_task(data):\n    if not data:\n        return None\n    return sorted(data)",
-      "hint": "Validate input first, then execute the transformation."
+      "explanation": "Production workflows for Sorting and Reversing Lists must validate inputs, maintain immutability, and return deterministic results.",
+      "starter_code": "def execute_8_5_workflow(batch):\n    # Validate and transform batch\n    pass",
+      "solution_code": "def execute_8_5_workflow(batch):\n    if not batch:\n        return []\n    return [str(x).strip() for x in batch]",
+      "hint": "Validate input first, then execute the transformation.",
+      "test_cases": [
+        {
+          "input": "[' a ', 'b ']",
+          "expected_output": "['a', 'b']",
+          "description": "batch processing workflow"
+        }
+      ]
     },
     {
       "id": "8.5_q13",

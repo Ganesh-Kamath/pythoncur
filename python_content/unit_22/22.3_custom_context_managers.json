@@ -434,9 +434,21 @@
       "starter_code": "class MultiResource:\n    def __init__(self, urls):\n        self.urls = urls\n        self.handles = []\n    def __enter__(self):\n        for url in self.urls:\n            h = open(url, 'r')\n            self.handles.append(h)\n        return self.handles\n    def __exit__(self, exc_type, exc_val, exc_tb):\n        for h in self.handles:\n            h.close()\n        self.handles = []\n\nwith MultiResource(['a.txt', 'b.txt']) as handles:\n    print(len(handles))",
       "solution_code": "import contextlib\n\n@contextlib.contextmanager\ndef multi_resource(urls):\n    handles = []\n    try:\n        for url in urls:\n            handles.append(open(url, 'r'))\n        yield handles\n    finally:\n        for h in handles:\n            h.close()\n\nwith multi_resource(['a.txt', 'b.txt']) as handles:\n    print(len(handles))",
       "test_cases": [
-        "multi_resource(['x.txt']) should yield a list with one open file handle",
-        "multi_resource([]) should yield an empty list and close nothing",
-        "exception inside 'with' block should close all opened handles"
+        {
+          "input": "",
+          "expected_output": "multi_resource(['x.txt']) should yield a list with one open file handle",
+          "description": "multi_resource(['x.txt']) should yield a list with one open file handle"
+        },
+        {
+          "input": "",
+          "expected_output": "multi_resource([]) should yield an empty list and close nothing",
+          "description": "multi_resource([]) should yield an empty list and close nothing"
+        },
+        {
+          "input": "",
+          "expected_output": "exception inside 'with' block should close all opened handles",
+          "description": "exception inside 'with' block should close all opened handles"
+        }
       ],
       "hint": "Replace the class with a generator decorated by @contextlib.contextmanager. Initialize handles in the 'try' block, yield them, and close them in 'finally'.",
       "explanation": "The original class-based implementation is verbose and manually manages state. The refactored generator-based version eliminates the class boilerplate, uses 'try/finally' for guaranteed cleanup, and lazily initializes handles only when entering the context. This improves readability, reduces lines of code, and maintains identical semantics including proper exception propagation and resource cleanup."
@@ -454,8 +466,16 @@
       "starter_code": "class DatabaseConnection:\n    def __init__(self, name):\n        self.name = name\n        self.is_open = False\n\n    def __enter__(self):\n        # TODO: set is_open to True and return self\n        pass\n\n    def __exit__(self, exc_type, exc_val, exc_tb):\n        # TODO: set is_open to False\n        pass",
       "solution_code": "class DatabaseConnection:\n    def __init__(self, name):\n        self.name = name\n        self.is_open = False\n\n    def __enter__(self):\n        self.is_open = True\n        return self\n\n    def __exit__(self, exc_type, exc_val, exc_tb):\n        self.is_open = False",
       "test_cases": [
-        "conn = DatabaseConnection('db1'); assert conn.is_open == False; with DatabaseConnection('db2') as c: assert c.is_open == True; assert c.is_open == False",
-        "with DatabaseConnection('test') as c: assert c.name == 'test'; assert c.is_open == True"
+        {
+          "input": "conn = DatabaseConnection('db1'); assert conn.is_open",
+          "expected_output": "False; with DatabaseConnection('db2') as c: assert c.is_open == True; assert c.is_open == False",
+          "description": "Verifies: conn = DatabaseConnection('db1'); assert conn.is_open == False; with DatabaseConnection('db2') as c: assert c.is_open == True; assert c.is_open == False"
+        },
+        {
+          "input": "with DatabaseConnection('test') as c: assert c.name",
+          "expected_output": "'test'; assert c.is_open == True",
+          "description": "Verifies: with DatabaseConnection('test') as c: assert c.name == 'test'; assert c.is_open == True"
+        }
       ],
       "hint": "In __enter__, remember to return the instance so it can be assigned to a variable with 'as'. In __exit__, always reset the state regardless of whether an exception occurred.",
       "explanation": "A context manager encapsulates setup and teardown logic. __enter__ prepares resources and returns the managed object. __exit__ cleans up resources and receives exception details if an error occurs inside the 'with' block. This pattern ensures reliable resource handling even when exceptions arise."
@@ -473,8 +493,16 @@
       "starter_code": "import time\n\nclass Timer:\n    def __init__(self, label):\n        self.label = label\n\n    def __enter__(self):\n        # TODO: record start time and return self\n        pass\n\n    def __exit__(self, exc_type, exc_val, exc_tb):\n        # TODO: compute elapsed time and print it\n        pass",
       "solution_code": "import time\n\nclass Timer:\n    def __init__(self, label):\n        self.label = label\n        self.start = None\n\n    def __enter__(self):\n        self.start = time.time()\n        return self\n\n    def __exit__(self, exc_type, exc_val, exc_tb):\n        elapsed = time.time() - self.start\n        print(f'{self.label} took {elapsed:.4f} seconds')",
       "test_cases": [
-        "with Timer('sleep') as t: time.sleep(0.01); # verify no error",
-        "import io; import sys; buf = io.StringIO(); old = sys.stdout; sys.stdout = buf; with Timer('fast') as t: pass; sys.stdout = old; out = buf.getvalue(); assert 'took' in out"
+        {
+          "input": "",
+          "expected_output": "with Timer('sleep') as t: time.sleep(0.01); # verify no error",
+          "description": "with Timer('sleep') as t: time.sleep(0.01); # verify no error"
+        },
+        {
+          "input": "",
+          "expected_output": "import io; import sys; buf = io.StringIO(); old = sys.stdout; sys.stdout = buf; with Timer('fast') as t: pass; sys.stdout = old; out = buf.getvalue(); assert 'took' in out",
+          "description": "import io; import sys; buf = io.StringIO(); old = sys.stdout; sys.stdout = buf; with Timer('fast') as t: pass; sys.stdout = old; out = buf.getvalue(); assert 'took' in out"
+        }
       ],
       "hint": "Use time.time() to get the current Unix timestamp. Store it in an instance attribute during __enter__ and subtract it in __exit__.",
       "explanation": "Context managers are ideal for profiling and benchmarking. By centralizing timing logic inside __exit__, the user does not need to remember to call stop or print results manually. This reduces boilerplate and prevents resource leaks from forgotten cleanup steps."
@@ -492,8 +520,16 @@
       "starter_code": "import sys\n\nclass RedirectStdout:\n    def __init__(self, filename):\n        self.filename = filename\n        self.original = None\n\n    def __enter__(self):\n        # TODO: open file, save original stdout, redirect\n        pass\n\n    def __exit__(self, exc_type, exc_val, exc_tb):\n        # TODO: restore original stdout and close file\n        pass",
       "solution_code": "import sys\n\nclass RedirectStdout:\n    def __init__(self, filename):\n        self.filename = filename\n        self.original = None\n        self.file = None\n\n    def __enter__(self):\n        self.original = sys.stdout\n        self.file = open(self.filename, 'w')\n        sys.stdout = self.file\n        return self\n\n    def __exit__(self, exc_type, exc_val, exc_tb):\n        sys.stdout = self.original\n        self.file.close()",
       "test_cases": [
-        "with RedirectStdout('out.txt') as r: print('hello'); import os; assert os.path.exists('out.txt')",
-        "with RedirectStdout('out2.txt') as r: print('world'); with open('out2.txt') as f: assert f.read() == 'world\\n'"
+        {
+          "input": "",
+          "expected_output": "with RedirectStdout('out.txt') as r: print('hello'); import os; assert os.path.exists('out.txt')",
+          "description": "with RedirectStdout('out.txt') as r: print('hello'); import os; assert os.path.exists('out.txt')"
+        },
+        {
+          "input": "with RedirectStdout('out2.txt') as r: print('world'); with open('out2.txt') as f: assert f.read()",
+          "expected_output": "'world\\n'",
+          "description": "Verifies: with RedirectStdout('out2.txt') as r: print('world'); with open('out2.txt') as f: assert f.read() == 'world\\n'"
+        }
       ],
       "hint": "Save the original sys.stdout before overwriting it. In __exit__, always restore the original reference even if an exception occurs, and close the file handle to avoid resource leaks.",
       "explanation": "Advanced context managers can wrap system-level resources such as file descriptors and standard streams. Proper restoration in __exit__ is critical because leaving stdout redirected can corrupt subsequent program output. Using try/finally inside __exit__ is unnecessary when the logic is straightforward, but the restoration step must be unconditional."
@@ -511,8 +547,16 @@
       "starter_code": "class Retry:\n    def __init__(self, max_attempts=3):\n        self.max_attempts = max_attempts\n\n    def __enter__(self):\n        return self\n\n    def __exit__(self, exc_type, exc_val, exc_tb):\n        if exc_type is ValueError and self.max_attempts > 0:\n            self.max_attempts -= 1\n            return True\n        return False",
       "solution_code": "class Retry:\n    def __init__(self, max_attempts=3):\n        self.max_attempts = max_attempts\n\n    def __enter__(self):\n        return self\n\n    def __exit__(self, exc_type, exc_val, exc_tb):\n        if exc_type is ValueError and self.max_attempts > 1:\n            self.max_attempts -= 1\n            return True\n        return False",
       "test_cases": [
-        "def fail(): raise ValueError('bad')\nwith Retry(2):\n    fail()\n# should raise ValueError because only 2 attempts allowed",
-        "def succeed(): print('ok')\nwith Retry(5):\n    succeed()\n# should not raise"
+        {
+          "input": "",
+          "expected_output": "def fail(): raise ValueError('bad')\nwith Retry(2):\n    fail()\n# should raise ValueError because only 2 attempts allowed",
+          "description": "def fail(): raise ValueError('bad')\nwith Retry(2):\n    fail()\n# should raise ValueError because only 2 attempts allowed"
+        },
+        {
+          "input": "",
+          "expected_output": "def succeed(): print('ok')\nwith Retry(5):\n    succeed()\n# should not raise",
+          "description": "def succeed(): print('ok')\nwith Retry(5):\n    succeed()\n# should not raise"
+        }
       ],
       "hint": "The condition allows one retry when max_attempts is 2, but the logic should permit retries only while more than one attempt remains. Adjust the comparison so that the final attempt is not treated as a retry opportunity.",
       "explanation": "Returning True from __exit__ suppresses the exception and triggers another 'with' block execution. The retry counter must be decremented only when a retry is actually possible. If the counter reaches 1, the next failure must propagate because no further attempts remain."
@@ -530,8 +574,16 @@
       "starter_code": "class LogFile:\n    def __init__(self, path, mode='a'):\n        self.path = path\n        self.mode = mode\n        self.handle = None\n\n    def __enter__(self):\n        # TODO: open file and return handle\n        pass\n\n    def __exit__(self, exc_type, exc_val, exc_tb):\n        # TODO: close handle safely\n        pass\n\n# Scenario: log three events\nwith LogFile('app.log') as f:\n    f.write('started\\n')\n    f.write('processing data\\n')\n    f.write('finished\\n')",
       "solution_code": "class LogFile:\n    def __init__(self, path, mode='a'):\n        self.path = path\n        self.mode = mode\n        self.handle = None\n\n    def __enter__(self):\n        self.handle = open(self.path, self.mode)\n        return self.handle\n\n    def __exit__(self, exc_type, exc_val, exc_tb):\n        if self.handle is not None:\n            self.handle.close()\n\n# Scenario: log three events\nwith LogFile('app.log') as f:\n    f.write('started\\n')\n    f.write('processing data\\n')\n    f.write('finished\\n')",
       "test_cases": [
-        "import os; with LogFile('test.log') as f: f.write('x\\n'); assert os.path.exists('test.log')",
-        "with LogFile('test2.log') as f: f.write('y\\n'); with open('test2.log') as fh: assert fh.read() == 'y\\n'"
+        {
+          "input": "",
+          "expected_output": "import os; with LogFile('test.log') as f: f.write('x\\n'); assert os.path.exists('test.log')",
+          "description": "import os; with LogFile('test.log') as f: f.write('x\\n'); assert os.path.exists('test.log')"
+        },
+        {
+          "input": "with LogFile('test2.log') as f: f.write('y\\n'); with open('test2.log') as fh: assert fh.read()",
+          "expected_output": "'y\\n'",
+          "description": "Verifies: with LogFile('test2.log') as f: f.write('y\\n'); with open('test2.log') as fh: assert fh.read() == 'y\\n'"
+        }
       ],
       "hint": "Always check that the handle is not None before closing to avoid AttributeError if __enter__ failed. Returning the file handle from __enter__ allows direct use of write, flush, and other file methods inside the 'with' block.",
       "explanation": "In production systems, resource leaks from unclosed files can exhaust file descriptors and cause crashes. A context manager centralizes the open/close contract, making the calling code cleaner and safer. The __exit__ method guarantees cleanup because Python invokes it even when exceptions propagate out of the 'with' block."
@@ -549,8 +601,16 @@
       "starter_code": "class Transaction:\n    def __init__(self, store):\n        self.store = store\n        self.snapshot = None\n\n    def __enter__(self):\n        # TODO: save snapshot and return self\n        pass\n\n    def __exit__(self, exc_type, exc_val, exc_tb):\n        # TODO: commit or rollback based on exception\n        pass",
       "solution_code": "class Transaction:\n    def __init__(self, store):\n        self.store = store\n        self.snapshot = None\n\n    def __enter__(self):\n        self.snapshot = list(self.store)\n        return self\n\n    def __exit__(self, exc_type, exc_val, exc_tb):\n        if exc_type is not None:\n            self.store[:] = self.snapshot\n        return False",
       "test_cases": [
-        "store = [1, 2]; with Transaction(store) as t: store.append(3); assert store == [1, 2, 3]",
-        "store = [1, 2]; try:\n    with Transaction(store) as t:\n        store.append(3)\n    raise RuntimeError('fail')\nexcept RuntimeError:\n    pass\nassert store == [1, 2]"
+        {
+          "input": "store = [1, 2]; with Transaction(store) as t: store.append(3); assert store",
+          "expected_output": "[1, 2, 3]",
+          "description": "Verifies: store = [1, 2]; with Transaction(store) as t: store.append(3); assert store == [1, 2, 3]"
+        },
+        {
+          "input": "store = [1, 2]; try:\n    with Transaction(store) as t:\n        store.append(3)\n    raise RuntimeError('fail')\nexcept RuntimeError:\n    pass\nassert store",
+          "expected_output": "[1, 2]",
+          "description": "Verifies: store = [1, 2]; try:\n    with Transaction(store) as t:\n        store.append(3)\n    raise RuntimeError('fail')\nexcept RuntimeError:\n    pass\nassert store == [1, 2]"
+        }
       ],
       "hint": "Use slice assignment (store[:] = ...) to replace the contents of the original list rather than reassigning the local variable. Return False from __exit__ when no exception occurred so the exception propagates if one was raised; return True only when you intentionally suppress an exception.",
       "explanation": "This pattern mirrors database transactions in memory. The snapshot captures the pre-transaction state, enabling atomic rollback. Returning False from __exit__ when no exception occurred is the default and correct behavior because it allows normal control flow. Only when an exception is present should rollback occur, and the exception should still propagate unless explicitly suppressed."

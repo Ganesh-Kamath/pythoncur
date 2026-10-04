@@ -440,9 +440,21 @@
       "starter_code": "class Node:\n    def __init__(self, data):\n        self.data = data\n        self.next = None\n\nclass LinkedList:\n    def __init__(self):\n        self.head = None\n\n    def insert_at_tail(self, data):\n        new_node = Node(data)\n        if self.head is None:\n            self.head = new_node\n            return\n        current = self.head\n        while current.next is not None:\n            current = current.next\n        current.next = new_node\n\n    def delete_head(self):\n        if self.head is None:\n            return\n        self.head = self.head.next",
       "solution_code": "class Node:\n    def __init__(self, data):\n        self.data = data\n        self.next = None\n\nclass LinkedList:\n    def __init__(self):\n        self.head = None\n        self.tail = None\n\n    def insert_at_tail(self, data):\n        new_node = Node(data)\n        if self.head is None:\n            self.head = new_node\n            self.tail = new_node\n        else:\n            self.tail.next = new_node\n            self.tail = new_node\n\n    def delete_head(self):\n        if self.head is None:\n            return\n        self.head = self.head.next\n        if self.head is None:\n            self.tail = None",
       "test_cases": [
-        "Insert 1, 2, 3; delete_head twice; insert 4; verify tail is 4 and list is 3 -> 4",
-        "Insert single node 10; delete_head; verify head and tail are None",
-        "Insert 5, 6, 7; delete_head; insert 8; verify list is 6 -> 7 -> 8"
+        {
+          "input": "",
+          "expected_output": "Insert 1, 2, 3; delete_head twice; insert 4; verify tail is 4 and list is 3 -> 4",
+          "description": "Insert 1, 2, 3; delete_head twice; insert 4; verify tail is 4 and list is 3 -> 4"
+        },
+        {
+          "input": "",
+          "expected_output": "Insert single node 10; delete_head; verify head and tail are None",
+          "description": "Insert single node 10; delete_head; verify head and tail are None"
+        },
+        {
+          "input": "",
+          "expected_output": "Insert 5, 6, 7; delete_head; insert 8; verify list is 6 -> 7 -> 8",
+          "description": "Insert 5, 6, 7; delete_head; insert 8; verify list is 6 -> 7 -> 8"
+        }
       ],
       "hint": "Remember to update self.tail whenever the list becomes empty after a head deletion.",
       "explanation": "By caching self.tail, insert_at_tail avoids O(n) traversal and becomes O(1). The refactored delete_head must also reset self.tail to None when the last node is removed, otherwise future insertions would incorrectly attach to a stale tail. This optimization is essential for queue-like linked list usage and demonstrates how auxiliary pointers improve algorithmic complexity."

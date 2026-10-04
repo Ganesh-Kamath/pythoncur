@@ -514,7 +514,13 @@
       ],
       "prompt": "A developer writes an order script:\n```python\nunit_price = \"25\"\nquantity = 2\ntotal = unit_price * quantity\nprint(total)\n```\nIt prints `2525` instead of `50`. What diagnostic tool should they use to uncover the bug?",
       "correct_answer": "B",
-      "explanation": "Calling `type(unit_price)` immediately reveals that `unit_price` is a string (`str`), explaining why `* 2` performed string repetition."
+      "explanation": "Calling `type(unit_price)` immediately reveals that `unit_price` is a string (`str`), explaining why `* 2` performed string repetition.",
+      "options": [
+        "A. Assign a new value without checking.",
+        "B. Check type(unit_price) to see whether it is str instead of int or float.",
+        "C. Restart the operating system.",
+        "D. Delete the variable entirely."
+      ]
     },
     {
       "id": "2.6_q30",
@@ -532,7 +538,13 @@
       ],
       "prompt": "Which statement accurately captures Python's data type architecture?",
       "correct_answer": "A",
-      "explanation": "This synthesizes dynamic typing, strong typing, object-bound types, and the roles of `type()` and `isinstance()`."
+      "explanation": "This synthesizes dynamic typing, strong typing, object-bound types, and the roles of `type()` and `isinstance()`.",
+      "options": [
+        "A. Python is dynamically and strongly typed: types belong to objects, not variable names, and implicit incompatible conversions are prohibited.",
+        "B. Python is statically typed: variable types must be declared before assignment.",
+        "C. Python is weakly typed: '5' + 5 automatically evaluates to 10.",
+        "D. Types in Python cannot be inspected at runtime."
+      ]
     }
   ],
   "unit_num": 2,

@@ -447,10 +447,26 @@
       "starter_code": "class BST:\n    def __init__(self):\n        self.root = None\n\n    def insert(self, key):\n        self.root = self._insert_recursive(self.root, key)\n\n    def _insert_recursive(self, node, key):\n        if node is None:\n            return Node(key)\n        if key < node.key:\n            node.left = self._insert_recursive(node.left, key)\n        else:\n            node.right = self._insert_recursive(node.right, key)\n        return node\n\n    def search(self, key):\n        return self._search_recursive(self.root, key)\n\n    def _search_recursive(self, node, key):\n        if node is None or node.key == key:\n            return node\n        if key < node.key:\n            return self._search_recursive(node.left, key)\n        return self._search_recursive(node.right, key)",
       "solution_code": "class BST:\n    def __init__(self):\n        self.root = None\n\n    def insert(self, key):\n        if self.root is None:\n            self.root = Node(key)\n            return\n        current = self.root\n        while True:\n            if key < current.key:\n                if current.left is None:\n                    current.left = Node(key)\n                    break\n                current = current.left\n            else:\n                if current.right is None:\n                    current.right = Node(key)\n                    break\n                current = current.right\n\n    def search(self, key):\n        current = self.root\n        while current is not None:\n            if key == current.key:\n                return current\n            elif key < current.key:\n                current = current.left\n            else:\n                current = current.right\n        return None",
       "test_cases": [
-        "Insert [50, 30, 70, 20, 40, 60, 80] and verify inorder traversal is [20, 30, 40, 50, 60, 70, 80]",
-        "Search for 40 returns the node; search for 99 returns None",
-        "Insert duplicate 30 and verify it goes to the right subtree",
-        "Large balanced tree with 10000 nodes should not raise RecursionError"
+        {
+          "input": "",
+          "expected_output": "Insert [50, 30, 70, 20, 40, 60, 80] and verify inorder traversal is [20, 30, 40, 50, 60, 70, 80]",
+          "description": "Insert [50, 30, 70, 20, 40, 60, 80] and verify inorder traversal is [20, 30, 40, 50, 60, 70, 80]"
+        },
+        {
+          "input": "",
+          "expected_output": "Search for 40 returns the node; search for 99 returns None",
+          "description": "Search for 40 returns the node; search for 99 returns None"
+        },
+        {
+          "input": "",
+          "expected_output": "Insert duplicate 30 and verify it goes to the right subtree",
+          "description": "Insert duplicate 30 and verify it goes to the right subtree"
+        },
+        {
+          "input": "",
+          "expected_output": "Large balanced tree with 10000 nodes should not raise RecursionError",
+          "description": "Large balanced tree with 10000 nodes should not raise RecursionError"
+        }
       ],
       "hint": "Use a while loop with a current pointer. For insertion, traverse until you find a None child, then attach the new node.",
       "explanation": "Recursion in BST operations can cause stack overflow for deep or skewed trees. By converting insert and search to iterative versions, we eliminate recursion depth limits and improve cache locality. The time complexity remains O(h) where h is the height, but the constant factors are lower and the space complexity drops from O(h) call stack to O(1) auxiliary space. This refactoring is especially valuable in production systems handling large datasets."
@@ -469,9 +485,21 @@
       "starter_code": "class BSTNode:\n    def __init__(self, value):\n        self.value = value\n        self.left = None\n        self.right = None\n\ndef insert(root, value):\n    # TODO: implement insertion\n    pass",
       "solution_code": "class BSTNode:\n    def __init__(self, value):\n        self.value = value\n        self.left = None\n        self.right = None\n\ndef insert(root, value):\n    if root is None:\n        return BSTNode(value)\n    if value < root.value:\n        root.left = insert(root.left, value)\n    else:\n        root.right = insert(root.right, value)\n    return root",
       "test_cases": [
-        "root = None; root = insert(root, 50); assert root.value == 50",
-        "root = insert(root, 30); root = insert(root, 70); assert root.left.value == 30 and root.right.value == 70",
-        "root = insert(root, 20); root = insert(root, 40); root = insert(root, 60); root = insert(root, 80); assert root.left.right.value == 40 and root.right.left.value == 60"
+        {
+          "input": "root = None; root = insert(root, 50); assert root.value",
+          "expected_output": "50",
+          "description": "Verifies: root = None; root = insert(root, 50); assert root.value == 50"
+        },
+        {
+          "input": "root = insert(root, 30); root = insert(root, 70); assert root.left.value",
+          "expected_output": "30 and root.right.value == 70",
+          "description": "Verifies: root = insert(root, 30); root = insert(root, 70); assert root.left.value == 30 and root.right.value == 70"
+        },
+        {
+          "input": "root = insert(root, 20); root = insert(root, 40); root = insert(root, 60); root = insert(root, 80); assert root.left.right.value",
+          "expected_output": "40 and root.right.left.value == 60",
+          "description": "Verifies: root = insert(root, 20); root = insert(root, 40); root = insert(root, 60); root = insert(root, 80); assert root.left.right.value == 40 and root.right.left.value == 60"
+        }
       ],
       "hint": "Use recursion: if the value is less than the current node, go left; otherwise, go right. Create a new node when reaching a None position.",
       "explanation": "This exercise builds the foundational BST structure. A BST maintains the invariant that all left descendants are less than the node, and all right descendants are greater. The `insert` function recursively finds the correct leaf position and attaches the new `BSTNode`."
@@ -490,8 +518,16 @@
       "starter_code": "def search(root, value):\n    # TODO: implement search\n    pass\n\ndef inorder_traversal(root):\n    # TODO: implement inorder traversal\n    pass",
       "solution_code": "def search(root, value):\n    if root is None:\n        return False\n    if value == root.value:\n        return True\n    if value < root.value:\n        return search(root.left, value)\n    else:\n        return search(root.right, value)\n\ndef inorder_traversal(root):\n    result = []\n    def helper(node):\n        if node is None:\n            return\n        helper(node.left)\n        result.append(node.value)\n        helper(node.right)\n    helper(root)\n    return result",
       "test_cases": [
-        "root = BSTNode(50); root = insert(root, 30); root = insert(root, 70); assert search(root, 30) == True and search(root, 99) == False",
-        "assert inorder_traversal(root) == [30, 50, 70]"
+        {
+          "input": "root = BSTNode(50); root = insert(root, 30); root = insert(root, 70); assert search(root, 30)",
+          "expected_output": "True and search(root, 99) == False",
+          "description": "Verifies: root = BSTNode(50); root = insert(root, 30); root = insert(root, 70); assert search(root, 30) == True and search(root, 99) == False"
+        },
+        {
+          "input": "assert inorder_traversal(root)",
+          "expected_output": "[30, 50, 70]",
+          "description": "Verifies: assert inorder_traversal(root) == [30, 50, 70]"
+        }
       ],
       "hint": "Search follows the same path logic as insertion. Inorder traversal visits left, then root, then right, which yields sorted order for a BST.",
       "explanation": "Search leverages the BST ordering property to eliminate half the remaining tree at each step, achieving O(h) time where h is height. Inorder traversal is essential for verifying BST correctness and extracting sorted data."
@@ -510,7 +546,11 @@
       "starter_code": "def delete(root, value):\n    # TODO: implement deletion\n    pass\n\ndef min_value_node(node):\n    # helper: find node with minimum value in subtree\n    pass",
       "solution_code": "def min_value_node(node):\n    current = node\n    while current.left is not None:\n        current = current.left\n    return current\n\ndef delete(root, value):\n    if root is None:\n        return root\n    if value < root.value:\n        root.left = delete(root.left, value)\n    elif value > root.value:\n        root.right = delete(root.right, value)\n    else:\n        if root.left is None:\n            return root.right\n        elif root.right is None:\n            return root.left\n        temp = min_value_node(root.right)\n        root.value = temp.value\n        root.right = delete(root.right, temp.value)\n    return root",
       "test_cases": [
-        "root = insert(None, 50); root = insert(root, 30); root = insert(root, 70); root = insert(root, 20); root = insert(root, 40); root = insert(root, 60); root = insert(root, 80); root = delete(root, 20); assert inorder_traversal(root) == [30, 40, 50, 60, 70, 80]; root = delete(root, 30); assert inorder_traversal(root) == [40, 50, 60, 70, 80]; root = delete(root, 50); assert inorder_traversal(root) == [40, 60, 70, 80]"
+        {
+          "input": "root = insert(None, 50); root = insert(root, 30); root = insert(root, 70); root = insert(root, 20); root = insert(root, 40); root = insert(root, 60); root = insert(root, 80); root = delete(root, 20); assert inorder_traversal(root)",
+          "expected_output": "[30, 40, 50, 60, 70, 80]; root = delete(root, 30); assert inorder_traversal(root) == [40, 50, 60, 70, 80]; root = delete(root, 50); assert inorder_traversal(root) == [40, 60, 70, 80]",
+          "description": "Verifies: root = insert(None, 50); root = insert(root, 30); root = insert(root, 70); root = insert(root, 20); root = insert(root, 40); root = insert(root, 60); root = insert(root, 80); root = delete(root, 20); assert inorder_traversal(root) == [30, 40, 50, 60, 70, 80]; root = delete(root, 30); assert inorder_traversal(root) == [40, 50, 60, 70, 80]; root = delete(root, 50); assert inorder_traversal(root) == [40, 60, 70, 80]"
+        }
       ],
       "hint": "For the two-child case, the inorder successor is the smallest node in the right subtree. Replace the target node's value with that successor, then recursively delete the successor from the right subtree.",
       "explanation": "Deletion is the most complex BST operation because it must maintain the ordering invariant. The inorder successor guarantees that the replacement value is greater than all left descendants and less than all right descendants, allowing a clean recursive removal."
@@ -529,9 +569,21 @@
       "starter_code": "def is_valid_bst(root):\n    # TODO: implement with min/max bounds\n    pass",
       "solution_code": "def is_valid_bst(root):\n    def helper(node, low, high):\n        if node is None:\n            return True\n        if not (low < node.value < high):\n            return False\n        return helper(node.left, low, node.value) and helper(node.right, node.value, high)\n    return helper(root, float('-inf'), float('inf'))",
       "test_cases": [
-        "root = BSTNode(5); root.left = BSTNode(3); root.right = BSTNode(7); assert is_valid_bst(root) == True",
-        "root = BSTNode(5); root.left = BSTNode(6); assert is_valid_bst(root) == False",
-        "root = BSTNode(10); root.left = BSTNode(5); root.right = BSTNode(15); root.left.right = BSTNode(6); root.right.left = BSTNode(14); assert is_valid_bst(root) == True; root.left.right.value = 12; assert is_valid_bst(root) == False"
+        {
+          "input": "root = BSTNode(5); root.left = BSTNode(3); root.right = BSTNode(7); assert is_valid_bst(root)",
+          "expected_output": "True",
+          "description": "Verifies: root = BSTNode(5); root.left = BSTNode(3); root.right = BSTNode(7); assert is_valid_bst(root) == True"
+        },
+        {
+          "input": "root = BSTNode(5); root.left = BSTNode(6); assert is_valid_bst(root)",
+          "expected_output": "False",
+          "description": "Verifies: root = BSTNode(5); root.left = BSTNode(6); assert is_valid_bst(root) == False"
+        },
+        {
+          "input": "root = BSTNode(10); root.left = BSTNode(5); root.right = BSTNode(15); root.left.right = BSTNode(6); root.right.left = BSTNode(14); assert is_valid_bst(root)",
+          "expected_output": "True; root.left.right.value = 12; assert is_valid_bst(root) == False",
+          "description": "Verifies: root = BSTNode(10); root.left = BSTNode(5); root.right = BSTNode(15); root.left.right = BSTNode(6); root.right.left = BSTNode(14); assert is_valid_bst(root) == True; root.left.right.value = 12; assert is_valid_bst(root) == False"
+        }
       ],
       "hint": "Pass down valid ranges: each node must be greater than the maximum of its left ancestors and less than the minimum of its right ancestors.",
       "explanation": "A naive inorder check can fail if duplicate values or structural violations exist. Bounds propagation ensures correctness in O(n) time and O(h) space by rejecting any node that falls outside its allowed interval."
@@ -550,7 +602,11 @@
       "starter_code": "class DictionaryIndex:\n    def __init__(self):\n        self.root = None\n    def insert(self, word, doc_id):\n        # TODO: insert into BST\n        pass\n    def search(self, word):\n        # TODO: search in BST\n        pass\n    def prefix_search(self, prefix):\n        # TODO: collect all keys with given prefix\n        pass",
       "solution_code": "class DictionaryIndex:\n    def __init__(self):\n        self.root = None\n    def insert(self, word, doc_id):\n        self.root = insert(self.root, (word, doc_id))\n    def search(self, word):\n        node = self.root\n        while node is not None:\n            if word == node.value[0]:\n                return node.value[1]\n            if word < node.value[0]:\n                node = node.left\n            else:\n                node = node.right\n        return None\n    def prefix_search(self, prefix):\n        result = []\n        def helper(node):\n            if node is None:\n                return\n            if node.value[0].startswith(prefix):\n                result.append((node.value[0], node.value[1]))\n            if node.value[0] > prefix:\n                helper(node.left)\n            else:\n                helper(node.left)\n                helper(node.right)\n        helper(self.root)\n        return result",
       "test_cases": [
-        "idx = DictionaryIndex(); idx.insert('apple', 1); idx.insert('apply', 2); idx.insert('banana', 3); assert idx.search('apple') == 1 and idx.search('cherry') is None; assert [w for w, d in idx.prefix_search('ap')] == [('apple', 1), ('apply', 2)]"
+        {
+          "input": "idx = DictionaryIndex(); idx.insert('apple', 1); idx.insert('apply', 2); idx.insert('banana', 3); assert idx.search('apple')",
+          "expected_output": "1 and idx.search('cherry') is None; assert [w for w, d in idx.prefix_search('ap')] == [('apple', 1), ('apply', 2)]",
+          "description": "Verifies: idx = DictionaryIndex(); idx.insert('apple', 1); idx.insert('apply', 2); idx.insert('banana', 3); assert idx.search('apple') == 1 and idx.search('cherry') is None; assert [w for w, d in idx.prefix_search('ap')] == [('apple', 1), ('apply', 2)]"
+        }
       ],
       "hint": "Store tuples (word, doc_id) as node values so comparison uses the word. For prefix search, prune subtrees when the current word is lexicographically less than the prefix.",
       "explanation": "In information retrieval, BSTs offer ordered keys and logarithmic lookups for exact matches. Prefix search exploits lexicographic ordering: once a node's word exceeds the prefix, only its left subtree can contain matches. This design is simple but degrades to O(n) in the worst case for skewed trees, motivating balanced variants like AVL or Red-Black trees in production."
@@ -569,7 +625,11 @@
       "starter_code": "def bst_to_sorted_array(root):\n    # TODO: inorder traversal into list\n    pass\n\ndef sorted_array_to_bst(arr):\n    # TODO: build balanced BST recursively\n    pass",
       "solution_code": "def bst_to_sorted_array(root):\n    result = []\n    def helper(node):\n        if node is None:\n            return\n        helper(node.left)\n        result.append(node.value)\n        helper(node.right)\n    helper(root)\n    return result\n\ndef sorted_array_to_bst(arr):\n    def helper(left, right):\n        if left > right:\n            return None\n        mid = (left + right) // 2\n        node = BSTNode(arr[mid])\n        node.left = helper(left, mid - 1)\n        node.right = helper(mid + 1, right)\n        return node\n    return helper(0, len(arr) - 1)",
       "test_cases": [
-        "root = BSTNode(4); root.left = BSTNode(2); root.right = BSTNode(6); root.left.left = BSTNode(1); root.left.right = BSTNode(3); arr = bst_to_sorted_array(root); assert arr == [1, 2, 3, 4, 6]; new_root = sorted_array_to_bst(arr); assert bst_to_sorted_array(new_root) == [1, 2, 3, 4, 6] and new_root.value == 3"
+        {
+          "input": "root = BSTNode(4); root.left = BSTNode(2); root.right = BSTNode(6); root.left.left = BSTNode(1); root.left.right = BSTNode(3); arr = bst_to_sorted_array(root); assert arr",
+          "expected_output": "[1, 2, 3, 4, 6]; new_root = sorted_array_to_bst(arr); assert bst_to_sorted_array(new_root) == [1, 2, 3, 4, 6] and new_root.value == 3",
+          "description": "Verifies: root = BSTNode(4); root.left = BSTNode(2); root.right = BSTNode(6); root.left.left = BSTNode(1); root.left.right = BSTNode(3); arr = bst_to_sorted_array(root); assert arr == [1, 2, 3, 4, 6]; new_root = sorted_array_to_bst(arr); assert bst_to_sorted_array(new_root) == [1, 2, 3, 4, 6] and new_root.value == 3"
+        }
       ],
       "hint": "For the balanced construction, always pick the middle element as root to minimize height. Recursively build left and right subtrees from the left and right subarrays.",
       "explanation": "Converting to a sorted array demonstrates the fundamental relationship between BST inorder traversal and sorted sequences. Rebuilding a balanced BST from that array ensures O(log n) search height, which is critical for performance. This round-trip is a common interview pattern and underpins self-balancing tree algorithms."

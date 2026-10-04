@@ -500,7 +500,13 @@
       ],
       "prompt": "A door locks automatically unless an authorized badge is present. If `authorized_badge = True`, which expression evaluates whether the door should be locked?",
       "correct_answer": "A",
-      "explanation": "If authorized badge is True, `not authorized_badge` is False (unlocked). If authorized badge is False, `not authorized_badge` is True (locked)."
+      "explanation": "If authorized badge is True, `not authorized_badge` is False (unlocked). If authorized badge is False, `not authorized_badge` is True (locked).",
+      "options": [
+        "A. is_locked = not authorized_badge",
+        "B. is_locked = authorized_badge == False or True",
+        "C. is_locked = not not authorized_badge",
+        "D. is_locked = bool('locked')"
+      ]
     },
     {
       "id": "2.5_q30",
@@ -518,7 +524,13 @@
       ],
       "prompt": "Which of the following summaries regarding Python booleans is completely TRUE?",
       "correct_answer": "A",
-      "explanation": "This accurately summarizes all essential properties, semantics, and best practices of Python booleans."
+      "explanation": "This accurately summarizes all essential properties, semantics, and best practices of Python booleans.",
+      "options": [
+        "A. Booleans are subclasses of integers with exactly two instances: True (value 1) and False (value 0).",
+        "B. Booleans can take three states: True, False, and Maybe.",
+        "C. Any non-empty string converts to False in Python.",
+        "D. bool(0) evaluates to True."
+      ]
     }
   ],
   "unit_num": 2,

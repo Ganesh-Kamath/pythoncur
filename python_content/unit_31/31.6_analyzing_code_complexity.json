@@ -495,9 +495,21 @@
       "starter_code": "def find_max_linear(arr):\n    # TODO: implement\n    pass",
       "solution_code": "def find_max_linear(arr):\n    # Time Complexity: O(n), where n is the length of arr\n    if not arr:\n        return None\n    max_val = arr[0]\n    for num in arr:\n        if num > max_val:\n            max_val = num\n    return max_val",
       "test_cases": [
-        "assert find_max_linear([3, 1, 4, 1, 5, 9]) == 9",
-        "assert find_max_linear([-10, -5, -2]) == -2",
-        "assert find_max_linear([42]) == 42"
+        {
+          "input": "assert find_max_linear([3, 1, 4, 1, 5, 9])",
+          "expected_output": "9",
+          "description": "Verifies: assert find_max_linear([3, 1, 4, 1, 5, 9]) == 9"
+        },
+        {
+          "input": "assert find_max_linear([-10, -5, -2])",
+          "expected_output": "-2",
+          "description": "Verifies: assert find_max_linear([-10, -5, -2]) == -2"
+        },
+        {
+          "input": "assert find_max_linear([42])",
+          "expected_output": "42",
+          "description": "Verifies: assert find_max_linear([42]) == 42"
+        }
       ],
       "hint": "Iterate through the list exactly once and keep track of the largest element seen so far.",
       "explanation": "The function visits each element of the input list exactly one time, performing a constant-time comparison per element. Therefore, the time complexity is O(n) and the space complexity is O(1)."
@@ -515,9 +527,21 @@
       "starter_code": "def count_even_numbers(numbers):\n    # TODO: implement\n    pass",
       "solution_code": "def count_even_numbers(numbers):\n    # Time Complexity: O(n)\n    # Space Complexity: O(1)\n    count = 0\n    for num in numbers:\n        if num % 2 == 0:\n            count += 1\n    return count",
       "test_cases": [
-        "assert count_even_numbers([1, 2, 3, 4, 5, 6]) == 3",
-        "assert count_even_numbers([7, 9, 11]) == 0",
-        "assert count_even_numbers([]) == 0"
+        {
+          "input": "assert count_even_numbers([1, 2, 3, 4, 5, 6])",
+          "expected_output": "3",
+          "description": "Verifies: assert count_even_numbers([1, 2, 3, 4, 5, 6]) == 3"
+        },
+        {
+          "input": "assert count_even_numbers([7, 9, 11])",
+          "expected_output": "0",
+          "description": "Verifies: assert count_even_numbers([7, 9, 11]) == 0"
+        },
+        {
+          "input": "assert count_even_numbers([])",
+          "expected_output": "0",
+          "description": "Verifies: assert count_even_numbers([]) == 0"
+        }
       ],
       "hint": "Use the modulo operator to test evenness and increment a counter when the condition is true.",
       "explanation": "The algorithm scans the entire list once, so it runs in linear time O(n) with constant extra space O(1)."
@@ -535,9 +559,21 @@
       "starter_code": "def find_duplicates(arr):\n    # TODO: implement\n    pass",
       "solution_code": "def find_duplicates(arr):\n    # Time Complexity: O(n)\n    # Space Complexity: O(n) in the worst case\n    seen = set()\n    duplicates = set()\n    result = []\n    for item in arr:\n        if item in seen:\n            if item not in duplicates:\n                duplicates.add(item)\n                result.append(item)\n        else:\n            seen.add(item)\n    return result",
       "test_cases": [
-        "assert find_duplicates([1, 2, 3, 2, 1, 4]) == [2, 1]",
-        "assert find_duplicates(['a', 'b', 'a', 'c', 'b', 'a']) == ['a', 'b']",
-        "assert find_duplicates([5, 5, 5, 5]) == [5]"
+        {
+          "input": "assert find_duplicates([1, 2, 3, 2, 1, 4])",
+          "expected_output": "[2, 1]",
+          "description": "Verifies: assert find_duplicates([1, 2, 3, 2, 1, 4]) == [2, 1]"
+        },
+        {
+          "input": "assert find_duplicates(['a', 'b', 'a', 'c', 'b', 'a'])",
+          "expected_output": "['a', 'b']",
+          "description": "Verifies: assert find_duplicates(['a', 'b', 'a', 'c', 'b', 'a']) == ['a', 'b']"
+        },
+        {
+          "input": "assert find_duplicates([5, 5, 5, 5])",
+          "expected_output": "[5]",
+          "description": "Verifies: assert find_duplicates([5, 5, 5, 5]) == [5]"
+        }
       ],
       "hint": "Use two sets to track elements seen once and elements already identified as duplicates.",
       "explanation": "Each element is processed exactly once, and set membership checks are O(1) on average. The auxiliary space is O(n) because we store up to n unique elements in the sets."
@@ -555,9 +591,21 @@
       "starter_code": "def nested_sum(n):\n    total = 0\n    for i in range(n):\n        for j in range(i):\n            total += 1\n    return total",
       "solution_code": "# Time Complexity: O(n^2)\n# Explanation: The inner loop runs i times for each i from 0 to n-1.\n# Total operations = 0 + 1 + 2 + ... + (n-1) = n*(n-1)/2, which is O(n^2)",
       "test_cases": [
-        "assert nested_sum(0) == 0",
-        "assert nested_sum(3) == 3",
-        "assert nested_sum(5) == 10"
+        {
+          "input": "assert nested_sum(0)",
+          "expected_output": "0",
+          "description": "Verifies: assert nested_sum(0) == 0"
+        },
+        {
+          "input": "assert nested_sum(3)",
+          "expected_output": "3",
+          "description": "Verifies: assert nested_sum(3) == 3"
+        },
+        {
+          "input": "assert nested_sum(5)",
+          "expected_output": "10",
+          "description": "Verifies: assert nested_sum(5) == 10"
+        }
       ],
       "hint": "Count how many times the line `total += 1` executes as a function of n.",
       "explanation": "The nested loops produce a triangular number of iterations. This grows quadratically with n, so the time complexity is O(n^2), not linear."
@@ -575,9 +623,21 @@
       "starter_code": "# TODO: justify choice and sketch preferred approach\npass",
       "solution_code": "# Preferred: Approach A (hash map)\n# Justification: Sorting is O(n log n), while a single hash-map pass is O(n).\n# For 10 million records, O(n) is significantly faster.\n\ndef most_frequent_zone(zones):\n    freq = {}\n    for zone in zones:\n        freq[zone] = freq.get(zone, 0) + 1\n    # O(n) time, O(k) space where k is number of unique zones\n    max_zone = None\n    max_count = 0\n    for zone, count in freq.items():\n        if count > max_count:\n            max_count = count\n            max_zone = zone\n    return max_zone",
       "test_cases": [
-        "assert most_frequent_zone(['A', 'B', 'A', 'C', 'A']) == 'A'",
-        "assert most_frequent_zone(['X', 'Y', 'Z']) == 'X'",
-        "assert most_frequent_zone([]) is None"
+        {
+          "input": "assert most_frequent_zone(['A', 'B', 'A', 'C', 'A'])",
+          "expected_output": "'A'",
+          "description": "Verifies: assert most_frequent_zone(['A', 'B', 'A', 'C', 'A']) == 'A'"
+        },
+        {
+          "input": "assert most_frequent_zone(['X', 'Y', 'Z'])",
+          "expected_output": "'X'",
+          "description": "Verifies: assert most_frequent_zone(['X', 'Y', 'Z']) == 'X'"
+        },
+        {
+          "input": "",
+          "expected_output": "assert most_frequent_zone([]) is None",
+          "description": "assert most_frequent_zone([]) is None"
+        }
       ],
       "hint": "Compare the dominant term of O(n log n) versus O(n) when n is very large.",
       "explanation": "Approach A runs in linear time O(n) with O(k) extra space, making it superior to the O(n log n) sorting-based Approach B for large datasets."
@@ -595,9 +655,21 @@
       "starter_code": "def contains_duplicate(nums):\n    # TODO: implement O(n) solution\n    pass",
       "solution_code": "def contains_duplicate(nums):\n    # Time Complexity: O(n)\n    # Space Complexity: O(n)\n    seen = set()\n    for num in nums:\n        if num in seen:\n            return True\n        seen.add(num)\n    return False",
       "test_cases": [
-        "assert contains_duplicate([1, 2, 3, 4]) == False",
-        "assert contains_duplicate([1, 2, 3, 1]) == True",
-        "assert contains_duplicate([]) == False"
+        {
+          "input": "assert contains_duplicate([1, 2, 3, 4])",
+          "expected_output": "False",
+          "description": "Verifies: assert contains_duplicate([1, 2, 3, 4]) == False"
+        },
+        {
+          "input": "assert contains_duplicate([1, 2, 3, 1])",
+          "expected_output": "True",
+          "description": "Verifies: assert contains_duplicate([1, 2, 3, 1]) == True"
+        },
+        {
+          "input": "assert contains_duplicate([])",
+          "expected_output": "False",
+          "description": "Verifies: assert contains_duplicate([]) == False"
+        }
       ],
       "hint": "A set provides average O(1) lookup and insertion, allowing a single pass through the list.",
       "explanation": "The O(n^2) brute-force method compares every pair, which is infeasible for large n due to quadratic growth. The hash-set approach achieves linear time by leveraging constant-time membership tests."

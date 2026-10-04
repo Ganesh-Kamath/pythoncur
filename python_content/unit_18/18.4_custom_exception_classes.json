@@ -489,7 +489,11 @@
       "starter_code": "class InsufficientFundsError(Exception):\n    def __init__(self, message, account_balance):\n        self.account_balance = account_balance\n        super().__init__(message)\n\n    def __str__(self):\n        return f'{self.args[0]} (Balance: {self.account_balance})'",
       "solution_code": "class InsufficientFundsError(Exception):\n    def __init__(self, message, account_balance):\n        self.account_balance = account_balance\n        super().__init__(message)\n\n    def __str__(self):\n        return f'{self.args[0]} (Balance: {self.account_balance})'\n\n# Example usage\nraise InsufficientFundsError('Cannot withdraw 500', 300)",
       "test_cases": [
-        "assert str(InsufficientFundsError('Low funds', 100)) == 'Low funds (Balance: 100)'"
+        {
+          "input": "assert str(InsufficientFundsError('Low funds', 100))",
+          "expected_output": "'Low funds (Balance: 100)'",
+          "description": "Verifies: assert str(InsufficientFundsError('Low funds', 100)) == 'Low funds (Balance: 100)'"
+        }
       ],
       "hint": "Remember to call super().__init__(message) to store the message properly in args, and use f-strings for clean formatting.",
       "explanation": "Custom exceptions inherit from a built-in exception class, typically Exception. By overriding __str__, you control how the exception appears when printed. The args tuple stores arguments passed to the base constructor, so self.args[0] retrieves the message."
@@ -508,8 +512,16 @@
       "starter_code": "class BankAccount:\n    def __init__(self, holder, balance):\n        self.holder = holder\n        self.balance = balance\n\n    def withdraw(self, amount):\n        if amount > self.balance:\n            raise InsufficientFundsError('Withdrawal failed', self.balance)\n        self.balance -= amount\n\n    def deposit(self, amount):\n        self.balance += amount\n\n    def __str__(self):\n        return f'Account({self.holder}, {self.balance})'",
       "solution_code": "class BankAccount:\n    def __init__(self, holder, balance):\n        self.holder = holder\n        self.balance = balance\n\n    def withdraw(self, amount):\n        if amount > self.balance:\n            raise InsufficientFundsError('Withdrawal failed', self.balance)\n        self.balance -= amount\n\n    def deposit(self, amount):\n        self.balance += amount\n\n    def __str__(self):\n        return f'Account({self.holder}, {self.balance})'\n\n# Demonstration\nacc = BankAccount('Alice', 200)\nacc.withdraw(50)\nprint(acc)\nacc.withdraw(300)  # raises InsufficientFundsError",
       "test_cases": [
-        "acc = BankAccount('Bob', 100); acc.withdraw(50); assert acc.balance == 50",
-        "acc = BankAccount('Bob', 100); acc.withdraw(150); assert isinstance(acc.withdraw.__code__, type(None)) is False; try: acc.withdraw(150); except InsufficientFundsError: pass"
+        {
+          "input": "acc = BankAccount('Bob', 100); acc.withdraw(50); assert acc.balance",
+          "expected_output": "50",
+          "description": "Verifies: acc = BankAccount('Bob', 100); acc.withdraw(50); assert acc.balance == 50"
+        },
+        {
+          "input": "",
+          "expected_output": "acc = BankAccount('Bob', 100); acc.withdraw(150); assert isinstance(acc.withdraw.__code__, type(None)) is False; try: acc.withdraw(150); except InsufficientFundsError: pass",
+          "description": "acc = BankAccount('Bob', 100); acc.withdraw(150); assert isinstance(acc.withdraw.__code__, type(None)) is False; try: acc.withdraw(150); except InsufficientFundsError: pass"
+        }
       ],
       "hint": "Ensure the raise statement is inside the conditional block, and that deposit does not need to raise any exception for this exercise.",
       "explanation": "This demonstrates practical usage: wrapping domain-specific logic inside a class and using a custom exception to communicate precise failure conditions. The caller can catch InsufficientFundsError separately from generic exceptions."
@@ -528,8 +540,16 @@
       "starter_code": "class LibraryError(Exception):\n    pass\n\nclass BookNotFoundError(LibraryError):\n    def __init__(self, title, isbn):\n        self.title = title\n        self.isbn = isbn\n        super().__init__(f'Book not found: {title}')\n\n    def __str__(self):\n        return f'{self.args[0]} (ISBN: {self.isbn})'",
       "solution_code": "class LibraryError(Exception):\n    pass\n\nclass BookNotFoundError(LibraryError):\n    def __init__(self, title, isbn):\n        self.title = title\n        self.isbn = isbn\n        super().__init__(f'Book not found: {title}')\n\n    def __str__(self):\n        return f'{self.args[0]} (ISBN: {self.isbn})'\n\nclass OverdueFineError(LibraryError):\n    def __init__(self, patron_id, days_overdue):\n        self.patron_id = patron_id\n        self.days_overdue = days_overdue\n        super().__init__(f'Overdue by {days_overdue} days')\n\n    def __str__(self):\n        return f'{self.args[0]} (Patron: {self.patron_id})'\n\n# Verification\nraise BookNotFoundError('Python 101', '978-0123456789')\nraise OverdueFineError('P001', 5)",
       "test_cases": [
-        "assert str(BookNotFoundError('Guide', '123')) == 'Book not found: Guide (ISBN: 123)'",
-        "assert str(OverdueFineError('X', 3)) == 'Overdue by 3 days (Patron: X)'"
+        {
+          "input": "assert str(BookNotFoundError('Guide', '123'))",
+          "expected_output": "'Book not found: Guide (ISBN: 123)'",
+          "description": "Verifies: assert str(BookNotFoundError('Guide', '123')) == 'Book not found: Guide (ISBN: 123)'"
+        },
+        {
+          "input": "assert str(OverdueFineError('X', 3))",
+          "expected_output": "'Overdue by 3 days (Patron: X)'",
+          "description": "Verifies: assert str(OverdueFineError('X', 3)) == 'Overdue by 3 days (Patron: X)'"
+        }
       ],
       "hint": "Use a common base class so that a single except LibraryError clause can catch all library-related issues, while specific subclasses allow granular handling.",
       "explanation": "Hierarchical custom exceptions improve code organization and allow broad or narrow exception handling. Subclassing Exception or a custom base ensures isinstance checks work predictably and maintains compatibility with Python's exception machinery."
@@ -548,8 +568,16 @@
       "starter_code": "class TemperatureMonitor:\n    SAFE_MIN = -10\n    SAFE_MAX = 50\n\n    def validate(self, reading):\n        if reading < self.SAFE_MIN or reading > self.SAFE_MAX:\n            # TODO: define and raise custom exception here\n            pass\n        return True\n\n# Test\nmon = TemperatureMonitor()\nmon.validate(60)",
       "solution_code": "class OutOfRangeError(Exception):\n    def __init__(self, reading):\n        self.reading = reading\n        super().__init__(f'Temperature {reading}°C is out of safe range')\n\n    def __str__(self):\n        return f'{self.args[0]} (Reading: {self.reading}°C)'\n\nclass TemperatureMonitor:\n    SAFE_MIN = -10\n    SAFE_MAX = 50\n\n    def validate(self, reading):\n        if reading < self.SAFE_MIN or reading > self.SAFE_MAX:\n            raise OutOfRangeError(reading)\n        return True\n\n# Test\nmon = TemperatureMonitor()\ntry:\n    mon.validate(60)\nexcept OutOfRangeError as e:\n    print(e)",
       "test_cases": [
-        "assert mon.validate(-15) == False; assert isinstance(e, OutOfRangeError); assert e.reading == -15",
-        "assert mon.validate(25) == True"
+        {
+          "input": "assert mon.validate(-15)",
+          "expected_output": "False; assert isinstance(e, OutOfRangeError); assert e.reading == -15",
+          "description": "Verifies: assert mon.validate(-15) == False; assert isinstance(e, OutOfRangeError); assert e.reading == -15"
+        },
+        {
+          "input": "assert mon.validate(25)",
+          "expected_output": "True",
+          "description": "Verifies: assert mon.validate(25) == True"
+        }
       ],
       "hint": "Define OutOfRangeError before the class or inside the class body, then instantiate and raise it with the reading value in the conditional branch.",
       "explanation": "This challenge tests your ability to identify where a custom exception is needed, define it with useful state, and integrate it cleanly into existing validation logic. Proper exception design makes debugging and user feedback much clearer."
@@ -568,8 +596,16 @@
       "starter_code": "class OrderProcessingError(Exception):\n    pass\n\nclass PaymentFailedError(OrderProcessingError):\n    pass\n\nclass InventoryUnavailableError(OrderProcessingError):\n    pass\n\nclass ShippingAddressError(OrderProcessingError):\n    pass\n\ndef process_order(payment_ok, stock_ok, address_ok):\n    if not payment_ok:\n        raise PaymentFailedError('Card declined')\n    if not stock_ok:\n        raise InventoryUnavailableError('Item out of stock')\n    if not address_ok:\n        raise ShippingAddressError('Invalid ZIP')\n    return 'Order shipped'",
       "solution_code": "class OrderProcessingError(Exception):\n    pass\n\nclass PaymentFailedError(OrderProcessingError):\n    def __init__(self, reason):\n        self.reason = reason\n        super().__init__(f'Payment failed: {reason}')\n\nclass InventoryUnavailableError(OrderProcessingError):\n    def __init__(self, item):\n        self.item = item\n        super().__init__(f'Inventory unavailable: {item}')\n\nclass ShippingAddressError(OrderProcessingError):\n    def __init__(self, code):\n        self.code = code\n        super().__init__(f'Shipping address error: {code}')\n\ndef process_order(payment_ok, stock_ok, address_ok):\n    if not payment_ok:\n        raise PaymentFailedError('Card declined')\n    if not stock_ok:\n        raise InventoryUnavailableError('Widget-X')\n    if not address_ok:\n        raise ShippingAddressError('ZIP-404')\n    return 'Order shipped'\n\n# Demonstration\nscenarios = [\n    (False, True, True),\n    (True, False, True),\n    (True, True, False)\n]\nfor p, s, a in scenarios:\n    try:\n        process_order(p, s, a)\n    except PaymentFailedError as e:\n        print(f'Payment issue: {e.reason}')\n    except InventoryUnavailableError as e:\n        print(f'Stock issue: {e.item}')\n    except ShippingAddressError as e:\n        print(f'Address issue: {e.code}')",
       "test_cases": [
-        "assert process_order(True, True, True) == 'Order shipped'",
-        "assert isinstance(process_order.__code__, type(None)) is False; try: process_order(False, True, True); except PaymentFailedError: pass"
+        {
+          "input": "assert process_order(True, True, True)",
+          "expected_output": "'Order shipped'",
+          "description": "Verifies: assert process_order(True, True, True) == 'Order shipped'"
+        },
+        {
+          "input": "",
+          "expected_output": "assert isinstance(process_order.__code__, type(None)) is False; try: process_order(False, True, True); except PaymentFailedError: pass",
+          "description": "assert isinstance(process_order.__code__, type(None)) is False; try: process_order(False, True, True); except PaymentFailedError: pass"
+        }
       ],
       "hint": "Store domain-specific data in each subclass constructor and use f-strings to create informative messages. The main block should iterate over failure scenarios and catch each custom exception type individually.",
       "explanation": "Real-world systems benefit from granular exception types because different layers of code (payment gateway, warehouse API, shipping carrier) can handle errors independently. A shared base class still allows a broad fallback catch when needed."
@@ -588,8 +624,16 @@
       "starter_code": "class OrderProcessingError(Exception):\n    pass\n\nclass PaymentFailedError(OrderProcessingError):\n    pass\n\nclass InventoryUnavailableError(OrderProcessingError):\n    pass\n\nclass ShippingAddressError(OrderProcessingError):\n    pass\n\nclass MaxRetriesExceededError(OrderProcessingError):\n    pass\n\ndef process_order(payment_ok, stock_ok, address_ok, max_retries=3, retry_delay=0.1):\n    # TODO: implement retry logic and custom exception\n    pass",
       "solution_code": "import time\n\nclass OrderProcessingError(Exception):\n    pass\n\nclass PaymentFailedError(OrderProcessingError):\n    def __init__(self, reason):\n        self.reason = reason\n        super().__init__(f'Payment failed: {reason}')\n\nclass InventoryUnavailableError(OrderProcessingError):\n    def __init__(self, item):\n        self.item = item\n        super().__init__(f'Inventory unavailable: {item}')\n\nclass ShippingAddressError(OrderProcessingError):\n    def __init__(self, code):\n        self.code = code\n        super().__init__(f'Shipping address error: {code}')\n\nclass MaxRetriesExceededError(OrderProcessingError):\n    def __init__(self, attempts, last_error):\n        self.attempts = attempts\n        self.last_error = last_error\n        super().__init__(f'Max retries ({attempts}) exceeded. Last error: {last_error}')\n\ndef process_order(payment_ok, stock_ok, address_ok, max_retries=3, retry_delay=0.1):\n    last_error = None\n    for attempt in range(1, max_retries + 1):\n        try:\n            if not payment_ok:\n                raise PaymentFailedError('Card declined')\n            if not stock_ok:\n                raise InventoryUnavailableError('Widget-X')\n            if not address_ok:\n                raise ShippingAddressError('ZIP-404')\n            return 'Order shipped'\n        except OrderProcessingError as e:\n            last_error = e\n            if attempt < max_retries:\n                time.sleep(retry_delay)\n    raise MaxRetriesExceededError(max_retries, str(last_error))",
       "test_cases": [
-        "assert process_order(False, True, True, max_retries=2, retry_delay=0) == 'Order shipped'",
-        "assert isinstance(process_order(False, True, True, max_retries=0), type(None)) is False; try: process_order(False, True, True, max_retries=0); except MaxRetriesExceededError as e: assert e.attempts == 0 and e.last_error is not None; pass"
+        {
+          "input": "assert process_order(False, True, True, max_retries=2, retry_delay=0)",
+          "expected_output": "'Order shipped'",
+          "description": "Verifies: assert process_order(False, True, True, max_retries=2, retry_delay=0) == 'Order shipped'"
+        },
+        {
+          "input": "assert isinstance(process_order(False, True, True, max_retries=0), type(None)) is False; try: process_order(False, True, True, max_retries=0); except MaxRetriesExceededError as e: assert e.attempts",
+          "expected_output": "0 and e.last_error is not None; pass",
+          "description": "Verifies: assert isinstance(process_order(False, True, True, max_retries=0), type(None)) is False; try: process_order(False, True, True, max_retries=0); except MaxRetriesExceededError as e: assert e.attempts == 0 and e.last_error is not None; pass"
+        }
       ],
       "hint": "Use a for loop over the retry range, catch OrderProcessingError to allow retries, store the last exception, and raise MaxRetriesExceededError only after the loop completes without success.",
       "explanation": "Mastery here involves combining custom exceptions with control flow: retries, delays, and state tracking. By catching the base class, you avoid duplicating retry logic for every specific failure type. MaxRetriesExceededError provides a clear terminal signal when transient issues persist."

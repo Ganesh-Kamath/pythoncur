@@ -422,10 +422,26 @@
       "starter_code": "from enum import Enum\n\nclass TaskStatus(Enum):\n    PENDING = 1\n    IN_PROGRESS = 2\n    COMPLETED = 3\n    CANCELLED = 4\n\ndef get_next(status):\n    if status == TaskStatus.PENDING:\n        return TaskStatus.IN_PROGRESS\n    if status == TaskStatus.IN_PROGRESS:\n        return TaskStatus.COMPLETED\n    if status == TaskStatus.COMPLETED:\n        return TaskStatus.CANCELLED\n    return TaskStatus.PENDING",
       "solution_code": "from enum import Enum, auto\nfrom typing import Union\n\nclass TaskStatus(Enum):\n    PENDING = auto()\n    IN_PROGRESS = auto()\n    COMPLETED = auto()\n    CANCELLED = auto()\n\ndef get_next(status: TaskStatus) -> TaskStatus:\n    mapping = {\n        TaskStatus.PENDING: TaskStatus.IN_PROGRESS,\n        TaskStatus.IN_PROGRESS: TaskStatus.COMPLETED,\n        TaskStatus.COMPLETED: TaskStatus.CANCELLED,\n    }\n    return mapping.get(status, TaskStatus.PENDING)",
       "test_cases": [
-        "assert get_next(TaskStatus.PENDING) == TaskStatus.IN_PROGRESS",
-        "assert get_next(TaskStatus.IN_PROGRESS) == TaskStatus.COMPLETED",
-        "assert get_next(TaskStatus.COMPLETED) == TaskStatus.CANCELLED",
-        "assert get_next(TaskStatus.CANCELLED) == TaskStatus.PENDING"
+        {
+          "input": "assert get_next(TaskStatus.PENDING)",
+          "expected_output": "TaskStatus.IN_PROGRESS",
+          "description": "Verifies: assert get_next(TaskStatus.PENDING) == TaskStatus.IN_PROGRESS"
+        },
+        {
+          "input": "assert get_next(TaskStatus.IN_PROGRESS)",
+          "expected_output": "TaskStatus.COMPLETED",
+          "description": "Verifies: assert get_next(TaskStatus.IN_PROGRESS) == TaskStatus.COMPLETED"
+        },
+        {
+          "input": "assert get_next(TaskStatus.COMPLETED)",
+          "expected_output": "TaskStatus.CANCELLED",
+          "description": "Verifies: assert get_next(TaskStatus.COMPLETED) == TaskStatus.CANCELLED"
+        },
+        {
+          "input": "assert get_next(TaskStatus.CANCELLED)",
+          "expected_output": "TaskStatus.PENDING",
+          "description": "Verifies: assert get_next(TaskStatus.CANCELLED) == TaskStatus.PENDING"
+        }
       ],
       "hint": "Use `auto()` to avoid manual integer assignments, and replace the long if-chain with a dictionary lookup.",
       "explanation": "The refactored version uses `auto()` for cleaner values, a type-annotated function signature, and a dictionary-based dispatch to improve readability, maintainability, and performance over a chain of if statements."
@@ -443,9 +459,21 @@
       "starter_code": "from enum import Enum\n\nclass Color(Enum):\n    RED = ?\n    GREEN = ?\n    BLUE = ?\n\n# Example usage\nprint(Color.RED)\nprint(Color.RED.value)",
       "solution_code": "from enum import Enum\n\nclass Color(Enum):\n    RED = 1\n    GREEN = 2\n    BLUE = 3\n\n# Example usage\nprint(Color.RED)\nprint(Color.RED.value)",
       "test_cases": [
-        "assert Color.RED.name == 'RED'",
-        "assert Color.RED.value == 1",
-        "assert list(Color) == [Color.RED, Color.GREEN, Color.BLUE]"
+        {
+          "input": "assert Color.RED.name",
+          "expected_output": "'RED'",
+          "description": "Verifies: assert Color.RED.name == 'RED'"
+        },
+        {
+          "input": "assert Color.RED.value",
+          "expected_output": "1",
+          "description": "Verifies: assert Color.RED.value == 1"
+        },
+        {
+          "input": "assert list(Color)",
+          "expected_output": "[Color.RED, Color.GREEN, Color.BLUE]",
+          "description": "Verifies: assert list(Color) == [Color.RED, Color.GREEN, Color.BLUE]"
+        }
       ],
       "hint": "Use the Enum base class and assign integer values to each member.",
       "explanation": "The enum.Enum class creates a special type where each member is unique. Members have a .name attribute for the identifier and a .value attribute for the assigned data. This is useful for representing fixed sets of constants."
@@ -463,9 +491,21 @@
       "starter_code": "from enum import Enum\n\nclass TrafficLight(Enum):\n    RED = 1\n    YELLOW = 2\n    GREEN = 3\n\n    def get_action(self):\n        # TODO: implement this method\n        pass\n\n# Test\nprint(TrafficLight.RED.get_action())",
       "solution_code": "from enum import Enum\n\nclass TrafficLight(Enum):\n    RED = 1\n    YELLOW = 2\n    GREEN = 3\n\n    def get_action(self):\n        if self == TrafficLight.RED:\n            return 'Stop and wait'\n        elif self == TrafficLight.YELLOW:\n            return 'Prepare to stop'\n        elif self == TrafficLight.GREEN:\n            return 'Walk safely'\n        return 'Unknown'\n\n# Test\nprint(TrafficLight.RED.get_action())",
       "test_cases": [
-        "assert TrafficLight.RED.get_action() == 'Stop and wait'",
-        "assert TrafficLight.YELLOW.get_action() == 'Prepare to stop'",
-        "assert TrafficLight.GREEN.get_action() == 'Walk safely'"
+        {
+          "input": "assert TrafficLight.RED.get_action()",
+          "expected_output": "'Stop and wait'",
+          "description": "Verifies: assert TrafficLight.RED.get_action() == 'Stop and wait'"
+        },
+        {
+          "input": "assert TrafficLight.YELLOW.get_action()",
+          "expected_output": "'Prepare to stop'",
+          "description": "Verifies: assert TrafficLight.YELLOW.get_action() == 'Prepare to stop'"
+        },
+        {
+          "input": "assert TrafficLight.GREEN.get_action()",
+          "expected_output": "'Walk safely'",
+          "description": "Verifies: assert TrafficLight.GREEN.get_action() == 'Walk safely'"
+        }
       ],
       "hint": "Use if-elif-else statements inside the method and compare self to the enum members.",
       "explanation": "Enums can have methods just like classes. The self parameter refers to the specific enum member. This pattern encapsulates behavior with data, making the enum more expressive and reusable."
@@ -483,9 +523,21 @@
       "starter_code": "from enum import Enum\n\nclass TimeUnit(Enum):\n    SECONDS = ?\n    MINUTES = ?\n    HOURS = ?\n\n    def __new__(cls, value):\n        # TODO: convert value to int and create enum member\n        pass\n\n    def __init__(self, value):\n        # TODO: store original float value\n        pass\n\n    @classmethod\n    def from_seconds(cls, seconds):\n        # TODO: return appropriate TimeUnit based on seconds\n        pass",
       "solution_code": "from enum import Enum\n\nclass TimeUnit(Enum):\n    SECONDS = 1\n    MINUTES = 60\n    HOURS = 3600\n\n    def __new__(cls, value):\n        obj = object.__new__(cls)\n        obj._value_ = int(value)\n        return obj\n\n    def __init__(self, value):\n        self.original = float(value)\n\n    @classmethod\n    def from_seconds(cls, seconds):\n        if seconds < 60:\n            return cls(seconds)\n        elif seconds < 3600:\n            return cls(seconds / 60)\n        else:\n            return cls(seconds / 3600)",
       "test_cases": [
-        "assert TimeUnit.from_seconds(45).name == 'SECONDS'",
-        "assert TimeUnit.from_seconds(2.5).original == 2.5",
-        "assert TimeUnit.from_seconds(7200).name == 'HOURS'"
+        {
+          "input": "assert TimeUnit.from_seconds(45).name",
+          "expected_output": "'SECONDS'",
+          "description": "Verifies: assert TimeUnit.from_seconds(45).name == 'SECONDS'"
+        },
+        {
+          "input": "assert TimeUnit.from_seconds(2.5).original",
+          "expected_output": "2.5",
+          "description": "Verifies: assert TimeUnit.from_seconds(2.5).original == 2.5"
+        },
+        {
+          "input": "assert TimeUnit.from_seconds(7200).name",
+          "expected_output": "'HOURS'",
+          "description": "Verifies: assert TimeUnit.from_seconds(7200).name == 'HOURS'"
+        }
       ],
       "hint": "In __new__, use object.__new__(cls) to create the instance and set _value_. In __init__, store the float. The class method should use conditional logic to pick the right unit.",
       "explanation": "Overriding __new__ and __init__ in an Enum allows custom construction logic. __new__ controls instance creation and sets the internal _value_, while __init__ runs after creation for additional initialization. This enables flexible enum members that are not simple constants."
@@ -503,9 +555,21 @@
       "starter_code": "from enum import Enum\n\nclass TaskStatus(Enum):\n    PENDING = 1\n    RUNNING = 2\n    COMPLETED = 3\n\n    def __str__(self):\n        # TODO: implement\n        pass\n\n    # Add completed attribute to each member\n    PENDING.completed = False\n    RUNNING.completed = False\n    COMPLETED.completed = True\n\n    # TODO: count completed members\n    completed_count = 0",
       "solution_code": "from enum import Enum\n\nclass TaskStatus(Enum):\n    PENDING = 1\n    RUNNING = 2\n    COMPLETED = 3\n\n    def __str__(self):\n        return f'Task is {self.name}'\n\n    PENDING.completed = False\n    RUNNING.completed = False\n    COMPLETED.completed = True\n\n    completed_count = sum(1 for member in TaskStatus if getattr(member, 'completed', False))\n\n# Verification\nprint(str(TaskStatus.PENDING))\nprint(TaskStatus.completed_count)",
       "test_cases": [
-        "assert str(TaskStatus.PENDING) == 'Task is PENDING'",
-        "assert str(TaskStatus.COMPLETED) == 'Task is COMPLETED'",
-        "assert TaskStatus.completed_count == 1"
+        {
+          "input": "assert str(TaskStatus.PENDING)",
+          "expected_output": "'Task is PENDING'",
+          "description": "Verifies: assert str(TaskStatus.PENDING) == 'Task is PENDING'"
+        },
+        {
+          "input": "assert str(TaskStatus.COMPLETED)",
+          "expected_output": "'Task is COMPLETED'",
+          "description": "Verifies: assert str(TaskStatus.COMPLETED) == 'Task is COMPLETED'"
+        },
+        {
+          "input": "assert TaskStatus.completed_count",
+          "expected_output": "1",
+          "description": "Verifies: assert TaskStatus.completed_count == 1"
+        }
       ],
       "hint": "Use self.name inside __str__. For counting, iterate over TaskStatus and check the completed attribute using getattr with a default.",
       "explanation": "__str__ controls the user-facing string representation. Iterating over an Enum yields its members. Using getattr safely accesses attributes that may not exist, making the counting logic robust even if members are added later."
@@ -523,10 +587,26 @@
       "starter_code": "from enum import Enum\n\nclass LogLevel(Enum):\n    DEBUG = 10\n    INFO = 20\n    WARN = 30\n    ERROR = 40\n\n    def __str__(self):\n        # TODO: implement\n        pass\n\n    @classmethod\n    def from_priority(cls, priority):\n        # TODO: find closest level\n        pass\n\n# TODO: implement load_default_level\ndef load_default_level(config_str):\n    pass",
       "solution_code": "from enum import Enum\n\nclass LogLevel(Enum):\n    DEBUG = 10\n    INFO = 20\n    WARN = 30\n    ERROR = 40\n\n    def __str__(self):\n        return f'LOG: {self.name}'\n\n    @classmethod\n    def from_priority(cls, priority):\n        best = None\n        best_diff = float('inf')\n        for level in cls:\n            diff = abs(level.value - priority)\n            if diff < best_diff:\n                best_diff = diff\n                best = level\n        return best\n\ndef load_default_level(config_str):\n    try:\n        return LogLevel[config_str.upper()]\n    except KeyError:\n        return LogLevel.INFO",
       "test_cases": [
-        "assert str(LogLevel.DEBUG) == 'LOG: DEBUG'",
-        "assert LogLevel.from_priority(25) == LogLevel.WARN",
-        "assert load_default_level('info') == LogLevel.INFO",
-        "assert load_default_level('invalid') == LogLevel.INFO"
+        {
+          "input": "assert str(LogLevel.DEBUG)",
+          "expected_output": "'LOG: DEBUG'",
+          "description": "Verifies: assert str(LogLevel.DEBUG) == 'LOG: DEBUG'"
+        },
+        {
+          "input": "assert LogLevel.from_priority(25)",
+          "expected_output": "LogLevel.WARN",
+          "description": "Verifies: assert LogLevel.from_priority(25) == LogLevel.WARN"
+        },
+        {
+          "input": "assert load_default_level('info')",
+          "expected_output": "LogLevel.INFO",
+          "description": "Verifies: assert load_default_level('info') == LogLevel.INFO"
+        },
+        {
+          "input": "assert load_default_level('invalid')",
+          "expected_output": "LogLevel.INFO",
+          "description": "Verifies: assert load_default_level('invalid') == LogLevel.INFO"
+        }
       ],
       "hint": "For from_priority, iterate and track the minimum absolute difference. For load_default_level, use try-except with KeyError to handle invalid config strings.",
       "explanation": "Real-world systems use enums to enforce valid states and priorities. The from_priority method demonstrates fuzzy matching, useful when exact values are unavailable. The load_default_level function shows defensive programming by catching invalid input and providing a safe fallback."
@@ -544,10 +624,26 @@
       "starter_code": "from enum import Enum, auto\n\nclass Permission(Enum):\n    READ = auto()\n    WRITE = auto()\n    DELETE = auto()\n\n    def has_permission(self, other):\n        # TODO: implement comparison using self.value and other.value\n        pass\n\nuser_permissions = {\n    'alice': Permission.WRITE,\n    'bob': Permission.READ,\n    'carol': Permission.DELETE\n}\n\ndef check_access(user, required):\n    # TODO: implement access check\n    pass",
       "solution_code": "from enum import Enum, auto\n\nclass Permission(Enum):\n    READ = auto()\n    WRITE = auto()\n    DELETE = auto()\n\n    def has_permission(self, other):\n        return self.value >= other.value\n\nuser_permissions = {\n    'alice': Permission.WRITE,\n    'bob': Permission.READ,\n    'carol': Permission.DELETE\n}\n\ndef check_access(user, required):\n    if user not in user_permissions:\n        return False\n    return user_permissions[user].has_permission(required)",
       "test_cases": [
-        "assert user_permissions['alice'].has_permission(Permission.READ) == True",
-        "assert user_permissions['bob'].has_permission(Permission.WRITE) == False",
-        "assert check_access('alice', Permission.WRITE) == True",
-        "assert check_access('bob', Permission.DELETE) == False"
+        {
+          "input": "assert user_permissions['alice'].has_permission(Permission.READ)",
+          "expected_output": "True",
+          "description": "Verifies: assert user_permissions['alice'].has_permission(Permission.READ) == True"
+        },
+        {
+          "input": "assert user_permissions['bob'].has_permission(Permission.WRITE)",
+          "expected_output": "False",
+          "description": "Verifies: assert user_permissions['bob'].has_permission(Permission.WRITE) == False"
+        },
+        {
+          "input": "assert check_access('alice', Permission.WRITE)",
+          "expected_output": "True",
+          "description": "Verifies: assert check_access('alice', Permission.WRITE) == True"
+        },
+        {
+          "input": "assert check_access('bob', Permission.DELETE)",
+          "expected_output": "False",
+          "description": "Verifies: assert check_access('bob', Permission.DELETE) == False"
+        }
       ],
       "hint": "Use auto() to let Python assign sequential integers. Compare values with >= in has_permission. In check_access, look up the user and call the method on the stored permission.",
       "explanation": "enum.auto() simplifies definition when values are sequential. Mixing behavior into an Enum via methods creates a rich domain model. The check_access function demonstrates authorization logic: a user can perform an action only if their permission value is greater than or equal to the required threshold. This pattern is common in role-based access control systems."

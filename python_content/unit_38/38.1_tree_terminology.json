@@ -451,10 +451,26 @@
       "starter_code": "def is_balanced(root):\n    if root == None:\n        return True\n    left_height = get_height(root.left)\n    right_height = get_height(root.right)\n    if abs(left_height - right_height) > 1:\n        return False\n    return is_balanced(root.left) and is_balanced(root.right)\n\ndef get_height(node):\n    if node == None:\n        return 0\n    return max(get_height(node.left), get_height(node.right)) + 1",
       "solution_code": "def is_balanced(root):\n    def check(node):\n        if node is None:\n            return 0\n        left = check(node.left)\n        if left == -1:\n            return -1\n        right = check(node.right)\n        if right == -1:\n            return -1\n        if abs(left - right) > 1:\n            return -1\n        return max(left, right) + 1\n\n    return check(root) != -1\n\ndef get_height(node):\n    if node is None:\n        return 0\n    return max(get_height(node.left), get_height(node.right)) + 1",
       "test_cases": [
-        "is_balanced(None)",
-        "is_balanced(Node(1))",
-        "is_balanced(Node(1, Node(2), Node(3)))",
-        "is_balanced(Node(1, Node(2, Node(3), None), None))"
+        {
+          "input": "",
+          "expected_output": "is_balanced(None)",
+          "description": "is_balanced(None)"
+        },
+        {
+          "input": "",
+          "expected_output": "is_balanced(Node(1))",
+          "description": "is_balanced(Node(1))"
+        },
+        {
+          "input": "",
+          "expected_output": "is_balanced(Node(1, Node(2), Node(3)))",
+          "description": "is_balanced(Node(1, Node(2), Node(3)))"
+        },
+        {
+          "input": "",
+          "expected_output": "is_balanced(Node(1, Node(2, Node(3), None), None))",
+          "description": "is_balanced(Node(1, Node(2, Node(3), None), None))"
+        }
       ],
       "hint": "Combine height calculation and balance checking in a single recursive pass to avoid recomputation.",
       "explanation": "The original code computes height separately for each node, leading to O(n^2) time complexity. The refactored version uses a helper that returns -1 when unbalanced, propagating the failure upward. This achieves O(n) time by computing height and balance in one traversal. The get_height function is retained for standalone use but is less efficient than the combined approach."
@@ -472,9 +488,21 @@
       "starter_code": "class BinaryTreeNode:\n    def __init__(self, value):\n        self.value = value\n        # TODO: initialize left and right children\n\nnode = BinaryTreeNode(10)\nprint(node.value)",
       "solution_code": "class BinaryTreeNode:\n    def __init__(self, value):\n        self.value = value\n        self.left = None\n        self.right = None\n\nnode = BinaryTreeNode(10)\nprint(node.value)",
       "test_cases": [
-        "assert node.left is None",
-        "assert node.right is None",
-        "node.left = BinaryTreeNode(5)\nassert node.left.value == 5"
+        {
+          "input": "",
+          "expected_output": "assert node.left is None",
+          "description": "assert node.left is None"
+        },
+        {
+          "input": "",
+          "expected_output": "assert node.right is None",
+          "description": "assert node.right is None"
+        },
+        {
+          "input": "node.left = BinaryTreeNode(5)\nassert node.left.value",
+          "expected_output": "5",
+          "description": "Verifies: node.left = BinaryTreeNode(5)\nassert node.left.value == 5"
+        }
       ],
       "hint": "In a binary tree node, the children are typically represented as references that start as None until a child node is attached.",
       "explanation": "This exercise reinforces the fundamental terminology of a tree node: the root value and its left and right child pointers, which are essential for building any binary tree structure."
@@ -492,8 +520,16 @@
       "starter_code": "class BinaryTreeNode:\n    def __init__(self, value):\n        self.value = value\n        self.left = None\n        self.right = None\n\n    def is_leaf(self):\n        # TODO: implement leaf check\n        pass\n\nleaf = BinaryTreeNode(7)\nprint(leaf.is_leaf())",
       "solution_code": "class BinaryTreeNode:\n    def __init__(self, value):\n        self.value = value\n        self.left = None\n        self.right = None\n\n    def is_leaf(self):\n        return self.left is None and self.right is None\n\nleaf = BinaryTreeNode(7)\nprint(leaf.is_leaf())",
       "test_cases": [
-        "assert leaf.is_leaf() == True",
-        "root = BinaryTreeNode(1)\nroot.left = BinaryTreeNode(2)\nassert root.is_leaf() == False"
+        {
+          "input": "assert leaf.is_leaf()",
+          "expected_output": "True",
+          "description": "Verifies: assert leaf.is_leaf() == True"
+        },
+        {
+          "input": "root = BinaryTreeNode(1)\nroot.left = BinaryTreeNode(2)\nassert root.is_leaf()",
+          "expected_output": "False",
+          "description": "Verifies: root = BinaryTreeNode(1)\nroot.left = BinaryTreeNode(2)\nassert root.is_leaf() == False"
+        }
       ],
       "hint": "A leaf node is defined as a node with zero children; check both left and right references.",
       "explanation": "Understanding leaf nodes is critical in tree terminology because many algorithms, such as counting leaves or identifying boundary nodes, depend on this property."
@@ -511,8 +547,16 @@
       "starter_code": "class BinaryTreeNode:\n    def __init__(self, value):\n        self.value = value\n        self.left = None\n        self.right = None\n\n    def depth(self):\n        # TODO: compute depth from root\n        pass\n\nroot = BinaryTreeNode(1)\nchild = BinaryTreeNode(2)\nroot.left = child\nprint(child.depth())",
       "solution_code": "class BinaryTreeNode:\n    def __init__(self, value):\n        self.value = value\n        self.left = None\n        self.right = None\n\n    def depth(self):\n        d = 0\n        node = self\n        while node.left is not None or node.right is not None:\n            node = node.left if node.left is not None else node.right\n            d += 1\n        return d\n\nroot = BinaryTreeNode(1)\nchild = BinaryTreeNode(2)\nroot.left = child\nprint(child.depth())",
       "test_cases": [
-        "assert child.depth() == 1",
-        "grandchild = BinaryTreeNode(3)\nchild.left = grandchild\nassert grandchild.depth() == 2"
+        {
+          "input": "assert child.depth()",
+          "expected_output": "1",
+          "description": "Verifies: assert child.depth() == 1"
+        },
+        {
+          "input": "grandchild = BinaryTreeNode(3)\nchild.left = grandchild\nassert grandchild.depth()",
+          "expected_output": "2",
+          "description": "Verifies: grandchild = BinaryTreeNode(3)\nchild.left = grandchild\nassert grandchild.depth() == 2"
+        }
       ],
       "hint": "Traverse upward from the node to the root, or store depth during construction; here, follow the child pointer chain to estimate depth.",
       "explanation": "Depth is a key tree terminology concept that distinguishes a node's distance from the root and is used in balancing, searching, and traversal algorithms."
@@ -530,9 +574,21 @@
       "starter_code": "root = BinaryTreeNode(10)\nleft = BinaryTreeNode(5)\nright = BinaryTreeNode(15)\nroot.left = left\nroot.right = right\n\ndef find_sibling(node):\n    # TODO: return sibling of node\n    pass\n\nprint(find_sibling(left))",
       "solution_code": "root = BinaryTreeNode(10)\nleft = BinaryTreeNode(5)\nright = BinaryTreeNode(15)\nroot.left = left\nroot.right = right\n\ndef find_sibling(node):\n    if node.left is not None and node.left is node:\n        return node.right\n    if node.right is not None and node.right is node:\n        return node.left\n    return None\n\nprint(find_sibling(left))",
       "test_cases": [
-        "assert find_sibling(left) is right",
-        "assert find_sibling(right) is left",
-        "root.right = None\nassert find_sibling(left) is None"
+        {
+          "input": "",
+          "expected_output": "assert find_sibling(left) is right",
+          "description": "assert find_sibling(left) is right"
+        },
+        {
+          "input": "",
+          "expected_output": "assert find_sibling(right) is left",
+          "description": "assert find_sibling(right) is left"
+        },
+        {
+          "input": "",
+          "expected_output": "root.right = None\nassert find_sibling(left) is None",
+          "description": "root.right = None\nassert find_sibling(left) is None"
+        }
       ],
       "hint": "A sibling shares the same parent; compare the node reference against both left and right children of the parent.",
       "explanation": "Identifying siblings is a practical application of tree terminology that appears in problems involving tree restructuring, mirroring, and family relationships in trees."
@@ -550,8 +606,16 @@
       "starter_code": "def summarize_tree(root):\n    # TODO: compute summary metrics\n    pass\n\n# Example structure:\nroot = BinaryTreeNode('/')\nroot.left = BinaryTreeNode('bin')\nroot.right = BinaryTreeNode('etc')\nprint(summarize_tree(root))",
       "solution_code": "def summarize_tree(root):\n    if root is None:\n        return {'total_nodes': 0, 'leaf_directories': 0, 'max_depth': 0}\n    def helper(node, depth):\n        if node is None:\n            return 0, 0, depth - 1\n        total = 1\n        left_total, left_leaf, left_depth = helper(node.left, depth + 1)\n        right_total, right_leaf, right_depth = helper(node.right, depth + 1)\n        total += left_total + right_total\n        leaf = 1 if node.left is None and node.right is None else 0\n        leaf += left_leaf + right_leaf\n        return total, leaf, max(left_depth, right_depth)\n    total_nodes, leaf_dirs, max_depth = helper(root, 0)\n    return {'total_nodes': total_nodes, 'leaf_directories': leaf_dirs, 'max_depth': max_depth}\n\nroot = BinaryTreeNode('/')\nroot.left = BinaryTreeNode('bin')\nroot.right = BinaryTreeNode('etc')\nprint(summarize_tree(root))",
       "test_cases": [
-        "assert summarize_tree(root) == {'total_nodes': 3, 'leaf_directories': 2, 'max_depth': 1}",
-        "root.left.left = BinaryTreeNode('ls')\nassert summarize_tree(root) == {'total_nodes': 4, 'leaf_directories': 3, 'max_depth': 2}"
+        {
+          "input": "assert summarize_tree(root)",
+          "expected_output": "{'total_nodes': 3, 'leaf_directories': 2, 'max_depth': 1}",
+          "description": "Verifies: assert summarize_tree(root) == {'total_nodes': 3, 'leaf_directories': 2, 'max_depth': 1}"
+        },
+        {
+          "input": "root.left.left = BinaryTreeNode('ls')\nassert summarize_tree(root)",
+          "expected_output": "{'total_nodes': 4, 'leaf_directories': 3, 'max_depth': 2}",
+          "description": "Verifies: root.left.left = BinaryTreeNode('ls')\nassert summarize_tree(root) == {'total_nodes': 4, 'leaf_directories': 3, 'max_depth': 2}"
+        }
       ],
       "hint": "Use a recursive helper that tracks depth; a leaf directory has no children, while internal nodes have at least one child.",
       "explanation": "This scenario synthesizes tree terminology—root, leaf, internal node, depth, and sibling—into a realistic file-system abstraction, demonstrating how terminology maps to domain models."
@@ -569,9 +633,21 @@
       "starter_code": "from collections import deque\n\ndef is_complete(root):\n    # TODO: implement complete tree check\n    pass\n\n# Build: root(1), left(2), right(3), left.left(4), left.right(5)\nroot = BinaryTreeNode(1)\nroot.left = BinaryTreeNode(2)\nroot.right = BinaryTreeNode(3)\nroot.left.left = BinaryTreeNode(4)\nroot.left.right = BinaryTreeNode(5)\nprint(is_complete(root))",
       "solution_code": "from collections import deque\n\ndef is_complete(root):\n    if root is None:\n        return True\n    q = deque([root])\n    seen_null = False\n    while q:\n        node = q.popleft()\n        if node is None:\n            seen_null = True\n        else:\n            if seen_null:\n                return False\n            q.append(node.left)\n            q.append(node.right)\n    return True\n\nroot = BinaryTreeNode(1)\nroot.left = BinaryTreeNode(2)\nroot.right = BinaryTreeNode(3)\nroot.left.left = BinaryTreeNode(4)\nroot.left.right = BinaryTreeNode(5)\nprint(is_complete(root))",
       "test_cases": [
-        "assert is_complete(root) == True",
-        "root.right.right = BinaryTreeNode(6)\nassert is_complete(root) == False",
-        "root2 = BinaryTreeNode(1)\nroot2.left = BinaryTreeNode(2)\nassert is_complete(root2) == True"
+        {
+          "input": "assert is_complete(root)",
+          "expected_output": "True",
+          "description": "Verifies: assert is_complete(root) == True"
+        },
+        {
+          "input": "root.right.right = BinaryTreeNode(6)\nassert is_complete(root)",
+          "expected_output": "False",
+          "description": "Verifies: root.right.right = BinaryTreeNode(6)\nassert is_complete(root) == False"
+        },
+        {
+          "input": "root2 = BinaryTreeNode(1)\nroot2.left = BinaryTreeNode(2)\nassert is_complete(root2)",
+          "expected_output": "True",
+          "description": "Verifies: root2 = BinaryTreeNode(1)\nroot2.left = BinaryTreeNode(2)\nassert is_complete(root2) == True"
+        }
       ],
       "hint": "Once a None placeholder is encountered in level-order traversal, no subsequent non-None node should appear.",
       "explanation": "Mastery of complete tree terminology and validation is essential for heap implementations and efficient array-based tree representations in data structures."

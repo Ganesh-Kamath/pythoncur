@@ -449,10 +449,26 @@
       "starter_code": "class DataProcessor:\n    _cache = {}\n\n    def process(self, key):\n        if key not in DataProcessor._cache:\n            DataProcessor._cache[key] = self._compute(key)\n        return DataProcessor._cache[key]\n\n    def _compute(self, key):\n        return key * key\n\n# Usage:\n# dp = DataProcessor()\n# print(dp.process(5))\n# print(dp.process(5))",
       "solution_code": "class DataProcessor:\n    _cache = {}\n\n    @classmethod\n    def process(cls, key):\n        if key not in cls._cache:\n            cls._cache[key] = cls._compute(key)\n        return cls._cache[key]\n\n    @staticmethod\n    def _compute(key):\n        return key * key\n\n# Usage:\n# print(DataProcessor.process(5))\n# print(DataProcessor.process(5))",
       "test_cases": [
-        "DataProcessor.process(5) == 25",
-        "DataProcessor.process(5) == 25",
-        "DataProcessor._cache == {5: 25}",
-        "DataProcessor.process(3) == 9"
+        {
+          "input": "DataProcessor.process(5)",
+          "expected_output": "25",
+          "description": "Verifies: DataProcessor.process(5) == 25"
+        },
+        {
+          "input": "DataProcessor.process(5)",
+          "expected_output": "25",
+          "description": "Verifies: DataProcessor.process(5) == 25"
+        },
+        {
+          "input": "DataProcessor._cache",
+          "expected_output": "{5: 25}",
+          "description": "Verifies: DataProcessor._cache == {5: 25}"
+        },
+        {
+          "input": "DataProcessor.process(3)",
+          "expected_output": "9",
+          "description": "Verifies: DataProcessor.process(3) == 9"
+        }
       ],
       "hint": "Consider whether the method needs to access class-level state, and whether the helper should be a static method since it does not depend on class or instance state.",
       "explanation": "The refactored version converts `process` into a class method because it reads and writes class-level `_cache`. The helper `_compute` becomes a static method because it performs a pure calculation with no dependency on class or instance data. This removes the need to instantiate `DataProcessor` and makes the API cleaner while preserving the caching behavior."

@@ -470,10 +470,26 @@
       "starter_code": "import math\nimport random\nfrom datetime import datetime\n\ndef process_data(n):\n    results = []\n    for i in range(n):\n        x = random.uniform(0, 100)\n        y = math.sqrt(x)\n        z = datetime.now()\n        results.append((x, y, z.strftime('%Y-%m-%d %H:%M:%S')))\n    return results\n\noutput = process_data(1000)\nprint(output[0])",
       "solution_code": "import math\nimport random\nfrom datetime import datetime\n\ndef process_data(n):\n    fmt = '%Y-%m-%d %H:%M:%S'\n    return [\n        (x, math.sqrt(x), datetime.now().strftime(fmt))\n        for x in (random.uniform(0, 100) for _ in range(n))\n    ]\n\noutput = process_data(1000)\nprint(output[0])",
       "test_cases": [
-        "process_data(0) returns []",
-        "process_data(1) returns a tuple of length 3",
-        "All timestamps in output match format '%Y-%m-%d %H:%M:%S'",
-        "All x values are in range [0, 100)"
+        {
+          "input": "",
+          "expected_output": "process_data(0) returns []",
+          "description": "process_data(0) returns []"
+        },
+        {
+          "input": "",
+          "expected_output": "process_data(1) returns a tuple of length 3",
+          "description": "process_data(1) returns a tuple of length 3"
+        },
+        {
+          "input": "",
+          "expected_output": "All timestamps in output match format '%Y-%m-%d %H:%M:%S'",
+          "description": "All timestamps in output match format '%Y-%m-%d %H:%M:%S'"
+        },
+        {
+          "input": "",
+          "expected_output": "All x values are in range [0, 100)",
+          "description": "All x values are in range [0, 100)"
+        }
       ],
       "hint": "Consider using a generator expression inside a list comprehension and pre-binding the format string to avoid repeated attribute lookups.",
       "explanation": "The refactored version replaces the explicit `for` loop and repeated `datetime.now()` calls with a single list comprehension. The generator expression `(random.uniform(0, 100) for _ in range(n))` lazily produces values, and the format string is bound once to `fmt`. Although `datetime.now()` is called once per iteration, this matches the original behavior; further optimization would require passing a fixed timestamp if reproducibility is acceptable. The refactoring improves clarity and reduces redundant operations."
@@ -491,9 +507,21 @@
       "starter_code": "import math\nimport random\nfrom datetime import datetime\n\n# Generate a random integer between 1 and 10\nrand_int = random.randint(1, 10)\n\n# Compute the square root and round it\nsqrt_val = math.sqrt(rand_int)\n\n# Get current date and time\nnow = datetime.now()\n\n# Print all three results\nprint(rand_int)\nprint(sqrt_val)\nprint(now)",
       "solution_code": "import math\nimport random\nfrom datetime import datetime\n\nrand_int = random.randint(1, 10)\nsqrt_val = round(math.sqrt(rand_int), 2)\nnow = datetime.now().strftime('%Y-%m-%d %H:%M:%S')\n\nprint(f'Random integer: {rand_int}')\nprint(f'Square root rounded: {sqrt_val}')\nprint(f'Current datetime: {now}')",
       "test_cases": [
-        "rand_int must be in range 1 to 10 inclusive",
-        "sqrt_val must be a float rounded to 2 decimal places",
-        "now must be a string in 'YYYY-MM-DD HH:MM:SS' format"
+        {
+          "input": "",
+          "expected_output": "rand_int must be in range 1 to 10 inclusive",
+          "description": "rand_int must be in range 1 to 10 inclusive"
+        },
+        {
+          "input": "",
+          "expected_output": "sqrt_val must be a float rounded to 2 decimal places",
+          "description": "sqrt_val must be a float rounded to 2 decimal places"
+        },
+        {
+          "input": "",
+          "expected_output": "now must be a string in 'YYYY-MM-DD HH:MM:SS' format",
+          "description": "now must be a string in 'YYYY-MM-DD HH:MM:SS' format"
+        }
       ],
       "hint": "Use random.randint for the integer, math.sqrt for the square root, and datetime.now().strftime to format the output string.",
       "explanation": "This item reinforces importing standard library modules and combining math, random, and datetime in a single workflow. It teaches students to format datetime output and round floating-point results."
@@ -511,9 +539,21 @@
       "starter_code": "import random\nimport math\nfrom datetime import date, timedelta\n\nworkouts = ['Running', 'Swimming', 'Cycling', 'Yoga', 'Weightlifting']\n\nchosen = random.choice(workouts)\nduration = random.randint(10, 60)\n\nintervals = math.floor(duration / 15)\n\ntomorrow = date.today() + timedelta(days=7)\n\nprint(chosen)\nprint(intervals)\nprint(tomorrow)",
       "solution_code": "import random\nimport math\nfrom datetime import date, timedelta\n\nworkouts = ['Running', 'Swimming', 'Cycling', 'Yoga', 'Weightlifting']\nchosen = random.choice(workouts)\nduration = random.randint(10, 60)\nintervals = math.floor(duration / 15)\nfuture = date.today() + timedelta(days=7)\n\nprint(f'Workout: {chosen}')\nprint(f'Full 15-minute intervals: {intervals}')\nprint(f'Date in 7 days: {future}')",
       "test_cases": [
-        "chosen must be one of the 5 workout strings",
-        "intervals must be an integer between 0 and 4 inclusive",
-        "future must be exactly 7 days after today's date"
+        {
+          "input": "",
+          "expected_output": "chosen must be one of the 5 workout strings",
+          "description": "chosen must be one of the 5 workout strings"
+        },
+        {
+          "input": "",
+          "expected_output": "intervals must be an integer between 0 and 4 inclusive",
+          "description": "intervals must be an integer between 0 and 4 inclusive"
+        },
+        {
+          "input": "",
+          "expected_output": "future must be exactly 7 days after today's date",
+          "description": "future must be exactly 7 days after today's date"
+        }
       ],
       "hint": "Remember that timedelta takes keyword arguments like days=7, and math.floor returns the largest integer less than or equal to the value.",
       "explanation": "This practical task connects random selection, integer division via floor, and date arithmetic. It shows how standard library tools support real-life scheduling and activity tracking."
@@ -531,9 +571,21 @@
       "starter_code": "import random\nimport math\nfrom datetime import datetime, timezone, timedelta\n\nnow_utc = datetime.now(timezone.utc)\noffset_sec = random.uniform(0, 86400)\noffset_int = math.floor(offset_sec)\nfuture = now_utc + timedelta(seconds=offset_int)\n\nx = random.uniform(-1, 1)\ny = random.uniform(-1, 1)\nangle = math.atan2(y, x)\n\nprint(future)\nprint(angle)",
       "solution_code": "import random\nimport math\nfrom datetime import datetime, timezone, timedelta\n\nnow_utc = datetime.now(timezone.utc)\noffset_int = math.floor(random.uniform(0, 86400))\nfuture = now_utc + timedelta(seconds=offset_int)\nfuture_str = future.strftime('%Y-%m-%d %H:%M:%S %Z')\n\nx = random.uniform(-1, 1)\ny = random.uniform(-1, 1)\nangle = math.atan2(y, x)\n\nprint(f'Future UTC timestamp: {future_str}')\nprint(f'Random angle in radians: {angle}')",
       "test_cases": [
-        "future must be within 24 hours after now_utc",
-        "future_str must contain 'UTC' and match the required format",
-        "angle must be a float in the range approximately -3.14159 to 3.14159"
+        {
+          "input": "",
+          "expected_output": "future must be within 24 hours after now_utc",
+          "description": "future must be within 24 hours after now_utc"
+        },
+        {
+          "input": "",
+          "expected_output": "future_str must contain 'UTC' and match the required format",
+          "description": "future_str must contain 'UTC' and match the required format"
+        },
+        {
+          "input": "",
+          "expected_output": "angle must be a float in the range approximately -3.14159 to 3.14159",
+          "description": "angle must be a float in the range approximately -3.14159 to 3.14159"
+        }
       ],
       "hint": "Use datetime.strftime with '%Z' to include the timezone abbreviation, and ensure random.uniform generates a float before applying math.floor.",
       "explanation": "This advanced item combines timezone-aware datetime manipulation, random offset generation, and trigonometric functions. It prepares students for timestamp-based applications and geometric computations."
@@ -551,9 +603,21 @@
       "starter_code": "import random\nimport math\nfrom datetime import datetime, timezone, timedelta\n\nnow = datetime.now(timezone.utc)\ntimestamps = []\nfor i in range(5):\n    ts = now + timedelta(hours=48 * i)\n    timestamps.append(ts)\n\ntotal_seconds = sum(ts - now for ts in timestamps)\nprint(timestamps)\nprint(math.floor(total_seconds))",
       "solution_code": "import random\nimport math\nfrom datetime import datetime, timezone, timedelta\n\nrandom.seed(42)\nnow = datetime.now(timezone.utc)\ntimestamps = []\nfor i in range(5):\n    ts = now + timedelta(hours=48 * i)\n    timestamps.append(ts)\n\ntotal_seconds = sum((ts - now).total_seconds() for ts in timestamps)\nprint(timestamps)\nprint(math.floor(total_seconds))",
       "test_cases": [
-        "timestamps must contain exactly 5 datetime objects",
-        "each timestamp must be 48 hours apart from the previous one",
-        "the printed floor value must be a non-negative integer"
+        {
+          "input": "",
+          "expected_output": "timestamps must contain exactly 5 datetime objects",
+          "description": "timestamps must contain exactly 5 datetime objects"
+        },
+        {
+          "input": "",
+          "expected_output": "each timestamp must be 48 hours apart from the previous one",
+          "description": "each timestamp must be 48 hours apart from the previous one"
+        },
+        {
+          "input": "",
+          "expected_output": "the printed floor value must be a non-negative integer",
+          "description": "the printed floor value must be a non-negative integer"
+        }
       ],
       "hint": "Use .total_seconds() on a timedelta object to get the elapsed seconds, and set a fixed seed if reproducibility is required.",
       "explanation": "This challenge requires debugging datetime arithmetic, understanding timedelta subtraction, and correctly extracting total seconds. It strengthens precision in time-series generation tasks."
@@ -571,10 +635,26 @@
       "starter_code": "import random\nimport math\nfrom datetime import date, timedelta\n\nbase = date.today()\nrecords = []\nfor idx in range(1, 4):\n    dispatch = base + timedelta(days=random.randint(0, 14))\n    delivery = dispatch + timedelta(days=random.randint(2, 7))\n    hours = (delivery - dispatch).total_seconds() / 3600\n    windows = math.ceil(hours / 24)\n    line = f'{idx},{dispatch},{delivery},{windows}'\n    records.append(line)\n\noutput = '\\n'.join(records)\nprint(output)",
       "solution_code": "import random\nimport math\nfrom datetime import date, timedelta\n\nbase = date.today()\nrecords = []\nfor idx in range(1, 4):\n    dispatch = base + timedelta(days=random.randint(0, 14))\n    delivery = dispatch + timedelta(timedelta(days=random.randint(2, 7)))\n    hours = (delivery - dispatch).total_seconds() / 3600\n    windows = math.ceil(hours / 24)\n    line = f'{idx},{dispatch},{delivery},{windows}'\n    records.append(line)\n\noutput = '\\n'.join(records)\nprint(output)",
       "test_cases": [
-        "there must be exactly 3 output lines",
-        "dispatch dates must be within 14 days of today",
-        "delivery dates must be at least 2 days after dispatch and at most 7 days after dispatch",
-        "delivery windows must be an integer >= 1"
+        {
+          "input": "",
+          "expected_output": "there must be exactly 3 output lines",
+          "description": "there must be exactly 3 output lines"
+        },
+        {
+          "input": "",
+          "expected_output": "dispatch dates must be within 14 days of today",
+          "description": "dispatch dates must be within 14 days of today"
+        },
+        {
+          "input": "",
+          "expected_output": "delivery dates must be at least 2 days after dispatch and at most 7 days after dispatch",
+          "description": "delivery dates must be at least 2 days after dispatch and at most 7 days after dispatch"
+        },
+        {
+          "input": "",
+          "expected_output": "delivery windows must be an integer >= 1",
+          "description": "delivery windows must be an integer >= 1"
+        }
       ],
       "hint": "Remember that timedelta can be constructed with keyword arguments like days=..., and math.ceil rounds up to the nearest integer.",
       "explanation": "This scenario synthesizes random date generation, timedelta arithmetic, ceiling division for windows, and formatted string output. It mirrors logistics pipelines where dispatch and delivery dates are computed programmatically."
@@ -592,11 +672,31 @@
       "starter_code": "import random\nimport math\nfrom datetime import datetime, timezone, timedelta\n\nnow = datetime.now(timezone.utc)\nreadings = []\nfor _ in range(4):\n    ts = now - timedelta(hours=random.randint(0, 72))\n    val = random.gauss(50, 10)\n    x = random.uniform(-5, 5)\n    y = random.uniform(-5, 5)\n    mag = math.hypot(x, y)\n    readings.append({'timestamp': ts, 'value': val, 'magnitude': mag})\n\nprint(readings)",
       "solution_code": "import random\nimport math\nfrom datetime import datetime, timezone, timedelta\n\nnow = datetime.now(timezone.utc)\nreadings = []\nfor _ in range(4):\n    ts = now - timedelta(hours=random.randint(0, 72))\n    val = round(random.gauss(50, 10), 2)\n    x = random.uniform(-5, 5)\n    y = random.uniform(-5, 5)\n    mag = round(math.hypot(x, y), 2)\n    readings.append({'timestamp': ts, 'value': val, 'magnitude': mag})\n\nimport json\nprint(json.dumps(readings, default=str))",
       "test_cases": [
-        "readings must contain exactly 4 dictionaries",
-        "each timestamp must be within the last 72 hours and timezone-aware",
-        "each value must be a float near 50",
-        "each magnitude must be a non-negative float",
-        "the printed string must be valid JSON-like output"
+        {
+          "input": "",
+          "expected_output": "readings must contain exactly 4 dictionaries",
+          "description": "readings must contain exactly 4 dictionaries"
+        },
+        {
+          "input": "",
+          "expected_output": "each timestamp must be within the last 72 hours and timezone-aware",
+          "description": "each timestamp must be within the last 72 hours and timezone-aware"
+        },
+        {
+          "input": "",
+          "expected_output": "each value must be a float near 50",
+          "description": "each value must be a float near 50"
+        },
+        {
+          "input": "",
+          "expected_output": "each magnitude must be a non-negative float",
+          "description": "each magnitude must be a non-negative float"
+        },
+        {
+          "input": "",
+          "expected_output": "the printed string must be valid JSON-like output",
+          "description": "the printed string must be valid JSON-like output"
+        }
       ],
       "hint": "Use json.dumps with default=str to serialize datetime objects, and round floats to 2 decimal places for cleaner output.",
       "explanation": "This mastery item integrates timezone-aware datetime generation, Gaussian random sampling, Euclidean magnitude calculation, and JSON serialization. It represents a complete data-logging pipeline using only the Python standard library."

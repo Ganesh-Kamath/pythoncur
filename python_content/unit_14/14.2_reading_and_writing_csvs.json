@@ -450,8 +450,16 @@
       "starter_code": "import csv\n\ndef filter_honors(input_file, output_file):\n    with open(input_file, 'r') as infile, open(output_file, 'w', newline='') as outfile:\n        reader = csv.DictReader(infile)\n        fieldnames = ['name', 'grade']\n        writer = csv.DictWriter(outfile, fieldnames=fieldnames)\n        writer.writeheader()\n        for row in reader:\n            if int(row['grade']) >= 90:\n                writer.writerow(row)\n\nfilter_honors('students.csv', 'honors.csv')",
       "solution_code": "import csv\n\ndef filter_honors(input_file, output_file):\n    with open(input_file, 'r') as infile, open(output_file, 'w', newline='') as outfile:\n        reader = csv.DictReader(infile)\n        fieldnames = ['name', 'grade']\n        writer = csv.DictWriter(outfile, fieldnames=fieldnames)\n        writer.writeheader()\n        for row in reader:\n            if int(row['grade']) >= 90:\n                writer.writerow(row)\n\nfilter_honors('students.csv', 'honors.csv')",
       "test_cases": [
-        "students.csv contains: name,grade\\nAlice,95\\nBob,85\\nCharlie,92\\nDiana,88",
-        "Expected honors.csv: name,grade\\nAlice,95\\nCharlie,92"
+        {
+          "input": "",
+          "expected_output": "students.csv contains: name,grade\\nAlice,95\\nBob,85\\nCharlie,92\\nDiana,88",
+          "description": "students.csv contains: name,grade\\nAlice,95\\nBob,85\\nCharlie,92\\nDiana,88"
+        },
+        {
+          "input": "",
+          "expected_output": "Expected honors.csv: name,grade\\nAlice,95\\nCharlie,92",
+          "description": "Expected honors.csv: name,grade\\nAlice,95\\nCharlie,92"
+        }
       ],
       "hint": "Use csv.DictReader to access columns by name, and check the numeric value of 'grade' before writing.",
       "explanation": "This task practices reading a CSV with DictReader and conditionally writing rows to a new CSV. The newline='' argument prevents extra blank rows on Windows. Converting grade to int ensures numeric comparison."
@@ -469,8 +477,16 @@
       "starter_code": "import csv\n\ndef clean_sales(input_path, output_path):\n    with open(input_path, 'r') as infile, open(output_path, 'w', newline='') as outfile:\n        reader = csv.reader(infile)\n        writer = csv.writer(outfile)\n        header = next(reader)\n        writer.writerow(header)\n        for row in reader:\n            cleaned = [item.strip() if i == 1 else int(item) for i, item in enumerate(row)]\n            writer.writerow(cleaned)\n\nclean_sales('sales.csv', 'sales_clean.csv')",
       "solution_code": "import csv\n\ndef clean_sales(input_path, output_path):\n    with open(input_path, 'r') as infile, open(output_path, 'w', newline='') as outfile:\n        reader = csv.reader(infile)\n        writer = csv.writer(outfile)\n        header = next(reader)\n        writer.writerow(header)\n        for row in reader:\n            cleaned = [item.strip() if i == 1 else int(item) for i, item in enumerate(row)]\n            writer.writerow(cleaned)\n\nclean_sales('sales.csv', 'sales_clean.csv')",
       "test_cases": [
-        "sales.csv contains: product,quantity\\n 'Widget', 10\\n 'Gadget', 5",
-        "Expected sales_clean.csv: product,quantity\\nWidget,10\\nGadget,5"
+        {
+          "input": "",
+          "expected_output": "sales.csv contains: product,quantity\\n 'Widget', 10\\n 'Gadget', 5",
+          "description": "sales.csv contains: product,quantity\\n 'Widget', 10\\n 'Gadget', 5"
+        },
+        {
+          "input": "",
+          "expected_output": "Expected sales_clean.csv: product,quantity\\nWidget,10\\nGadget,5",
+          "description": "Expected sales_clean.csv: product,quantity\\nWidget,10\\nGadget,5"
+        }
       ],
       "hint": "Use enumerate to distinguish the 'product' column (index 1) from the 'quantity' column (index 2) when applying transformations.",
       "explanation": "This reinforces practical data cleaning: stripping strings and casting numeric fields. It also demonstrates that csv.writer can handle mixed types when writing rows."
@@ -488,8 +504,16 @@
       "starter_code": "import csv\nfrom collections import defaultdict\nfrom datetime import datetime\n\ndef summarize_by_month(input_path, output_path):\n    totals = defaultdict(float)\n    with open(input_path, 'r') as infile:\n        reader = csv.DictReader(infile)\n        for row in reader:\n            dt = datetime.strptime(row['date'], '%Y-%m-%d')\n            key = dt.strftime('%Y-%m')\n            totals[key] += float(row['amount'])\n    \n    with open(output_path, 'w', newline='') as outfile:\n        writer = csv.writer(outfile)\n        writer.writerow(['month', 'total_amount'])\n        for month in sorted(totals):\n            writer.writerow([month, totals[month]])\n\nsummarize_by_month('orders.csv', 'monthly_summary.csv')",
       "solution_code": "import csv\nfrom collections import defaultdict\nfrom datetime import datetime\n\ndef summarize_by_month(input_path, output_path):\n    totals = defaultdict(float)\n    with open(input_path, 'r') as infile:\n        reader = csv.DictReader(infile)\n        for row in reader:\n            dt = datetime.strptime(row['date'], '%Y-%m-%d')\n            key = dt.strftime('%Y-%m')\n            totals[key] += float(row['amount'])\n    \n    with open(output_path, 'w', newline='') as outfile:\n        writer = csv.writer(outfile)\n        writer.writerow(['month', 'total_amount'])\n        for month in sorted(totals):\n            writer.writerow([month, totals[month]])\n\nsummarize_by_month('orders.csv', 'monthly_summary.csv')",
       "test_cases": [
-        "orders.csv contains: order_id,date,amount\\n1,2024-01-15,100.50\\n2,2024-01-20,200.00\\n3,2024-02-05,150.75",
-        "Expected monthly_summary.csv: month,total_amount\\n2024-01,300.50\\n2024-02,150.75"
+        {
+          "input": "",
+          "expected_output": "orders.csv contains: order_id,date,amount\\n1,2024-01-15,100.50\\n2,2024-01-20,200.00\\n3,2024-02-05,150.75",
+          "description": "orders.csv contains: order_id,date,amount\\n1,2024-01-15,100.50\\n2,2024-01-20,200.00\\n3,2024-02-05,150.75"
+        },
+        {
+          "input": "",
+          "expected_output": "Expected monthly_summary.csv: month,total_amount\\n2024-01,300.50\\n2024-02,150.75",
+          "description": "Expected monthly_summary.csv: month,total_amount\\n2024-01,300.50\\n2024-02,150.75"
+        }
       ],
       "hint": "Use datetime.strptime to parse the date, then strftime('%Y-%m') to create a year-month key for aggregation.",
       "explanation": "This advanced task combines CSV parsing, date handling, aggregation with defaultdict, and ordered writing. It mirrors real ETL workflows where raw transaction data is summarized before storage."
@@ -507,8 +531,16 @@
       "starter_code": "import csv\n\ndef generate_reorder_report(input_path, output_path):\n    low_stock = []\n    with open(input_path, 'r') as infile:\n        reader = csv.DictReader(infile)\n        for row in reader:\n            if int(row['stock']) < 10:\n                row['reorder'] = 'Yes'\n                low_stock.append(row)\n    \n    with open(output_path, 'w', newline='') as outfile:\n        fieldnames = ['item', 'category', 'stock', 'price', 'reorder']\n        writer = csv.DictWriter(outfile, fieldnames=fieldnames)\n        writer.writeheader()\n        for row in low_stock:\n            writer.writerow(row)\n\ngenerate_reorder_report('inventory.csv', 'report.csv')",
       "solution_code": "import csv\n\ndef generate_reorder_report(input_path, output_path):\n    low_stock = []\n    with open(input_path, 'r') as infile:\n        reader = csv.DictReader(infile)\n        for row in reader:\n            if int(row['stock']) < 10:\n                row['reorder'] = 'Yes'\n                low_stock.append(row)\n    \n    low_stock.sort(key=lambda r: (r['category'], r['item']))\n    \n    with open(output_path, 'w', newline='') as outfile:\n        fieldnames = ['item', 'category', 'stock', 'price', 'reorder']\n        writer = csv.DictWriter(outfile, fieldnames=fieldnames)\n        writer.writeheader()\n        for row in low_stock:\n            writer.writerow(row)\n\ngenerate_reorder_report('inventory.csv', 'report.csv')",
       "test_cases": [
-        "inventory.csv contains: item,category,stock,price\\nPen,Stationery,5,1.20\\nNotebook,Stationery,12,2.50\\nEraser,Stationery,8,0.80\\nBinder,Office,3,5.00",
-        "Expected report.csv: item,category,stock,price,reorder\\nBinder,Office,3,5.00,Yes\\nEraser,Stationery,8,0.80,Yes\\nPen,Stationery,5,1.20,Yes"
+        {
+          "input": "",
+          "expected_output": "inventory.csv contains: item,category,stock,price\\nPen,Stationery,5,1.20\\nNotebook,Stationery,12,2.50\\nEraser,Stationery,8,0.80\\nBinder,Office,3,5.00",
+          "description": "inventory.csv contains: item,category,stock,price\\nPen,Stationery,5,1.20\\nNotebook,Stationery,12,2.50\\nEraser,Stationery,8,0.80\\nBinder,Office,3,5.00"
+        },
+        {
+          "input": "",
+          "expected_output": "Expected report.csv: item,category,stock,price,reorder\\nBinder,Office,3,5.00,Yes\\nEraser,Stationery,8,0.80,Yes\\nPen,Stationery,5,1.20,Yes",
+          "description": "Expected report.csv: item,category,stock,price,reorder\\nBinder,Office,3,5.00,Yes\\nEraser,Stationery,8,0.80,Yes\\nPen,Stationery,5,1.20,Yes"
+        }
       ],
       "hint": "After collecting matching rows, sort them before writing. The sort key should be a tuple of category and item.",
       "explanation": "This challenge tests filtering, dynamic column addition, sorting, and ordered CSV output. It reflects inventory management logic where reorder decisions depend on stock thresholds."
@@ -526,8 +558,16 @@
       "starter_code": "import csv\nimport json\n\ndef csv_to_json_large_events(input_path, output_path):\n    events = []\n    with open(input_path, 'r') as infile:\n        reader = csv.DictReader(infile)\n        for row in reader:\n            if int(row['attendees']) > 50:\n                events.append({\n                    'event_id': row['event_id'],\n                    'name': row['name'],\n                    'attendees': int(row['attendees'])\n                })\n    \n    with open(output_path, 'w') as outfile:\n        json.dump(events, outfile, indent=2)\n\ncsv_to_json_large_events('events.csv', 'large_events.json')",
       "solution_code": "import csv\nimport json\n\ndef csv_to_json_large_events(input_path, output_path):\n    events = []\n    with open(input_path, 'r') as infile:\n        reader = csv.DictReader(infile)\n        for row in reader:\n            if int(row['attendees']) > 50:\n                events.append({\n                    'event_id': row['event_id'],\n                    'name': row['name'],\n                    'attendees': int(row['attendees'])\n                })\n    \n    with open(output_path, 'w') as outfile:\n        json.dump(events, outfile, indent=2)\n\ncsv_to_json_large_events('events.csv', 'large_events.json')",
       "test_cases": [
-        "events.csv contains: event_id,name,date,attendees,budget_usd\\n101,Conference,2024-03-10,45,5000\\n102,Workshop,2024-04-15,60,3000\\n103,Seminar,2024-05-20,120,2000",
-        "Expected large_events.json: [\\n  {\\n    \\\"event_id\\\": \\\"102\\\",\\n    \\\"name\\\": \\\"Workshop\\\",\\n    \\\"attendees\\\": 60\\n  },\\n  {\\n    \\\"event_id\\\": \\\"103\\\",\\n    \\\"name\\\": \\\"Seminar\\\",\\n    \\\"attendees\\\": 120\\n  }\\n]"
+        {
+          "input": "",
+          "expected_output": "events.csv contains: event_id,name,date,attendees,budget_usd\\n101,Conference,2024-03-10,45,5000\\n102,Workshop,2024-04-15,60,3000\\n103,Seminar,2024-05-20,120,2000",
+          "description": "events.csv contains: event_id,name,date,attendees,budget_usd\\n101,Conference,2024-03-10,45,5000\\n102,Workshop,2024-04-15,60,3000\\n103,Seminar,2024-05-20,120,2000"
+        },
+        {
+          "input": "",
+          "expected_output": "Expected large_events.json: [\\n  {\\n    \\\"event_id\\\": \\\"102\\\",\\n    \\\"name\\\": \\\"Workshop\\\",\\n    \\\"attendees\\\": 60\\n  },\\n  {\\n    \\\"event_id\\\": \\\"103\\\",\\n    \\\"name\\\": \\\"Seminar\\\",\\n    \\\"attendees\\\": 120\\n  }\\n]",
+          "description": "Expected large_events.json: [\\n  {\\n    \\\"event_id\\\": \\\"102\\\",\\n    \\\"name\\\": \\\"Workshop\\\",\\n    \\\"attendees\\\": 60\\n  },\\n  {\\n    \\\"event_id\\\": \\\"103\\\",\\n    \\\"name\\\": \\\"Seminar\\\",\\n    \\\"attendees\\\": 120\\n  }\\n]"
+        }
       ],
       "hint": "Use json.dump with indent=2 for readable output. Remember to cast attendees to int before comparison and in the output dictionary.",
       "explanation": "This scenario synthesizes CSV reading, conditional filtering, dictionary construction, and JSON serialization. It demonstrates a common data pipeline where tabular data is transformed into a structured API-friendly format."
@@ -545,8 +585,16 @@
       "starter_code": "import csv\n\ndef process_transactions(input_path, valid_path, summary_path):\n    valid_count = 0\n    total_amount = 0.0\n    \n    try:\n        with open(input_path, 'r') as infile:\n            reader = csv.DictReader(infile)\n            with open(valid_path, 'w', newline='') as outfile:\n                writer = csv.DictWriter(outfile, fieldnames=reader.fieldnames)\n                writer.writeheader()\n                for row in reader:\n                    try:\n                        amt = float(row['amount'])\n                        if amt <= 0:\n                            continue\n                        writer.writerow(row)\n                        valid_count += 1\n                        total_amount += amt\n                    except ValueError:\n                        continue\n    except FileNotFoundError:\n        print(f\"Error: The file {input_path} was not found.\")\n        return\n    \n    with open(summary_path, 'w') as summary:\n        summary.write(f\"Valid transactions: {valid_count}\\n\")\n        summary.write(f\"Total amount: {total_amount:.2f}\\n\")\n\nprocess_transactions('transactions.csv', 'valid_transactions.csv', 'summary.txt')",
       "solution_code": "import csv\n\ndef process_transactions(input_path, valid_path, summary_path):\n    valid_count = 0\n    total_amount = 0.0\n    \n    try:\n        with open(input_path, 'r') as infile:\n            reader = csv.DictReader(infile)\n            with open(valid_path, 'w', newline='') as outfile:\n                writer = csv.DictWriter(outfile, fieldnames=reader.fieldnames)\n                writer.writeheader()\n                for row in reader:\n                    try:\n                        amt = float(row['amount'])\n                        if amt <= 0:\n                            continue\n                        writer.writerow(row)\n                        valid_count += 1\n                        total_amount += amt\n                    except ValueError:\n                        continue\n    except FileNotFoundError:\n        print(f\"Error: The file {input_path} was not found.\")\n        return\n    \n    with open(summary_path, 'w') as summary:\n        summary.write(f\"Valid transactions: {valid_count}\\n\")\n        summary.write(f\"Total amount: {total_amount:.2f}\\n\")\n\nprocess_transactions('transactions.csv', 'valid_transactions.csv', 'summary.txt')",
       "test_cases": [
-        "transactions.csv contains: date,description,amount\\n2024-01-01,Rent,1200.00\\n2024-01-02,Groceries,-50.00\\n2024-01-03,Salary,not_a_number\\n2024-01-04,Bonus,300.50",
-        "Expected valid_transactions.csv: date,description,amount\\n2024-01-01,Rent,1200.00\\n2024-01-04,Bonus,300.50\\nExpected summary.txt: Valid transactions: 2\\nTotal amount: 1500.50"
+        {
+          "input": "",
+          "expected_output": "transactions.csv contains: date,description,amount\\n2024-01-01,Rent,1200.00\\n2024-01-02,Groceries,-50.00\\n2024-01-03,Salary,not_a_number\\n2024-01-04,Bonus,300.50",
+          "description": "transactions.csv contains: date,description,amount\\n2024-01-01,Rent,1200.00\\n2024-01-02,Groceries,-50.00\\n2024-01-03,Salary,not_a_number\\n2024-01-04,Bonus,300.50"
+        },
+        {
+          "input": "",
+          "expected_output": "Expected valid_transactions.csv: date,description,amount\\n2024-01-01,Rent,1200.00\\n2024-01-04,Bonus,300.50\\nExpected summary.txt: Valid transactions: 2\\nTotal amount: 1500.50",
+          "description": "Expected valid_transactions.csv: date,description,amount\\n2024-01-01,Rent,1200.00\\n2024-01-04,Bonus,300.50\\nExpected summary.txt: Valid transactions: 2\\nTotal amount: 1500.50"
+        }
       ],
       "hint": "Nest try-except blocks: one for file I/O and one for per-row numeric validation. Use continue to skip bad rows without stopping the whole script.",
       "explanation": "This mastery item requires defensive programming: validating input, handling missing files, skipping malformed data, and producing both a filtered CSV and a human-readable summary. It prepares learners for production-grade data processing tasks."

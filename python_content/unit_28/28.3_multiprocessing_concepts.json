@@ -133,12 +133,19 @@
       "prerequisites": [
         "28.3_q7"
       ],
-      "prompt": "Identify and fix the logical or syntax defect in this implementation of Multiprocessing Concepts:",
+      "prompt": "Defensive Validation: Implement a verification helper for Multiprocessing Concepts that confirms preconditions and guards against invalid input.",
       "correct_answer": "'apple'\n'banana'",
-      "explanation": "Debugging is a core programming competency. Guarding against edge cases like `None` or invalid states prevents runtime failures.",
-      "starter_code": "# Fix the issue with Multiprocessing Concepts\ndef check_valid(val):\n    if val is None:\n        return False\n    return True",
-      "solution_code": "def check_valid(val):\n    if val is None:\n        return False\n    return True",
-      "hint": "Check the condition and return value carefully."
+      "explanation": "Validating preconditions at the boundary prevents null pointer and type exceptions downstream.",
+      "starter_code": "def validate_28_3_input(val):\n    # Return True if val is valid, False otherwise\n    pass",
+      "solution_code": "def validate_28_3_input(val):\n    if val is None or val == '':\n        return False\n    return True",
+      "hint": "Check the condition and return value carefully.",
+      "test_cases": [
+        {
+          "input": "'valid_token'",
+          "expected_output": "True",
+          "description": "valid input returns True"
+        }
+      ]
     },
     {
       "id": "28.3_q9",
@@ -446,9 +453,21 @@
       "starter_code": "import multiprocessing\nimport time\n\ndef fetch(url):\n    time.sleep(0.1)\n    return url + '_data'\n\ndef main():\n    urls = ['a', 'b', 'c', 'd', 'e']\n    results = []\n    for u in urls:\n        p = multiprocessing.Process(target=fetch, args=(u,))\n        p.start()\n        p.join()\n        results.append(fetch(u))\n    print(results)\n\nif __name__ == '__main__':\n    main()",
       "solution_code": "import multiprocessing\nimport time\n\ndef fetch(url):\n    time.sleep(0.1)\n    return url + '_data'\n\ndef main():\n    urls = ['a', 'b', 'c', 'd', 'e']\n    with multiprocessing.Pool(processes=len(urls)) as pool:\n        results = pool.map(fetch, urls)\n    print(results)\n\nif __name__ == '__main__':\n    main()",
       "test_cases": [
-        "main() returns ['a_data', 'b_data', 'c_data', 'd_data', 'e_data']",
-        "Execution completes faster than sequential single-process calls for 5 or more URLs",
-        "No process is left hanging or orphaned"
+        {
+          "input": "",
+          "expected_output": "main() returns ['a_data', 'b_data', 'c_data', 'd_data', 'e_data']",
+          "description": "main() returns ['a_data', 'b_data', 'c_data', 'd_data', 'e_data']"
+        },
+        {
+          "input": "",
+          "expected_output": "Execution completes faster than sequential single-process calls for 5 or more URLs",
+          "description": "Execution completes faster than sequential single-process calls for 5 or more URLs"
+        },
+        {
+          "input": "",
+          "expected_output": "No process is left hanging or orphaned",
+          "description": "No process is left hanging or orphaned"
+        }
       ],
       "hint": "Replace manual Process management with a Pool and map to exploit parallelism, and eliminate redundant sequential calls.",
       "explanation": "The original code starts and joins one process per URL while also calling fetch sequentially, causing duplicate work and high overhead. The refactored version uses Pool.map to distribute tasks across worker processes efficiently, reducing total runtime and removing redundant function calls.",
@@ -467,8 +486,16 @@
       "starter_code": "import multiprocessing\n\ndef compute_square(n):\n    return n ** 2\n\nif __name__ == '__main__':\n    numbers = list(range(1, 11))\n    # TODO: create processes and store results\n    results = []\n    for n in numbers:\n        p = multiprocessing.Process(target=compute_square, args=(n,))\n        p.start()\n        p.join()\n    print('Results:', results)",
       "solution_code": "import multiprocessing\n\ndef compute_square(n, queue):\n    queue.put(n ** 2)\n\nif __name__ == '__main__':\n    numbers = list(range(1, 11))\n    queue = multiprocessing.Queue()\n    processes = []\n    for n in numbers:\n        p = multiprocessing.Process(target=compute_square, args=(n, queue))\n        processes.append(p)\n        p.start()\n    for p in processes:\n        p.join()\n    results = []\n    while not queue.empty():\n        results.append(queue.get())\n    print('Results:', results)",
       "test_cases": [
-        "Input: numbers 1 to 10; Expected: [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]",
-        "Input: empty list; Expected: []"
+        {
+          "input": "",
+          "expected_output": "Input: numbers 1 to 10; Expected: [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]",
+          "description": "Input: numbers 1 to 10; Expected: [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]"
+        },
+        {
+          "input": "",
+          "expected_output": "Input: empty list; Expected: []",
+          "description": "Input: empty list; Expected: []"
+        }
       ],
       "hint": "Use a multiprocessing.Queue to safely collect results from child processes.",
       "explanation": "This exercise introduces the multiprocessing.Process class and inter-process communication via a Queue. It demonstrates how to parallelize independent computations safely."
@@ -486,8 +513,16 @@
       "starter_code": "import multiprocessing\n\ndef row_sum(row):\n    return sum(row)\n\nif __name__ == '__main__':\n    matrix = [\n        [1, 2, 3],\n        [4, 5, 6],\n        [7, 8, 9]\n    ]\n    # TODO: use Pool to map row_sum over matrix\n    with multiprocessing.Pool() as pool:\n        results = []\n    print('Row sums:', results)",
       "solution_code": "import multiprocessing\n\ndef row_sum(row):\n    return sum(row)\n\nif __name__ == '__main__':\n    matrix = [\n        [1, 2, 3],\n        [4, 5, 6],\n        [7, 8, 9]\n    ]\n    with multiprocessing.Pool(processes=3) as pool:\n        results = pool.map(row_sum, matrix)\n    print('Row sums:', results)",
       "test_cases": [
-        "Input: [[1,2],[3,4]]; Expected: [3, 7]",
-        "Input: [[0]]; Expected: [0]"
+        {
+          "input": "",
+          "expected_output": "Input: [[1,2],[3,4]]; Expected: [3, 7]",
+          "description": "Input: [[1,2],[3,4]]; Expected: [3, 7]"
+        },
+        {
+          "input": "",
+          "expected_output": "Input: [[0]]; Expected: [0]",
+          "description": "Input: [[0]]; Expected: [0]"
+        }
       ],
       "hint": "Pool.map applies a function to every item in an iterable and collects the results in order.",
       "explanation": "This practical example shows how Pool.map simplifies parallel mapping over collections, making it ideal for embarrassingly parallel tasks like reducing each row independently."
@@ -505,8 +540,16 @@
       "starter_code": "import multiprocessing\n\ndef producer(queue, n):\n    for i in range(n):\n        queue.put(i)\n\ndef consumer(queue, lock, counter):\n    while True:\n        item = queue.get()\n        if item is None:\n            break\n        with lock:\n            counter.value += 1\n\nif __name__ == '__main__':\n    queue = multiprocessing.Queue()\n    lock = multiprocessing.Lock()\n    counter = multiprocessing.Value('i', 0)\n    p = multiprocessing.Process(target=producer, args=(queue, 5))\n    c1 = multiprocessing.Process(target=consumer, args=(queue, lock, counter))\n    c2 = multiprocessing.Process(target=consumer, args=(queue, lock, counter))\n    p.start()\n    c1.start()\n    c2.start()\n    p.join()\n    queue.put(None)\n    queue.put(None)\n    c1.join()\n    c2.join()\n    print('Counter:', counter.value)",
       "solution_code": "import multiprocessing\n\ndef producer(queue, n):\n    for i in range(n):\n        queue.put(i)\n\ndef consumer(queue, lock, counter):\n    while True:\n        item = queue.get()\n        if item is None:\n            break\n        with lock:\n            counter.value += 1\n\nif __name__ == '__main__':\n    queue = multiprocessing.Queue()\n    lock = multiprocessing.Lock()\n    counter = multiprocessing.Value('i', 0)\n    p = multiprocessing.Process(target=producer, args=(queue, 5))\n    c1 = multiprocessing.Process(target=consumer, args=(queue, lock, counter))\n    c2 = multiprocessing.Process(target=consumer, args=(queue, lock, counter))\n    p.start()\n    c1.start()\n    c2.start()\n    p.join()\n    queue.put(None)\n    queue.put(None)\n    c1.join()\n    c2.join()\n    print('Counter:', counter.value)",
       "test_cases": [
-        "Input: n=5, 2 consumers; Expected: Counter: 5",
-        "Input: n=0; Expected: Counter: 0"
+        {
+          "input": "",
+          "expected_output": "Input: n=5, 2 consumers; Expected: Counter: 5",
+          "description": "Input: n=5, 2 consumers; Expected: Counter: 5"
+        },
+        {
+          "input": "",
+          "expected_output": "Input: n=0; Expected: Counter: 0",
+          "description": "Input: n=0; Expected: Counter: 0"
+        }
       ],
       "hint": "Ensure sentinel values are placed in the queue only after the producer finishes, and guard the shared counter with a lock.",
       "explanation": "This advanced task demonstrates synchronization between processes using a lock and a shared Value. It highlights the importance of sentinel values and atomic updates to avoid race conditions."
@@ -524,8 +567,16 @@
       "starter_code": "import multiprocessing\n\ndef producer(q1, q2):\n    q1.put(42)\n    q2.get()\n\ndef consumer(q1, q2):\n    q2.put(1)\n    q1.get()\n\nif __name__ == '__main__':\n    q1 = multiprocessing.Queue()\n    q2 = multiprocessing.Queue()\n    p = multiprocessing.Process(target=producer, args=(q1, q2))\n    c = multiprocessing.Process(target=consumer, args=(q1, q2))\n    p.start()\n    c.start()\n    p.join()\n    c.join()",
       "solution_code": "import multiprocessing\n\ndef producer(q1, q2):\n    q1.put(42)\n    q2.put(1)\n\ndef consumer(q1, q2):\n    q1.get()\n    q2.get()\n\nif __name__ == '__main__':\n    q1 = multiprocessing.Queue()\n    q2 = multiprocessing.Queue()\n    p = multiprocessing.Process(target=producer, args=(q1, q2))\n    c = multiprocessing.Process(target=consumer, args=(q1, q2))\n    p.start()\n    c.start()\n    p.join()\n    c.join()",
       "test_cases": [
-        "Verify both processes terminate without hanging; Expected: completion",
-        "Verify data integrity; Expected: no exceptions"
+        {
+          "input": "",
+          "expected_output": "Verify both processes terminate without hanging; Expected: completion",
+          "description": "Verify both processes terminate without hanging; Expected: completion"
+        },
+        {
+          "input": "",
+          "expected_output": "Verify data integrity; Expected: no exceptions",
+          "description": "Verify data integrity; Expected: no exceptions"
+        }
       ],
       "hint": "A deadlock occurs when each process waits for a queue operation that the other process never performs. Ensure both queues are used symmetrically.",
       "explanation": "This challenge tests understanding of deadlock scenarios in inter-process communication. The fix requires ensuring every put has a matching get and vice versa, or restructuring so no circular wait exists."
@@ -543,8 +594,16 @@
       "starter_code": "import multiprocessing\n\ndef count_errors(filepath):\n    count = 0\n    with open(filepath, 'r') as f:\n        for line in f:\n            if 'ERROR' in line:\n                count += 1\n    return count\n\nif __name__ == '__main__':\n    files = ['log1.txt', 'log2.txt']\n    # TODO: parallelize file processing and aggregate counts\n    total = 0\n    with multiprocessing.Pool() as pool:\n        results = []\n    print('Total errors:', total)",
       "solution_code": "import multiprocessing\n\ndef count_errors(filepath):\n    count = 0\n    with open(filepath, 'r') as f:\n        for line in f:\n            if 'ERROR' in line:\n                count += 1\n    return count\n\nif __name__ == '__main__':\n    files = ['log1.txt', 'log2.txt']\n    with multiprocessing.Pool(processes=2) as pool:\n        results = pool.map(count_errors, files)\n    total = sum(results)\n    print('Total errors:', total)",
       "test_cases": [
-        "Input: files with 2 ERROR lines in log1.txt and 3 in log2.txt; Expected: Total errors: 5",
-        "Input: empty file list; Expected: Total errors: 0"
+        {
+          "input": "",
+          "expected_output": "Input: files with 2 ERROR lines in log1.txt and 3 in log2.txt; Expected: Total errors: 5",
+          "description": "Input: files with 2 ERROR lines in log1.txt and 3 in log2.txt; Expected: Total errors: 5"
+        },
+        {
+          "input": "",
+          "expected_output": "Input: empty file list; Expected: Total errors: 0",
+          "description": "Input: empty file list; Expected: Total errors: 0"
+        }
       ],
       "hint": "Use Pool.map for parallel file reads and sum the returned list to aggregate results.",
       "explanation": "This scenario synthesizes file I/O, parallel execution, and result aggregation. It mirrors real-world log analysis where independent files can be processed concurrently to improve throughput."
@@ -562,8 +621,16 @@
       "starter_code": "import multiprocessing\n\nclass BoundedBuffer:\n    def __init__(self, capacity):\n        self.buffer = multiprocessing.Queue(maxsize=capacity)\n        self.not_full = multiprocessing.Condition()\n        self.not_empty = multiprocessing.Condition()\n\ndef producer(buf, n):\n    for i in range(n):\n        with buf.not_full:\n            buf.buffer.put(i)\n            buf.not_empty.notify()\n\ndef consumer(buf):\n    while True:\n        with buf.not_empty:\n            if buf.buffer.empty():\n                buf.not_full.wait()\n            item = buf.buffer.get()\n            buf.not_full.notify()\n            return item\n\nif __name__ == '__main__':\n    buf = BoundedBuffer(5)\n    p = multiprocessing.Process(target=producer, args=(buf, 10))\n    c = multiprocessing.Process(target=consumer, args=(buf,))\n    p.start()\n    c.start()\n    p.join()\n    print('Done')",
       "solution_code": "import multiprocessing\n\nclass BoundedBuffer:\n    def __init__(self, capacity):\n        self.buffer = multiprocessing.Queue(maxsize=capacity)\n        self.not_full = multiprocessing.Condition()\n        self.not_empty = multiprocessing.Condition()\n\ndef producer(buf, n):\n    for i in range(n):\n        with buf.not_full:\n            buf.buffer.put(i)\n            buf.not_empty.notify()\n\ndef consumer(buf):\n    for _ in range(10):\n        with buf.not_empty:\n            while buf.buffer.empty():\n                buf.not_full.wait()\n            item = buf.buffer.get()\n            buf.not_full.notify()\n            return item\n\nif __name__ == '__main__':\n    buf = BoundedBuffer(5)\n    p = multiprocessing.Process(target=producer, args=(buf, 10))\n    c = multiprocessing.Process(target=consumer, args=(buf,))\n    p.start()\n    c.start()\n    p.join()\n    c.join()\n    print('Done')",
       "test_cases": [
-        "Verify producer finishes and consumer processes all 10 items; Expected: Done",
-        "Verify no deadlock or buffer overflow; Expected: completion"
+        {
+          "input": "",
+          "expected_output": "Verify producer finishes and consumer processes all 10 items; Expected: Done",
+          "description": "Verify producer finishes and consumer processes all 10 items; Expected: Done"
+        },
+        {
+          "input": "",
+          "expected_output": "Verify no deadlock or buffer overflow; Expected: completion",
+          "description": "Verify no deadlock or buffer overflow; Expected: completion"
+        }
       ],
       "hint": "The consumer must loop to process all items and use while loops with wait to avoid spurious wakeups.",
       "explanation": "This mastery challenge requires precise use of Condition variables and proper loop-based waiting to implement a classic bounded buffer. It tests deep understanding of process synchronization and avoiding lost wakeups."

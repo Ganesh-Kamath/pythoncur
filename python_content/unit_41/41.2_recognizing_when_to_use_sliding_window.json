@@ -558,7 +558,7 @@
     },
     {
       "id": "41.2_q28",
-      "type": "real_world_scenario",
+      "type": "write_the_code",
       "concept": "server_latency_monitoring",
       "skill": "application",
       "difficulty": "hard",
@@ -566,16 +566,17 @@
         "41.2_q27"
       ],
       "prompt": "A server records request latencies in milliseconds. Write a sliding window function that detects whether any consecutive window of `k` requests had an average latency exceeding `threshold`:",
-      "starter_code": "def alert_latency_spike(latencies, k, threshold):\n    if len(latencies) < k:\n        return False\n    curr_sum = sum(latencies[:k])\n    if curr_sum / k > threshold:\n        return True\n    for i in range(k, len(latencies)):\n        curr_sum += latencies[i] - latencies[i - k]\n        if curr_sum / k > threshold:\n            return True\n    return False",
-      "solution_code": "def alert_latency_spike(latencies, k, threshold):\n    if len(latencies) < k:\n        return False\n    curr_sum = sum(latencies[:k])\n    if curr_sum / k > threshold:\n        return True\n    for i in range(k, len(latencies)):\n        curr_sum += latencies[i] - latencies[i - k]\n        if curr_sum / k > threshold:\n            return True\n    return False",
+      "starter_code": "def alert_latency_spike(latencies, k, threshold):\n    # Return True if any window of size k exceeds average threshold\n    pass",
+      "solution_code": "def alert_latency_spike(latencies, k, threshold):\n    if len(latencies) < k or k <= 0:\n        return False\n    curr_sum = sum(latencies[:k])\n    if curr_sum / k > threshold:\n        return True\n    for i in range(k, len(latencies)):\n        curr_sum += latencies[i] - latencies[i - k]\n        if curr_sum / k > threshold:\n            return True\n    return False",
       "test_cases": [
         {
-          "input": "",
-          "expected_output": "Recognizing When to use Sliding Window Result 28"
+          "input": "[100, 200, 300, 800, 900], 2, 500",
+          "expected_output": "True",
+          "description": "detects latency spike window"
         }
       ],
       "hint": "Update the running sum by adding the incoming latency and subtracting the outgoing latency.",
-      "explanation": "Sliding window calculates rolling averages for live time-series monitoring in O(1) space and O(n) time, making it ideal for streaming telemetry."
+      "explanation": "Rolling window aggregation updates sums in O(1) per step, yielding overall O(n) execution without recalculating window sums."
     },
     {
       "id": "41.2_q29",
@@ -610,7 +611,7 @@
       "type": "write_the_code",
       "concept": "mastery_longest_unique_substring",
       "skill": "transfer",
-      "difficulty": "expert",
+      "difficulty": "hard",
       "prerequisites": [
         "41.2_q29"
       ],

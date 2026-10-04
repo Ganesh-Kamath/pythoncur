@@ -115,12 +115,19 @@
         "title": "Predicting Output from a Simple For Loop",
         "content": "When you iterate over a list using a for loop, the loop variable takes the value of each element in the list, one at a time, from left to right. In this example, the list contains three strings. The loop prints each string during its turn. Pay attention to the exact spelling and spacing of the items in the list."
       },
-      "prompt": "Write a clean, reusable function or code statement that demonstrates core usage of Iterating Over Lists:",
+      "prompt": "Milestone Implementation: Construct a modular, well-tested function that applies the central principles of Iterating Over Lists.",
       "correct_answer": "apple banana cherry",
-      "explanation": "Understanding how to construct clean implementations of Iterating Over Lists ensures you can integrate it into broader software applications.",
-      "starter_code": "# Implement a solution for Iterating Over Lists\ndef solve():\n    ___",
-      "solution_code": "def solve():\n    # Core implementation of Iterating Over Lists\n    return True",
-      "hint": "Focus on applying the central Python idiom for Iterating Over Lists."
+      "explanation": "Constructing pure, robust data transformers for Iterating Over Lists avoids unintended side effects and guarantees consistent return contracts.",
+      "starter_code": "def process_8_6_data(items):\n    # Process input according to Iterating Over Lists rules\n    pass",
+      "solution_code": "def process_8_6_data(items):\n    return [item for item in items if item is not None]",
+      "hint": "Focus on applying the central Python idiom for Iterating Over Lists.",
+      "test_cases": [
+        {
+          "input": "[1, None, 2, None, 3]",
+          "expected_output": "[1, 2, 3]",
+          "description": "cleans null values using Iterating Over Lists rules"
+        }
+      ]
     },
     {
       "id": "8.6_q8",

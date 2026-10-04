@@ -435,7 +435,13 @@
       ],
       "prompt": "An online checkout calculates `total_price = subtotal * 0.0`. The script runs with zero errors, but every customer gets free orders. What type of bug is this?",
       "correct_answer": "C",
-      "explanation": "The syntax is 100% legal, and Python happily calculated the product. The formula itself was mathematically wrong for calculating prices."
+      "explanation": "The syntax is 100% legal, and Python happily calculated the product. The formula itself was mathematically wrong for calculating prices.",
+      "options": [
+        "A. A SyntaxError because multiplying by zero is prohibited.",
+        "B. A ZeroDivisionError because zero was used in arithmetic.",
+        "C. A logic error: the code runs cleanly without crashing but sets the price to 0.0 instead of applying a discount.",
+        "D. A NameError because subtotal was not declared with a type."
+      ]
     },
     {
       "id": "1.6_q26",
@@ -494,7 +500,13 @@
       ],
       "prompt": "A junior developer says: 'If my code throws an error, I should randomly change characters until it stops crashing.' Why is this an anti-pattern?",
       "correct_answer": "A",
-      "explanation": "Engineering requires intentional problem-solving: diagnose the root cause using the traceback, understand the mechanism, and apply a reasoned fix."
+      "explanation": "Engineering requires intentional problem-solving: diagnose the root cause using the traceback, understand the mechanism, and apply a reasoned fix.",
+      "options": [
+        "A. False; exceptions contain vital diagnostic clues (file, line number, exception type, message) that reveal the exact cause of failure.",
+        "B. True; error messages are meant for the operating system and should be ignored by programmers.",
+        "C. True; guessing random changes is faster than reading traceback messages.",
+        "D. False; all errors are caused by compiler bugs rather than code mistakes."
+      ]
     },
     {
       "id": "1.6_q30",
@@ -512,7 +524,13 @@
       ],
       "prompt": "Congratulations on finishing Unit 1! Which statement best captures the foundational mental model of Python execution?",
       "correct_answer": "A",
-      "explanation": "This synthesizes the entire Unit 1 foundations: sequential execution, syntax parsing, bytecode and the PVM, and diagnostic tracebacks."
+      "explanation": "This synthesizes the entire Unit 1 foundations: sequential execution, syntax parsing, bytecode and the PVM, and diagnostic tracebacks.",
+      "options": [
+        "A. Python sequentially parses source code into bytecode, executes it via the PVM, and surfaces errors to guide debugging.",
+        "B. Python converts English sentences directly into hardware electrical pulses without grammar rules.",
+        "C. Python programs can only execute if they are shorter than 100 lines.",
+        "D. Python ignores indentation errors and automatically guesses code block hierarchy."
+      ]
     }
   ],
   "unit_num": 1,

@@ -499,7 +499,13 @@
       ],
       "prompt": "A developer writes:\n```python\nsubtotal = 100\ntax = subtotal * 0.10\nsubtotal = 200\n```\nWhat is the value of `tax` now, and why?",
       "correct_answer": "B",
-      "explanation": "Critical mental model: Python is imperative, not reactive. Expressions evaluate eagerly. Changing `subtotal` later has zero effect on already-computed `tax`."
+      "explanation": "Critical mental model: Python is imperative, not reactive. Expressions evaluate eagerly. Changing `subtotal` later has zero effect on already-computed `tax`.",
+      "options": [
+        "A. tax automatically recalculates to 20 when subtotal is changed later.",
+        "B. tax remains 10; variables hold the value assigned at the time of execution, not a reactive formula.",
+        "C. Python raises an UnboundLocalError when reassigning subtotal.",
+        "D. subtotal becomes a tuple containing both 100 and 200."
+      ]
     },
     {
       "id": "2.1_q30",
@@ -516,7 +522,13 @@
       ],
       "prompt": "Which of the following statements about Python variables is completely TRUE?",
       "correct_answer": "B",
-      "explanation": "This exercise tests `variables synthesis` in Variables. When Python validates this code, it applies the standard rules of variables synthesis. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
+      "explanation": "This exercise tests `variables synthesis` in Variables. When Python validates this code, it applies the standard rules of variables synthesis. Understanding how this construct behaves prevents common programming errors and ensures predictable execution.",
+      "options": [
+        "A. Variables are statically typed memory boxes that cannot change data types.",
+        "B. Variables are symbolic names bound to objects; reassigning a variable rebinds the name to a new object in memory.",
+        "C. Variables can only hold integer numbers.",
+        "D. Creating a variable copies all hardware memory into the variable."
+      ]
     }
   ],
   "unit_num": 2,

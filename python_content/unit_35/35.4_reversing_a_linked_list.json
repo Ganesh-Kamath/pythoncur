@@ -487,9 +487,21 @@
       "starter_code": "class Node:\n    def __init__(self, data):\n        self.data = data\n        self.next = None\n\ndef reverse_linked_list(head):\n    # Write your iterative solution here\n    pass",
       "solution_code": "def reverse_linked_list(head):\n    prev = None\n    current = head\n    while current is not None:\n        next_node = current.next\n        current.next = prev\n        prev = current\n        current = next_node\n    return prev",
       "test_cases": [
-        "Input: 1 -> 2 -> 3 -> None\nExpected Output: 3 -> 2 -> 1 -> None",
-        "Input: None\nExpected Output: None",
-        "Input: 5 -> None\nExpected Output: 5 -> None"
+        {
+          "input": "",
+          "expected_output": "Input: 1 -> 2 -> 3 -> None\nExpected Output: 3 -> 2 -> 1 -> None",
+          "description": "Input: 1 -> 2 -> 3 -> None\nExpected Output: 3 -> 2 -> 1 -> None"
+        },
+        {
+          "input": "",
+          "expected_output": "Input: None\nExpected Output: None",
+          "description": "Input: None\nExpected Output: None"
+        },
+        {
+          "input": "",
+          "expected_output": "Input: 5 -> None\nExpected Output: 5 -> None",
+          "description": "Input: 5 -> None\nExpected Output: 5 -> None"
+        }
       ],
       "hint": "Use three pointers: prev, current, and next_node to rewire the next references during traversal.",
       "explanation": "The iterative approach walks through the list once, flipping each node's next pointer to point backward. Time complexity is O(n) and space complexity is O(1)."
@@ -507,8 +519,16 @@
       "starter_code": "def reverse_and_print(head):\n    # Reverse the list and print values\n    pass\n\n# Helper to build list\ndef build_list(values):\n    head = None\n    for v in values:\n        new_node = Node(v)\n        new_node.next = head\n        head = new_node\n    return head",
       "solution_code": "def reverse_and_print(head):\n    rev_head = reverse_linked_list(head)\n    current = rev_head\n    while current is not None:\n        print('Value:', current.data)\n        current = current.next",
       "test_cases": [
-        "Input: [10, 20, 30]\nExpected Output: Values printed as 30, 20, 10",
-        "Input: []\nExpected Output: No output"
+        {
+          "input": "",
+          "expected_output": "Input: [10, 20, 30]\nExpected Output: Values printed as 30, 20, 10",
+          "description": "Input: [10, 20, 30]\nExpected Output: Values printed as 30, 20, 10"
+        },
+        {
+          "input": "",
+          "expected_output": "Input: []\nExpected Output: No output",
+          "description": "Input: []\nExpected Output: No output"
+        }
       ],
       "hint": "Reuse the reverse_linked_list logic and then traverse the reversed list to print.",
       "explanation": "This combines reversal with traversal to demonstrate correctness. It reinforces that after reversal, the original tail becomes the new head."
@@ -526,9 +546,21 @@
       "starter_code": "def reverse_recursive(head):\n    # Write recursive solution here\n    pass",
       "solution_code": "def reverse_recursive(head):\n    if head is None or head.next is None:\n        return head\n    rest = reverse_recursive(head.next)\n    head.next.next = head\n    head.next = None\n    return rest",
       "test_cases": [
-        "Input: 1 -> 2 -> 3 -> None\nExpected Output: 3 -> 2 -> 1 -> None",
-        "Input: None\nExpected Output: None",
-        "Input: 7 -> None\nExpected Output: 7 -> None"
+        {
+          "input": "",
+          "expected_output": "Input: 1 -> 2 -> 3 -> None\nExpected Output: 3 -> 2 -> 1 -> None",
+          "description": "Input: 1 -> 2 -> 3 -> None\nExpected Output: 3 -> 2 -> 1 -> None"
+        },
+        {
+          "input": "",
+          "expected_output": "Input: None\nExpected Output: None",
+          "description": "Input: None\nExpected Output: None"
+        },
+        {
+          "input": "",
+          "expected_output": "Input: 7 -> None\nExpected Output: 7 -> None",
+          "description": "Input: 7 -> None\nExpected Output: 7 -> None"
+        }
       ],
       "hint": "The base case is an empty list or a single node. After reversing the rest, reconnect the current node.",
       "explanation": "Recursion naturally reverses the list by returning the new head of the reversed remainder and adjusting pointers on the way back up the call stack. Time complexity remains O(n) but space complexity is O(n) due to call stack."
@@ -546,8 +578,16 @@
       "starter_code": "def reverse_k_group(head, k):\n    # Implement group-wise reversal\n    pass",
       "solution_code": "def reverse_k_group(head, k):\n    dummy = Node(0)\n    dummy.next = head\n    group_prev = dummy\n    while True:\n        kth = group_prev\n        for _ in range(k):\n            kth = kth.next\n            if kth is None:\n                return dummy.next\n        group_next = kth.next\n        prev, curr = kth.next, group_prev.next\n        while curr is not group_next:\n            nxt = curr.next\n            curr.next = prev\n            prev = curr\n            curr = nxt\n        temp = group_prev.next\n        group_prev.next = kth\n        group_prev = temp\n    return dummy.next",
       "test_cases": [
-        "Input: 1->2->3->4->5, k=2\nExpected Output: 2->1->4->3->5",
-        "Input: 1->2->3->4->5, k=3\nExpected Output: 3->2->1->4->5"
+        {
+          "input": "",
+          "expected_output": "Input: 1->2->3->4->5, k=2\nExpected Output: 2->1->4->3->5",
+          "description": "Input: 1->2->3->4->5, k=2\nExpected Output: 2->1->4->3->5"
+        },
+        {
+          "input": "",
+          "expected_output": "Input: 1->2->3->4->5, k=3\nExpected Output: 3->2->1->4->5",
+          "description": "Input: 1->2->3->4->5, k=3\nExpected Output: 3->2->1->4->5"
+        }
       ],
       "hint": "Count k nodes first, then reverse that segment and reconnect with the previous and next segments.",
       "explanation": "This extends basic reversal by partitioning the list into chunks. It requires careful pointer management to preserve connections between groups."
@@ -565,8 +605,16 @@
       "starter_code": "class SongNode:\n    def __init__(self, title):\n        self.title = title\n        self.next = None\n\ndef previous_playlist(head):\n    # Return a reversed linked list of songs\n    pass",
       "solution_code": "def previous_playlist(head):\n    rev_head = reverse_linked_list(head)\n    return rev_head",
       "test_cases": [
-        "Input: 'A' -> 'B' -> 'C'\nExpected Output: 'C' -> 'B' -> 'A'",
-        "Input: None\nExpected Output: None"
+        {
+          "input": "",
+          "expected_output": "Input: 'A' -> 'B' -> 'C'\nExpected Output: 'C' -> 'B' -> 'A'",
+          "description": "Input: 'A' -> 'B' -> 'C'\nExpected Output: 'C' -> 'B' -> 'A'"
+        },
+        {
+          "input": "",
+          "expected_output": "Input: None\nExpected Output: None",
+          "description": "Input: None\nExpected Output: None"
+        }
       ],
       "hint": "Create a reversed copy or use the existing reversal logic to produce the temporary playback order.",
       "explanation": "In real-world applications, preserving the original data while providing a transformed view is common. Here, reversal enables backward traversal for a 'previous' feature. If mutation must be avoided, clone nodes before reversing."
@@ -584,8 +632,16 @@
       "starter_code": "def reverse_and_break_cycle(head):\n    # Detect cycle, reverse up to cycle start, break cycle\n    pass",
       "solution_code": "def reverse_and_break_cycle(head):\n    slow = fast = head\n    has_cycle = False\n    while fast and fast.next:\n        slow = slow.next\n        fast = fast.next.next\n        if slow is fast:\n            has_cycle = True\n            break\n    if not has_cycle:\n        return reverse_linked_list(head)\n    slow = head\n    while slow is not fast:\n        slow = slow.next\n        fast = fast.next\n    cycle_start = slow\n    prev = None\n    curr = head\n    while curr is not cycle_start:\n        nxt = curr.next\n        curr.next = prev\n        prev = curr\n        curr = nxt\n    cycle_start.next = None\n    return prev",
       "test_cases": [
-        "Input: 1->2->3->4->2 (cycle at 2)\nExpected Output: 4->3->2->1->None with cycle broken",
-        "Input: 1->2->3->None\nExpected Output: 3->2->1->None"
+        {
+          "input": "",
+          "expected_output": "Input: 1->2->3->4->2 (cycle at 2)\nExpected Output: 4->3->2->1->None with cycle broken",
+          "description": "Input: 1->2->3->4->2 (cycle at 2)\nExpected Output: 4->3->2->1->None with cycle broken"
+        },
+        {
+          "input": "",
+          "expected_output": "Input: 1->2->3->None\nExpected Output: 3->2->1->None",
+          "description": "Input: 1->2->3->None\nExpected Output: 3->2->1->None"
+        }
       ],
       "hint": "Use Floyd's cycle detection first. If a cycle exists, find its start, then reverse only the acyclic prefix and sever the cycle.",
       "explanation": "This mastery problem combines cycle detection with in-place reversal. It tests deep understanding of pointer manipulation, edge cases, and algorithmic composition under constraints."

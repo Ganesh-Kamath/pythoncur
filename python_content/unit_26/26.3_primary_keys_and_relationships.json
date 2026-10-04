@@ -475,10 +475,26 @@
       "starter_code": "import sqlite3\n\ndef bulk_insert(db_path):\n    conn = sqlite3.connect(db_path)\n    cursor = conn.cursor()\n    for i in range(1000):\n        cursor.execute(\"INSERT INTO students (id, name) VALUES (?, 'Student ' + str(i))\", (i,))\n        cursor.execute(\"INSERT INTO enrollments (student_id, course_id) VALUES (?, 101)\", (i,))\n    conn.commit()\n    conn.close()",
       "solution_code": "import sqlite3\n\ndef bulk_insert(db_path):\n    conn = sqlite3.connect(db_path)\n    cursor = conn.cursor()\n    with conn:\n        for i in range(1000):\n            cursor.execute(\"INSERT OR IGNORE INTO students (id, name) VALUES (?, 'Student ' + ?)\", (i, str(i)))\n            cursor.execute(\"INSERT OR IGNORE INTO enrollments (student_id, course_id) VALUES (?, 101)\", (i,))\n    conn.close()",
       "test_cases": [
-        "bulk_insert('test.db') runs without errors on first call",
-        "bulk_insert('test.db') runs without errors on second call due to OR IGNORE",
-        "Exactly 1000 student rows and 1000 enrollment rows exist after execution",
-        "No duplicate primary key violations occur"
+        {
+          "input": "",
+          "expected_output": "bulk_insert('test.db') runs without errors on first call",
+          "description": "bulk_insert('test.db') runs without errors on first call"
+        },
+        {
+          "input": "",
+          "expected_output": "bulk_insert('test.db') runs without errors on second call due to OR IGNORE",
+          "description": "bulk_insert('test.db') runs without errors on second call due to OR IGNORE"
+        },
+        {
+          "input": "",
+          "expected_output": "Exactly 1000 student rows and 1000 enrollment rows exist after execution",
+          "description": "Exactly 1000 student rows and 1000 enrollment rows exist after execution"
+        },
+        {
+          "input": "",
+          "expected_output": "No duplicate primary key violations occur",
+          "description": "No duplicate primary key violations occur"
+        }
       ],
       "hint": "Use a context manager for the connection, batch operations within a single transaction, and add conflict resolution for idempotent inserts.",
       "explanation": "The refactored version uses a with statement for automatic transaction handling, OR IGNORE to prevent duplicate primary key errors on re-runs, and parameterized queries to ensure safe, efficient bulk insertion while preserving the relational integrity between students and enrollments."
@@ -496,9 +512,21 @@
       "starter_code": "import sqlite3\nconn = sqlite3.connect('school.db')\ncursor = conn.cursor()\n# TODO: create table and insert records\nconn.close()",
       "solution_code": "import sqlite3\nconn = sqlite3.connect('school.db')\ncursor = conn.cursor()\ncursor.execute('''CREATE TABLE IF NOT EXISTS students (student_id INTEGER PRIMARY KEY, name TEXT, grade INTEGER)''')\ncursor.execute(\"INSERT INTO students (name, grade) VALUES ('Alice', 10)\")\ncursor.execute(\"INSERT INTO students (name, grade) VALUES ('Bob', 11)\")\ncursor.execute(\"INSERT INTO students (name, grade) VALUES ('Carol', 10)\")\nconn.commit()\ncursor.execute('SELECT * FROM students')\nfor row in cursor.fetchall():\n    print(row)\nconn.close()",
       "test_cases": [
-        "The table must be created without errors.",
-        "Three rows must be inserted and retrievable.",
-        "student_id must be auto-incremented as PRIMARY KEY."
+        {
+          "input": "",
+          "expected_output": "The table must be created without errors.",
+          "description": "The table must be created without errors."
+        },
+        {
+          "input": "",
+          "expected_output": "Three rows must be inserted and retrievable.",
+          "description": "Three rows must be inserted and retrievable."
+        },
+        {
+          "input": "",
+          "expected_output": "student_id must be auto-incremented as PRIMARY KEY.",
+          "description": "student_id must be auto-incremented as PRIMARY KEY."
+        }
       ],
       "hint": "Use CREATE TABLE with PRIMARY KEY, then INSERT VALUES, and commit before closing.",
       "explanation": "A PRIMARY KEY uniquely identifies each row. SQLite auto-increments INTEGER PRIMARY KEY columns. Committing saves changes to disk."
@@ -516,9 +544,21 @@
       "starter_code": "import sqlite3\nconn = sqlite3.connect('school.db')\ncursor = conn.cursor()\n# TODO: create enrollments table and insert one record\nconn.close()",
       "solution_code": "import sqlite3\nconn = sqlite3.connect('school.db')\ncursor = conn.cursor()\ncursor.execute('''CREATE TABLE IF NOT EXISTS enrollments (enrollment_id INTEGER PRIMARY KEY, student_id INTEGER, course_id INTEGER)''')\ncursor.execute(\"INSERT INTO enrollments (student_id, course_id) VALUES (1, 101)\")\nconn.commit()\ncursor.execute('''SELECT s.name, e.course_id FROM students s JOIN enrollments e ON s.student_id = e.student_id''')\nfor row in cursor.fetchall():\n    print(row)\nconn.close()",
       "test_cases": [
-        "enrollments table must exist.",
-        "One enrollment row must be inserted.",
-        "JOIN must return Alice's name with course_id 101."
+        {
+          "input": "",
+          "expected_output": "enrollments table must exist.",
+          "description": "enrollments table must exist."
+        },
+        {
+          "input": "",
+          "expected_output": "One enrollment row must be inserted.",
+          "description": "One enrollment row must be inserted."
+        },
+        {
+          "input": "",
+          "expected_output": "JOIN must return Alice's name with course_id 101.",
+          "description": "JOIN must return Alice's name with course_id 101."
+        }
       ],
       "hint": "Define student_id in enrollments to reference the students table, then use JOIN on student_id.",
       "explanation": "A relationship is modeled by a foreign key column (student_id) that references the primary key of another table, enabling JOIN queries."
@@ -536,9 +576,21 @@
       "starter_code": "import sqlite3\nconn = sqlite3.connect('school.db')\ncursor = conn.cursor()\n# TODO: alter table to add foreign key with CASCADE DELETE\ncursor.execute(\"DELETE FROM students WHERE student_id = 1\")\nconn.commit()\nconn.close()",
       "solution_code": "import sqlite3\nconn = sqlite3.connect('school.db')\ncursor = conn.cursor()\ncursor.execute('''ALTER TABLE enrollments ADD CONSTRAINT fk_student FOREIGN KEY (student_id) REFERENCES students(student_id) ON DELETE CASCADE''')\nconn.commit()\ncursor.execute(\"DELETE FROM students WHERE student_id = 1\")\nconn.commit()\ncursor.execute('SELECT * FROM enrollments')\nprint(cursor.fetchall())\nconn.close()",
       "test_cases": [
-        "ALTER TABLE must succeed.",
-        "Deleting student_id 1 must remove the matching enrollment.",
-        "No orphaned enrollment rows should remain."
+        {
+          "input": "",
+          "expected_output": "ALTER TABLE must succeed.",
+          "description": "ALTER TABLE must succeed."
+        },
+        {
+          "input": "",
+          "expected_output": "Deleting student_id 1 must remove the matching enrollment.",
+          "description": "Deleting student_id 1 must remove the matching enrollment."
+        },
+        {
+          "input": "",
+          "expected_output": "No orphaned enrollment rows should remain.",
+          "description": "No orphaned enrollment rows should remain."
+        }
       ],
       "hint": "Use ALTER TABLE with FOREIGN KEY referencing students(student_id) and specify ON DELETE CASCADE.",
       "explanation": "CASCADE DELETE enforces referential integrity by automatically removing dependent rows when the referenced primary key row is deleted."
@@ -556,9 +608,21 @@
       "starter_code": "import sqlite3\nconn = sqlite3.connect('school.db')\ncursor = conn.cursor()\n# TODO: create students, courses, and enrollments tables\nconn.close()",
       "solution_code": "import sqlite3\nconn = sqlite3.connect('school.db')\ncursor = conn.cursor()\ncursor.execute('''CREATE TABLE IF NOT EXISTS students (student_id INTEGER PRIMARY KEY, name TEXT)''')\ncursor.execute('''CREATE TABLE IF NOT EXISTS courses (course_id INTEGER PRIMARY KEY, title TEXT)''')\ncursor.execute('''CREATE TABLE IF NOT EXISTS enrollments (student_id INTEGER, course_id INTEGER, PRIMARY KEY (student_id, course_id))''')\ncursor.execute(\"INSERT INTO students (name) VALUES ('Dave')\")\ncursor.execute(\"INSERT INTO students (name) VALUES ('Eve')\")\ncursor.execute(\"INSERT INTO courses (title) VALUES ('Math')\")\ncursor.execute(\"INSERT INTO courses (title) VALUES ('Science')\")\ncursor.execute(\"INSERT INTO enrollments (student_id, course_id) VALUES (1, 1)\")\ncursor.execute(\"INSERT INTO enrollments (student_id, course_id) VALUES (2, 2)\")\nconn.commit()\nconn.close()",
       "test_cases": [
-        "All three tables must exist.",
-        "Two students and two courses must be inserted.",
-        "Enrollments table must prevent duplicate (student_id, course_id) pairs."
+        {
+          "input": "",
+          "expected_output": "All three tables must exist.",
+          "description": "All three tables must exist."
+        },
+        {
+          "input": "",
+          "expected_output": "Two students and two courses must be inserted.",
+          "description": "Two students and two courses must be inserted."
+        },
+        {
+          "input": "",
+          "expected_output": "Enrollments table must prevent duplicate (student_id, course_id) pairs.",
+          "description": "Enrollments table must prevent duplicate (student_id, course_id) pairs."
+        }
       ],
       "hint": "Use a composite PRIMARY KEY (student_id, course_id) in the junction table to enforce uniqueness.",
       "explanation": "Many-to-many relationships require a junction table with a composite primary key to link records from both parent tables."
@@ -576,9 +640,21 @@
       "starter_code": "import sqlite3\nconn = sqlite3.connect('library.db')\ncursor = conn.cursor()\n# TODO: create tables, insert data, and print joined result\nconn.close()",
       "solution_code": "import sqlite3\nconn = sqlite3.connect('library.db')\ncursor = conn.cursor()\ncursor.execute('''CREATE TABLE IF NOT EXISTS books (book_id INTEGER PRIMARY KEY, title TEXT)''')\ncursor.execute('''CREATE TABLE IF NOT EXISTS authors (author_id INTEGER PRIMARY KEY, name TEXT)''')\ncursor.execute('''CREATE TABLE IF NOT EXISTS book_authors (book_id INTEGER, author_id INTEGER, PRIMARY KEY (book_id, author_id))''')\ncursor.execute(\"INSERT INTO books (title) VALUES ('Python Guide')\")\ncursor.execute(\"INSERT INTO authors (name) VALUES ('Sam Lee')\")\ncursor.execute(\"INSERT INTO book_authors (book_id, author_id) VALUES (1, 1)\")\nconn.commit()\ncursor.execute('''SELECT b.title, a.name FROM books b JOIN book_authors ba ON b.book_id = ba.book_id JOIN authors a ON ba.author_id = a.author_id''')\nfor row in cursor.fetchall():\n    print(row)\nconn.close()",
       "test_cases": [
-        "Three tables must be created.",
-        "One book, one author, and one junction record must exist.",
-        "Output must show ('Python Guide', 'Sam Lee')."
+        {
+          "input": "",
+          "expected_output": "Three tables must be created.",
+          "description": "Three tables must be created."
+        },
+        {
+          "input": "",
+          "expected_output": "One book, one author, and one junction record must exist.",
+          "description": "One book, one author, and one junction record must exist."
+        },
+        {
+          "input": "",
+          "expected_output": "Output must show ('Python Guide', 'Sam Lee').",
+          "description": "Output must show ('Python Guide', 'Sam Lee')."
+        }
       ],
       "hint": "Normalize by separating books and authors, then link them through book_authors with a composite primary key.",
       "explanation": "Normalization reduces redundancy. A many-to-many relationship between books and authors is best modeled with a junction table and a composite primary key."
@@ -596,9 +672,21 @@
       "starter_code": "import sqlite3\nconn = sqlite3.connect('master.db')\ncursor = conn.cursor()\n# TODO: full implementation with try/except and transaction control\nconn.close()",
       "solution_code": "import sqlite3\nconn = sqlite3.connect('master.db')\ncursor = conn.cursor()\ncursor.execute('''CREATE TABLE IF NOT EXISTS students (student_id INTEGER PRIMARY KEY, name TEXT)''')\ncursor.execute('''CREATE TABLE IF NOT EXISTS courses (course_id INTEGER PRIMARY KEY, title TEXT, student_id INTEGER)''')\nconn.commit()\ntry:\n    conn.execute('BEGIN TRANSACTION')\n    cursor.execute(\"INSERT INTO students (name) VALUES ('Frank')\")\n    cursor.execute(\"INSERT INTO courses (title, student_id) VALUES ('History', 1)\")\n    cursor.execute(\"INSERT INTO students (name) VALUES ('Frank')\")\n    conn.commit()\nexcept sqlite3.IntegrityError as e:\n    print('Duplicate or constraint error:', e)\n    conn.rollback()\nfinally:\n    cursor.execute('SELECT COUNT(*) FROM students')\n    print('Students:', cursor.fetchone()[0])\n    cursor.execute('SELECT COUNT(*) FROM courses')\n    print('Courses:', cursor.fetchone()[0])\nconn.close()",
       "test_cases": [
-        "Transaction must roll back on duplicate primary key.",
-        "Frank must appear only once in students.",
-        "Course count must be 1 after rollback."
+        {
+          "input": "",
+          "expected_output": "Transaction must roll back on duplicate primary key.",
+          "description": "Transaction must roll back on duplicate primary key."
+        },
+        {
+          "input": "",
+          "expected_output": "Frank must appear only once in students.",
+          "description": "Frank must appear only once in students."
+        },
+        {
+          "input": "",
+          "expected_output": "Course count must be 1 after rollback.",
+          "description": "Course count must be 1 after rollback."
+        }
       ],
       "hint": "Wrap inserts in BEGIN TRANSACTION, catch sqlite3.IntegrityError, and use rollback before reading counts.",
       "explanation": "Transactions ensure atomicity. A duplicate primary key raises IntegrityError, triggering rollback to maintain data consistency."

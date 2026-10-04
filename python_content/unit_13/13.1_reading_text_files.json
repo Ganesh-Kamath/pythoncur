@@ -493,9 +493,21 @@
       "starter_code": "def read_all(filename):\n    f = open(filename)\n    data = f.readlines()\n    f.close()\n    return data",
       "solution_code": "def read_lines(filename, encoding='utf-8'):\n    with open(filename, 'r', encoding=encoding) as f:\n        for line in f:\n            yield line.rstrip('\\n')",
       "test_cases": [
-        "assert list(read_lines('small.txt')) == ['alpha', 'beta', 'gamma']",
-        "assert list(read_lines('unicode.txt', encoding='utf-8')) == ['café', 'naïve']",
-        "assert list(read_lines('empty.txt')) == []"
+        {
+          "input": "assert list(read_lines('small.txt'))",
+          "expected_output": "['alpha', 'beta', 'gamma']",
+          "description": "Verifies: assert list(read_lines('small.txt')) == ['alpha', 'beta', 'gamma']"
+        },
+        {
+          "input": "assert list(read_lines('unicode.txt', encoding='utf-8'))",
+          "expected_output": "['café', 'naïve']",
+          "description": "Verifies: assert list(read_lines('unicode.txt', encoding='utf-8')) == ['café', 'naïve']"
+        },
+        {
+          "input": "assert list(read_lines('empty.txt'))",
+          "expected_output": "[]",
+          "description": "Verifies: assert list(read_lines('empty.txt')) == []"
+        }
       ],
       "hint": "Replace readlines() with a generator using yield, and add encoding as a parameter.",
       "explanation": "The original function reads the entire file into memory via readlines(), which is inefficient for large files. The refactored version is a generator that yields one line at a time, minimizing memory footprint. Adding an encoding parameter makes it portable across systems. Using rstrip('\\n') cleans the newline without affecting other whitespace, and the with-statement guarantees proper resource cleanup."

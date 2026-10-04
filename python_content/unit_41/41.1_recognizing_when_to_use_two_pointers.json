@@ -510,11 +510,31 @@
       "starter_code": "def contains_duplicate_hash(nums):\n    seen = set()\n    for num in nums:\n        if num in seen:\n            return True\n        seen.add(num)\n    return False\n\ndef contains_duplicate_two_pointer(nums):\n    pass",
       "solution_code": "def contains_duplicate_hash(nums):\n    seen = set()\n    for num in nums:\n        if num in seen:\n            return True\n        seen.add(num)\n    return False\n\ndef contains_duplicate_two_pointer(nums):\n    if len(nums) < 2:\n        return False\n    nums_sorted = sorted(nums)\n    left = 0\n    right = 1\n    while right < len(nums_sorted):\n        if nums_sorted[left] == nums_sorted[right]:\n            return True\n        left += 1\n        right += 1\n    return False",
       "test_cases": [
-        "([1, 2, 3, 1], True)",
-        "([1, 2, 3, 4], False)",
-        "([], False)",
-        "([5], False)",
-        "([-1, -1, 0, 1], True)"
+        {
+          "input": "",
+          "expected_output": "([1, 2, 3, 1], True)",
+          "description": "([1, 2, 3, 1], True)"
+        },
+        {
+          "input": "",
+          "expected_output": "([1, 2, 3, 4], False)",
+          "description": "([1, 2, 3, 4], False)"
+        },
+        {
+          "input": "",
+          "expected_output": "([], False)",
+          "description": "([], False)"
+        },
+        {
+          "input": "",
+          "expected_output": "([5], False)",
+          "description": "([5], False)"
+        },
+        {
+          "input": "",
+          "expected_output": "([-1, -1, 0, 1], True)",
+          "description": "([-1, -1, 0, 1], True)"
+        }
       ],
       "hint": "Sorting enables adjacent comparison. The two-pointer scan only needs a single pass after sorting.",
       "explanation": "By sorting first, duplicates become adjacent. The two-pointer scan then checks each neighbor pair, using only O(1) extra variables beyond the sort. This trades O(n log n) time for O(1) auxiliary space, which is optimal when hash-based O(n) time and O(n) space are unacceptable."

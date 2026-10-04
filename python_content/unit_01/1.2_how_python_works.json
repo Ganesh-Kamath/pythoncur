@@ -436,7 +436,13 @@
       ],
       "prompt": "You write a 10-line Python script. Line 1 prints 'Hello'. Line 5 has a syntax error (a missing closing parenthesis). When you run the script, what happens?",
       "correct_answer": "B",
-      "explanation": "Syntax errors are caught during the parsing/compilation stage, before the PVM begins executing any bytecode. Because CPython cannot produce valid bytecode for the entire file, no part of the program runs — not even line 1."
+      "explanation": "Syntax errors are caught during the parsing/compilation stage, before the PVM begins executing any bytecode. Because CPython cannot produce valid bytecode for the entire file, no part of the program runs — not even line 1.",
+      "options": [
+        "A. 'Hello' prints, and then execution halts on line 5 with a SyntaxError.",
+        "B. Nothing prints; CPython halts during parsing before bytecode execution begins.",
+        "C. The script skips line 5 and prints lines 1 through 4 and 6 through 10.",
+        "D. CPython automatically inserts the missing parenthesis and finishes execution."
+      ]
     },
     {
       "id": "1.2_q26",
@@ -449,7 +455,13 @@
       ],
       "prompt": "You write a 10-line script. Line 1 prints 'Hello'. Line 5 attempts to divide a number by zero. When you run the script, what happens?",
       "correct_answer": "A",
-      "explanation": "The syntax is valid, so CPython successfully compiles the entire file to bytecode and the PVM begins executing it. Line 1 runs and prints 'Hello'. When the PVM reaches line 5 and encounters the division by zero, a runtime error (ZeroDivisionError) occurs and the program crashes at that point."
+      "explanation": "The syntax is valid, so CPython successfully compiles the entire file to bytecode and the PVM begins executing it. Line 1 runs and prints 'Hello'. When the PVM reaches line 5 and encounters the division by zero, a runtime error (ZeroDivisionError) occurs and the program crashes at that point.",
+      "options": [
+        "A. 'Hello' prints, and then execution halts on line 5 with a ZeroDivisionError.",
+        "B. Nothing prints; CPython detects the division by zero during parsing.",
+        "C. The script prints 'Hello', substitutes 0 for the division, and completes.",
+        "D. CPython compiles the script into machine code and ignores runtime errors."
+      ]
     },
     {
       "id": "1.2_q27",
@@ -498,7 +510,13 @@
       ],
       "prompt": "A student runs a Python script and sees this output:\n\n  File \"app.py\", line 3\n    print(\"Hello World\"\n                      ^\nSyntaxError: unexpected EOF while parsing\n\nThe script had a print('Starting...') on line 1, but that text never appeared. Why?",
       "correct_answer": "B",
-      "explanation": "Syntax errors are caught during the parsing/compilation stage. Because CPython could not produce valid bytecode for the file, the PVM never began executing any part of the program. This is why no output from earlier lines appeared — the entire program was blocked from running."
+      "explanation": "Syntax errors are caught during the parsing/compilation stage. Because CPython could not produce valid bytecode for the file, the PVM never began executing any part of the program. This is why no output from earlier lines appeared — the entire program was blocked from running.",
+      "options": [
+        "A. Standard output was buffered and discarded when the error occurred.",
+        "B. Syntax errors prevent compilation to bytecode, so execution never started.",
+        "C. Line 1 requires a special flush flag to display before syntax checks.",
+        "D. CPython runs lines in reverse order to check syntax first."
+      ]
     },
     {
       "id": "1.2_q30",
@@ -512,7 +530,13 @@
       ],
       "prompt": "Imagine you uninstall CPython from your computer but leave all your .py source code files on the desktop. You then try to run one of them. What happens?",
       "correct_answer": "C",
-      "explanation": "Source code is plain text — it exists independently of any Python installation. However, without a Python implementation like CPython, there is no software to parse your source code, compile it to bytecode, or run the PVM to execute it. Reinstalling Python (or another compatible implementation) would allow you to run your scripts again."
+      "explanation": "Source code is plain text — it exists independently of any Python installation. However, without a Python implementation like CPython, there is no software to parse your source code, compile it to bytecode, or run the PVM to execute it. Reinstalling Python (or another compatible implementation) would allow you to run your scripts again.",
+      "options": [
+        "A. The files will still run because Python source files are self-executing binaries.",
+        "B. The CPU executes the .py text file directly using hardware interpreters.",
+        "C. The files cannot run because there is no Python runtime to parse source code and execute bytecode.",
+        "D. The operating system kernel automatically converts the Python code into C."
+      ]
     }
   ],
   "unit_num": 1,

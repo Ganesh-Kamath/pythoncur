@@ -431,10 +431,26 @@
       "starter_code": "def sum_of_squares(n):\n    squares = [i ** 2 for i in range(n)]\n    total = 0\n    for s in squares:\n        total += s\n    return total",
       "solution_code": "def sum_of_squares(n):\n    return sum(i ** 2 for i in range(n))",
       "test_cases": [
-        "assert sum_of_squares(0) == 0",
-        "assert sum_of_squares(1) == 0",
-        "assert sum_of_squares(5) == 30",
-        "assert sum_of_squares(10) == 285"
+        {
+          "input": "assert sum_of_squares(0)",
+          "expected_output": "0",
+          "description": "Verifies: assert sum_of_squares(0) == 0"
+        },
+        {
+          "input": "assert sum_of_squares(1)",
+          "expected_output": "0",
+          "description": "Verifies: assert sum_of_squares(1) == 0"
+        },
+        {
+          "input": "assert sum_of_squares(5)",
+          "expected_output": "30",
+          "description": "Verifies: assert sum_of_squares(5) == 30"
+        },
+        {
+          "input": "assert sum_of_squares(10)",
+          "expected_output": "285",
+          "description": "Verifies: assert sum_of_squares(10) == 285"
+        }
       ],
       "hint": "Consider combining the generator expression directly into the built-in sum() function to eliminate the temporary list and the explicit loop.",
       "explanation": "The original code builds an intermediate list of squares, consuming O(n) memory. The refactored version passes a generator expression to sum(), yielding O(1) auxiliary memory and computing each square on demand during iteration."
@@ -452,8 +468,16 @@
       "starter_code": "def main():\n    # TODO: create a generator expression for even squares\n    pass\n\nif __name__ == '__main__':\n    main()",
       "solution_code": "def main():\n    even_squares = (x ** 2 for x in range(10) if x % 2 == 0)\n    for val in even_squares:\n        print(val)\n\nif __name__ == '__main__':\n    main()",
       "test_cases": [
-        "Expected output: 0, 4, 16, 36, 64",
-        "Ensure no list is created in memory"
+        {
+          "input": "",
+          "expected_output": "Expected output: 0, 4, 16, 36, 64",
+          "description": "Expected output: 0, 4, 16, 36, 64"
+        },
+        {
+          "input": "",
+          "expected_output": "Ensure no list is created in memory",
+          "description": "Ensure no list is created in memory"
+        }
       ],
       "hint": "Use parentheses around the expression and include a condition with if.",
       "explanation": "A generator expression uses parentheses () instead of brackets []. It evaluates values lazily, producing one item at a time. The condition x % 2 == 0 filters for even numbers before squaring."
@@ -471,8 +495,16 @@
       "starter_code": "def main():\n    words = ['cat', 'elephant', 'dog', 'giraffe', 'ant']\n    # TODO: generator expression for long uppercase words\n    long_upper = []\n    for w in words:\n        if len(w) > 3:\n            long_upper.append(w.upper())\n    print(long_upper)\n\nif __name__ == '__main__':\n    main()",
       "solution_code": "def main():\n    words = ['cat', 'elephant', 'dog', 'giraffe', 'ant']\n    long_upper = [w.upper() for w in words if len(w) > 3]\n    print(long_upper)\n\nif __name__ == '__main__':\n    main()",
       "test_cases": [
-        "Expected output: ['ELEPHANT', 'GIRAFFE']",
-        "Use a generator expression inside list() or a comprehension"
+        {
+          "input": "",
+          "expected_output": "Expected output: ['ELEPHANT', 'GIRAFFE']",
+          "description": "Expected output: ['ELEPHANT', 'GIRAFFE']"
+        },
+        {
+          "input": "",
+          "expected_output": "Use a generator expression inside list() or a comprehension",
+          "description": "Use a generator expression inside list() or a comprehension"
+        }
       ],
       "hint": "You can wrap the generator expression with list() to materialize the results.",
       "explanation": "This demonstrates a practical use: filtering and transforming data without building an intermediate list comprehension. Wrapping with list() consumes the generator to produce the final list."
@@ -490,8 +522,16 @@
       "starter_code": "def main():\n    # TODO: nested generator expression for odd-sum pairs\n    pass\n\nif __name__ == '__main__':\n    main()",
       "solution_code": "def main():\n    pairs = ((x, y) for x in range(3) for y in range(3) if (x + y) % 2 == 1)\n    for p in pairs:\n        print(p)\n\nif __name__ == '__main__':\n    main()",
       "test_cases": [
-        "Expected output: (0, 1), (0, 3)... (2, 1), (2, 3)",
-        "Verify all 9 combinations are considered"
+        {
+          "input": "",
+          "expected_output": "Expected output: (0, 1), (0, 3)... (2, 1), (2, 3)",
+          "description": "Expected output: (0, 1), (0, 3)... (2, 1), (2, 3)"
+        },
+        {
+          "input": "",
+          "expected_output": "Verify all 9 combinations are considered",
+          "description": "Verify all 9 combinations are considered"
+        }
       ],
       "hint": "Generator expressions support multiple for clauses. Add a final if clause to filter by odd sum.",
       "explanation": "Nested generator expressions mirror nested loops. The order of for clauses determines iteration order. The trailing if applies the filter after both variables are bound."
@@ -509,8 +549,16 @@
       "starter_code": "def main():\n    seq = [2, 4, 6, 8]\n    # TODO: generator expression for adjacent products\n    result = []\n    for i in range(len(seq) - 1):\n        result.append(seq[i] * seq[i + 1])\n    print(result)\n\nif __name__ == '__main__':\n    main()",
       "solution_code": "def main():\n    seq = [2, 4, 6, 8]\n    adjacent = (seq[i] * seq[i + 1] for i in range(len(seq) - 1))\n    result = list(adjacent)\n    print(result)\n\nif __name__ == '__main__':\n    main()",
       "test_cases": [
-        "Expected output: [8, 24, 48]",
-        "Ensure no IndexError occurs"
+        {
+          "input": "",
+          "expected_output": "Expected output: [8, 24, 48]",
+          "description": "Expected output: [8, 24, 48]"
+        },
+        {
+          "input": "",
+          "expected_output": "Ensure no IndexError occurs",
+          "description": "Ensure no IndexError occurs"
+        }
       ],
       "hint": "Use range with len(seq) - 1 so i + 1 stays within bounds.",
       "explanation": "This challenge requires indexing within a generator expression. The range limit prevents out-of-bounds access while computing pairwise products."
@@ -528,8 +576,16 @@
       "starter_code": "def main():\n    logs = [\n        '2024-01-15 INFO: system started',\n        '2024-01-15 ERROR: disk full',\n        '2024-01-15 ERROR: memory low',\n        '2024-01-15 WARNING: high CPU'\n    ]\n    # TODO: generator expression for error messages\n    count = 0\n    for line in logs:\n        if 'ERROR' in line:\n            print(line)\n            count += 1\n            if count == 3:\n                break\n\nif __name__ == '__main__':\n    main()",
       "solution_code": "def main():\n    logs = [\n        '2024-01-15 INFO: system started',\n        '2024-01-15 ERROR: disk full',\n        '2024-01-15 ERROR: memory low',\n        '2024-01-15 WARNING: high CPU'\n    ]\n    error_msgs = (line.split('ERROR: ')[1] for line in logs if 'ERROR' in line)\n    for _ in range(3):\n        try:\n            print(next(error_msgs))\n        except StopIteration:\n            break\n\nif __name__ == '__main__':\n    main()",
       "test_cases": [
-        "Expected output: 'disk full', 'memory low'",
-        "Only lines with ERROR are processed lazily"
+        {
+          "input": "",
+          "expected_output": "Expected output: 'disk full', 'memory low'",
+          "description": "Expected output: 'disk full', 'memory low'"
+        },
+        {
+          "input": "",
+          "expected_output": "Only lines with ERROR are processed lazily",
+          "description": "Only lines with ERROR are processed lazily"
+        }
       ],
       "hint": "Use str.split to isolate the message after the prefix, and consume with next() or list slicing.",
       "explanation": "In real-world scenarios, generators avoid loading all data into memory. Here, we lazily extract error messages from a log stream, which is critical for large files."
@@ -547,8 +603,16 @@
       "starter_code": "def main():\n    nums = range(5)\n    # TODO: conditional generator expression for parity labels\n    labels = []\n    for n in nums:\n        if n % 2 == 0:\n            labels.append('even')\n        else:\n            labels.append('odd')\n    print(labels)\n\nif __name__ == '__main__':\n    main()",
       "solution_code": "def main():\n    nums = range(5)\n    labels = ('even' if n % 2 == 0 else 'odd' for n in nums)\n    print(list(labels))\n\nif __name__ == '__main__':\n    main()",
       "test_cases": [
-        "Expected output: ['even', 'odd', 'even', 'odd', 'even']",
-        "Use a ternary conditional inside the generator expression"
+        {
+          "input": "",
+          "expected_output": "Expected output: ['even', 'odd', 'even', 'odd', 'even']",
+          "description": "Expected output: ['even', 'odd', 'even', 'odd', 'even']"
+        },
+        {
+          "input": "",
+          "expected_output": "Use a ternary conditional inside the generator expression",
+          "description": "Use a ternary conditional inside the generator expression"
+        }
       ],
       "hint": "The ternary operator 'a if condition else b' works inside generator expressions.",
       "explanation": "This mastery item combines conditional logic with generator expressions. The ternary operator evaluates per item, and the generator yields labels lazily, demonstrating full control over expression-based iteration."

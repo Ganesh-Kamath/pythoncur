@@ -160,24 +160,25 @@
     },
     {
       "id": "38.5_q10",
-      "type": "real_world_scenario",
+      "type": "write_the_code",
       "concept": "recursion_with_trees_production_transfer",
-      "skill": "application",
+      "skill": "transfer",
       "difficulty": "hard",
       "prerequisites": [
         "38.5_q9"
       ],
-      "prompt": "Apply Recursion with Trees to a realistic scenario: process a sequence of records and return only those meeting the business rule:",
-      "starter_code": "records = [{'id': 1, 'active': True}, {'id': 2, 'active': False}]\n# Filter active records\nactive_records = ___",
-      "solution_code": "records = [{'id': 1, 'active': True}, {'id': 2, 'active': False}]\nactive_records = [r for r in records if r['active']]",
+      "prompt": "Transfer Challenge: Solve a practical problem using Recursion with Trees. Implement the function below to satisfy the stated contract.",
+      "starter_code": "def handle_domain_task(val):\n    # Implement domain logic for Recursion with Trees\n    return str(val).strip()",
+      "solution_code": "def handle_domain_task(val):\n    return str(val).strip().upper()",
       "test_cases": [
         {
-          "input": "",
-          "expected_output": "Recursion with Trees Result 10"
+          "input": "'  python  '",
+          "expected_output": "'PYTHON'",
+          "description": "domain sanitization"
         }
       ],
       "hint": "Use a list comprehension to filter records where 'active' is True.",
-      "explanation": "In production Python code, Recursion with Trees is frequently combined with data filtering to process structured domain models efficiently."
+      "explanation": "Applying clean functional contracts for Recursion with Trees ensures testable domain operations."
     },
     {
       "id": "38.5_q11",
@@ -435,21 +436,22 @@
       "type": "write_the_code",
       "concept": "recursion_with_trees_mastery_challenge",
       "skill": "transfer",
-      "difficulty": "expert",
+      "difficulty": "hard",
       "prerequisites": [
         "38.5_q23"
       ],
-      "prompt": "Mastery Challenge: Implement a robust, tested function for Recursion with Trees that processes inputs, validates preconditions, and handles invalid states cleanly:",
-      "starter_code": "def execute_task(data):\n    if not data:\n        return None\n    # Process valid data\n    ___",
-      "solution_code": "def execute_task(data):\n    if not data:\n        return None\n    return sorted(data)",
+      "prompt": "Final Capstone Verification: Write a production-grade handler for Recursion with Trees that processes batches and handles empty inputs cleanly.",
+      "starter_code": "def execute_38_5_workflow(batch):\n    # Validate and transform batch\n    pass",
+      "solution_code": "def execute_38_5_workflow(batch):\n    if not batch:\n        return []\n    return [str(x).strip() for x in batch]",
       "test_cases": [
         {
-          "input": "",
-          "expected_output": "Recursion with Trees Result 24"
+          "input": "[' a ', 'b ']",
+          "expected_output": "['a', 'b']",
+          "description": "batch processing workflow"
         }
       ],
       "hint": "Validate input first, then execute the transformation.",
-      "explanation": "Demonstrating end-to-end mastery of Recursion with Trees requires combining input validation, core algorithmic logic, and defensive programming."
+      "explanation": "Production workflows for Recursion with Trees must validate inputs, maintain immutability, and return deterministic results."
     },
     {
       "id": "38.5_q25",
@@ -460,17 +462,18 @@
       "prerequisites": [
         "38.5_q24"
       ],
-      "prompt": "Write a clean, reusable function or code statement that demonstrates core usage of Recursion with Trees:",
-      "starter_code": "# Implement a solution for Recursion with Trees\ndef solve():\n    ___",
-      "solution_code": "def solve():\n    # Core implementation of Recursion with Trees\n    return True",
+      "prompt": "Milestone Implementation: Construct a modular, well-tested function that applies the central principles of Recursion with Trees.",
+      "starter_code": "def process_38_5_data(items):\n    # Process input according to Recursion with Trees rules\n    pass",
+      "solution_code": "def process_38_5_data(items):\n    return [item for item in items if item is not None]",
       "test_cases": [
         {
-          "input": "",
-          "expected_output": "Recursion with Trees Result 25"
+          "input": "[1, None, 2, None, 3]",
+          "expected_output": "[1, 2, 3]",
+          "description": "cleans null values using Recursion with Trees rules"
         }
       ],
       "hint": "Focus on applying the central Python idiom for Recursion with Trees.",
-      "explanation": "Understanding how to construct clean implementations of Recursion with Trees ensures you can integrate it into broader software applications."
+      "explanation": "Constructing pure, robust data transformers for Recursion with Trees avoids unintended side effects and guarantees consistent return contracts."
     },
     {
       "id": "38.5_q26",
@@ -481,17 +484,18 @@
       "prerequisites": [
         "38.5_q25"
       ],
-      "prompt": "Identify and fix the logical or syntax defect in this implementation of Recursion with Trees:",
-      "starter_code": "# Fix the issue with Recursion with Trees\ndef check_valid(val):\n    if val is None:\n        return False\n    return True",
-      "solution_code": "def check_valid(val):\n    if val is None:\n        return False\n    return True",
+      "prompt": "Defensive Validation: Implement a verification helper for Recursion with Trees that confirms preconditions and guards against invalid input.",
+      "starter_code": "def validate_38_5_input(val):\n    # Return True if val is valid, False otherwise\n    pass",
+      "solution_code": "def validate_38_5_input(val):\n    if val is None or val == '':\n        return False\n    return True",
       "test_cases": [
         {
-          "input": "",
-          "expected_output": "Recursion with Trees Result 26"
+          "input": "'valid_token'",
+          "expected_output": "True",
+          "description": "valid input returns True"
         }
       ],
       "hint": "Check the condition and return value carefully.",
-      "explanation": "Debugging is a core programming competency. Guarding against edge cases like `None` or invalid states prevents runtime failures."
+      "explanation": "Validating preconditions at the boundary prevents null pointer and type exceptions downstream."
     },
     {
       "id": "38.5_q27",
@@ -523,24 +527,25 @@
     },
     {
       "id": "38.5_q28",
-      "type": "real_world_scenario",
+      "type": "write_the_code",
       "concept": "recursion_with_trees_production_transfer",
-      "skill": "application",
+      "skill": "transfer",
       "difficulty": "hard",
       "prerequisites": [
         "38.5_q27"
       ],
-      "prompt": "Apply Recursion with Trees to a realistic scenario: process a sequence of records and return only those meeting the business rule:",
-      "starter_code": "records = [{'id': 1, 'active': True}, {'id': 2, 'active': False}]\n# Filter active records\nactive_records = ___",
-      "solution_code": "records = [{'id': 1, 'active': True}, {'id': 2, 'active': False}]\nactive_records = [r for r in records if r['active']]",
+      "prompt": "Tree Maximum Depth: Implement recursive `max_depth(root)` returning the number of nodes along the longest path from root to leaf.",
+      "starter_code": "def max_depth(root):\n    # Return max depth of binary tree\n    pass",
+      "solution_code": "def max_depth(root):\n    if not root:\n        return 0\n    return 1 + max(max_depth(root.left), max_depth(root.right))",
       "test_cases": [
         {
-          "input": "",
-          "expected_output": "Recursion with Trees Result 28"
+          "input": "None",
+          "expected_output": "0",
+          "description": "empty tree has depth 0"
         }
       ],
       "hint": "Use a list comprehension to filter records where 'active' is True.",
-      "explanation": "In production Python code, Recursion with Trees is frequently combined with data filtering to process structured domain models efficiently."
+      "explanation": "The maximum depth of a binary tree is 1 plus the maximum of the depths of its left and right subtrees."
     },
     {
       "id": "38.5_q29",
@@ -568,21 +573,22 @@
       "type": "write_the_code",
       "concept": "recursion_with_trees_mastery_challenge",
       "skill": "transfer",
-      "difficulty": "expert",
+      "difficulty": "hard",
       "prerequisites": [
         "38.5_q29"
       ],
-      "prompt": "Mastery Challenge: Implement a robust, tested function for Recursion with Trees that processes inputs, validates preconditions, and handles invalid states cleanly:",
-      "starter_code": "def execute_task(data):\n    if not data:\n        return None\n    # Process valid data\n    ___",
-      "solution_code": "def execute_task(data):\n    if not data:\n        return None\n    return sorted(data)",
+      "prompt": "Binary Tree Path Sum: Implement `has_path_sum(root, target)` checking if there is a root-to-leaf path summing to target.",
+      "starter_code": "def has_path_sum(root, target):\n    # Return True if any root-to-leaf path sums to target\n    pass",
+      "solution_code": "def has_path_sum(root, target):\n    if not root:\n        return False\n    if not root.left and not root.right:\n        return root.val == target\n    rem = target - root.val\n    return has_path_sum(root.left, rem) or has_path_sum(root.right, rem)",
       "test_cases": [
         {
-          "input": "",
-          "expected_output": "Recursion with Trees Result 30"
+          "input": "None, 10",
+          "expected_output": "False",
+          "description": "empty tree has no path"
         }
       ],
       "hint": "Validate input first, then execute the transformation.",
-      "explanation": "Demonstrating end-to-end mastery of Recursion with Trees requires combining input validation, core algorithmic logic, and defensive programming."
+      "explanation": "Subtracting node value along recursive subpaths terminates when a leaf node matches the remaining balance."
     }
   ],
   "unit_num": 38,

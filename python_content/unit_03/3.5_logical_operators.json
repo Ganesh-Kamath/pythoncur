@@ -429,7 +429,13 @@
       ],
       "prompt": "A museum offers free admission to visitors who are either under 12 OR 65 and older. Which condition tests this eligibility?",
       "correct_answer": "B",
-      "explanation": "A person cannot be both under 12 and over 65 at the same time, so `or` is the required operator."
+      "explanation": "A person cannot be both under 12 and over 65 at the same time, so `or` is the required operator.",
+      "options": [
+        "A. age < 12 and age > 65",
+        "B. age < 12 or age > 65",
+        "C. not (age < 12 or age > 65)",
+        "D. age == 12 or age == 65"
+      ]
     },
     {
       "id": "3.5_q26",
@@ -497,7 +503,13 @@
       ],
       "prompt": "A customer receives free shipping if they are a `vip_member` OR if their `cart_total >= 50` AND they have `in_stock == True`. Which expression correctly groups this?",
       "correct_answer": "A",
-      "explanation": "VIP members always qualify (`vip_member`), or non-VIPs qualify with `$50+` and in-stock items."
+      "explanation": "VIP members always qualify (`vip_member`), or non-VIPs qualify with `$50+` and in-stock items.",
+      "options": [
+        "A. is_vip or order_total >= 50",
+        "B. is_vip and order_total >= 50",
+        "C. not is_vip and order_total < 50",
+        "D. is_vip == order_total"
+      ]
     },
     {
       "id": "3.5_q30",
@@ -515,7 +527,13 @@
       ],
       "prompt": "Congratulations on completing Unit 3! Which statement accurately captures Python's operator ecosystem?",
       "correct_answer": "A",
-      "explanation": "This synthesizes all arithmetic, assignment, comparison, and logical operators, precedence hierarchies, and short-circuit evaluation in Unit 3."
+      "explanation": "This synthesizes all arithmetic, assignment, comparison, and logical operators, precedence hierarchies, and short-circuit evaluation in Unit 3.",
+      "options": [
+        "A. Logical operators (not, and, or) perform boolean algebra with short-circuit evaluation, returning operand values rather than forcing booleans.",
+        "B. and always evaluates both operands even if the first is False.",
+        "C. not has lower precedence than or in Python.",
+        "D. Empty strings and zero are considered truthy in logical expressions."
+      ]
     }
   ],
   "unit_num": 3,

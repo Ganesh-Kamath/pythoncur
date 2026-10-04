@@ -8,7 +8,7 @@
       "type": "refactoring_challenge",
       "concept": "large_scale_refactoring_modularization",
       "skill": "architectural_refactoring",
-      "difficulty": "expert",
+      "difficulty": "hard",
       "prerequisites": [],
       "prompt": "Large-Scale Refactoring Mastery: The monolithic legacy script below mixes CSV parsing, validation, tax calculations, discounts, and reporting into 35 lines of tangled spaghetti code with global variables. Refactor this into three focused, testable functions:\n1. `parse_and_validate_orders(raw_orders)`\n2. `compute_order_totals(orders, tax_rate, discount_threshold)`\n3. `generate_sales_report(processed_orders)`\nPreserve all business rules and return clean data structures.",
       "starter_code": "# Monolithic legacy script to refactor\nraw_data = [\n    {\"id\": \"1\", \"item\": \"Laptop\", \"price\": \"1200.00\", \"valid\": \"yes\"},\n    {\"id\": \"2\", \"item\": \"Mouse\", \"price\": \"25.00\", \"valid\": \"yes\"},\n    {\"id\": \"3\", \"item\": \"Corrupted\", \"price\": \"-5.00\", \"valid\": \"no\"}\n]\n\n# Refactor into the 3 clean functions\n",

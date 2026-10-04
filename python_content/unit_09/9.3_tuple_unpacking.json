@@ -471,9 +471,21 @@
       "starter_code": "def unpack_coordinates(point):\n    # TODO: unpack the tuple and build the dictionary\n    return result\n\n# Example usage\nprint(unpack_coordinates((10, 20)))",
       "solution_code": "def unpack_coordinates(point):\n    x, y = point\n    return {'x': x, 'y': y}\n\n# Example usage\nprint(unpack_coordinates((10, 20)))",
       "test_cases": [
-        "unpack_coordinates((3, 7)) == {'x': 3, 'y': 7}",
-        "unpack_coordinates((0, 0)) == {'x': 0, 'y': 0}",
-        "unpack_coordinates((-5, 42)) == {'x': -5, 'y': 42}"
+        {
+          "input": "unpack_coordinates((3, 7))",
+          "expected_output": "{'x': 3, 'y': 7}",
+          "description": "Verifies: unpack_coordinates((3, 7)) == {'x': 3, 'y': 7}"
+        },
+        {
+          "input": "unpack_coordinates((0, 0))",
+          "expected_output": "{'x': 0, 'y': 0}",
+          "description": "Verifies: unpack_coordinates((0, 0)) == {'x': 0, 'y': 0}"
+        },
+        {
+          "input": "unpack_coordinates((-5, 42))",
+          "expected_output": "{'x': -5, 'y': 42}",
+          "description": "Verifies: unpack_coordinates((-5, 42)) == {'x': -5, 'y': 42}"
+        }
       ],
       "hint": "Use tuple unpacking on the right side of an assignment to separate the two values before constructing the dictionary.",
       "explanation": "The function uses `x, y = point` to unpack the tuple into two variables. These are then used to create and return the required dictionary. This demonstrates basic tuple unpacking for structured data extraction.",
@@ -493,9 +505,21 @@
       "starter_code": "def swap_values(a, b):\n    # TODO: use tuple unpacking to swap and return\n    return swapped\n\nprint(swap_values(100, 200))",
       "solution_code": "def swap_values(a, b):\n    a, b = b, a\n    return a, b\n\nprint(swap_values(100, 200))",
       "test_cases": [
-        "swap_values(5, 8) == (8, 5)",
-        "swap_values(-1, 1) == (1, -1)",
-        "swap_values(0.0, 3.14) == (3.14, 0.0)"
+        {
+          "input": "swap_values(5, 8)",
+          "expected_output": "(8, 5)",
+          "description": "Verifies: swap_values(5, 8) == (8, 5)"
+        },
+        {
+          "input": "swap_values(-1, 1)",
+          "expected_output": "(1, -1)",
+          "description": "Verifies: swap_values(-1, 1) == (1, -1)"
+        },
+        {
+          "input": "swap_values(0.0, 3.14)",
+          "expected_output": "(3.14, 0.0)",
+          "description": "Verifies: swap_values(0.0, 3.14) == (3.14, 0.0)"
+        }
       ],
       "hint": "Assign the tuple `(b, a)` to the variables `a` and `b` in one line.",
       "explanation": "Tuple unpacking evaluates the right-hand side first, creating a temporary tuple `(b, a)`, then unpacks it into `a` and `b`. This avoids the need for an intermediate variable and is both concise and readable.",
@@ -515,8 +539,16 @@
       "starter_code": "def summarize_record(record):\n    # TODO: unpack with star expression and build summary\n    return summary\n\nprint(summarize_record(('Alice', 88, 92, 25)))",
       "solution_code": "def summarize_record(record):\n    name, *scores, age = record\n    return {'name': name, 'scores': scores, 'age': age}\n\nprint(summarize_record(('Alice', 88, 92, 25)))",
       "test_cases": [
-        "summarize_record(('Bob', 70, 80, 30)) == {'name': 'Bob', 'scores': [70, 80], 'age': 30}",
-        "summarize_record(('Carol', 100, 95, 22)) == {'name': 'Carol', 'scores': [100, 95], 'age': 22}"
+        {
+          "input": "summarize_record(('Bob', 70, 80, 30))",
+          "expected_output": "{'name': 'Bob', 'scores': [70, 80], 'age': 30}",
+          "description": "Verifies: summarize_record(('Bob', 70, 80, 30)) == {'name': 'Bob', 'scores': [70, 80], 'age': 30}"
+        },
+        {
+          "input": "summarize_record(('Carol', 100, 95, 22))",
+          "expected_output": "{'name': 'Carol', 'scores': [100, 95], 'age': 22}",
+          "description": "Verifies: summarize_record(('Carol', 100, 95, 22)) == {'name': 'Carol', 'scores': [100, 95], 'age': 22}"
+        }
       ],
       "hint": "Use `name, *scores, age = record` to capture the middle elements into a list called `scores`.",
       "explanation": "The star expression `*scores` collects all remaining elements between the first and last into a list. This is powerful for unpacking tuples of variable length or when you need to separate head, body, and tail.",
@@ -536,9 +568,21 @@
       "starter_code": "def extract_evens(data):\n    # TODO: unpack and collect even numbers\n    return evens\n\nprint(extract_evens((1, 2, 3, 4, 5, 6)))",
       "solution_code": "def extract_evens(data):\n    evens = []\n    for num in data:\n        evens.append(num)\n    return evens\n\nprint(extract_evens((1, 2, 3, 4, 5, 6)))",
       "test_cases": [
-        "extract_evens((1, 2, 3, 4, 5, 6)) == [2, 4, 6]",
-        "extract_evens((0, 7, 8, 9, 10)) == [0, 8, 10]",
-        "extract_evens(()) == []"
+        {
+          "input": "extract_evens((1, 2, 3, 4, 5, 6))",
+          "expected_output": "[2, 4, 6]",
+          "description": "Verifies: extract_evens((1, 2, 3, 4, 5, 6)) == [2, 4, 6]"
+        },
+        {
+          "input": "extract_evens((0, 7, 8, 9, 10))",
+          "expected_output": "[0, 8, 10]",
+          "description": "Verifies: extract_evens((0, 7, 8, 9, 10)) == [0, 8, 10]"
+        },
+        {
+          "input": "extract_evens(())",
+          "expected_output": "[]",
+          "description": "Verifies: extract_evens(()) == []"
+        }
       ],
       "hint": "Iterate over the tuple directly; each element can be unpacked into a variable in the loop header, e.g., `for n in data:`. Then test `n % 2 == 0`.",
       "explanation": "Although the tuple is not split into multiple variables in one statement, iterating with `for n in data` still conceptually unpacks each element into `n` for processing. The solution filters even values and returns them as a list.",
@@ -558,8 +602,16 @@
       "starter_code": "def analyze_waypoints(waypoints):\n    # TODO: unpack each tuple and compute statistics\n    return report\n\nwaypoints = [(34.05, -118.24, 120, '2024-01-01T10:00')]\nprint(analyze_waypoints(waypoints))",
       "solution_code": "def analyze_waypoints(waypoints):\n    total_alt = 0\n    latest_ts = ''\n    for lat, lon, alt, ts in waypoints:\n        total_alt += alt\n        if ts > latest_ts:\n            latest_ts = ts\n    count = len(waypoints)\n    return {\n        'average_altitude': total_alt / count if count else 0,\n        'latest_timestamp': latest_ts\n    }\n\nwaypoints = [(34.05, -118.24, 120, '2024-01-01T10:00'), (40.71, -74.00, 150, '2024-01-02T12:00')]\nprint(analyze_waypoints(waypoints))",
       "test_cases": [
-        "analyze_waypoints([(0, 0, 100, 'a')]) == {'average_altitude': 100.0, 'latest_timestamp': 'a'}",
-        "analyze_waypoints([(1, 2, 3, '2023-01-01'), (4, 5, 6, '2023-01-02')]) == {'average_altitude': 4.5, 'latest_timestamp': '2023-01-02'}"
+        {
+          "input": "analyze_waypoints([(0, 0, 100, 'a')])",
+          "expected_output": "{'average_altitude': 100.0, 'latest_timestamp': 'a'}",
+          "description": "Verifies: analyze_waypoints([(0, 0, 100, 'a')]) == {'average_altitude': 100.0, 'latest_timestamp': 'a'}"
+        },
+        {
+          "input": "analyze_waypoints([(1, 2, 3, '2023-01-01'), (4, 5, 6, '2023-01-02')])",
+          "expected_output": "{'average_altitude': 4.5, 'latest_timestamp': '2023-01-02'}",
+          "description": "Verifies: analyze_waypoints([(1, 2, 3, '2023-01-01'), (4, 5, 6, '2023-01-02')]) == {'average_altitude': 4.5, 'latest_timestamp': '2023-01-02'}"
+        }
       ],
       "hint": "Unpack all four fields in the for-loop header: `for lat, lon, alt, ts in waypoints:`. Accumulate altitude and compare timestamps.",
       "explanation": "Tuple unpacking in the loop header makes the code self-documenting: each variable clearly represents a semantic field. This reduces reliance on magic indices and makes maintenance easier when the tuple structure changes.",
@@ -579,9 +631,21 @@
       "starter_code": "def validate_profile(profile):\n    # TODO: unpack with defaults and validate\n    return profile_dict\n\nprint(validate_profile(('alice', 'alice@x.com', True)))",
       "solution_code": "def validate_profile(profile):\n    defaults = ('guest', 'unknown@example.com', False, 'user')\n    profile = profile + defaults[len(profile):]\n    username, email, is_active, role = profile\n    return {\n        'username': username,\n        'email': email,\n        'is_active': is_active,\n        'role': role\n    }\n\nprint(validate_profile(('alice', 'alice@x.com', True)))",
       "test_cases": [
-        "validate_profile(('alice', 'alice@x.com', True)) == {'username': 'alice', 'email': 'alice@x.com', 'is_active': True, 'role': 'user'}",
-        "validate_profile(('bob',)) == {'username': 'bob', 'email': 'unknown@example.com', 'is_active': False, 'role': 'user'}",
-        "validate_profile(()) == {'username': 'guest', 'email': 'unknown@example.com', 'is_active': False, 'role': 'user'}"
+        {
+          "input": "validate_profile(('alice', 'alice@x.com', True))",
+          "expected_output": "{'username': 'alice', 'email': 'alice@x.com', 'is_active': True, 'role': 'user'}",
+          "description": "Verifies: validate_profile(('alice', 'alice@x.com', True)) == {'username': 'alice', 'email': 'alice@x.com', 'is_active': True, 'role': 'user'}"
+        },
+        {
+          "input": "validate_profile(('bob',))",
+          "expected_output": "{'username': 'bob', 'email': 'unknown@example.com', 'is_active': False, 'role': 'user'}",
+          "description": "Verifies: validate_profile(('bob',)) == {'username': 'bob', 'email': 'unknown@example.com', 'is_active': False, 'role': 'user'}"
+        },
+        {
+          "input": "validate_profile(())",
+          "expected_output": "{'username': 'guest', 'email': 'unknown@example.com', 'is_active': False, 'role': 'user'}",
+          "description": "Verifies: validate_profile(()) == {'username': 'guest', 'email': 'unknown@example.com', 'is_active': False, 'role': 'user'}"
+        }
       ],
       "hint": "Extend the input tuple with default values to reach length 4, then unpack all four fields.",
       "explanation": "By padding the tuple with defaults before unpacking, the function guarantees exactly four values and avoids `ValueError` from mismatched lengths. This pattern is common when processing external data that may be incomplete.",

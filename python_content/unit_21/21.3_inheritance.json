@@ -479,10 +479,26 @@
       "starter_code": "class Vehicle:\n    def __init__(self, make, model, year):\n        self.make = make\n        self.model = model\n        self.year = year\n        self.is_running = False\n\nclass Car(Vehicle):\n    def __init__(self, make, model, year, num_doors):\n        self.make = make\n        self.model = model\n        self.year = year\n        self.num_doors = num_doors\n        self.is_running = False\n\nclass Truck(Vehicle):\n    def __init__(self, make, model, year, payload_capacity):\n        self.make = make\n        self.model = model\n        self.year = year\n        self.payload_capacity = payload_capacity\n        self.is_running = False\n\nclass SportsCar(Car):\n    def __init__(self, make, model, year, num_doors, top_speed):\n        self.make = make\n        self.model = model\n        self.year = year\n        self.num_doors = num_doors\n        self.top_speed = top_speed\n        self.is_running = False\n\ndef main():\n    v = Vehicle('Honda', 'Civic', 2020)\n    c = Car('Ford', 'F-150', 2021, 4)\n    t = Truck('Chevy', 'Silverado', 2022, 3000)\n    s = SportsCar('Porsche', '911', 2023, 2, 190)\n    print(v.make, c.num_doors, t.payload_capacity, s.top_speed)",
       "solution_code": "class Vehicle:\n    def __init__(self, make, model, year):\n        self.make = make\n        self.model = model\n        self.year = year\n        self.is_running = False\n\nclass Car(Vehicle):\n    def __init__(self, make, model, year, num_doors):\n        super().__init__(make, model, year)\n        self.num_doors = num_doors\n\nclass Truck(Vehicle):\n    def __init__(self, make, model, year, payload_capacity):\n        super().__init__(make, model, year)\n        self.payload_capacity = payload_capacity\n\nclass SportsCar(Car):\n    def __init__(self, make, model, year, num_doors, top_speed):\n        super().__init__(make, model, year, num_doors)\n        self.top_speed = top_speed\n\ndef main():\n    v = Vehicle('Honda', 'Civic', 2020)\n    c = Car('Ford', 'F-150', 2021, 4)\n    t = Truck('Chevy', 'Silverado', 2022, 3000)\n    s = SportsCar('Porsche', '911', 2023, 2, 190)\n    print(v.make, c.num_doors, t.payload_capacity, s.top_speed)",
       "test_cases": [
-        "v = Vehicle('Honda', 'Civic', 2020); assert v.make == 'Honda' and v.is_running == False",
-        "c = Car('Ford', 'F-150', 2021, 4); assert c.num_doors == 4 and isinstance(c, Vehicle)",
-        "t = Truck('Chevy', 'Silverado', 2022, 3000); assert t.payload_capacity == 3000",
-        "s = SportsCar('Porsche', '911', 2023, 2, 190); assert s.top_speed == 190 and s.num_doors == 2"
+        {
+          "input": "v = Vehicle('Honda', 'Civic', 2020); assert v.make",
+          "expected_output": "'Honda' and v.is_running == False",
+          "description": "Verifies: v = Vehicle('Honda', 'Civic', 2020); assert v.make == 'Honda' and v.is_running == False"
+        },
+        {
+          "input": "c = Car('Ford', 'F-150', 2021, 4); assert c.num_doors",
+          "expected_output": "4 and isinstance(c, Vehicle)",
+          "description": "Verifies: c = Car('Ford', 'F-150', 2021, 4); assert c.num_doors == 4 and isinstance(c, Vehicle)"
+        },
+        {
+          "input": "t = Truck('Chevy', 'Silverado', 2022, 3000); assert t.payload_capacity",
+          "expected_output": "3000",
+          "description": "Verifies: t = Truck('Chevy', 'Silverado', 2022, 3000); assert t.payload_capacity == 3000"
+        },
+        {
+          "input": "s = SportsCar('Porsche', '911', 2023, 2, 190); assert s.top_speed",
+          "expected_output": "190 and s.num_doors == 2",
+          "description": "Verifies: s = SportsCar('Porsche', '911', 2023, 2, 190); assert s.top_speed == 190 and s.num_doors == 2"
+        }
       ],
       "hint": "Remove duplicated attribute assignments by calling super().__init__() in each subclass. Ensure SportsCar correctly inherits from Car.",
       "explanation": "The refactored version eliminates redundant assignments of make, model, year, and is_running in every subclass by delegating to the parent constructor via super().__init__(). SportsCar now inherits from Car and only adds top_speed, preserving all original behavior while reducing code duplication and improving maintainability."

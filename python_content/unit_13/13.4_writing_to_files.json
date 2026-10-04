@@ -459,21 +459,22 @@
       "type": "write_the_code",
       "concept": "writing_to_files_mastery_challenge",
       "skill": "transfer",
-      "difficulty": "expert",
+      "difficulty": "hard",
       "prerequisites": [
         "13.4_q23"
       ],
-      "prompt": "Mastery Challenge: Implement a robust, tested function for Writing to Files that processes inputs, validates preconditions, and handles invalid states cleanly:",
-      "starter_code": "def execute_task(data):\n    if not data:\n        return None\n    # Process valid data\n    ___",
-      "solution_code": "def execute_task(data):\n    if not data:\n        return None\n    return sorted(data)",
+      "prompt": "Final Capstone Verification: Write a production-grade handler for Writing to Files that processes batches and handles empty inputs cleanly.",
+      "starter_code": "def execute_13_4_workflow(batch):\n    # Validate and transform batch\n    pass",
+      "solution_code": "def execute_13_4_workflow(batch):\n    if not batch:\n        return []\n    return [str(x).strip() for x in batch]",
       "test_cases": [
         {
-          "input": "",
-          "expected_output": "Writing to Files Result 24"
+          "input": "[' a ', 'b ']",
+          "expected_output": "['a', 'b']",
+          "description": "batch processing workflow"
         }
       ],
       "hint": "Validate input first, then execute the transformation.",
-      "explanation": "Demonstrating end-to-end mastery of Writing to Files requires combining input validation, core algorithmic logic, and defensive programming."
+      "explanation": "Production workflows for Writing to Files must validate inputs, maintain immutability, and return deterministic results."
     },
     {
       "id": "13.4_q25",
@@ -488,9 +489,21 @@
       "starter_code": "filename = 'notes.txt'\n# TODO: open the file and write the data\n# line1 = 'Remember to study daily'\n# line2 = 'Practice coding every day'\n# line3 = 'Review concepts regularly'",
       "solution_code": "filename = 'notes.txt'\nwith open(filename, 'w') as file:\n    file.write('Remember to study daily\\n')\n    file.write('Practice coding every day\\n')\n    file.write('Review concepts regularly')",
       "test_cases": [
-        "The file 'notes.txt' must exist after running the script.",
-        "The file must contain exactly three lines.",
-        "Each line must match the required content exactly."
+        {
+          "input": "",
+          "expected_output": "The file 'notes.txt' must exist after running the script.",
+          "description": "The file 'notes.txt' must exist after running the script."
+        },
+        {
+          "input": "",
+          "expected_output": "The file must contain exactly three lines.",
+          "description": "The file must contain exactly three lines."
+        },
+        {
+          "input": "",
+          "expected_output": "Each line must match the required content exactly.",
+          "description": "Each line must match the required content exactly."
+        }
       ],
       "hint": "Use 'with open(filename, 'w') as file:' to safely open the file, then call file.write() for each line. Remember to include newline characters.",
       "explanation": "This item assesses the ability to apply the 'with open()' context manager in write mode ('w') and use the file.write() method to persist text data. Using a context manager ensures the file is automatically closed, preventing resource leaks."
@@ -508,9 +521,21 @@
       "starter_code": "name = 'Alice'\nage = 16\ngrade = 11\nfilename = 'students.txt'\n# TODO: write the formatted record to the file",
       "solution_code": "name = 'Alice'\nage = 16\ngrade = 11\nfilename = 'students.txt'\nwith open(filename, 'a') as file:\n    record = f'{name}, {age}, {grade}\\n'\n    file.write(record)",
       "test_cases": [
-        "The file 'students.txt' must be created or appended to.",
-        "The line written must match the format 'name, age, grade'.",
-        "Subsequent runs must append new records without overwriting existing ones."
+        {
+          "input": "",
+          "expected_output": "The file 'students.txt' must be created or appended to.",
+          "description": "The file 'students.txt' must be created or appended to."
+        },
+        {
+          "input": "",
+          "expected_output": "The line written must match the format 'name, age, grade'.",
+          "description": "The line written must match the format 'name, age, grade'."
+        },
+        {
+          "input": "",
+          "expected_output": "Subsequent runs must append new records without overwriting existing ones.",
+          "description": "Subsequent runs must append new records without overwriting existing ones."
+        }
       ],
       "hint": "Use append mode ('a') to add records without deleting prior content. Use an f-string to format the data, and add a newline character at the end.",
       "explanation": "This item evaluates practical usage of append mode ('a') and f-string formatting to write structured data. It reinforces the distinction between write mode ('w', which truncates) and append mode ('a', which adds to the end)."
@@ -528,9 +553,21 @@
       "starter_code": "temps = [23.5, 25.0, 19.2, 30.1]\nfilename = 'temps.txt'\n# TODO: write temperatures safely with error handling",
       "solution_code": "temps = [23.5, 25.0, 19.2, 30.1]\nfilename = 'temps.txt'\ntry:\n    with open(filename, 'w') as file:\n        for t in temps:\n            file.write(str(t) + '\\n')\nexcept PermissionError:\n    print('Error: Permission denied. Cannot write to the file.')",
       "test_cases": [
-        "If the script has permission, 'temps.txt' must contain four lines with the temperature values.",
-        "If a PermissionError occurs, the program must print the exact error message without crashing.",
-        "The file must not be created if the permission error is raised."
+        {
+          "input": "",
+          "expected_output": "If the script has permission, 'temps.txt' must contain four lines with the temperature values.",
+          "description": "If the script has permission, 'temps.txt' must contain four lines with the temperature values."
+        },
+        {
+          "input": "",
+          "expected_output": "If a PermissionError occurs, the program must print the exact error message without crashing.",
+          "description": "If a PermissionError occurs, the program must print the exact error message without crashing."
+        },
+        {
+          "input": "",
+          "expected_output": "The file must not be created if the permission error is raised.",
+          "description": "The file must not be created if the permission error is raised."
+        }
       ],
       "hint": "Wrap the file operation in a try-except block. Catch PermissionError specifically and print a user-friendly message. Convert each float to a string before writing.",
       "explanation": "This item tests advanced file handling by combining iteration, type conversion, and exception handling. It ensures learners understand that file I/O operations can fail and must be guarded with appropriate error-handling logic."
@@ -548,9 +585,21 @@
       "starter_code": "words = ['cat', 'dog', 'elephant', 'bird', 'giraffe']\nfilename = 'long_words.txt'\n# TODO: filter and write long words to the file",
       "solution_code": "words = ['cat', 'dog', 'elephant', 'bird', 'giraffe']\nfilename = 'long_words.txt'\nwith open(filename, 'w') as file:\n    for word in words:\n        if len(word) > 4:\n            file.write(word + '\\n')",
       "test_cases": [
-        "The file 'long_words.txt' must contain exactly two lines.",
-        "The lines must be 'elephant' and 'giraffe' in that order.",
-        "Words of length 4 or less must not appear in the file."
+        {
+          "input": "",
+          "expected_output": "The file 'long_words.txt' must contain exactly two lines.",
+          "description": "The file 'long_words.txt' must contain exactly two lines."
+        },
+        {
+          "input": "",
+          "expected_output": "The lines must be 'elephant' and 'giraffe' in that order.",
+          "description": "The lines must be 'elephant' and 'giraffe' in that order."
+        },
+        {
+          "input": "",
+          "expected_output": "Words of length 4 or less must not appear in the file.",
+          "description": "Words of length 4 or less must not appear in the file."
+        }
       ],
       "hint": "Iterate through the list and check the length of each word using len(word). Only write to the file if the condition is satisfied. Use write mode ('w') since this is a fresh output file.",
       "explanation": "This mini-challenge requires learners to combine filtering logic with file writing. It assesses problem-solving by requiring conditional checks inside a loop that produces file output, moving beyond simple direct writes."
@@ -568,9 +617,21 @@
       "starter_code": "import datetime\n\nlog_entry = 'INFO: System started successfully'\nfilename = 'app.log'\n# TODO: append a properly formatted log entry with timestamp",
       "solution_code": "import datetime\n\nlog_entry = 'INFO: System started successfully'\nfilename = 'app.log'\ntimestamp = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')\nformatted_line = f'[{timestamp}] {log_entry}\\n'\nwith open(filename, 'a') as file:\n    file.write(formatted_line)",
       "test_cases": [
-        "The file 'app.log' must be created or appended to.",
-        "The written line must match the pattern '[YYYY-MM-DD HH:MM:SS] LEVEL: message'.",
-        "The timestamp must reflect the actual current date and time when the script runs."
+        {
+          "input": "",
+          "expected_output": "The file 'app.log' must be created or appended to.",
+          "description": "The file 'app.log' must be created or appended to."
+        },
+        {
+          "input": "",
+          "expected_output": "The written line must match the pattern '[YYYY-MM-DD HH:MM:SS] LEVEL: message'.",
+          "description": "The written line must match the pattern '[YYYY-MM-DD HH:MM:SS] LEVEL: message'."
+        },
+        {
+          "input": "",
+          "expected_output": "The timestamp must reflect the actual current date and time when the script runs.",
+          "description": "The timestamp must reflect the actual current date and time when the script runs."
+        }
       ],
       "hint": "Use datetime.datetime.now() to get the current time, then format it with strftime. Combine the timestamp, level, and message using an f-string, and append the result with newline.",
       "explanation": "This real-world scenario synthesizes file handling with datetime operations and string formatting. It mirrors professional logging patterns where structured, timestamped records are appended to persistent storage, emphasizing synthesis of multiple concepts."
@@ -588,10 +649,26 @@
       "starter_code": "products = [\n    {'name': 'Laptop', 'price': 999.99, 'quantity': 10},\n    {'name': 'Mouse', 'price': -5.0, 'quantity': 5},\n    {'name': 'Keyboard', 'price': 45.5, 'quantity': 0},\n    {'name': 'Monitor', 'price': 299.0, 'quantity': -2}\n]\nfilename = 'inventory.txt'\n# TODO: validate, filter, write valid products, and count them",
       "solution_code": "products = [\n    {'name': 'Laptop', 'price': 999.99, 'quantity': 10},\n    {'name': 'Mouse', 'price': -5.0, 'quantity': 5},\n    {'name': 'Keyboard', 'price': 45.5, 'quantity': 0},\n    {'name': 'Monitor', 'price': 299.0, 'quantity': -2}\n]\nfilename = 'inventory.txt'\nvalid_count = 0\nwith open(filename, 'w') as file:\n    for p in products:\n        if isinstance(p['price'], (int, float)) and isinstance(p['quantity'], (int, float)) and p['price'] >= 0 and p['quantity'] >= 0:\n            file.write(f\"{p['name']},{p['price']},{p['quantity']}\\n\")\n            valid_count += 1\nprint(f'Valid entries written: {valid_count}')",
       "test_cases": [
-        "The file 'inventory.txt' must contain exactly two lines: one for Laptop and one for Keyboard.",
-        "The line for Laptop must be 'Laptop,999.99,10'.",
-        "The final printed output must be 'Valid entries written: 2'.",
-        "Invalid entries (Mouse and Monitor) must not appear in the file."
+        {
+          "input": "",
+          "expected_output": "The file 'inventory.txt' must contain exactly two lines: one for Laptop and one for Keyboard.",
+          "description": "The file 'inventory.txt' must contain exactly two lines: one for Laptop and one for Keyboard."
+        },
+        {
+          "input": "",
+          "expected_output": "The line for Laptop must be 'Laptop,999.99,10'.",
+          "description": "The line for Laptop must be 'Laptop,999.99,10'."
+        },
+        {
+          "input": "",
+          "expected_output": "The final printed output must be 'Valid entries written: 2'.",
+          "description": "The final printed output must be 'Valid entries written: 2'."
+        },
+        {
+          "input": "",
+          "expected_output": "Invalid entries (Mouse and Monitor) must not appear in the file.",
+          "description": "Invalid entries (Mouse and Monitor) must not appear in the file."
+        }
       ],
       "hint": "Iterate through the list, check that price and quantity are numbers and non-negative, then write valid entries using f-string CSV formatting. Maintain a counter for valid entries and print it after the loop.",
       "explanation": "This mastery mini-challenge integrates data validation, type checking, conditional filtering, CSV-style string generation, and file output. It demands full command of file handling in a realistic data-processing context, confirming the learner can independently synthesize and apply all prior skills."

@@ -437,9 +437,21 @@
       "starter_code": "import requests\n\nurl1 = 'https://api.example.com/users'\nurl2 = 'https://api.example.com/orders'\n\ndef fetch(url):\n    r = requests.get(url, timeout=5)\n    if r.status_code == 200:\n        return r.json()\n    return None\n\nusers = fetch(url1)\norders = fetch(url2)\n\nprint(users)\nprint(orders)",
       "solution_code": "import requests\n\ndef fetch_json(url, headers=None, timeout=5):\n    try:\n        response = requests.get(url, headers=headers, timeout=timeout)\n        response.raise_for_status()\n        return response.json()\n    except requests.exceptions.RequestException:\n        return None\n\nurl1 = 'https://api.example.com/users'\nurl2 = 'https://api.example.com/orders'\n\nusers = fetch_json(url1)\norders = fetch_json(url2)\n\nprint(users)\nprint(orders)",
       "test_cases": [
-        "fetch_json('https://api.example.com/valid') returns a dict or list",
-        "fetch_json('https://api.example.com/invalid') returns None",
-        "fetch_json with custom headers and timeout returns parsed JSON or None"
+        {
+          "input": "",
+          "expected_output": "fetch_json('https://api.example.com/valid') returns a dict or list",
+          "description": "fetch_json('https://api.example.com/valid') returns a dict or list"
+        },
+        {
+          "input": "",
+          "expected_output": "fetch_json('https://api.example.com/invalid') returns None",
+          "description": "fetch_json('https://api.example.com/invalid') returns None"
+        },
+        {
+          "input": "",
+          "expected_output": "fetch_json with custom headers and timeout returns parsed JSON or None",
+          "description": "fetch_json with custom headers and timeout returns parsed JSON or None"
+        }
       ],
       "hint": "Encapsulate the request, status check, and JSON parsing inside one function. Use raise_for_status and a broad RequestException catch.",
       "explanation": "Refactoring into fetch_json eliminates duplication, centralizes timeout and header logic, and makes the codebase easier to test and maintain. Using raise_for_status simplifies success checking, and returning None on any failure gives callers a clear signal to handle missing data."

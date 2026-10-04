@@ -423,7 +423,13 @@
       ],
       "prompt": "When is it acceptable to use short, single-letter variable names like `i`, `x`, or `y`?",
       "correct_answer": "B",
-      "explanation": "Single-letter variables are standard conventions for loop indices (`i`, `j`) and math coordinates (`x`, `y`), but business values require descriptive names."
+      "explanation": "Single-letter variables are standard conventions for loop indices (`i`, `j`) and math coordinates (`x`, `y`), but business values require descriptive names.",
+      "options": [
+        "A. For global configuration settings and database connection strings.",
+        "B. For short-lived loop counters (i, j) or well-understood mathematical coordinates (x, y).",
+        "C. Everywhere, to minimize keystrokes and file size.",
+        "D. Never; Python forbids single-character variable names."
+      ]
     },
     {
       "id": "2.2_q26",
@@ -489,7 +495,13 @@
       ],
       "prompt": "You are refactoring a payroll script:\n```python\nx = 40\ny = 25.50\nz = x * y\n```\nWhich refactoring best follows Python professional standards?",
       "correct_answer": "B",
-      "explanation": "Option B uses descriptive snake_case names that clearly express the domain logic."
+      "explanation": "Option B uses descriptive snake_case names that clearly express the domain logic.",
+      "options": [
+        "A. h = 40; r = 25.0; p = h * r",
+        "B. hours_worked = 40; hourly_rate = 25.0; total_pay = hours_worked * hourly_rate",
+        "C. HoursWorked = 40; HourlyRate = 25.0; TotalPay = HoursWorked * HourlyRate",
+        "D. v1 = 40; v2 = 25.0; v3 = v1 * v2"
+      ]
     },
     {
       "id": "2.2_q30",
@@ -505,7 +517,13 @@
       ],
       "prompt": "Which summary represents the complete Python naming best practices?",
       "correct_answer": "A",
-      "explanation": "This accurately covers syntax legality, PEP 8 casing conventions, constants, and communicative clarity."
+      "explanation": "This accurately covers syntax legality, PEP 8 casing conventions, constants, and communicative clarity.",
+      "options": [
+        "A. Variable names must start with a letter or underscore, cannot be Python keywords, and should use snake_case for readability.",
+        "B. Variable names can start with numbers as long as they contain letters.",
+        "C. Variable names are case-insensitive in Python.",
+        "D. Variable names must be in PascalCase to be recognized by CPython."
+      ]
     }
   ],
   "unit_num": 2,

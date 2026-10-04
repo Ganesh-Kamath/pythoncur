@@ -516,9 +516,21 @@
       "starter_code": "import json\n\ndef to_json_a(x, y):\n    d = {}\n    d['a'] = x\n    d['b'] = y\n    return json.dumps(d)\n\ndef to_json_b(x, y, z):\n    d = {}\n    d['a'] = x\n    d['b'] = y\n    d['c'] = z\n    return json.dumps(d)\n\ndef to_json_c(x, y, z, w):\n    d = {}\n    d['a'] = x\n    d['b'] = y\n    d['c'] = z\n    d['d'] = w\n    return json.dumps(d)",
       "solution_code": "import json\n\ndef build_json(**kwargs):\n    return json.dumps(kwargs)\n\nprint(build_json(a=1, b=2))\nprint(build_json(a=1, b=2, c=3))\nprint(build_json(a=1, b=2, c=3, d=4))",
       "test_cases": [
-        "build_json(a=10, b=20) == '{\"a\": 10, \"b\": 20}'",
-        "build_json(x=5, y=15, z=25) == '{\"x\": 5, \"y\": 15, \"z\": 25}'",
-        "build_json() == '{}'"
+        {
+          "input": "build_json(a=10, b=20)",
+          "expected_output": "'{\"a\": 10, \"b\": 20}'",
+          "description": "Verifies: build_json(a=10, b=20) == '{\"a\": 10, \"b\": 20}'"
+        },
+        {
+          "input": "build_json(x=5, y=15, z=25)",
+          "expected_output": "'{\"x\": 5, \"y\": 15, \"z\": 25}'",
+          "description": "Verifies: build_json(x=5, y=15, z=25) == '{\"x\": 5, \"y\": 15, \"z\": 25}'"
+        },
+        {
+          "input": "build_json()",
+          "expected_output": "'{}'",
+          "description": "Verifies: build_json() == '{}'"
+        }
       ],
       "hint": "Use **kwargs to accept arbitrary keyword arguments and pass them directly to json.dumps.",
       "explanation": "The original code duplicated dictionary construction logic across three functions. The refactored version uses **kwargs to collect all named arguments into a dictionary, then passes it directly to json.dumps. This reduces redundancy, improves scalability, and maintains identical output behavior.",
@@ -537,9 +549,21 @@
       "starter_code": "import json\n\nstudent = {\n    'name': 'Aisha',\n    'age': 16,\n    'grades': [88, 92, 79]\n}\n\n# TODO: Convert the dictionary to a JSON string and print it\n",
       "solution_code": "import json\n\nstudent = {\n    'name': 'Aisha',\n    'age': 16,\n    'grades': [88, 92, 79]\n}\n\njson_string = json.dumps(student, indent=2)\nprint(json_string)",
       "test_cases": [
-        "The output must be a valid JSON string representation of the student dictionary.",
-        "The output should preserve the keys: name, age, and grades in the same order.",
-        "The output must use double quotes around keys and string values as per JSON standards."
+        {
+          "input": "",
+          "expected_output": "The output must be a valid JSON string representation of the student dictionary.",
+          "description": "The output must be a valid JSON string representation of the student dictionary."
+        },
+        {
+          "input": "",
+          "expected_output": "The output should preserve the keys: name, age, and grades in the same order.",
+          "description": "The output should preserve the keys: name, age, and grades in the same order."
+        },
+        {
+          "input": "",
+          "expected_output": "The output must use double quotes around keys and string values as per JSON standards.",
+          "description": "The output must use double quotes around keys and string values as per JSON standards."
+        }
       ],
       "hint": "Use json.dumps() to serialize the Python dictionary into a JSON string. The indent parameter makes the output readable.",
       "explanation": "json.dumps() serializes a Python object into a JSON-formatted string. Dictionaries map directly to JSON objects, and lists map to JSON arrays. Using indent improves readability for debugging."
@@ -557,9 +581,21 @@
       "starter_code": "import json\n\nbook = {\n    'title': 'The Great Adventure',\n    'author': 'Samira Khan',\n    'publication_year': 2019\n}\n\n# TODO: Write the dictionary to a file named book.json\n",
       "solution_code": "import json\n\nbook = {\n    'title': 'The Great Adventure',\n    'author': 'Samira Khan',\n    'publication_year': 2019\n}\n\nwith open('book.json', 'w') as f:\n    json.dump(book, f, indent=4)",
       "test_cases": [
-        "The file book.json must be created in the current working directory.",
-        "The file content must be valid JSON matching the book dictionary.",
-        "The file must not contain any Python-specific syntax such as single quotes around keys."
+        {
+          "input": "",
+          "expected_output": "The file book.json must be created in the current working directory.",
+          "description": "The file book.json must be created in the current working directory."
+        },
+        {
+          "input": "",
+          "expected_output": "The file content must be valid JSON matching the book dictionary.",
+          "description": "The file content must be valid JSON matching the book dictionary."
+        },
+        {
+          "input": "",
+          "expected_output": "The file must not contain any Python-specific syntax such as single quotes around keys.",
+          "description": "The file must not contain any Python-specific syntax such as single quotes around keys."
+        }
       ],
       "hint": "Use open() with mode 'w' to write, and json.dump() to write a Python object directly to a file object.",
       "explanation": "json.dump() writes a Python object to a file-like object in JSON format. This is more efficient than json.dumps() followed by writing when persistence is required.",
@@ -578,9 +614,21 @@
       "starter_code": "import json\nfrom datetime import datetime\n\nevents = [\n    {'name': 'Meeting', 'timestamp': datetime(2024, 5, 10, 9, 0)},\n    {'name': 'Deadline', 'timestamp': datetime(2024, 5, 12, 17, 30)}\n]\n\n# TODO: Convert timestamps to ISO 8601 strings and produce valid JSON output\n",
       "solution_code": "import json\nfrom datetime import datetime\n\nevents = [\n    {'name': 'Meeting', 'timestamp': datetime(2024, 5, 10, 9, 0)},\n    {'name': 'Deadline', 'timestamp': datetime(2024, 5, 12, 17, 30)}\n]\n\ndef default_serializer(obj):\n    if isinstance(obj, datetime):\n        return obj.isoformat()\n    raise TypeError(f'Object of type {type(obj).__name__} is not JSON serializable')\n\njson_output = json.dumps(events, default=default_serializer, indent=2)\nprint(json_output)",
       "test_cases": [
-        "The output must be a valid JSON string.",
-        "The timestamp values must appear as ISO 8601 formatted strings, not datetime objects.",
-        "The nested list structure must be preserved in the JSON output."
+        {
+          "input": "",
+          "expected_output": "The output must be a valid JSON string.",
+          "description": "The output must be a valid JSON string."
+        },
+        {
+          "input": "",
+          "expected_output": "The timestamp values must appear as ISO 8601 formatted strings, not datetime objects.",
+          "description": "The timestamp values must appear as ISO 8601 formatted strings, not datetime objects."
+        },
+        {
+          "input": "",
+          "expected_output": "The nested list structure must be preserved in the JSON output.",
+          "description": "The nested list structure must be preserved in the JSON output."
+        }
       ],
       "hint": "Pass a default function to json.dumps() to handle datetime objects by returning their isoformat() representation.",
       "explanation": "The default parameter in json.dumps() accepts a function that returns a serializable representation for unsupported types. datetime.isoformat() produces a standard ISO 8601 string suitable for JSON.",
@@ -599,9 +647,21 @@
       "starter_code": "import json\n\nreadings = [\n    {'device_id': 1, 'value': 45},\n    {'device_id': 2, 'value': 62},\n    {'device_id': 1, 'value': 58},\n    {'device_id': 2, 'value': 30},\n    {'device_id': 3, 'value': 71}\n]\n\n# TODO: Filter, group by device_id, and serialize to JSON\n",
       "solution_code": "import json\n\nreadings = [\n    {'device_id': 1, 'value': 45},\n    {'device_id': 2, 'value': 62},\n    {'device_id': 1, 'value': 58},\n    {'device_id': 2, 'value': 30},\n    {'device_id': 3, 'value': 71}\n]\n\nfiltered = [r for r in readings if r['value'] > 50]\n\ngrouped = {}\nfor r in filtered:\n    grouped.setdefault(r['device_id'], []).append(r['value'])\n\njson_output = json.dumps(grouped, indent=2)\nprint(json_output)",
       "test_cases": [
-        "Only readings with value greater than 50 must appear in the final JSON.",
-        "The JSON must group values under their respective device_id keys.",
-        "The output must be a single valid JSON string."
+        {
+          "input": "",
+          "expected_output": "Only readings with value greater than 50 must appear in the final JSON.",
+          "description": "Only readings with value greater than 50 must appear in the final JSON."
+        },
+        {
+          "input": "",
+          "expected_output": "The JSON must group values under their respective device_id keys.",
+          "description": "The JSON must group values under their respective device_id keys."
+        },
+        {
+          "input": "",
+          "expected_output": "The output must be a single valid JSON string.",
+          "description": "The output must be a single valid JSON string."
+        }
       ],
       "hint": "Use a list comprehension for filtering, then iterate to build a dictionary that accumulates values per device_id.",
       "explanation": "This challenge combines list comprehension for filtering with dictionary accumulation for grouping. The result is a nested JSON structure useful for time-series or IoT data aggregation.",
@@ -620,9 +680,21 @@
       "starter_code": "import json\n\ninventory = [\n    {'sku': 'A101', 'name': 'Notebook', 'price': 3.50},\n    {'sku': 'B202', 'name': 'Pen', 'price': 1.20},\n    {'sku': None, 'name': 'Eraser', 'price': 0.80},\n    {'sku': 'C303', 'name': 'Pencil', 'price': -2.0}\n]\n\n# TODO: Validate, filter, and write valid products to inventory.json safely\n",
       "solution_code": "import json\n\ninventory = [\n    {'sku': 'A101', 'name': 'Notebook', 'price': 3.50},\n    {'sku': 'B202', 'name': 'Pen', 'price': 1.20},\n    {'sku': None, 'name': 'Eraser', 'price': 0.80},\n    {'sku': 'C303', 'name': 'Pencil', 'price': -2.0}\n]\n\nvalid = []\nfor item in inventory:\n    if all(k in item for k in ('sku', 'name', 'price')) and item['sku'] is not None and item['price'] >= 0:\n        valid.append(item)\n\ntry:\n    with open('inventory.json', 'w') as f:\n        json.dump(valid, f, indent=2)\n    print('Export completed successfully.')\nexcept IOError as e:\n    print(f'Error writing file: {e}')",
       "test_cases": [
-        "Only products with non-null sku, present name, non-negative price, and all required keys must be written.",
-        "inventory.json must be created with valid JSON content.",
-        "If a write error occurs, the script must catch it and print an informative error message."
+        {
+          "input": "",
+          "expected_output": "Only products with non-null sku, present name, non-negative price, and all required keys must be written.",
+          "description": "Only products with non-null sku, present name, non-negative price, and all required keys must be written."
+        },
+        {
+          "input": "",
+          "expected_output": "inventory.json must be created with valid JSON content.",
+          "description": "inventory.json must be created with valid JSON content."
+        },
+        {
+          "input": "",
+          "expected_output": "If a write error occurs, the script must catch it and print an informative error message.",
+          "description": "If a write error occurs, the script must catch it and print an informative error message."
+        }
       ],
       "hint": "Validate each dictionary with all() and explicit checks for None and non-negative price before appending to the valid list.",
       "explanation": "Real-world data pipelines require validation before serialization. Filtering invalid records prevents downstream systems from processing corrupt or incomplete data. try/except ensures graceful failure during file I/O.",
@@ -641,9 +713,21 @@
       "starter_code": "import json\n\ndef make_json_safe(obj):\n    # TODO: Recursively convert non-serializable types to JSON-compatible ones\n    pass\n\ncomplex_data = {\n    'id': 42,\n    'items': [1, 2, 3],\n    'metadata': {\n        'tags': {'alpha', 'beta'},\n        'coords': (10, 20)\n    }\n}\n\n# TODO: Apply make_json_safe and print the JSON string\n",
       "solution_code": "import json\n\ndef make_json_safe(obj):\n    if isinstance(obj, dict):\n        return {make_json_safe(k): make_json_safe(v) for k, v in obj.items()}\n    if isinstance(obj, (list, tuple, set)):\n        return [make_json_safe(item) for item in obj]\n    if isinstance(obj, (str, int, float, bool)) or obj is None:\n        return obj\n    return str(obj)\n\ncomplex_data = {\n    'id': 42,\n    'items': [1, 2, 3],\n    'metadata': {\n        'tags': {'alpha', 'beta'},\n        'coords': (10, 20)\n    }\n}\n\nsafe_data = make_json_safe(complex_data)\njson_output = json.dumps(safe_data, indent=2)\nprint(json_output)",
       "test_cases": [
-        "The function must handle dictionaries, lists, tuples, and sets recursively.",
-        "Sets and tuples must be converted to lists in the final JSON output.",
-        "The printed output must be a valid JSON string representing the original nested structure."
+        {
+          "input": "",
+          "expected_output": "The function must handle dictionaries, lists, tuples, and sets recursively.",
+          "description": "The function must handle dictionaries, lists, tuples, and sets recursively."
+        },
+        {
+          "input": "",
+          "expected_output": "Sets and tuples must be converted to lists in the final JSON output.",
+          "description": "Sets and tuples must be converted to lists in the final JSON output."
+        },
+        {
+          "input": "",
+          "expected_output": "The printed output must be a valid JSON string representing the original nested structure.",
+          "description": "The printed output must be a valid JSON string representing the original nested structure."
+        }
       ],
       "hint": "Check the type of obj at each level: dict, list/tuple/set, or a primitive. Recursively transform containers before returning primitives.",
       "explanation": "Mastery of JSON generation requires understanding that JSON only supports dicts, lists, strings, numbers, booleans, and null. Custom recursive serialization bridges the gap between Python's rich type system and JSON's limited schema.",

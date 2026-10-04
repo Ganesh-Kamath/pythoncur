@@ -457,9 +457,21 @@
       "starter_code": "def collect_scores(students):\n    result = ()\n    for s in students:\n        result = result + (s['score'],)\n    return result\n\nstudents = [{'name': 'A', 'score': 10}, {'name': 'B', 'score': 20}]\nprint(collect_scores(students))",
       "solution_code": "def collect_scores(students):\n    return tuple(s['score'] for s in students)\n\nstudents = [{'name': 'A', 'score': 10}, {'name': 'B', 'score': 20}]\nprint(collect_scores(students))",
       "test_cases": [
-        "collect_scores([])",
-        "collect_scores([{'name': 'X', 'score': 5}])",
-        "collect_scores([{'name': 'Y', 'score': 99}, {'name': 'Z', 'score': 100}])"
+        {
+          "input": "",
+          "expected_output": "collect_scores([])",
+          "description": "collect_scores([])"
+        },
+        {
+          "input": "",
+          "expected_output": "collect_scores([{'name': 'X', 'score': 5}])",
+          "description": "collect_scores([{'name': 'X', 'score': 5}])"
+        },
+        {
+          "input": "",
+          "expected_output": "collect_scores([{'name': 'Y', 'score': 99}, {'name': 'Z', 'score': 100}])",
+          "description": "collect_scores([{'name': 'Y', 'score': 99}, {'name': 'Z', 'score': 100}])"
+        }
       ],
       "hint": "Repeatedly concatenating tuples creates intermediate tuples. Consider building the result in one step using a generator expression inside tuple().",
       "explanation": "The original approach repeatedly creates new tuples via result = result + (s['score'],), which is O(n^2) due to copying. The refactored version uses a generator expression passed to tuple(), yielding O(n) time and O(n) space with a single allocation.",

@@ -449,8 +449,16 @@
       "starter_code": "def iterative_dfs(graph, start):\n    visited = set()\n    stack = [start]\n    while stack:\n        node = stack.pop()\n        if node not in visited:\n            visited.add(node)\n            yield node\n            stack.extend(graph.get(node, []))\n    return visited",
       "solution_code": "def iterative_dfs(graph, start):\n    visited = set()\n    stack = [start]\n    while stack:\n        node = stack.pop()\n        if node not in visited:\n            visited.add(node)\n            yield node\n            for neighbor in reversed(graph.get(node, [])):\n                if neighbor not in visited:\n                    stack.append(neighbor)\n",
       "test_cases": [
-        "graph = {'A': ['B', 'C'], 'B': ['D'], 'C': [], 'D': []}\nassert list(iterative_dfs(graph, 'A')) == ['A', 'C', 'B', 'D']",
-        "graph = {'X': [], 'Y': []}\nassert list(iterative_dfs(graph, 'X')) == ['X']\nassert list(iterative_dfs(graph, 'Y')) == ['Y']"
+        {
+          "input": "graph = {'A': ['B', 'C'], 'B': ['D'], 'C': [], 'D': []}\nassert list(iterative_dfs(graph, 'A'))",
+          "expected_output": "['A', 'C', 'B', 'D']",
+          "description": "Verifies: graph = {'A': ['B', 'C'], 'B': ['D'], 'C': [], 'D': []}\nassert list(iterative_dfs(graph, 'A')) == ['A', 'C', 'B', 'D']"
+        },
+        {
+          "input": "graph = {'X': [], 'Y': []}\nassert list(iterative_dfs(graph, 'X'))",
+          "expected_output": "['X']\nassert list(iterative_dfs(graph, 'Y')) == ['Y']",
+          "description": "Verifies: graph = {'X': [], 'Y': []}\nassert list(iterative_dfs(graph, 'X')) == ['X']\nassert list(iterative_dfs(graph, 'Y')) == ['Y']"
+        }
       ],
       "hint": "Consider the order of neighbors and whether yielding before full expansion changes semantics.",
       "explanation": "The refactored version yields nodes as soon as they are first visited, enabling lazy consumption. Reversing neighbors ensures consistent left-to-right traversal order matching recursive DFS. The visited set is still required to avoid duplicates, but the generator pattern avoids returning a complete collection at once, which is beneficial for memory-constrained scenarios."

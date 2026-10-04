@@ -480,9 +480,21 @@
       "starter_code": "class Engine:\n    def start(self):\n        return 'Engine started'\n\nclass Battery:\n    def __init__(self, level):\n        self.level = level\n\nclass Car:\n    def __init__(self, engine, battery):\n        self.engine = engine\n        self.battery = battery\n\n    def start_engine(self):\n        pass\n\n    def stop_engine(self):\n        pass\n\n    def check_battery(self):\n        pass",
       "solution_code": "class Engine:\n    def start(self):\n        return 'Engine started'\n\nclass Battery:\n    def __init__(self, level):\n        self.level = level\n\nclass Car:\n    def __init__(self, engine, battery):\n        self.engine = engine\n        self.battery = battery\n\n    def start_engine(self):\n        return self.engine.start()\n\n    def stop_engine(self):\n        return 'Engine stopped'\n\n    def check_battery(self):\n        return f'Battery level: {self.battery.level}'",
       "test_cases": [
-        "engine = Engine(); battery = Battery(80); car = Car(engine, battery); assert car.start_engine() == 'Engine started'",
-        "assert car.stop_engine() == 'Engine stopped'",
-        "assert car.check_battery() == 'Battery level: 80'"
+        {
+          "input": "engine = Engine(); battery = Battery(80); car = Car(engine, battery); assert car.start_engine()",
+          "expected_output": "'Engine started'",
+          "description": "Verifies: engine = Engine(); battery = Battery(80); car = Car(engine, battery); assert car.start_engine() == 'Engine started'"
+        },
+        {
+          "input": "assert car.stop_engine()",
+          "expected_output": "'Engine stopped'",
+          "description": "Verifies: assert car.stop_engine() == 'Engine stopped'"
+        },
+        {
+          "input": "assert car.check_battery()",
+          "expected_output": "'Battery level: 80'",
+          "description": "Verifies: assert car.check_battery() == 'Battery level: 80'"
+        }
       ],
       "hint": "Use delegation to forward method calls to the composed Engine and Battery objects.",
       "explanation": "Composition means a Car 'has-a' Engine and 'has-a' Battery. The Car class holds instances of these classes and delegates behavior to them rather than inheriting from them."
@@ -500,9 +512,21 @@
       "starter_code": "class Screen:\n    def display(self, message):\n        pass\n\nclass Processor:\n    def run(self, task):\n        pass\n\nclass Storage:\n    def __init__(self, capacity):\n        self.capacity = capacity\n        self.used = 0\n\n    def report_space(self):\n        pass\n\nclass Smartphone:\n    def __init__(self, screen, processor, storage):\n        self.screen = screen\n        self.processor = processor\n        self.storage = storage\n\n    def show_message(self, msg):\n        pass\n\n    def execute_task(self, task):\n        pass\n\n    def space_report(self):\n        pass",
       "solution_code": "class Screen:\n    def display(self, message):\n        return f'Display: {message}'\n\nclass Processor:\n    def run(self, task):\n        return f'Processing: {task}'\n\nclass Storage:\n    def __init__(self, capacity):\n        self.capacity = capacity\n        self.used = 0\n\n    def report_space(self):\n        return f'Used: {self.used}/{self.capacity}'\n\nclass Smartphone:\n    def __init__(self, screen, processor, storage):\n        self.screen = screen\n        self.processor = processor\n        self.storage = storage\n\n    def show_message(self, msg):\n        return self.screen.display(msg)\n\n    def execute_task(self, task):\n        return self.processor.run(task)\n\n    def space_report(self):\n        return self.storage.report_space()",
       "test_cases": [
-        "screen = Screen(); proc = Processor(); storage = Storage(64); phone = Smartphone(screen, proc, storage); assert phone.show_message('Hello') == 'Display: Hello'",
-        "assert phone.execute_task('render') == 'Processing: render'",
-        "assert phone.space_report() == 'Used: 0/64'"
+        {
+          "input": "screen = Screen(); proc = Processor(); storage = Storage(64); phone = Smartphone(screen, proc, storage); assert phone.show_message('Hello')",
+          "expected_output": "'Display: Hello'",
+          "description": "Verifies: screen = Screen(); proc = Processor(); storage = Storage(64); phone = Smartphone(screen, proc, storage); assert phone.show_message('Hello') == 'Display: Hello'"
+        },
+        {
+          "input": "assert phone.execute_task('render')",
+          "expected_output": "'Processing: render'",
+          "description": "Verifies: assert phone.execute_task('render') == 'Processing: render'"
+        },
+        {
+          "input": "assert phone.space_report()",
+          "expected_output": "'Used: 0/64'",
+          "description": "Verifies: assert phone.space_report() == 'Used: 0/64'"
+        }
       ],
       "hint": "Each method in Smartphone should call the corresponding method on its composed object and return the result.",
       "explanation": "Practical composition models real-world objects that contain other objects as parts. The Smartphone delegates display, processing, and storage concerns to its components."
@@ -520,9 +544,21 @@
       "starter_code": "class Motor:\n    def move(self, direction):\n        pass\n\nclass Sensor:\n    def read(self):\n        pass\n\nclass Controller:\n    def update(self, data):\n        pass\n\nclass Robot:\n    def __init__(self, motor, sensor, controller):\n        self.motor = motor\n        self.sensor = sensor\n        self.controller = controller\n\n    def move(self, direction):\n        pass\n\n    def sense(self):\n        pass\n\n    def control(self, data):\n        pass",
       "solution_code": "class Motor:\n    def move(self, direction):\n        return f'Motor moving {direction}'\n\nclass Sensor:\n    def read(self):\n        return 'Sensor data: 42'\n\nclass Controller:\n    def update(self, data):\n        return f'Controller updated with {data}'\n\nclass Robot:\n    def __init__(self, motor, sensor, controller):\n        self.motor = motor\n        self.sensor = sensor\n        self.controller = controller\n\n    def move(self, direction):\n        return self.motor.move(direction)\n\n    def sense(self):\n        return self.sensor.read()\n\n    def control(self, data):\n        return self.controller.update(data)",
       "test_cases": [
-        "motor = Motor(); sensor = Sensor(); controller = Controller(); robot = Robot(motor, sensor, controller); assert robot.move('forward') == 'Motor moving forward'",
-        "assert robot.sense() == 'Sensor data: 42'",
-        "assert robot.control('obstacle') == 'Controller updated with obstacle'"
+        {
+          "input": "motor = Motor(); sensor = Sensor(); controller = Controller(); robot = Robot(motor, sensor, controller); assert robot.move('forward')",
+          "expected_output": "'Motor moving forward'",
+          "description": "Verifies: motor = Motor(); sensor = Sensor(); controller = Controller(); robot = Robot(motor, sensor, controller); assert robot.move('forward') == 'Motor moving forward'"
+        },
+        {
+          "input": "assert robot.sense()",
+          "expected_output": "'Sensor data: 42'",
+          "description": "Verifies: assert robot.sense() == 'Sensor data: 42'"
+        },
+        {
+          "input": "assert robot.control('obstacle')",
+          "expected_output": "'Controller updated with obstacle'",
+          "description": "Verifies: assert robot.control('obstacle') == 'Controller updated with obstacle'"
+        }
       ],
       "hint": "Ensure the Robot constructor accepts composed objects and each public method delegates to the appropriate component.",
       "explanation": "Advanced composition involves coordinating multiple heterogeneous components. The Robot aggregates Motor, Sensor, and Controller, delegating responsibilities to achieve complex behavior without inheritance."
@@ -540,9 +576,21 @@
       "starter_code": "class Room:\n    def __init__(self, name, area):\n        self.name = name\n        self.area = area\n\nclass House:\n    def __init__(self):\n        self.rooms = []\n        self.total_area = 0\n\n    def add_room(self, room):\n        pass\n\n    def remove_room(self, room_name):\n        pass\n\n    def list_rooms(self):\n        pass\n\n    def total_area(self):\n        pass",
       "solution_code": "class Room:\n    def __init__(self, name, area):\n        self.name = name\n        self.area = area\n\nclass House:\n    def __init__(self):\n        self.rooms = []\n        self.total_area = 0\n\n    def add_room(self, room):\n        self.rooms.append(room)\n        self.total_area += room.area\n\n    def remove_room(self, room_name):\n        for room in self.rooms:\n            if room.name == room_name:\n                self.rooms.remove(room)\n                self.total_area -= room.area\n                break\n\n    def list_rooms(self):\n        return [room.name for room in self.rooms]\n\n    def total_area(self):\n        return self.total_area",
       "test_cases": [
-        "r1 = Room('Kitchen', 50); r2 = Room('Bedroom', 20); h = House(); h.add_room(r1); h.add_room(r2); assert h.total_area() == 70",
-        "assert h.list_rooms() == ['Kitchen', 'Bedroom']",
-        "h.remove_room('Kitchen'); assert h.total_area() == 20; assert h.list_rooms() == ['Bedroom']"
+        {
+          "input": "r1 = Room('Kitchen', 50); r2 = Room('Bedroom', 20); h = House(); h.add_room(r1); h.add_room(r2); assert h.total_area()",
+          "expected_output": "70",
+          "description": "Verifies: r1 = Room('Kitchen', 50); r2 = Room('Bedroom', 20); h = House(); h.add_room(r1); h.add_room(r2); assert h.total_area() == 70"
+        },
+        {
+          "input": "assert h.list_rooms()",
+          "expected_output": "['Kitchen', 'Bedroom']",
+          "description": "Verifies: assert h.list_rooms() == ['Kitchen', 'Bedroom']"
+        },
+        {
+          "input": "h.remove_room('Kitchen'); assert h.total_area()",
+          "expected_output": "20; assert h.list_rooms() == ['Bedroom']",
+          "description": "Verifies: h.remove_room('Kitchen'); assert h.total_area() == 20; assert h.list_rooms() == ['Bedroom']"
+        }
       ],
       "hint": "Remember to update self.total_area when modifying self.rooms to maintain consistency.",
       "explanation": "This challenge tests your ability to maintain derived state (total_area) while using composition. The House 'has-a' Rooms, and the relationship must remain internally consistent."
@@ -560,9 +608,21 @@
       "starter_code": "class Thermostat:\n    def adjust(self, temperature):\n        pass\n\nclass Light:\n    def toggle(self):\n        pass\n\nclass SecuritySystem:\n    def arm(self):\n        pass\n\n    def disarm(self):\n        pass\n\nclass SmartHome:\n    def __init__(self, thermostat, light, security):\n        self.thermostat = thermostat\n        self.light = light\n        self.security = security\n\n    def set_temperature(self, temp):\n        pass\n\n    def switch_light(self):\n        pass\n\n    def arm_system(self):\n        pass\n\n    def disarm_system(self):\n        pass",
       "solution_code": "class Thermostat:\n    def adjust(self, temperature):\n        return f'Thermostat set to {temperature} degrees'\n\nclass Light:\n    def toggle(self):\n        return 'Light toggled'\n\nclass SecuritySystem:\n    def arm(self):\n        return 'Security armed'\n\n    def disarm(self):\n        return 'Security disarmed'\n\nclass SmartHome:\n    def __init__(self, thermostat, light, security):\n        self.thermostat = thermostat\n        self.light = light\n        self.security = security\n\n    def set_temperature(self, temp):\n        return self.thermostat.adjust(temp)\n\n    def switch_light(self):\n        return self.light.toggle()\n\n    def arm_system(self):\n        return self.security.arm()\n\n    def disarm_system(self):\n        return self.security.disarm()",
       "test_cases": [
-        "t = Thermostat(); l = Light(); s = SecuritySystem(); home = SmartHome(t, l, s); assert home.set_temperature(22) == 'Thermostat set to 22 degrees'",
-        "assert home.switch_light() == 'Light toggled'",
-        "assert home.arm_system() == 'Security armed'; assert home.disarm_system() == 'Security disarmed'"
+        {
+          "input": "t = Thermostat(); l = Light(); s = SecuritySystem(); home = SmartHome(t, l, s); assert home.set_temperature(22)",
+          "expected_output": "'Thermostat set to 22 degrees'",
+          "description": "Verifies: t = Thermostat(); l = Light(); s = SecuritySystem(); home = SmartHome(t, l, s); assert home.set_temperature(22) == 'Thermostat set to 22 degrees'"
+        },
+        {
+          "input": "assert home.switch_light()",
+          "expected_output": "'Light toggled'",
+          "description": "Verifies: assert home.switch_light() == 'Light toggled'"
+        },
+        {
+          "input": "assert home.arm_system()",
+          "expected_output": "'Security armed'; assert home.disarm_system() == 'Security disarmed'",
+          "description": "Verifies: assert home.arm_system() == 'Security armed'; assert home.disarm_system() == 'Security disarmed'"
+        }
       ],
       "hint": "Each SmartHome method should delegate to its corresponding component. This models a real-world system where devices are composed into a unified interface.",
       "explanation": "Real-world scenarios often require composing independent subsystems into a cohesive whole. SmartHome demonstrates how composition enables modularity, reuse, and easier maintenance compared to deep inheritance hierarchies."
@@ -580,9 +640,21 @@
       "starter_code": "class Book:\n    def __init__(self, title, author):\n        self.title = title\n        self.author = author\n        self.available = True\n\nclass Member:\n    def __init__(self, name):\n        self.name = name\n        self.borrowed = []\n\nclass Library:\n    def __init__(self):\n        self.books = []\n        self.members = []\n\n    def add_book(self, book):\n        pass\n\n    def register_member(self, member):\n        pass\n\n    def lend_book(self, member_name, book_title):\n        pass\n\n    def return_book(self, member_name, book_title):\n        pass",
       "solution_code": "class Book:\n    def __init__(self, title, author):\n        self.title = title\n        self.author = author\n        self.available = True\n\nclass Member:\n    def __init__(self, name):\n        self.name = name\n        self.borrowed = []\n\nclass Library:\n    def __init__(self):\n        self.books = []\n        self.members = []\n\n    def add_book(self, book):\n        self.books.append(book)\n\n    def register_member(self, member):\n        self.members.append(member)\n\n    def lend_book(self, member_name, book_title):\n        member = next((m for m in self.members if m.name == member_name), None)\n        book = next((b for b in self.books if b.title == book_title), None)\n        if member and book and book.available:\n            book.available = False\n            member.borrowed.append(book.title)\n            return f'Lent {book_title} to {member_name}'\n        return 'Lending failed'\n\n    def return_book(self, member_name, book_title):\n        member = next((m for m in self.members if m.name == member_name), None)\n        book = next((b for b in self.books if b.title == book_title), None)\n        if member and book and not book.available:\n            book.available = True\n            if book_title in member.borrowed:\n                member.borrowed.remove(book_title)\n            return f'Returned {book_title} from {member_name}'\n        return 'Return failed'",
       "test_cases": [
-        "b1 = Book('Python 101', 'Alice'); m1 = Member('Bob'); lib = Library(); lib.add_book(b1); lib.register_member(m1); assert lib.lend_book('Bob', 'Python 101') == 'Lent Python 101 to Bob'",
-        "assert b1.available == False; assert 'Python 101' in m1.borrowed",
-        "assert lib.return_book('Bob', 'Python 101') == 'Returned Python 101 from Bob'; assert b1.available == True; assert 'Python 101' not in m1.borrowed"
+        {
+          "input": "b1 = Book('Python 101', 'Alice'); m1 = Member('Bob'); lib = Library(); lib.add_book(b1); lib.register_member(m1); assert lib.lend_book('Bob', 'Python 101')",
+          "expected_output": "'Lent Python 101 to Bob'",
+          "description": "Verifies: b1 = Book('Python 101', 'Alice'); m1 = Member('Bob'); lib = Library(); lib.add_book(b1); lib.register_member(m1); assert lib.lend_book('Bob', 'Python 101') == 'Lent Python 101 to Bob'"
+        },
+        {
+          "input": "assert b1.available",
+          "expected_output": "False; assert 'Python 101' in m1.borrowed",
+          "description": "Verifies: assert b1.available == False; assert 'Python 101' in m1.borrowed"
+        },
+        {
+          "input": "assert lib.return_book('Bob', 'Python 101')",
+          "expected_output": "'Returned Python 101 from Bob'; assert b1.available == True; assert 'Python 101' not in m1.borrowed",
+          "description": "Verifies: assert lib.return_book('Bob', 'Python 101') == 'Returned Python 101 from Bob'; assert b1.available == True; assert 'Python 101' not in m1.borrowed"
+        }
       ],
       "hint": "Use generator expressions with next() to locate members and books efficiently. Maintain availability and borrowed list consistency.",
       "explanation": "Mastery of composition requires managing shared mutable state across composed objects. The Library coordinates Book and Member instances, demonstrating how composition supports encapsulation, flexibility, and clean separation of concerns in object-oriented design."

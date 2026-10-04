@@ -133,12 +133,19 @@
       "prerequisites": [
         "8.1_q7"
       ],
-      "prompt": "Identify and fix the logical or syntax defect in this implementation of Creating Lists:",
+      "prompt": "Defensive Validation: Implement a verification helper for Creating Lists that confirms preconditions and guards against invalid input.",
       "correct_answer": "'BANANA'",
-      "explanation": "Debugging is a core programming competency. Guarding against edge cases like `None` or invalid states prevents runtime failures.",
-      "starter_code": "# Fix the issue with Creating Lists\ndef check_valid(val):\n    if val is None:\n        return False\n    return True",
-      "solution_code": "def check_valid(val):\n    if val is None:\n        return False\n    return True",
-      "hint": "Check the condition and return value carefully."
+      "explanation": "Validating preconditions at the boundary prevents null pointer and type exceptions downstream.",
+      "starter_code": "def validate_8_1_input(val):\n    # Return True if val is valid, False otherwise\n    pass",
+      "solution_code": "def validate_8_1_input(val):\n    if val is None or val == '':\n        return False\n    return True",
+      "hint": "Check the condition and return value carefully.",
+      "test_cases": [
+        {
+          "input": "'valid_token'",
+          "expected_output": "True",
+          "description": "valid input returns True"
+        }
+      ]
     },
     {
       "id": "8.1_q9",
@@ -452,9 +459,21 @@
       "starter_code": "def squares(n):\n    result = []\n    for i in range(n):\n        result.append(i ** 2)\n    return result",
       "solution_code": "def squares(n):\n    return [i ** 2 for i in range(n)]",
       "test_cases": [
-        "squares(0) == []",
-        "squares(1) == [0]",
-        "squares(5) == [0, 1, 4, 9, 16]"
+        {
+          "input": "squares(0)",
+          "expected_output": "[]",
+          "description": "Verifies: squares(0) == []"
+        },
+        {
+          "input": "squares(1)",
+          "expected_output": "[0]",
+          "description": "Verifies: squares(1) == [0]"
+        },
+        {
+          "input": "squares(5)",
+          "expected_output": "[0, 1, 4, 9, 16]",
+          "description": "Verifies: squares(5) == [0, 1, 4, 9, 16]"
+        }
       ],
       "hint": "Consider using a list comprehension to replace the explicit loop and append calls.",
       "explanation": "The original implementation used a for loop with repeated append calls, which is more verbose and slightly slower. The refactored version uses a list comprehension, which is the idiomatic Python approach for constructing a list from an iterable. It is more concise, readable, and typically faster for this pattern."

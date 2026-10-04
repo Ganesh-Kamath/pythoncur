@@ -456,9 +456,21 @@
       "starter_code": "def count_items(data):\n    result = {}\n    for item in data:\n        if item in result:\n            result[item] += 1\n        else:\n            result[item] = 1\n    return result",
       "solution_code": "from typing import Iterable, TypeVar, Dict\n\nT = TypeVar('T')\n\ndef count_items(data: Iterable[T]) -> Dict[T, int]:\n    \"\"\"Return a dictionary mapping each unique item in data to its occurrence count.\"\"\"\n    result: Dict[T, int] = {}\n    for item in data:\n        if item in result:\n            result[item] += 1\n        else:\n            result[item] = 1\n    return result",
       "test_cases": [
-        "assert count_items([1, 2, 2, 3]) == {1: 1, 2: 2, 3: 1}",
-        "assert count_items('abracadabra') == {'a': 5, 'b': 2, 'r': 2, 'c': 1, 'd': 1}",
-        "assert count_items(()) == {}"
+        {
+          "input": "assert count_items([1, 2, 2, 3])",
+          "expected_output": "{1: 1, 2: 2, 3: 1}",
+          "description": "Verifies: assert count_items([1, 2, 2, 3]) == {1: 1, 2: 2, 3: 1}"
+        },
+        {
+          "input": "assert count_items('abracadabra')",
+          "expected_output": "{'a': 5, 'b': 2, 'r': 2, 'c': 1, 'd': 1}",
+          "description": "Verifies: assert count_items('abracadabra') == {'a': 5, 'b': 2, 'r': 2, 'c': 1, 'd': 1}"
+        },
+        {
+          "input": "assert count_items(())",
+          "expected_output": "{}",
+          "description": "Verifies: assert count_items(()) == {}"
+        }
       ],
       "hint": "Use a TypeVar to preserve the element type of the iterable, and annotate the return dictionary accordingly. Consider whether the function should accept a broader collection type.",
       "explanation": "The refactored version introduces a TypeVar 'T' to represent the element type, making the signature generic. 'Iterable[T]' accepts any iterable (list, tuple, generator, etc.), and 'Dict[T, int]' precisely describes the return value. The local variable 'result' is also annotated for clarity. A docstring explains the contract. Static type checkers can now verify correct usage across diverse input types."
@@ -472,17 +484,18 @@
       "prerequisites": [
         "22.6_q24"
       ],
-      "prompt": "Write a clean, reusable function or code statement that demonstrates core usage of Type Hints and Annotations:",
-      "starter_code": "# Implement a solution for Type Hints and Annotations\ndef solve():\n    ___",
-      "solution_code": "def solve():\n    # Core implementation of Type Hints and Annotations\n    return True",
+      "prompt": "Milestone Implementation: Construct a modular, well-tested function that applies the central principles of Type Hints and Annotations.",
+      "starter_code": "def process_22_6_data(items):\n    # Process input according to Type Hints and Annotations rules\n    pass",
+      "solution_code": "def process_22_6_data(items):\n    return [item for item in items if item is not None]",
       "test_cases": [
         {
-          "input": "",
-          "expected_output": "Type Hints and Annotations Result 25"
+          "input": "[1, None, 2, None, 3]",
+          "expected_output": "[1, 2, 3]",
+          "description": "cleans null values using Type Hints and Annotations rules"
         }
       ],
       "hint": "Focus on applying the central Python idiom for Type Hints and Annotations.",
-      "explanation": "Understanding how to construct clean implementations of Type Hints and Annotations ensures you can integrate it into broader software applications."
+      "explanation": "Constructing pure, robust data transformers for Type Hints and Annotations avoids unintended side effects and guarantees consistent return contracts."
     },
     {
       "id": "22.6_q26",
@@ -493,17 +506,18 @@
       "prerequisites": [
         "22.6_q25"
       ],
-      "prompt": "Identify and fix the logical or syntax defect in this implementation of Type Hints and Annotations:",
-      "starter_code": "# Fix the issue with Type Hints and Annotations\ndef check_valid(val):\n    if val is None:\n        return False\n    return True",
-      "solution_code": "def check_valid(val):\n    if val is None:\n        return False\n    return True",
+      "prompt": "Defensive Validation: Implement a verification helper for Type Hints and Annotations that confirms preconditions and guards against invalid input.",
+      "starter_code": "def validate_22_6_input(val):\n    # Return True if val is valid, False otherwise\n    pass",
+      "solution_code": "def validate_22_6_input(val):\n    if val is None or val == '':\n        return False\n    return True",
       "test_cases": [
         {
-          "input": "",
-          "expected_output": "Type Hints and Annotations Result 26"
+          "input": "'valid_token'",
+          "expected_output": "True",
+          "description": "valid input returns True"
         }
       ],
       "hint": "Check the condition and return value carefully.",
-      "explanation": "Debugging is a core programming competency. Guarding against edge cases like `None` or invalid states prevents runtime failures."
+      "explanation": "Validating preconditions at the boundary prevents null pointer and type exceptions downstream."
     },
     {
       "id": "22.6_q27",
@@ -535,24 +549,25 @@
     },
     {
       "id": "22.6_q28",
-      "type": "real_world_scenario",
+      "type": "write_the_code",
       "concept": "type_hints_and_annotations_production_transfer",
-      "skill": "application",
+      "skill": "transfer",
       "difficulty": "hard",
       "prerequisites": [
         "22.6_q27"
       ],
-      "prompt": "Apply Type Hints and Annotations to a realistic scenario: process a sequence of records and return only those meeting the business rule:",
-      "starter_code": "records = [{'id': 1, 'active': True}, {'id': 2, 'active': False}]\n# Filter active records\nactive_records = ___",
-      "solution_code": "records = [{'id': 1, 'active': True}, {'id': 2, 'active': False}]\nactive_records = [r for r in records if r['active']]",
+      "prompt": "Transfer Challenge: Solve a practical problem using Type Hints and Annotations. Implement the function below to satisfy the stated contract.",
+      "starter_code": "def handle_domain_task(val):\n    # Implement domain logic for Type Hints and Annotations\n    return str(val).strip()",
+      "solution_code": "def handle_domain_task(val):\n    return str(val).strip().upper()",
       "test_cases": [
         {
-          "input": "",
-          "expected_output": "Type Hints and Annotations Result 28"
+          "input": "'  python  '",
+          "expected_output": "'PYTHON'",
+          "description": "domain sanitization"
         }
       ],
       "hint": "Use a list comprehension to filter records where 'active' is True.",
-      "explanation": "In production Python code, Type Hints and Annotations is frequently combined with data filtering to process structured domain models efficiently."
+      "explanation": "Applying clean functional contracts for Type Hints and Annotations ensures testable domain operations."
     },
     {
       "id": "22.6_q29",
@@ -580,21 +595,22 @@
       "type": "write_the_code",
       "concept": "type_hints_and_annotations_mastery_challenge",
       "skill": "transfer",
-      "difficulty": "expert",
+      "difficulty": "hard",
       "prerequisites": [
         "22.6_q29"
       ],
-      "prompt": "Mastery Challenge: Implement a robust, tested function for Type Hints and Annotations that processes inputs, validates preconditions, and handles invalid states cleanly:",
-      "starter_code": "def execute_task(data):\n    if not data:\n        return None\n    # Process valid data\n    ___",
-      "solution_code": "def execute_task(data):\n    if not data:\n        return None\n    return sorted(data)",
+      "prompt": "Final Capstone Verification: Write a production-grade handler for Type Hints and Annotations that processes batches and handles empty inputs cleanly.",
+      "starter_code": "def execute_22_6_workflow(batch):\n    # Validate and transform batch\n    pass",
+      "solution_code": "def execute_22_6_workflow(batch):\n    if not batch:\n        return []\n    return [str(x).strip() for x in batch]",
       "test_cases": [
         {
-          "input": "",
-          "expected_output": "Type Hints and Annotations Result 30"
+          "input": "[' a ', 'b ']",
+          "expected_output": "['a', 'b']",
+          "description": "batch processing workflow"
         }
       ],
       "hint": "Validate input first, then execute the transformation.",
-      "explanation": "Demonstrating end-to-end mastery of Type Hints and Annotations requires combining input validation, core algorithmic logic, and defensive programming."
+      "explanation": "Production workflows for Type Hints and Annotations must validate inputs, maintain immutability, and return deterministic results."
     }
   ],
   "unit_num": 22,

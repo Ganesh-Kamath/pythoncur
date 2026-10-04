@@ -507,7 +507,13 @@
       ],
       "prompt": "A CSV log contains comma-separated numbers stored as text: `\"12.5\"` and `\"3.5\"`. Which expression computes their exact sum as a float (16.0)?",
       "correct_answer": "B",
-      "explanation": "Python logical operators use short-circuit evaluation: `and` stops and returns the first falsy operand, while `or` stops and returns the first truthy operand without evaluating subsequent expressions."
+      "explanation": "Python logical operators use short-circuit evaluation: `and` stops and returns the first falsy operand, while `or` stops and returns the first truthy operand without evaluating subsequent expressions.",
+      "options": [
+        "A. Use the text directly in addition without conversion.",
+        "B. Split by comma and convert each piece using int() or float().",
+        "C. Multiply the entire string by 2.",
+        "D. Text numbers automatically convert to integers when saved in variables."
+      ]
     },
     {
       "id": "2.7_q30",
@@ -526,7 +532,13 @@
       ],
       "prompt": "Congratulations on completing Unit 2! Which statement best summarizes Python variables, data types, and conversions?",
       "correct_answer": "A",
-      "explanation": "This synthesizes the complete learning objectives of Unit 2: variables, naming conventions, core scalar types, dynamic object model, and explicit casting."
+      "explanation": "This synthesizes the complete learning objectives of Unit 2: variables, naming conventions, core scalar types, dynamic object model, and explicit casting.",
+      "options": [
+        "A. Explicit casting (int(), float(), str()) safely converts compatible data across representations, raising ValueError on malformed inputs.",
+        "B. Casting int('hello') returns 0.",
+        "C. Floating point numbers cannot be converted to integers.",
+        "D. Converting float('3.14') to int rounds to the nearest integer rather than truncating toward zero."
+      ]
     }
   ],
   "unit_num": 2,

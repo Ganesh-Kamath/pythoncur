@@ -507,10 +507,26 @@
       "starter_code": "def unique_above_ten(numbers):\n    result = set()\n    for n in numbers:\n        # your logic here\n    return result\n\n# Example\nprint(unique_above_ten([5, 12, 12, 8, 15, 10, 20]))",
       "solution_code": "def unique_above_ten(numbers):\n    result = set()\n    for n in numbers:\n        if n > 10:\n            result.add(n)\n    return result\n\n# Example\nprint(unique_above_ten([5, 12, 12, 8, 15, 10, 20]))  # Output: {12, 15, 20}",
       "test_cases": [
-        "[12, 3, 15, 12, 8, 20, 20]",
-        "[5, 5, 5, 6]",
-        "[]",
-        "[11, 12, 13, 14, 15]"
+        {
+          "input": "",
+          "expected_output": "[12, 3, 15, 12, 8, 20, 20]",
+          "description": "[12, 3, 15, 12, 8, 20, 20]"
+        },
+        {
+          "input": "",
+          "expected_output": "[5, 5, 5, 6]",
+          "description": "[5, 5, 5, 6]"
+        },
+        {
+          "input": "",
+          "expected_output": "[]",
+          "description": "[]"
+        },
+        {
+          "input": "",
+          "expected_output": "[11, 12, 13, 14, 15]",
+          "description": "[11, 12, 13, 14, 15]"
+        }
       ],
       "hint": "Use a set to automatically handle uniqueness. Check each element with a simple comparison before adding it.",
       "explanation": "Sets inherently store only unique values. By iterating through the input list and conditionally adding elements greater than 10, we leverage set uniqueness. The membership test `n > 10` ensures only qualifying values are included."
@@ -528,9 +544,21 @@
       "starter_code": "students_tuple = ('Alice', 'Bob', 'Charlie', 'Diana', 'Eve')\nenrolled = {'Alice', 'Charlie', 'Eve'}\n\ndef find_unenrolled(t, s):\n    # your logic here\n    return unenrolled\n\nprint(find_unenrolled(students_tuple, enrolled))",
       "solution_code": "students_tuple = ('Alice', 'Bob', 'Charlie', 'Diana', 'Eve')\nenrolled = {'Alice', 'Charlie', 'Eve'}\n\ndef find_unenrolled(t, s):\n    unenrolled = set()\n    for name in t:\n        if name not in s:\n            unenrolled.add(name)\n    return unenrolled\n\nprint(find_unenrolled(students_tuple, enrolled))  # Output: {'Bob', 'Diana'}",
       "test_cases": [
-        "('Tom', 'Jerry', 'Spike'), {'Tom', 'Spike'}",
-        "('A', 'B', 'C'), set()",
-        "('X', 'Y'), {'X', 'Y'}"
+        {
+          "input": "",
+          "expected_output": "('Tom', 'Jerry', 'Spike'), {'Tom', 'Spike'}",
+          "description": "('Tom', 'Jerry', 'Spike'), {'Tom', 'Spike'}"
+        },
+        {
+          "input": "",
+          "expected_output": "('A', 'B', 'C'), set()",
+          "description": "('A', 'B', 'C'), set()"
+        },
+        {
+          "input": "",
+          "expected_output": "('X', 'Y'), {'X', 'Y'}",
+          "description": "('X', 'Y'), {'X', 'Y'}"
+        }
       ],
       "hint": "Iterate over the tuple and use the `not in` operator to check membership in the set. Add non-members to a new set.",
       "explanation": "Tuples preserve order but are immutable, while sets offer O(1) average-time membership checks. By combining both, we efficiently identify missing enrollments without duplicates."
@@ -548,9 +576,21 @@
       "starter_code": "def courses_with_many_students(data):\n    result = set()\n    for entry in data:\n        code = entry[0]\n        ids = entry[1]\n        seen = set()\n        count = 0\n        for sid in ids:\n            # your logic here\n        if count > 3:\n            result.add(code)\n    return result\n\n# Example\nprint(courses_with_many_students([('CS101', [1, 2, 3, 4]), ('MATH202', [5, 5, 6])]))",
       "solution_code": "def courses_with_many_students(data):\n    result = set()\n    for entry in data:\n        code = entry[0]\n        ids = entry[1]\n        seen = set()\n        for sid in ids:\n            if sid not in seen:\n                seen.add(sid)\n                count = len(seen)\n        if len(seen) > 3:\n            result.add(code)\n    return result\n\n# Example\nprint(courses_with_many_students([('CS101', [1, 2, 3, 4]), ('MATH202', [5, 5, 6])]))  # Output: {'CS101'}",
       "test_cases": [
-        "[('ART101', [10, 11]), ('SCI202', [12, 13, 14, 15, 16, 16])]",
-        "[('ENG303', [1, 1, 2, 3]), ('HIST404', [4, 5, 6, 7, 8])]",
-        "[]"
+        {
+          "input": "",
+          "expected_output": "[('ART101', [10, 11]), ('SCI202', [12, 13, 14, 15, 16, 16])]",
+          "description": "[('ART101', [10, 11]), ('SCI202', [12, 13, 14, 15, 16, 16])]"
+        },
+        {
+          "input": "",
+          "expected_output": "[('ENG303', [1, 1, 2, 3]), ('HIST404', [4, 5, 6, 7, 8])]",
+          "description": "[('ENG303', [1, 1, 2, 3]), ('HIST404', [4, 5, 6, 7, 8])]"
+        },
+        {
+          "input": "",
+          "expected_output": "[]",
+          "description": "[]"
+        }
       ],
       "hint": "Use an auxiliary set to record IDs you have already counted. Only increment your effective count when a new ID is encountered.",
       "explanation": "Nested iteration with an inner tracking set ensures we count unique student IDs per course. The outer set collects qualifying course codes, demonstrating layered use of uniqueness and membership."
@@ -568,9 +608,21 @@
       "starter_code": "active_skus = tuple(['SKU001', 'SKU002', 'SKU003', 'SKU004', 'SKU002'])\ndiscontinued = {'SKU002', 'SKU005'}\n\n# Your single-expression solution here\nprint(active_skus)",
       "solution_code": "active_skus = tuple(['SKU001', 'SKU002', 'SKU003', 'SKU004', 'SKU002'])\ndiscontinued = {'SKU002', 'SKU005'}\n\nresult = set(active_skus) - discontinued\nprint(result)  # Output: {'SKU001', 'SKU003', 'SKU004'}",
       "test_cases": [
-        "tuple(['A', 'B', 'C', 'A']), {'B'}",
-        "tuple(['X', 'Y']), set()",
-        "tuple(['P']), {'P'}"
+        {
+          "input": "",
+          "expected_output": "tuple(['A', 'B', 'C', 'A']), {'B'}",
+          "description": "tuple(['A', 'B', 'C', 'A']), {'B'}"
+        },
+        {
+          "input": "",
+          "expected_output": "tuple(['X', 'Y']), set()",
+          "description": "tuple(['X', 'Y']), set()"
+        },
+        {
+          "input": "",
+          "expected_output": "tuple(['P']), {'P'}",
+          "description": "tuple(['P']), {'P'}"
+        }
       ],
       "hint": "Convert the tuple to a set to exploit uniqueness, then subtract the discontinued set. This uses set difference in one expression.",
       "explanation": "Converting the tuple to a set removes duplicates automatically. Set difference (`-`) then excludes any discontinued items, yielding only active unique SKUs without loops."
@@ -588,8 +640,16 @@
       "starter_code": "checked_out = {'B101', 'B102', 'B103'}\nreturns = ('B102', 'B104', 'B101', 'B105')\nnew_acquisitions = ('B106', 'B107', 'B108', 'B102')\n\n# your code here\nprint(checked_out)",
       "solution_code": "checked_out = {'B101', 'B102', 'B103'}\nreturns = ('B102', 'B104', 'B101', 'B105')\nnew_acquisitions = ('B106', 'B107', 'B108', 'B102')\n\nreturned_checked_out = set()\nfor r in returns:\n    if r in checked_out:\n        returned_checked_out.add(r)\n        checked_out.discard(r)\n\nfor n in new_acquisitions:\n    checked_out.add(n)\n\nprint('Updated checked-out:', checked_out)\nprint('Returned and already checked out:', returned_checked_out)  # Output: Updated checked-out: {'B103', 'B106', 'B107', 'B108'}, Returned and already checked out: {'B101', 'B102'}",
       "test_cases": [
-        "checked_out={'A1'}, returns=('A1',), new_acquisitions=()",
-        "checked_out=set(), returns=(), new_acquisitions=('Z1', 'Z2')"
+        {
+          "input": "",
+          "expected_output": "checked_out={'A1'}, returns=('A1',), new_acquisitions=()",
+          "description": "checked_out={'A1'}, returns=('A1',), new_acquisitions=()"
+        },
+        {
+          "input": "",
+          "expected_output": "checked_out=set(), returns=(), new_acquisitions=('Z1', 'Z2')",
+          "description": "checked_out=set(), returns=(), new_acquisitions=('Z1', 'Z2')"
+        }
       ],
       "hint": "Use set membership to detect returns already in circulation. Use `discard` to avoid errors if an ID is missing. Add new acquisitions directly to the set.",
       "explanation": "This scenario synthesizes tuple iteration, set membership testing, and set mutation. `discard` safely removes items, while `add` handles new acquisitions. The returned set captures overlap between returns and current inventory."
@@ -607,9 +667,21 @@
       "starter_code": "def extract_valid_ys(coords, forbidden_x):\n    valid_ys = set()\n    for pair in coords:\n        x, y = pair\n        # your logic here\n    return valid_ys\n\n# Example\nprint(extract_valid_ys(((1, 10), (2, 20), (1, 10), (3, 30)), {2})))",
       "solution_code": "def extract_valid_ys(coords, forbidden_x):\n    valid_ys = set()\n    for pair in coords:\n        x, y = pair\n        if x not in forbidden_x:\n            valid_ys.add(y)\n    return valid_ys\n\n# Example\nprint(extract_valid_ys(((1, 10), (2, 20), (1, 10), (3, 30)), {2}))  # Output: {10, 30}",
       "test_cases": [
-        "((0, 5), (0, 5), (1, 6)), {0}",
-        "((10, 100), (20, 200), (30, 300)), set()",
-        "(), {1, 2}"
+        {
+          "input": "",
+          "expected_output": "((0, 5), (0, 5), (1, 6)), {0}",
+          "description": "((0, 5), (0, 5), (1, 6)), {0}"
+        },
+        {
+          "input": "",
+          "expected_output": "((10, 100), (20, 200), (30, 300)), set()",
+          "description": "((10, 100), (20, 200), (30, 300)), set()"
+        },
+        {
+          "input": "",
+          "expected_output": "(), {1, 2}",
+          "description": "(), {1, 2}"
+        }
       ],
       "hint": "Iterate through the tuple, unpack each pair, check x-membership in the forbidden set, and accumulate y-values in a set to guarantee uniqueness.",
       "explanation": "Mastery here requires coordinating tuple unpacking, set membership for filtering, and set insertion for uniqueness. Duplicate coordinates are naturally collapsed by the output set, and the algorithm remains O(n) where n is the number of coordinate pairs."

@@ -475,9 +475,21 @@
       "starter_code": "import sqlite3\n\ndef fetch_users():\n    conn = sqlite3.connect('app.db')\n    cur = conn.cursor()\n    cur.execute('SELECT id, email FROM users')\n    return cur.fetchall()\n\ndef fetch_orders():\n    conn = sqlite3.connect('app.db')\n    cur = conn.cursor()\n    cur.execute('SELECT id, user_id FROM orders')\n    return cur.fetchall()\n\ndef main():\n    users = fetch_users()\n    orders = fetch_orders()\n    print('Users:', users)\n    print('Orders:', orders)\n\nmain()",
       "solution_code": "import sqlite3\n\ndef query_db(sql, params=None):\n    try:\n        conn = sqlite3.connect('app.db')\n        cur = conn.cursor()\n        if params:\n            cur.execute(sql, params)\n        else:\n            cur.execute(sql)\n        result = cur.fetchall()\n        conn.close()\n        return result\n    except sqlite3.Error as e:\n        print('Database error:', e)\n        return None\n\ndef fetch_users():\n    return query_db('SELECT id, email FROM users')\n\ndef fetch_orders():\n    return query_db('SELECT id, user_id FROM orders')\n\ndef main():\n    users = fetch_users()\n    orders = fetch_orders()\n    print('Users:', users)\n    print('Orders:', orders)\n\nmain()",
       "test_cases": [
-        "query_db with valid SELECT returns a list of tuples",
-        "query_db with invalid SQL returns None and prints an error",
-        "fetch_users returns the same result as the original fetch_users"
+        {
+          "input": "",
+          "expected_output": "query_db with valid SELECT returns a list of tuples",
+          "description": "query_db with valid SELECT returns a list of tuples"
+        },
+        {
+          "input": "",
+          "expected_output": "query_db with invalid SQL returns None and prints an error",
+          "description": "query_db with invalid SQL returns None and prints an error"
+        },
+        {
+          "input": "",
+          "expected_output": "fetch_users returns the same result as the original fetch_users",
+          "description": "fetch_users returns the same result as the original fetch_users"
+        }
       ],
       "hint": "Extract the repeated connection, execution, and closing logic into a single helper function. Wrap the connection in a try-except block.",
       "explanation": "The original code duplicated the database connection and cursor setup in every fetch function. The refactored version introduces query_db as a reusable helper that handles connection, execution, and error handling. This reduces duplication, centralizes error management, and makes future maintenance easier."

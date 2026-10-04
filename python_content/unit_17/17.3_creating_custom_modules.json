@@ -485,9 +485,21 @@
       "starter_code": "import calculator\n\n# TODO: call calculator.add and calculator.multiply\nresult = calculator.add(5, 3)\nprint(result)",
       "solution_code": "import calculator\n\nresult_add = calculator.add(5, 3)\nprint('Addition result:', result_add)\n\nresult_multiply = calculator.multiply(4, 6)\nprint('Multiplication result:', result_multiply)",
       "test_cases": [
-        "calculator.add(2, 3) returns 5",
-        "calculator.multiply(7, 8) returns 56",
-        "main.py runs without ImportError"
+        {
+          "input": "",
+          "expected_output": "calculator.add(2, 3) returns 5",
+          "description": "calculator.add(2, 3) returns 5"
+        },
+        {
+          "input": "",
+          "expected_output": "calculator.multiply(7, 8) returns 56",
+          "description": "calculator.multiply(7, 8) returns 56"
+        },
+        {
+          "input": "",
+          "expected_output": "main.py runs without ImportError",
+          "description": "main.py runs without ImportError"
+        }
       ],
       "hint": "Ensure both functions are defined in calculator.py and imported correctly using the module name.",
       "explanation": "A custom module is a .py file containing reusable code. By saving functions in calculator.py and importing them in main.py, you separate logic and promote code reuse."
@@ -505,9 +517,21 @@
       "starter_code": "from text_utils import reverse_words\n\nsentence = 'the quick brown fox'\noutput = reverse_words(sentence)\nprint(output)",
       "solution_code": "from text_utils import reverse_words\n\nsentence = 'the quick brown fox'\noutput = reverse_words(sentence)\nprint(output)",
       "test_cases": [
-        "reverse_words('hello world') returns 'world hello'",
-        "reverse_words('a b c') returns 'c b a'",
-        "script executes without errors"
+        {
+          "input": "",
+          "expected_output": "reverse_words('hello world') returns 'world hello'",
+          "description": "reverse_words('hello world') returns 'world hello'"
+        },
+        {
+          "input": "",
+          "expected_output": "reverse_words('a b c') returns 'c b a'",
+          "description": "reverse_words('a b c') returns 'c b a'"
+        },
+        {
+          "input": "",
+          "expected_output": "script executes without errors",
+          "description": "script executes without errors"
+        }
       ],
       "hint": "Split the sentence by spaces, reverse the resulting list, then join it back with spaces.",
       "explanation": "This demonstrates practical module usage by encapsulating a text-processing utility in its own file for reuse across projects."
@@ -525,9 +549,21 @@
       "starter_code": "# inside data_processing/analyzer.py\ndef mean(data):\n    return sum(data) / len(data)\n\n# inside data_processing/cleaner.py\ndef remove_nulls(data):\n    return [x for x in data if x is not None]\n\n# inside data_processing/main.py\nfrom . import analyzer\nfrom . import cleaner\n\nsample = [1, None, 3, 4]\ncleaned = cleaner.remove_nulls(sample)\nprint(analyzer.mean(cleaned))",
       "solution_code": "# inside data_processing/analyzer.py\ndef mean(data):\n    if not data:\n        raise ValueError('data is empty')\n    return sum(data) / len(data)\n\n# inside data_processing/cleaner.py\ndef remove_nulls(data):\n    return [x for x in data if x is not None]\n\n# inside data_processing/main.py\nfrom . import analyzer\nfrom . import cleaner\n\nsample = [1, None, 3, 4, None]\ncleaned = cleaner.remove_nulls(sample)\nprint('Cleaned data:', cleaned)\nprint('Mean:', analyzer.mean(cleaned))",
       "test_cases": [
-        "remove_nulls([1, None, 3]) returns [1, 3]",
-        "mean([2, 4, 6]) returns 4.0",
-        "main.py runs with relative import and no NameError"
+        {
+          "input": "",
+          "expected_output": "remove_nulls([1, None, 3]) returns [1, 3]",
+          "description": "remove_nulls([1, None, 3]) returns [1, 3]"
+        },
+        {
+          "input": "",
+          "expected_output": "mean([2, 4, 6]) returns 4.0",
+          "description": "mean([2, 4, 6]) returns 4.0"
+        },
+        {
+          "input": "",
+          "expected_output": "main.py runs with relative import and no NameError",
+          "description": "main.py runs with relative import and no NameError"
+        }
       ],
       "hint": "Use 'from .module import name' for relative imports inside a package, and ensure the package directory has an __init__.py file.",
       "explanation": "Packages organize related modules. Relative imports (with leading dots) make code portable and maintainable within a package structure."
@@ -545,9 +581,21 @@
       "starter_code": "import logger\n\nlogger.log('Application started')\nlogger.log('Processing complete')",
       "solution_code": "import logger\n\nlogger.log('Application started')\nlogger.log('Processing complete')",
       "test_cases": [
-        "logger.py is in the same directory as app.py",
-        "running 'python app.py' prints both log messages",
-        "no ImportError is raised"
+        {
+          "input": "",
+          "expected_output": "logger.py is in the same directory as app.py",
+          "description": "logger.py is in the same directory as app.py"
+        },
+        {
+          "input": "",
+          "expected_output": "running 'python app.py' prints both log messages",
+          "description": "running 'python app.py' prints both log messages"
+        },
+        {
+          "input": "",
+          "expected_output": "no ImportError is raised",
+          "description": "no ImportError is raised"
+        }
       ],
       "hint": "Check the current working directory and ensure logger.py is importable; consider using a package structure or adjusting PYTHONPATH.",
       "explanation": "Import errors often occur when modules are not in the Python path. Organizing code into packages or using virtual environments with proper project structure resolves such issues."
@@ -565,9 +613,21 @@
       "starter_code": "# weather_api.py\nimport json\n\ndef fetch_weather(mock_json):\n    # TODO: parse mock_json and return temperature\n    pass\n\n# dashboard.py\nfrom weather_api import fetch_weather\n\nmock = '{\"temp\": 22.5, \"city\": \"London\"}'\ntemp = fetch_weather(mock)\nprint('Temperature in', temp['city'], 'is', temp['temp'], 'C')",
       "solution_code": "# weather_api.py\nimport json\n\ndef fetch_weather(mock_json):\n    data = json.loads(mock_json)\n    return data\n\n# dashboard.py\nfrom weather_api import fetch_weather\n\nmock = '{\"temp\": 22.5, \"city\": \"London\"}'\nresult = fetch_weather(mock)\nprint('Temperature in', result['city'], 'is', result['temp'], 'C')",
       "test_cases": [
-        "fetch_weather parses JSON correctly",
-        "dashboard.py imports and uses fetch_weather without error",
-        "output contains the correct temperature and city"
+        {
+          "input": "",
+          "expected_output": "fetch_weather parses JSON correctly",
+          "description": "fetch_weather parses JSON correctly"
+        },
+        {
+          "input": "",
+          "expected_output": "dashboard.py imports and uses fetch_weather without error",
+          "description": "dashboard.py imports and uses fetch_weather without error"
+        },
+        {
+          "input": "",
+          "expected_output": "output contains the correct temperature and city",
+          "description": "output contains the correct temperature and city"
+        }
       ],
       "hint": "Use json.loads to convert the JSON string into a Python dictionary, then return or pass it to the dashboard module.",
       "explanation": "Real-world applications benefit from modular design. Separating API logic into a module allows easier testing, reuse, and maintenance of the dashboard."
@@ -585,10 +645,26 @@
       "starter_code": "# client.py\nimport requests\n\ndef get_temp(city):\n    # TODO: call API and return temperature\n    pass\n\n# main.py\nfrom .client import get_temp\n\nprint(get_temp('Paris'))",
       "solution_code": "# client.py\nimport requests\n\ndef get_temp(city):\n    url = f'https://api.openweathermap.org/data/2.5/weather?q={city}&appid=YOUR_API_KEY&units=metric'\n    response = requests.get(url)\n    data = response.json()\n    return data['main']['temp']\n\n# main.py\nfrom .client import get_temp\n\nprint('Current temperature in Paris:', get_temp('Paris'))",
       "test_cases": [
-        "virtual environment is created and activated",
-        "requests is installed and importable",
-        "client.py defines get_temp and returns a numeric temperature",
-        "main.py executes without module resolution errors"
+        {
+          "input": "",
+          "expected_output": "virtual environment is created and activated",
+          "description": "virtual environment is created and activated"
+        },
+        {
+          "input": "",
+          "expected_output": "requests is installed and importable",
+          "description": "requests is installed and importable"
+        },
+        {
+          "input": "",
+          "expected_output": "client.py defines get_temp and returns a numeric temperature",
+          "description": "client.py defines get_temp and returns a numeric temperature"
+        },
+        {
+          "input": "",
+          "expected_output": "main.py executes without module resolution errors",
+          "description": "main.py executes without module resolution errors"
+        }
       ],
       "hint": "Run 'python -m venv venv', activate it, then 'pip install requests'. Replace YOUR_API_KEY with a valid OpenWeatherMap key or use a mock response for testing.",
       "explanation": "Mastery involves combining environment management, dependency installation, package design, and API integration. Virtual environments isolate dependencies, ensuring reproducible and portable projects."

@@ -481,9 +481,21 @@
       "starter_code": "import json\n\n# Create a dictionary for a student\nstudent = {\n    'name': 'Alice',\n    'age': 20,\n    'major': 'Computer Science'\n}\n\n# Convert dictionary to JSON string\njson_string = json.dumps(student)\n\n# Parse JSON string back to dictionary\nparsed_student = json.loads(json_string)\n\nprint('Original:', student)\nprint('JSON:', json_string)\nprint('Parsed:', parsed_student)",
       "solution_code": "import json\n\nstudent = {\n    'name': 'Alice',\n    'age': 20,\n    'major': 'Computer Science'\n}\n\njson_string = json.dumps(student)\n\nparsed_student = json.loads(json_string)\n\nprint('Original:', student)\nprint('JSON:', json_string)\nprint('Parsed:', parsed_student)",
       "test_cases": [
-        "The output must contain 'Alice' in the original dictionary.",
-        "The json_string must be a valid JSON string containing the student data.",
-        "parsed_student must equal student after json.loads(json.dumps(student))."
+        {
+          "input": "",
+          "expected_output": "The output must contain 'Alice' in the original dictionary.",
+          "description": "The output must contain 'Alice' in the original dictionary."
+        },
+        {
+          "input": "",
+          "expected_output": "The json_string must be a valid JSON string containing the student data.",
+          "description": "The json_string must be a valid JSON string containing the student data."
+        },
+        {
+          "input": "",
+          "expected_output": "parsed_student must equal student after json.loads(json.dumps(student)).",
+          "description": "parsed_student must equal student after json.loads(json.dumps(student))."
+        }
       ],
       "hint": "Ensure you call json.dumps() to serialize the dictionary and json.loads() to deserialize the resulting string. Verify equality by comparing the original and parsed dictionaries.",
       "explanation": "json.dumps() serializes a Python object into a JSON formatted string, while json.loads() deserializes a JSON string back into a Python object. This round-trip demonstrates the fundamental conversion between Python data structures and JSON text."
@@ -501,9 +513,21 @@
       "starter_code": "import json\n\nproducts = [\n    {'id': 1, 'name': 'Laptop', 'price': 999.99},\n    {'id': 2, 'name': 'Mouse', 'price': 25.50}\n]\n\n# Save to file\nwith open('products.json', 'w') as f:\n    json.dump(products, f)\n\n# Read from file\nwith open('products.json', 'r') as f:\n    loaded = json.load(f)\n\nprint(loaded)",
       "solution_code": "import json\n\nproducts = [\n    {'id': 1, 'name': 'Laptop', 'price': 999.99},\n    {'id': 2, 'name': 'Mouse', 'price': 25.50}\n]\n\ntry:\n    with open('products.json', 'w') as f:\n        json.dump(products, f, indent=2)\n    with open('products.json', 'r') as f:\n        loaded = json.load(f)\n    print(loaded)\nexcept IOError as e:\n    print('File error:', e)",
       "test_cases": [
-        "The file products.json must be created and contain valid JSON.",
-        "loaded must be a Python list of dictionaries matching products.",
-        "The JSON file must include indentation (indent=2) for readability."
+        {
+          "input": "",
+          "expected_output": "The file products.json must be created and contain valid JSON.",
+          "description": "The file products.json must be created and contain valid JSON."
+        },
+        {
+          "input": "",
+          "expected_output": "loaded must be a Python list of dictionaries matching products.",
+          "description": "loaded must be a Python list of dictionaries matching products."
+        },
+        {
+          "input": "",
+          "expected_output": "The JSON file must include indentation (indent=2) for readability.",
+          "description": "The JSON file must include indentation (indent=2) for readability."
+        }
       ],
       "hint": "Use json.dump() for writing to a file object and json.load() for reading from a file object. Wrap file operations in a try-except block to handle potential I/O errors gracefully.",
       "explanation": "json.dump() writes a Python object directly to a file-like object, while json.load() reads from a file-like object. This is the standard pattern for persisting JSON data to disk and retrieving it later in Python applications."
@@ -521,9 +545,21 @@
       "starter_code": "import json\n\nclass Employee:\n    def __init__(self, name, salary):\n        self.name = name\n        self.salary = salary\n\nclass EmployeeEncoder(json.JSONEncoder):\n    def default(self, obj):\n        if isinstance(obj, Employee):\n            return {'type': 'Employee', 'name': obj.name, 'salary': obj.salary}\n        return super().default(obj)\n\nemp = Employee('Bob', 75000)\n\njson_str = json.dumps(emp, cls=EmployeeEncoder)\n\nprint(json_str)",
       "solution_code": "import json\n\nclass Employee:\n    def __init__(self, name, salary):\n        self.name = name\n        self.salary = salary\n\n    def __eq__(self, other):\n        return isinstance(other, Employee) and self.name == other.name and self.salary == other.salary\n\nclass EmployeeEncoder(json.JSONEncoder):\n    def default(self, obj):\n        if isinstance(obj, Employee):\n            return {'type': 'Employee', 'name': obj.name, 'salary': obj.salary}\n        return super().default(obj)\n\nclass EmployeeDecoder:\n    @staticmethod\n    def decode(dct):\n        if dct.get('type') == 'Employee':\n            return Employee(dct['name'], dct['salary'])\n        return dct\n\njson.JSONDecoder().object_hook = EmployeeDecoder\n\nemp = Employee('Bob', 75000)\n\njson_str = json.dumps(emp, cls=EmployeeEncoder)\n\nrestored = json.loads(json_str)\n\nprint('JSON:', json_str)\nprint('Restored:', restored)\nprint('Is Employee?', isinstance(restored, Employee))",
       "test_cases": [
-        "json_str must contain 'Bob' and 75000.",
-        "restored must be an instance of Employee.",
-        "restored.name must equal 'Bob' and restored.salary must equal 75000."
+        {
+          "input": "",
+          "expected_output": "json_str must contain 'Bob' and 75000.",
+          "description": "json_str must contain 'Bob' and 75000."
+        },
+        {
+          "input": "",
+          "expected_output": "restored must be an instance of Employee.",
+          "description": "restored must be an instance of Employee."
+        },
+        {
+          "input": "",
+          "expected_output": "restored.name must equal 'Bob' and restored.salary must equal 75000.",
+          "description": "restored.name must equal 'Bob' and restored.salary must equal 75000."
+        }
       ],
       "hint": "Override json.JSONEncoder.default() to handle custom objects during serialization, and use json.JSONDecoder with object_hook to reconstruct custom objects during deserialization.",
       "explanation": "Custom JSON serialization allows handling non-serializable Python types by defining how objects should be converted to JSON-compatible structures and how JSON structures should be converted back to Python objects. This is essential when working with domain-specific data models."
@@ -541,9 +577,21 @@
       "starter_code": "import json\n\nconfig_json = '{\"database\": {\"host\": \"localhost\", \"port\": 5432}, \"debug\": true}'\n\n# Parse and modify\nconfig = json.loads(config_json)\nconfig['database']['port'] = 5433\n\n# Serialize with sorted keys\nupdated_json = json.dumps(config, sort_keys=True)",
       "solution_code": "import json\n\nconfig_json = '{\"database\": {\"host\": \"localhost\", \"port\": 5432}, \"debug\": true}'\n\nconfig = json.loads(config_json)\n\nconfig['database']['port'] = 5433\n\nupdated_json = json.dumps(config, sort_keys=True)\n\nprint(updated_json)",
       "test_cases": [
-        "updated_json must contain 'port': 5433.",
-        "The JSON keys must be sorted alphabetically.",
-        "The host must remain 'localhost'."
+        {
+          "input": "",
+          "expected_output": "updated_json must contain 'port': 5433.",
+          "description": "updated_json must contain 'port': 5433."
+        },
+        {
+          "input": "",
+          "expected_output": "The JSON keys must be sorted alphabetically.",
+          "description": "The JSON keys must be sorted alphabetically."
+        },
+        {
+          "input": "",
+          "expected_output": "The host must remain 'localhost'.",
+          "description": "The host must remain 'localhost'."
+        }
       ],
       "hint": "Use json.loads() to parse the string, modify the nested dictionary in place, then use json.dumps() with sort_keys=True to produce the final output.",
       "explanation": "Parsing nested JSON requires accessing nested dictionary keys. Modifying the parsed structure and re-serializing with sort_keys=True ensures deterministic output, which is useful for configuration management and testing."
@@ -561,9 +609,21 @@
       "starter_code": "import json\n\napi_response = '{\"city\": \"London\", \"temperature\": 15, \"conditions\": \"cloudy\", \"forecast\": [{\"day\": \"Mon\", \"temp\": 14}, {\"day\": \"Tue\", \"temp\": 17}]}'\n\nweather = json.loads(api_response)\n\nall_temps = [weather['temperature']] + [day['temp'] for day in weather['forecast']]\naverage = sum(all_temps) / len(all_temps)\n\nsummary = {\n    'city': weather['city'],\n    'average_temperature': round(average, 2)\n}\n\nwith open('weather_summary.json', 'w') as f:\n    json.dump(summary, f, indent=2, sort_keys=True)",
       "solution_code": "import json\n\napi_response = '{\"city\": \"London\", \"temperature\": 15, \"conditions\": \"cloudy\", \"forecast\": [{\"day\": \"Mon\", \"temp\": 14}, {\"day\": \"Tue\", \"temp\": 17}]}'\n\nweather = json.loads(api_response)\n\nall_temps = [weather['temperature']] + [day['temp'] for day in weather['forecast']]\naverage = sum(all_temps) / len(all_temps)\n\nsummary = {\n    'city': weather['city'],\n    'average_temperature': round(average, 2)\n}\n\nwith open('weather_summary.json', 'w') as f:\n    json.dump(summary, f, indent=2, sort_keys=True)",
       "test_cases": [
-        "weather_summary.json must be created and contain valid JSON.",
-        "The average temperature must be 15.33 (15 + 14 + 17 divided by 3).",
-        "The output JSON must have sorted keys and 2-space indentation."
+        {
+          "input": "",
+          "expected_output": "weather_summary.json must be created and contain valid JSON.",
+          "description": "weather_summary.json must be created and contain valid JSON."
+        },
+        {
+          "input": "",
+          "expected_output": "The average temperature must be 15.33 (15 + 14 + 17 divided by 3).",
+          "description": "The average temperature must be 15.33 (15 + 14 + 17 divided by 3)."
+        },
+        {
+          "input": "",
+          "expected_output": "The output JSON must have sorted keys and 2-space indentation.",
+          "description": "The output JSON must have sorted keys and 2-space indentation."
+        }
       ],
       "hint": "Extract the current temperature from the top-level key and the forecast temperatures from the list of dictionaries. Compute the arithmetic mean and structure the result with city and average_temperature keys before writing to a file.",
       "explanation": "Real-world applications often involve parsing API responses, performing computations on nested data, and persisting structured results. This scenario combines JSON parsing, list comprehensions, arithmetic operations, and file I/O to produce a clean, human-readable summary."
@@ -581,9 +641,21 @@
       "starter_code": "import json\n\ndef safe_parse(json_str):\n    try:\n        data = json.loads(json_str)\n        if 'name' in data:\n            return {'name': data['name']}\n        return data\n    except json.JSONDecodeError:\n        return {'error': 'invalid_json'}\n\n# Test cases\nvalid = '{\"name\": \"Sam\", \"age\": 30}'\ninvalid = '{\"name\": \"Sam\", \"age\": 30,'\n\nprint(safe_parse(valid))\nprint(safe_parse(invalid))",
       "solution_code": "import json\n\ndef safe_parse(json_str):\n    try:\n        data = json.loads(json_str)\n        if 'name' in data:\n            return {'name': data['name']}\n        return data\n    except json.JSONDecodeError:\n        return {'error': 'invalid_json'}\n\nvalid = '{\"name\": \"Sam\", \"age\": 30}'\ninvalid = '{\"name\": \"Sam\", \"age\": 30,'\n\nprint(safe_parse(valid))\nprint(safe_parse(invalid))",
       "test_cases": [
-        "safe_parse(valid) must return {'name': 'Sam'}.",
-        "safe_parse(invalid) must return {'error': 'invalid_json'}.",
-        "The function must not raise an uncaught exception on invalid JSON."
+        {
+          "input": "",
+          "expected_output": "safe_parse(valid) must return {'name': 'Sam'}.",
+          "description": "safe_parse(valid) must return {'name': 'Sam'}."
+        },
+        {
+          "input": "",
+          "expected_output": "safe_parse(invalid) must return {'error': 'invalid_json'}.",
+          "description": "safe_parse(invalid) must return {'error': 'invalid_json'}."
+        },
+        {
+          "input": "",
+          "expected_output": "The function must not raise an uncaught exception on invalid JSON.",
+          "description": "The function must not raise an uncaught exception on invalid JSON."
+        }
       ],
       "hint": "Import json.JSONDecodeError explicitly to catch parsing failures. Use a conditional check for the 'name' key after successful parsing, and return a uniform error structure when decoding fails.",
       "explanation": "Robust JSON processing requires defensive programming: validating input, handling malformed data gracefully, and normalizing output. This pattern is critical when integrating with external systems where data quality cannot be guaranteed."

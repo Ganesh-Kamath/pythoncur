@@ -462,10 +462,26 @@
       "starter_code": "def sort_numbers(numbers):\n    result = []\n    for num in numbers:\n        result.append(num)\n    for i in range(len(result)):\n        for j in range(i + 1, len(result)):\n            if result[i] > result[j]:\n                temp = result[i]\n                result[i] = result[j]\n                result[j] = temp\n    return result\n\nprint(sort_numbers([9, 3, 7]))",
       "solution_code": "def sort_numbers(numbers):\n    return sorted(numbers)\n\nprint(sort_numbers([9, 3, 7]))",
       "test_cases": [
-        "[1, 2, 3]",
-        "[]",
-        "[-5, 0, 5]",
-        "[100, 10, 50]"
+        {
+          "input": "",
+          "expected_output": "[1, 2, 3]",
+          "description": "[1, 2, 3]"
+        },
+        {
+          "input": "",
+          "expected_output": "[]",
+          "description": "[]"
+        },
+        {
+          "input": "",
+          "expected_output": "[-5, 0, 5]",
+          "description": "[-5, 0, 5]"
+        },
+        {
+          "input": "",
+          "expected_output": "[100, 10, 50]",
+          "description": "[100, 10, 50]"
+        }
       ],
       "hint": "Consider Python's built-in sorting capabilities and whether an in-place sort or a new list is more appropriate for the use case.",
       "explanation": "The original implementation uses O(n^2) time and O(n) extra space for a copy. The refactored version leverages Timsort via sorted(), which runs in O(n log n) average time and is implemented in C, making it significantly faster and more memory-efficient for typical inputs. If in-place modification is required, list.sort() can be used instead."

@@ -429,9 +429,21 @@
       "starter_code": "import requests\nimport time\n\ndef get_page(url):\n    time.sleep(0.5)\n    if 'fail' in url:\n        raise Exception('network error')\n    return f'data from {url}'\n\ndef main():\n    urls = ['good1', 'fail', 'good2', 'good3']\n    results = []\n    for url in urls:\n        results.append(get_page(url))\n    print(results)\n\nif __name__ == '__main__':\n    main()",
       "solution_code": "import asyncio\nimport aiohttp\n\nasync def get_page(session, url):\n    await asyncio.sleep(0.5)\n    if 'fail' in url:\n        raise Exception('network error')\n    return f'data from {url}'\n\nasync def main():\n    urls = ['good1', 'fail', 'good2', 'good3']\n    async with aiohttp.ClientSession() as session:\n        tasks = [get_page(session, url) for url in urls]\n        results = await asyncio.gather(*tasks, return_exceptions=True)\n    print(results)\n\nif __name__ == '__main__':\n    asyncio.run(main())",
       "test_cases": [
-        "All good URLs return expected strings.",
-        "The failed URL returns an Exception instance, not a string.",
-        "Total runtime is approximately 0.5 seconds, not 2.0 seconds."
+        {
+          "input": "",
+          "expected_output": "All good URLs return expected strings.",
+          "description": "All good URLs return expected strings."
+        },
+        {
+          "input": "",
+          "expected_output": "The failed URL returns an Exception instance, not a string.",
+          "description": "The failed URL returns an Exception instance, not a string."
+        },
+        {
+          "input": "",
+          "expected_output": "Total runtime is approximately 0.5 seconds, not 2.0 seconds.",
+          "description": "Total runtime is approximately 0.5 seconds, not 2.0 seconds."
+        }
       ],
       "hint": "Use `aiohttp.ClientSession` as an async context manager, pass the session into the coroutine, and set `return_exceptions=True` in `asyncio.gather`.",
       "explanation": "The synchronous version blocks on each `time.sleep(0.5)` call, leading to linear scaling with the number of URLs. The refactored asynchronous version creates a single `aiohttp.ClientSession` for connection pooling, schedules all coroutines via `asyncio.gather` with `return_exceptions=True`, and isolates failures. This pattern is essential for production-grade I/O concurrency. The session context manager ensures clean resource teardown, while `return_exceptions=True` prevents one bad URL from crashing the entire batch, yielding either results or exception objects in the same list."

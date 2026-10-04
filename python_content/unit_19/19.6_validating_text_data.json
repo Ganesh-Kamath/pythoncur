@@ -449,21 +449,22 @@
       "type": "write_the_code",
       "concept": "validating_text_data_mastery_challenge",
       "skill": "transfer",
-      "difficulty": "expert",
+      "difficulty": "hard",
       "prerequisites": [
         "19.6_q23"
       ],
-      "prompt": "Mastery Challenge: Implement a robust, tested function for Validating Text Data that processes inputs, validates preconditions, and handles invalid states cleanly:",
-      "starter_code": "def execute_task(data):\n    if not data:\n        return None\n    # Process valid data\n    ___",
-      "solution_code": "def execute_task(data):\n    if not data:\n        return None\n    return sorted(data)",
+      "prompt": "Final Capstone Verification: Write a production-grade handler for Validating Text Data that processes batches and handles empty inputs cleanly.",
+      "starter_code": "def execute_19_6_workflow(batch):\n    # Validate and transform batch\n    pass",
+      "solution_code": "def execute_19_6_workflow(batch):\n    if not batch:\n        return []\n    return [str(x).strip() for x in batch]",
       "test_cases": [
         {
-          "input": "",
-          "expected_output": "Validating Text Data Result 24"
+          "input": "[' a ', 'b ']",
+          "expected_output": "['a', 'b']",
+          "description": "batch processing workflow"
         }
       ],
       "hint": "Validate input first, then execute the transformation.",
-      "explanation": "Demonstrating end-to-end mastery of Validating Text Data requires combining input validation, core algorithmic logic, and defensive programming."
+      "explanation": "Production workflows for Validating Text Data must validate inputs, maintain immutability, and return deterministic results."
     },
     {
       "id": "19.6_q25",
@@ -478,10 +479,26 @@
       "starter_code": "import re\n\ndef is_valid_email(email):\n    # TODO: implement using regular expressions\n    pass\n\n# Test cases\nprint(is_valid_email('test@example.com'))\nprint(is_valid_email('invalid.email'))",
       "solution_code": "import re\n\ndef is_valid_email(email):\n    pattern = r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2}$'\n    return bool(re.fullmatch(pattern, email))\n\n# Test cases\nprint(is_valid_email('test@example.com'))      # True\nprint(is_valid_email('invalid.email'))        # False\nprint(is_valid_email('user@domain.co.uk'))    # True\nprint(is_valid_email('@nodomain.com'))        # False",
       "test_cases": [
-        "is_valid_email('user@domain.com') == True",
-        "is_valid_email('user@domain') == False",
-        "is_valid_email('user@.com') == False",
-        "is_valid_email('user@domain.com.') == False"
+        {
+          "input": "is_valid_email('user@domain.com')",
+          "expected_output": "True",
+          "description": "Verifies: is_valid_email('user@domain.com') == True"
+        },
+        {
+          "input": "is_valid_email('user@domain')",
+          "expected_output": "False",
+          "description": "Verifies: is_valid_email('user@domain') == False"
+        },
+        {
+          "input": "is_valid_email('user@.com')",
+          "expected_output": "False",
+          "description": "Verifies: is_valid_email('user@.com') == False"
+        },
+        {
+          "input": "is_valid_email('user@domain.com.')",
+          "expected_output": "False",
+          "description": "Verifies: is_valid_email('user@domain.com.') == False"
+        }
       ],
       "hint": "Use re.fullmatch to ensure the entire string matches the pattern. The pattern should require one or more valid characters before '@', then '@', then domain characters, then '.', then at least two letters.",
       "explanation": "The solution uses re.fullmatch with a pattern that enforces the structure of a valid email. The ^ and $ anchors ensure the entire string is checked. [a-zA-Z0-9._%+-]+ allows common characters before the '@'. [a-zA-Z0-9.-]+ matches the domain name, and \\.[a-zA-Z]{2} ensures a dot followed by at least two letters for the top-level domain."
@@ -499,10 +516,26 @@
       "starter_code": "import re\n\ndef is_valid_us_phone(phone):\n    # TODO: implement using regular expressions\n    pass\n\n# Test cases\nprint(is_valid_us_phone('(555) 123-4567'))\nprint(is_valid_us_phone('555-123-4567'))",
       "solution_code": "import re\n\ndef is_valid_us_phone(phone):\n    pattern = r'^\\(\\d{3}\\) \\d{3}-\\d{4}$'\n    return bool(re.fullmatch(pattern, phone))\n\n# Test cases\nprint(is_valid_us_phone('(555) 123-4567'))  # True\nprint(is_valid_us_phone('555-123-4567'))    # False\nprint(is_valid_us_phone('(12) 345-6789'))  # False\nprint(is_valid_us_phone('(555)123-4567'))  # False",
       "test_cases": [
-        "is_valid_us_phone('(555) 123-4567') == True",
-        "is_valid_us_phone('(12) 345-6789') == False",
-        "is_valid_us_phone('(555) 1234567') == False",
-        "is_valid_us_phone('555 123-4567') == False"
+        {
+          "input": "is_valid_us_phone('(555) 123-4567')",
+          "expected_output": "True",
+          "description": "Verifies: is_valid_us_phone('(555) 123-4567') == True"
+        },
+        {
+          "input": "is_valid_us_phone('(12) 345-6789')",
+          "expected_output": "False",
+          "description": "Verifies: is_valid_us_phone('(12) 345-6789') == False"
+        },
+        {
+          "input": "is_valid_us_phone('(555) 1234567')",
+          "expected_output": "False",
+          "description": "Verifies: is_valid_us_phone('(555) 1234567') == False"
+        },
+        {
+          "input": "is_valid_us_phone('555 123-4567')",
+          "expected_output": "False",
+          "description": "Verifies: is_valid_us_phone('555 123-4567') == False"
+        }
       ],
       "hint": "The pattern must match an opening parenthesis, exactly three digits, a closing parenthesis, a space, three digits, a hyphen, and four digits. Use \\d for digits and \\( and \\) to match literal parentheses.",
       "explanation": "The pattern ^\\(\\d{3}\\) \\d{3}-\\d{4}$ precisely matches the required format. \\( and \\) escape the literal parentheses. \\d{3} and \\d{4} enforce exactly three and four digits respectively. The spaces and hyphen are literal characters that must appear in exact positions."
@@ -520,10 +553,26 @@
       "starter_code": "import re\n\ndef is_strong_password(pwd):\n    # TODO: implement using lookahead assertions\n    pass\n\n# Test cases\nprint(is_strong_password('Passw0rd!'))\nprint(is_strong_password('weak'))",
       "solution_code": "import re\n\ndef is_strong_password(pwd):\n    pattern = r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[!@#$%^&*()])[A-Za-z\\d!@#$%^&*()]{8}$'\n    return bool(re.fullmatch(pattern, pwd))\n\n# Test cases\nprint(is_strong_password('Passw0rd!'))  # True\nprint(is_strong_password('weak'))        # False\nprint(is_strong_password('Password1'))   # False\nprint(is_strong_password('Passw0rd'))    # False",
       "test_cases": [
-        "is_strong_password('Passw0rd!') == True",
-        "is_strong_password('Password1') == False",
-        "is_strong_password('passw0rd!') == False",
-        "is_strong_password('Passw0rd') == False"
+        {
+          "input": "is_strong_password('Passw0rd!')",
+          "expected_output": "True",
+          "description": "Verifies: is_strong_password('Passw0rd!') == True"
+        },
+        {
+          "input": "is_strong_password('Password1')",
+          "expected_output": "False",
+          "description": "Verifies: is_strong_password('Password1') == False"
+        },
+        {
+          "input": "is_strong_password('passw0rd!')",
+          "expected_output": "False",
+          "description": "Verifies: is_strong_password('passw0rd!') == False"
+        },
+        {
+          "input": "is_strong_password('Passw0rd')",
+          "expected_output": "False",
+          "description": "Verifies: is_strong_password('Passw0rd') == False"
+        }
       ],
       "hint": "Use four lookahead assertions to check each requirement independently, then match the entire string with [A-Za-z\\d!@#$%^&*()]{8} to enforce length and allowed characters.",
       "explanation": "Each lookahead (?=.*...) checks for a required character class without consuming characters. The final [A-Za-z\\d!@#$%^&*()]{8} ensures the password is at least 8 characters and contains only allowed characters. re.fullmatch guarantees the entire string satisfies all lookahead conditions and the length constraint."
@@ -541,10 +590,26 @@
       "starter_code": "import re\n\ndef is_valid_ip(ip):\n    pattern = r'^\\d+\\.\\d+\\.\\d+\\.\\d+$'\n    return bool(re.fullmatch(pattern, ip))\n\nprint(is_valid_ip('999.999.999.999'))\nprint(is_valid_ip('192.168.0.1'))",
       "solution_code": "import re\n\ndef is_valid_ip(ip):\n    pattern = r'^(?:25[0-5]|2[0-4]\\d|1\\d{2}|[1-9]?\\d)(?:\\.(?:25[0-5]|2[0-4]\\d|1\\d{2}|[1-9]?\\d)){3}$'\n    return bool(re.fullmatch(pattern, ip))\n\n# Test cases\nprint(is_valid_ip('192.168.0.1'))    # True\nprint(is_valid_ip('255.255.255.255'))  # True\nprint(is_valid_ip('999.999.999.999'))  # False\nprint(is_valid_ip('192.168.0'))        # False\nprint(is_valid_ip('0.0.0.0'))          # True",
       "test_cases": [
-        "is_valid_ip('192.168.0.1') == True",
-        "is_valid_ip('255.255.255.255') == True",
-        "is_valid_ip('999.999.999.999') == False",
-        "is_valid_ip('192.168.0') == False"
+        {
+          "input": "is_valid_ip('192.168.0.1')",
+          "expected_output": "True",
+          "description": "Verifies: is_valid_ip('192.168.0.1') == True"
+        },
+        {
+          "input": "is_valid_ip('255.255.255.255')",
+          "expected_output": "True",
+          "description": "Verifies: is_valid_ip('255.255.255.255') == True"
+        },
+        {
+          "input": "is_valid_ip('999.999.999.999')",
+          "expected_output": "False",
+          "description": "Verifies: is_valid_ip('999.999.999.999') == False"
+        },
+        {
+          "input": "is_valid_ip('192.168.0')",
+          "expected_output": "False",
+          "description": "Verifies: is_valid_ip('192.168.0') == False"
+        }
       ],
       "hint": "The original pattern allows any number of digits in each octet, so 999 is accepted. You need to restrict each octet to 0-255 using alternation: 250-255, 200-249, 100-199, and 0-99.",
       "explanation": "The corrected pattern uses a non-capturing group (?:...) with alternation to match each octet. 25[0-5] matches 250-255, 2[0-4]\\d matches 200-249, 1\\d{2} matches 100-199, and [1-9]?\\d matches 0-99. The final (?:\\.\\d){3} repeats the dot-octet pattern three more times, ensuring exactly four octets."
@@ -562,11 +627,31 @@
       "starter_code": "import re\n\ndef is_valid_username(username):\n    # TODO: implement with a single regular expression\n    pass\n\n# Test cases\nprint(is_valid_username('User_123'))\nprint(is_valid_username('1start'))\nprint(is_valid_username('a-b_c'))",
       "solution_code": "import re\n\ndef is_valid_username(username):\n    pattern = r'^[A-Za-z][A-Za-z0-9_-]{1,18}[A-Za-z0-9]$'\n    return bool(re.fullmatch(pattern, username))\n\n# Test cases\nprint(is_valid_username('User_123'))   # True (9 chars)\nprint(is_valid_username('1start'))     # False (starts with digit)\nprint(is_valid_username('a-b_c'))      # True (5 chars, ends with letter)\nprint(is_valid_username('a'))          # False (too short)\nprint(is_valid_username('a' * 21))    # False (too long)",
       "test_cases": [
-        "is_valid_username('User_123') == True",
-        "is_valid_username('1start') == False",
-        "is_valid_username('a') == False",
-        "is_valid_username('a_b-c_123') == True",
-        "is_valid_username('a' * 21) == False"
+        {
+          "input": "is_valid_username('User_123')",
+          "expected_output": "True",
+          "description": "Verifies: is_valid_username('User_123') == True"
+        },
+        {
+          "input": "is_valid_username('1start')",
+          "expected_output": "False",
+          "description": "Verifies: is_valid_username('1start') == False"
+        },
+        {
+          "input": "is_valid_username('a')",
+          "expected_output": "False",
+          "description": "Verifies: is_valid_username('a') == False"
+        },
+        {
+          "input": "is_valid_username('a_b-c_123')",
+          "expected_output": "True",
+          "description": "Verifies: is_valid_username('a_b-c_123') == True"
+        },
+        {
+          "input": "is_valid_username('a' * 21)",
+          "expected_output": "False",
+          "description": "Verifies: is_valid_username('a' * 21) == False"
+        }
       ],
       "hint": "Use ^ and $ for anchors. The first character must be a letter. The middle allows 1 to 18 of the allowed characters to keep total length 3-20. The last character must be a letter or digit to prevent trailing special characters.",
       "explanation": "The pattern ^[A-Za-z][A-Za-z0-9_-]{1,18}[A-Za-z0-9]$ enforces all rules. The first [A-Za-z] ensures the username starts with a letter. The middle {1,18} allows 1 to 18 additional allowed characters, making total length 3 to 20. The final [A-Za-z0-9] ensures the username ends with a letter or digit, preventing trailing underscores or hyphens which are common edge cases."
@@ -584,11 +669,31 @@
       "starter_code": "import re\n\ndef is_valid_repeated_pattern(s):\n    # TODO: implement using backreferences\n    pass\n\n# Test cases\nprint(is_valid_repeated_pattern('abcabcabc'))\nprint(is_valid_repeated_pattern('111111'))\nprint(is_valid_repeated_pattern('abcabcab'))",
       "solution_code": "import re\n\ndef is_valid_repeated_pattern(s):\n    pattern = r'^(?P<sub>.)\\1{2}$'\n    return bool(re.fullmatch(pattern, s))\n\n# Test cases\nprint(is_valid_repeated_pattern('abcabcabc'))  # True\nprint(is_valid_repeated_pattern('111111'))      # True\nprint(is_valid_repeated_pattern('abcabcab'))    # False\nprint(is_valid_repeated_pattern('a'))           # False",
       "test_cases": [
-        "is_valid_repeated_pattern('abcabcabc') == True",
-        "is_valid_repeated_pattern('111111') == True",
-        "is_valid_repeated_pattern('abcabcab') == False",
-        "is_valid_repeated_pattern('a') == False",
-        "is_valid_repeated_pattern('xyzxyzxyzxyz') == False"
+        {
+          "input": "is_valid_repeated_pattern('abcabcabc')",
+          "expected_output": "True",
+          "description": "Verifies: is_valid_repeated_pattern('abcabcabc') == True"
+        },
+        {
+          "input": "is_valid_repeated_pattern('111111')",
+          "expected_output": "True",
+          "description": "Verifies: is_valid_repeated_pattern('111111') == True"
+        },
+        {
+          "input": "is_valid_repeated_pattern('abcabcab')",
+          "expected_output": "False",
+          "description": "Verifies: is_valid_repeated_pattern('abcabcab') == False"
+        },
+        {
+          "input": "is_valid_repeated_pattern('a')",
+          "expected_output": "False",
+          "description": "Verifies: is_valid_repeated_pattern('a') == False"
+        },
+        {
+          "input": "is_valid_repeated_pattern('xyzxyzxyzxyz')",
+          "expected_output": "False",
+          "description": "Verifies: is_valid_repeated_pattern('xyzxyzxyzxyz') == False"
+        }
       ],
       "hint": "Capture the first character in a named group (?P<sub>.), then use \\1{2} to match exactly two more occurrences of that same captured character. The total length must be exactly 3.",
       "explanation": "The pattern ^(?P<sub>.)\\1{2}$ uses a named group 'sub' to capture any single character. \\1 is a backreference to the captured group, and {2} requires exactly two more repetitions. This ensures the string is exactly 3 identical characters. re.fullmatch guarantees no extra characters before or after. Note: this checks for exactly 3 repetitions of a single character; extending to variable-length substrings requires more advanced techniques."

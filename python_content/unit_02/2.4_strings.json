@@ -456,7 +456,13 @@
       ],
       "prompt": "You are building a CLI tool and need to print a decorative border of 40 asterisks `*`. Which approach is most Pythonic?",
       "correct_answer": "B",
-      "explanation": "Python logical operators use short-circuit evaluation: `and` stops and returns the first falsy operand, while `or` stops and returns the first truthy operand without evaluating subsequent expressions."
+      "explanation": "Python logical operators use short-circuit evaluation: `and` stops and returns the first falsy operand, while `or` stops and returns the first truthy operand without evaluating subsequent expressions.",
+      "options": [
+        "A. print('=' + 40)",
+        "B. print('=' * 40)",
+        "C. print('=' ** 40)",
+        "D. print('=' / 40)"
+      ]
     },
     {
       "id": "2.4_q28",
@@ -488,7 +494,13 @@
       ],
       "prompt": "When storing a long, structured SQL database query in Python, what string format is recommended for readability?\n```python\nquery = \"\"\"\nSELECT id, name, email\nFROM users\nWHERE active = 1\n\"\"\"\n```",
       "correct_answer": "A",
-      "explanation": "Triple-quoted multi-line strings make large queries, HTML, and documentation readable without manual `\\n` escaping."
+      "explanation": "Triple-quoted multi-line strings make large queries, HTML, and documentation readable without manual `\\n` escaping.",
+      "options": [
+        "A. Triple-quoted strings (''' or \"\"\") preserve multi-line formatting without manual \\n escaping.",
+        "B. Concatenating 50 separate single-quoted strings with +.",
+        "C. Converting the query into a list of single characters.",
+        "D. Writing the query in a single line using 500 characters."
+      ]
     },
     {
       "id": "2.4_q30",
@@ -506,7 +518,13 @@
       ],
       "prompt": "Which of the following statements about Python strings is completely TRUE?",
       "correct_answer": "A",
-      "explanation": "This exercise tests `string synthesis` in Strings. When Python validates this code, it applies the standard rules of string synthesis. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
+      "explanation": "This exercise tests `string synthesis` in Strings. When Python validates this code, it applies the standard rules of string synthesis. Understanding how this construct behaves prevents common programming errors and ensures predictable execution.",
+      "options": [
+        "A. Strings are immutable sequences of Unicode characters; modifying a string creates a new string object.",
+        "B. Strings can be mutated in-place by assigning to index positions like s[0] = 'X'.",
+        "C. Python strings can only contain ASCII characters, not emojis or international text.",
+        "D. String concatenation with + mutates the original string in memory."
+      ]
     }
   ],
   "unit_num": 2,

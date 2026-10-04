@@ -134,15 +134,22 @@
       "skill": "debugging",
       "difficulty": "medium",
       "concept": "string_methods_split_and_join_debugging",
-      "prompt": "Identify and fix the logical or syntax defect in this implementation of String Methods: split() and join():",
+      "prompt": "Defensive Validation: Implement a verification helper for String Methods: split() and join() that confirms preconditions and guards against invalid input.",
       "correct_answer": "'apple,banana,cherry'",
-      "explanation": "Debugging is a core programming competency. Guarding against edge cases like `None` or invalid states prevents runtime failures.",
+      "explanation": "Validating preconditions at the boundary prevents null pointer and type exceptions downstream.",
       "prerequisites": [
         "7.7_q7"
       ],
-      "starter_code": "# Fix the issue with String Methods: split() and join()\ndef check_valid(val):\n    if val is None:\n        return False\n    return True",
-      "solution_code": "def check_valid(val):\n    if val is None:\n        return False\n    return True",
-      "hint": "Check the condition and return value carefully."
+      "starter_code": "def validate_7_7_input(val):\n    # Return True if val is valid, False otherwise\n    pass",
+      "solution_code": "def validate_7_7_input(val):\n    if val is None or val == '':\n        return False\n    return True",
+      "hint": "Check the condition and return value carefully.",
+      "test_cases": [
+        {
+          "input": "'valid_token'",
+          "expected_output": "True",
+          "description": "valid input returns True"
+        }
+      ]
     },
     {
       "id": "7.7_q9",

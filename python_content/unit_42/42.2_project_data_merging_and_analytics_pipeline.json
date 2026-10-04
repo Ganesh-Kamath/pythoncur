@@ -381,8 +381,16 @@
       "starter_code": "import pandas as pd\n\ndef load_and_merge_sales_data(sales_path, customers_path):\n    # TODO: read CSVs and merge\n    pass",
       "solution_code": "import pandas as pd\n\ndef load_and_merge_sales_data(sales_path, customers_path):\n    sales = pd.read_csv(sales_path)\n    customers = pd.read_csv(customers_path)\n    merged = pd.merge(\n        sales, customers, on='customer_id', how='inner'\n    )\n    merged = merged.dropna(subset=['customer_id'])\n    return merged",
       "test_cases": [
-        "assert load_and_merge_sales_data('sales.csv', 'customers.csv').shape[0] > 0",
-        "assert 'customer_id' in load_and_merge_sales_data('sales.csv', 'customers.csv').columns"
+        {
+          "input": "",
+          "expected_output": "assert load_and_merge_sales_data('sales.csv', 'customers.csv').shape[0] > 0",
+          "description": "assert load_and_merge_sales_data('sales.csv', 'customers.csv').shape[0] > 0"
+        },
+        {
+          "input": "",
+          "expected_output": "assert 'customer_id' in load_and_merge_sales_data('sales.csv', 'customers.csv').columns",
+          "description": "assert 'customer_id' in load_and_merge_sales_data('sales.csv', 'customers.csv').columns"
+        }
       ],
       "hint": "Use pandas.read_csv to load data, then pandas.merge with how='inner'. Drop NaN rows in merge keys after merging.",
       "explanation": "This component teaches students to ingest external tabular data, align records across sources using a common key, and sanitize the result by removing incomplete matches. Inner joins ensure only customers present in both datasets are retained."
@@ -400,8 +408,16 @@
       "starter_code": "import pandas as pd\n\ndef compute_monthly_revenue(df):\n    # TODO: parse dates and aggregate\n    pass",
       "solution_code": "import pandas as pd\n\ndef compute_monthly_revenue(df):\n    df = df.copy()\n    df['order_date'] = pd.to_datetime(df['order_date'])\n    df['year_month'] = df['order_date'].dt.to_period('M')\n    return df.groupby('year_month', as_index=True)['revenue'].sum()",
       "test_cases": [
-        "assert isinstance(compute_monthly_revenue(sample_df), pd.Series)",
-        "assert all(compute_monthly_revenue(sample_df).index.freq == 'M')"
+        {
+          "input": "",
+          "expected_output": "assert isinstance(compute_monthly_revenue(sample_df), pd.Series)",
+          "description": "assert isinstance(compute_monthly_revenue(sample_df), pd.Series)"
+        },
+        {
+          "input": "assert all(compute_monthly_revenue(sample_df).index.freq",
+          "expected_output": "'M')",
+          "description": "Verifies: assert all(compute_monthly_revenue(sample_df).index.freq == 'M')"
+        }
       ],
       "hint": "Convert the date column with pd.to_datetime, extract the period with dt.to_period('M'), then groupby and sum revenue.",
       "explanation": "Temporal aggregation is a core analytics step. Converting to period objects standardizes the time grain, enabling reliable monthly comparisons and downstream visualization."
@@ -419,8 +435,16 @@
       "starter_code": "import pandas as pd\n\ndef filter_top_customers(df, n=10):\n    # TODO: deduplicate, sort, and slice\n    pass",
       "solution_code": "import pandas as pd\n\ndef filter_top_customers(df, n=10):\n    unique = df.drop_duplicates(subset=['customer_id'])\n    sorted_df = unique.sort_values('total_spend', ascending=False)\n    return sorted_df.head(n)",
       "test_cases": [
-        "assert len(filter_top_customers(sample_df, 5)) <= 5",
-        "assert 'customer_id' not in filter_top_customers(sample_df, 5).duplicated(subset=['customer_id']).values"
+        {
+          "input": "",
+          "expected_output": "assert len(filter_top_customers(sample_df, 5)) <= 5",
+          "description": "assert len(filter_top_customers(sample_df, 5)) <= 5"
+        },
+        {
+          "input": "",
+          "expected_output": "assert 'customer_id' not in filter_top_customers(sample_df, 5).duplicated(subset=['customer_id']).values",
+          "description": "assert 'customer_id' not in filter_top_customers(sample_df, 5).duplicated(subset=['customer_id']).values"
+        }
       ],
       "hint": "Drop duplicates on customer_id first, then sort by total_spend in descending order, and use head(n) to limit results.",
       "explanation": "Deduplication prevents double-counting in downstream metrics. Sorting by spend identifies high-value segments, which is essential for targeted marketing and resource allocation."
@@ -438,8 +462,16 @@
       "starter_code": "import json\n\ndef export_analytics_summary(df, output_path):\n    # TODO: compute summary and write JSON\n    pass",
       "solution_code": "import json\n\ndef export_analytics_summary(df, output_path):\n    summary = {\n        'total_revenue': df['revenue'].sum(),\n        'avg_order_value': df['revenue'].mean(),\n        'unique_customers': df['customer_id'].nunique()\n    }\n    with open(output_path, 'w') as f:\n        json.dump(summary, f, indent=2)",
       "test_cases": [
-        "assert 'total_revenue' in json.load(open('summary.json'))",
-        "assert isinstance(json.load(open('summary.json'))['total_revenue'], (int, float))"
+        {
+          "input": "",
+          "expected_output": "assert 'total_revenue' in json.load(open('summary.json'))",
+          "description": "assert 'total_revenue' in json.load(open('summary.json'))"
+        },
+        {
+          "input": "",
+          "expected_output": "assert isinstance(json.load(open('summary.json'))['total_revenue'], (int, float))",
+          "description": "assert isinstance(json.load(open('summary.json'))['total_revenue'], (int, float))"
+        }
       ],
       "hint": "Compute aggregates with pandas Series methods, build a plain dict, and use json.dump to write the file.",
       "explanation": "Serializing analytics summaries to JSON enables interoperability with dashboards, APIs, and downstream batch jobs. Keeping numbers as native types preserves semantic meaning."
@@ -457,8 +489,16 @@
       "starter_code": "import os\n\ndef run_analytics_pipeline(sales_csv, customers_csv, output_json):\n    # TODO: orchestrate pipeline with error handling\n    pass",
       "solution_code": "import os\nimport pandas as pd\n\ndef run_analytics_pipeline(sales_csv, customers_csv, output_json):\n    if not os.path.exists(sales_csv):\n        raise ValueError(f'Sales file not found: {sales_csv}')\n    if not os.path.exists(customers_csv):\n        raise ValueError(f'Customers file not found: {customers_csv}')\n    merged = load_and_merge_sales_data(sales_csv, customers_csv)\n    monthly = compute_monthly_revenue(merged)\n    top = filter_top_customers(merged)\n    summary = {\n        'total_revenue': merged['revenue'].sum(),\n        'avg_order_value': merged['revenue'].mean(),\n        'unique_customers': merged['customer_id'].nunique()\n    }\n    with open(output_json, 'w') as f:\n        json.dump(summary, f, indent=2)\n    return merged, monthly, top",
       "test_cases": [
-        "assert os.path.exists('output_summary.json')",
-        "assert len(run_analytics_pipeline('sales.csv', 'customers.csv', 'output_summary.json')[1]) > 0"
+        {
+          "input": "",
+          "expected_output": "assert os.path.exists('output_summary.json')",
+          "description": "assert os.path.exists('output_summary.json')"
+        },
+        {
+          "input": "",
+          "expected_output": "assert len(run_analytics_pipeline('sales.csv', 'customers.csv', 'output_summary.json')[1]) > 0",
+          "description": "assert len(run_analytics_pipeline('sales.csv', 'customers.csv', 'output_summary.json')[1]) > 0"
+        }
       ],
       "hint": "Check file existence with os.path.exists before calling merge. Chain the four functions in order and collect intermediate results for validation.",
       "explanation": "Integration milestones require students to compose discrete units into a resilient workflow. Explicit error handling and intermediate return values demonstrate production-grade pipeline design."
@@ -476,8 +516,16 @@
       "starter_code": "import json\n\ndef test_pipeline_integrity():\n    # TODO: run pipeline on fixtures, read back, and validate\n    pass",
       "solution_code": "import json\nimport os\nimport pandas as pd\n\ndef test_pipeline_integrity():\n    sales_fixture = 'fixture_sales.csv'\n    customers_fixture = 'fixture_customers.csv'\n    output_json = 'fixture_summary.json'\n    run_analytics_pipeline(sales_fixture, customers_fixture, output_json)\n    with open(output_json, 'r') as f:\n        summary = json.load(f)\n    assert summary['total_revenue'] >= 0, 'Revenue must be non-negative'\n    assert isinstance(summary['unique_customers'], int), 'Unique customers must be integer'\n    os.remove(output_json)\n    return True",
       "test_cases": [
-        "assert test_pipeline_integrity() is True",
-        "assert not os.path.exists('fixture_summary.json')"
+        {
+          "input": "",
+          "expected_output": "assert test_pipeline_integrity() is True",
+          "description": "assert test_pipeline_integrity() is True"
+        },
+        {
+          "input": "",
+          "expected_output": "assert not os.path.exists('fixture_summary.json')",
+          "description": "assert not os.path.exists('fixture_summary.json')"
+        }
       ],
       "hint": "After running the pipeline, open the generated JSON, inspect each required key, and assert type and value constraints. Clean up the temporary file afterward.",
       "explanation": "The final milestone emphasizes data integrity and testability. Reading back serialized output and asserting invariants closes the loop between computation and verification, mirroring real-world ETL quality gates."
@@ -495,8 +543,16 @@
       "starter_code": "import pandas as pd\n\ndf_sales = pd.read_csv('sales.csv')\ndf_inventory = pd.read_csv('inventory.csv')\n\nmerged = pd.merge(df_sales, df_inventory, on='product_id')\nsummary = merged.groupby('region').agg({'revenue': 'sum', 'units': 'mean'})\nprint(summary)",
       "solution_code": "import pandas as pd\n\ndf_sales = pd.read_csv('sales.csv')\ndf_inventory = pd.read_csv('inventory.csv')\n\nmerged = pd.merge(df_sales, df_inventory, on='product_id', how='inner')\nsummary = merged.groupby('region').agg({'revenue': 'sum', 'units': 'mean'})\nprint(summary)",
       "test_cases": [
-        "assert merged.shape[0] == len(set(df_sales['product_id']) & set(df_inventory['product_id']))",
-        "assert 'revenue' in summary.columns and 'units' in summary.columns"
+        {
+          "input": "assert merged.shape[0]",
+          "expected_output": "len(set(df_sales['product_id']) & set(df_inventory['product_id']))",
+          "description": "Verifies: assert merged.shape[0] == len(set(df_sales['product_id']) & set(df_inventory['product_id']))"
+        },
+        {
+          "input": "",
+          "expected_output": "assert 'revenue' in summary.columns and 'units' in summary.columns",
+          "description": "assert 'revenue' in summary.columns and 'units' in summary.columns"
+        }
       ],
       "hint": "Use how='inner' to keep only matching product_id rows, then verify the merged shape.",
       "explanation": "This milestone teaches end-to-end data merging using pandas merge and groupby aggregation, which is essential for analytics pipelines."
@@ -514,8 +570,16 @@
       "starter_code": "import pandas as pd\nimport json\n\nwith open('config.json') as f:\n    config = json.load(f)\n\ndf = pd.read_csv('raw_data.csv')\ndf_clean = df.dropna()\nprint(df_clean.head())",
       "solution_code": "import pandas as pd\nimport json\n\nwith open('config.json') as f:\n    config = json.load(f)\n\ndf = pd.read_csv('raw_data.csv')\ndf_clean = df.dropna(subset=config.get('required_columns', []))\ndf_clean = df_clean.apply(lambda x: x.str.strip() if x.dtype == 'object' else x)\nprint(df_clean.head())",
       "test_cases": [
-        "assert len(df_clean) <= len(df)",
-        "assert all(col in df_clean.columns for col in config.get('required_columns', []))"
+        {
+          "input": "",
+          "expected_output": "assert len(df_clean) <= len(df)",
+          "description": "assert len(df_clean) <= len(df)"
+        },
+        {
+          "input": "",
+          "expected_output": "assert all(col in df_clean.columns for col in config.get('required_columns', []))",
+          "description": "assert all(col in df_clean.columns for col in config.get('required_columns', []))"
+        }
       ],
       "hint": "Use config to dynamically select columns for dropping NA and apply strip to object columns.",
       "explanation": "Adding JSON-driven configuration makes the pipeline reusable and demonstrates preprocessing before merging."
@@ -533,8 +597,16 @@
       "starter_code": "import pandas as pd\n\ndf = pd.read_csv('transactions.csv')\ndf['date'] = pd.to_datetime(df['date'])\ndaily = df.groupby(df['date'].dt.date)['amount'].sum()\nprint(daily)",
       "solution_code": "import pandas as pd\n\ndf = pd.read_csv('transactions.csv')\ndf['date'] = pd.to_datetime(df['date'])\ndf['year_month'] = df['date'].dt.to_period('M')\ndaily = df.groupby(df['date'].dt.date)['amount'].sum()\nmonthly = df.groupby('year_month')['amount'].sum()\nprint('Daily:', daily)\nprint('Monthly:', monthly)",
       "test_cases": [
-        "assert isinstance(daily.index[0], pd.Timestamp)",
-        "assert len(monthly) <= len(daily)"
+        {
+          "input": "",
+          "expected_output": "assert isinstance(daily.index[0], pd.Timestamp)",
+          "description": "assert isinstance(daily.index[0], pd.Timestamp)"
+        },
+        {
+          "input": "",
+          "expected_output": "assert len(monthly) <= len(daily)",
+          "description": "assert len(monthly) <= len(daily)"
+        }
       ],
       "hint": "Use dt.to_period('M') for monthly grouping and keep both daily and monthly aggregations.",
       "explanation": "Temporal feature engineering is critical for analytics pipelines that support trend analysis."
@@ -552,8 +624,16 @@
       "starter_code": "import pandas as pd\nimport numpy as np\n\ndf = pd.read_csv('metrics.csv')\nq1 = df['value'].quantile(0.25)\nq3 = df['value'].quantile(0.75)\niqr = q3 - q1\nlower = q1 - 1.5 * iqr\nupper = q3 + 1.5 * iqr\ndf_filtered = df[(df['value'] >= lower) & (df['value'] <= upper)]\nprint(df_filtered.describe())",
       "solution_code": "import pandas as pd\nimport numpy as np\n\ndf = pd.read_csv('metrics.csv')\nq1 = df['value'].quantile(0.25)\nq3 = df['value'].quantile(0.75)\niqr = q3 - q1\nlower = q1 - 1.5 * iqr\nupper = q3 + 1.5 * iqr\ndf_filtered = df[(df['value'] >= lower) & (df['value'] <= upper)]\noutliers = df[(df['value'] < lower) | (df['value'] > upper)]\nprint('Filtered summary:', df_filtered.describe())\nprint('Outlier count:', len(outliers))",
       "test_cases": [
-        "assert len(df_filtered) + len(outliers) == len(df)",
-        "assert df_filtered['value'].min() >= lower and df_filtered['value'].max() <= upper"
+        {
+          "input": "assert len(df_filtered) + len(outliers)",
+          "expected_output": "len(df)",
+          "description": "Verifies: assert len(df_filtered) + len(outliers) == len(df)"
+        },
+        {
+          "input": "",
+          "expected_output": "assert df_filtered['value'].min() >= lower and df_filtered['value'].max() <= upper",
+          "description": "assert df_filtered['value'].min() >= lower and df_filtered['value'].max() <= upper"
+        }
       ],
       "hint": "Store outliers separately before filtering so the pipeline remains auditable.",
       "explanation": "Robust aggregation via IQR filtering improves data quality in production analytics pipelines."
@@ -571,8 +651,16 @@
       "starter_code": "import pandas as pd\n\ndf1 = pd.read_csv('customers.csv')\ndf2 = pd.read_csv('orders.csv')\ndf3 = pd.read_csv('products.csv')\n\nresult = pd.merge(df1, df2, on='customer_id')\nresult = pd.merge(result, df3, on='product_id')\nprint(result.isnull().sum())",
       "solution_code": "import pandas as pd\n\ndf1 = pd.read_csv('customers.csv')\ndf2 = pd.read_csv('orders.csv')\ndf3 = pd.read_csv('products.csv')\n\nresult = pd.merge(df1, df2, on='customer_id', how='left')\nresult = pd.merge(result, df3, on='product_id', how='left')\nresult = result.fillna({'product_name': 'unknown'})\nprint(result.isnull().sum())",
       "test_cases": [
-        "assert 'product_name' not in result.isnull().any()",
-        "assert len(result) == len(df1)"
+        {
+          "input": "",
+          "expected_output": "assert 'product_name' not in result.isnull().any()",
+          "description": "assert 'product_name' not in result.isnull().any()"
+        },
+        {
+          "input": "assert len(result)",
+          "expected_output": "len(df1)",
+          "description": "Verifies: assert len(result) == len(df1)"
+        }
       ],
       "hint": "Use how='left' at each merge step and fillna with a dictionary keyed by column name.",
       "explanation": "Left joins preserve all records from the primary dataset, and explicit missing-value handling prevents downstream errors."

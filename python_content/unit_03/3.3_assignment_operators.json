@@ -501,7 +501,13 @@
       ],
       "prompt": "A subtotal is `subtotal = 100.0`. A 10% tax needs to be applied, so `subtotal` becomes 1.10 times its original value. Which single augmented assignment does this?",
       "correct_answer": "B",
-      "explanation": "The modulo operator `%` calculates the remainder of division. For example, `7 % 3` yields `1` because 3 fits into 7 twice with 1 left over."
+      "explanation": "The modulo operator `%` calculates the remainder of division. For example, `7 % 3` yields `1` because 3 fits into 7 twice with 1 left over.",
+      "options": [
+        "A. subtotal += subtotal * 1.10",
+        "B. subtotal += subtotal * 0.10 (or subtotal *= 1.10)",
+        "C. subtotal =+ 0.10",
+        "D. subtotal = subtotal + 10"
+      ]
     },
     {
       "id": "3.3_q30",
@@ -519,7 +525,13 @@
       ],
       "prompt": "Which of the following summaries regarding Python assignment operators is completely TRUE?",
       "correct_answer": "A",
-      "explanation": "This encapsulates Python assignment mechanics, compound operators, and the non-existence of increment operators."
+      "explanation": "This encapsulates Python assignment mechanics, compound operators, and the non-existence of increment operators.",
+      "options": [
+        "A. Compound assignment operators (like +=, *=) evaluate the right-hand expression first and update the variable in a single concise step.",
+        "B. x =+ 1 is identical in behavior to x += 1.",
+        "C. Compound assignment can only be used with integer variables.",
+        "D. Compound assignment creates a new variable name in the current scope."
+      ]
     }
   ],
   "unit_num": 3,

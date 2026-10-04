@@ -501,7 +501,13 @@
       ],
       "prompt": "A marathon is 26.2 miles. A runner completes it in 210 minutes. Which expression calculates their average pace in minutes per mile?",
       "correct_answer": "B",
-      "explanation": "Pace in minutes per mile is total minutes divided by total miles: `210 / 26.2`."
+      "explanation": "Pace in minutes per mile is total minutes divided by total miles: `210 / 26.2`.",
+      "options": [
+        "A. pace = 26.2 / 210 (approx 0.12 min/mile)",
+        "B. pace = 210 / 26.2 (approx 8.02 min/mile)",
+        "C. pace = 210 // 26.2 (integer division)",
+        "D. pace = 210 % 26.2 (remainder)"
+      ]
     },
     {
       "id": "2.3_q30",
@@ -517,7 +523,13 @@
       ],
       "prompt": "Which statement accurately describes integers and floats in Python?",
       "correct_answer": "A",
-      "explanation": "This accurately summarizes arbitrary-precision integers, IEEE 754 floats, and Python 3 division behavior."
+      "explanation": "This accurately summarizes arbitrary-precision integers, IEEE 754 floats, and Python 3 division behavior.",
+      "options": [
+        "A. Integers have arbitrary precision and never overflow; floats use IEEE 754 binary representation with potential representation limits.",
+        "B. Floats have exact decimal precision with no rounding limits.",
+        "C. Integers in Python are limited to 32 bits and overflow after 2,147,483,647.",
+        "D. Dividing two integers with / always produces an integer in Python 3."
+      ]
     }
   ],
   "unit_num": 2,

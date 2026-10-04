@@ -483,10 +483,26 @@
       "starter_code": "import sqlite3\n\ndef get_product(pid):\n    conn = sqlite3.connect('shop.db')\n    cursor = conn.cursor()\n    cursor.execute('SELECT * FROM products WHERE id = ' + str(pid))\n    row = cursor.fetchone()\n    conn.close()\n    return row\n\ndef update_stock(pid, qty):\n    conn = sqlite3.connect('shop.db')\n    cursor = conn.cursor()\n    cursor.execute('UPDATE products SET stock = stock - ? WHERE id = ?', (qty, pid))\n    conn.commit()\n    conn.close()\n\ndef list_low_stock(threshold):\n    conn = sqlite3.connect('shop.db')\n    cursor = conn.cursor()\n    cursor.execute('SELECT * FROM products WHERE stock < ' + str(threshold))\n    rows = cursor.fetchall()\n    conn.close()\n    return rows",
       "solution_code": "import sqlite3\nfrom contextlib import contextmanager\n\n@contextmanager\ndef db_connection(path='shop.db'):\n    conn = sqlite3.connect(path)\n    try:\n        yield conn\n    finally:\n        conn.close()\n\ndef execute_query(conn, sql, params=None):\n    cursor = conn.cursor()\n    if params:\n        cursor.execute(sql, params)\n    else:\n        cursor.execute(sql)\n    return cursor\n\ndef get_product(pid):\n    with db_connection() as conn:\n        cursor = execute_query(conn, 'SELECT * FROM products WHERE id = ?', (pid,))\n        return cursor.fetchone()\n\ndef update_stock(pid, qty):\n    with db_connection() as conn:\n        execute_query(conn, 'UPDATE products SET stock = stock - ? WHERE id = ?', (qty, pid))\n        conn.commit()\n\ndef list_low_stock(threshold):\n    with db_connection() as conn:\n        cursor = execute_query(conn, 'SELECT * FROM products WHERE stock < ?', (threshold,))\n        return cursor.fetchall()",
       "test_cases": [
-        "get_product(1) returns a single row tuple",
-        "update_stock(1, 5) reduces stock without error",
-        "list_low_stock(10) returns only rows with stock less than 10",
-        "No SQL injection occurs when passing malicious strings"
+        {
+          "input": "",
+          "expected_output": "get_product(1) returns a single row tuple",
+          "description": "get_product(1) returns a single row tuple"
+        },
+        {
+          "input": "",
+          "expected_output": "update_stock(1, 5) reduces stock without error",
+          "description": "update_stock(1, 5) reduces stock without error"
+        },
+        {
+          "input": "",
+          "expected_output": "list_low_stock(10) returns only rows with stock less than 10",
+          "description": "list_low_stock(10) returns only rows with stock less than 10"
+        },
+        {
+          "input": "",
+          "expected_output": "No SQL injection occurs when passing malicious strings",
+          "description": "No SQL injection occurs when passing malicious strings"
+        }
       ],
       "hint": "Introduce a context manager for connection handling and a helper to run parameterized queries consistently.",
       "explanation": "The original code duplicated connection logic and used unsafe concatenation in one place. The refactored version centralizes connection lifecycle with a context manager, abstracts query execution, and ensures every database interaction uses parameterized queries, improving maintainability and security."
@@ -504,8 +520,16 @@
       "starter_code": "import sqlite3\n\ndef insert_user(db_path, username, email):\n    conn = sqlite3.connect(db_path)\n    cursor = conn.cursor()\n    # TODO: write a parameterized query to insert username and email into users table\n    # table schema: CREATE TABLE users (id INTEGER PRIMARY KEY, username TEXT, email TEXT)\n    conn.commit()\n    conn.close()\n\n# Example usage\ninsert_user('app.db', 'alice', 'alice@example.com')",
       "solution_code": "import sqlite3\n\ndef insert_user(db_path, username, email):\n    conn = sqlite3.connect(db_path)\n    cursor = conn.cursor()\n    cursor.execute('INSERT INTO users (username, email) VALUES (?, ?)', (username, email))\n    conn.commit()\n    conn.close()\n\n# Example usage\ninsert_user('app.db', 'alice', 'alice@example.com')",
       "test_cases": [
-        "insert_user('test.db', 'bob', 'bob@test.com')",
-        "insert_user('test.db', 'charlie', 'charlie@test.com')"
+        {
+          "input": "",
+          "expected_output": "insert_user('test.db', 'bob', 'bob@test.com')",
+          "description": "insert_user('test.db', 'bob', 'bob@test.com')"
+        },
+        {
+          "input": "",
+          "expected_output": "insert_user('test.db', 'charlie', 'charlie@test.com')",
+          "description": "insert_user('test.db', 'charlie', 'charlie@test.com')"
+        }
       ],
       "hint": "Use '?' as placeholders in the SQL string and pass the values as a tuple to the execute method.",
       "explanation": "Parameterized queries separate SQL logic from data by using placeholders like ?. This ensures user input is treated strictly as data, not executable SQL, eliminating SQL injection risk."
@@ -523,8 +547,16 @@
       "starter_code": "import sqlite3\n\ndef get_active_users(db_path):\n    conn = sqlite3.connect(db_path)\n    cursor = conn.cursor()\n    # TODO: write a parameterized SELECT query filtering by status = 'active'\n    # table schema: users (id INTEGER PRIMARY KEY, username TEXT, email TEXT, status TEXT)\n    results = cursor.fetchall()\n    conn.close()\n    return results",
       "solution_code": "import sqlite3\n\ndef get_active_users(db_path):\n    conn = sqlite3.connect(db_path)\n    cursor = conn.cursor()\n    cursor.execute('SELECT id, username, email FROM users WHERE status = ?', ('active',))\n    results = cursor.fetchall()\n    conn.close()\n    columns = ['id', 'username', 'email']\n    return [dict(zip(columns, row)) for row in results]",
       "test_cases": [
-        "get_active_users('test.db')",
-        "get_active_users('test.db') returns list of dicts with keys id, username, email"
+        {
+          "input": "",
+          "expected_output": "get_active_users('test.db')",
+          "description": "get_active_users('test.db')"
+        },
+        {
+          "input": "",
+          "expected_output": "get_active_users('test.db') returns list of dicts with keys id, username, email",
+          "description": "get_active_users('test.db') returns list of dicts with keys id, username, email"
+        }
       ],
       "hint": "Fetch results and map each row to a dictionary using column names.",
       "explanation": "This demonstrates practical use of parameterized queries for filtering. Binding the status value as a parameter prevents malicious input from altering the query structure."
@@ -542,8 +574,16 @@
       "starter_code": "import sqlite3\n\ndef batch_insert_users(db_path, users):\n    # users is a list of tuples: (username, email)\n    conn = sqlite3.connect(db_path)\n    cursor = conn.cursor()\n    # TODO: validate emails and use executemany for safe batch insertion\n    # table schema: users (id INTEGER PRIMARY KEY, username TEXT, email TEXT)\n    conn.commit()\n    conn.close()",
       "solution_code": "import sqlite3\n\ndef batch_insert_users(db_path, users):\n    conn = sqlite3.connect(db_path)\n    cursor = conn.cursor()\n    valid_users = [u for u in users if '@' in u[1]]\n    cursor.executemany('INSERT INTO users (username, email) VALUES (?, ?)', valid_users)\n    conn.commit()\n    conn.close()",
       "test_cases": [
-        "batch_insert_users('test.db', [('alice', 'alice@example.com'), ('bob', 'bad-email')])",
-        "batch_insert_users('test.db', [('charlie', 'charlie@test.com'), ('dana', 'dana@test.com')])"
+        {
+          "input": "",
+          "expected_output": "batch_insert_users('test.db', [('alice', 'alice@example.com'), ('bob', 'bad-email')])",
+          "description": "batch_insert_users('test.db', [('alice', 'alice@example.com'), ('bob', 'bad-email')])"
+        },
+        {
+          "input": "",
+          "expected_output": "batch_insert_users('test.db', [('charlie', 'charlie@test.com'), ('dana', 'dana@test.com')])",
+          "description": "batch_insert_users('test.db', [('charlie', 'charlie@test.com'), ('dana', 'dana@test.com')])"
+        }
       ],
       "hint": "Filter the input list before calling executemany, and use '?' placeholders.",
       "explanation": "Batch operations with executemany improve efficiency. Combining input validation with parameterized queries adds defense-in-depth against malformed or malicious data."
@@ -561,8 +601,16 @@
       "starter_code": "import sqlite3\n\ndef search_user(db_path, user_input):\n    conn = sqlite3.connect(db_path)\n    cursor = conn.cursor()\n    query = 'SELECT * FROM users WHERE username = ' + user_input\n    cursor.execute(query)\n    results = cursor.fetchall()\n    conn.close()\n    return results",
       "solution_code": "import sqlite3\n\ndef search_user(db_path, user_input):\n    conn = sqlite3.connect(db_path)\n    cursor = conn.cursor()\n    cursor.execute('SELECT * FROM users WHERE username = ?', (user_input,))\n    results = cursor.fetchall()\n    conn.close()\n    return results",
       "test_cases": [
-        "search_user('test.db', \"' OR '1'='1\") should return empty list safely",
-        "search_user('test.db', 'alice') returns matching user record"
+        {
+          "input": "",
+          "expected_output": "search_user('test.db', \"' OR '1'='1\") should return empty list safely",
+          "description": "search_user('test.db', \"' OR '1'='1\") should return empty list safely"
+        },
+        {
+          "input": "",
+          "expected_output": "search_user('test.db', 'alice') returns matching user record",
+          "description": "search_user('test.db', 'alice') returns matching user record"
+        }
       ],
       "hint": "Replace string concatenation with a placeholder and pass user_input as a parameter tuple.",
       "explanation": "The original code concatenates user_input directly into the SQL string, allowing an attacker to inject arbitrary SQL. Parameterized queries treat the input as literal data, neutralizing the attack."
@@ -580,8 +628,16 @@
       "starter_code": "import sqlite3\n\ndef search_books(db_path, term):\n    # TODO: implement safe search with input sanitization and parameterized query\n    # table schema: books (id INTEGER PRIMARY KEY, title TEXT, author TEXT, isbn TEXT)\n    conn = sqlite3.connect(db_path)\n    cursor = conn.cursor()\n    # placeholder for your solution\n    results = []\n    conn.close()\n    return results",
       "solution_code": "import sqlite3\n\ndef search_books(db_path, term):\n    sanitized = term.strip()\n    conn = sqlite3.connect(db_path)\n    cursor = conn.cursor()\n    cursor.execute('SELECT title, author, isbn FROM books WHERE title LIKE ?', (f'%{sanitized}%',))\n    results = cursor.fetchall()\n    conn.close()\n    columns = ['title', 'author', 'isbn']\n    return [dict(zip(columns, row)) for row in results]",
       "test_cases": [
-        "search_books('library.db', '  python  ') returns matching books with whitespace ignored",
-        "search_books('library.db', \"'; DROP TABLE books; --\") returns empty list safely"
+        {
+          "input": "",
+          "expected_output": "search_books('library.db', '  python  ') returns matching books with whitespace ignored",
+          "description": "search_books('library.db', '  python  ') returns matching books with whitespace ignored"
+        },
+        {
+          "input": "",
+          "expected_output": "search_books('library.db', \"'; DROP TABLE books; --\") returns empty list safely",
+          "description": "search_books('library.db', \"'; DROP TABLE books; --\") returns empty list safely"
+        }
       ],
       "hint": "Use strip() on the input, then use LIKE with a parameterized pattern.",
       "explanation": "Real-world applications must combine input sanitization with parameterized queries. Even with sanitization, parameterized queries remain the primary defense because they enforce strict separation between code and data."
@@ -599,8 +655,16 @@
       "starter_code": "import sqlite3\n\ndef create_order(db_path, order_data, items):\n    # order_data: (customer_id, total)\n    # items: list of (product_id, quantity)\n    conn = sqlite3.connect(db_path)\n    cursor = conn.cursor()\n    try:\n        # TODO: insert order with parameterized query\n        # TODO: insert items with parameterized query\n        # TODO: commit transaction\n        pass\n    except Exception:\n        conn.rollback()\n        return False\n    conn.close()\n    return True",
       "solution_code": "import sqlite3\n\ndef create_order(db_path, order_data, items):\n    conn = sqlite3.connect(db_path)\n    cursor = conn.cursor()\n    try:\n        cursor.execute('INSERT INTO orders (customer_id, total) VALUES (?, ?)', order_data)\n        for item in items:\n            cursor.execute('INSERT INTO order_items (order_id, product_id, quantity) VALUES (?, ?, ?)', (cursor.lastrowid, item[0], item[1]))\n        conn.commit()\n    except Exception:\n        conn.rollback()\n        return False\n    conn.close()\n    return True",
       "test_cases": [
-        "create_order('store.db', (1, 99.99), [(101, 2), (102, 1)]) returns True",
-        "create_order('store.db', (2, 49.99), [(103, 5)]) returns True"
+        {
+          "input": "",
+          "expected_output": "create_order('store.db', (1, 99.99), [(101, 2), (102, 1)]) returns True",
+          "description": "create_order('store.db', (1, 99.99), [(101, 2), (102, 1)]) returns True"
+        },
+        {
+          "input": "",
+          "expected_output": "create_order('store.db', (2, 49.99), [(103, 5)]) returns True",
+          "description": "create_order('store.db', (2, 49.99), [(103, 5)]) returns True"
+        }
       ],
       "hint": "Use a try/except block, commit only after all inserts succeed, and use cursor.lastrowid to link order items.",
       "explanation": "Mastery requires combining parameterized queries with transaction control. Atomic transactions ensure data integrity: either all inserts succeed or none do, and parameterized queries protect each operation from injection throughout the workflow."

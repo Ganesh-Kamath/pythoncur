@@ -480,8 +480,16 @@
       "starter_code": "import asyncio\n\nasync def fetch_data(source):\n    await asyncio.sleep(0.1)\n    return source\n\nasync def main():\n    # TODO: use asyncio.gather to run both fetches concurrently\n    result = await fetch_data('A')\n    print(result)\n\nasyncio.run(main())",
       "solution_code": "import asyncio\n\nasync def fetch_data(source):\n    await asyncio.sleep(0.1)\n    return source\n\nasync def main():\n    results = await asyncio.gather(fetch_data('A'), fetch_data('B'))\n    combined = results[0] + results[1]\n    print(combined)\n\nasyncio.run(main())",
       "test_cases": [
-        "asyncio.run(main()) should print 'AB'",
-        "Both fetches should complete concurrently within ~0.1 seconds total"
+        {
+          "input": "",
+          "expected_output": "asyncio.run(main()) should print 'AB'",
+          "description": "asyncio.run(main()) should print 'AB'"
+        },
+        {
+          "input": "",
+          "expected_output": "Both fetches should complete concurrently within ~0.1 seconds total",
+          "description": "Both fetches should complete concurrently within ~0.1 seconds total"
+        }
       ],
       "hint": "Use asyncio.gather to schedule multiple awaitable coroutines at once and await the returned list.",
       "explanation": "asyncio.gather allows multiple coroutines to run concurrently. By awaiting the gather call, we collect all results after both asynchronous operations complete. This is the core pattern for simple concurrency with async and await."
@@ -499,8 +507,16 @@
       "starter_code": "import aiohttp\nimport asyncio\n\nasync def get_json(url):\n    # TODO: open session, GET request, parse JSON, handle exceptions\n    pass\n\nasync def main():\n    data = await get_json('https://jsonplaceholder.typicode.com/todos/1')\n    print(data['title'])\n\nasyncio.run(main())",
       "solution_code": "import aiohttp\nimport asyncio\n\nasync def get_json(url):\n    try:\n        async with aiohttp.ClientSession() as session:\n            async with session.get(url) as response:\n                response.raise_for_status()\n                return await response.json()\n    except aiohttp.ClientError as e:\n        print('Request failed:', e)\n        return {}\n\nasync def main():\n    data = await get_json('https://jsonplaceholder.typicode.com/todos/1')\n    print(data['title'])\n\nasyncio.run(main())",
       "test_cases": [
-        "Valid URL should return a dict with 'title' key",
-        "Network error should print message and return empty dict"
+        {
+          "input": "",
+          "expected_output": "Valid URL should return a dict with 'title' key",
+          "description": "Valid URL should return a dict with 'title' key"
+        },
+        {
+          "input": "",
+          "expected_output": "Network error should print message and return empty dict",
+          "description": "Network error should print message and return empty dict"
+        }
       ],
       "hint": "Use async with for session and response lifecycle, and wrap network calls in try/except.",
       "explanation": "Practical async programming requires proper resource cleanup via async with and robust error handling. await pauses execution until the HTTP response is ready, freeing the event loop for other tasks."
@@ -518,8 +534,16 @@
       "starter_code": "import asyncio\n\nasync def worker(queue, semaphore):\n    # TODO: acquire semaphore, process items until cancelled, release semaphore\n    pass\n\nasync def main():\n    queue = asyncio.Queue(maxsize=10)\n    semaphore = asyncio.Semaphore(3)\n    # TODO: spawn workers and producers, run until interrupted\n    pass\n\nif __name__ == '__main__':\n    try:\n        asyncio.run(main())\n    except KeyboardInterrupt:\n        print('Shutting down...')",
       "solution_code": "import asyncio\n\nasync def worker(queue, semaphore):\n    while True:\n        try:\n            item = await asyncio.wait_for(queue.get(), timeout=1.0)\n        except asyncio.TimeoutError:\n            continue\n        async with semaphore:\n            await asyncio.sleep(0.2)  # simulate work\n            print('Processed', item)\n            queue.task_done()\n\nasync def producer(queue):\n    for i in range(1, 21):\n        await queue.put(i)\n\nasync def main():\n    queue = asyncio.Queue(maxsize=10)\n    semaphore = asyncio.Semaphore(3)\n    await asyncio.gather(\n        producer(queue),\n        *[worker(queue, semaphore) for _ in range(3)]\n    )\n\nif __name__ == '__main__':\n    try:\n        asyncio.run(main())\n    except KeyboardInterrupt:\n        print('Shutting down...')",
       "test_cases": [
-        "No more than 3 workers should process items concurrently",
-        "Producer must finish adding 20 items before workers drain the queue"
+        {
+          "input": "",
+          "expected_output": "No more than 3 workers should process items concurrently",
+          "description": "No more than 3 workers should process items concurrently"
+        },
+        {
+          "input": "",
+          "expected_output": "Producer must finish adding 20 items before workers drain the queue",
+          "description": "Producer must finish adding 20 items before workers drain the queue"
+        }
       ],
       "hint": "Use asyncio.wait_for to avoid blocking forever, and asyncio.gather to run producers and consumers together.",
       "explanation": "Advanced concurrency combines semaphores for concurrency limits, queues for backpressure, and timeout-guarded gets to prevent deadlock. KeyboardInterrupt handling ensures clean shutdown of pending tasks."
@@ -537,8 +561,16 @@
       "starter_code": "import asyncio\nimport aiohttp\n\nasync def fetch(session, url):\n    async with session.get(url) as resp:\n        return await resp.text()\n\nasync def main(urls):\n    async with aiohttp.ClientSession() as session:\n        # TODO: implement race-with-timeout using asyncio.wait\n        pass\n\nif __name__ == '__main__':\n    urls = [\n        'https://httpbin.org/delay/1',\n        'https://httpbin.org/delay/3',\n        'https://httpbin.org/delay/1'\n    ]\n    asyncio.run(main(urls))",
       "solution_code": "import asyncio\nimport aiohttp\n\nasync def fetch(session, url):\n    async with session.get(url) as resp:\n        return await resp.text()\n\nasync def main(urls):\n    async with aiohttp.ClientSession() as session:\n        tasks = [fetch(session, url) for url in urls]\n        done, pending = await asyncio.wait(\n            tasks, timeout=2.0, return_when=asyncio.FIRST_COMPLETED\n        )\n        if not done:\n            raise TimeoutError('No request completed within 2 seconds')\n        # cancel remaining tasks\n        for p in pending:\n            p.cancel()\n        return await done.pop().result()\n\nif __name__ == '__main__':\n    urls = [\n        'https://httpbin.org/delay/1',\n        'https://httpbin.org/delay/3',\n        'https://httpbin.org/delay/1'\n    ]\n    result = asyncio.run(main(urls))\n    print(result[:20])",
       "test_cases": [
-        "First completed task within 2 seconds should be returned",
-        "Tasks still pending after timeout should be cancelled"
+        {
+          "input": "",
+          "expected_output": "First completed task within 2 seconds should be returned",
+          "description": "First completed task within 2 seconds should be returned"
+        },
+        {
+          "input": "",
+          "expected_output": "Tasks still pending after timeout should be cancelled",
+          "description": "Tasks still pending after timeout should be cancelled"
+        }
       ],
       "hint": "asyncio.wait returns two sets: done and pending. Check if done is empty before returning.",
       "explanation": "asyncio.wait with return_when=FIRST_COMPLETED implements a race condition. Cancelling pending tasks prevents wasted I/O and resource leaks, which is essential in responsive async applications."
@@ -556,9 +588,21 @@
       "starter_code": "import asyncio\nimport aiohttp\nimport logging\nfrom urllib.parse import urlparse\n\nlogging.basicConfig(level=logging.INFO)\n\nasync def scrape(session, url, domain_semaphores):\n    domain = urlparse(url).netloc\n    async with domain_semaphores[domain]:\n        await asyncio.sleep(0.5)\n        async with session.get(url) as resp:\n            text = await resp.text()\n            # TODO: extract title and log it\n            pass\n\nasync def main(urls):\n    domain_semaphores = {d: asyncio.Semaphore(5) for d in set(urlparse(u).netloc for u in urls)}\n    async with aiohttp.ClientSession() as session:\n        await asyncio.gather(*[scrape(session, u, domain_semaphores) for u in urls])\n\nif __name__ == '__main__':\n    urls = [\n        'https://example.com/page1',\n        'https://example.com/page2',\n        'https://example.org/page1'\n    ]\n    asyncio.run(main(urls))",
       "solution_code": "import asyncio\nimport aiohttp\nimport logging\nfrom urllib.parse import urlparse\n\nlogging.basicConfig(level=logging.INFO)\n\nasync def scrape(session, url, domain_semaphores):\n    domain = urlparse(url).netloc\n    async with domain_semaphores[domain]:\n        await asyncio.sleep(0.5)\n        async with session.get(url) as resp:\n            text = await resp.text()\n            from html.parser import HTMLParser\n            class TitleParser(HTMLParser):\n                def __init__(self):\n                    super().__init__()\n                    self.in_title = False\n                    self.title = ''\n                def handle_starttag(self, tag, attrs):\n                    if tag == 'title':\n                        self.in_title = True\n                def handle_data(self, data):\n                    if self.in_title:\n                        self.title += data\n                def handle_endtag(self, tag):\n                    if tag == 'title':\n                        self.in_title = False\n            parser = TitleParser()\n            parser.feed(text)\n            logging.info('Fetched title for %s: %s', url, parser.title.strip())\n\nasync def main(urls):\n    domain_semaphores = {d: asyncio.Semaphore(5) for d in set(urlparse(u).netloc for u in urls)}\n    async with aiohttp.ClientSession() as session:\n        await asyncio.gather(*[scrape(session, u, domain_semaphores) for u in urls])\n\nif __name__ == '__main__':\n    urls = [\n        'https://example.com/page1',\n        'https://example.com/page2',\n        'https://example.org/page1'\n    ]\n    asyncio.run(main(urls))",
       "test_cases": [
-        "Per-domain semaphore must limit concurrent requests to 5",
-        "0.5 second delay must be enforced before each request",
-        "Page title must be extracted and logged without crashing on malformed HTML"
+        {
+          "input": "",
+          "expected_output": "Per-domain semaphore must limit concurrent requests to 5",
+          "description": "Per-domain semaphore must limit concurrent requests to 5"
+        },
+        {
+          "input": "",
+          "expected_output": "0.5 second delay must be enforced before each request",
+          "description": "0.5 second delay must be enforced before each request"
+        },
+        {
+          "input": "",
+          "expected_output": "Page title must be extracted and logged without crashing on malformed HTML",
+          "description": "Page title must be extracted and logged without crashing on malformed HTML"
+        }
       ],
       "hint": "Use a dictionary of semaphores keyed by domain, and parse HTML with html.parser.HTMLParser to avoid external dependencies.",
       "explanation": "Real-world scraping requires politeness (robots.txt delays), concurrency control (per-domain semaphores), and robust parsing. async/await keeps the event loop responsive while I/O-bound operations proceed."
@@ -576,9 +620,21 @@
       "starter_code": "import asyncio\n\nasync def worker(queue):\n    while True:\n        item = await queue.get()\n        await asyncio.sleep(0.05)\n        print('done', item)\n\nasync def main():\n    queue = asyncio.Queue()\n    # TODO: replace with TaskGroup, add backpressure, and handle cancellation\n    pass\n\nif __name__ == '__main__':\n    asyncio.run(main())",
       "solution_code": "import asyncio\n\nasync def worker(queue, task_id):\n    try:\n        while True:\n            item = await queue.get()\n            await asyncio.sleep(0.05)\n            print('done', task_id, item)\n    except asyncio.CancelledError:\n        print('Worker', task_id, 'cancelled')\n        raise\n\nasync def producer(queue):\n    for i in range(1, 31):\n        await queue.put(i)\n        await asyncio.sleep(0.02)\n\nasync def main():\n    queue = asyncio.Queue(maxsize=50)\n    async with asyncio.TaskGroup() as tg:\n        tg.create_task(producer(queue))\n        for i in range(3):\n            tg.create_task(worker(queue, i + 1))\n\nif __name__ == '__main__':\n    try:\n        asyncio.run(main())\n    except KeyboardInterrupt:\n        print('Pipeline interrupted')\n",
       "test_cases": [
-        "TaskGroup must cancel all children on KeyboardInterrupt",
-        "Queue maxsize=50 must block producer when full",
-        "No zombie tasks should remain after cancellation"
+        {
+          "input": "",
+          "expected_output": "TaskGroup must cancel all children on KeyboardInterrupt",
+          "description": "TaskGroup must cancel all children on KeyboardInterrupt"
+        },
+        {
+          "input": "",
+          "expected_output": "Queue maxsize=50 must block producer when full",
+          "description": "Queue maxsize=50 must block producer when full"
+        },
+        {
+          "input": "",
+          "expected_output": "No zombie tasks should remain after cancellation",
+          "description": "No zombie tasks should remain after cancellation"
+        }
       ],
       "hint": "asyncio.TaskGroup provides structured concurrency: exiting the group cancels remaining tasks automatically. Set queue maxsize to enforce backpressure.",
       "explanation": "TaskGroup enforces structured concurrency, guaranteeing that no child task outlives its parent group. Combined with a bounded queue, this prevents memory bloat and ensures cancellation is reliable, which is the hallmark of production-grade async code."

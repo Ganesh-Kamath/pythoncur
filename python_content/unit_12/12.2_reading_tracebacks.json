@@ -505,9 +505,21 @@
       "starter_code": "def safe_divide(a, b):\n    # TODO: implement safe division\n    pass\n\nresult = safe_divide(10, 2)\nprint(result)",
       "solution_code": "def safe_divide(a, b):\n    if b == 0:\n        raise ValueError('Cannot divide by zero')\n    return a / b\n\nresult = safe_divide(10, 2)\nprint(result)",
       "test_cases": [
-        "safe_divide(10, 2) == 5.0",
-        "safe_divide(10, 0) raises ValueError",
-        "safe_divide(-4, 2) == -2.0"
+        {
+          "input": "safe_divide(10, 2)",
+          "expected_output": "5.0",
+          "description": "Verifies: safe_divide(10, 2) == 5.0"
+        },
+        {
+          "input": "",
+          "expected_output": "safe_divide(10, 0) raises ValueError",
+          "description": "safe_divide(10, 0) raises ValueError"
+        },
+        {
+          "input": "safe_divide(-4, 2)",
+          "expected_output": "-2.0",
+          "description": "Verifies: safe_divide(-4, 2) == -2.0"
+        }
       ],
       "hint": "Check if the denominator is zero before performing the division.",
       "explanation": "This exercise teaches you to read a traceback by identifying where an exception was raised and what condition caused it. When `b` is zero, the `ValueError` stops normal execution and Python displays a traceback pointing to the `raise` statement."
@@ -525,9 +537,21 @@
       "starter_code": "def get_middle(items):\n    # TODO: return the middle element\n    pass\n\nprint(get_middle([10, 20, 30]))",
       "solution_code": "def get_middle(items):\n    if len(items) == 0:\n        raise IndexError('List is empty')\n    return items[len(items) // 2]\n\nprint(get_middle([10, 20, 30]))",
       "test_cases": [
-        "get_middle([10, 20, 30]) == 20",
-        "get_middle([]) raises IndexError",
-        "get_middle([5, 6]) == 6"
+        {
+          "input": "get_middle([10, 20, 30])",
+          "expected_output": "20",
+          "description": "Verifies: get_middle([10, 20, 30]) == 20"
+        },
+        {
+          "input": "",
+          "expected_output": "get_middle([]) raises IndexError",
+          "description": "get_middle([]) raises IndexError"
+        },
+        {
+          "input": "get_middle([5, 6])",
+          "expected_output": "6",
+          "description": "Verifies: get_middle([5, 6]) == 6"
+        }
       ],
       "hint": "Use `len(items)` to check for emptiness before accessing an index.",
       "explanation": "A traceback from an `IndexError` tells you the exact line and index that failed. Here, the error would occur if you tried to access `items[len(items) // 2]` on an empty list, so the traceback helps you realize you must guard against that case first."
@@ -545,9 +569,21 @@
       "starter_code": "def process_data(data):\n    validate(data)\n    compute(data)\n\ndef validate(data):\n    pass\n\ndef compute(data):\n    pass\n\nprocess_data([1, -2, 3])",
       "solution_code": "def process_data(data):\n    validate(data)\n    compute(data)\n\ndef validate(data):\n    if not isinstance(data, list):\n        raise TypeError('Expected a list')\n\ndef compute(data):\n    for x in data:\n        if x < 0:\n            raise ValueError('Negative value found')\n    return sum(data)\n\nprocess_data([1, -2, 3])",
       "test_cases": [
-        "process_data([1, -2, 3]) raises ValueError",
-        "process_data('not a list') raises TypeError",
-        "process_data([1, 2, 3]) == 6"
+        {
+          "input": "",
+          "expected_output": "process_data([1, -2, 3]) raises ValueError",
+          "description": "process_data([1, -2, 3]) raises ValueError"
+        },
+        {
+          "input": "",
+          "expected_output": "process_data('not a list') raises TypeError",
+          "description": "process_data('not a list') raises TypeError"
+        },
+        {
+          "input": "process_data([1, 2, 3])",
+          "expected_output": "6",
+          "description": "Verifies: process_data([1, 2, 3]) == 6"
+        }
       ],
       "hint": "Tracebacks show the call stack from the outermost call down to the failing function.",
       "explanation": "When `process_data` is called, the traceback lists each function call in order: `process_data`, then `validate`, then `compute`. Reading this stack from bottom to top reveals the root cause in `compute` before returning to the original caller."
@@ -565,9 +601,21 @@
       "starter_code": "def calculate(a, b):\n    user_input = input('Enter a number: ')\n    value = int(user_input)\n    return a + value\n\ncalculate(5, 3)",
       "solution_code": "def calculate(a, b):\n    user_input = input('Enter a number: ')\n    try:\n        value = int(user_input)\n    except ValueError:\n        print('Invalid input. Using 0.')\n        value = 0\n    return a + value\n\ncalculate(5, 3)",
       "test_cases": [
-        "calculate(5, 3) with input 'abc' returns 5",
-        "calculate(5, 3) with input '7' returns 12",
-        "calculate(5, 3) with input '10' returns 15"
+        {
+          "input": "",
+          "expected_output": "calculate(5, 3) with input 'abc' returns 5",
+          "description": "calculate(5, 3) with input 'abc' returns 5"
+        },
+        {
+          "input": "",
+          "expected_output": "calculate(5, 3) with input '7' returns 12",
+          "description": "calculate(5, 3) with input '7' returns 12"
+        },
+        {
+          "input": "",
+          "expected_output": "calculate(5, 3) with input '10' returns 15",
+          "description": "calculate(5, 3) with input '10' returns 15"
+        }
       ],
       "hint": "The traceback points to `int(user_input)`. The error occurs because `user_input` contains non-numeric characters.",
       "explanation": "The traceback explicitly names the line `value = int(user_input)` and the exception type `ValueError`. Recognizing this pattern lets you insert a `try-except` block to handle bad input gracefully instead of crashing."
@@ -585,9 +633,21 @@
       "starter_code": "def load_scores(filename):\n    scores = []\n    with open(filename, 'r') as f:\n        for line in f:\n            scores.append(int(line))\n    return scores\n\n# scores.txt contains: 10\n# 20\n# abc\n# 30",
       "solution_code": "def load_scores(filename):\n    scores = []\n    with open(filename, 'r') as f:\n        for line in f:\n            line = line.strip()\n            if line == '':\n                continue\n            try:\n                scores.append(int(line))\n            except ValueError:\n                print('Warning: skipping invalid score - ' + line)\n    return scores\n\n# scores.txt contains: 10\n# 20\n# abc\n# 30\n\nprint(load_scores('scores.txt'))",
       "test_cases": [
-        "load_scores('scores.txt') returns [10, 20, 30]",
-        "load_scores('scores.txt') prints one warning for 'abc'",
-        "load_scores('empty.txt') returns []"
+        {
+          "input": "",
+          "expected_output": "load_scores('scores.txt') returns [10, 20, 30]",
+          "description": "load_scores('scores.txt') returns [10, 20, 30]"
+        },
+        {
+          "input": "",
+          "expected_output": "load_scores('scores.txt') prints one warning for 'abc'",
+          "description": "load_scores('scores.txt') prints one warning for 'abc'"
+        },
+        {
+          "input": "",
+          "expected_output": "load_scores('empty.txt') returns []",
+          "description": "load_scores('empty.txt') returns []"
+        }
       ],
       "hint": "Reading a traceback from a file-processing script helps you locate the exact line where conversion fails.",
       "explanation": "In real applications, tracebacks from file I/O often point to the line where data is parsed. By catching `ValueError` during `int(line)`, you prevent the program from crashing and can log or skip malformed entries, which is essential for robust data pipelines."
@@ -605,9 +665,21 @@
       "starter_code": "def countdown(n):\n    print(n)\n    countdown(n - 1)\n\ncountdown(5)",
       "solution_code": "def countdown(n):\n    if n <= 0:\n        return\n    print(n)\n    countdown(n - 1)\n\ncountdown(5)",
       "test_cases": [
-        "countdown(5) prints 5, 4, 3, 2, 1 each on a new line",
-        "countdown(0) prints nothing and returns",
-        "countdown(-3) prints nothing and returns"
+        {
+          "input": "",
+          "expected_output": "countdown(5) prints 5, 4, 3, 2, 1 each on a new line",
+          "description": "countdown(5) prints 5, 4, 3, 2, 1 each on a new line"
+        },
+        {
+          "input": "",
+          "expected_output": "countdown(0) prints nothing and returns",
+          "description": "countdown(0) prints nothing and returns"
+        },
+        {
+          "input": "",
+          "expected_output": "countdown(-3) prints nothing and returns",
+          "description": "countdown(-3) prints nothing and returns"
+        }
       ],
       "hint": "The traceback shows the call stack growing without bound because there is no base case to stop recursion.",
       "explanation": "A `RecursionError` traceback reveals that the function called itself repeatedly without reaching a terminating condition. Adding `if n <= 0: return` creates a base case, so the call stack unwinds safely after printing the sequence."

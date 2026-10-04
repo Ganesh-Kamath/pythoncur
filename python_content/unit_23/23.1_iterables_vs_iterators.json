@@ -462,8 +462,16 @@
       "starter_code": "def read_file(path):\n    with open(path, 'r') as f:\n        lines = f.readlines()\n        for line in lines:\n            yield line.strip()",
       "solution_code": "def read_file(path):\n    with open(path, 'r') as f:\n        for line in f:\n            yield line.strip()",
       "test_cases": [
-        "Create a temporary file with lines: 'apple\\n', 'banana\\n', 'cherry\\n'. Call list(read_file(temp_path)) and assert it equals ['apple', 'banana', 'cherry'].",
-        "Ensure the generator yields one item at a time and does not store all lines in a list before yielding."
+        {
+          "input": "",
+          "expected_output": "Create a temporary file with lines: 'apple\\n', 'banana\\n', 'cherry\\n'. Call list(read_file(temp_path)) and assert it equals ['apple', 'banana', 'cherry'].",
+          "description": "Create a temporary file with lines: 'apple\\n', 'banana\\n', 'cherry\\n'. Call list(read_file(temp_path)) and assert it equals ['apple', 'banana', 'cherry']."
+        },
+        {
+          "input": "",
+          "expected_output": "Ensure the generator yields one item at a time and does not store all lines in a list before yielding.",
+          "description": "Ensure the generator yields one item at a time and does not store all lines in a list before yielding."
+        }
       ],
       "hint": "Iterating directly over the file object yields one line at a time. Avoid readlines() which loads the entire file into memory.",
       "explanation": "The original code uses readlines(), which reads the entire file into a list in memory before yielding. The refactored version iterates directly over the file object, which is memory-efficient because it yields lines lazily. This is critical for large files and demonstrates the power of iterators/generators for streaming data."
@@ -481,9 +489,21 @@
       "starter_code": "class CustomIter:\n    def __init__(self, data):\n        self.data = data\n        self.index = 0\n\n    def __iter__(self):\n        return self\n\n    def __next__(self):\n        if self.index < len(self.data):\n            value = self.data[self.index]\n            self.index += 1\n            return value\n        raise StopIteration\n\ndef custom_iterator(data):\n    return CustomIter(data)",
       "solution_code": "class CustomIter:\n    def __init__(self, data):\n        self.data = data\n        self.index = 0\n\n    def __iter__(self):\n        return self\n\n    def __next__(self):\n        if self.index >= len(self.data):\n            raise StopIteration\n        value = self.data[self.index]\n        self.index += 1\n        return value\n\ndef custom_iterator(data):\n    return CustomIter(data)",
       "test_cases": [
-        "assert list(custom_iterator([10, 20, 30])) == [10, 20, 30]",
-        "assert list(custom_iterator('abc')) == ['a', 'b', 'c']",
-        "assert list(custom_iterator([])) == []"
+        {
+          "input": "assert list(custom_iterator([10, 20, 30]))",
+          "expected_output": "[10, 20, 30]",
+          "description": "Verifies: assert list(custom_iterator([10, 20, 30])) == [10, 20, 30]"
+        },
+        {
+          "input": "assert list(custom_iterator('abc'))",
+          "expected_output": "['a', 'b', 'c']",
+          "description": "Verifies: assert list(custom_iterator('abc')) == ['a', 'b', 'c']"
+        },
+        {
+          "input": "assert list(custom_iterator([]))",
+          "expected_output": "[]",
+          "description": "Verifies: assert list(custom_iterator([])) == []"
+        }
       ],
       "hint": "Ensure `__iter__` returns `self` so the object is its own iterator. Check the boundary condition in `__next__` to avoid an IndexError.",
       "explanation": "An iterator is an object that implements the iterator protocol with `__iter__` and `__next__`. By returning `self` from `__iter__`, the class becomes an iterator. The `__next__` method advances an internal index and raises `StopIteration` when exhausted."
@@ -501,8 +521,16 @@
       "starter_code": "numbers = [1, 2, 3, 4, 5, 6]\nit = iter(numbers)\nfor num in it:\n    if num % 2 == 0:\n        print(num)",
       "solution_code": "numbers = [1, 2, 3, 4, 5, 6]\nit = iter(numbers)\nfor num in it:\n    if num % 2 == 0:\n        print(num)",
       "test_cases": [
-        "assert [x for x in iter([1, 2, 3, 4, 5, 6]) if x % 2 == 0] == [2, 4, 6]",
-        "assert [x for x in iter([0, 1, 2, 3, 4, 5]) if x % 2 == 0] == [0, 2, 4]"
+        {
+          "input": "assert [x for x in iter([1, 2, 3, 4, 5, 6]) if x % 2",
+          "expected_output": "0] == [2, 4, 6]",
+          "description": "Verifies: assert [x for x in iter([1, 2, 3, 4, 5, 6]) if x % 2 == 0] == [2, 4, 6]"
+        },
+        {
+          "input": "assert [x for x in iter([0, 1, 2, 3, 4, 5]) if x % 2",
+          "expected_output": "0] == [0, 2, 4]",
+          "description": "Verifies: assert [x for x in iter([0, 1, 2, 3, 4, 5]) if x % 2 == 0] == [0, 2, 4]"
+        }
       ],
       "hint": "Remember that `iter()` returns a new iterator object from the iterable. The iterator maintains state, so once consumed it cannot be reused without creating a new one.",
       "explanation": "Lists are iterables, not iterators. Calling `iter()` on a list creates an independent iterator. Each call to `next()` advances the iterator, which is why the same iterator cannot be looped over twice without resetting."
@@ -520,8 +548,16 @@
       "starter_code": "def countdown(n):\n    # TODO: implement generator\n    pass\n\ndef countdown_iter(n):\n    return countdown(n)\n\n# Test\nc = countdown_iter(5)\nprint(next(c))",
       "solution_code": "def countdown(n):\n    while n > 0:\n        yield n\n        n -= 1\n\ndef countdown_iter(n):\n    return countdown(n)\n\nc = countdown_iter(5)\nprint(next(c))",
       "test_cases": [
-        "assert [next(countdown_iter(3)) for _ in range(3)] == [3, 2, 1]",
-        "assert list(countdown_iter(1)) == [1]"
+        {
+          "input": "assert [next(countdown_iter(3)) for _ in range(3)]",
+          "expected_output": "[3, 2, 1]",
+          "description": "Verifies: assert [next(countdown_iter(3)) for _ in range(3)] == [3, 2, 1]"
+        },
+        {
+          "input": "assert list(countdown_iter(1))",
+          "expected_output": "[1]",
+          "description": "Verifies: assert list(countdown_iter(1)) == [1]"
+        }
       ],
       "hint": "A generator function uses `yield` to produce a sequence lazily. The wrapper simply returns the generator object, which is already an iterator.",
       "explanation": "Generators are a concise way to create iterators. The `yield` statement pauses execution and returns a value, resuming from that point on the next call. This makes generators memory-efficient for large or infinite sequences."
@@ -539,8 +575,16 @@
       "starter_code": "data = [10, 20, 30]\nit = iter(data)\nfor x in it:\n    print(x)\n\nfor y in it:\n    print(y)",
       "solution_code": "data = [10, 20, 30]\nit1 = iter(data)\nfor x in it1:\n    print(x)\n\nit2 = iter(data)\nfor y in it2:\n    print(y)",
       "test_cases": [
-        "assert [x for x in iter([1, 2, 3])] == [1, 2, 3]",
-        "assert [y for y in iter([1, 2, 3])] == [1, 2, 3]"
+        {
+          "input": "assert [x for x in iter([1, 2, 3])]",
+          "expected_output": "[1, 2, 3]",
+          "description": "Verifies: assert [x for x in iter([1, 2, 3])] == [1, 2, 3]"
+        },
+        {
+          "input": "assert [y for y in iter([1, 2, 3])]",
+          "expected_output": "[1, 2, 3]",
+          "description": "Verifies: assert [y for y in iter([1, 2, 3])] == [1, 2, 3]"
+        }
       ],
       "hint": "An iterator is exhausted after one full traversal. To reuse the same iterable, create a new iterator with `iter()` each time.",
       "explanation": "After the first `for` loop, the iterator `it` has reached the end and raises `StopIteration` immediately on the second loop. Creating a new iterator from the original iterable restores independent traversal."
@@ -558,8 +602,16 @@
       "starter_code": "def process_logs(filepath):\n    # TODO: open file and yield lines one by one\n    pass\n\nfor line in process_logs('large_log.txt'):\n    # process line\n    pass",
       "solution_code": "def process_logs(filepath):\n    with open(filepath, 'r') as f:\n        for line in f:\n            yield line.strip()\n\nfor line in process_logs('large_log.txt'):\n    # process line\n    pass",
       "test_cases": [
-        "assert list(process_logs('test.txt')) == ['line1', 'line2']",
-        "assert process_logs('test.txt').__next__() == 'line1'"
+        {
+          "input": "assert list(process_logs('test.txt'))",
+          "expected_output": "['line1', 'line2']",
+          "description": "Verifies: assert list(process_logs('test.txt')) == ['line1', 'line2']"
+        },
+        {
+          "input": "assert process_logs('test.txt').__next__()",
+          "expected_output": "'line1'",
+          "description": "Verifies: assert process_logs('test.txt').__next__() == 'line1'"
+        }
       ],
       "hint": "Use a `with` statement to ensure the file is closed. The file object itself is an iterator, but wrapping it in a generator allows preprocessing such as stripping whitespace.",
       "explanation": "Iterators enable lazy evaluation, which is critical for large datasets. By yielding one line at a time, memory usage stays constant regardless of file size. A list-based approach would load the entire file into RAM, risking memory errors."
@@ -577,8 +629,16 @@
       "starter_code": "class ReversibleIter:\n    def __init__(self, data):\n        self.data = data\n\n    def __iter__(self):\n        # TODO: return forward iterator\n        pass\n\n    def reversed_iter(self):\n        # TODO: return reverse iterator\n        pass",
       "solution_code": "class ReversibleIter:\n    def __init__(self, data):\n        self.data = data\n\n    def __iter__(self):\n        return iter(self.data)\n\n    def reversed_iter(self):\n        return reversed(self.data)",
       "test_cases": [
-        "assert [x for x in ReversibleIter([5, 4, 3, 2, 1])] == [5, 4, 3, 2, 1]",
-        "assert [x for x in ReversibleIter([5, 4, 3, 2, 1]).reversed_iter()] == [1, 2, 3, 4, 5]"
+        {
+          "input": "assert [x for x in ReversibleIter([5, 4, 3, 2, 1])]",
+          "expected_output": "[5, 4, 3, 2, 1]",
+          "description": "Verifies: assert [x for x in ReversibleIter([5, 4, 3, 2, 1])] == [5, 4, 3, 2, 1]"
+        },
+        {
+          "input": "assert [x for x in ReversibleIter([5, 4, 3, 2, 1]).reversed_iter()]",
+          "expected_output": "[1, 2, 3, 4, 5]",
+          "description": "Verifies: assert [x for x in ReversibleIter([5, 4, 3, 2, 1]).reversed_iter()] == [1, 2, 3, 4, 5]"
+        }
       ],
       "hint": "The built-in `iter()` returns a fresh iterator over the list. For reversal, use the built-in `reversed()` function, which returns a reverse iterator.",
       "explanation": "A class can be both an iterable and provide additional iterator methods. `__iter__` makes the instance iterable by returning an iterator. `reversed_iter` demonstrates that multiple independent iterators can coexist on the same underlying data, each with its own traversal state."

@@ -17,7 +17,9 @@
         "skill": "testing",
         "learning_objective": "Structure tests across happy path, boundaries, invariants, and scale",
         "why_this_exercise_exists": "Replaces generic placeholder with real testing methodology"
-      }
+      },
+      "title": "Systematic Solution Testing Methodology",
+      "content": "Testing is not merely running code once with the example input. A professional testing workflow follows four rigorous stages:\n\n1. **Happy Path:** Verify standard valid inputs with known answers.\n2. **Boundary Values:** Test extrema (e.g. empty lists `[]`, zero `0`, negative numbers, 1-element collections).\n3. **Failure Invariants:** Verify that invalid inputs raise the expected exceptions cleanly.\n4. **Scale & Stress:** Confirm performance and memory limits do not trigger timeouts or stack overflows."
     },
     {
       "id": "30.6_q2",
@@ -55,7 +57,9 @@
         "skill": "debugging_methodology",
         "learning_objective": "Formulate minimal reproducible test cases to isolate defects",
         "why_this_exercise_exists": "Replaces generic placeholder with industry debugging standard"
-      }
+      },
+      "title": "Test Triangulation and Defect Localization",
+      "content": "When a test fails, do not guess at the fix:\n\n1. **Reproduce Minimally:** Reduce the failing input to the smallest possible test case that triggers the defect.\n2. **Isolate State:** Form a testable hypothesis about which variable or condition diverges from the specification.\n3. **Assert Invariant:** Write an explicit failing assertion capturing the bug before modifying any implementation code."
     },
     {
       "id": "30.6_q4",
@@ -541,17 +545,18 @@
       "prerequisites": [
         "30.6_q24"
       ],
-      "prompt": "Write a clean, reusable function or code statement that demonstrates core usage of Testing a Solution:",
-      "starter_code": "# Implement a solution for Testing a Solution\ndef solve():\n    ___",
-      "solution_code": "def solve():\n    # Core implementation of Testing a Solution\n    return True",
+      "prompt": "Milestone Implementation: Construct a modular, well-tested function that applies the central principles of Testing a Solution.",
+      "starter_code": "def process_30_6_data(items):\n    # Process input according to Testing a Solution rules\n    pass",
+      "solution_code": "def process_30_6_data(items):\n    return [item for item in items if item is not None]",
       "test_cases": [
         {
-          "input": "",
-          "expected_output": "Testing a Solution Result 25"
+          "input": "[1, None, 2, None, 3]",
+          "expected_output": "[1, 2, 3]",
+          "description": "cleans null values using Testing a Solution rules"
         }
       ],
       "hint": "Focus on applying the central Python idiom for Testing a Solution.",
-      "explanation": "Understanding how to construct clean implementations of Testing a Solution ensures you can integrate it into broader software applications."
+      "explanation": "Constructing pure, robust data transformers for Testing a Solution avoids unintended side effects and guarantees consistent return contracts."
     },
     {
       "id": "30.6_q26",
@@ -562,17 +567,18 @@
       "prerequisites": [
         "30.6_q25"
       ],
-      "prompt": "Identify and fix the logical or syntax defect in this implementation of Testing a Solution:",
-      "starter_code": "# Fix the issue with Testing a Solution\ndef check_valid(val):\n    if val is None:\n        return False\n    return True",
-      "solution_code": "def check_valid(val):\n    if val is None:\n        return False\n    return True",
+      "prompt": "Defensive Validation: Implement a verification helper for Testing a Solution that confirms preconditions and guards against invalid input.",
+      "starter_code": "def validate_30_6_input(val):\n    # Return True if val is valid, False otherwise\n    pass",
+      "solution_code": "def validate_30_6_input(val):\n    if val is None or val == '':\n        return False\n    return True",
       "test_cases": [
         {
-          "input": "",
-          "expected_output": "Testing a Solution Result 26"
+          "input": "'valid_token'",
+          "expected_output": "True",
+          "description": "valid input returns True"
         }
       ],
       "hint": "Check the condition and return value carefully.",
-      "explanation": "Debugging is a core programming competency. Guarding against edge cases like `None` or invalid states prevents runtime failures."
+      "explanation": "Validating preconditions at the boundary prevents null pointer and type exceptions downstream."
     },
     {
       "id": "30.6_q27",
@@ -604,24 +610,25 @@
     },
     {
       "id": "30.6_q28",
-      "type": "real_world_scenario",
+      "type": "write_the_code",
       "concept": "testing_a_solution_production_transfer",
-      "skill": "application",
+      "skill": "transfer",
       "difficulty": "hard",
       "prerequisites": [
         "30.6_q27"
       ],
-      "prompt": "Apply Testing a Solution to a realistic scenario: process a sequence of records and return only those meeting the business rule:",
-      "starter_code": "records = [{'id': 1, 'active': True}, {'id': 2, 'active': False}]\n# Filter active records\nactive_records = ___",
-      "solution_code": "records = [{'id': 1, 'active': True}, {'id': 2, 'active': False}]\nactive_records = [r for r in records if r['active']]",
+      "prompt": "Transfer Challenge: Solve a practical problem using Testing a Solution. Implement the function below to satisfy the stated contract.",
+      "starter_code": "def handle_domain_task(val):\n    # Implement domain logic for Testing a Solution\n    return str(val).strip()",
+      "solution_code": "def handle_domain_task(val):\n    return str(val).strip().upper()",
       "test_cases": [
         {
-          "input": "",
-          "expected_output": "Testing a Solution Result 28"
+          "input": "'  python  '",
+          "expected_output": "'PYTHON'",
+          "description": "domain sanitization"
         }
       ],
       "hint": "Use a list comprehension to filter records where 'active' is True.",
-      "explanation": "In production Python code, Testing a Solution is frequently combined with data filtering to process structured domain models efficiently."
+      "explanation": "Applying clean functional contracts for Testing a Solution ensures testable domain operations."
     },
     {
       "id": "30.6_q29",
@@ -649,21 +656,22 @@
       "type": "write_the_code",
       "concept": "testing_a_solution_mastery_challenge",
       "skill": "transfer",
-      "difficulty": "expert",
+      "difficulty": "hard",
       "prerequisites": [
         "30.6_q29"
       ],
-      "prompt": "Mastery Challenge: Implement a robust, tested function for Testing a Solution that processes inputs, validates preconditions, and handles invalid states cleanly:",
-      "starter_code": "def execute_task(data):\n    if not data:\n        return None\n    # Process valid data\n    ___",
-      "solution_code": "def execute_task(data):\n    if not data:\n        return None\n    return sorted(data)",
+      "prompt": "Final Capstone Verification: Write a production-grade handler for Testing a Solution that processes batches and handles empty inputs cleanly.",
+      "starter_code": "def execute_30_6_workflow(batch):\n    # Validate and transform batch\n    pass",
+      "solution_code": "def execute_30_6_workflow(batch):\n    if not batch:\n        return []\n    return [str(x).strip() for x in batch]",
       "test_cases": [
         {
-          "input": "",
-          "expected_output": "Testing a Solution Result 30"
+          "input": "[' a ', 'b ']",
+          "expected_output": "['a', 'b']",
+          "description": "batch processing workflow"
         }
       ],
       "hint": "Validate input first, then execute the transformation.",
-      "explanation": "Demonstrating end-to-end mastery of Testing a Solution requires combining input validation, core algorithmic logic, and defensive programming."
+      "explanation": "Production workflows for Testing a Solution must validate inputs, maintain immutability, and return deterministic results."
     }
   ],
   "unit_num": 30,

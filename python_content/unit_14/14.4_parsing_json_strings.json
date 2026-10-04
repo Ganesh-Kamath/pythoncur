@@ -447,9 +447,21 @@
       "starter_code": "import json\n\ndef parse_a(s):\n    return json.loads(s)\n\ndef parse_b(s):\n    return json.loads(s)\n\ndef parse_c(s):\n    return json.loads(s)\n\nparse_a('{\"x\": 1}')\nparse_b('{\"y\": 2}')\nparse_c('{\"z\": 3}')",
       "solution_code": "import json\n\ndef parse_json(s):\n    try:\n        return json.loads(s)\n    except json.JSONDecodeError as e:\n        print(f'Invalid JSON: {e}')\n        return None\n\nresult_a = parse_json('{\"x\": 1}')\nresult_b = parse_json('{\"y\": 2}')\nresult_c = parse_json('{\"z\": 3}')",
       "test_cases": [
-        "parse_json('{\"valid\": true}') == {'valid': True}",
-        "parse_json('not a json') is None",
-        "parse_json('{\"nested\": [1, 2, 3]}')['nested'] == [1, 2, 3]"
+        {
+          "input": "parse_json('{\"valid\": true}')",
+          "expected_output": "{'valid': True}",
+          "description": "Verifies: parse_json('{\"valid\": true}') == {'valid': True}"
+        },
+        {
+          "input": "",
+          "expected_output": "parse_json('not a json') is None",
+          "description": "parse_json('not a json') is None"
+        },
+        {
+          "input": "parse_json('{\"nested\": [1, 2, 3]}')['nested']",
+          "expected_output": "[1, 2, 3]",
+          "description": "Verifies: parse_json('{\"nested\": [1, 2, 3]}')['nested'] == [1, 2, 3]"
+        }
       ],
       "hint": "Consolidate the repeated calls into one function, add exception handling for JSONDecodeError, and return a consistent type on failure.",
       "explanation": "The starter_code duplicates the same parsing logic three times, making maintenance difficult and offering no error handling. The refactored solution introduces parse_json, which wraps json.loads in a try/except block to catch JSONDecodeError and return None on failure. This reduces code duplication, centralizes error reporting, and provides a single, testable interface for all JSON parsing needs."
@@ -467,9 +479,21 @@
       "starter_code": "import json\n\ndef extract_user_info(json_str):\n    # TODO: Parse the JSON string and return the required fields\n    pass\n\n# Example usage\nprofile = '{\"name\": \"Aisha\", \"age\": 24, \"city\": \"Lagos\"}'\nresult = extract_user_info(profile)\nprint(result)",
       "solution_code": "import json\n\ndef extract_user_info(json_str):\n    data = json.loads(json_str)\n    return {\n        'name': data['name'],\n        'age': data['age'],\n        'city': data['city']\n    }\n\n# Example usage\nprofile = '{\"name\": \"Aisha\", \"age\": 24, \"city\": \"Lagos\"}'\nresult = extract_user_info(profile)\nprint(result)",
       "test_cases": [
-        "profile = '{\"name\": \"Tunde\", \"age\": 30, \"city\": \"Abuja\"}'",
-        "profile = '{\"name\": \"Fatima\", \"age\": 19, \"city\": \"Kano\"}'",
-        "profile = '{\"name\": \"Emeka\", \"age\": 45, \"city\": \"Port Harcourt\"}'"
+        {
+          "input": "",
+          "expected_output": "profile = '{\"name\": \"Tunde\", \"age\": 30, \"city\": \"Abuja\"}'",
+          "description": "profile = '{\"name\": \"Tunde\", \"age\": 30, \"city\": \"Abuja\"}'"
+        },
+        {
+          "input": "",
+          "expected_output": "profile = '{\"name\": \"Fatima\", \"age\": 19, \"city\": \"Kano\"}'",
+          "description": "profile = '{\"name\": \"Fatima\", \"age\": 19, \"city\": \"Kano\"}'"
+        },
+        {
+          "input": "",
+          "expected_output": "profile = '{\"name\": \"Emeka\", \"age\": 45, \"city\": \"Port Harcourt\"}'",
+          "description": "profile = '{\"name\": \"Emeka\", \"age\": 45, \"city\": \"Port Harcourt\"}'"
+        }
       ],
       "hint": "Use json.loads() to convert the JSON string into a Python dictionary, then access keys with square brackets.",
       "explanation": "json.loads() parses a JSON string into a Python dictionary. Once parsed, standard dictionary key access retrieves values. This is the foundational pattern for JSON string processing."
@@ -487,9 +511,21 @@
       "starter_code": "import json\n\ndef convert_weather(json_str):\n    # TODO: Parse JSON, convert Celsius to Fahrenheit, and return flat dict\n    pass\n\n# Formula: F = C * 9/5 + 32\nweather = '{\"city\": \"Nairobi\", \"temp_c\": 25}'\nprint(convert_weather(weather))",
       "solution_code": "import json\n\ndef convert_weather(json_str):\n    data = json.loads(json_str)\n    temp_c = data['temp_c']\n    temp_f = temp_c * 9 / 5 + 32\n    return {\n        'city': data['city'],\n        'temp_f': round(temp_f, 2)\n    }\n\n# Formula: F = C * 9/5 + 32\nweather = '{\"city\": \"Nairobi\", \"temp_c\": 25}'\nprint(convert_weather(weather))",
       "test_cases": [
-        "weather = '{\"city\": \"Accra\", \"temp_c\": 30}'",
-        "weather = '{\"city\": \"Cairo\", \"temp_c\": 10}'",
-        "weather = '{\"city\": \"Addis Ababa\", \"temp_c\": 15.5}'"
+        {
+          "input": "",
+          "expected_output": "weather = '{\"city\": \"Accra\", \"temp_c\": 30}'",
+          "description": "weather = '{\"city\": \"Accra\", \"temp_c\": 30}'"
+        },
+        {
+          "input": "",
+          "expected_output": "weather = '{\"city\": \"Cairo\", \"temp_c\": 10}'",
+          "description": "weather = '{\"city\": \"Cairo\", \"temp_c\": 10}'"
+        },
+        {
+          "input": "",
+          "expected_output": "weather = '{\"city\": \"Addis Ababa\", \"temp_c\": 15.5}'",
+          "description": "weather = '{\"city\": \"Addis Ababa\", \"temp_c\": 15.5}'"
+        }
       ],
       "hint": "Remember to convert the numeric value after parsing, and use round() for cleaner output if desired.",
       "explanation": "Practical JSON parsing often requires extracting nested values, performing calculations, and reshaping data into a more usable format. This mirrors real API integration tasks."
@@ -507,9 +543,21 @@
       "starter_code": "import json\n\ndef filter_expensive_products(json_str):\n    # TODO: Parse, iterate, filter by price, and return qualifying names\n    pass\n\nproducts = '[{\"name\": \"Laptop\", \"price\": 800}, {\"name\": \"Pen\", \"price\": 2.5}, {\"name\": \"Tablet\", \"price\": 55}]'\nprint(filter_expensive_products(products))",
       "solution_code": "import json\n\ndef filter_expensive_products(json_str):\n    try:\n        data = json.loads(json_str)\n    except json.JSONDecodeError:\n        return []\n    result = []\n    for item in data:\n        if isinstance(item, dict) and isinstance(item.get('price'), (int, float)):\n            if item['price'] >= 50.0:\n                result.append(item['name'])\n    return result\n\nproducts = '[{\"name\": \"Laptop\", \"price\": 800}, {\"name\": \"Pen\", \"price\": 2.5}, {\"name\": \"Tablet\", \"price\": 55}]'\nprint(filter_expensive_products(products))",
       "test_cases": [
-        "products = '[{\"name\": \"Watch\", \"price\": 49.9}, {\"name\": \"Headphones\", \"price\": 75}]'",
-        "products = '[{\"name\": \"Book\", \"price\": 12}, {\"name\": \"Monitor\", \"price\": 200}]'",
-        "products = '[]'"
+        {
+          "input": "",
+          "expected_output": "products = '[{\"name\": \"Watch\", \"price\": 49.9}, {\"name\": \"Headphones\", \"price\": 75}]'",
+          "description": "products = '[{\"name\": \"Watch\", \"price\": 49.9}, {\"name\": \"Headphones\", \"price\": 75}]'"
+        },
+        {
+          "input": "",
+          "expected_output": "products = '[{\"name\": \"Book\", \"price\": 12}, {\"name\": \"Monitor\", \"price\": 200}]'",
+          "description": "products = '[{\"name\": \"Book\", \"price\": 12}, {\"name\": \"Monitor\", \"price\": 200}]'"
+        },
+        {
+          "input": "",
+          "expected_output": "products = '[]'",
+          "description": "products = '[]'"
+        }
       ],
       "hint": "Use a try-except block to handle malformed JSON, and check that price is numeric before comparing.",
       "explanation": "Advanced parsing involves defensive programming: validating JSON structure, handling exceptions, iterating over lists, and applying business logic filters. These skills are essential for robust data pipelines."
@@ -527,9 +575,21 @@
       "starter_code": "import json\n\nstudent = '{\"name\": \"Chidi\", \"age\": 21}'\n# TODO: Parse, validate presence of all fields, and print formatted string or error message",
       "solution_code": "import json\n\nstudent = '{\"name\": \"Chidi\", \"age\": 21}'\n\ntry:\n    data = json.loads(student)\n    if all(k in data for k in ('name', 'age', 'city')):\n        print(f'Student {data[\"name\"]} is {data[\"age\"]} years old and studies in {data[\"city\"]}.')\n    else:\n        print('Incomplete record.')\nexcept json.JSONDecodeError:\n    print('Incomplete record.')",
       "test_cases": [
-        "student = '{\"name\": \"Amara\", \"age\": 22, \"city\": \"Ibadan\"}'",
-        "student = '{\"name\": \"Bello\", \"age\": 20}'",
-        "student = '{\"name\": \"Zainab\", \"age\": 23, \"city\": \"Kano\"}'"
+        {
+          "input": "",
+          "expected_output": "student = '{\"name\": \"Amara\", \"age\": 22, \"city\": \"Ibadan\"}'",
+          "description": "student = '{\"name\": \"Amara\", \"age\": 22, \"city\": \"Ibadan\"}'"
+        },
+        {
+          "input": "",
+          "expected_output": "student = '{\"name\": \"Bello\", \"age\": 20}'",
+          "description": "student = '{\"name\": \"Bello\", \"age\": 20}'"
+        },
+        {
+          "input": "",
+          "expected_output": "student = '{\"name\": \"Zainab\", \"age\": 23, \"city\": \"Kano\"}'",
+          "description": "student = '{\"name\": \"Zainab\", \"age\": 23, \"city\": \"Kano\"}'"
+        }
       ],
       "hint": "Use all() to verify required keys exist, and wrap parsing in try-except to catch invalid JSON.",
       "explanation": "This challenge combines parsing with validation and conditional output. Real-world data is often incomplete or malformed, so checking for required fields before formatting is critical."
@@ -547,9 +607,21 @@
       "starter_code": "import json\n\nsales_json = '[{\"date\": \"2024-01-01\", \"product\": \"Millet\", \"revenue\": 120}, {\"date\": \"2024-01-01\", \"product\": \"Millet\", \"revenue\": 80}, {\"date\": \"2024-01-02\", \"product\": \"Sorghum\", \"revenue\": 150}]'\n# TODO: Parse JSON, aggregate revenue by product, and return the summary dictionary",
       "solution_code": "import json\n\nsales_json = '[{\"date\": \"2024-01-01\", \"product\": \"Millet\", \"revenue\": 120}, {\"date\": \"2024-01-01\", \"product\": \"Millet\", \"revenue\": 80}, {\"date\": \"2024-01-02\", \"product\": \"Sorghum\", \"revenue\": 150}]'\n\ndef aggregate_revenue(json_str):\n    try:\n        records = json.loads(json_str)\n    except json.JSONDecodeError:\n        return {}\n    summary = {}\n    for record in records:\n        product = record.get('product')\n        revenue = record.get('revenue', 0)\n        if product is not None:\n            summary[product] = summary.get(product, 0) + revenue\n    return summary\n\nprint(aggregate_revenue(sales_json))",
       "test_cases": [
-        "sales_json = '[{\"date\": \"2024-02-01\", \"product\": \"Rice\", \"revenue\": 200}, {\"date\": \"2024-02-02\", \"product\": \"Rice\", \"revenue\": 100}]'",
-        "sales_json = '[{\"date\": \"2024-03-01\", \"product\": \"Beans\", \"revenue\": 75}]'",
-        "sales_json = '[]'"
+        {
+          "input": "",
+          "expected_output": "sales_json = '[{\"date\": \"2024-02-01\", \"product\": \"Rice\", \"revenue\": 200}, {\"date\": \"2024-02-02\", \"product\": \"Rice\", \"revenue\": 100}]'",
+          "description": "sales_json = '[{\"date\": \"2024-02-01\", \"product\": \"Rice\", \"revenue\": 200}, {\"date\": \"2024-02-02\", \"product\": \"Rice\", \"revenue\": 100}]'"
+        },
+        {
+          "input": "",
+          "expected_output": "sales_json = '[{\"date\": \"2024-03-01\", \"product\": \"Beans\", \"revenue\": 75}]'",
+          "description": "sales_json = '[{\"date\": \"2024-03-01\", \"product\": \"Beans\", \"revenue\": 75}]'"
+        },
+        {
+          "input": "",
+          "expected_output": "sales_json = '[]'",
+          "description": "sales_json = '[]'"
+        }
       ],
       "hint": "Use a dictionary to accumulate sums; initialize missing keys with 0 using .get().",
       "explanation": "In real-world data processing, JSON payloads often require aggregation and transformation before analysis. This scenario synthesizes parsing, iteration, and dictionary accumulation to derive business insights."
@@ -567,9 +639,21 @@
       "starter_code": "import json\n\nnested = '{\"level1\": {\"name\": \"Alpha\", \"value\": 42}, \"level2\": [{\"label\": \"Beta\"}, \"Gamma\", 99]}'\n# TODO: Parse JSON and implement recursive traversal to collect all strings\n\ndef collect_strings(data):\n    # TODO: Recursive implementation\n    pass\n\nresult = collect_strings(json.loads(nested))\nprint(result)",
       "solution_code": "import json\n\nnested = '{\"level1\": {\"name\": \"Alpha\", \"value\": 42}, \"level2\": [{\"label\": \"Beta\"}, \"Gamma\", 99]}'\n\ndef collect_strings(data):\n    result = []\n    if isinstance(data, dict):\n        for value in data.values():\n            result.extend(collect_strings(value))\n    elif isinstance(data, list):\n        for item in data:\n            result.extend(collect_strings(item))\n    elif isinstance(data, str):\n        result.append(data)\n    return result\n\nparsed = json.loads(nested)\nresult = collect_strings(parsed)\nprint(result)",
       "test_cases": [
-        "nested = '{\"a\": \"X\", \"b\": [1, \"Y\", {\"c\": \"Z\"}]}'",
-        "nested = '[]'",
-        "nested = '{\"deep\": {\"deeper\": {\"deepest\": \"Value\"}}}'"
+        {
+          "input": "",
+          "expected_output": "nested = '{\"a\": \"X\", \"b\": [1, \"Y\", {\"c\": \"Z\"}]}'",
+          "description": "nested = '{\"a\": \"X\", \"b\": [1, \"Y\", {\"c\": \"Z\"}]}'"
+        },
+        {
+          "input": "",
+          "expected_output": "nested = '[]'",
+          "description": "nested = '[]'"
+        },
+        {
+          "input": "",
+          "expected_output": "nested = '{\"deep\": {\"deeper\": {\"deepest\": \"Value\"}}}'",
+          "description": "nested = '{\"deep\": {\"deeper\": {\"deepest\": \"Value\"}}}'"
+        }
       ],
       "hint": "Check the type of the current node: if dict, recurse on values; if list, recurse on items; if str, collect it; otherwise ignore.",
       "explanation": "Mastery of JSON parsing requires handling arbitrarily nested structures. A recursive approach naturally explores dictionaries and lists, extracting only string leaf nodes. This pattern is vital for complex API responses and configuration files."

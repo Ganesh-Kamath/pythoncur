@@ -484,9 +484,21 @@
       "starter_code": "import asyncio\n\nasync def fetch_data():\n    # TODO: simulate network delay and return a sample string\n    pass\n\nasync def main():\n    # TODO: call fetch_data twice concurrently using asyncio.gather\n    pass\n\nasyncio.run(main())\n",
       "solution_code": "import asyncio\n\nasync def fetch_data():\n    await asyncio.sleep(1)\n    return 'data_one'\n\nasync def main():\n    result1, result2 = await asyncio.gather(\n        fetch_data(),\n        fetch_data()\n    )\n    print(result1)\n    print(result2)\n\nasyncio.run(main())\n",
       "test_cases": [
-        "Output should contain 'data_one' printed twice",
-        "The program should complete within approximately 2 seconds",
-        "No exceptions should be raised"
+        {
+          "input": "",
+          "expected_output": "Output should contain 'data_one' printed twice",
+          "description": "Output should contain 'data_one' printed twice"
+        },
+        {
+          "input": "",
+          "expected_output": "The program should complete within approximately 2 seconds",
+          "description": "The program should complete within approximately 2 seconds"
+        },
+        {
+          "input": "",
+          "expected_output": "No exceptions should be raised",
+          "description": "No exceptions should be raised"
+        }
       ],
       "hint": "Use `await asyncio.sleep(1)` inside `fetch_data()` to simulate I/O delay. Use `asyncio.gather()` to run both coroutines concurrently inside `main()`.",
       "explanation": "`asyncio.sleep()` yields control to the event loop, allowing other tasks to run during the simulated I/O wait. `asyncio.gather()` schedules multiple awaitables concurrently and returns their results in order."
@@ -504,9 +516,21 @@
       "starter_code": "import asyncio\n\nasync def producer(queue, n):\n    # TODO: enqueue integers 1 to n with a small delay\n    pass\n\nasync def consumer(queue):\n    # TODO: dequeue and print items until the queue is empty\n    pass\n\nasync def main():\n    queue = asyncio.Queue(maxsize=2)\n    # TODO: run producer and consumer concurrently\n    pass\n\nasyncio.run(main())\n",
       "solution_code": "import asyncio\n\nasync def producer(queue, n):\n    for i in range(1, n + 1):\n        await queue.put(i)\n        await asyncio.sleep(0.1)\n\nasync def consumer(queue):\n    while True:\n        item = await queue.get()\n        print(item)\n        queue.task_done()\n        if item == 5:\n            break\n\nasync def main():\n    queue = asyncio.Queue(maxsize=2)\n    await asyncio.gather(\n        producer(queue, 5),\n        consumer(queue)\n    )\n\nasyncio.run(main())\n",
       "test_cases": [
-        "Output should print integers 1 through 5 in order",
-        "The queue should never exceed maxsize=2 during execution",
-        "No deadlock should occur"
+        {
+          "input": "",
+          "expected_output": "Output should print integers 1 through 5 in order",
+          "description": "Output should print integers 1 through 5 in order"
+        },
+        {
+          "input": "",
+          "expected_output": "The queue should never exceed maxsize=2 during execution",
+          "description": "The queue should never exceed maxsize=2 during execution"
+        },
+        {
+          "input": "",
+          "expected_output": "No deadlock should occur",
+          "description": "No deadlock should occur"
+        }
       ],
       "hint": "Use `queue.put()` to enqueue and `queue.get()` to dequeue. Check the item value to know when the consumer should stop.",
       "explanation": "An `asyncio.Queue` is a thread-safe FIFO queue designed for async code. `put()` and `get()` are awaitable, so they yield control instead of blocking the event loop."
@@ -524,9 +548,21 @@
       "starter_code": "import asyncio\n\nasync def fetch_data(url):\n    await asyncio.sleep(1)\n    return f'fetched {url}'\n\nasync def fetch_with_timeout(url, timeout):\n    # TODO: wrap fetch_data in wait_for with timeout handling\n    pass\n\nasync def main():\n    # TODO: run fetch_with_timeout for two URLs with 0.5s timeout\n    pass\n\nasyncio.run(main())\n",
       "solution_code": "import asyncio\n\nasync def fetch_data(url):\n    await asyncio.sleep(1)\n    return f'fetched {url}'\n\nasync def fetch_with_timeout(url, timeout):\n    try:\n        return await asyncio.wait_for(fetch_data(url), timeout)\n    except asyncio.TimeoutError:\n        return 'timeout'\n\nasync def main():\n    result_a = await fetch_with_timeout('url_a', 0.5)\n    result_b = await fetch_with_timeout('url_b', 0.5)\n    print(result_a)\n    print(result_b)\n\nasyncio.run(main())\n",
       "test_cases": [
-        "Both outputs should be 'timeout' because 1s > 0.5s",
-        "No uncaught exceptions should be raised",
-        "The program should complete quickly without waiting 2 full seconds"
+        {
+          "input": "",
+          "expected_output": "Both outputs should be 'timeout' because 1s > 0.5s",
+          "description": "Both outputs should be 'timeout' because 1s > 0.5s"
+        },
+        {
+          "input": "",
+          "expected_output": "No uncaught exceptions should be raised",
+          "description": "No uncaught exceptions should be raised"
+        },
+        {
+          "input": "",
+          "expected_output": "The program should complete quickly without waiting 2 full seconds",
+          "description": "The program should complete quickly without waiting 2 full seconds"
+        }
       ],
       "hint": "Use `asyncio.wait_for(coro, timeout)` to enforce a deadline. Wrap it in a try-except block to handle `asyncio.TimeoutError`.",
       "explanation": "`asyncio.wait_for()` wraps a coroutine and raises `asyncio.TimeoutError` if it does not complete within the specified timeout. This is essential for preventing long-running async operations from stalling your program."
@@ -544,9 +580,21 @@
       "starter_code": "import asyncio\nimport time\n\nasync def slow_task(name):\n    await asyncio.sleep(0.5)\n    return name\n\nasync def main():\n    start = time.time()\n    # TODO: create semaphore(3), schedule 10 tasks, await all\n    end = time.time()\n    print(f'Elapsed: {end - start:.2f}s')\n\nasyncio.run(main())\n",
       "solution_code": "import asyncio\nimport time\n\nasync def slow_task(name):\n    await asyncio.sleep(0.5)\n    return name\n\nasync def main():\n    start = time.time()\n    semaphore = asyncio.Semaphore(3)\n\n    async def bounded_task(name):\n        async with semaphore:\n            return await slow_task(name)\n\n    tasks = [bounded_task(i) for i in range(10)]\n    await asyncio.gather(*tasks)\n    end = time.time()\n    print(f'Elapsed: {end - start:.2f}s')\n\nasyncio.run(main())\n",
       "test_cases": [
-        "Elapsed time should be greater than 1.5s and less than 5.0s",
-        "All 10 tasks must complete without error",
-        "Semaphore must limit concurrency to at most 3 active tasks"
+        {
+          "input": "",
+          "expected_output": "Elapsed time should be greater than 1.5s and less than 5.0s",
+          "description": "Elapsed time should be greater than 1.5s and less than 5.0s"
+        },
+        {
+          "input": "",
+          "expected_output": "All 10 tasks must complete without error",
+          "description": "All 10 tasks must complete without error"
+        },
+        {
+          "input": "",
+          "expected_output": "Semaphore must limit concurrency to at most 3 active tasks",
+          "description": "Semaphore must limit concurrency to at most 3 active tasks"
+        }
       ],
       "hint": "Create a helper coroutine that acquires the semaphore with `async with semaphore:` before calling the slow task. Schedule 10 such helpers and await them with `asyncio.gather()`.",
       "explanation": "A `Semaphore` controls access to a shared resource by counting permits. `async with semaphore:` ensures the permit is acquired and released automatically. This prevents overwhelming external APIs or exhausting system resources."
@@ -564,9 +612,21 @@
       "starter_code": "import asyncio\n\nasync def handle_echo(reader, writer):\n    # TODO: read a line, send it back, then close\n    pass\n\nasync def echo_client():\n    # TODO: connect to localhost:8888, send 'Hello Async', read response, print, close\n    pass\n\nasync def main():\n    # TODO: start server and run client concurrently\n    pass\n\nasyncio.run(main())\n",
       "solution_code": "import asyncio\n\nasync def handle_echo(reader, writer):\n    data = await reader.readline()\n    if data:\n        writer.write(data)\n        await writer.drain()\n    writer.close()\n    await writer.wait_closed()\n\nasync def echo_client():\n    reader, writer = await asyncio.open_connection('127.0.0.1', 8888)\n    writer.write(b'Hello Async\\n')\n    await writer.drain()\n    response = await reader.readline()\n    print(response.decode().strip())\n    writer.close()\n    await writer.wait_closed()\n\nasync def main():\n    server = await asyncio.start_server(handle_echo, '127.0.0.1', 8888)\n    async with server:\n        await asyncio.gather(\n            server.serve_forever(),\n            echo_client()\n        )\n\nasyncio.run(main())\n",
       "test_cases": [
-        "Client output should be 'Hello Async'",
-        "Server should accept the connection and echo the line back",
-        "No resource leaks: both writer and server should close cleanly"
+        {
+          "input": "",
+          "expected_output": "Client output should be 'Hello Async'",
+          "description": "Client output should be 'Hello Async'"
+        },
+        {
+          "input": "",
+          "expected_output": "Server should accept the connection and echo the line back",
+          "description": "Server should accept the connection and echo the line back"
+        },
+        {
+          "input": "",
+          "expected_output": "No resource leaks: both writer and server should close cleanly",
+          "description": "No resource leaks: both writer and server should close cleanly"
+        }
       ],
       "hint": "Use `asyncio.start_server()` to create the server. Use `asyncio.open_connection()` in the client. Remember to `await writer.drain()` after writing and to close both reader and writer.",
       "explanation": "Asyncio's networking APIs (`start_server`, `open_connection`, `StreamReader`, `StreamWriter`) are built on the same event loop. They allow a single thread to manage thousands of concurrent connections by yielding control during I/O rather than blocking."
@@ -584,9 +644,21 @@
       "starter_code": "import asyncio\n\nasync def producer(queue, n):\n    for i in range(1, n + 1):\n        await queue.put(i)\n        await asyncio.sleep(0.1)\n\nasync def consumer(queue):\n    while True:\n        item = await queue.get()\n        print(item)\n        if item == 5:\n            break\n        queue.task_done()\n\nasync def main():\n    queue = asyncio.Queue(maxsize=2)\n    # TODO: use TaskGroup to run producer and consumer with structured concurrency\n    pass\n\nasyncio.run(main())\n",
       "solution_code": "import asyncio\n\nasync def producer(queue, n):\n    for i in range(1, n + 1):\n        await queue.put(i)\n        await asyncio.sleep(0.1)\n\nasync def consumer(queue):\n    while True:\n        item = await queue.get()\n        print(item)\n        queue.task_done()\n        if item == 5:\n            break\n\nasync def main():\n    queue = asyncio.Queue(maxsize=2)\n    async with asyncio.TaskGroup() as tg:\n        tg.create_task(producer(queue, 5))\n        tg.create_task(consumer(queue))\n\nasyncio.run(main())\n",
       "test_cases": [
-        "Output should print integers 1 through 5 in order",
-        "The TaskGroup must ensure both tasks complete or are cancelled together on error",
-        "No zombie tasks or unclosed queue resources should remain"
+        {
+          "input": "",
+          "expected_output": "Output should print integers 1 through 5 in order",
+          "description": "Output should print integers 1 through 5 in order"
+        },
+        {
+          "input": "",
+          "expected_output": "The TaskGroup must ensure both tasks complete or are cancelled together on error",
+          "description": "The TaskGroup must ensure both tasks complete or are cancelled together on error"
+        },
+        {
+          "input": "",
+          "expected_output": "No zombie tasks or unclosed queue resources should remain",
+          "description": "No zombie tasks or unclosed queue resources should remain"
+        }
       ],
       "hint": "Use `async with asyncio.TaskGroup() as tg:` and `tg.create_task()` for each coroutine. Structured concurrency guarantees that exiting the context cancels any unfinished tasks, preventing leaks.",
       "explanation": "`asyncio.TaskGroup` introduces structured concurrency: all tasks created inside the group are tracked, and exiting the `async with` block cancels any still-running tasks. This makes async code safer and easier to reason about, especially in complex real-world applications."

@@ -432,9 +432,21 @@
       "starter_code": "def log_info(message):\n    print('[INFO] ' + message)\n\ndef log_warn(message):\n    print('[WARN] ' + message)\n\ndef log_error(message):\n    print('[ERROR] ' + message)\n\nlog_info('started')\nlog_warn('low memory')\nlog_error('crash')",
       "solution_code": "def make_logger(prefix='[INFO]'):\n    def logger(message):\n        print(prefix + ' ' + message)\n    return logger\n\nlog_info = make_logger('[INFO]')\nlog_warn = make_logger('[WARN]')\nlog_error = make_logger('[ERROR]')\n\nlog_info('started')\nlog_warn('low memory')\nlog_error('crash')",
       "test_cases": [
-        "log_info('started') should print '[INFO] started'",
-        "log_warn('low memory') should print '[WARN] low memory'",
-        "log_error('crash') should print '[ERROR] crash'"
+        {
+          "input": "",
+          "expected_output": "log_info('started') should print '[INFO] started'",
+          "description": "log_info('started') should print '[INFO] started'"
+        },
+        {
+          "input": "",
+          "expected_output": "log_warn('low memory') should print '[WARN] low memory'",
+          "description": "log_warn('low memory') should print '[WARN] low memory'"
+        },
+        {
+          "input": "",
+          "expected_output": "log_error('crash') should print '[ERROR] crash'",
+          "description": "log_error('crash') should print '[ERROR] crash'"
+        }
       ],
       "hint": "Extract the common printing logic into a factory function that accepts the prefix as a parameter with a default value.",
       "explanation": "By using a factory function make_logger with a default prefix, we eliminate duplicated print statements. Each specialized logger is created by binding a specific prefix, making the code DRY and easier to maintain."
@@ -452,9 +464,21 @@
       "starter_code": "def greet(name, greeting='Hello'):\n    # TODO: return the combined greeting and name\n    pass",
       "solution_code": "def greet(name, greeting='Hello'):\n    return f'{greeting}, {name}!'",
       "test_cases": [
-        "greet('Alice')",
-        "greet('Bob', 'Hi')",
-        "greet('Charlie', 'Good morning')"
+        {
+          "input": "",
+          "expected_output": "greet('Alice')",
+          "description": "greet('Alice')"
+        },
+        {
+          "input": "",
+          "expected_output": "greet('Bob', 'Hi')",
+          "description": "greet('Bob', 'Hi')"
+        },
+        {
+          "input": "",
+          "expected_output": "greet('Charlie', 'Good morning')",
+          "description": "greet('Charlie', 'Good morning')"
+        }
       ],
       "hint": "Use an f-string to format the output and remember that default arguments are evaluated once when the function is defined.",
       "explanation": "This item reinforces how to declare a default argument in a function signature. The default value 'Hello' is used only when the caller omits the second argument. Using f-strings makes the return value concise and readable."
@@ -500,9 +524,21 @@
       "starter_code": "def build_profile(first_name, last_name, location='Unknown'):\n    # TODO: return a dictionary without mutating the default\n    pass",
       "solution_code": "def build_profile(first_name, last_name, location='Unknown'):\n    profile = {'first_name': first_name, 'last_name': last_name, 'location': location}\n    return profile",
       "test_cases": [
-        "build_profile('Ada', 'Lovelace')",
-        "build_profile('Grace', 'Hopper', 'New York')",
-        "build_profile('Tim', 'Berners-Lee', 'London')"
+        {
+          "input": "",
+          "expected_output": "build_profile('Ada', 'Lovelace')",
+          "description": "build_profile('Ada', 'Lovelace')"
+        },
+        {
+          "input": "",
+          "expected_output": "build_profile('Grace', 'Hopper', 'New York')",
+          "description": "build_profile('Grace', 'Hopper', 'New York')"
+        },
+        {
+          "input": "",
+          "expected_output": "build_profile('Tim', 'Berners-Lee', 'London')",
+          "description": "build_profile('Tim', 'Berners-Lee', 'London')"
+        }
       ],
       "hint": "Create a new dictionary inside the function rather than modifying a shared default object.",
       "explanation": "This advanced item highlights the pitfall of mutable default arguments. By constructing a fresh dictionary each call, we avoid side effects that could corrupt state across invocations."
@@ -521,9 +557,21 @@
       "starter_code": "def log_message(message, level='INFO'):\n    # TODO: format the message based on level\n    pass",
       "solution_code": "def log_message(message, level='INFO'):\n    prefix = '[CRITICAL] ' if level == 'ERROR' else f'{level}: '\n    return f'{prefix}{message}'",
       "test_cases": [
-        "log_message('System started')",
-        "log_message('Disk full', 'ERROR')",
-        "log_message('User logged in', 'DEBUG')"
+        {
+          "input": "",
+          "expected_output": "log_message('System started')",
+          "description": "log_message('System started')"
+        },
+        {
+          "input": "",
+          "expected_output": "log_message('Disk full', 'ERROR')",
+          "description": "log_message('Disk full', 'ERROR')"
+        },
+        {
+          "input": "",
+          "expected_output": "log_message('User logged in', 'DEBUG')",
+          "description": "log_message('User logged in', 'DEBUG')"
+        }
       ],
       "hint": "Use a conditional expression to choose the prefix, then combine it with the message using an f-string.",
       "explanation": "This challenge tests conditional logic combined with default arguments. The ternary operator keeps the implementation compact while correctly handling the special 'ERROR' case."
@@ -542,8 +590,16 @@
       "starter_code": "from datetime import date\n\ndef generate_report(title, report_date=date.today()):\n    # TODO: construct and return the report dictionary\n    pass",
       "solution_code": "from datetime import date\n\ndef generate_report(title, report_date=date.today()):\n    return {\n        'title': title,\n        'date': report_date,\n        'status': 'Draft'\n    }",
       "test_cases": [
-        "generate_report('Q1 Sales')",
-        "generate_report('Q1 Sales', date(2024, 1, 1))"
+        {
+          "input": "",
+          "expected_output": "generate_report('Q1 Sales')",
+          "description": "generate_report('Q1 Sales')"
+        },
+        {
+          "input": "",
+          "expected_output": "generate_report('Q1 Sales', date(2024, 1, 1))",
+          "description": "generate_report('Q1 Sales', date(2024, 1, 1))"
+        }
       ],
       "hint": "Import date from the datetime module and use it as a default argument. Return a dictionary with the required keys.",
       "explanation": "In real-world applications, default arguments streamline report generation. By using date.today() as a default, frequent callers need not supply a date, yet explicit overrides remain possible for historical records."
@@ -562,9 +618,21 @@
       "starter_code": "def apply_discount(price, discount_rate=0.1):\n    # TODO: return a closure that applies the discount\n    pass\n\n# Example usage:\n# d = apply_discount(100)\n# print(d(50))",
       "solution_code": "def apply_discount(price, discount_rate=0.1):\n    def inner(amount):\n        return amount * (1 - discount_rate)\n    return inner\n\n# Example usage:\n# d = apply_discount(100)\n# print(d(50))",
       "test_cases": [
-        "d = apply_discount(100); d(50)",
-        "e = apply_discount(200, 0.2); e(100)",
-        "f = apply_discount(50); f(25)"
+        {
+          "input": "",
+          "expected_output": "d = apply_discount(100); d(50)",
+          "description": "d = apply_discount(100); d(50)"
+        },
+        {
+          "input": "",
+          "expected_output": "e = apply_discount(200, 0.2); e(100)",
+          "description": "e = apply_discount(200, 0.2); e(100)"
+        },
+        {
+          "input": "",
+          "expected_output": "f = apply_discount(50); f(25)",
+          "description": "f = apply_discount(50); f(25)"
+        }
       ],
       "hint": "Define an inner function that captures discount_rate and returns the discounted amount. The outer function returns this inner function.",
       "explanation": "This mastery item combines default arguments with closures and higher-order functions. The default discount_rate of 0.1 provides a sensible baseline, while returning a callable lets callers reuse the configured discount logic efficiently."

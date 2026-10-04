@@ -427,9 +427,21 @@
       "starter_code": "import aiohttp\nimport asyncio\n\nasync def fetch(url):\n    async with aiohttp.ClientSession() as session:\n        r = await session.get(url)\n        return await r.text()\n\nasync def main(urls):\n    tasks = [fetch(u) for u in urls]\n    return await asyncio.gather(*tasks)\n\nif __name__ == '__main__':\n    urls = ['https://example.com'] * 20\n    print(asyncio.run(main(urls)))",
       "solution_code": "import aiohttp\nimport asyncio\n\nasync def fetch(session, url):\n    async with session.get(url) as r:\n        return await r.text()\n\nasync def main(urls):\n    connector = aiohttp.TCPConnector(limit=0)  # No limit\n    timeout = aiohttp.ClientTimeout(total=30)\n    async with aiohttp.ClientSession(connector=connector, timeout=timeout) as session:\n        semaphore = asyncio.Semaphore(5)\n        async def bounded_fetch(url):\n            async with semaphore:\n                return await fetch(session, url)\n        tasks = [bounded_fetch(u) for u in urls]\n        return await asyncio.gather(*tasks)\n\nif __name__ == '__main__':\n    urls = ['https://example.com'] * 20\n    print(asyncio.run(main(urls)))",
       "test_cases": [
-        "urls = ['https://example.com'] * 5; result length equals 5",
-        "urls = ['https://example.com'] * 20; no more than 5 concurrent connections at any time",
-        "empty list urls = []; returns []"
+        {
+          "input": "",
+          "expected_output": "urls = ['https://example.com'] * 5; result length equals 5",
+          "description": "urls = ['https://example.com'] * 5; result length equals 5"
+        },
+        {
+          "input": "",
+          "expected_output": "urls = ['https://example.com'] * 20; no more than 5 concurrent connections at any time",
+          "description": "urls = ['https://example.com'] * 20; no more than 5 concurrent connections at any time"
+        },
+        {
+          "input": "",
+          "expected_output": "empty list urls = []; returns []",
+          "description": "empty list urls = []; returns []"
+        }
       ],
       "hint": "Create one `ClientSession` outside the loop, wrap each task with `asyncio.Semaphore(5)`, and ensure `fetch` receives the shared session.",
       "explanation": "The original code creates a new `ClientSession` per task, which is inefficient and unbounded. The refactored version uses a single session with a TCP connector, applies a semaphore to cap concurrency at 5, and maintains insertion order via `asyncio.gather(*tasks)`."
@@ -447,8 +459,16 @@
       "starter_code": "import aiohttp\nimport asyncio\n\nasync def fetch_url(session, url):\n    # TODO: implement\n    pass\n\nasync def fetch_all(urls):\n    # TODO: implement\n    pass\n\nurls = ['https://httpbin.org/get', 'https://httpbin.org/delay/1']\n\nasync def main():\n    result = await fetch_all(urls)\n    print(result)\n\nasyncio.run(main())",
       "solution_code": "import aiohttp\nimport asyncio\n\nasync def fetch_url(session, url):\n    async with session.get(url) as response:\n        return url, response.status\n\nasync def fetch_all(urls):\n    async with aiohttp.ClientSession() as session:\n        tasks = [fetch_url(session, url) for url in urls]\n        results = await asyncio.gather(*tasks)\n        return dict(results)\n\nurls = ['https://httpbin.org/get', 'https://httpbin.org/delay/1']\n\nasync def main():\n    result = await fetch_all(urls)\n    print(result)\n\nasyncio.run(main())",
       "test_cases": [
-        "assert isinstance(await fetch_all(['https://httpbin.org/get']), dict)",
-        "assert len(await fetch_all(['https://httpbin.org/get', 'https://httpbin.org/get'])) == 2"
+        {
+          "input": "",
+          "expected_output": "assert isinstance(await fetch_all(['https://httpbin.org/get']), dict)",
+          "description": "assert isinstance(await fetch_all(['https://httpbin.org/get']), dict)"
+        },
+        {
+          "input": "assert len(await fetch_all(['https://httpbin.org/get', 'https://httpbin.org/get']))",
+          "expected_output": "2",
+          "description": "Verifies: assert len(await fetch_all(['https://httpbin.org/get', 'https://httpbin.org/get'])) == 2"
+        }
       ],
       "hint": "Use aiohttp.ClientSession and asyncio.gather to run requests in parallel.",
       "explanation": "This solution creates a single ClientSession and schedules all HTTP GET requests as concurrent tasks. asyncio.gather awaits all of them simultaneously, reducing total runtime compared to sequential requests."
@@ -466,8 +486,16 @@
       "starter_code": "import aiohttp\nimport asyncio\n\nasync def fetch_url(session, url):\n    try:\n        async with session.get(url) as response:\n            return url, response.status\n    except Exception as e:\n        return url, str(e)\n\nasync def fetch_all(urls):\n    async with aiohttp.ClientSession() as session:\n        tasks = [fetch_url(session, url) for url in urls]\n        results = await asyncio.gather(*tasks)\n        return dict(results)\n\nasync def main():\n    urls = ['https://httpbin.org/get', 'invalid-url']\n    print(await fetch_all(urls))\n\nasyncio.run(main())",
       "solution_code": "import aiohttp\nimport asyncio\n\nasync def fetch_url(session, url):\n    try:\n        async with session.get(url) as response:\n            return url, response.status\n    except aiohttp.ClientError as e:\n        return url, f'ClientError: {e}'\n    except Exception as e:\n        return url, f'Unexpected: {e}'\n\nasync def fetch_all(urls):\n    async with aiohttp.ClientSession() as session:\n        tasks = [fetch_url(session, url) for url in urls]\n        results = await asyncio.gather(*tasks)\n        return dict(results)\n\nasync def main():\n    urls = ['https://httpbin.org/get', 'invalid-url']\n    print(await fetch_all(urls))\n\nasyncio.run(main())",
       "test_cases": [
-        "assert isinstance(await fetch_all(['https://httpbin.org/get', 'bad']), dict)",
-        "assert 'ClientError' in (await fetch_all(['https://httpbin.org/get', 'bad']))['bad']"
+        {
+          "input": "",
+          "expected_output": "assert isinstance(await fetch_all(['https://httpbin.org/get', 'bad']), dict)",
+          "description": "assert isinstance(await fetch_all(['https://httpbin.org/get', 'bad']), dict)"
+        },
+        {
+          "input": "",
+          "expected_output": "assert 'ClientError' in (await fetch_all(['https://httpbin.org/get', 'bad']))['bad']",
+          "description": "assert 'ClientError' in (await fetch_all(['https://httpbin.org/get', 'bad']))['bad']"
+        }
       ],
       "hint": "Catch aiohttp.ClientError specifically before a generic Exception.",
       "explanation": "By catching aiohttp.ClientError, we isolate HTTP-related failures. The rest of the logic remains unchanged, but the output now contains meaningful error strings rather than crashing the entire gather operation."
@@ -485,8 +513,16 @@
       "starter_code": "import aiohttp\nimport asyncio\n\nsem = asyncio.Semaphore(5)\n\nasync def fetch_with_retry(session, url):\n    # TODO: implement retry logic, timeout, and semaphore\n    pass\n\nasync def fetch_all(urls):\n    async with aiohttp.ClientSession() as session:\n        tasks = [fetch_with_retry(session, url) for url in urls]\n        results = await asyncio.gather(*tasks)\n        return dict(results)\n\nasync def main():\n    urls = ['https://httpbin.org/get'] * 10\n    print(await fetch_all(urls))\n\nasyncio.run(main())",
       "solution_code": "import aiohttp\nimport asyncio\n\nsem = asyncio.Semaphore(5)\n\nasync def fetch_with_retry(session, url):\n    max_retries = 1\n    for attempt in range(max_retries + 1):\n        try:\n            async with sem:\n                async with session.get(url, timeout=aiohttp.ClientTimeout(total=3)) as response:\n                    return url, response.status\n        except (aiohttp.ClientError, asyncio.TimeoutError):\n            if attempt == max_retries:\n                return url, 'Failed after retries'\n            await asyncio.sleep(0.5)\n\nasync def fetch_all(urls):\n    async with aiohttp.ClientSession() as session:\n        tasks = [fetch_with_retry(session, url) for url in urls]\n        results = await asyncio.gather(*tasks)\n        return dict(results)\n\nasync def main():\n    urls = ['https://httpbin.org/get'] * 10\n    print(await fetch_all(urls))\n\nasyncio.run(main())",
       "test_cases": [
-        "assert isinstance(await fetch_all(['https://httpbin.org/get']), dict)",
-        "assert await fetch_with_retry(aiohttp.ClientSession(), 'https://httpbin.org/get')[1] == 200 or isinstance(await fetch_with_retry(aiohttp.ClientSession(), 'https://httpbin.org/get')[1], int)"
+        {
+          "input": "",
+          "expected_output": "assert isinstance(await fetch_all(['https://httpbin.org/get']), dict)",
+          "description": "assert isinstance(await fetch_all(['https://httpbin.org/get']), dict)"
+        },
+        {
+          "input": "assert await fetch_with_retry(aiohttp.ClientSession(), 'https://httpbin.org/get')[1]",
+          "expected_output": "200 or isinstance(await fetch_with_retry(aiohttp.ClientSession(), 'https://httpbin.org/get')[1], int)",
+          "description": "Verifies: assert await fetch_with_retry(aiohttp.ClientSession(), 'https://httpbin.org/get')[1] == 200 or isinstance(await fetch_with_retry(aiohttp.ClientSession(), 'https://httpbin.org/get')[1], int)"
+        }
       ],
       "hint": "Use asyncio.TimeoutError and aiohttp.ClientTimeout. Wrap the request in sem.acquire() context.",
       "explanation": "The semaphore caps active connections to 5. The timeout prevents hanging requests. A simple retry loop with a backoff delay improves resilience without overwhelming the target server."
@@ -504,8 +540,16 @@
       "starter_code": "import asyncio\nimport aiohttp\nfrom concurrent.futures import ThreadPoolExecutor\n\nurls = [f'https://httpbin.org/get?n={i}' for i in range(50)]\n\nasync def fetch_async(urls):\n    async with aiohttp.ClientSession() as session:\n        tasks = [fetch_url(session, url) for url in urls]\n        results = await asyncio.gather(*tasks)\n        return dict(results)\n\ndef fetch_thread(url):\n    # TODO: implement thread-based fetch\n    pass\n\ndef main():\n    print('Async approach:')\n    asyncio.run(fetch_async(urls))\n    print('Thread approach:')\n    with ThreadPoolExecutor(max_workers=10) as executor:\n        futures = [executor.submit(fetch_thread, url) for url in urls]\n        results = {url: f.result() for url, f in zip(urls, futures)}\n    print(results)\n\nmain()",
       "solution_code": "import asyncio\nimport aiohttp\nfrom concurrent.futures import ThreadPoolExecutor\n\nurls = [f'https://httpbin.org/get?n={i}' for i in range(50)]\n\nasync def fetch_async(urls):\n    async with aiohttp.ClientSession() as session:\n        tasks = [fetch_url(session, url) for url in urls]\n        results = await asyncio.gather(*tasks)\n        return dict(results)\n\ndef fetch_thread(url):\n    import aiohttp\n    import asyncio\n    async def _fetch():\n        async with aiohttp.ClientSession() as session:\n            async with session.get(url) as response:\n                return url, response.status\n    return asyncio.run(_fetch())\n\ndef main():\n    print('Async approach:')\n    asyncio.run(fetch_async(urls))\n    print('Thread approach:')\n    with ThreadPoolExecutor(max_workers=10) as executor:\n        futures = [executor.submit(fetch_thread, url) for url in urls]\n        results = {url: f.result() for url, f in zip(urls, futures)}\n    print(results)\n\nmain()",
       "test_cases": [
-        "assert len(fetch_async(urls)) == 50",
-        "assert all(isinstance(v, int) or isinstance(v, str) for v in fetch_async(urls).values())"
+        {
+          "input": "assert len(fetch_async(urls))",
+          "expected_output": "50",
+          "description": "Verifies: assert len(fetch_async(urls)) == 50"
+        },
+        {
+          "input": "",
+          "expected_output": "assert all(isinstance(v, int) or isinstance(v, str) for v in fetch_async(urls).values())",
+          "description": "assert all(isinstance(v, int) or isinstance(v, str) for v in fetch_async(urls).values())"
+        }
       ],
       "hint": "ThreadPoolExecutor is better for blocking I/O when you cannot use asyncio; asyncio is more efficient for pure I/O-bound coroutines.",
       "explanation": "For I/O-bound network requests, asyncio avoids thread-switching overhead and scales better with many connections. ThreadPoolExecutor works but incurs context-switch costs and is limited by OS thread limits. asyncio is the preferred choice in modern Python."
@@ -523,8 +567,16 @@
       "starter_code": "import asyncio\nimport aiohttp\nimport json\nimport logging\n\nlogging.basicConfig(level=logging.INFO)\nurls = [f'https://httpbin.org/json?n={i}' for i in range(200)]\n\nsem = asyncio.Semaphore(20)\n\nasync def fetch_and_parse(session, url):\n    # TODO: implement safe JSON parsing, price extraction, and logging\n    pass\n\nasync def main():\n    async with aiohttp.ClientSession() as session:\n        tasks = [fetch_and_parse(session, url) for url in urls]\n        await asyncio.gather(*tasks)\n\nasyncio.run(main())",
       "solution_code": "import asyncio\nimport aiohttp\nimport json\nimport logging\n\nlogging.basicConfig(level=logging.INFO)\nurls = [f'https://httpbin.org/json?n={i}' for i in range(200)]\n\nsem = asyncio.Semaphore(20)\n\nasync def fetch_and_parse(session, url):\n    async with sem:\n        try:\n            async with session.get(url, timeout=aiohttp.ClientTimeout(total=10)) as response:\n                response.raise_for_status()\n                data = await response.json()\n                price = data.get('price')\n                if price is None:\n                    logging.warning(f'{url}: missing price')\n                else:\n                    logging.info(f'{url}: price = {price}')\n        except json.JSONDecodeError:\n            logging.error(f'{url}: invalid JSON')\n        except aiohttp.ClientError as e:\n            logging.error(f'{url}: request failed - {e}')\n\nasync def main():\n    async with aiohttp.ClientSession() as session:\n        tasks = [fetch_and_parse(session, url) for url in urls]\n        await asyncio.gather(*tasks)\n\nasyncio.run(main())",
       "test_cases": [
-        "assert fetch_and_parse.__code__.co_argcount >= 2",
-        "assert 'price' in (await fetch_and_parse(aiohttp.ClientSession(), 'https://httpbin.org/json'))[1] or isinstance((await fetch_and_parse(aiohttp.ClientSession(), 'https://httpbin.org/json'))[1], str)"
+        {
+          "input": "",
+          "expected_output": "assert fetch_and_parse.__code__.co_argcount >= 2",
+          "description": "assert fetch_and_parse.__code__.co_argcount >= 2"
+        },
+        {
+          "input": "",
+          "expected_output": "assert 'price' in (await fetch_and_parse(aiohttp.ClientSession(), 'https://httpbin.org/json'))[1] or isinstance((await fetch_and_parse(aiohttp.ClientSession(), 'https://httpbin.org/json'))[1], str)",
+          "description": "assert 'price' in (await fetch_and_parse(aiohttp.ClientSession(), 'https://httpbin.org/json'))[1] or isinstance((await fetch_and_parse(aiohttp.ClientSession(), 'https://httpbin.org/json'))[1], str)"
+        }
       ],
       "hint": "Use response.json(), .get('price'), and catch JSONDecodeError separately from network errors.",
       "explanation": "This design limits concurrency to 20 to avoid overwhelming servers. It validates HTTP status, parses JSON safely, extracts the price field, and logs anomalies. The semaphore and timeout ensure stability under load."
@@ -542,8 +594,16 @@
       "starter_code": "import asyncio\nimport aiohttp\nimport random\n\nclass ConcurrentFetcher:\n    def __init__(self, max_concurrency=10, base_delay=0.5):\n        self.max_concurrency = max_concurrency\n        self.base_delay = base_delay\n\n    async def fetch(self, session, url):\n        # TODO: implement exponential backoff, cancellation, and assertions\n        pass\n\n    async def run(self, urls):\n        async with aiohttp.ClientSession() as session:\n            tasks = [self.fetch(session, url) for url in urls]\n            return await asyncio.gather(*tasks)\n\nasync def main():\n    fetcher = ConcurrentFetcher()\n    urls = ['https://httpbin.org/get'] * 5\n    print(await fetcher.run(urls))\n\nasyncio.run(main())",
       "solution_code": "import asyncio\nimport aiohttp\n\nclass ConcurrentFetcher:\n    def __init__(self, max_concurrency=10, base_delay=0.5):\n        self.max_concurrency = max_concurrency\n        self.base_delay = base_delay\n\n    async def fetch(self, session, url):\n        delay = 0.0\n        for attempt in range(3):\n            try:\n                async with asyncio.timeout(5):\n                    async with session.get(url) as response:\n                        assert response.status == 200, 'unexpected status'\n                        data = await response.text()\n                        assert len(data) > 0, 'empty response'\n                        return url, 200\n            except asyncio.TimeoutError:\n                delay = min(self.base_delay * (2 ** attempt) + random.uniform(0, 0.1), 10)\n                await asyncio.sleep(delay)\n        return url, 'Failed after retries'\n\n    async def run(self, urls):\n        sem = asyncio.Semaphore(self.max_concurrency)\n        async def bounded_fetch(session, url):\n            async with sem:\n                return await self.fetch(session, url)\n        async with aiohttp.ClientSession() as session:\n            tasks = [bounded_fetch(session, url) for url in urls]\n            return await asyncio.gather(*tasks)\n\nasync def main():\n    fetcher = ConcurrentFetcher()\n    urls = ['https://httpbin.org/get'] * 5\n    print(await fetcher.run(urls))\n\nasyncio.run(main())",
       "test_cases": [
-        "assert isinstance(await ConcurrentFetcher().run(['https://httpbin.org/get']), list)",
-        "assert all(isinstance(item, tuple) and len(item) == 2 for item in await ConcurrentFetcher().run(['https://httpbin.org/get']))"
+        {
+          "input": "",
+          "expected_output": "assert isinstance(await ConcurrentFetcher().run(['https://httpbin.org/get']), list)",
+          "description": "assert isinstance(await ConcurrentFetcher().run(['https://httpbin.org/get']), list)"
+        },
+        {
+          "input": "assert all(isinstance(item, tuple) and len(item)",
+          "expected_output": "2 for item in await ConcurrentFetcher().run(['https://httpbin.org/get']))",
+          "description": "Verifies: assert all(isinstance(item, tuple) and len(item) == 2 for item in await ConcurrentFetcher().run(['https://httpbin.org/get']))"
+        }
       ],
       "hint": "Use asyncio.timeout for cancellation, assert for inline validation, and a semaphore inside run for concurrency control.",
       "explanation": "The master implementation combines exponential backoff with jitter, per-request cancellation, inline assertions for data integrity, and a semaphore to bound concurrency. The context manager guarantees session cleanup, making it suitable for long-running production services."

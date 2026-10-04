@@ -454,17 +454,18 @@
       "prerequisites": [
         "6.2_q24"
       ],
-      "prompt": "Write a clean, reusable function or code statement that demonstrates core usage of The while Loop:",
-      "starter_code": "# Implement a solution for The while Loop\ndef solve():\n    ___",
-      "solution_code": "def solve():\n    # Core implementation of The while Loop\n    return True",
+      "prompt": "Milestone Implementation: Construct a modular, well-tested function that applies the central principles of The while Loop.",
+      "starter_code": "def process_6_2_data(items):\n    # Process input according to The while Loop rules\n    pass",
+      "solution_code": "def process_6_2_data(items):\n    return [item for item in items if item is not None]",
       "test_cases": [
         {
-          "input": "",
-          "expected_output": "while Loop Result 25"
+          "input": "[1, None, 2, None, 3]",
+          "expected_output": "[1, 2, 3]",
+          "description": "cleans null values using The while Loop rules"
         }
       ],
       "hint": "Focus on applying the central Python idiom for The while Loop.",
-      "explanation": "Understanding how to construct clean implementations of The while Loop ensures you can integrate it into broader software applications."
+      "explanation": "Constructing pure, robust data transformers for The while Loop avoids unintended side effects and guarantees consistent return contracts."
     },
     {
       "id": "6.2_q26",
@@ -475,17 +476,18 @@
       "prerequisites": [
         "6.2_q25"
       ],
-      "prompt": "Identify and fix the logical or syntax defect in this implementation of The while Loop:",
-      "starter_code": "# Fix the issue with The while Loop\ndef check_valid(val):\n    if val is None:\n        return False\n    return True",
-      "solution_code": "def check_valid(val):\n    if val is None:\n        return False\n    return True",
+      "prompt": "Defensive Validation: Implement a verification helper for The while Loop that confirms preconditions and guards against invalid input.",
+      "starter_code": "def validate_6_2_input(val):\n    # Return True if val is valid, False otherwise\n    pass",
+      "solution_code": "def validate_6_2_input(val):\n    if val is None or val == '':\n        return False\n    return True",
       "test_cases": [
         {
-          "input": "",
-          "expected_output": "while Loop Result 26"
+          "input": "'valid_token'",
+          "expected_output": "True",
+          "description": "valid input returns True"
         }
       ],
       "hint": "Check the condition and return value carefully.",
-      "explanation": "Debugging is a core programming competency. Guarding against edge cases like `None` or invalid states prevents runtime failures."
+      "explanation": "Validating preconditions at the boundary prevents null pointer and type exceptions downstream."
     },
     {
       "id": "6.2_q27",
@@ -517,24 +519,25 @@
     },
     {
       "id": "6.2_q28",
-      "type": "real_world_scenario",
+      "type": "write_the_code",
       "concept": "the_while_loop_production_transfer",
-      "skill": "application",
+      "skill": "transfer",
       "difficulty": "hard",
       "prerequisites": [
         "6.2_q27"
       ],
-      "prompt": "Apply The while Loop to a realistic scenario: process a sequence of records and return only those meeting the business rule:",
-      "starter_code": "records = [{'id': 1, 'active': True}, {'id': 2, 'active': False}]\n# Filter active records\nactive_records = ___",
-      "solution_code": "records = [{'id': 1, 'active': True}, {'id': 2, 'active': False}]\nactive_records = [r for r in records if r['active']]",
+      "prompt": "Transfer Challenge: Solve a practical problem using The while Loop. Implement the function below to satisfy the stated contract.",
+      "starter_code": "def handle_domain_task(val):\n    # Implement domain logic for The while Loop\n    return str(val).strip()",
+      "solution_code": "def handle_domain_task(val):\n    return str(val).strip().upper()",
       "test_cases": [
         {
-          "input": "",
-          "expected_output": "while Loop Result 28"
+          "input": "'  python  '",
+          "expected_output": "'PYTHON'",
+          "description": "domain sanitization"
         }
       ],
       "hint": "Use a list comprehension to filter records where 'active' is True.",
-      "explanation": "In production Python code, The while Loop is frequently combined with data filtering to process structured domain models efficiently."
+      "explanation": "Applying clean functional contracts for The while Loop ensures testable domain operations."
     },
     {
       "id": "6.2_q29",

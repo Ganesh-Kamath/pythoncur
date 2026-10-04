@@ -500,7 +500,13 @@
       ],
       "prompt": "An online store has 53 products and displays 10 products per page. You need to calculate the total number of pages needed so no products are left out. Which formula correctly calculates this?",
       "correct_answer": "B",
-      "explanation": "Ceiling division for integers can be cleanly expressed as `(n + d - 1) // d`. `(53 + 9) // 10 = 62 // 10 = 6` pages."
+      "explanation": "Ceiling division for integers can be cleanly expressed as `(n + d - 1) // d`. `(53 + 9) // 10 = 62 // 10 = 6` pages.",
+      "options": [
+        "A. pages = 53 // 10",
+        "B. pages = (53 + 10 - 1) // 10 (or math.ceil(53 / 10))",
+        "C. pages = 53 % 10",
+        "D. pages = 53 / 10"
+      ]
     },
     {
       "id": "3.1_q30",
@@ -517,7 +523,13 @@
       ],
       "prompt": "Which of the following summaries regarding Python arithmetic operators is completely TRUE?",
       "correct_answer": "A",
-      "explanation": "This exercise tests `arithmetic synthesis` in Arithmetic Operators. When Python validates this code, it applies the standard rules of arithmetic synthesis. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
+      "explanation": "This exercise tests `arithmetic synthesis` in Arithmetic Operators. When Python validates this code, it applies the standard rules of arithmetic synthesis. Understanding how this construct behaves prevents common programming errors and ensures predictable execution.",
+      "options": [
+        "A. Arithmetic operators follow standard mathematical rules: / always yields a float, // computes floor division, and % yields the remainder.",
+        "B. Division by zero returns inf instead of raising an exception in Python.",
+        "C. // always rounds up toward positive infinity.",
+        "D. 2 ** 3 computes bitwise XOR rather than exponentiation."
+      ]
     }
   ],
   "unit_num": 3,

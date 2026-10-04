@@ -513,10 +513,26 @@
       "starter_code": "def safe_sum(values):\n    total = 0\n    if values is not None:\n        for v in values:\n            if isinstance(v, (int, float)):\n                total = total + v\n            else:\n                return None\n    else:\n        return None\n    return total",
       "solution_code": "def safe_sum(values):\n    if not values:\n        return 0\n    total = 0\n    for v in values:\n        if not isinstance(v, (int, float)):\n            raise TypeError('safe_sum expects numeric values')\n        total += v\n    return total",
       "test_cases": [
-        "safe_sum([1, 2, 3]) == 6",
-        "safe_sum([]) == 0",
-        "safe_sum(None) raises TypeError",
-        "safe_sum([1, 'a', 3]) raises TypeError"
+        {
+          "input": "safe_sum([1, 2, 3])",
+          "expected_output": "6",
+          "description": "Verifies: safe_sum([1, 2, 3]) == 6"
+        },
+        {
+          "input": "safe_sum([])",
+          "expected_output": "0",
+          "description": "Verifies: safe_sum([]) == 0"
+        },
+        {
+          "input": "",
+          "expected_output": "safe_sum(None) raises TypeError",
+          "description": "safe_sum(None) raises TypeError"
+        },
+        {
+          "input": "",
+          "expected_output": "safe_sum([1, 'a', 3]) raises TypeError",
+          "description": "safe_sum([1, 'a', 3]) raises TypeError"
+        }
       ],
       "hint": "Consolidate the None and empty-list checks, and decide whether silent None returns or explicit exceptions better serve debugging.",
       "explanation": "The original code returns None for both None and empty lists, conflating two distinct edge cases. The refactored version returns 0 for empty lists (the additive identity) and raises TypeError for None or non-numeric elements, making failures explicit and improving maintainability."
@@ -534,9 +550,21 @@
       "starter_code": "def safe_divide(a, b):\n    # TODO: handle edge case where b is zero\n    return a / b",
       "solution_code": "def safe_divide(a, b):\n    if b == 0:\n        return None\n    return a / b",
       "test_cases": [
-        "safe_divide(10, 2) == 5.0",
-        "safe_divide(10, 0) is None",
-        "safe_divide(-6, 2) == -3.0"
+        {
+          "input": "safe_divide(10, 2)",
+          "expected_output": "5.0",
+          "description": "Verifies: safe_divide(10, 2) == 5.0"
+        },
+        {
+          "input": "",
+          "expected_output": "safe_divide(10, 0) is None",
+          "description": "safe_divide(10, 0) is None"
+        },
+        {
+          "input": "safe_divide(-6, 2)",
+          "expected_output": "-3.0",
+          "description": "Verifies: safe_divide(-6, 2) == -3.0"
+        }
       ],
       "hint": "Check whether the divisor is zero before performing the division operation.",
       "explanation": "This item teaches students to anticipate division by zero, a common runtime error. By validating the divisor before computation, the function gracefully handles the edge case and avoids a ZeroDivisionError."
@@ -554,9 +582,21 @@
       "starter_code": "def safe_int_convert(value):\n    # TODO: handle values that cannot be converted to int\n    return int(value)",
       "solution_code": "def safe_int_convert(value):\n    try:\n        return int(value)\n    except (ValueError, TypeError):\n        return 0",
       "test_cases": [
-        "safe_int_convert('42') == 42",
-        "safe_int_convert('abc') == 0",
-        "safe_int_convert(None) == 0"
+        {
+          "input": "safe_int_convert('42')",
+          "expected_output": "42",
+          "description": "Verifies: safe_int_convert('42') == 42"
+        },
+        {
+          "input": "safe_int_convert('abc')",
+          "expected_output": "0",
+          "description": "Verifies: safe_int_convert('abc') == 0"
+        },
+        {
+          "input": "safe_int_convert(None)",
+          "expected_output": "0",
+          "description": "Verifies: safe_int_convert(None) == 0"
+        }
       ],
       "hint": "Use a try-except block to catch conversion failures and provide a fallback value.",
       "explanation": "This practical exercise reinforces defensive programming. Many real-world inputs are unpredictable, so wrapping conversions in exception handling ensures robustness."
@@ -574,9 +614,21 @@
       "starter_code": "def safe_list_sum(lst):\n    # TODO: handle empty lists and non-numeric elements\n    if not lst:\n        return 0\n    return lst[0] + safe_list_sum(lst[1:])",
       "solution_code": "def safe_list_sum(lst):\n    if not lst:\n        return 0\n    first = lst[0]\n    if not isinstance(first, (int, float)):\n        return safe_list_sum(lst[1:])\n    return first + safe_list_sum(lst[1:])",
       "test_cases": [
-        "safe_list_sum([1, 2, 3]) == 6",
-        "safe_list_sum([]) == 0",
-        "safe_list_sum([1, 'x', 3]) == 4"
+        {
+          "input": "safe_list_sum([1, 2, 3])",
+          "expected_output": "6",
+          "description": "Verifies: safe_list_sum([1, 2, 3]) == 6"
+        },
+        {
+          "input": "safe_list_sum([])",
+          "expected_output": "0",
+          "description": "Verifies: safe_list_sum([]) == 0"
+        },
+        {
+          "input": "safe_list_sum([1, 'x', 3])",
+          "expected_output": "4",
+          "description": "Verifies: safe_list_sum([1, 'x', 3]) == 4"
+        }
       ],
       "hint": "Add a type check for the first element before adding it to the recursive result.",
       "explanation": "This advanced item requires students to combine recursion with runtime type validation. Handling empty collections and mixed-type data prevents both logical and runtime errors."
@@ -594,9 +646,21 @@
       "starter_code": "import sys\n\ndef read_first_line(path):\n    # TODO: handle missing file, empty file, and read errors\n    with open(path) as f:\n        return f.readline()",
       "solution_code": "import sys\n\ndef read_first_line(path):\n    try:\n        with open(path, 'r') as f:\n            line = f.readline()\n            if not line:\n                print('Error: file is empty')\n                return None\n            return line.strip()\n    except FileNotFoundError:\n        print('Error: file not found')\n    except PermissionError:\n        print('Error: permission denied')\n    except OSError:\n        print('Error: cannot read file')\n    return None",
       "test_cases": [
-        "read_first_line('existing.txt') returns first line content",
-        "read_first_line('missing.txt') prints error and returns None",
-        "read_first_line('empty.txt') prints 'file is empty' and returns None"
+        {
+          "input": "",
+          "expected_output": "read_first_line('existing.txt') returns first line content",
+          "description": "read_first_line('existing.txt') returns first line content"
+        },
+        {
+          "input": "",
+          "expected_output": "read_first_line('missing.txt') prints error and returns None",
+          "description": "read_first_line('missing.txt') prints error and returns None"
+        },
+        {
+          "input": "",
+          "expected_output": "read_first_line('empty.txt') prints 'file is empty' and returns None",
+          "description": "read_first_line('empty.txt') prints 'file is empty' and returns None"
+        }
       ],
       "hint": "Use nested exception handling: first catch file-level errors, then inspect the read result for emptiness.",
       "explanation": "This mini-challenge simulates real-world data ingestion where external resources may be unavailable or malformed. Students must layer exception handling with post-read validation."
@@ -614,9 +678,21 @@
       "starter_code": "import json\nimport urllib.request\n\ndef fetch_weather(city):\n    # TODO: handle network failure, bad JSON, and empty response\n    url = f'https://api.example.com/weather?city={city}'\n    with urllib.request.urlopen(url) as response:\n        data = json.loads(response.read().decode())\n    return data",
       "solution_code": "import json\nimport urllib.request\n\ndef fetch_weather(city):\n    default = {'temp': 0, 'condition': 'unknown'}\n    url = f'https://api.example.com/weather?city={city}'\n    try:\n        with urllib.request.urlopen(url, timeout=5) as response:\n            raw = response.read()\n            if not raw:\n                return default\n            data = json.loads(raw.decode())\n            if not isinstance(data, dict) or 'temp' not in data:\n                return default\n            return data\n    except (urllib.error.URLError, json.JSONDecodeError, ValueError):\n        return default",
       "test_cases": [
-        "fetch_weather('Paris') returns weather dict on success",
-        "fetch_weather('GhostCity') returns default on network failure",
-        "fetch_weather('BadCity') returns default on malformed JSON"
+        {
+          "input": "",
+          "expected_output": "fetch_weather('Paris') returns weather dict on success",
+          "description": "fetch_weather('Paris') returns weather dict on success"
+        },
+        {
+          "input": "",
+          "expected_output": "fetch_weather('GhostCity') returns default on network failure",
+          "description": "fetch_weather('GhostCity') returns default on network failure"
+        },
+        {
+          "input": "",
+          "expected_output": "fetch_weather('BadCity') returns default on malformed JSON",
+          "description": "fetch_weather('BadCity') returns default on malformed JSON"
+        }
       ],
       "hint": "Wrap the request and parsing in try-except, validate response structure, and return the fallback on any failure.",
       "explanation": "This real-world scenario requires synthesizing I/O, parsing, and validation into a single resilient pipeline. It mirrors production-grade defensive coding against unreliable external services."
@@ -634,10 +710,26 @@
       "starter_code": "def sum_numbers(data):\n    total = 0\n    for x in data:\n        total += x\n    return total",
       "solution_code": "def sum_numbers(data):\n    if not isinstance(data, (list, tuple, set)):\n        return 0\n    total = 0\n    for x in data:\n        if isinstance(x, (int, float)) and not isinstance(x, bool):\n            total += x\n    return total",
       "test_cases": [
-        "sum_numbers([1, 2, 3]) == 6",
-        "sum_numbers([]) == 0",
-        "sum_numbers('not iterable') == 0",
-        "sum_numbers([1, 'a', 3.5]) == 4.5"
+        {
+          "input": "sum_numbers([1, 2, 3])",
+          "expected_output": "6",
+          "description": "Verifies: sum_numbers([1, 2, 3]) == 6"
+        },
+        {
+          "input": "sum_numbers([])",
+          "expected_output": "0",
+          "description": "Verifies: sum_numbers([]) == 0"
+        },
+        {
+          "input": "sum_numbers('not iterable')",
+          "expected_output": "0",
+          "description": "Verifies: sum_numbers('not iterable') == 0"
+        },
+        {
+          "input": "sum_numbers([1, 'a', 3.5])",
+          "expected_output": "4.5",
+          "description": "Verifies: sum_numbers([1, 'a', 3.5]) == 4.5"
+        }
       ],
       "hint": "First verify the type of `data`, then filter elements by numeric type before accumulation.",
       "explanation": "This mastery-level item demands comprehensive edge-case coverage: type validation, empty-collection handling, and element-level filtering. It prepares students to write production-safe aggregation utilities."

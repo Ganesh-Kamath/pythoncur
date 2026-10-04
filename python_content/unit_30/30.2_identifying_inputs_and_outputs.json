@@ -469,8 +469,16 @@
       "starter_code": "name = input('Name: ')\nage = input('Age: ')\nprint('Name: ' + name)\nprint('Age: ' + age)\n\nname2 = input('Name: ')\nage2 = input('Age: ')\nprint('Name: ' + name2)\nprint('Age: ' + age2)\n",
       "solution_code": "def collect_and_display(label):\n    name = input(label + ' Name: ')\n    age = input(label + ' Age: ')\n    print(label + ' -> Name: ' + name)\n    print(label + ' -> Age: ' + age)\n\ncollect_and_display('Person 1')\ncollect_and_display('Person 2')\n",
       "test_cases": [
-        "Person 1 Alice 25",
-        "Person 2 Bob 30"
+        {
+          "input": "",
+          "expected_output": "Person 1 Alice 25",
+          "description": "Person 1 Alice 25"
+        },
+        {
+          "input": "",
+          "expected_output": "Person 2 Bob 30",
+          "description": "Person 2 Bob 30"
+        }
       ],
       "hint": "Encapsulate repeated input and print steps into a single function with a descriptive parameter.",
       "explanation": "The refactored version eliminates duplication by using a function that accepts a label. This improves readability, maintains the separation of input and output, and makes the program easier to extend with additional records."

@@ -160,24 +160,25 @@
     },
     {
       "id": "7.1_q10",
-      "type": "real_world_scenario",
+      "type": "write_the_code",
       "concept": "string_indexing_production_transfer",
-      "skill": "application",
+      "skill": "transfer",
       "difficulty": "hard",
       "prerequisites": [
         "7.1_q9"
       ],
-      "prompt": "Apply String Indexing to a realistic scenario: process a sequence of records and return only those meeting the business rule:",
-      "starter_code": "records = [{'id': 1, 'active': True}, {'id': 2, 'active': False}]\n# Filter active records\nactive_records = ___",
-      "solution_code": "records = [{'id': 1, 'active': True}, {'id': 2, 'active': False}]\nactive_records = [r for r in records if r['active']]",
+      "prompt": "Transfer Challenge: Solve a practical problem using String Indexing. Implement the function below to satisfy the stated contract.",
+      "starter_code": "def handle_domain_task(val):\n    # Implement domain logic for String Indexing\n    return str(val).strip()",
+      "solution_code": "def handle_domain_task(val):\n    return str(val).strip().upper()",
       "test_cases": [
         {
-          "input": "",
-          "expected_output": "String Indexing Result 10"
+          "input": "'  python  '",
+          "expected_output": "'PYTHON'",
+          "description": "domain sanitization"
         }
       ],
       "hint": "Use a list comprehension to filter records where 'active' is True.",
-      "explanation": "In production Python code, String Indexing is frequently combined with data filtering to process structured domain models efficiently."
+      "explanation": "Applying clean functional contracts for String Indexing ensures testable domain operations."
     },
     {
       "id": "7.1_q11",
@@ -476,9 +477,21 @@
       "starter_code": "def get_first_char(text):\n    # TODO: return the first character using indexing\n    pass\n\n# Example usage\nresult = get_first_char('Codolingo')\nprint(result)",
       "solution_code": "def get_first_char(text):\n    return text[0]\n\n# Example usage\nresult = get_first_char('Codolingo')\nprint(result)",
       "test_cases": [
-        "get_first_char('Python') == 'P'",
-        "get_first_char('a') == 'a'",
-        "get_first_char('') == IndexError"
+        {
+          "input": "get_first_char('Python')",
+          "expected_output": "'P'",
+          "description": "Verifies: get_first_char('Python') == 'P'"
+        },
+        {
+          "input": "get_first_char('a')",
+          "expected_output": "'a'",
+          "description": "Verifies: get_first_char('a') == 'a'"
+        },
+        {
+          "input": "get_first_char('')",
+          "expected_output": "IndexError",
+          "description": "Verifies: get_first_char('') == IndexError"
+        }
       ],
       "hint": "Remember that Python uses zero-based indexing, so the first character is at index 0.",
       "explanation": "In Python, strings are sequences of characters. Indexing starts at 0, so text[0] retrieves the first character. Attempting to index an empty string raises an IndexError."
@@ -497,9 +510,21 @@
       "starter_code": "def get_last_char(word):\n    # TODO: return the last character using negative indexing\n    pass\n\n# Example usage\nresult = get_last_char('hello')\nprint(result)",
       "solution_code": "def get_last_char(word):\n    return word[-1]\n\n# Example usage\nresult = get_last_char('hello')\nprint(result)",
       "test_cases": [
-        "get_last_char('hello') == 'o'",
-        "get_last_char('a') == 'a'",
-        "get_last_char('12345') == '5'"
+        {
+          "input": "get_last_char('hello')",
+          "expected_output": "'o'",
+          "description": "Verifies: get_last_char('hello') == 'o'"
+        },
+        {
+          "input": "get_last_char('a')",
+          "expected_output": "'a'",
+          "description": "Verifies: get_last_char('a') == 'a'"
+        },
+        {
+          "input": "get_last_char('12345')",
+          "expected_output": "'5'",
+          "description": "Verifies: get_last_char('12345') == '5'"
+        }
       ],
       "hint": "Negative index -1 refers to the last item in a sequence.",
       "explanation": "Negative indices count backward from the end of the string. -1 is the final character, -2 is the second-to-last, and so on."
@@ -518,9 +543,21 @@
       "starter_code": "def middle_char(phrase):\n    # TODO: compute the middle index and return that character\n    pass\n\n# Example usage\nprint(middle_char('Codolingo'))",
       "solution_code": "def middle_char(phrase):\n    mid = len(phrase) // 2\n    return phrase[mid]\n\n# Example usage\nprint(middle_char('Codolingo'))",
       "test_cases": [
-        "middle_char('Codolingo') == 'i'",
-        "middle_char('Python') == 'h'",
-        "middle_char('a') == 'a'"
+        {
+          "input": "middle_char('Codolingo')",
+          "expected_output": "'i'",
+          "description": "Verifies: middle_char('Codolingo') == 'i'"
+        },
+        {
+          "input": "middle_char('Python')",
+          "expected_output": "'h'",
+          "description": "Verifies: middle_char('Python') == 'h'"
+        },
+        {
+          "input": "middle_char('a')",
+          "expected_output": "'a'",
+          "description": "Verifies: middle_char('a') == 'a'"
+        }
       ],
       "hint": "Use len() to find the length, then integer division // to get the middle index.",
       "explanation": "The length of a string is obtained with len(). Integer division // yields the floor of the midpoint. For even-length strings, this returns the character just right of center."
@@ -539,10 +576,26 @@
       "starter_code": "def safe_index(s, idx):\n    # TODO: check bounds before indexing\n    pass\n\n# Example usage\nprint(safe_index('test', 1))\nprint(safe_index('test', 10))",
       "solution_code": "def safe_index(s, idx):\n    if 0 <= idx < len(s):\n        return s[idx]\n    return None\n\n# Example usage\nprint(safe_index('test', 1))\nprint(safe_index('test', 10))",
       "test_cases": [
-        "safe_index('test', 0) == 't'",
-        "safe_index('test', 3) == 't'",
-        "safe_index('test', -1) == None",
-        "safe_index('test', 4) == None"
+        {
+          "input": "safe_index('test', 0)",
+          "expected_output": "'t'",
+          "description": "Verifies: safe_index('test', 0) == 't'"
+        },
+        {
+          "input": "safe_index('test', 3)",
+          "expected_output": "'t'",
+          "description": "Verifies: safe_index('test', 3) == 't'"
+        },
+        {
+          "input": "safe_index('test', -1)",
+          "expected_output": "None",
+          "description": "Verifies: safe_index('test', -1) == None"
+        },
+        {
+          "input": "safe_index('test', 4)",
+          "expected_output": "None",
+          "description": "Verifies: safe_index('test', 4) == None"
+        }
       ],
       "hint": "A valid index must be greater than or equal to 0 and strictly less than the string length.",
       "explanation": "IndexError occurs when an index is negative or exceeds the highest valid index. A bounds check prevents this exception and allows graceful fallback behavior."
@@ -561,9 +614,21 @@
       "starter_code": "def extract_initials(full_name):\n    # TODO: split and index to build initials\n    pass\n\n# Example usage\nprint(extract_initials('Ada Lovelace'))",
       "solution_code": "def extract_initials(full_name):\n    first, last = full_name.split()\n    return (first[0] + last[0]).upper()\n\n# Example usage\nprint(extract_initials('Ada Lovelace'))",
       "test_cases": [
-        "extract_initials('Ada Lovelace') == 'AL'",
-        "extract_initials('Grace Hopper') == 'GH'",
-        "extract_initials('Alan Turing') == 'AT'"
+        {
+          "input": "extract_initials('Ada Lovelace')",
+          "expected_output": "'AL'",
+          "description": "Verifies: extract_initials('Ada Lovelace') == 'AL'"
+        },
+        {
+          "input": "extract_initials('Grace Hopper')",
+          "expected_output": "'GH'",
+          "description": "Verifies: extract_initials('Grace Hopper') == 'GH'"
+        },
+        {
+          "input": "extract_initials('Alan Turing')",
+          "expected_output": "'AT'",
+          "description": "Verifies: extract_initials('Alan Turing') == 'AT'"
+        }
       ],
       "hint": "Use split() to separate the two words, then index [0] of each part before combining.",
       "explanation": "In real-world data processing, names often need compact representations. By splitting on whitespace and indexing the first character of each segment, we derive initials efficiently."
@@ -582,10 +647,26 @@
       "starter_code": "def center_char_of_palindrome(p):\n    # TODO: compute center index for any palindrome\n    pass\n\n# Example usage\nprint(center_char_of_palindrome('racecar'))\nprint(center_char_of_palindrome('abba'))",
       "solution_code": "def center_char_of_palindrome(p):\n    return p[len(p) // 2]\n\n# Example usage\nprint(center_char_of_palindrome('racecar'))\nprint(center_char_of_palindrome('abba'))",
       "test_cases": [
-        "center_char_of_palindrome('racecar') == 'e'",
-        "center_char_of_palindrome('abba') == 'b'",
-        "center_char_of_palindrome('a') == 'a'",
-        "center_char_of_palindrome('noon') == 'o'"
+        {
+          "input": "center_char_of_palindrome('racecar')",
+          "expected_output": "'e'",
+          "description": "Verifies: center_char_of_palindrome('racecar') == 'e'"
+        },
+        {
+          "input": "center_char_of_palindrome('abba')",
+          "expected_output": "'b'",
+          "description": "Verifies: center_char_of_palindrome('abba') == 'b'"
+        },
+        {
+          "input": "center_char_of_palindrome('a')",
+          "expected_output": "'a'",
+          "description": "Verifies: center_char_of_palindrome('a') == 'a'"
+        },
+        {
+          "input": "center_char_of_palindrome('noon')",
+          "expected_output": "'o'",
+          "description": "Verifies: center_char_of_palindrome('noon') == 'o'"
+        }
       ],
       "hint": "Integer division // always rounds down, which naturally places even-length centers to the right of the midpoint.",
       "explanation": "For odd-length palindromes, len(p) // 2 lands on the exact center. For even-length palindromes, it lands on the first character of the right half, satisfying the requirement to return the character immediately to the right of center."

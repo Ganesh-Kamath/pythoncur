@@ -467,9 +467,21 @@
       "starter_code": "def create_student_record(name, age, grade):\n    # TODO: return a tuple\n    pass\n\n# Test\nstudent = create_student_record('Alice', 16, 'A')\nprint(type(student))",
       "solution_code": "def create_student_record(name, age, grade):\n    return (name, age, grade)\n\n# Test\nstudent = create_student_record('Alice', 16, 'A')\nprint(type(student))",
       "test_cases": [
-        "assert create_student_record('Bob', 15, 'B') == ('Bob', 15, 'B')",
-        "assert type(create_student_record('Carol', 17, 'C')) is tuple",
-        "assert len(create_student_record('Dave', 14, 'D')) == 3"
+        {
+          "input": "assert create_student_record('Bob', 15, 'B')",
+          "expected_output": "('Bob', 15, 'B')",
+          "description": "Verifies: assert create_student_record('Bob', 15, 'B') == ('Bob', 15, 'B')"
+        },
+        {
+          "input": "",
+          "expected_output": "assert type(create_student_record('Carol', 17, 'C')) is tuple",
+          "description": "assert type(create_student_record('Carol', 17, 'C')) is tuple"
+        },
+        {
+          "input": "assert len(create_student_record('Dave', 14, 'D'))",
+          "expected_output": "3",
+          "description": "Verifies: assert len(create_student_record('Dave', 14, 'D')) == 3"
+        }
       ],
       "hint": "Use the round brackets syntax with a comma after the last element if you want to be explicit, or rely on tuple packing.",
       "explanation": "Tuples are immutable sequences created with parentheses. Once created, their contents cannot be changed. Returning a tuple ensures the caller receives an immutable record.",
@@ -488,9 +500,21 @@
       "starter_code": "def process_coordinates(coords):\n    # TODO: unpack, compute sum, return new tuple\n    pass\n\n# Test\nresult = process_coordinates((3, 4))\nprint(result)",
       "solution_code": "def process_coordinates(coords):\n    x, y = coords\n    total = x + y\n    return (x, y, total)\n\n# Test\nresult = process_coordinates((3, 4))\nprint(result)",
       "test_cases": [
-        "assert process_coordinates((1, 2)) == (1, 2, 3)",
-        "assert process_coordinates((-5, 10)) == (-5, 10, 5)",
-        "assert len(process_coordinates((0, 0))) == 3"
+        {
+          "input": "assert process_coordinates((1, 2))",
+          "expected_output": "(1, 2, 3)",
+          "description": "Verifies: assert process_coordinates((1, 2)) == (1, 2, 3)"
+        },
+        {
+          "input": "assert process_coordinates((-5, 10))",
+          "expected_output": "(-5, 10, 5)",
+          "description": "Verifies: assert process_coordinates((-5, 10)) == (-5, 10, 5)"
+        },
+        {
+          "input": "assert len(process_coordinates((0, 0)))",
+          "expected_output": "3",
+          "description": "Verifies: assert len(process_coordinates((0, 0))) == 3"
+        }
       ],
       "hint": "Unpack the tuple using x, y = coords, then build a new tuple with three elements.",
       "explanation": "Even though tuples are immutable, you can create new tuples from existing data. This is a common pattern when you need derived values without modifying the original tuple.",
@@ -509,9 +533,21 @@
       "starter_code": "def safe_update_record(record, updates):\n    # TODO: build and return a new tuple\n    pass\n\n# Test\noriginal = ('Alice', 20, 'A')\nchanges = {'age': 21, 'grade': 'B'}\nnew_record = safe_update_record(original, changes)\nprint(original, new_record)",
       "solution_code": "def safe_update_record(record, updates):\n    mapping = {'name': 0, 'age': 1, 'grade': 2}\n    new_items = list(record)\n    for key, value in updates.items():\n        if key in mapping:\n            idx = mapping[key]\n            new_items[idx] = value\n    return tuple(new_items)\n\n# Test\noriginal = ('Alice', 20, 'A')\nchanges = {'age': 21, 'grade': 'B'}\nnew_record = safe_update_record(original, changes)\nprint(original, new_record)",
       "test_cases": [
-        "assert safe_update_record(('A', 1, 'X'), {'age': 2}) == ('A', 2, 'X')",
-        "assert safe_update_record(('A', 1, 'X'), {'name': 'B'}) == ('B', 1, 'X')",
-        "assert safe_update_record(('A', 1, 'X'), {'unknown': 99}) == ('A', 1, 'X')"
+        {
+          "input": "assert safe_update_record(('A', 1, 'X'), {'age': 2})",
+          "expected_output": "('A', 2, 'X')",
+          "description": "Verifies: assert safe_update_record(('A', 1, 'X'), {'age': 2}) == ('A', 2, 'X')"
+        },
+        {
+          "input": "assert safe_update_record(('A', 1, 'X'), {'name': 'B'})",
+          "expected_output": "('B', 1, 'X')",
+          "description": "Verifies: assert safe_update_record(('A', 1, 'X'), {'name': 'B'}) == ('B', 1, 'X')"
+        },
+        {
+          "input": "assert safe_update_record(('A', 1, 'X'), {'unknown': 99})",
+          "expected_output": "('A', 1, 'X')",
+          "description": "Verifies: assert safe_update_record(('A', 1, 'X'), {'unknown': 99}) == ('A', 1, 'X')"
+        }
       ],
       "hint": "Convert the tuple to a list to allow mutation, apply updates by index, then convert back to a tuple.",
       "explanation": "Immutability means you cannot change a tuple in place. The standard workaround is to convert to a mutable sequence, modify it, and cast back to a tuple. This preserves the original data integrity.",
@@ -530,9 +566,21 @@
       "starter_code": "def unique_sorted_from_tuple(data):\n    # TODO: return sorted list of unique values\n    pass\n\n# Test\nsource = (5, 3, 5, 2, 3, 9)\nprint(unique_sorted_from_tuple(source))",
       "solution_code": "def unique_sorted_from_tuple(data):\n    return sorted(set(data))\n\n# Test\nsource = (5, 3, 5, 2, 3, 9)\nprint(unique_sorted_from_tuple(source))",
       "test_cases": [
-        "assert unique_sorted_from_tuple((1, 1, 1)) == [1]",
-        "assert unique_sorted_from_tuple(()) == []",
-        "assert unique_sorted_from_tuple((4, 2, 8, 2)) == [2, 4, 8]"
+        {
+          "input": "assert unique_sorted_from_tuple((1, 1, 1))",
+          "expected_output": "[1]",
+          "description": "Verifies: assert unique_sorted_from_tuple((1, 1, 1)) == [1]"
+        },
+        {
+          "input": "assert unique_sorted_from_tuple(())",
+          "expected_output": "[]",
+          "description": "Verifies: assert unique_sorted_from_tuple(()) == []"
+        },
+        {
+          "input": "assert unique_sorted_from_tuple((4, 2, 8, 2))",
+          "expected_output": "[2, 4, 8]",
+          "description": "Verifies: assert unique_sorted_from_tuple((4, 2, 8, 2)) == [2, 4, 8]"
+        }
       ],
       "hint": "A set removes duplicates automatically. Combine it with sorted to produce the required list.",
       "explanation": "Sets store unique elements and are unordered. Converting a tuple to a set eliminates duplicates, and sorted converts the result into a list in ascending order. The original tuple remains untouched.",
@@ -551,9 +599,21 @@
       "starter_code": "def log_shipment(shipment):\n    # TODO: validate length and return confirmation\n    pass\n\n# Test\nshipment = ('TRK101', 'Warehouse A', 'Warehouse B', 'In Transit')\nprint(log_shipment(shipment))",
       "solution_code": "def log_shipment(shipment):\n    if not isinstance(shipment, tuple) or len(shipment) != 4:\n        raise ValueError('Shipment must be a tuple with exactly 4 elements')\n    tracking_id, origin, destination, status = shipment\n    return f'Logged: {tracking_id} from {origin} to {destination} with status {status}'\n\n# Test\nshipment = ('TRK101', 'Warehouse A', 'Warehouse B', 'In Transit')\nprint(log_shipment(shipment))",
       "test_cases": [
-        "assert log_shipment(('X', 'A', 'B', 'C')) == 'Logged: X from A to B with status C'",
-        "assert log_shipment(('Y', 'Z')) == 'Logged: Y from Z to  with status '",
-        "try:\n        log_shipment(('A', 'B', 'C'))\n    except ValueError as e:\n        assert 'exactly 4 elements' in str(e)"
+        {
+          "input": "assert log_shipment(('X', 'A', 'B', 'C'))",
+          "expected_output": "'Logged: X from A to B with status C'",
+          "description": "Verifies: assert log_shipment(('X', 'A', 'B', 'C')) == 'Logged: X from A to B with status C'"
+        },
+        {
+          "input": "assert log_shipment(('Y', 'Z'))",
+          "expected_output": "'Logged: Y from Z to  with status '",
+          "description": "Verifies: assert log_shipment(('Y', 'Z')) == 'Logged: Y from Z to  with status '"
+        },
+        {
+          "input": "",
+          "expected_output": "try:\n        log_shipment(('A', 'B', 'C'))\n    except ValueError as e:\n        assert 'exactly 4 elements' in str(e)",
+          "description": "try:\n        log_shipment(('A', 'B', 'C'))\n    except ValueError as e:\n        assert 'exactly 4 elements' in str(e)"
+        }
       ],
       "hint": "Check both the type and the length before unpacking. Use tuple unpacking to improve readability.",
       "explanation": "In concurrent systems, immutability prevents race conditions where one process might corrupt shared data. By validating the tuple structure and never modifying it, the log_shipment function ensures reliable audit trails.",
@@ -572,9 +632,21 @@
       "starter_code": "def compare_shipment_sets(set_a, set_b):\n    # TODO: compute symmetric difference and return sorted tuple\n    pass\n\n# Test\na = ('T1', 'T2', 'T3')\nb = ('T3', 'T4', 'T5')\nprint(compare_shipment_sets(a, b))",
       "solution_code": "def compare_shipment_sets(set_a, set_b):\n    a_set = set(set_a)\n    b_set = set(set_b)\n    sym_diff = a_set.symmetric_difference(b_set)\n    return tuple(sorted(sym_diff))\n\n# Test\na = ('T1', 'T2', 'T3')\nb = ('T3', 'T4', 'T5')\nprint(compare_shipment_sets(a, b))",
       "test_cases": [
-        "assert compare_shipment_sets(('A', 'B'), ('B', 'C')) == ('A', 'C')",
-        "assert compare_shipment_sets(('X',), ('X',)) == ()",
-        "assert compare_shipment_sets(('M', 'N', 'O'), ('P', 'Q')) == ('M', 'N', 'O', 'P', 'Q')"
+        {
+          "input": "assert compare_shipment_sets(('A', 'B'), ('B', 'C'))",
+          "expected_output": "('A', 'C')",
+          "description": "Verifies: assert compare_shipment_sets(('A', 'B'), ('B', 'C')) == ('A', 'C')"
+        },
+        {
+          "input": "assert compare_shipment_sets(('X',), ('X',))",
+          "expected_output": "()",
+          "description": "Verifies: assert compare_shipment_sets(('X',), ('X',)) == ()"
+        },
+        {
+          "input": "assert compare_shipment_sets(('M', 'N', 'O'), ('P', 'Q'))",
+          "expected_output": "('M', 'N', 'O', 'P', 'Q')",
+          "description": "Verifies: assert compare_shipment_sets(('M', 'N', 'O'), ('P', 'Q')) == ('M', 'N', 'O', 'P', 'Q')"
+        }
       ],
       "hint": "Use the set method symmetric_difference or the ^ operator, then sort and convert to tuple.",
       "explanation": "Mastery of tuple immutability involves knowing when to transform tuples into sets for set-theoretic operations. The final result is returned as a sorted tuple to maintain an ordered, immutable contract with callers.",

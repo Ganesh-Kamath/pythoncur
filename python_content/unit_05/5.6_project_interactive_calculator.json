@@ -122,20 +122,20 @@
       "prerequisites": [
         "5.6_q5"
       ],
-      "prompt": "Arrange the lines in correct logical order for Project Interactive Calculator Milestone Flow:",
+      "prompt": "Order the instructions to construct an interactive input prompt for two operands and an operator:",
       "options": [
-        "a_6 = 10",
-        "b_6 = 20",
-        "result_6 = a_6 + b_6",
-        "print(result_6)"
+        "a = float(input('First number: '))",
+        "op = input('Operator (+, -, *, /): ').strip()",
+        "b = float(input('Second number: '))",
+        "print(f'Calculating {a} {op} {b}')"
       ],
       "correct_answer": [
-        "a_6 = 10",
-        "b_6 = 20",
-        "result_6 = a_6 + b_6",
-        "print(result_6)"
+        "a = float(input('First number: '))",
+        "op = input('Operator (+, -, *, /): ').strip()",
+        "b = float(input('Second number: '))",
+        "print(f'Calculating {a} {op} {b}')"
       ],
-      "explanation": "Variables a_6 and b_6 must be defined before computing their sum and printing."
+      "explanation": "Reading inputs in logical sequence gathers all parameters before printing the execution summary."
     },
     {
       "id": "5.6_q7",
@@ -362,17 +362,18 @@
       "prerequisites": [
         "5.6_q18"
       ],
-      "prompt": "Write a clean, reusable function or code statement that demonstrates core usage of Project: Interactive Calculator:",
-      "starter_code": "# Implement a solution for Project: Interactive Calculator\ndef solve():\n    ___",
-      "solution_code": "def solve():\n    # Core implementation of Project: Interactive Calculator\n    return True",
+      "prompt": "Milestone Implementation: Construct a modular, well-tested function that applies the central principles of Project: Interactive Calculator.",
+      "starter_code": "def process_5_6_data(items):\n    # Process input according to Project: Interactive Calculator rules\n    pass",
+      "solution_code": "def process_5_6_data(items):\n    return [item for item in items if item is not None]",
       "test_cases": [
         {
-          "input": "",
-          "expected_output": "Project: Interactive Calculator Result 19"
+          "input": "[1, None, 2, None, 3]",
+          "expected_output": "[1, 2, 3]",
+          "description": "cleans null values using Project: Interactive Calculator rules"
         }
       ],
       "hint": "Focus on applying the central Python idiom for Project: Interactive Calculator.",
-      "explanation": "Understanding how to construct clean implementations of Project: Interactive Calculator ensures you can integrate it into broader software applications."
+      "explanation": "Constructing pure, robust data transformers for Project: Interactive Calculator avoids unintended side effects and guarantees consistent return contracts."
     },
     {
       "id": "5.6_q20",
@@ -383,17 +384,18 @@
       "prerequisites": [
         "5.6_q19"
       ],
-      "prompt": "Identify and fix the logical or syntax defect in this implementation of Project: Interactive Calculator:",
-      "starter_code": "# Fix the issue with Project: Interactive Calculator\ndef check_valid(val):\n    if val is None:\n        return False\n    return True",
-      "solution_code": "def check_valid(val):\n    if val is None:\n        return False\n    return True",
+      "prompt": "Defensive Validation: Implement a verification helper for Project: Interactive Calculator that confirms preconditions and guards against invalid input.",
+      "starter_code": "def validate_5_6_input(val):\n    # Return True if val is valid, False otherwise\n    pass",
+      "solution_code": "def validate_5_6_input(val):\n    if val is None or val == '':\n        return False\n    return True",
       "test_cases": [
         {
-          "input": "",
-          "expected_output": "Project: Interactive Calculator Result 20"
+          "input": "'valid_token'",
+          "expected_output": "True",
+          "description": "valid input returns True"
         }
       ],
       "hint": "Check the condition and return value carefully.",
-      "explanation": "Debugging is a core programming competency. Guarding against edge cases like `None` or invalid states prevents runtime failures."
+      "explanation": "Validating preconditions at the boundary prevents null pointer and type exceptions downstream."
     },
     {
       "id": "5.6_q21",
@@ -425,24 +427,25 @@
     },
     {
       "id": "5.6_q22",
-      "type": "real_world_scenario",
+      "type": "write_the_code",
       "concept": "project_interactive_calculator_production_transfer",
-      "skill": "application",
+      "skill": "transfer",
       "difficulty": "hard",
       "prerequisites": [
         "5.6_q21"
       ],
-      "prompt": "Apply Project: Interactive Calculator to a realistic scenario: process a sequence of records and return only those meeting the business rule:",
-      "starter_code": "records = [{'id': 1, 'active': True}, {'id': 2, 'active': False}]\n# Filter active records\nactive_records = ___",
-      "solution_code": "records = [{'id': 1, 'active': True}, {'id': 2, 'active': False}]\nactive_records = [r for r in records if r['active']]",
+      "prompt": "Transfer Challenge: Solve a practical problem using Project: Interactive Calculator. Implement the function below to satisfy the stated contract.",
+      "starter_code": "def handle_domain_task(val):\n    # Implement domain logic for Project: Interactive Calculator\n    return str(val).strip()",
+      "solution_code": "def handle_domain_task(val):\n    return str(val).strip().upper()",
       "test_cases": [
         {
-          "input": "",
-          "expected_output": "Project: Interactive Calculator Result 22"
+          "input": "'  python  '",
+          "expected_output": "'PYTHON'",
+          "description": "domain sanitization"
         }
       ],
       "hint": "Use a list comprehension to filter records where 'active' is True.",
-      "explanation": "In production Python code, Project: Interactive Calculator is frequently combined with data filtering to process structured domain models efficiently."
+      "explanation": "Applying clean functional contracts for Project: Interactive Calculator ensures testable domain operations."
     },
     {
       "id": "5.6_q23",
@@ -470,21 +473,22 @@
       "type": "write_the_code",
       "concept": "project_interactive_calculator_mastery_challenge",
       "skill": "transfer",
-      "difficulty": "expert",
+      "difficulty": "hard",
       "prerequisites": [
         "5.6_q23"
       ],
-      "prompt": "Mastery Challenge: Implement a robust, tested function for Project: Interactive Calculator that processes inputs, validates preconditions, and handles invalid states cleanly:",
-      "starter_code": "def execute_task(data):\n    if not data:\n        return None\n    # Process valid data\n    ___",
-      "solution_code": "def execute_task(data):\n    if not data:\n        return None\n    return sorted(data)",
+      "prompt": "Final Capstone Verification: Write a production-grade handler for Project: Interactive Calculator that processes batches and handles empty inputs cleanly.",
+      "starter_code": "def execute_5_6_workflow(batch):\n    # Validate and transform batch\n    pass",
+      "solution_code": "def execute_5_6_workflow(batch):\n    if not batch:\n        return []\n    return [str(x).strip() for x in batch]",
       "test_cases": [
         {
-          "input": "",
-          "expected_output": "Project: Interactive Calculator Result 24"
+          "input": "[' a ', 'b ']",
+          "expected_output": "['a', 'b']",
+          "description": "batch processing workflow"
         }
       ],
       "hint": "Validate input first, then execute the transformation.",
-      "explanation": "Demonstrating end-to-end mastery of Project: Interactive Calculator requires combining input validation, core algorithmic logic, and defensive programming."
+      "explanation": "Production workflows for Project: Interactive Calculator must validate inputs, maintain immutability, and return deterministic results."
     },
     {
       "id": "5.6_q25",
@@ -495,17 +499,18 @@
       "prerequisites": [
         "5.6_q24"
       ],
-      "prompt": "Write a clean, reusable function or code statement that demonstrates core usage of Project: Interactive Calculator:",
-      "starter_code": "# Implement a solution for Project: Interactive Calculator\ndef solve():\n    ___",
-      "solution_code": "def solve():\n    # Core implementation of Project: Interactive Calculator\n    return True",
+      "prompt": "Calculator Milestone 13: Implement memory storage functions: write `Memory` helper class supporting `store(val)`, `recall()`, and `clear()`.",
+      "starter_code": "class CalculatorMemory:\n    def __init__(self):\n        self.val = 0\n    def store(self, n):\n        self.val = n\n    def recall(self):\n        return self.val\n    def clear(self):\n        self.val = 0",
+      "solution_code": "class CalculatorMemory:\n    def __init__(self):\n        self.val = 0\n    def store(self, n):\n        self.val = n\n    def recall(self):\n        return self.val\n    def clear(self):\n        self.val = 0",
       "test_cases": [
         {
           "input": "",
-          "expected_output": "Project: Interactive Calculator Result 25"
+          "expected_output": "0",
+          "description": "memory initialized to 0"
         }
       ],
       "hint": "Focus on applying the central Python idiom for Project: Interactive Calculator.",
-      "explanation": "Understanding how to construct clean implementations of Project: Interactive Calculator ensures you can integrate it into broader software applications."
+      "explanation": "Encapsulating memory state within a dedicated class provides clean state management without polluting global scope."
     },
     {
       "id": "5.6_q26",
@@ -516,17 +521,18 @@
       "prerequisites": [
         "5.6_q25"
       ],
-      "prompt": "Identify and fix the logical or syntax defect in this implementation of Project: Interactive Calculator:",
-      "starter_code": "# Fix the issue with Project: Interactive Calculator\ndef check_valid(val):\n    if val is None:\n        return False\n    return True",
-      "solution_code": "def check_valid(val):\n    if val is None:\n        return False\n    return True",
+      "prompt": "Calculator Milestone 14: Debug floating-point formatting: fix numeric precision output by formatting results to 2 decimal places.",
+      "starter_code": "def format_result(val):\n    # Return formatted string with 2 decimal places\n    return str(val)",
+      "solution_code": "def format_result(val):\n    return f\"{val:.2f}\"",
       "test_cases": [
         {
-          "input": "",
-          "expected_output": "Project: Interactive Calculator Result 26"
+          "input": "0.1 + 0.2",
+          "expected_output": "'0.30'",
+          "description": "formats float precision"
         }
       ],
       "hint": "Check the condition and return value carefully.",
-      "explanation": "Debugging is a core programming competency. Guarding against edge cases like `None` or invalid states prevents runtime failures."
+      "explanation": "Using f-string formatting specifiers `{val:.2f}` rounds and displays numbers cleanly for user interfaces."
     },
     {
       "id": "5.6_q27",
@@ -537,7 +543,7 @@
       "prerequisites": [
         "5.6_q26"
       ],
-      "prompt": "What will be the outcome when this code handling Project: Interactive Calculator encounters empty or boundary input?\n```python\ndef process(data):\n    return [x for x in data if x]\nprint(process([]))\n```",
+      "prompt": "Calculator Milestone 15: Predict the outcome when an interactive session checks whether the user entered an exit command:\n```python\ncmd = ' QUIT '.strip().lower()\nprint(cmd in ('q', 'quit', 'exit'))\n```",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Project: Interactive Calculator Result 27')",
       "test_cases": [
@@ -547,35 +553,36 @@
         }
       ],
       "hint": "An empty input list evaluates as falsy and produces an empty result.",
-      "explanation": "Handling empty collections gracefully without raising unexpected exceptions is an essential design pattern when working with Project: Interactive Calculator.",
+      "explanation": "Stripping and lowercasing converts ' QUIT ' to 'quit', which is present in the exit command tuple, evaluating to True.",
       "options": [
-        "[]",
+        "True",
+        "False",
         "None",
-        "IndexError",
         "ValueError"
       ],
-      "correct_answer": "[]"
+      "correct_answer": "True"
     },
     {
       "id": "5.6_q28",
-      "type": "real_world_scenario",
+      "type": "write_the_code",
       "concept": "project_interactive_calculator_production_transfer",
-      "skill": "application",
+      "skill": "transfer",
       "difficulty": "hard",
       "prerequisites": [
         "5.6_q27"
       ],
-      "prompt": "Apply Project: Interactive Calculator to a realistic scenario: process a sequence of records and return only those meeting the business rule:",
-      "starter_code": "records = [{'id': 1, 'active': True}, {'id': 2, 'active': False}]\n# Filter active records\nactive_records = ___",
-      "solution_code": "records = [{'id': 1, 'active': True}, {'id': 2, 'active': False}]\nactive_records = [r for r in records if r['active']]",
+      "prompt": "Calculator Milestone 16: Implement calculation history: write `log_calculation(history, a, op, b, res)` that appends formatted record string.",
+      "starter_code": "def log_calculation(history, a, op, b, res):\n    # Append '{a} {op} {b} = {res}' to history list\n    pass",
+      "solution_code": "def log_calculation(history, a, op, b, res):\n    history.append(f\"{a} {op} {b} = {res}\")\n    return history",
       "test_cases": [
         {
-          "input": "",
-          "expected_output": "Project: Interactive Calculator Result 28"
+          "input": "[], 10, '+', 5, 15",
+          "expected_output": "['10 + 5 = 15']",
+          "description": "logs calculation history"
         }
       ],
       "hint": "Use a list comprehension to filter records where 'active' is True.",
-      "explanation": "In production Python code, Project: Interactive Calculator is frequently combined with data filtering to process structured domain models efficiently."
+      "explanation": "Maintaining an audit log of past calculations in an append-only list enables history inspection."
     },
     {
       "id": "5.6_q29",
@@ -586,38 +593,40 @@
       "prerequisites": [
         "5.6_q28"
       ],
-      "prompt": "Refactor this procedural snippet for Project: Interactive Calculator into clean, modular, and idiomatic Python:",
-      "starter_code": "items = [1, 2, 3, 4]\n# Refactor to use idiomatic transformation\nres = []\nfor x in items:\n    res.append(x * 2)",
-      "solution_code": "items = [1, 2, 3, 4]\nres = [x * 2 for x in items]",
+      "prompt": "Calculator Milestone 17: Refactor operator branching into a clean dictionary dispatch table `OPERATORS = {'+': add, '-': sub, '*': mul, '/': div}`.",
+      "starter_code": "def dispatch_op(op, a, b):\n    ops = {'+': lambda x, y: x + y, '-': lambda x, y: x - y}\n    # Return operation result or None if op invalid\n    pass",
+      "solution_code": "def dispatch_op(op, a, b):\n    ops = {'+': lambda x, y: x + y, '-': lambda x, y: x - y, '*': lambda x, y: x * y}\n    handler = ops.get(op)\n    return handler(a, b) if handler else None",
       "test_cases": [
         {
-          "input": "",
-          "expected_output": "Project: Interactive Calculator Result 29"
+          "input": "'+', 7, 3",
+          "expected_output": "10",
+          "description": "dispatches addition"
         }
       ],
       "hint": "Convert the accumulator `for` loop into a concise list comprehension.",
-      "explanation": "Replacing boilerplate append loops with list comprehensions is a fundamental Python refactoring that improves both readability and execution speed."
+      "explanation": "Dispatch tables replace complex if-elif chains with O(1) dictionary key lookups, improving maintainability."
     },
     {
       "id": "5.6_q30",
       "type": "write_the_code",
       "concept": "project_interactive_calculator_mastery_challenge",
       "skill": "transfer",
-      "difficulty": "expert",
+      "difficulty": "hard",
       "prerequisites": [
         "5.6_q29"
       ],
-      "prompt": "Mastery Challenge: Implement a robust, tested function for Project: Interactive Calculator that processes inputs, validates preconditions, and handles invalid states cleanly:",
-      "starter_code": "def execute_task(data):\n    if not data:\n        return None\n    # Process valid data\n    ___",
-      "solution_code": "def execute_task(data):\n    if not data:\n        return None\n    return sorted(data)",
+      "prompt": "Calculator Boss Milestone: Build the complete `run_calculator(expression_str)` engine that tokenizes, evaluates operations, and formats the output string cleanly.",
+      "starter_code": "def run_calculator(expr):\n    # Parse 'a op b' expression and return result\n    pass",
+      "solution_code": "def run_calculator(expr):\n    parts = expr.strip().split()\n    if len(parts) != 3:\n        return 'Error: Invalid format'\n    try:\n        a, op, b = float(parts[0]), parts[1], float(parts[2])\n    except ValueError:\n        return 'Error: Invalid numbers'\n    if op == '+': return f\"{a + b:.2f}\"\n    elif op == '-': return f\"{a - b:.2f}\"\n    elif op == '*': return f\"{a * b:.2f}\"\n    elif op == '/':\n        if b == 0: return 'Error: Division by zero'\n        return f\"{a / b:.2f}\"\n    return 'Error: Invalid operator'",
       "test_cases": [
         {
-          "input": "",
-          "expected_output": "Project: Interactive Calculator Result 30"
+          "input": "'10 / 2'",
+          "expected_output": "'5.00'",
+          "description": "runs complete calculator engine"
         }
       ],
       "hint": "Validate input first, then execute the transformation.",
-      "explanation": "Demonstrating end-to-end mastery of Project: Interactive Calculator requires combining input validation, core algorithmic logic, and defensive programming."
+      "explanation": "This complete capstone orchestrates input validation, parsing, error recovery, arithmetic dispatch, and clean output formatting."
     }
   ],
   "unit_num": 5,

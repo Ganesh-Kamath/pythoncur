@@ -351,17 +351,18 @@
       "prerequisites": [
         "25.6_q18"
       ],
-      "prompt": "Write a clean, reusable function or code statement that demonstrates core usage of Project: API Weather Dashboard:",
-      "starter_code": "# Implement a solution for Project: API Weather Dashboard\ndef solve():\n    ___",
-      "solution_code": "def solve():\n    # Core implementation of Project: API Weather Dashboard\n    return True",
+      "prompt": "Milestone Implementation: Construct a modular, well-tested function that applies the central principles of Project: API Weather Dashboard.",
+      "starter_code": "def process_25_6_data(items):\n    # Process input according to Project: API Weather Dashboard rules\n    pass",
+      "solution_code": "def process_25_6_data(items):\n    return [item for item in items if item is not None]",
       "test_cases": [
         {
-          "input": "",
-          "expected_output": "Project: API Weather Dashboard Result 19"
+          "input": "[1, None, 2, None, 3]",
+          "expected_output": "[1, 2, 3]",
+          "description": "cleans null values using Project: API Weather Dashboard rules"
         }
       ],
       "hint": "Focus on applying the central Python idiom for Project: API Weather Dashboard.",
-      "explanation": "Understanding how to construct clean implementations of Project: API Weather Dashboard ensures you can integrate it into broader software applications."
+      "explanation": "Constructing pure, robust data transformers for Project: API Weather Dashboard avoids unintended side effects and guarantees consistent return contracts."
     },
     {
       "id": "25.6_q20",
@@ -372,17 +373,18 @@
       "prerequisites": [
         "25.6_q19"
       ],
-      "prompt": "Identify and fix the logical or syntax defect in this implementation of Project: API Weather Dashboard:",
-      "starter_code": "# Fix the issue with Project: API Weather Dashboard\ndef check_valid(val):\n    if val is None:\n        return False\n    return True",
-      "solution_code": "def check_valid(val):\n    if val is None:\n        return False\n    return True",
+      "prompt": "Defensive Validation: Implement a verification helper for Project: API Weather Dashboard that confirms preconditions and guards against invalid input.",
+      "starter_code": "def validate_25_6_input(val):\n    # Return True if val is valid, False otherwise\n    pass",
+      "solution_code": "def validate_25_6_input(val):\n    if val is None or val == '':\n        return False\n    return True",
       "test_cases": [
         {
-          "input": "",
-          "expected_output": "Project: API Weather Dashboard Result 20"
+          "input": "'valid_token'",
+          "expected_output": "True",
+          "description": "valid input returns True"
         }
       ],
       "hint": "Check the condition and return value carefully.",
-      "explanation": "Debugging is a core programming competency. Guarding against edge cases like `None` or invalid states prevents runtime failures."
+      "explanation": "Validating preconditions at the boundary prevents null pointer and type exceptions downstream."
     },
     {
       "id": "25.6_q21",
@@ -414,24 +416,25 @@
     },
     {
       "id": "25.6_q22",
-      "type": "real_world_scenario",
+      "type": "write_the_code",
       "concept": "project_api_weather_dashboard_production_transfer",
-      "skill": "application",
+      "skill": "transfer",
       "difficulty": "hard",
       "prerequisites": [
         "25.6_q21"
       ],
-      "prompt": "Apply Project: API Weather Dashboard to a realistic scenario: process a sequence of records and return only those meeting the business rule:",
-      "starter_code": "records = [{'id': 1, 'active': True}, {'id': 2, 'active': False}]\n# Filter active records\nactive_records = ___",
-      "solution_code": "records = [{'id': 1, 'active': True}, {'id': 2, 'active': False}]\nactive_records = [r for r in records if r['active']]",
+      "prompt": "Transfer Challenge: Solve a practical problem using Project: API Weather Dashboard. Implement the function below to satisfy the stated contract.",
+      "starter_code": "def handle_domain_task(val):\n    # Implement domain logic for Project: API Weather Dashboard\n    return str(val).strip()",
+      "solution_code": "def handle_domain_task(val):\n    return str(val).strip().upper()",
       "test_cases": [
         {
-          "input": "",
-          "expected_output": "Project: API Weather Dashboard Result 22"
+          "input": "'  python  '",
+          "expected_output": "'PYTHON'",
+          "description": "domain sanitization"
         }
       ],
       "hint": "Use a list comprehension to filter records where 'active' is True.",
-      "explanation": "In production Python code, Project: API Weather Dashboard is frequently combined with data filtering to process structured domain models efficiently."
+      "explanation": "Applying clean functional contracts for Project: API Weather Dashboard ensures testable domain operations."
     },
     {
       "id": "25.6_q23",
@@ -459,21 +462,22 @@
       "type": "write_the_code",
       "concept": "project_api_weather_dashboard_mastery_challenge",
       "skill": "transfer",
-      "difficulty": "expert",
+      "difficulty": "hard",
       "prerequisites": [
         "25.6_q23"
       ],
-      "prompt": "Mastery Challenge: Implement a robust, tested function for Project: API Weather Dashboard that processes inputs, validates preconditions, and handles invalid states cleanly:",
-      "starter_code": "def execute_task(data):\n    if not data:\n        return None\n    # Process valid data\n    ___",
-      "solution_code": "def execute_task(data):\n    if not data:\n        return None\n    return sorted(data)",
+      "prompt": "Final Capstone Verification: Write a production-grade handler for Project: API Weather Dashboard that processes batches and handles empty inputs cleanly.",
+      "starter_code": "def execute_25_6_workflow(batch):\n    # Validate and transform batch\n    pass",
+      "solution_code": "def execute_25_6_workflow(batch):\n    if not batch:\n        return []\n    return [str(x).strip() for x in batch]",
       "test_cases": [
         {
-          "input": "",
-          "expected_output": "Project: API Weather Dashboard Result 24"
+          "input": "[' a ', 'b ']",
+          "expected_output": "['a', 'b']",
+          "description": "batch processing workflow"
         }
       ],
       "hint": "Validate input first, then execute the transformation.",
-      "explanation": "Demonstrating end-to-end mastery of Project: API Weather Dashboard requires combining input validation, core algorithmic logic, and defensive programming."
+      "explanation": "Production workflows for Project: API Weather Dashboard must validate inputs, maintain immutability, and return deterministic results."
     },
     {
       "id": "25.6_q25",
@@ -489,8 +493,16 @@
       "starter_code": "import tkinter as tk\n\nroot = tk.Tk()\nroot.title('Weather Dashboard')\n\n# TODO: create a frame for weather data\n\nroot.mainloop()",
       "solution_code": "import tkinter as tk\n\nroot = tk.Tk()\nroot.title('Weather Dashboard')\n\nweather_frame = tk.Frame(root)\nweather_frame.pack(pady=10)\n\nroot.mainloop()",
       "test_cases": [
-        "Window opens without error",
-        "Frame is visible and centered"
+        {
+          "input": "",
+          "expected_output": "Window opens without error",
+          "description": "Window opens without error"
+        },
+        {
+          "input": "",
+          "expected_output": "Frame is visible and centered",
+          "description": "Frame is visible and centered"
+        }
       ],
       "hint": "Use tk.Frame() to create a container and pack() to place it in the window.",
       "explanation": "A GUI skeleton is essential before integrating API calls. The frame provides a structured area to later display weather information fetched from the network."
@@ -509,8 +521,16 @@
       "starter_code": "import requests\n\ndef fetch_weather(city):\n    url = 'https://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=YOUR_KEY'\n    response = requests.get(url)\n    return response.json()",
       "solution_code": "import requests\n\ndef fetch_weather(city):\n    url = 'https://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=YOUR_KEY'\n    try:\n        response = requests.get(url, timeout=10)\n        response.raise_for_status()\n        return response.json()\n    except requests.exceptions.RequestException as e:\n        print('Error fetching weather:', e)\n        return None",
       "test_cases": [
-        "Valid city returns JSON-like dict",
-        "Invalid city returns None and prints error"
+        {
+          "input": "",
+          "expected_output": "Valid city returns JSON-like dict",
+          "description": "Valid city returns JSON-like dict"
+        },
+        {
+          "input": "",
+          "expected_output": "Invalid city returns None and prints error",
+          "description": "Invalid city returns None and prints error"
+        }
       ],
       "hint": "Use requests.get() with a timeout and call raise_for_status() to catch HTTP errors.",
       "explanation": "Networking requires robust error handling. A timeout prevents hanging, and raise_for_status() converts bad responses into exceptions that can be caught."
@@ -529,8 +549,16 @@
       "starter_code": "import tkinter as tk\n\nroot = tk.Tk()\nroot.title('Weather Dashboard')\n\ndef show_weather(data):\n    # TODO: extract temperature and condition\n    pass",
       "solution_code": "import tkinter as tk\n\nroot = tk.Tk()\nroot.title('Weather Dashboard')\n\ndef show_weather(data):\n    if data is None:\n        return\n    temp = data.get('main', {}).get('temp', 0)\n    condition = data.get('weather', [{}])[0].get('description', 'N/A')\n    temp_label = tk.Label(root, text=f'Temp: {temp - 273.15:.1f C}')\n    cond_label = tk.Label(root, text=f'Condition: {condition}')\n    temp_label.pack()\n    cond_label.pack()",
       "test_cases": [
-        "Labels appear with correct temperature value",
-        "Labels appear with correct condition string"
+        {
+          "input": "",
+          "expected_output": "Labels appear with correct temperature value",
+          "description": "Labels appear with correct temperature value"
+        },
+        {
+          "input": "",
+          "expected_output": "Labels appear with correct condition string",
+          "description": "Labels appear with correct condition string"
+        }
       ],
       "hint": "OpenWeatherMap returns Kelvin in 'main.temp'. Subtract 273.15 to convert to Celsius.",
       "explanation": "Transforming raw API units into user-friendly display values is a critical integration step. Label widgets in Tkinter are created and packed to render text."
@@ -549,8 +577,16 @@
       "starter_code": "import tkinter as tk\n\nroot = tk.Tk()\nroot.title('Weather Dashboard')\n\nentry = tk.Entry(root)\nentry.pack()\n\ndef on_search():\n    pass\n\nsearch_btn = tk.Button(root, text='Search', command=on_search)\nsearch_btn.pack()\n\nrefresh_btn = tk.Button(root, text='Refresh', command=on_search)\nrefresh_btn.pack()\n\nroot.mainloop()",
       "solution_code": "import tkinter as tk\n\nroot = tk.Tk()\nroot.title('Weather Dashboard')\n\nentry = tk.Entry(root)\nentry.pack()\n\ndef on_search():\n    city = entry.get()\n    data = fetch_weather(city)\n    show_weather(data)\n\nsearch_btn = tk.Button(root, text='Search', command=on_search)\nsearch_btn.pack()\n\nrefresh_btn = tk.Button(root, text='Refresh', command=on_search)\nrefresh_btn.pack()\n\nroot.mainloop()",
       "test_cases": [
-        "Entering a city and clicking Search updates labels",
-        "Refresh button re-fetches data for the same city"
+        {
+          "input": "",
+          "expected_output": "Entering a city and clicking Search updates labels",
+          "description": "Entering a city and clicking Search updates labels"
+        },
+        {
+          "input": "",
+          "expected_output": "Refresh button re-fetches data for the same city",
+          "description": "Refresh button re-fetches data for the same city"
+        }
       ],
       "hint": "Use entry.get() to retrieve user input and pass it to fetch_weather.",
       "explanation": "Event-driven GUI programming connects user actions to backend logic. The same handler can serve multiple widgets by reusing the fetch and display pipeline."
@@ -569,8 +605,16 @@
       "starter_code": "import time\n\ncache = {}\n\ndef get_cached_weather(city):\n    now = time.time()\n    if city in cache:\n        cached_time, data = cache[city]\n        if now - cached_time < 300:\n            return data\n    return None",
       "solution_code": "import time\n\ncache = {}\n\ndef get_cached_weather(city):\n    now = time.time()\n    if city in cache:\n        cached_time, data = cache[city]\n        if now - cached_time < 300:\n            return data\n    return None\n\ndef update_cache(city, data):\n    cache[city] = (time.time(), data)",
       "test_cases": [
-        "First call stores data in cache",
-        "Second call within 5 minutes returns cached data"
+        {
+          "input": "",
+          "expected_output": "First call stores data in cache",
+          "description": "First call stores data in cache"
+        },
+        {
+          "input": "",
+          "expected_output": "Second call within 5 minutes returns cached data",
+          "description": "Second call within 5 minutes returns cached data"
+        }
       ],
       "hint": "Store a tuple of (timestamp, data) in the cache dict and compare timestamps.",
       "explanation": "Caching improves performance and respects API rate limits. Storing (time.time(), data) pairs allows simple expiration logic without external libraries."
@@ -589,8 +633,16 @@
       "starter_code": "import unittest\nfrom unittest.mock import patch\n\nclass TestWeather(unittest.TestCase):\n    @patch('requests.get')\n    def test_fetch_weather(self, mock_get):\n        mock_response = mock_get.return_value\n        mock_response.json.return_value = {'main': {'temp': 293.15}, 'weather': [{'description': 'clear sky'}]}\n        result = fetch_weather('london')\n        self.assertIsNotNone(result)\n\nif __name__ == '__main__':\n    unittest.main()",
       "solution_code": "import unittest\nfrom unittest.mock import patch\n\nclass TestWeather(unittest.TestCase):\n    @patch('requests.get')\n    def test_fetch_weather(self, mock_get):\n        mock_response = mock_get.return_value\n        mock_response.json.return_value = {'main': {'temp': 293.15}, 'weather': [{'description': 'clear sky'}]}\n        result = fetch_weather('london')\n        self.assertIsNotNone(result)\n        self.assertEqual(result['main']['temp'], 293.15)\n\n    def test_show_weather_creates_labels(self):\n        root = tk.Tk()\n        data = {'main': {'temp': 293.15}, 'weather': [{'description': 'clear sky'}]}\n        show_weather(data)\n        self.assertIsNotNone(root.winfo_children())\n        root.destroy()\n\nif __name__ == '__main__':\n    unittest.main()",
       "test_cases": [
-        "fetch_weather returns parsed JSON on success",
-        "show_weather does not crash with valid data"
+        {
+          "input": "",
+          "expected_output": "fetch_weather returns parsed JSON on success",
+          "description": "fetch_weather returns parsed JSON on success"
+        },
+        {
+          "input": "",
+          "expected_output": "show_weather does not crash with valid data",
+          "description": "show_weather does not crash with valid data"
+        }
       ],
       "hint": "Use @patch to replace requests.get with a mock object. Verify label creation by inspecting root.winfo_children().",
       "explanation": "Testing network-dependent code requires mocking to isolate logic from external services. This ensures reliability and prevents flaky tests caused by API downtime."

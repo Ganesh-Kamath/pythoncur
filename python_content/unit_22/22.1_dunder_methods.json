@@ -465,11 +465,31 @@
       "starter_code": "class Point:\n    def __init__(self, x, y):\n        self.x = x\n        self.y = y\n\n    def __str__(self):\n        return 'Point(' + str(self.x) + ', ' + str(self.y) + ')'\n\n    def __repr__(self):\n        return 'Point(' + str(self.x) + ', ' + str(self.y) + ')'\n\n    def __eq__(self, other):\n        if not isinstance(other, Point):\n            return NotImplemented\n        return self.x == other.x and self.y == other.y",
       "solution_code": "from dataclasses import dataclass\n\n@dataclass\nclass Point:\n    x: float\n    y: float\n\n# dataclass auto-generates __init__, __repr__, __eq__, and __str__\n# Override __str__ for custom readable format if desired\n\n    def __str__(self):\n        return f'Point({self.x}, {self.y})'\n\np = Point(3.5, 4.2)\nprint(p)\nprint(repr(p))\nprint(p == Point(3.5, 4.2))",
       "test_cases": [
-        "assert str(Point(1, 2)) == 'Point(1, 2)'",
-        "assert repr(Point(1, 2)) == \"Point(x=1, y=2)\"",
-        "assert Point(1, 2) == Point(1, 2)",
-        "assert Point(1, 2) != Point(1, 3)",
-        "assert Point(1, 2) != 'not a point'"
+        {
+          "input": "assert str(Point(1, 2))",
+          "expected_output": "'Point(1, 2)'",
+          "description": "Verifies: assert str(Point(1, 2)) == 'Point(1, 2)'"
+        },
+        {
+          "input": "assert repr(Point(1, 2))",
+          "expected_output": "\"Point(x=1, y=2)\"",
+          "description": "Verifies: assert repr(Point(1, 2)) == \"Point(x=1, y=2)\""
+        },
+        {
+          "input": "assert Point(1, 2)",
+          "expected_output": "Point(1, 2)",
+          "description": "Verifies: assert Point(1, 2) == Point(1, 2)"
+        },
+        {
+          "input": "",
+          "expected_output": "assert Point(1, 2) != Point(1, 3)",
+          "description": "assert Point(1, 2) != Point(1, 3)"
+        },
+        {
+          "input": "",
+          "expected_output": "assert Point(1, 2) != 'not a point'",
+          "description": "assert Point(1, 2) != 'not a point'"
+        }
       ],
       "hint": "Use @dataclass to auto-generate __init__, __repr__, and __eq__. Override __str__ only if a custom readable format is required.",
       "explanation": "Dataclasses eliminate boilerplate by auto-generating __init__, __repr__, and __eq__ based on field definitions. This reduces maintenance burden and ensures consistency, while still allowing __str__ customization."
@@ -487,9 +507,21 @@
       "starter_code": "class Book:\n    def __init__(self, title, author):\n        self.title = title\n        self.author = author\n\n    def __str__(self):\n        pass\n\n    def __repr__(self):\n        pass",
       "solution_code": "class Book:\n    def __init__(self, title, author):\n        self.title = title\n        self.author = author\n\n    def __str__(self):\n        return f'Book: {self.title} by {self.author}'\n\n    def __repr__(self):\n        return f'Book({self.title!r}, {self.author!r})'",
       "test_cases": [
-        "b = Book('1984', 'George Orwell')\nprint(str(b))",
-        "print(repr(b))",
-        "b2 = eval(repr(b))\nassert b == b2"
+        {
+          "input": "",
+          "expected_output": "b = Book('1984', 'George Orwell')\nprint(str(b))",
+          "description": "b = Book('1984', 'George Orwell')\nprint(str(b))"
+        },
+        {
+          "input": "",
+          "expected_output": "print(repr(b))",
+          "description": "print(repr(b))"
+        },
+        {
+          "input": "b2 = eval(repr(b))\nassert b",
+          "expected_output": "b2",
+          "description": "Verifies: b2 = eval(repr(b))\nassert b == b2"
+        }
       ],
       "hint": "Use f-strings with !r to include quotes in the repr output. __str__ is for end users; __repr__ is for developers.",
       "explanation": "__str__ provides a readable, informal representation, while __repr__ aims to be unambiguous and ideally eval-able. Using !r in f-strings automatically adds quotes around strings."
@@ -507,9 +539,21 @@
       "starter_code": "class Book:\n    def __init__(self, title, author):\n        self.title = title\n        self.author = author\n\n    def __str__(self):\n        return f'Book: {self.title} by {self.author}'\n\n    def __repr__(self):\n        return f'Book({self.title!r}, {self.author!r})'\n\n    def __eq__(self, other):\n        pass\n\n    def __ne__(self, other):\n        pass",
       "solution_code": "class Book:\n    def __init__(self, title, author):\n        self.title = title\n        self.author = author\n\n    def __str__(self):\n        return f'Book: {self.title} by {self.author}'\n\n    def __repr__(self):\n        return f'Book({self.title!r}, {self.author!r})'\n\n    def __eq__(self, other):\n        if not isinstance(other, Book):\n            return NotImplemented\n        return self.title == other.title and self.author == other.author\n\n    def __ne__(self, other):\n        return not self == other",
       "test_cases": [
-        "b1 = Book('Dune', 'Frank Herbert')\nassert b1 == Book('Dune', 'Frank Herbert')",
-        "assert b1 != Book('Dune', 'Isaac Asimov')",
-        "assert not (b1 != Book('Dune', 'Frank Herbert'))"
+        {
+          "input": "b1 = Book('Dune', 'Frank Herbert')\nassert b1",
+          "expected_output": "Book('Dune', 'Frank Herbert')",
+          "description": "Verifies: b1 = Book('Dune', 'Frank Herbert')\nassert b1 == Book('Dune', 'Frank Herbert')"
+        },
+        {
+          "input": "",
+          "expected_output": "assert b1 != Book('Dune', 'Isaac Asimov')",
+          "description": "assert b1 != Book('Dune', 'Isaac Asimov')"
+        },
+        {
+          "input": "",
+          "expected_output": "assert not (b1 != Book('Dune', 'Frank Herbert'))",
+          "description": "assert not (b1 != Book('Dune', 'Frank Herbert'))"
+        }
       ],
       "hint": "Always check isinstance(other, Book) before comparing attributes to avoid AttributeError. Return NotImplemented for unsupported types.",
       "explanation": "__eq__ defines logical equality between objects. Returning NotImplemented lets Python try the reflected operation on the other operand. __ne__ should be consistent with __eq__."
@@ -527,9 +571,21 @@
       "starter_code": "class Book:\n    def __init__(self, title, author):\n        self.title = title\n        self.author = author\n\n    def __str__(self):\n        return f'Book: {self.title} by {self.author}'\n\n    def __repr__(self):\n        return f'Book({self.title!r}, {self.author!r})'\n\n    def __eq__(self, other):\n        if not isinstance(other, Book):\n            return NotImplemented\n        return self.title == other.title and self.author == other.author\n\nclass EBook(Book):\n    def __init__(self, title, author, format):\n        super().__init__(title, author)\n        self.format = format\n\n    def __str__(self):\n        pass\n\n    def __repr__(self):\n        pass\n\n    def __eq__(self, other):\n        pass",
       "solution_code": "class Book:\n    def __init__(self, title, author):\n        self.title = title\n        self.author = author\n\n    def __str__(self):\n        return f'Book: {self.title} by {self.author}'\n\n    def __repr__(self):\n        return f'Book({self.title!r}, {self.author!r})'\n\n    def __eq__(self, other):\n        if not isinstance(other, Book):\n            return NotImplemented\n        return self.title == other.title and self.author == other.author\n\nclass EBook(Book):\n    def __init__(self, title, author, format):\n        super().__init__(title, author)\n        self.format = format\n\n    def __str__(self):\n        return f'EBook: {self.title} by {self.author} ({self.format})'\n\n    def __repr__(self):\n        return f'EBook({self.title!r}, {self.author!r}, {self.format!r})'\n\n    def __eq__(self, other):\n        if not isinstance(other, EBook):\n            return NotImplemented\n        return self.title == other.title and self.author == other.author",
       "test_cases": [
-        "e1 = EBook('Python', 'Guido', 'PDF')\nassert str(e1) == 'EBook: Python by Guido (PDF)'\nassert repr(e1) == \"EBook('Python', 'Guido', 'PDF')\"\nassert e1 == EBook('Python', 'Guido', 'EPUB')",
-        "assert e1 != EBook('Python', 'Guido', 'PDF')",
-        "assert not (e1 != EBook('Python', 'Guido', 'EPUB'))"
+        {
+          "input": "e1 = EBook('Python', 'Guido', 'PDF')\nassert str(e1)",
+          "expected_output": "'EBook: Python by Guido (PDF)'\nassert repr(e1) == \"EBook('Python', 'Guido', 'PDF')\"\nassert e1 == EBook('Python', 'Guido', 'EPUB')",
+          "description": "Verifies: e1 = EBook('Python', 'Guido', 'PDF')\nassert str(e1) == 'EBook: Python by Guido (PDF)'\nassert repr(e1) == \"EBook('Python', 'Guido', 'PDF')\"\nassert e1 == EBook('Python', 'Guido', 'EPUB')"
+        },
+        {
+          "input": "",
+          "expected_output": "assert e1 != EBook('Python', 'Guido', 'PDF')",
+          "description": "assert e1 != EBook('Python', 'Guido', 'PDF')"
+        },
+        {
+          "input": "",
+          "expected_output": "assert not (e1 != EBook('Python', 'Guido', 'EPUB'))",
+          "description": "assert not (e1 != EBook('Python', 'Guido', 'EPUB'))"
+        }
       ],
       "hint": "In __eq__, compare only title and author. In __repr__, use !r for all arguments. __str__ should include the format attribute.",
       "explanation": "Subclassing dunder methods requires careful attention to what attributes define equality. Here, format is excluded from equality but included in display methods."
@@ -547,9 +603,21 @@
       "starter_code": "class Point:\n    def __init__(self, x, y):\n        self.x = x\n        self.y = y\n\n    def __eq__(self, other):\n        return self.x == other.x and self.y == other.y\n\n    def __repr__(self):\n        return 'Point(' + self.x + ', ' + self.y + ')'",
       "solution_code": "class Point:\n    def __init__(self, x, y):\n        self.x = x\n        self.y = y\n\n    def __eq__(self, other):\n        if not isinstance(other, Point):\n            return NotImplemented\n        return self.x == other.x and self.y == other.y\n\n    def __repr__(self):\n        return f'Point({self.x!r}, {self.y!r})'",
       "test_cases": [
-        "p1 = Point(1, 2)\nassert repr(p1) == \"Point(1, 2)\"\nassert p1 == Point(1, 2)",
-        "assert not (p1 == Point(1, 3))",
-        "assert not isinstance(p1 == '1,2', bool) or True"
+        {
+          "input": "p1 = Point(1, 2)\nassert repr(p1)",
+          "expected_output": "\"Point(1, 2)\"\nassert p1 == Point(1, 2)",
+          "description": "Verifies: p1 = Point(1, 2)\nassert repr(p1) == \"Point(1, 2)\"\nassert p1 == Point(1, 2)"
+        },
+        {
+          "input": "assert not (p1",
+          "expected_output": "Point(1, 3))",
+          "description": "Verifies: assert not (p1 == Point(1, 3))"
+        },
+        {
+          "input": "assert not isinstance(p1",
+          "expected_output": "'1,2', bool) or True",
+          "description": "Verifies: assert not isinstance(p1 == '1,2', bool) or True"
+        }
       ],
       "hint": "The __repr__ string concatenation fails for non-string types and omits quotes. Use f-strings with !r. __eq__ should guard against non-Point comparisons.",
       "explanation": "String concatenation in __repr__ produces invalid Python when x or y are strings. Using f-strings with !r ensures proper quoting. __eq__ must handle type mismatches safely."
@@ -567,9 +635,21 @@
       "starter_code": "class LibraryItem:\n    def __init__(self, item_id, location):\n        self.item_id = item_id\n        self.location = location\n\n    def __str__(self):\n        pass\n\n    def __repr__(self):\n        pass\n\n    def __eq__(self, other):\n        pass\n\nclass Book(LibraryItem):\n    def __init__(self, item_id, location, title, author):\n        super().__init__(item_id, location)\n        self.title = title\n        self.author = author\n\nclass DVD(LibraryItem):\n    def __init__(self, item_id, location, title, director):\n        super().__init__(item_id, location)\n        self.title = title\n        self.director = director",
       "solution_code": "class LibraryItem:\n    def __init__(self, item_id, location):\n        self.item_id = item_id\n        self.location = location\n\n    def __str__(self):\n        return f'Item {self.item_id} at {self.location}'\n\n    def __repr__(self):\n        return f'{self.__class__.__name__}({self.item_id!r}, {self.location!r})'\n\n    def __eq__(self, other):\n        if not isinstance(other, LibraryItem):\n            return NotImplemented\n        return self.item_id == other.item_id and self.location == other.location\n\nclass Book(LibraryItem):\n    def __init__(self, item_id, location, title, author):\n        super().__init__(item_id, location)\n        self.title = title\n        self.author = author\n\n    def __repr__(self):\n        return f'Book({self.item_id!r}, {self.location!r}, {self.title!r}, {self.author!r})'",
       "test_cases": [
-        "b1 = Book('B001', 'A1', 'Clean Code', 'Robert Martin')\nassert str(b1) == 'Item B001 at A1'\nassert repr(b1) == \"Book('B001', 'A1', 'Clean Code', 'Robert Martin')\"\nassert b1 == Book('B001', 'A1', 'Clean Code', 'Robert Martin')",
-        "assert b1 != Book('B002', 'A1', 'Clean Code', 'Robert Martin')",
-        "d1 = DVD('D001', 'B2', 'Inception', 'Christopher Nolan')\nassert b1 != d1"
+        {
+          "input": "b1 = Book('B001', 'A1', 'Clean Code', 'Robert Martin')\nassert str(b1)",
+          "expected_output": "'Item B001 at A1'\nassert repr(b1) == \"Book('B001', 'A1', 'Clean Code', 'Robert Martin')\"\nassert b1 == Book('B001', 'A1', 'Clean Code', 'Robert Martin')",
+          "description": "Verifies: b1 = Book('B001', 'A1', 'Clean Code', 'Robert Martin')\nassert str(b1) == 'Item B001 at A1'\nassert repr(b1) == \"Book('B001', 'A1', 'Clean Code', 'Robert Martin')\"\nassert b1 == Book('B001', 'A1', 'Clean Code', 'Robert Martin')"
+        },
+        {
+          "input": "",
+          "expected_output": "assert b1 != Book('B002', 'A1', 'Clean Code', 'Robert Martin')",
+          "description": "assert b1 != Book('B002', 'A1', 'Clean Code', 'Robert Martin')"
+        },
+        {
+          "input": "",
+          "expected_output": "d1 = DVD('D001', 'B2', 'Inception', 'Christopher Nolan')\nassert b1 != d1",
+          "description": "d1 = DVD('D001', 'B2', 'Inception', 'Christopher Nolan')\nassert b1 != d1"
+        }
       ],
       "hint": "LibraryItem equality should be based on item_id and location for duplicate detection. Book __repr__ should include all its own attributes in addition to inherited ones.",
       "explanation": "In real systems, __str__ is used in user-facing logs, __repr__ in debugging and reconstruction, and __eq__ in deduplication logic. The base class defines shared identity; subclasses extend display and reconstruction."
@@ -587,9 +667,21 @@
       "starter_code": "import datetime\n\nclass TimestampedRecord:\n    def __init__(self, data):\n        self.data = data\n        self.created = datetime.datetime.now()\n\n    def __eq__(self, other):\n        pass\n\n    def __str__(self):\n        pass\n\n    def __repr__(self):\n        pass",
       "solution_code": "import datetime\n\nclass TimestampedRecord:\n    def __init__(self, data):\n        self.data = data\n        self.created = datetime.datetime.now()\n\n    def __eq__(self, other):\n        if not isinstance(other, TimestampedRecord):\n            return NotImplemented\n        return self.data == other.data\n\n    def __str__(self):\n        return f'Record created at {self.created.strftime(\"%Y-%m-%d %H:%M\")}: {self.data}'\n\n    def __repr__(self):\n        return f'TimestampedRecord({self.data!r})'",
       "test_cases": [
-        "r1 = TimestampedRecord({'name': 'Alice'})\nassert r1 == TimestampedRecord({'name': 'Alice'})\nassert r1 != TimestampedRecord({'name': 'Bob'})",
-        "assert 'Record created' in str(r1)",
-        "r2 = eval(repr(r1))\nassert r2.data == r1.data and r2.created != r1.created"
+        {
+          "input": "r1 = TimestampedRecord({'name': 'Alice'})\nassert r1",
+          "expected_output": "TimestampedRecord({'name': 'Alice'})\nassert r1 != TimestampedRecord({'name': 'Bob'})",
+          "description": "Verifies: r1 = TimestampedRecord({'name': 'Alice'})\nassert r1 == TimestampedRecord({'name': 'Alice'})\nassert r1 != TimestampedRecord({'name': 'Bob'})"
+        },
+        {
+          "input": "",
+          "expected_output": "assert 'Record created' in str(r1)",
+          "description": "assert 'Record created' in str(r1)"
+        },
+        {
+          "input": "r2 = eval(repr(r1))\nassert r2.data",
+          "expected_output": "r1.data and r2.created != r1.created",
+          "description": "Verifies: r2 = eval(repr(r1))\nassert r2.data == r1.data and r2.created != r1.created"
+        }
       ],
       "hint": "Equality compares only data, not created. __repr__ should be eval-able and recreate the object; the timestamp will naturally differ. __str__ should format the datetime nicely.",
       "explanation": "Mastery of dunder methods includes understanding when to include or exclude mutable/temporal state from equality and representation. __repr__ need not preserve exact timestamp equality, only structural equivalence."

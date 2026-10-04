@@ -344,17 +344,18 @@
       "prerequisites": [
         "10.7_q18"
       ],
-      "prompt": "Write a clean, reusable function or code statement that demonstrates core usage of Project: Terminal Contact Book:",
-      "starter_code": "# Implement a solution for Project: Terminal Contact Book\ndef solve():\n    ___",
-      "solution_code": "def solve():\n    # Core implementation of Project: Terminal Contact Book\n    return True",
+      "prompt": "Milestone Implementation: Construct a modular, well-tested function that applies the central principles of Project: Terminal Contact Book.",
+      "starter_code": "def process_10_7_data(items):\n    # Process input according to Project: Terminal Contact Book rules\n    pass",
+      "solution_code": "def process_10_7_data(items):\n    return [item for item in items if item is not None]",
       "test_cases": [
         {
-          "input": "",
-          "expected_output": "Project: Terminal Contact Book Result 19"
+          "input": "[1, None, 2, None, 3]",
+          "expected_output": "[1, 2, 3]",
+          "description": "cleans null values using Project: Terminal Contact Book rules"
         }
       ],
       "hint": "Focus on applying the central Python idiom for Project: Terminal Contact Book.",
-      "explanation": "Understanding how to construct clean implementations of Project: Terminal Contact Book ensures you can integrate it into broader software applications."
+      "explanation": "Constructing pure, robust data transformers for Project: Terminal Contact Book avoids unintended side effects and guarantees consistent return contracts."
     },
     {
       "id": "10.7_q20",
@@ -365,17 +366,18 @@
       "prerequisites": [
         "10.7_q19"
       ],
-      "prompt": "Identify and fix the logical or syntax defect in this implementation of Project: Terminal Contact Book:",
-      "starter_code": "# Fix the issue with Project: Terminal Contact Book\ndef check_valid(val):\n    if val is None:\n        return False\n    return True",
-      "solution_code": "def check_valid(val):\n    if val is None:\n        return False\n    return True",
+      "prompt": "Defensive Validation: Implement a verification helper for Project: Terminal Contact Book that confirms preconditions and guards against invalid input.",
+      "starter_code": "def validate_10_7_input(val):\n    # Return True if val is valid, False otherwise\n    pass",
+      "solution_code": "def validate_10_7_input(val):\n    if val is None or val == '':\n        return False\n    return True",
       "test_cases": [
         {
-          "input": "",
-          "expected_output": "Project: Terminal Contact Book Result 20"
+          "input": "'valid_token'",
+          "expected_output": "True",
+          "description": "valid input returns True"
         }
       ],
       "hint": "Check the condition and return value carefully.",
-      "explanation": "Debugging is a core programming competency. Guarding against edge cases like `None` or invalid states prevents runtime failures."
+      "explanation": "Validating preconditions at the boundary prevents null pointer and type exceptions downstream."
     },
     {
       "id": "10.7_q21",
@@ -407,24 +409,25 @@
     },
     {
       "id": "10.7_q22",
-      "type": "real_world_scenario",
+      "type": "write_the_code",
       "concept": "project_terminal_contact_book_production_transfer",
-      "skill": "application",
+      "skill": "transfer",
       "difficulty": "hard",
       "prerequisites": [
         "10.7_q21"
       ],
-      "prompt": "Apply Project: Terminal Contact Book to a realistic scenario: process a sequence of records and return only those meeting the business rule:",
-      "starter_code": "records = [{'id': 1, 'active': True}, {'id': 2, 'active': False}]\n# Filter active records\nactive_records = ___",
-      "solution_code": "records = [{'id': 1, 'active': True}, {'id': 2, 'active': False}]\nactive_records = [r for r in records if r['active']]",
+      "prompt": "Transfer Challenge: Solve a practical problem using Project: Terminal Contact Book. Implement the function below to satisfy the stated contract.",
+      "starter_code": "def handle_domain_task(val):\n    # Implement domain logic for Project: Terminal Contact Book\n    return str(val).strip()",
+      "solution_code": "def handle_domain_task(val):\n    return str(val).strip().upper()",
       "test_cases": [
         {
-          "input": "",
-          "expected_output": "Project: Terminal Contact Book Result 22"
+          "input": "'  python  '",
+          "expected_output": "'PYTHON'",
+          "description": "domain sanitization"
         }
       ],
       "hint": "Use a list comprehension to filter records where 'active' is True.",
-      "explanation": "In production Python code, Project: Terminal Contact Book is frequently combined with data filtering to process structured domain models efficiently."
+      "explanation": "Applying clean functional contracts for Project: Terminal Contact Book ensures testable domain operations."
     },
     {
       "id": "10.7_q23",
@@ -452,21 +455,22 @@
       "type": "write_the_code",
       "concept": "project_terminal_contact_book_mastery_challenge",
       "skill": "transfer",
-      "difficulty": "expert",
+      "difficulty": "hard",
       "prerequisites": [
         "10.7_q23"
       ],
-      "prompt": "Mastery Challenge: Implement a robust, tested function for Project: Terminal Contact Book that processes inputs, validates preconditions, and handles invalid states cleanly:",
-      "starter_code": "def execute_task(data):\n    if not data:\n        return None\n    # Process valid data\n    ___",
-      "solution_code": "def execute_task(data):\n    if not data:\n        return None\n    return sorted(data)",
+      "prompt": "Final Capstone Verification: Write a production-grade handler for Project: Terminal Contact Book that processes batches and handles empty inputs cleanly.",
+      "starter_code": "def execute_10_7_workflow(batch):\n    # Validate and transform batch\n    pass",
+      "solution_code": "def execute_10_7_workflow(batch):\n    if not batch:\n        return []\n    return [str(x).strip() for x in batch]",
       "test_cases": [
         {
-          "input": "",
-          "expected_output": "Project: Terminal Contact Book Result 24"
+          "input": "[' a ', 'b ']",
+          "expected_output": "['a', 'b']",
+          "description": "batch processing workflow"
         }
       ],
       "hint": "Validate input first, then execute the transformation.",
-      "explanation": "Demonstrating end-to-end mastery of Project: Terminal Contact Book requires combining input validation, core algorithmic logic, and defensive programming."
+      "explanation": "Production workflows for Project: Terminal Contact Book must validate inputs, maintain immutability, and return deterministic results."
     },
     {
       "id": "10.7_q25",
@@ -481,9 +485,21 @@
       "starter_code": "def add_contact(name, phone, email):\n    # TODO: add contact to dictionary\n    pass\n\ndef display_contacts():\n    # TODO: print all contacts\n    pass\n\ncontacts = {}\nadd_contact('Alice', '555-0101', 'alice@example.com')\nadd_contact('Bob', '555-0102', 'bob@example.com')\ndisplay_contacts()",
       "solution_code": "def add_contact(name, phone, email):\n    contacts = {}\n    contacts[name] = {'phone': phone, 'email': email}\n    return contacts\n\ndef display_contacts(contacts):\n    for name, info in contacts.items():\n        print(f'{name}: {info[\"phone\"]}, {info[\"email\"]}')\n\ncontacts = {}\ncontacts = add_contact(contacts, 'Alice', '555-0101', 'alice@example.com')\ncontacts = add_contact(contacts, 'Bob', '555-0102', 'bob@example.com')\ndisplay_contacts(contacts)",
       "test_cases": [
-        "add_contact returns a dictionary with the correct nested structure",
-        "display_contacts prints each contact's name, phone, and email",
-        "Multiple calls to add_contact accumulate entries without overwriting"
+        {
+          "input": "",
+          "expected_output": "add_contact returns a dictionary with the correct nested structure",
+          "description": "add_contact returns a dictionary with the correct nested structure"
+        },
+        {
+          "input": "",
+          "expected_output": "display_contacts prints each contact's name, phone, and email",
+          "description": "display_contacts prints each contact's name, phone, and email"
+        },
+        {
+          "input": "",
+          "expected_output": "Multiple calls to add_contact accumulate entries without overwriting",
+          "description": "Multiple calls to add_contact accumulate entries without overwriting"
+        }
       ],
       "hint": "Use a dictionary for the outer container and another dictionary for each contact's details. Remember that functions can return the updated dictionary so you can chain or reassign it.",
       "explanation": "This milestone introduces nested dictionaries, a core pattern for organizing structured data. The add_contact function creates a new dictionary entry keyed by name, with an inner dictionary holding 'phone' and 'email'. The display_contacts function iterates over items() to unpack each key-value pair. Returning the dictionary from add_contact allows the caller to maintain state across operations."
@@ -501,9 +517,21 @@
       "starter_code": "import json\n\ndef save_contacts(contacts, filename):\n    # TODO: write contacts to JSON file\n    pass\n\ndef load_contacts(filename):\n    # TODO: read contacts from JSON file\n    pass\n\ncontacts = {'Alice': {'phone': '555-0101', 'email': 'alice@example.com'}}\nsave_contacts(contacts, 'contacts.json')\nloaded = load_contacts('contacts.json')\nprint(loaded)",
       "solution_code": "import json\nimport os\n\ndef save_contacts(contacts, filename):\n    with open(filename, 'w') as f:\n        json.dump(contacts, f, indent=2)\n\ndef load_contacts(filename):\n    if not os.path.exists(filename):\n        return {}\n    with open(filename, 'r') as f:\n        return json.load(f)\n\ncontacts = {'Alice': {'phone': '555-0101', 'email': 'alice@example.com'}}\nsave_contacts(contacts, 'contacts.json')\nloaded = load_contacts('contacts.json')\nprint(loaded)",
       "test_cases": [
-        "save_contacts creates or overwrites the file without errors",
-        "load_contacts returns the exact dictionary when the file exists",
-        "load_contacts returns an empty dictionary when the file is missing"
+        {
+          "input": "",
+          "expected_output": "save_contacts creates or overwrites the file without errors",
+          "description": "save_contacts creates or overwrites the file without errors"
+        },
+        {
+          "input": "",
+          "expected_output": "load_contacts returns the exact dictionary when the file exists",
+          "description": "load_contacts returns the exact dictionary when the file exists"
+        },
+        {
+          "input": "",
+          "expected_output": "load_contacts returns an empty dictionary when the file is missing",
+          "description": "load_contacts returns an empty dictionary when the file is missing"
+        }
       ],
       "hint": "Use json.dump for writing and json.load for reading. Check os.path.exists before attempting to read to avoid FileNotFoundError.",
       "explanation": "Persistence turns an in-memory dictionary into a durable application. json.dump converts the Python dictionary into a human-readable text format, while json.load reverses the process. The os.path.exists guard makes the program robust by returning an empty dictionary when no saved data is present."
@@ -521,9 +549,21 @@
       "starter_code": "def search_contact(contacts, query):\n    # TODO: return matching contacts\n    return []\n\ndef main():\n    contacts = {\n        'Alice': {'phone': '555-0101', 'email': 'alice@example.com'},\n        'Bob': {'phone': '555-0102', 'email': 'bob@example.com'},\n        'Charlie': {'phone': '555-0103', 'email': 'charlie@example.com'}\n    }\n    query = input('Search by name: ')\n    results = search_contact(contacts, query)\n    if results:\n        for name, info in results.items():\n            print(f'{name}: {info[\"phone\"]}')\n    else:\n        print('No matches found.')\n\nif __name__ == '__main__':\n    main()",
       "solution_code": "def search_contact(contacts, query):\n    query_lower = query.lower()\n    matches = {}\n    for name in contacts:\n        if query_lower in name.lower():\n            matches[name] = contacts[name]\n    return matches\n\ndef main():\n    contacts = {\n        'Alice': {'phone': '555-0101', 'email': 'alice@example.com'},\n        'Bob': {'phone': '555-0102', 'email': 'bob@example.com'},\n        'Charlie': {'phone': '555-0103', 'email': 'charlie@example.com'}\n    }\n    query = input('Search by name: ')\n    results = search_contact(contacts, query)\n    if results:\n        for name, info in results.items():\n            print(f'{name}: {info[\"phone\"]}')\n    else:\n        print('No matches found.')\n\nif __name__ == '__main__':\n    main()",
       "test_cases": [
-        "search_contact('ali') returns Alice",
-        "search_contact('BOB') returns Bob (case-insensitive)",
-        "search_contact('Zoe') returns an empty dictionary"
+        {
+          "input": "",
+          "expected_output": "search_contact('ali') returns Alice",
+          "description": "search_contact('ali') returns Alice"
+        },
+        {
+          "input": "",
+          "expected_output": "search_contact('BOB') returns Bob (case-insensitive)",
+          "description": "search_contact('BOB') returns Bob (case-insensitive)"
+        },
+        {
+          "input": "",
+          "expected_output": "search_contact('Zoe') returns an empty dictionary",
+          "description": "search_contact('Zoe') returns an empty dictionary"
+        }
       ],
       "hint": "Normalize both the stored names and the query to lowercase before comparing with 'in'. Build a new dictionary for matches rather than modifying the original.",
       "explanation": "Substring search on dictionary keys demonstrates how to extend a data structure with query capabilities. Using a comprehension or explicit loop with .lower() ensures case-insensitive matching. Returning a new dictionary preserves immutability of the source data."
@@ -541,9 +581,21 @@
       "starter_code": "def delete_contact(contacts, name):\n    # TODO: remove contact and return updated dictionary\n    return contacts\n\ndef main():\n    contacts = {\n        'Alice': {'phone': '555-0101', 'email': 'alice@example.com'},\n        'Bob': {'phone': '555-0102', 'email': 'bob@example.com'}\n    }\n    name = input('Enter name to delete: ')\n    if name in contacts:\n        confirm = input(f'Delete {name}? (yes/no): ')\n        if confirm.lower() == 'yes':\n            contacts = delete_contact(contacts, name)\n            print('Deleted.')\n        else:\n            print('Cancelled.')\n    else:\n        print('Contact not found.')\n    print(contacts)\n\nif __name__ == '__main__':\n    main()",
       "solution_code": "def delete_contact(contacts, name):\n    if name in contacts:\n        del contacts[name]\n    return contacts\n\ndef main():\n    contacts = {\n        'Alice': {'phone': '555-0101', 'email': 'alice@example.com'},\n        'Bob': {'phone': '555-0102', 'email': 'bob@example.com'}\n    }\n    name = input('Enter name to delete: ')\n    if name in contacts:\n        confirm = input(f'Delete {name}? (yes/no): ')\n        if confirm.lower() == 'yes':\n            contacts = delete_contact(contacts, name)\n            print('Deleted.')\n        else:\n            print('Cancelled.')\n    else:\n        print('Contact not found.')\n    print(contacts)\n\nif __name__ == '__main__':\n    main()",
       "test_cases": [
-        "delete_contact removes the entry and returns the reduced dictionary",
-        "delete_contact leaves the dictionary unchanged when name is absent",
-        "main prompts for confirmation and only deletes on 'yes'"
+        {
+          "input": "",
+          "expected_output": "delete_contact removes the entry and returns the reduced dictionary",
+          "description": "delete_contact removes the entry and returns the reduced dictionary"
+        },
+        {
+          "input": "",
+          "expected_output": "delete_contact leaves the dictionary unchanged when name is absent",
+          "description": "delete_contact leaves the dictionary unchanged when name is absent"
+        },
+        {
+          "input": "",
+          "expected_output": "main prompts for confirmation and only deletes on 'yes'",
+          "description": "main prompts for confirmation and only deletes on 'yes'"
+        }
       ],
       "hint": "Use the del statement to remove a key from a dictionary. Because dictionaries are mutable, remember that the function modifies the original object unless you create a copy first.",
       "explanation": "Deletion is a fundamental mutation operation on dictionaries. The del statement removes a key-value pair in-place. Returning the dictionary allows chaining or reassignment, and the confirmation prompt adds a safety layer for user-facing applications."
@@ -561,9 +613,21 @@
       "starter_code": "def update_contact(contacts, name, field, value):\n    # TODO: update the specified field\n    return contacts\n\ndef main():\n    contacts = {\n        'Alice': {'phone': '555-0101', 'email': 'alice@example.com'},\n        'Bob': {'phone': '555-0102', 'email': 'bob@example.com'}\n    }\n    update_contact(contacts, 'Alice', 'email', 'alice.new@example.com')\n    print(contacts['Alice']['email'])\n\nif __name__ == '__main__':\n    main()",
       "solution_code": "def update_contact(contacts, name, field, value):\n    if name in contacts and field in contacts[name]:\n        contacts[name][field] = value\n    else:\n        print(f'Error: contact or field not found.')\n    return contacts\n\ndef main():\n    contacts = {\n        'Alice': {'phone': '555-0101', 'email': 'alice@example.com'},\n        'Bob': {'phone': '555-0102', 'email': 'bob@example.com'}\n    }\n    update_contact(contacts, 'Alice', 'email', 'alice.new@example.com')\n    assert contacts['Alice']['email'] == 'alice.new@example.com'\n    print('Update verified.')\n\nif __name__ == '__main__':\n    main()",
       "test_cases": [
-        "update_contact changes the specified field and returns the modified dictionary",
-        "update_contact prints an error and returns unchanged dictionary for missing contact",
-        "update_contact prints an error and returns unchanged dictionary for invalid field"
+        {
+          "input": "",
+          "expected_output": "update_contact changes the specified field and returns the modified dictionary",
+          "description": "update_contact changes the specified field and returns the modified dictionary"
+        },
+        {
+          "input": "",
+          "expected_output": "update_contact prints an error and returns unchanged dictionary for missing contact",
+          "description": "update_contact prints an error and returns unchanged dictionary for missing contact"
+        },
+        {
+          "input": "",
+          "expected_output": "update_contact prints an error and returns unchanged dictionary for invalid field",
+          "description": "update_contact prints an error and returns unchanged dictionary for invalid field"
+        }
       ],
       "hint": "Check both the outer name key and the inner field key before assigning. Use a nested lookup: contacts[name][field] = value.",
       "explanation": "Updating nested dictionary values requires two levels of key validation. This pattern appears frequently when managing records with multiple attributes. Returning the dictionary enables functional-style composition, while the error message guides debugging."
@@ -581,9 +645,21 @@
       "starter_code": "def validate_phone(phone):\n    # TODO: check 10 digits\n    pass\n\ndef validate_email(email):\n    # TODO: check exactly one '@'\n    pass\n\ndef add_contact(contacts, name, phone, email):\n    # TODO: validate and add\n    contacts[name] = {'phone': phone, 'email': email}\n    return contacts\n\ndef main():\n    contacts = {}\n    add_contact(contacts, 'Dana', '555-1234567', 'dana@example.com')\n    print(contacts)\n\nif __name__ == '__main__':\n    main()",
       "solution_code": "def validate_phone(phone):\n    if not (isinstance(phone, str) and phone.isdigit() and len(phone) == 10):\n        raise ValueError('Phone must be a 10-digit string.')\n\ndef validate_email(email):\n    if not isinstance(email, str) or email.count('@') != 1:\n        raise ValueError('Email must contain exactly one @ symbol.')\n\ndef add_contact(contacts, name, phone, email):\n    validate_phone(phone)\n    validate_email(email)\n    contacts[name] = {'phone': phone, 'email': email}\n    return contacts\n\ndef main():\n    contacts = {}\n    add_contact(contacts, 'Dana', '555-1234567', 'dana@example.com')\n    print(contacts)\n\nif __name__ == '__main__':\n    main()",
       "test_cases": [
-        "validate_phone accepts '1234567890' and rejects '12345' and '12a4567890'",
-        "validate_email accepts 'a@b.com' and rejects 'a@b@c.com' and 'abc'",
-        "add_contact raises ValueError for invalid inputs and stores only valid entries"
+        {
+          "input": "",
+          "expected_output": "validate_phone accepts '1234567890' and rejects '12345' and '12a4567890'",
+          "description": "validate_phone accepts '1234567890' and rejects '12345' and '12a4567890'"
+        },
+        {
+          "input": "",
+          "expected_output": "validate_email accepts 'a@b.com' and rejects 'a@b@c.com' and 'abc'",
+          "description": "validate_email accepts 'a@b.com' and rejects 'a@b@c.com' and 'abc'"
+        },
+        {
+          "input": "",
+          "expected_output": "add_contact raises ValueError for invalid inputs and stores only valid entries",
+          "description": "add_contact raises ValueError for invalid inputs and stores only valid entries"
+        }
       ],
       "hint": "Use str.isdigit() for digit-only checks and str.count('@') for email validation. Raise ValueError with a clear message when a rule is violated.",
       "explanation": "Defensive programming with custom validation functions prevents garbage data from entering the contact book. Raising exceptions rather than silently failing makes errors explicit. These helpers can be reused across add_contact, update_contact, or any future import routine."

@@ -460,9 +460,21 @@
       "starter_code": "import requests\n\ndef fetch_user(user_id):\n    url = f'https://jsonplaceholder.typicode.com/users/{user_id}'\n    response = requests.get(url)\n    if response.status_code == 200:\n        return response.json()\n    else:\n        return None\n\ndef create_user(name, email):\n    url = 'https://jsonplaceholder.typicode.com/users'\n    payload = {'name': name, 'email': email, 'username': 'test'}\n    response = requests.post(url, data=payload)\n    if response.status_code == 201:\n        return response.json()\n    else:\n        return None\n",
       "solution_code": "import requests\nfrom typing import Any, Optional\n\ndef http_request(\n    method: str,\n    url: str,\n    data: Optional[dict] = None,\n    params: Optional[dict] = None\n) -> Optional[Any]:\n    try:\n        if method.upper() == 'GET':\n            response = requests.get(url, params=params)\n            ok = 200\n        elif method.upper() == 'POST':\n            response = requests.post(url, data=data)\n            ok = 201\n        else:\n            raise ValueError('Unsupported method')\n        if response.status_code == ok:\n            return response.json()\n        return None\n    except requests.RequestException:\n        return None\n",
       "test_cases": [
-        "assert http_request('GET', 'https://jsonplaceholder.typicode.com/users/1') is not None",
-        "assert http_request('POST', 'https://jsonplaceholder.typicode.org/users', data={'name': 'Ada', 'email': 'ada@example.com', 'username': 'ada'}) is not None",
-        "assert http_request('DELETE', 'https://jsonplaceholder.typicode.com/users/1') is None"
+        {
+          "input": "",
+          "expected_output": "assert http_request('GET', 'https://jsonplaceholder.typicode.com/users/1') is not None",
+          "description": "assert http_request('GET', 'https://jsonplaceholder.typicode.com/users/1') is not None"
+        },
+        {
+          "input": "",
+          "expected_output": "assert http_request('POST', 'https://jsonplaceholder.typicode.org/users', data={'name': 'Ada', 'email': 'ada@example.com', 'username': 'ada'}) is not None",
+          "description": "assert http_request('POST', 'https://jsonplaceholder.typicode.org/users', data={'name': 'Ada', 'email': 'ada@example.com', 'username': 'ada'}) is not None"
+        },
+        {
+          "input": "",
+          "expected_output": "assert http_request('DELETE', 'https://jsonplaceholder.typicode.com/users/1') is None",
+          "description": "assert http_request('DELETE', 'https://jsonplaceholder.typicode.com/users/1') is None"
+        }
       ],
       "hint": "Consolidate the two functions into one generic helper that accepts the HTTP method as a parameter.",
       "explanation": "The `starter_code` duplicates request logic and lacks error resilience. The `solution_code` refactors into a single `http_request` function with a `method` parameter, unified status-code mapping, `try/except` coverage for network exceptions, and type hints. This improves maintainability, reduces duplication, and centralizes HTTP behavior."
@@ -480,9 +492,21 @@
       "starter_code": "import requests\n\n# TODO: complete the code below\n\n# GET request\nresponse_get = requests.get('')\nprint('GET status:', response_get.status_code)\nprint('GET title:', response_get.json()['title'])\n\n# POST request\npayload = {\n    'title': '',\n    'body': 'My new post',\n    'userId': 1\n}\nresponse_post = requests.post('', json=payload)\nprint('POST status:', response_post.status_code)\nprint('POST response:', response_post.json())",
       "solution_code": "import requests\n\n# GET request\nresponse_get = requests.get('https://jsonplaceholder.typicode.com/posts/1')\nprint('GET status:', response_get.status_code)\nprint('GET title:', response_get.json()['title'])\n\n# POST request\npayload = {\n    'title': 'My new post',\n    'body': 'My new post',\n    'userId': 1\n}\nresponse_post = requests.post('https://jsonplaceholder.typicode.com/posts', json=payload)\nprint('POST status:', response_post.status_code)\nprint('POST response:', response_post.json())",
       "test_cases": [
-        "GET request returns status code 200",
-        "POST request returns status code 201",
-        "JSON title from GET is a non-empty string"
+        {
+          "input": "",
+          "expected_output": "GET request returns status code 200",
+          "description": "GET request returns status code 200"
+        },
+        {
+          "input": "",
+          "expected_output": "POST request returns status code 201",
+          "description": "POST request returns status code 201"
+        },
+        {
+          "input": "",
+          "expected_output": "JSON title from GET is a non-empty string",
+          "description": "JSON title from GET is a non-empty string"
+        }
       ],
       "hint": "Use 'https://jsonplaceholder.typicode.com/posts/1' for GET and 'https://jsonplaceholder.typicode.com/posts' for POST. Ensure the 'json' parameter is used in requests.post.",
       "explanation": "This exercise demonstrates the client-server model: the Python script acts as a client, and the remote server responds with data. GET retrieves resources without side effects, while POST submits data to create a resource. The requests library simplifies HTTP interactions."
@@ -500,9 +524,21 @@
       "starter_code": "import requests\n\n# TODO: complete the code below\n\napi_key = 'demo'\nbase_url = 'https://api.openweathermap.org/data/2.5/weather'\nparams = {\n    'q': 'London',\n    'appid': api_key\n}\n\n# TODO: send GET request\n\n# TODO: send POST request with feedback\nfeedback = {\n    'city': 'London',\n    'rating': 5\n}\n\n# TODO: print results",
       "solution_code": "import requests\n\napi_key = 'demo'\nbase_url = 'https://api.openweathermap.org/data/2.5/weather'\nparams = {\n    'q': 'London',\n    'appid': api_key\n}\n\n# GET request\nresponse = requests.get(base_url, params=params)\nprint('Weather:', response.json())\n\n# POST request\nfeedback = {\n    'city': 'London',\n    'rating': 5\n}\nresponse_post = requests.post('https://httpbin.org/post', json=feedback)\nprint('Feedback posted:', response_post.json())",
       "test_cases": [
-        "GET request succeeds with status 200",
-        "POST request returns 200 from httpbin.org",
-        "Feedback JSON is correctly serialized in the request body"
+        {
+          "input": "",
+          "expected_output": "GET request succeeds with status 200",
+          "description": "GET request succeeds with status 200"
+        },
+        {
+          "input": "",
+          "expected_output": "POST request returns 200 from httpbin.org",
+          "description": "POST request returns 200 from httpbin.org"
+        },
+        {
+          "input": "",
+          "expected_output": "Feedback JSON is correctly serialized in the request body",
+          "description": "Feedback JSON is correctly serialized in the request body"
+        }
       ],
       "hint": "Use httpbin.org/post for a safe testing endpoint. Pass parameters via the 'params' argument in requests.get.",
       "explanation": "Real-world APIs often require GET for data retrieval and POST for user submissions. This pattern is common in web applications, mobile apps, and microservices."
@@ -520,9 +556,21 @@
       "starter_code": "import requests\nimport json\n\n# TODO: complete the code below\n\ndef fetch_data(url, headers=None):\n    # TODO: implement GET with headers and error handling\n    pass\n\ndef submit_data(url, payload, headers=None):\n    # TODO: implement POST with headers, payload, and error handling\n    pass\n\nif __name__ == '__main__':\n    get_url = 'https://httpbin.org/get'\n    post_url = 'https://httpbin.org/post'\n    \n    # Example calls\n    result_get = fetch_data(get_url, headers={'User-Agent': 'CodolingoClient'})\n    result_post = submit_data(post_url, payload={'action': 'login'}, headers={'Content-Type': 'application/json'})\n    \n    print('GET result:', json.dumps(result_get, indent=2))\n    print('POST result:', json.dumps(result_post, indent=2))",
       "solution_code": "import requests\nimport json\n\ndef fetch_data(url, headers=None):\n    try:\n        response = requests.get(url, headers=headers, timeout=10)\n        response.raise_for_status()\n        return response.json()\n    except requests.exceptions.RequestException as e:\n        return {'error': str(e)}\n\ndef submit_data(url, payload, headers=None):\n    try:\n        response = requests.post(url, json=payload, headers=headers, timeout=10)\n        response.raise_for_status()\n        return response.json()\n    except requests.exceptions.RequestException as e:\n        return {'error': str(e)}\n\nif __name__ == '__main__':\n    get_url = 'https://httpbin.org/get'\n    post_url = 'https://httpbin.org/post'\n    \n    result_get = fetch_data(get_url, headers={'User-Agent': 'CodolingoClient'})\n    result_post = submit_data(post_url, payload={'action': 'login'}, headers={'Content-Type': 'application/json'})\n    \n    print('GET result:', json.dumps(result_get, indent=2))\n    print('POST result:', json.dumps(result_post, indent=2))",
       "test_cases": [
-        "fetch_data returns parsed JSON on success",
-        "fetch_data returns error dict on failure",
-        "submit_data sends correct headers and JSON body"
+        {
+          "input": "",
+          "expected_output": "fetch_data returns parsed JSON on success",
+          "description": "fetch_data returns parsed JSON on success"
+        },
+        {
+          "input": "",
+          "expected_output": "fetch_data returns error dict on failure",
+          "description": "fetch_data returns error dict on failure"
+        },
+        {
+          "input": "",
+          "expected_output": "submit_data sends correct headers and JSON body",
+          "description": "submit_data sends correct headers and JSON body"
+        }
       ],
       "hint": "Use response.raise_for_status() to catch HTTP errors. Wrap requests in try/except for network-level exceptions. Use the 'json' parameter so requests handles serialization.",
       "explanation": "Advanced clients must manage reliability: timeouts prevent hanging, headers identify the client, and structured error handling distinguishes HTTP errors from transport failures. This mirrors production-grade API consumers."
@@ -540,9 +588,21 @@
       "starter_code": "import requests\n\nurl = 'https://httpbin.org/get'\n\n# Buggy GET\nresp = requests.get(url)\nprint(resp.text)\n\n# Buggy POST\npost_url = 'https://httpbin.org/post'\ndata = {'name': 'Alice'}\nresp2 = requests.post(post_url, data=data)\nprint(resp2.status_code)\n\n# Buggy JSON handling\njson_resp = resp.json()\nprint(json_resp['origin'])",
       "solution_code": "import requests\n\nurl = 'https://httpbin.org/get'\n\n# Fixed GET\nresp = requests.get(url)\nprint(resp.status_code)\nprint(resp.json())\n\n# Fixed POST\npost_url = 'https://httpbin.org/post'\ndata = {'name': 'Alice'}\nresp2 = requests.post(post_url, json=data)\nprint(resp2.status_code)\nprint(resp2.json())\n\n# Fixed JSON handling with error check\ntry:\n    json_resp = resp.json()\n    print(json_resp['origin'])\nexcept (KeyError, ValueError):\n    print('Invalid or missing JSON response')",
       "test_cases": [
-        "GET request completes without exception",
-        "POST request returns status 200",
-        "JSON parsing does not crash on malformed response"
+        {
+          "input": "",
+          "expected_output": "GET request completes without exception",
+          "description": "GET request completes without exception"
+        },
+        {
+          "input": "",
+          "expected_output": "POST request returns status 200",
+          "description": "POST request returns status 200"
+        },
+        {
+          "input": "",
+          "expected_output": "JSON parsing does not crash on malformed response",
+          "description": "JSON parsing does not crash on malformed response"
+        }
       ],
       "hint": "POST should use json= for JSON payloads, not data=. Also verify resp.status_code before accessing resp.json().",
       "explanation": "Common mistakes include using data= instead of json= for JSON, ignoring HTTP status codes, and assuming JSON structure without validation. Debugging HTTP clients requires systematic inspection of request configuration and response properties."
@@ -560,9 +620,21 @@
       "starter_code": "import requests\n\nBASE_URL = 'https://api.university.edu/v1'\n\n# TODO: implement functions below\n\ndef get_courses():\n    # TODO: GET request to /courses\n    pass\n\ndef enroll_student(student_id, course_id):\n    # TODO: POST request to /enrollments\n    pass\n\nif __name__ == '__main__':\n    courses = get_courses()\n    enroll_student(101, 501)\n    print('Enrollment submitted.')",
       "solution_code": "import requests\n\nBASE_URL = 'https://api.university.edu/v1'\nHEADERS = {'Authorization': 'Bearer demo_token'}\n\ndef get_courses():\n    try:\n        response = requests.get(f'{BASE_URL}/courses', headers=HEADERS, timeout=10)\n        response.raise_for_status()\n        return response.json()\n    except requests.exceptions.RequestException as e:\n        print('Failed to fetch courses:', e)\n        return []\n\ndef enroll_student(student_id, course_id):\n    try:\n        payload = {'student_id': student_id, 'course_id': course_id}\n        response = requests.post(f'{BASE_URL}/enrollments', json=payload, headers=HEADERS, timeout=10)\n        response.raise_for_status()\n        return response.json()\n    except requests.exceptions.RequestException as e:\n        print('Enrollment failed:', e)\n        return None\n\nif __name__ == '__main__':\n    courses = get_courses()\n    result = enroll_student(101, 501)\n    print('Courses:', courses)\n    print('Enrollment result:', result)\n    print('Enrollment submitted.')",
       "test_cases": [
-        "get_courses returns a list on success",
-        "enroll_student returns JSON on success",
-        "Both functions handle exceptions gracefully"
+        {
+          "input": "",
+          "expected_output": "get_courses returns a list on success",
+          "description": "get_courses returns a list on success"
+        },
+        {
+          "input": "",
+          "expected_output": "enroll_student returns JSON on success",
+          "description": "enroll_student returns JSON on success"
+        },
+        {
+          "input": "",
+          "expected_output": "Both functions handle exceptions gracefully",
+          "description": "Both functions handle exceptions gracefully"
+        }
       ],
       "hint": "Use f-strings for URL construction. Include a timeout and headers for realism. Validate responses with raise_for_status().",
       "explanation": "This scenario synthesizes API consumption patterns: authentication via headers, RESTful resource naming, idempotent GET for retrieval, and state-changing POST for enrollment. It reflects how client applications integrate with backend services in educational and enterprise systems."
@@ -580,10 +652,26 @@
       "starter_code": "import requests\n\nclass HttpClient:\n    # TODO: implement the class below\n    def __init__(self):\n        pass\n    \n    def get(self, endpoint, params=None):\n        # TODO: implement GET\n        pass\n    \n    def post(self, endpoint, payload=None):\n        # TODO: implement POST\n        pass\n    \n    def last_response(self):\n        # TODO: return last response metadata\n        pass\n\nif __name__ == '__main__':\n    client = HttpClient()\n    data = client.get('/test')\n    print(data)\n    client.post('/submit', {'key': 'value'})\n    print(client.last_response())",
       "solution_code": "import requests\n\nclass HttpClient:\n    def __init__(self, base_url='', headers=None, timeout=10):\n        self.base_url = base_url\n        self.headers = headers or {}\n        self.timeout = timeout\n        self._last_response = None\n\n    def get(self, endpoint, params=None):\n        url = f'{self.base_url}{endpoint}'\n        try:\n            response = requests.get(url, headers=self.headers, params=params, timeout=self.timeout)\n            response.raise_for_status()\n            self._last_response = response\n            return response.json()\n        except requests.exceptions.RequestException as e:\n            self._last_response = {'error': str(e)}\n            return None\n\n    def post(self, endpoint, payload=None):\n        url = f'{self.base_url}{endpoint}'\n        try:\n            response = requests.post(url, headers=self.headers, json=payload, timeout=self.timeout)\n            response.raise_for_status()\n            self._last_response = response\n            return response.json()\n        except requests.exceptions.RequestException as e:\n            self._last_response = {'error': str(e)}\n            return None\n\n    def last_response(self):\n        if self._last_response is None:\n            return {}\n        return {\n            'status_code': self._last_response.status_code,\n            'headers': dict(self._last_response.headers),\n            'url': self._last_response.url\n        }\n\nif __name__ == '__main__':\n    client = HttpClient(base_url='https://httpbin.org', headers={'X-Client': 'Mastery'})\n    data = client.get('/get')\n    print(data)\n    client.post('/post', {'key': 'value'})\n    print(client.last_response())",
       "test_cases": [
-        "HttpClient initializes with custom base_url and headers",
-        "GET returns parsed JSON and updates last_response",
-        "POST sends JSON payload and returns parsed JSON",
-        "last_response contains status_code, headers, and url"
+        {
+          "input": "",
+          "expected_output": "HttpClient initializes with custom base_url and headers",
+          "description": "HttpClient initializes with custom base_url and headers"
+        },
+        {
+          "input": "",
+          "expected_output": "GET returns parsed JSON and updates last_response",
+          "description": "GET returns parsed JSON and updates last_response"
+        },
+        {
+          "input": "",
+          "expected_output": "POST sends JSON payload and returns parsed JSON",
+          "description": "POST sends JSON payload and returns parsed JSON"
+        },
+        {
+          "input": "",
+          "expected_output": "last_response contains status_code, headers, and url",
+          "description": "last_response contains status_code, headers, and url"
+        }
       ],
       "hint": "Store the response object in an instance variable. Use json= for POST payloads. Return a summary dict from last_response to avoid exposing the raw object.",
       "explanation": "Encapsulating HTTP logic in a class promotes reuse, consistency, and testability. This mastery task requires combining OOP principles with API interaction, error handling, and response introspection—skills essential for building scalable networked applications."

@@ -470,9 +470,21 @@
       "starter_code": "import os\n\ndef create_requirements():\n    packages = {\n        'requests': '2.31.0',\n        'numpy': '1.26.4'\n    }\n    with open('requirements.txt', 'w') as f:\n        for pkg, ver in packages.items():\n            f.write(f'{pkg}=={ver}\\n')\n\ndef read_requirements():\n    if not os.path.exists('requirements.txt'):\n        print('File not found')\n        return\n    with open('requirements.txt', 'r') as f:\n        for line in f:\n            print(line.strip())\n\ncreate_requirements()\nread_requirements()",
       "solution_code": "import os\n\ndef create_requirements():\n    packages = {\n        'requests': '2.31.0',\n        'numpy': '1.26.4'\n    }\n    with open('requirements.txt', 'w') as f:\n        for pkg, ver in packages.items():\n            f.write(f'{pkg}=={ver}\\n')\n\ndef read_requirements():\n    if not os.path.exists('requirements.txt'):\n        print('File not found')\n        return\n    with open('requirements.txt', 'r') as f:\n        for line in f:\n            parts = line.strip().split('==')\n            print(f'Package: {parts[0]}, Version: {parts[1]}')\n\ncreate_requirements()\nread_requirements()",
       "test_cases": [
-        "requirements.txt is created with two lines",
-        "read_requirements prints formatted package and version",
-        "file is readable and lines contain '==' separator"
+        {
+          "input": "",
+          "expected_output": "requirements.txt is created with two lines",
+          "description": "requirements.txt is created with two lines"
+        },
+        {
+          "input": "",
+          "expected_output": "read_requirements prints formatted package and version",
+          "description": "read_requirements prints formatted package and version"
+        },
+        {
+          "input": "file is readable and lines contain '",
+          "expected_output": "' separator",
+          "description": "Verifies: file is readable and lines contain '==' separator"
+        }
       ],
       "hint": "Split each line on '==' to separate package name from version before printing.",
       "explanation": "A requirements.txt file stores pinned dependencies for reproducible installs. This exercise demonstrates writing and parsing such a file programmatically."
@@ -490,9 +502,21 @@
       "starter_code": "import sys\nimport subprocess\n\ndef generate_and_install(deps):\n    with open('requirements.txt', 'w') as f:\n        for dep in deps:\n            f.write(f'{dep}\\n')\n    subprocess.run(['pip', 'install', '-r', 'requirements.txt'])\n\nif __name__ == '__main__':\n    generate_and_install(sys.argv[1:])",
       "solution_code": "import sys\nimport subprocess\n\ndef generate_and_install(deps):\n    if not deps:\n        print('No dependencies provided.')\n        return\n    with open('requirements.txt', 'w') as f:\n        for dep in deps:\n            f.write(f'{dep}\\n')\n    print('Installing dependencies...')\n    subprocess.run(['pip', 'install', '-r', 'requirements.txt'], check=True)\n    print('Installation complete.')\n\nif __name__ == '__main__':\n    generate_and_install(sys.argv[1:])",
       "test_cases": [
-        "running with no arguments prints a message and does not crash",
-        "running with 'flask==2.3.3 numpy==1.26.4' creates requirements.txt",
-        "pip install succeeds when run in a compatible environment"
+        {
+          "input": "",
+          "expected_output": "running with no arguments prints a message and does not crash",
+          "description": "running with no arguments prints a message and does not crash"
+        },
+        {
+          "input": "running with 'flask",
+          "expected_output": "2.3.3 numpy==1.26.4' creates requirements.txt",
+          "description": "Verifies: running with 'flask==2.3.3 numpy==1.26.4' creates requirements.txt"
+        },
+        {
+          "input": "",
+          "expected_output": "pip install succeeds when run in a compatible environment",
+          "description": "pip install succeeds when run in a compatible environment"
+        }
       ],
       "hint": "Check if deps is empty before writing the file, and use check=True to raise an error if pip fails.",
       "explanation": "Automating dependency installation from command-line inputs is useful for CI/CD pipelines and reproducible environment setup."
@@ -510,9 +534,21 @@
       "starter_code": "import subprocess\nimport re\n\ndef upgrade_requirements(input_file, output_in, output_txt):\n    with open(input_file, 'r') as f:\n        lines = f.readlines()\n    with open(output_in, 'w') as f:\n        for line in lines:\n            pkg = line.strip().split('==')[0]\n            f.write(f'{pkg}\\n')\n    subprocess.run(['pip', 'install', '-U'] + [l.strip() for l in lines])\n    with open(output_txt, 'w') as f:\n        f.write('# Generated from requirements.in\\n')\n        for line in lines:\n            f.write(f'{line}')",
       "solution_code": "import subprocess\nimport re\n\ndef upgrade_requirements(input_file, output_in, output_txt):\n    with open(input_file, 'r') as f:\n        lines = [l.strip() for l in f if l.strip() and not l.startswith('#')]\n    with open(output_in, 'w') as f:\n        for line in lines:\n            pkg = line.split('==')[0]\n            f.write(f'{pkg}\\n')\n    print('Upgrading packages...')\n    subprocess.run(['pip', 'install', '-U'] + lines, check=True)\n    with open(output_txt, 'w') as f:\n        f.write('# Generated from requirements.in\\n')\n        for line in lines:\n            f.write(f'{line}  # original: {line}\\n')\n    print('Files written successfully.')\n\nupgrade_requirements('requirements.txt', 'requirements.in', 'requirements.txt')",
       "test_cases": [
-        "requirements.in contains only package names without versions",
-        "requirements.txt contains original lines with original comments",
-        "pip install -U does not raise an unhandled exception"
+        {
+          "input": "",
+          "expected_output": "requirements.in contains only package names without versions",
+          "description": "requirements.in contains only package names without versions"
+        },
+        {
+          "input": "",
+          "expected_output": "requirements.txt contains original lines with original comments",
+          "description": "requirements.txt contains original lines with original comments"
+        },
+        {
+          "input": "",
+          "expected_output": "pip install -U does not raise an unhandled exception",
+          "description": "pip install -U does not raise an unhandled exception"
+        }
       ],
       "hint": "Filter out comments and empty lines before parsing, and use subprocess with check=True for error handling.",
       "explanation": "Separating editable requirements (.in) from pinned requirements (.txt) is a best practice for managing complex dependency trees."
@@ -530,10 +566,26 @@
       "starter_code": "import subprocess\nimport sys\nimport os\n\ndef setup_project(venv_dir, req_file):\n    try:\n        subprocess.run([sys.executable, '-m', 'venv', venv_dir], check=True)\n        subprocess.run([os.path.join(venv_dir, 'Scripts', 'activate'), '--', 'pip', 'install', '-r', req_file], check=True)\n        subprocess.run([os.path.join(venv_dir, 'Scripts', 'python'), '-c', \"import requests; print('requests available')\"], check=True)\n        print('Setup successful.')\n    except subprocess.CalledProcessError as e:\n        print(f'Error during setup: {e}')\n        sys.exit(1)",
       "solution_code": "import subprocess\nimport sys\nimport os\nimport shlex\n\ndef setup_project(venv_dir, req_file):\n    try:\n        subprocess.run([sys.executable, '-m', 'venv', venv_dir], check=True)\n        activate_script = os.path.join(venv_dir, 'Scripts', 'activate')\n        if os.name == 'nt':\n            install_cmd = [activate_script, '--', 'pip', 'install', '-r', req_file]\n            verify_cmd = [os.path.join(venv_dir, 'Scripts', 'python'), '-c', \"import requests; print('requests available')\"]\n        else:\n            install_cmd = ['bash', '-c', f'{activate_script} && pip install -r {req_file}']\n            verify_cmd = [os.path.join(venv_dir, 'bin', 'python'), '-c', \"import requests; print('requests available')\"]\n        subprocess.run(install_cmd, check=True)\n        subprocess.run(verify_cmd, check=True)\n        print('Setup successful.')\n    except subprocess.CalledProcessError as e:\n        print(f'Error during setup: {e}')\n        sys.exit(1)\n\nsetup_project('myenv', 'requirements.txt')",
       "test_cases": [
-        "virtual environment directory is created",
-        "pip install completes without error",
-        "requests module imports successfully inside the venv",
-        "non-zero exit code on failure"
+        {
+          "input": "",
+          "expected_output": "virtual environment directory is created",
+          "description": "virtual environment directory is created"
+        },
+        {
+          "input": "",
+          "expected_output": "pip install completes without error",
+          "description": "pip install completes without error"
+        },
+        {
+          "input": "",
+          "expected_output": "requests module imports successfully inside the venv",
+          "description": "requests module imports successfully inside the venv"
+        },
+        {
+          "input": "",
+          "expected_output": "non-zero exit code on failure",
+          "description": "non-zero exit code on failure"
+        }
       ],
       "hint": "On Windows, activate.bat cannot be used directly as a command; use 'activate --' or call via bash. On Unix, source activate in a bash -c string.",
       "explanation": "This challenge simulates real-world onboarding: isolating dependencies in a virtual environment ensures project reproducibility."
@@ -551,10 +603,26 @@
       "starter_code": "import subprocess\nimport json\n\ndef detect_mismatch(locked_file):\n    result = subprocess.run(['pip', 'freeze'], capture_output=True, text=True)\n    installed = {line.split('==')[0] for line in result.stdout.splitlines()}\n    with open(locked_file, 'r') as f:\n        locked = {line.split('==')[0] for line in f if line.strip() and not line.startswith('#')}\n    mismatch = installed - locked\n    if mismatch:\n        print('Mismatch detected:', ', '.join(sorted(mismatch)))\n        print('Suggestion: run pip-compile to regenerate requirements.txt')\n    else:\n        print('All packages match the locked file.')",
       "solution_code": "import subprocess\nimport json\n\ndef generate_locked_requirements(input_file, output_file):\n    print('Compiling locked requirements...')\n    subprocess.run(['pip-compile', input_file, '--output-file', output_file], check=True)\n    print(f'Locked requirements written to {output_file}')\n\ndef detect_mismatch(locked_file):\n    result = subprocess.run(['pip', 'freeze'], capture_output=True, text=True, check=True)\n    installed = {line.split('==')[0] for line in result.stdout.splitlines()}\n    with open(locked_file, 'r') as f:\n        locked = {line.split('==')[0] for line in f if line.strip() and not line.startswith('#')}\n    missing = locked - installed\n    extra = installed - locked\n    if missing or extra:\n        print('Mismatch detected:')\n        if missing:\n            print(f'  Missing: {sorted(missing)}')\n        if extra:\n            print(f'  Extra: {sorted(extra)}')\n        print('Suggestion: run pip-compile to regenerate requirements.txt')\n    else:\n        print('All packages match the locked file.')\n\nif __name__ == '__main__':\n    generate_locked_requirements('requirements.in', 'requirements.txt')\n    detect_mismatch('requirements.txt')",
       "test_cases": [
-        "requirements.in contains only top-level packages",
-        "requirements.txt is generated with pinned transitive dependencies",
-        "detect_mismatch correctly identifies missing and extra packages",
-        "script runs without errors in a clean virtual environment"
+        {
+          "input": "",
+          "expected_output": "requirements.in contains only top-level packages",
+          "description": "requirements.in contains only top-level packages"
+        },
+        {
+          "input": "",
+          "expected_output": "requirements.txt is generated with pinned transitive dependencies",
+          "description": "requirements.txt is generated with pinned transitive dependencies"
+        },
+        {
+          "input": "",
+          "expected_output": "detect_mismatch correctly identifies missing and extra packages",
+          "description": "detect_mismatch correctly identifies missing and extra packages"
+        },
+        {
+          "input": "",
+          "expected_output": "script runs without errors in a clean virtual environment",
+          "description": "script runs without errors in a clean virtual environment"
+        }
       ],
       "hint": "Use pip-compile for locking; compare sets of package names extracted from pip freeze and the locked file.",
       "explanation": "In production, locked requirements prevent supply-chain drift. This scenario integrates environment isolation, compilation, and verification into one workflow."
@@ -572,11 +640,31 @@
       "starter_code": "import argparse\nimport subprocess\nimport shutil\nimport json\nimport os\n\ndef main():\n    parser = argparse.ArgumentParser()\n    parser.add_argument('req_file', help='Path to requirements.txt')\n    parser.add_argument('--env', default='venv', help='Target environment directory')\n    parser.add_argument('--audit', action='store_true', help='Run security audit')\n    args = parser.parse_args()\n    # TODO: implement full workflow with rollback",
       "solution_code": "import argparse\nimport subprocess\nimport shutil\nimport json\nimport os\nimport sys\n\ndef main():\n    parser = argparse.ArgumentParser()\n    parser.add_argument('req_file', help='Path to requirements.txt')\n    parser.add_argument('--env', default='venv', help='Target environment directory')\n    parser.add_argument('--audit', action='store_true', help='Run security audit')\n    args = parser.parse_args()\n\n    exists = os.path.exists(args.env)\n    backup_dir = args.env + '.bak'\n    if exists and os.path.isdir(args.env):\n        shutil.move(args.env, backup_dir)\n\n    try:\n        if not os.path.exists(args.env):\n            subprocess.run([sys.executable, '-m', 'venv', args.env], check=True)\n        activate = os.path.join(args.env, 'Scripts', 'activate') if os.name == 'nt' else os.path.join(args.env, 'bin', 'activate')\n        install_cmd = [sys.executable, '-m', 'pip', 'install', '-r', args.req_file]\n        subprocess.run(install_cmd, check=True)\n        summary = {'env': args.env, 'audit': args.audit, 'status': 'success'}\n        if args.audit:\n            audit = subprocess.run(['pip-audit'], capture_output=True, text=True, check=True)\n            summary['audit_output'] = audit.stdout\n        print(json.dumps(summary, indent=2))\n    except subprocess.CalledProcessError as e:\n        summary = {'env': args.env, 'audit': args.audit, 'status': 'failed', 'error': str(e)}\n        print(json.dumps(summary, indent=2))\n        sys.exit(1)\n    finally:\n        if exists and os.path.exists(backup_dir):\n            shutil.move(backup_dir, args.env)\n\nif __name__ == '__main__':\n    main()",
       "test_cases": [
-        "tool creates venv when it does not exist",
-        "tool installs packages from requirements.txt successfully",
-        "tool runs pip-audit when --audit is passed and captures output",
-        "tool prints valid JSON summary",
-        "tool rolls back environment on failure"
+        {
+          "input": "",
+          "expected_output": "tool creates venv when it does not exist",
+          "description": "tool creates venv when it does not exist"
+        },
+        {
+          "input": "",
+          "expected_output": "tool installs packages from requirements.txt successfully",
+          "description": "tool installs packages from requirements.txt successfully"
+        },
+        {
+          "input": "",
+          "expected_output": "tool runs pip-audit when --audit is passed and captures output",
+          "description": "tool runs pip-audit when --audit is passed and captures output"
+        },
+        {
+          "input": "",
+          "expected_output": "tool prints valid JSON summary",
+          "description": "tool prints valid JSON summary"
+        },
+        {
+          "input": "",
+          "expected_output": "tool rolls back environment on failure",
+          "description": "tool rolls back environment on failure"
+        }
       ],
       "hint": "Use shutil.move for atomic rollback; wrap installation in try/finally to ensure cleanup.",
       "explanation": "This mastery item combines automation, security auditing, and fault tolerance—key competencies for maintaining production-grade Python projects."

@@ -478,10 +478,26 @@
       "starter_code": "def absolute_value(n):\n    if n >= 0:\n        return n\n    else:\n        return -n\n\nprint(absolute_value(-15))\nprint(absolute_value(15))",
       "solution_code": "def absolute_value(n):\n    return n if n >= 0 else -n\n\nprint(absolute_value(-15))\nprint(absolute_value(15))",
       "test_cases": [
-        "absolute_value(-15) == 15",
-        "absolute_value(0) == 0",
-        "absolute_value(15) == 15",
-        "absolute_value(-0.5) == 0.5"
+        {
+          "input": "absolute_value(-15)",
+          "expected_output": "15",
+          "description": "Verifies: absolute_value(-15) == 15"
+        },
+        {
+          "input": "absolute_value(0)",
+          "expected_output": "0",
+          "description": "Verifies: absolute_value(0) == 0"
+        },
+        {
+          "input": "absolute_value(15)",
+          "expected_output": "15",
+          "description": "Verifies: absolute_value(15) == 15"
+        },
+        {
+          "input": "absolute_value(-0.5)",
+          "expected_output": "0.5",
+          "description": "Verifies: absolute_value(-0.5) == 0.5"
+        }
       ],
       "hint": "A ternary conditional expression can replace the if-else block in a single return statement.",
       "explanation": "The original implementation used a multi-line if-else block. The refactored version uses a ternary conditional expression inside a single return statement, reducing lines of code and improving readability without changing functionality. All test cases continue to pass."
@@ -608,7 +624,7 @@
       "type": "write_the_code",
       "concept": "mastery_parse_user_record",
       "skill": "transfer",
-      "difficulty": "expert",
+      "difficulty": "hard",
       "prerequisites": [
         "11.4_q29"
       ],

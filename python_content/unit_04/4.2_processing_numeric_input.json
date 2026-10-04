@@ -535,7 +535,7 @@
     },
     {
       "id": "4.2_q28",
-      "type": "real_world_scenario",
+      "type": "write_the_code",
       "concept": "safe_numeric_parsing",
       "skill": "application",
       "difficulty": "hard",
@@ -548,11 +548,12 @@
       "test_cases": [
         {
           "input": "",
-          "expected_output": "Processing Numeric Input Result 28"
+          "expected_output": "0",
+          "description": "handles ValueError fallback"
         }
       ],
       "hint": "Assign 0 inside the `except ValueError:` block.",
-      "explanation": "Using `try...except ValueError` is the idiomatic Python way (EAFP: Easier to Ask for Forgiveness than Permission) to handle unpredictable user inputs safely."
+      "explanation": "Using try...except ValueError is the idiomatic Python way (EAFP) to handle unpredictable numeric inputs safely."
     },
     {
       "id": "4.2_q29",

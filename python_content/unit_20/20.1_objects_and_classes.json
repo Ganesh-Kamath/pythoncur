@@ -458,9 +458,21 @@
       "starter_code": "class Book:\n    def __init__(self, title, author, year):\n        self.title = title\n        self.author = author\n        self.year = year\n        self.available = True\n\n    def is_available(self):\n        return self.available\n\n    def __str__(self):\n        return self.title + ' by ' + self.author\n\nb = Book('1984', 'Orwell', 1949)\nprint(b.is_available())\nprint(b)",
       "solution_code": "class Book:\n    def __init__(self, title, author, year):\n        self._title = title\n        self._author = author\n        self._year = year\n        self._available = True\n\n    @property\n    def title(self):\n        return self._title\n\n    @property\n    def author(self):\n        return self._author\n\n    @property\n    def year(self):\n        return self._year\n\n    @property\n    def available(self):\n        return self._available\n\n    def is_available(self):\n        return self._available\n\n    def __str__(self):\n        return f'{self._title} by {self._author} ({self._year})'\n\n    def borrow(self):\n        if self._available:\n            self._available = False\n            return True\n        return False\n\nb = Book('1984', 'Orwell', 1949)\nprint(b.is_available())\nprint(b)\nprint(b.borrow())\nprint(b.is_available())",
       "test_cases": [
-        "b = Book('Python', 'Guido', 2020); assert b.is_available() == True; b.borrow(); assert b.is_available() == False",
-        "b = Book('Clean', 'Martin', 2008); assert str(b) == 'Clean by Martin (2008)'",
-        "b = Book('OOP', 'Smith', 2023); assert b.title == 'OOP'; assert b.author == 'Smith'"
+        {
+          "input": "b = Book('Python', 'Guido', 2020); assert b.is_available()",
+          "expected_output": "True; b.borrow(); assert b.is_available() == False",
+          "description": "Verifies: b = Book('Python', 'Guido', 2020); assert b.is_available() == True; b.borrow(); assert b.is_available() == False"
+        },
+        {
+          "input": "b = Book('Clean', 'Martin', 2008); assert str(b)",
+          "expected_output": "'Clean by Martin (2008)'",
+          "description": "Verifies: b = Book('Clean', 'Martin', 2008); assert str(b) == 'Clean by Martin (2008)'"
+        },
+        {
+          "input": "b = Book('OOP', 'Smith', 2023); assert b.title",
+          "expected_output": "'OOP'; assert b.author == 'Smith'",
+          "description": "Verifies: b = Book('OOP', 'Smith', 2023); assert b.title == 'OOP'; assert b.author == 'Smith'"
+        }
       ],
       "hint": "Encapsulate internal state with underscores, expose read-only access via properties, and use an f-string in __str__ for cleaner formatting.",
       "explanation": "Refactoring replaces public attributes with private ones and properties to control access. The __str__ method now uses an f-string for readability, and borrow adds behavior while preserving availability state."
@@ -478,8 +490,16 @@
       "starter_code": "class Book:\n    pass",
       "solution_code": "class Book:\n    def __init__(self, title, author):\n        self.title = title\n        self.author = author\n\n    def display_info(self):\n        print('Title:', self.title)\n        print('Author:', self.author)",
       "test_cases": [
-        "b = Book('1984', 'George Orwell')\nassert b.title == '1984'\nassert b.author == 'George Orwell'\nb.display_info()",
-        "b2 = Book('Python Crash Course', 'Eric Matthes')\nassert b2.title == 'Python Crash Course'"
+        {
+          "input": "b = Book('1984', 'George Orwell')\nassert b.title",
+          "expected_output": "'1984'\nassert b.author == 'George Orwell'\nb.display_info()",
+          "description": "Verifies: b = Book('1984', 'George Orwell')\nassert b.title == '1984'\nassert b.author == 'George Orwell'\nb.display_info()"
+        },
+        {
+          "input": "b2 = Book('Python Crash Course', 'Eric Matthes')\nassert b2.title",
+          "expected_output": "'Python Crash Course'",
+          "description": "Verifies: b2 = Book('Python Crash Course', 'Eric Matthes')\nassert b2.title == 'Python Crash Course'"
+        }
       ],
       "hint": "Remember to use self to store instance attributes inside __init__.",
       "explanation": "This exercise introduces the fundamental structure of a class: defining attributes via __init__ and behavior via instance methods. Using self ensures each object maintains its own state."
@@ -497,8 +517,16 @@
       "starter_code": "class Book:\n    library_name = 'City Library'\n\n    def __init__(self, title, author):\n        self.title = title\n        self.author = author",
       "solution_code": "class Book:\n    library_name = 'City Library'\n\n    def __init__(self, title, author):\n        self.title = title\n        self.author = author\n\n    def get_summary(self):\n        return f'\"{self.title}\" by {self.author}'",
       "test_cases": [
-        "b = Book('Dune', 'Frank Herbert')\nassert b.get_summary() == '\"Dune\" by Frank Herbert'\nassert Book.library_name == 'City Library'",
-        "b2 = Book('Clean Code', 'Robert C. Martin')\nassert b2.get_summary() == '\"Clean Code\" by Robert C. Martin'"
+        {
+          "input": "b = Book('Dune', 'Frank Herbert')\nassert b.get_summary()",
+          "expected_output": "'\"Dune\" by Frank Herbert'\nassert Book.library_name == 'City Library'",
+          "description": "Verifies: b = Book('Dune', 'Frank Herbert')\nassert b.get_summary() == '\"Dune\" by Frank Herbert'\nassert Book.library_name == 'City Library'"
+        },
+        {
+          "input": "b2 = Book('Clean Code', 'Robert C. Martin')\nassert b2.get_summary()",
+          "expected_output": "'\"Clean Code\" by Robert C. Martin'",
+          "description": "Verifies: b2 = Book('Clean Code', 'Robert C. Martin')\nassert b2.get_summary() == '\"Clean Code\" by Robert C. Martin'"
+        }
       ],
       "hint": "Use f-strings for formatted output and access class variables directly via the class name.",
       "explanation": "This builds practical utility by combining instance methods with class-level data. It reinforces how objects encapsulate both state and behavior."
@@ -516,8 +544,16 @@
       "starter_code": "class Vehicle:\n    pass\n\nclass ElectricCar(Vehicle):\n    pass",
       "solution_code": "class Vehicle:\n    def __init__(self, brand):\n        self.brand = brand\n\n    def describe(self):\n        print('This is a', self.brand, 'vehicle.')\n\nclass ElectricCar(Vehicle):\n    def __init__(self, brand, battery_size):\n        super().__init__(brand)\n        self.battery_size = battery_size\n\n    def describe(self):\n        print('This is an electric', self.brand, 'with', self.battery_size, 'kWh battery.')\n\n    def charge(self):\n        print('Charging battery to 100%')",
       "test_cases": [
-        "ec = ElectricCar('Tesla', 75)\nassert ec.brand == 'Tesla'\nassert ec.battery_size == 75\nec.describe()\nec.charge()",
-        "v = Vehicle('Ford')\nassert v.brand == 'Ford'\nv.describe()"
+        {
+          "input": "ec = ElectricCar('Tesla', 75)\nassert ec.brand",
+          "expected_output": "'Tesla'\nassert ec.battery_size == 75\nec.describe()\nec.charge()",
+          "description": "Verifies: ec = ElectricCar('Tesla', 75)\nassert ec.brand == 'Tesla'\nassert ec.battery_size == 75\nec.describe()\nec.charge()"
+        },
+        {
+          "input": "v = Vehicle('Ford')\nassert v.brand",
+          "expected_output": "'Ford'\nv.describe()",
+          "description": "Verifies: v = Vehicle('Ford')\nassert v.brand == 'Ford'\nv.describe()"
+        }
       ],
       "hint": "Use super().__init__() to initialize the parent class and override describe() in ElectricCar.",
       "explanation": "This introduces inheritance and method overriding. super() delegates initialization to the parent, while overriding customize behavior for subclasses."
@@ -535,8 +571,16 @@
       "starter_code": "class Vehicle:\n    def __init__(self, brand):\n        self.brand = brand\n\n    def describe(self):\n        print('Generic vehicle:', self.brand)\n\nclass Car(Vehicle):\n    def describe(self):\n        print('Car:', self.brand)\n\nc = Car('Honda')\nc.describe()",
       "solution_code": "class Vehicle:\n    def __init__(self, brand):\n        self.brand = brand\n\n    def describe(self):\n        print('Generic vehicle:', self.brand)\n\nclass Car(Vehicle):\n    def describe(self):\n        print('Car:', self.brand)\n\nc = Car('Honda')\nc.describe()\nc.describe()",
       "test_cases": [
-        "c = Car('Honda')\nc.describe()",
-        "v = Vehicle('Bus')\nv.describe()"
+        {
+          "input": "",
+          "expected_output": "c = Car('Honda')\nc.describe()",
+          "description": "c = Car('Honda')\nc.describe()"
+        },
+        {
+          "input": "",
+          "expected_output": "v = Vehicle('Bus')\nv.describe()",
+          "description": "v = Vehicle('Bus')\nv.describe()"
+        }
       ],
       "hint": "The original code is valid Python; the challenge is to predict output and demonstrate polymorphic behavior by calling describe on both a Car and a Vehicle instance.",
       "explanation": "Polymorphism allows different classes to respond to the same method name. Here, Car overrides describe(), so invoking it on a Car instance executes Car's version, while a Vehicle instance uses the parent's version."
@@ -554,8 +598,16 @@
       "starter_code": "class BankAccount:\n    def __init__(self, owner_name, account_number, balance=0):\n        self.owner_name = owner_name\n        self.account_number = account_number\n        self.__balance = balance\n\n    def deposit(self, amount):\n        pass\n\n    def withdraw(self, amount):\n        pass\n\n    def get_balance(self):\n        pass\n\n    def display_balance(self):\n        pass",
       "solution_code": "class BankAccount:\n    def __init__(self, owner_name, account_number, balance=0):\n        self.owner_name = owner_name\n        self.account_number = account_number\n        self.__balance = balance\n\n    def deposit(self, amount):\n        if amount > 0:\n            self.__balance += amount\n        else:\n            print('Deposit amount must be positive.')\n\n    def withdraw(self, amount):\n        if amount <= 0:\n            print('Withdrawal amount must be positive.')\n        elif amount > self.__balance:\n            print('Insufficient funds.')\n        else:\n            self.__balance -= amount\n\n    def get_balance(self):\n        return self.__balance\n\n    def display_balance(self):\n        print('Owner:', self.owner_name)\n        print('Account:', self.account_number)\n        print('Balance:', self.get_balance())\n\nacc = BankAccount('Alice', '123456', 0)\nacc.deposit(500)\nacc.withdraw(200)\nacc.display_balance()",
       "test_cases": [
-        "acc = BankAccount('Alice', '123456')\nassert acc.get_balance() == 0\nacc.deposit(500)\nassert acc.get_balance() == 500\nacc.withdraw(200)\nassert acc.get_balance() == 300\nacc.display_balance()",
-        "acc2 = BankAccount('Bob', '654321')\nacc2.deposit(-50)\nassert acc2.get_balance() == 0"
+        {
+          "input": "acc = BankAccount('Alice', '123456')\nassert acc.get_balance()",
+          "expected_output": "0\nacc.deposit(500)\nassert acc.get_balance() == 500\nacc.withdraw(200)\nassert acc.get_balance() == 300\nacc.display_balance()",
+          "description": "Verifies: acc = BankAccount('Alice', '123456')\nassert acc.get_balance() == 0\nacc.deposit(500)\nassert acc.get_balance() == 500\nacc.withdraw(200)\nassert acc.get_balance() == 300\nacc.display_balance()"
+        },
+        {
+          "input": "acc2 = BankAccount('Bob', '654321')\nacc2.deposit(-50)\nassert acc2.get_balance()",
+          "expected_output": "0",
+          "description": "Verifies: acc2 = BankAccount('Bob', '654321')\nacc2.deposit(-50)\nassert acc2.get_balance() == 0"
+        }
       ],
       "hint": "Use double underscores for name mangling on balance and validate inputs in deposit and withdraw.",
       "explanation": "Real-world modeling requires encapsulation to protect internal state and validation to maintain invariants. Name mangling (__balance) discourages direct external mutation, while methods enforce business rules."
@@ -573,8 +625,16 @@
       "starter_code": "class BankAccount:\n    def __init__(self, owner_name, account_number, balance=0):\n        self.owner_name = owner_name\n        self.account_number = account_number\n        self.__balance = balance\n\n    def __add__(self, other):\n        pass\n\n    def __str__(self):\n        pass",
       "solution_code": "class BankAccount:\n    def __init__(self, owner_name, account_number, balance=0):\n        self.owner_name = owner_name\n        self.account_number = account_number\n        self.__balance = balance\n\n    def __add__(self, other):\n        if isinstance(other, BankAccount):\n            new_balance = self.__balance + other.__balance\n            return BankAccount(self.owner_name + ' & ' + other.owner_name, 'COMBINED', new_balance)\n        return NotImplemented\n\n    def __str__(self):\n        return 'BankAccount(owner=' + self.owner_name + ', balance=' + str(self.__balance) + ')'\n\n    def get_balance(self):\n        return self.__balance\n\n    def display_balance(self):\n        print(self)\n\nacc1 = BankAccount('Alice', '001', 300)\nacc2 = BankAccount('Bob', '002', 400)\nresult = acc1 + acc2\nprint(result)\nprint('Combined balance:', result.get_balance())",
       "test_cases": [
-        "acc1 = BankAccount('Alice', '001', 300)\nacc2 = BankAccount('Bob', '002', 400)\nresult = acc1 + acc2\nassert result.get_balance() == 700\nassert str(result) == 'BankAccount(owner=Alice & Bob, balance=700)'",
-        "acc3 = BankAccount('Carol', '003')\nassert (acc3 + acc1).get_balance() == 300"
+        {
+          "input": "acc1 = BankAccount('Alice', '001', 300)\nacc2 = BankAccount('Bob', '002', 400)\nresult = acc1 + acc2\nassert result.get_balance()",
+          "expected_output": "700\nassert str(result) == 'BankAccount(owner=Alice & Bob, balance=700)'",
+          "description": "Verifies: acc1 = BankAccount('Alice', '001', 300)\nacc2 = BankAccount('Bob', '002', 400)\nresult = acc1 + acc2\nassert result.get_balance() == 700\nassert str(result) == 'BankAccount(owner=Alice & Bob, balance=700)'"
+        },
+        {
+          "input": "acc3 = BankAccount('Carol', '003')\nassert (acc3 + acc1).get_balance()",
+          "expected_output": "300",
+          "description": "Verifies: acc3 = BankAccount('Carol', '003')\nassert (acc3 + acc1).get_balance() == 300"
+        }
       ],
       "hint": "In __add__, check isinstance(other, BankAccount), access __balance via name mangling, and return a new instance. In __str__, construct the string representation manually.",
       "explanation": "Operator overloading via magic methods like __add__ and __str__ enables intuitive syntax and clean output. Mastery here means combining encapsulation, validation, inheritance awareness, and protocol-based design into a cohesive, reusable class."

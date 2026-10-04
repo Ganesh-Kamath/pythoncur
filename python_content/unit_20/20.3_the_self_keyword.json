@@ -506,9 +506,21 @@
       "starter_code": "class Counter:\n    def __init__(self, count):\n        self.count = count\n\n    def get_count(self):\n        return self.count\n\n    def set_count(self, count):\n        self.count = count\n\n    def increment(self):\n        self.count = self.count + 1\n        return self.count",
       "solution_code": "class Counter:\n    def __init__(self, count):\n        self._count = count\n\n    @property\n    def count(self):\n        return self._count\n\n    def increment(self):\n        self._count += 1\n        return self._count",
       "test_cases": [
-        "c = Counter(5)\nassert c.count == 5",
-        "c.increment()\nassert c.count == 6",
-        "c2 = Counter(0)\nassert c2.count == 0"
+        {
+          "input": "c = Counter(5)\nassert c.count",
+          "expected_output": "5",
+          "description": "Verifies: c = Counter(5)\nassert c.count == 5"
+        },
+        {
+          "input": "c.increment()\nassert c.count",
+          "expected_output": "6",
+          "description": "Verifies: c.increment()\nassert c.count == 6"
+        },
+        {
+          "input": "c2 = Counter(0)\nassert c2.count",
+          "expected_output": "0",
+          "description": "Verifies: c2 = Counter(0)\nassert c2.count == 0"
+        }
       ],
       "hint": "Replace public count with a private _count attribute, expose it via @property, and simplify increment to use += on the private attribute.",
       "explanation": "The original design exposes count directly, allowing external mutation without control. The refactored version uses _count to signal internal use, exposes a read-only count property, and makes increment the sole mutator. This reduces redundant self.count lookups, centralizes state changes, and improves encapsulation."
@@ -526,8 +538,16 @@
       "starter_code": "# Write your solution below\n",
       "solution_code": "class Student:\n    def __init__(self, name, grade):\n        self.name = name\n        self.grade = grade\n\n    def display_info(self):\n        print('Name:', self.name)\n        print('Grade:', self.grade)\n\ns1 = Student('Alice', 85)\ns1.display_info()",
       "test_cases": [
-        "Student('Bob', 90).display_info() should print Name: Bob and Grade: 90",
-        "Changing s1.name to 'Charlie' should not affect a new instance"
+        {
+          "input": "",
+          "expected_output": "Student('Bob', 90).display_info() should print Name: Bob and Grade: 90",
+          "description": "Student('Bob', 90).display_info() should print Name: Bob and Grade: 90"
+        },
+        {
+          "input": "",
+          "expected_output": "Changing s1.name to 'Charlie' should not affect a new instance",
+          "description": "Changing s1.name to 'Charlie' should not affect a new instance"
+        }
       ],
       "hint": "Remember that `self` refers to the current instance inside every method. Use it to assign and access instance variables.",
       "explanation": "The `self` parameter allows a class method to access and modify the specific instance's data. Without `self`, the attributes would not be tied to any object."
@@ -545,8 +565,16 @@
       "starter_code": "# Write your solution below\n",
       "solution_code": "class Student:\n    def __init__(self, name, grade):\n        self.name = name\n        self.grade = grade\n\n    def update_grade(self, new_grade):\n        self.grade = new_grade\n\ns1 = Student('Dana', 78)\ns1.update_grade(92)\nprint('Updated grade:', s1.grade)",
       "test_cases": [
-        "After calling update_grade(88), the instance's grade should be 88",
-        "A new Student('Eve', 80) should retain grade 80 until explicitly updated"
+        {
+          "input": "",
+          "expected_output": "After calling update_grade(88), the instance's grade should be 88",
+          "description": "After calling update_grade(88), the instance's grade should be 88"
+        },
+        {
+          "input": "",
+          "expected_output": "A new Student('Eve', 80) should retain grade 80 until explicitly updated",
+          "description": "A new Student('Eve', 80) should retain grade 80 until explicitly updated"
+        }
       ],
       "hint": "Inside `update_grade`, assign the new value to `self.grade` so the change persists on the instance.",
       "explanation": "Using `self` inside a method lets you mutate the state of the calling object. This is essential for object-oriented behavior where objects manage their own data."
@@ -564,8 +592,16 @@
       "starter_code": "# Write your solution below\n",
       "solution_code": "class BankAccount:\n    def __init__(self, initial_balance=0):\n        self.balance = initial_balance\n\n    def deposit(self, amount):\n        self.balance += amount\n\n    def withdraw(self, amount):\n        if amount <= self.balance:\n            self.balance -= amount\n            return True\n        return False\n\nacc = BankAccount(100)\nacc.deposit(50)\nprint(acc.withdraw(30))\nprint('Balance:', acc.balance)",
       "test_cases": [
-        "deposit(25) followed by withdraw(10) on balance 100 should yield 115",
-        "withdraw(200) on balance 100 should return False and leave balance unchanged"
+        {
+          "input": "",
+          "expected_output": "deposit(25) followed by withdraw(10) on balance 100 should yield 115",
+          "description": "deposit(25) followed by withdraw(10) on balance 100 should yield 115"
+        },
+        {
+          "input": "",
+          "expected_output": "withdraw(200) on balance 100 should return False and leave balance unchanged",
+          "description": "withdraw(200) on balance 100 should return False and leave balance unchanged"
+        }
       ],
       "hint": "Check the condition before subtracting from `self.balance` to avoid negative balances.",
       "explanation": "Advanced use of `self` involves conditional logic and validation within methods, ensuring that each instance maintains valid internal state."
@@ -583,8 +619,16 @@
       "starter_code": "class Counter:\n    def __init__(self):\n        count = 0\n\n    def increment(self):\n        count += 1\n        return count",
       "solution_code": "class Counter:\n    def __init__(self):\n        self.count = 0\n\n    def increment(self):\n        self.count += 1\n        return self.count",
       "test_cases": [
-        "c1 = Counter(); c1.increment(); c1.increment() should return 2",
-        "c2 = Counter(); c2.increment() should return 1 and not affect c1"
+        {
+          "input": "",
+          "expected_output": "c1 = Counter(); c1.increment(); c1.increment() should return 2",
+          "description": "c1 = Counter(); c1.increment(); c1.increment() should return 2"
+        },
+        {
+          "input": "",
+          "expected_output": "c2 = Counter(); c2.increment() should return 1 and not affect c1",
+          "description": "c2 = Counter(); c2.increment() should return 1 and not affect c1"
+        }
       ],
       "hint": "Local variables inside methods do not persist. You must use `self.count` to store state on the instance.",
       "explanation": "The bug occurred because `count` was a local variable rather than an instance attribute. Using `self.count` ensures each object maintains its own independent state."
@@ -602,8 +646,16 @@
       "starter_code": "# Write your solution below\n",
       "solution_code": "class LibraryBook:\n    def __init__(self, title):\n        self.title = title\n        self.available = True\n\n    def borrow(self):\n        if self.available:\n            self.available = False\n            return 'Borrowed successfully'\n        return 'Book already borrowed'\n\n    def return_book(self):\n        self.available = True\n        return 'Book returned'\n\nb1 = LibraryBook('Python Basics')\nprint(b1.borrow())\nprint(b1.borrow())\nprint(b1.return_book())",
       "test_cases": [
-        "After borrowing, a second borrow attempt should indicate the book is unavailable",
-        "Returning the book should allow another successful borrow"
+        {
+          "input": "",
+          "expected_output": "After borrowing, a second borrow attempt should indicate the book is unavailable",
+          "description": "After borrowing, a second borrow attempt should indicate the book is unavailable"
+        },
+        {
+          "input": "",
+          "expected_output": "Returning the book should allow another successful borrow",
+          "description": "Returning the book should allow another successful borrow"
+        }
       ],
       "hint": "Track availability with `self.available` and check it before changing state in `borrow`.",
       "explanation": "Real-world modeling with `self` encapsulates object state and behavior. Each `LibraryBook` instance independently manages its own availability, demonstrating encapsulation."
@@ -621,8 +673,16 @@
       "starter_code": "# Write your solution below\n",
       "solution_code": "class TaskManager:\n    def __init__(self, name):\n        self.name = name\n        self.completed = False\n\n    def complete(self):\n        self.completed = True\n\n    def uncomplete(self):\n        self.completed = False\n\nt1 = TaskManager('Write tests')\nt2 = TaskManager('Refactor code')\nt1.complete()\nprint(t1.completed, t2.completed)\nt2.uncomplete()\nprint(t1.completed, t2.completed)",
       "test_cases": [
-        "After t1.complete(), t1.completed should be True and t2.completed should remain False",
-        "After t2.uncomplete(), both t1.completed and t2.completed should reflect their own independent states"
+        {
+          "input": "",
+          "expected_output": "After t1.complete(), t1.completed should be True and t2.completed should remain False",
+          "description": "After t1.complete(), t1.completed should be True and t2.completed should remain False"
+        },
+        {
+          "input": "",
+          "expected_output": "After t2.uncomplete(), both t1.completed and t2.completed should reflect their own independent states",
+          "description": "After t2.uncomplete(), both t1.completed and t2.completed should reflect their own independent states"
+        }
       ],
       "hint": "Every method that reads or changes instance data must reference `self` so the operation targets the correct object.",
       "explanation": "Mastery of `self` means consistently using it to isolate state per instance. This prevents unintended side effects and supports scalable, maintainable object-oriented designs."

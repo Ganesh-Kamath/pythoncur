@@ -476,10 +476,26 @@
       "starter_code": "import os, sys, json, math, random, datetime\n\ndef main():\n    data = json.loads(open('config.json').read())\n    now = datetime.datetime.now()\n    path = os.path.join(sys.path[0], 'output')\n    value = math.sqrt(random.uniform(0, 100))\n    return {'data': data, 'time': now, 'path': path, 'value': value}\n\nif __name__ == '__main__':\n    print(main())",
       "solution_code": "import json\nimport math\nimport os\nimport random\nfrom datetime import datetime\nfrom config.loader import load_config\nfrom io.writer import ensure_output_dir\nfrom math.utils import sample_sqrt\n\ndef main():\n    data = load_config('config.json')\n    now = datetime.now()\n    path = ensure_output_dir()\n    value = sample_sqrt(random.uniform(0, 100))\n    return {'data': data, 'time': now, 'path': path, 'value': value}\n\nif __name__ == '__main__':\n    print(main())",
       "test_cases": [
-        "main() returns a dict with keys 'data', 'time', 'path', and 'value'",
-        "load_config reads and parses a valid JSON file",
-        "ensure_output_dir creates the output directory if missing",
-        "sample_sqrt returns the square root of the provided float"
+        {
+          "input": "",
+          "expected_output": "main() returns a dict with keys 'data', 'time', 'path', and 'value'",
+          "description": "main() returns a dict with keys 'data', 'time', 'path', and 'value'"
+        },
+        {
+          "input": "",
+          "expected_output": "load_config reads and parses a valid JSON file",
+          "description": "load_config reads and parses a valid JSON file"
+        },
+        {
+          "input": "",
+          "expected_output": "ensure_output_dir creates the output directory if missing",
+          "description": "ensure_output_dir creates the output directory if missing"
+        },
+        {
+          "input": "",
+          "expected_output": "sample_sqrt returns the square root of the provided float",
+          "description": "sample_sqrt returns the square root of the provided float"
+        }
       ],
       "hint": "Group related imports, use from ... import for clarity, and delegate file I/O and math operations to dedicated modules.",
       "explanation": "The refactored version reduces top-level namespace pollution, eliminates circular risk by isolating I/O and math logic, and uses explicit from imports for readability. Each helper module can be unit tested independently, and the main function becomes a concise orchestration layer."

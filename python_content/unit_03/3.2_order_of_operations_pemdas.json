@@ -505,7 +505,13 @@
       ],
       "prompt": "Compound interest is `principal * (1 + rate) ** years`. Given `principal = 1000`, `rate = 0.05`, and `years = 2`, which line correctly evaluates this?",
       "correct_answer": "A",
-      "explanation": "Parentheses compute `1 + rate = 1.05`. Then `1.05 ** 2 = 1.1025`. Then multiplied by `principal`."
+      "explanation": "Parentheses compute `1 + rate = 1.05`. Then `1.05 ** 2 = 1.1025`. Then multiplied by `principal`.",
+      "options": [
+        "A. total = principal * (1 + rate) ** years",
+        "B. total = principal * 1 + rate ** years",
+        "C. total = (principal * 1 + rate) ** years",
+        "D. total = principal * (1 + rate * years)"
+      ]
     },
     {
       "id": "3.2_q30",
@@ -522,7 +528,13 @@
       ],
       "prompt": "Which statement accurately summarizes Python operator precedence?",
       "correct_answer": "A",
-      "explanation": "This exercise tests `pemdas synthesis` in Order of Operations (PEMDAS). When Python validates this code, it applies the standard rules of pemdas synthesis. Understanding how this construct behaves prevents common programming errors and ensures predictable execution."
+      "explanation": "This exercise tests `pemdas synthesis` in Order of Operations (PEMDAS). When Python validates this code, it applies the standard rules of pemdas synthesis. Understanding how this construct behaves prevents common programming errors and ensures predictable execution.",
+      "options": [
+        "A. Python evaluates expressions according to precedence rules (PEMDAS), with parentheses explicitly overriding default precedence.",
+        "B. Expressions in Python always evaluate purely left-to-right regardless of operator.",
+        "C. Addition has higher precedence than multiplication in Python.",
+        "D. Exponentiation ** associates from left to right."
+      ]
     }
   ],
   "unit_num": 3,

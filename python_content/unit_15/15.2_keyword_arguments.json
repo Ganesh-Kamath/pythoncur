@@ -191,24 +191,25 @@
     },
     {
       "id": "15.2_q10",
-      "type": "real_world_scenario",
+      "type": "write_the_code",
       "concept": "keyword_arguments_production_transfer",
-      "skill": "application",
+      "skill": "transfer",
       "difficulty": "hard",
       "prerequisites": [
         "15.2_q9"
       ],
-      "prompt": "Apply Keyword Arguments to a realistic scenario: process a sequence of records and return only those meeting the business rule:",
-      "starter_code": "records = [{'id': 1, 'active': True}, {'id': 2, 'active': False}]\n# Filter active records\nactive_records = ___",
-      "solution_code": "records = [{'id': 1, 'active': True}, {'id': 2, 'active': False}]\nactive_records = [r for r in records if r['active']]",
+      "prompt": "Transfer Challenge: Solve a practical problem using Keyword Arguments. Implement the function below to satisfy the stated contract.",
+      "starter_code": "def handle_domain_task(val):\n    # Implement domain logic for Keyword Arguments\n    return str(val).strip()",
+      "solution_code": "def handle_domain_task(val):\n    return str(val).strip().upper()",
       "test_cases": [
         {
-          "input": "",
-          "expected_output": "Keyword Arguments Result 10"
+          "input": "'  python  '",
+          "expected_output": "'PYTHON'",
+          "description": "domain sanitization"
         }
       ],
       "hint": "Use a list comprehension to filter records where 'active' is True.",
-      "explanation": "In production Python code, Keyword Arguments is frequently combined with data filtering to process structured domain models efficiently."
+      "explanation": "Applying clean functional contracts for Keyword Arguments ensures testable domain operations."
     },
     {
       "id": "15.2_q11",

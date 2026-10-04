@@ -461,9 +461,21 @@
       "starter_code": "import os\nimport subprocess\n\nenv_name = 'app_env'\nos.system(f'python -m venv {env_name}')\nactivate = os.path.join(env_name, 'Scripts', 'activate')\nprint('Activate with:', activate)\nsubprocess.run(['pip', 'install', 'flask', 'requests'])",
       "solution_code": "import os\nimport subprocess\nimport sys\n\ndef setup_venv(env_name, packages):\n    subprocess.run([sys.executable, '-m', 'venv', env_name], check=True)\n    if os.name == 'nt':\n        activate = os.path.join(env_name, 'Scripts', 'activate.bat')\n    else:\n        activate = os.path.join(env_name, 'bin', 'activate')\n    print('To activate:', activate)\n    subprocess.run([sys.executable, '-m', 'pip', 'install'] + packages, check=True)\n\nsetup_venv('app_env', ['flask', 'requests'])",
       "test_cases": [
-        "setup_venv('test_env', ['pytest']) runs without raising an exception",
-        "The function prints an activation path containing either 'Scripts' or 'bin'",
-        "flask and requests are installed inside the created environment"
+        {
+          "input": "",
+          "expected_output": "setup_venv('test_env', ['pytest']) runs without raising an exception",
+          "description": "setup_venv('test_env', ['pytest']) runs without raising an exception"
+        },
+        {
+          "input": "",
+          "expected_output": "The function prints an activation path containing either 'Scripts' or 'bin'",
+          "description": "The function prints an activation path containing either 'Scripts' or 'bin'"
+        },
+        {
+          "input": "",
+          "expected_output": "flask and requests are installed inside the created environment",
+          "description": "flask and requests are installed inside the created environment"
+        }
       ],
       "hint": "Use subprocess with sys.executable for venv creation and pip invocation, and branch on os.name for cross-platform activation paths.",
       "explanation": "The refactored function eliminates hard-coded OS assumptions, uses subprocess consistently with the current interpreter, and accepts packages as a list parameter. This improves maintainability, reusability, and correctness across Windows and Unix-like systems."
@@ -481,9 +493,21 @@
       "starter_code": "# Write your solution below\n",
       "solution_code": "import subprocess\nimport sys\n\n# Create virtual environment\nsubprocess.run([\"python\", \"-m\", \"venv\", \"myenv\"], check=True)\n\n# Activate (platform-specific; this example assumes Unix-like shell)\nactivate_script = \"myenv/bin/activate\"\nprint(f\"Activate with: source {activate_script}\")\n\n# After activation, install requests using pip\nsubprocess.run([\"pip\", \"install\", \"requests\"], check=True)\n\n# Verify installation\nimport requests\nprint(f\"requests version: {requests.__version__}\")",
       "test_cases": [
-        "myenv directory is created",
-        "requests package is installed inside myenv",
-        "requests.__version__ prints a valid version string"
+        {
+          "input": "",
+          "expected_output": "myenv directory is created",
+          "description": "myenv directory is created"
+        },
+        {
+          "input": "",
+          "expected_output": "requests package is installed inside myenv",
+          "description": "requests package is installed inside myenv"
+        },
+        {
+          "input": "",
+          "expected_output": "requests.__version__ prints a valid version string",
+          "description": "requests.__version__ prints a valid version string"
+        }
       ],
       "hint": "Use subprocess.run for shell commands and remember to activate the environment before installing packages.",
       "explanation": "This exercise teaches the fundamental workflow of creating a venv, activating it, installing dependencies, and confirming they are available. Using subprocess avoids shell-specific syntax in cross-platform scripts."
@@ -501,9 +525,21 @@
       "starter_code": "# Write your solution below\n",
       "solution_code": "import subprocess\nimport json\n\n# Create virtual environment\nsubprocess.run([\"python\", \"-m\", \"venv\", \"project_env\"], check=True)\n\n# Activate and install from requirements.txt\nsubprocess.run([\"project_env/bin/pip\", \"install\", \"-r\", \"requirements.txt\"], check=True)\n\n# List installed packages with versions\nresult = subprocess.run([\"project_env/bin/pip\", \"list\"], capture_output=True, text=True)\n\n# Parse and print JSON-like output\nfor line in result.stdout.splitlines():\n    if line.strip():\n        parts = line.split()\n        if len(parts) >= 2:\n            print(f\"{parts[0]}=={parts[1]}\")",
       "test_cases": [
-        "project_env directory exists",
-        "requirements.txt is installed without errors",
-        "output contains package==version lines"
+        {
+          "input": "",
+          "expected_output": "project_env directory exists",
+          "description": "project_env directory exists"
+        },
+        {
+          "input": "",
+          "expected_output": "requirements.txt is installed without errors",
+          "description": "requirements.txt is installed without errors"
+        },
+        {
+          "input": "output contains package",
+          "expected_output": "version lines",
+          "description": "Verifies: output contains package==version lines"
+        }
       ],
       "hint": "Use subprocess.run with capture_output=True to read pip list, and split each line to extract package and version.",
       "explanation": "This reinforces reproducible dependency management by using requirements.txt inside an isolated environment, a standard practice in software development."
@@ -521,9 +557,21 @@
       "starter_code": "# Write your solution below\n",
       "solution_code": "import subprocess\nimport shutil\nimport os\nimport sys\n\nenv_name = \"temp_env\"\npackages = [\"numpy>=1.21.0\", \"pandas<2.0.0\"]\n\n# Create venv\nsubprocess.run([\"python\", \"-m\", \"venv\", env_name], check=True)\n\n# Install constrained packages\nsubprocess.run([sys.executable, \"-m\", \"pip\", \"install\"] + packages, cwd=env_name, check=True)\n\n# Deactivate by unsetting PATH modifications (conceptual cleanup)\nos.environ[\"PATH\"] = os.environ.get(\"PATH\", \"\")\n\n# Clean up\nshutil.rmtree(env_name)\nprint(\"Virtual environment created, used, and removed successfully.\")",
       "test_cases": [
-        "temp_env is created and then removed",
-        "packages with constraints are installed",
-        "no leftover files remain in current directory"
+        {
+          "input": "",
+          "expected_output": "temp_env is created and then removed",
+          "description": "temp_env is created and then removed"
+        },
+        {
+          "input": "",
+          "expected_output": "packages with constraints are installed",
+          "description": "packages with constraints are installed"
+        },
+        {
+          "input": "",
+          "expected_output": "no leftover files remain in current directory",
+          "description": "no leftover files remain in current directory"
+        }
       ],
       "hint": "Use shutil.rmtree for recursive deletion and pass cwd to subprocess.run when invoking pip inside the venv directory.",
       "explanation": "Advanced automation of venv lifecycle management ensures clean, repeatable setups and teardown, essential for CI/CD pipelines and temporary project workspaces."
@@ -541,9 +589,21 @@
       "starter_code": "# Write your solution below\n",
       "solution_code": "import importlib.util\nimport subprocess\nimport sys\n\npackage = \"requests\"\n\n# Check global installation\ndef is_global(pkg):\n    spec = importlib.util.find_spec(pkg)\n    return spec is not None and not spec.origin.startswith(\"venv\")\n\nif is_global(package):\n    print(f\"{package} found in global environment.\")\nelse:\n    print(f\"{package} not found globally.\")\n\n# Create and use venv\nsubprocess.run([\"python\", \"-m\", \"venv\", \"fix_env\"], check=True)\nsubprocess.run([\"fix_env/bin/pip\", \"install\", package], check=True)\n\n# Verify isolation\nimport fix_env.bin.sitecustomize  # noqa: F401\n# Instead, verify by checking pip show inside venv\nresult = subprocess.run([\"fix_env/bin/pip\", \"show\", package], capture_output=True, text=True)\nprint(result.stdout)\n\nimport shutil\nshutil.rmtree(\"fix_env\")",
       "test_cases": [
-        "global detection logic works correctly",
-        "venv is created and package installed inside it",
-        "isolation is confirmed via pip show output"
+        {
+          "input": "",
+          "expected_output": "global detection logic works correctly",
+          "description": "global detection logic works correctly"
+        },
+        {
+          "input": "",
+          "expected_output": "venv is created and package installed inside it",
+          "description": "venv is created and package installed inside it"
+        },
+        {
+          "input": "",
+          "expected_output": "isolation is confirmed via pip show output",
+          "description": "isolation is confirmed via pip show output"
+        }
       ],
       "hint": "Use importlib.util.find_spec to inspect module origin paths, and compare against venv directory prefixes.",
       "explanation": "This challenge emphasizes the importance of isolation by detecting global pollution and migrating dependencies into a dedicated venv to prevent version conflicts."
@@ -561,10 +621,26 @@
       "starter_code": "# Write your solution below\n",
       "solution_code": "import subprocess\nimport json\n\nenv_name = \"webapp_env\"\npython_version = \"3.10\"\npackages = {\"Flask\": \"2.2.3\", \"SQLAlchemy\": \"1.4.47\"}\n\n# Create venv\nsubprocess.run([\"python3.10\", \"-m\", \"venv\", env_name], check=True)\n\n# Install packages with exact versions\ninstall_cmd = [env_name + \"/bin/pip\", \"install\"] + [\n    f\"{k}=={v}\" for k, v in packages.items()\n]\nsubprocess.run(install_cmd, check=True)\n\n# Generate requirements.txt\nreq_lines = [f\"{k}=={v}\" for k, v in packages.items()]\nwith open(\"requirements.txt\", \"w\") as f:\n    f.write(\"\\n\".join(req_lines))\n\n# Validate environment\nresult = subprocess.run([env_name + \"/bin/pip\", \"list\"], capture_output=True, text=True)\nfor line in result.stdout.splitlines():\n    if any(pkg in line for pkg in packages):\n        print(f\"Validated: {line.strip()}\")\n\nimport shutil\nshutil.rmtree(env_name)",
       "test_cases": [
-        "venv created with correct Python interpreter",
-        "exact package versions installed",
-        "requirements.txt contains correct pinned versions",
-        "validation output shows installed packages"
+        {
+          "input": "",
+          "expected_output": "venv created with correct Python interpreter",
+          "description": "venv created with correct Python interpreter"
+        },
+        {
+          "input": "",
+          "expected_output": "exact package versions installed",
+          "description": "exact package versions installed"
+        },
+        {
+          "input": "",
+          "expected_output": "requirements.txt contains correct pinned versions",
+          "description": "requirements.txt contains correct pinned versions"
+        },
+        {
+          "input": "",
+          "expected_output": "validation output shows installed packages",
+          "description": "validation output shows installed packages"
+        }
       ],
       "hint": "Pin versions using == in pip install commands, and use subprocess with the venv's pip path for all operations.",
       "explanation": "This scenario mirrors real-world onboarding by combining version pinning, dependency generation, and validation—critical for consistent team workflows and production deployments."
@@ -582,10 +658,26 @@
       "starter_code": "# Write your solution below\n",
       "solution_code": "import subprocess\nimport platform\nimport sys\n\ndef get_activate_command(env_name):\n    system = platform.system()\n    if system == \"Windows\":\n        return f\"{env_name}\\\\Scripts\\\\activate\"\n    return f\"source {env_name}/bin/activate\"\n\nenv_name = \"master_env\"\nsubprocess.run([sys.executable, \"-m\", \"venv\", env_name], check=True)\nsubprocess.run([env_name + \"/bin/pip\", \"install\", \"requests\", \"flask\"], check=True)\n\nprint(f\"Activate with: {get_activate_command(env_name)}\")\n\ndef deactivate_helper():\n    print(\"Environment deactivated. Restore original PATH and variables.\")\n\ndeactivate_helper()\n\nimport shutil\nshutil.rmtree(env_name)",
       "test_cases": [
-        "venv created successfully",
-        "activation command matches detected OS",
-        "deactivation helper prints correct message",
-        "cleanup removes environment directory"
+        {
+          "input": "",
+          "expected_output": "venv created successfully",
+          "description": "venv created successfully"
+        },
+        {
+          "input": "",
+          "expected_output": "activation command matches detected OS",
+          "description": "activation command matches detected OS"
+        },
+        {
+          "input": "",
+          "expected_output": "deactivation helper prints correct message",
+          "description": "deactivation helper prints correct message"
+        },
+        {
+          "input": "",
+          "expected_output": "cleanup removes environment directory",
+          "description": "cleanup removes environment directory"
+        }
       ],
       "hint": "Use platform.system() to branch OS-specific paths, and ensure pip path uses the venv's Python executable.",
       "explanation": "Mastery here requires synthesizing OS detection, activation logic, and cleanup into a robust, portable automation script—skills directly applicable to deployment and DevOps tasks."

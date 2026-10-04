@@ -173,13 +173,20 @@
         "title": "Transforming Strings with Iteration",
         "content": "Strings are immutable sequences in Python, but we can iterate over them character by character and build new strings. A common pattern is to use a loop or comprehension to apply a transformation, such as converting each character to uppercase. When combining iteration with string methods like upper(), remember that the method returns a new string rather than modifying the original. This allows us to construct transformed outputs efficiently."
       },
-      "prompt": "Identify and fix the logical or syntax defect in this implementation of Iteration and Transformation:",
+      "prompt": "Defensive Validation: Implement a verification helper for Iteration and Transformation that confirms preconditions and guards against invalid input.",
       "correct_answer": "['APPLE', 'BANANA', 'CHERRY']",
-      "explanation": "Debugging is a core programming competency. Guarding against edge cases like `None` or invalid states prevents runtime failures.",
+      "explanation": "Validating preconditions at the boundary prevents null pointer and type exceptions downstream.",
       "difficulty": "medium",
-      "starter_code": "# Fix the issue with Iteration and Transformation\ndef check_valid(val):\n    if val is None:\n        return False\n    return True",
-      "solution_code": "def check_valid(val):\n    if val is None:\n        return False\n    return True",
-      "hint": "Check the condition and return value carefully."
+      "starter_code": "def validate_32_2_input(val):\n    # Return True if val is valid, False otherwise\n    pass",
+      "solution_code": "def validate_32_2_input(val):\n    if val is None or val == '':\n        return False\n    return True",
+      "hint": "Check the condition and return value carefully.",
+      "test_cases": [
+        {
+          "input": "'valid_token'",
+          "expected_output": "True",
+          "description": "valid input returns True"
+        }
+      ]
     },
     {
       "id": "32.2_q9",
@@ -524,9 +531,21 @@
       "starter_code": "def square_evens(numbers):\n    result = []\n    for n in numbers:\n        # TODO: add logic to square even numbers\n    return result\n\nprint(square_evens([1, 2, 3, 4, 5]))",
       "solution_code": "def square_evens(numbers):\n    result = []\n    for n in numbers:\n        if n % 2 == 0:\n            result.append(n ** 2)\n    return result\n\nprint(square_evens([1, 2, 3, 4, 5]))",
       "test_cases": [
-        "square_evens([1, 2, 3, 4, 5]) == [4, 16]",
-        "square_evens([0, 5, 6]) == [0, 36]",
-        "square_evens([]) == []"
+        {
+          "input": "square_evens([1, 2, 3, 4, 5])",
+          "expected_output": "[4, 16]",
+          "description": "Verifies: square_evens([1, 2, 3, 4, 5]) == [4, 16]"
+        },
+        {
+          "input": "square_evens([0, 5, 6])",
+          "expected_output": "[0, 36]",
+          "description": "Verifies: square_evens([0, 5, 6]) == [0, 36]"
+        },
+        {
+          "input": "square_evens([])",
+          "expected_output": "[]",
+          "description": "Verifies: square_evens([]) == []"
+        }
       ],
       "hint": "Check if a number is even using the modulo operator, then compute its square.",
       "explanation": "This problem reinforces iterating over a list and conditionally transforming elements. The modulo operator identifies even numbers, and exponentiation computes the square. Building a new list preserves the original data, which is a key principle in array and string manipulation."
@@ -544,9 +563,21 @@
       "starter_code": "def format_names(names):\n    formatted = []\n    for name in names:\n        # TODO: transform name\n    return formatted\n\nprint(format_names(['alice', 'bob', 'carol']))",
       "solution_code": "def format_names(names):\n    formatted = []\n    for name in names:\n        formatted.append('<' + name.upper() + '>')\n    return formatted\n\nprint(format_names(['alice', 'bob', 'carol']))",
       "test_cases": [
-        "format_names(['alice', 'bob', 'carol']) == ['<ALICE>', '<BOB>', '<CAROL>']",
-        "format_names(['x']) == ['<X>']",
-        "format_names([]) == []"
+        {
+          "input": "format_names(['alice', 'bob', 'carol'])",
+          "expected_output": "['<ALICE>', '<BOB>', '<CAROL>']",
+          "description": "Verifies: format_names(['alice', 'bob', 'carol']) == ['<ALICE>', '<BOB>', '<CAROL>']"
+        },
+        {
+          "input": "format_names(['x'])",
+          "expected_output": "['<X>']",
+          "description": "Verifies: format_names(['x']) == ['<X>']"
+        },
+        {
+          "input": "format_names([])",
+          "expected_output": "[]",
+          "description": "Verifies: format_names([]) == []"
+        }
       ],
       "hint": "Use the upper() method to convert a string to uppercase, then concatenate with '<' and '>'.",
       "explanation": "String transformation is common in data cleaning and formatting tasks. Iterating over a collection and applying a uniform transformation to each element demonstrates how arrays of strings can be processed systematically."
@@ -564,9 +595,21 @@
       "starter_code": "def describe_strings(strings):\n    output = []\n    for s in strings:\n        # TODO: build tuple with (original, length, reversed)\n    return output\n\nprint(describe_strings(['cat', 'dog']))",
       "solution_code": "def describe_strings(strings):\n    output = []\n    for s in strings:\n        length = 0\n        for _ in s:\n            length += 1\n        reversed_s = ''\n        for i in range(length - 1, -1, -1):\n            reversed_s = reversed_s + s[i]\n        output.append((s, length, reversed_s))\n    return output\n\nprint(describe_strings(['cat', 'dog']))",
       "test_cases": [
-        "describe_strings(['cat', 'dog']) == [('cat', 3, 'tac'), ('dog', 3, 'god')]",
-        "describe_strings(['a']) == [('a', 1, 'a')]",
-        "describe_strings([]) == []"
+        {
+          "input": "describe_strings(['cat', 'dog'])",
+          "expected_output": "[('cat', 3, 'tac'), ('dog', 3, 'god')]",
+          "description": "Verifies: describe_strings(['cat', 'dog']) == [('cat', 3, 'tac'), ('dog', 3, 'god')]"
+        },
+        {
+          "input": "describe_strings(['a'])",
+          "expected_output": "[('a', 1, 'a')]",
+          "description": "Verifies: describe_strings(['a']) == [('a', 1, 'a')]"
+        },
+        {
+          "input": "describe_strings([])",
+          "expected_output": "[]",
+          "description": "Verifies: describe_strings([]) == []"
+        }
       ],
       "hint": "Count characters with a counter loop, and build the reversed string by iterating from the last index to the first.",
       "explanation": "This advanced task combines iteration over a list with manual string processing. It avoids built-in helpers like len() and slicing to deepen understanding of how iteration drives transformation in arrays and strings."
@@ -584,9 +627,21 @@
       "starter_code": "def filter_valid_emails(emails):\n    valid = []\n    for email in emails:\n        # TODO: validate and lowercase\n    return valid\n\nprint(filter_valid_emails(['Alice@Example.com', 'bad@@email.com', 'noat.com']))",
       "solution_code": "def filter_valid_emails(emails):\n    valid = []\n    for email in emails:\n        if email.count('@') == 1:\n            parts = email.split('@')\n            if len(parts) == 2 and '.' in parts[1]:\n                valid.append(email.lower())\n    return valid\n\nprint(filter_valid_emails(['Alice@Example.com', 'bad@@email.com', 'noat.com']))",
       "test_cases": [
-        "filter_valid_emails(['Alice@Example.com', 'bad@@email.com', 'noat.com']) == ['alice@example.com']",
-        "filter_valid_emails(['A@B.C', 'a@b.c']) == ['a@b.c', 'a@b.c']",
-        "filter_valid_emails(['x@y']) == []"
+        {
+          "input": "filter_valid_emails(['Alice@Example.com', 'bad@@email.com', 'noat.com'])",
+          "expected_output": "['alice@example.com']",
+          "description": "Verifies: filter_valid_emails(['Alice@Example.com', 'bad@@email.com', 'noat.com']) == ['alice@example.com']"
+        },
+        {
+          "input": "filter_valid_emails(['A@B.C', 'a@b.c'])",
+          "expected_output": "['a@b.c', 'a@b.c']",
+          "description": "Verifies: filter_valid_emails(['A@B.C', 'a@b.c']) == ['a@b.c', 'a@b.c']"
+        },
+        {
+          "input": "filter_valid_emails(['x@y'])",
+          "expected_output": "[]",
+          "description": "Verifies: filter_valid_emails(['x@y']) == []"
+        }
       ],
       "hint": "Check the count of '@' first, then split and verify the domain part contains a dot.",
       "explanation": "This challenge requires combining filtering with transformation. It mirrors real-world data validation pipelines where raw string arrays must be cleaned and standardized before further processing."
@@ -604,9 +659,21 @@
       "starter_code": "def summarize_inventory(lines):\n    summary = []\n    for line in lines:\n        # TODO: parse and transform\n    return summary\n\nlines = [\n    'apple, 2.50, 4',\n    'banana, 1.20, 10',\n    'orange, 3.00, 2'\n]\nprint(summarize_inventory(lines))",
       "solution_code": "def summarize_inventory(lines):\n    summary = []\n    for line in lines:\n        parts = line.split(',')\n        name = parts[0].strip()\n        price = float(parts[1].strip())\n        qty = int(parts[2].strip())\n        total = price * qty\n        summary.append(name.upper() + ': ' + str(price) + ' x ' + str(qty) + ' = ' + str(total))\n    return summary\n\nlines = [\n    'apple, 2.50, 4',\n    'banana, 1.20, 10',\n    'orange, 3.00, 2'\n]\nprint(summarize_inventory(lines))",
       "test_cases": [
-        "summarize_inventory(['a, 1, 1']) == ['A: 1.0 x 1 = 1.0']",
-        "summarize_inventory([]) == []",
-        "summarize_inventory(['x, 2, 3']) == ['X: 2.0 x 3 = 6.0']"
+        {
+          "input": "summarize_inventory(['a, 1, 1'])",
+          "expected_output": "['A: 1.0 x 1 = 1.0']",
+          "description": "Verifies: summarize_inventory(['a, 1, 1']) == ['A: 1.0 x 1 = 1.0']"
+        },
+        {
+          "input": "summarize_inventory([])",
+          "expected_output": "[]",
+          "description": "Verifies: summarize_inventory([]) == []"
+        },
+        {
+          "input": "summarize_inventory(['x, 2, 3'])",
+          "expected_output": "['X: 2.0 x 3 = 6.0']",
+          "description": "Verifies: summarize_inventory(['x, 2, 3']) == ['X: 2.0 x 3 = 6.0']"
+        }
       ],
       "hint": "Split each line by commas, clean whitespace with strip(), convert numeric parts, compute the total, and format the output string.",
       "explanation": "This scenario synthesizes file-like input iteration with string parsing and arithmetic transformation. It reflects how raw data arrays are transformed into human-readable reports in business applications."
@@ -624,9 +691,21 @@
       "starter_code": "def perfect_square_strings(values):\n    # TODO: implement lazy iteration and transformation\n    pass\n\nprint(list(perfect_square_strings([1, 2, 4, 5, 9, 10])))",
       "solution_code": "def perfect_square_strings(values):\n    def is_square(n):\n        if n < 0:\n            return False\n        root = int(n ** 0.5)\n        return root * root == n\n    return (str(v) for v in values if isinstance(v, int) and is_square(v))\n\nprint(list(perfect_square_strings([1, 2, 4, 5, 9, 10])))",
       "test_cases": [
-        "list(perfect_square_strings([1, 2, 4, 5, 9, 10])) == ['1', '4', '9']",
-        "list(perfect_square_strings([0, -1, 16])) == ['0', '16']",
-        "list(perfect_square_strings([])) == []"
+        {
+          "input": "list(perfect_square_strings([1, 2, 4, 5, 9, 10]))",
+          "expected_output": "['1', '4', '9']",
+          "description": "Verifies: list(perfect_square_strings([1, 2, 4, 5, 9, 10])) == ['1', '4', '9']"
+        },
+        {
+          "input": "list(perfect_square_strings([0, -1, 16]))",
+          "expected_output": "['0', '16']",
+          "description": "Verifies: list(perfect_square_strings([0, -1, 16])) == ['0', '16']"
+        },
+        {
+          "input": "list(perfect_square_strings([]))",
+          "expected_output": "[]",
+          "description": "Verifies: list(perfect_square_strings([])) == []"
+        }
       ],
       "hint": "Use a generator expression with a helper to test perfect squares, and filter for integers only.",
       "explanation": "Mastery here involves lazy evaluation and careful type checking during iteration. Returning a generator instead of a list demonstrates memory-efficient transformation, a critical skill when working with large arrays or streams of data."

@@ -461,9 +461,21 @@
       "starter_code": "import sqlite3\nfrom flask import Flask\n\napp = Flask(__name__)\n\ndef query_db(sql, params=()):\n    conn = sqlite3.connect('app.db')\n    cur = conn.cursor()\n    cur.execute(sql, params)\n    results = cur.fetchall()\n    conn.close()\n    return results\n\n@app.route('/products')\ndef list_products():\n    rows = query_db('SELECT * FROM products')\n    return str(rows)\n\n@app.route('/orders')\ndef list_orders():\n    rows = query_db('SELECT * FROM orders')\n    return str(rows)\n\nif __name__ == '__main__':\n    app.run()",
       "solution_code": "import sqlite3\nfrom contextlib import contextmanager\nfrom flask import Flask\n\napp = Flask(__name__)\n\n@contextmanager\ndef get_db_connection():\n    conn = sqlite3.connect('app.db', check_same_thread=False)\n    try:\n        yield conn\n    finally:\n        conn.close()\n\ndef query_db(sql, params=()):\n    with get_db_connection() as conn:\n        conn.row_factory = sqlite3.Row\n        cur = conn.cursor()\n        cur.execute(sql, params)\n        return cur.fetchall()\n\n@app.route('/products')\ndef list_products():\n    products = query_db('SELECT * FROM products')\n    return str([dict(p) for p in products])\n\n@app.route('/orders')\ndef list_orders():\n    orders = query_db('SELECT * FROM orders')\n    return str([dict(o) for o in orders])\n\nif __name__ == '__main__':\n    app.run()",
       "test_cases": [
-        "GET /products returns a list of product dictionaries",
-        "GET /orders returns a list of order dictionaries",
-        "No unclosed connections remain after requests complete"
+        {
+          "input": "",
+          "expected_output": "GET /products returns a list of product dictionaries",
+          "description": "GET /products returns a list of product dictionaries"
+        },
+        {
+          "input": "",
+          "expected_output": "GET /orders returns a list of order dictionaries",
+          "description": "GET /orders returns a list of order dictionaries"
+        },
+        {
+          "input": "",
+          "expected_output": "No unclosed connections remain after requests complete",
+          "description": "No unclosed connections remain after requests complete"
+        }
       ],
       "hint": "Use a context manager for connections, set row_factory for easier dict conversion, and consider connection reuse patterns for scalability.",
       "explanation": "The refactored version introduces a context manager to guarantee connection closure, uses sqlite3.Row for structured results, and converts rows to dictionaries for JSON-friendly output. While SQLite itself does not support true connection pooling, the context manager pattern prevents leaks and improves reliability under concurrency. For production, migrating to PostgreSQL or MySQL with a dedicated pool (e.g., SQLAlchemy) would be the next optimization step."
@@ -481,8 +493,16 @@
       "starter_code": "import sqlite3\n\nconn = sqlite3.connect('inventory.db')\ncursor = conn.cursor()\n\n# TODO: create table and insert data\n\nconn.close()",
       "solution_code": "import sqlite3\n\nconn = sqlite3.connect('inventory.db')\ncursor = conn.cursor()\n\ncursor.execute('''CREATE TABLE IF NOT EXISTS products (\n    id INTEGER PRIMARY KEY,\n    name TEXT,\n    price REAL\n)''')\n\ncursor.execute(\"INSERT INTO products (name, price) VALUES (?, ?)\", ('Laptop', 999.99))\nconn.commit()\n\nconn.close()",
       "test_cases": [
-        "Verify the table 'products' exists and contains the inserted row.",
-        "Running the script twice should not raise an error due to duplicate primary key."
+        {
+          "input": "",
+          "expected_output": "Verify the table 'products' exists and contains the inserted row.",
+          "description": "Verify the table 'products' exists and contains the inserted row."
+        },
+        {
+          "input": "",
+          "expected_output": "Running the script twice should not raise an error due to duplicate primary key.",
+          "description": "Running the script twice should not raise an error due to duplicate primary key."
+        }
       ],
       "hint": "Use 'CREATE TABLE IF NOT EXISTS' to avoid errors on repeated runs, and always call conn.commit() before closing.",
       "explanation": "This item practices basic SQLite integration. Creating the table safely with IF NOT EXISTS prevents schema errors. Using parameterized queries with placeholders (?, ?) avoids SQL injection and ensures correct data insertion."
@@ -500,8 +520,16 @@
       "starter_code": "import sqlite3\n\ndef get_low_stock_items(threshold=5):\n    conn = sqlite3.connect('inventory.db')\n    cursor = conn.cursor()\n    # TODO: query and return list of names\n    conn.close()\n    return []",
       "solution_code": "import sqlite3\n\ndef get_low_stock_items(threshold=5):\n    conn = sqlite3.connect('inventory.db')\n    cursor = conn.cursor()\n    cursor.execute(\"SELECT name FROM products WHERE price < ?\", (threshold,))\n    rows = cursor.fetchall()\n    conn.close()\n    return [row[0] for row in rows]",
       "test_cases": [
-        "Calling get_low_stock_items(10) returns ['Laptop'] if Laptop price is 999.99 and other items are above 10.",
-        "Calling get_low_stock_items(0) returns an empty list when no items are below zero."
+        {
+          "input": "",
+          "expected_output": "Calling get_low_stock_items(10) returns ['Laptop'] if Laptop price is 999.99 and other items are above 10.",
+          "description": "Calling get_low_stock_items(10) returns ['Laptop'] if Laptop price is 999.99 and other items are above 10."
+        },
+        {
+          "input": "",
+          "expected_output": "Calling get_low_stock_items(0) returns an empty list when no items are below zero.",
+          "description": "Calling get_low_stock_items(0) returns an empty list when no items are below zero."
+        }
       ],
       "hint": "Use a parameterized query with a tuple for the threshold value, then iterate over cursor.fetchall() to extract the name column.",
       "explanation": "This builds on the previous item by adding data retrieval. Parameterized queries keep the code secure and correct. Returning a list comprehension makes the output clean and easy to use in a web backend."
@@ -519,8 +547,16 @@
       "starter_code": "import sqlite3\n\ndef update_product_price(product_id, new_price):\n    # TODO: implement transaction with context manager and error handling\n    pass",
       "solution_code": "import sqlite3\n\ndef update_product_product_price(product_id, new_price):\n    with sqlite3.connect('inventory.db') as conn:\n        cursor = conn.cursor()\n        cursor.execute(\"SELECT 1 FROM products WHERE id = ?\", (product_id,))\n        if cursor.fetchone() is None:\n            raise ValueError('Product not found')\n        cursor.execute(\"UPDATE products SET price = ? WHERE id = ?\", (new_price, product_id))\n        conn.commit()",
       "test_cases": [
-        "update_product_price(1, 899.99) updates the price and does not raise.",
-        "update_product_price(999, 50.0) raises ValueError with message 'Product not found'."
+        {
+          "input": "",
+          "expected_output": "update_product_price(1, 899.99) updates the price and does not raise.",
+          "description": "update_product_price(1, 899.99) updates the price and does not raise."
+        },
+        {
+          "input": "",
+          "expected_output": "update_product_price(999, 50.0) raises ValueError with message 'Product not found'.",
+          "description": "update_product_price(999, 50.0) raises ValueError with message 'Product not found'."
+        }
       ],
       "hint": "Use 'with sqlite3.connect(...)' for automatic commit or rollback, check existence before updating, and raise ValueError explicitly.",
       "explanation": "Transactions ensure atomicity: either the update completes fully or it rolls back. Checking existence before modification prevents silent failures. Context managers guarantee the connection closes properly even if exceptions occur."
@@ -538,8 +574,16 @@
       "starter_code": "import sqlite3\nfrom flask import Flask, request, jsonify\n\napp = Flask(__name__)\n\n@app.route('/add_product', methods=['POST'])\ndef add_product():\n    name = request.form.get('product_name')\n    price_str = request.form.get('product_price')\n    # TODO: validate, convert, insert safely, and return response\n    return jsonify({'status': 'ok'})",
       "solution_code": "import sqlite3\nfrom flask import Flask, request, jsonify\n\napp = Flask(__name__)\n\n@app.route('/add_product', methods=['POST'])\ndef add_product():\n    name = request.form.get('product_name')\n    price_str = request.form.get('product_price')\n    \n    if not name or price_str is None:\n        return jsonify({'status': 'error', 'message': 'Missing fields'}), 400\n    \n    try:\n        price = float(price_str)\n    except ValueError:\n        return jsonify({'status': 'error', 'message': 'Invalid price'}), 400\n    \n    if price <= 0:\n        return jsonify({'status': 'error', 'message': 'Price must be positive'}), 400\n    \n    try:\n        with sqlite3.connect('inventory.db') as conn:\n            cursor = conn.cursor()\n            cursor.execute(\"INSERT INTO products (name, price) VALUES (?, ?)\", (name, price))\n            conn.commit()\n        return jsonify({'status': 'ok', 'message': 'Product added'}), 201\n    except sqlite3.Error as e:\n        return jsonify({'status': 'error', 'message': str(e)}), 500",
       "test_cases": [
-        "POST /add_product with product_name='Mouse' and product_price='25.5' returns 201 and inserts the row.",
-        "POST /add_product with product_price='abc' returns 400 with 'Invalid price'."
+        {
+          "input": "",
+          "expected_output": "POST /add_product with product_name='Mouse' and product_price='25.5' returns 201 and inserts the row.",
+          "description": "POST /add_product with product_name='Mouse' and product_price='25.5' returns 201 and inserts the row."
+        },
+        {
+          "input": "",
+          "expected_output": "POST /add_product with product_price='abc' returns 400 with 'Invalid price'.",
+          "description": "POST /add_product with product_price='abc' returns 400 with 'Invalid price'."
+        }
       ],
       "hint": "Always validate and convert inputs before using them in SQL. Use parameterized queries and a context manager for the connection. Return appropriate HTTP status codes.",
       "explanation": "This challenge mirrors real backend development where user input must be sanitized and validated before database interaction. Using Flask with SQLite demonstrates how a web framework integrates with a database safely."
@@ -557,8 +601,16 @@
       "starter_code": "import sqlite3\nfrom flask import Flask, jsonify\nimport logging\n\napp = Flask(__name__)\n\n# TODO: configure logging and implement both endpoints\n\nif __name__ == '__main__':\n    app.run(debug=True)",
       "solution_code": "import sqlite3\nfrom flask import Flask, jsonify\nimport logging\n\napp = Flask(__name__)\n\nlogging.basicConfig(\n    filename='app.log',\n    level=logging.ERROR,\n    format='%(asctime)s - %(levelname)s - %(message)s'\n)\n\n@app.route('/api/products', methods=['GET'])\ndef list_products():\n    try:\n        with sqlite3.connect('inventory.db') as conn:\n            conn.row_factory = sqlite3.Row\n            cursor = conn.cursor()\n            cursor.execute(\"SELECT * FROM products\")\n            products = [dict(row) for row in cursor.fetchall()]\n        return jsonify(products)\n    except sqlite3.Error as e:\n        logging.error(f\"Database error in list_products: {e}\")\n        return jsonify({'error': 'Internal server error'}), 500\n\n@app.route('/api/products/<int:product_id>', methods=['GET'])\ndef get_product(product_id):\n    try:\n        with sqlite3.connect('inventory.db') as conn:\n            conn.row_factory = sqlite3.Row\n            cursor = conn.cursor()\n            cursor.execute(\"SELECT * FROM products WHERE id = ?\", (product_id,))\n            row = cursor.fetchone()\n            if row is None:\n                return jsonify({'error': 'Product not found'}), 404\n            return jsonify(dict(row))\n    except sqlite3.Error as e:\n        logging.error(f\"Database error in get_product: {e}\")\n        return jsonify({'error': 'Internal server error'}), 500",
       "test_cases": [
-        "GET /api/products returns a JSON list of all products.",
-        "GET /api/products/1 returns the product with id 1, and GET /api/products/999 returns 404 JSON."
+        {
+          "input": "",
+          "expected_output": "GET /api/products returns a JSON list of all products.",
+          "description": "GET /api/products returns a JSON list of all products."
+        },
+        {
+          "input": "",
+          "expected_output": "GET /api/products/1 returns the product with id 1, and GET /api/products/999 returns 404 JSON.",
+          "description": "GET /api/products/1 returns the product with id 1, and GET /api/products/999 returns 404 JSON."
+        }
       ],
       "hint": "Set row_factory to sqlite3.Row to access columns by name. Use jsonify to return proper JSON. Log exceptions with logging.error and return standard HTTP status codes.",
       "explanation": "This scenario requires synthesizing database queries, REST API design, error handling, and logging into a cohesive backend module. It reflects how production systems protect against failures and provide structured responses to clients."
@@ -576,8 +628,16 @@
       "starter_code": "import sqlite3\nfrom flask import Flask, jsonify\nimport logging\n\napp = Flask(__name__)\n\n# TODO: implement delete endpoint with referential integrity check\n\n# TODO: write pytest unit test with mocked sqlite3.connect\n\nif __name__ == '__main__':\n    app.run(debug=True)",
       "solution_code": "import sqlite3\nfrom flask import Flask, jsonify\nimport logging\n\napp = Flask(__name__)\n\nlogging.basicConfig(\n    filename='app.log',\n    level=logging.ERROR,\n    format='%(asctime)s - %(levelname)s - %(message)s'\n)\n\n@app.route('/api/products/<int:product_id>/delete', methods=['DELETE'])\ndef delete_product(product_id):\n    try:\n        with sqlite3.connect('inventory.db') as conn:\n            cursor = conn.cursor()\n            cursor.execute(\"SELECT COUNT(*) FROM orders WHERE product_id = ?\", (product_id,))\n            count = cursor.fetchone()[0]\n            if count > 0:\n                return jsonify({'error': 'Cannot delete product with existing orders'}), 409\n            cursor.execute(\"DELETE FROM products WHERE id = ?\", (product_id,))\n            conn.commit()\n            if cursor.rowcount == 0:\n                return jsonify({'error': 'Product not found'}), 404\n            return jsonify({'message': 'Product deleted'}), 200\n    except sqlite3.Error as e:\n        logging.error(f\"Database error in delete_product: {e}\")\n        return jsonify({'error': 'Internal server error'}), 500\n\nimport pytest\nfrom unittest.mock import patch, MagicMock\n\ndef test_delete_product_success():\n    mock_conn = MagicMock()\n    mock_cursor = MagicMock()\n    mock_conn.cursor.return_value.__enter__.return_value = mock_cursor\n    mock_cursor.fetchone.return_value = (0,)\n    mock_cursor.rowcount = 1\n    mock_conn.__enter__.return_value = mock_conn\n    mock_conn.__exit__.return_value = None\n\n    with patch('sqlite3.connect', return_value=mock_conn):\n        with app.test_client() as client:\n            response = client.delete('/api/products/1/delete')\n            assert response.status_code == 200\n\ndef test_delete_product_conflict():\n    mock_conn = MagicMock()\n    mock_cursor = MagicMock()\n    mock_cursor.fetchone.return_value = (3,)\n    mock_conn.cursor.return_value.__enter__.return_value = mock_cursor\n    mock_conn.__enter__.return_value = mock_conn\n    mock_conn.__exit__.return_value = None\n\n    with patch('sqlite3.connect', return_value=mock_conn):\n        with app.test_client() as client:\n            response = client.delete('/api/products/1/delete')\n            assert response.status_code == 409",
       "test_cases": [
-        "DELETE /api/products/1/delete returns 200 when no orders reference product 1.",
-        "DELETE /api/products/1/delete returns 409 when 2 or more orders reference product 1."
+        {
+          "input": "",
+          "expected_output": "DELETE /api/products/1/delete returns 200 when no orders reference product 1.",
+          "description": "DELETE /api/products/1/delete returns 200 when no orders reference product 1."
+        },
+        {
+          "input": "",
+          "expected_output": "DELETE /api/products/1/delete returns 409 when 2 or more orders reference product 1.",
+          "description": "DELETE /api/products/1/delete returns 409 when 2 or more orders reference product 1."
+        }
       ],
       "hint": "Check the orders table before deleting. Use cursor.rowcount to confirm deletion. In tests, patch sqlite3.connect and simulate cursor.fetchone and cursor.rowcount values.",
       "explanation": "This mastery item combines referential integrity enforcement with automated testing. It ensures learners understand how backend logic protects data consistency and how to verify behavior safely using mocks, a critical skill in professional web development."

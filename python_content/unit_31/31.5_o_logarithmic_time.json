@@ -486,9 +486,21 @@
       "starter_code": "def binary_search(arr, target):\n    left = 0\n    right = len(arr) - 1\n    while left <= right:\n        mid = (left + right) // 2\n        if arr[mid] == target:\n            return mid\n        elif arr[mid] < target:\n            left = mid + 1\n        else:\n            right = mid - 1\n    return -1\n\narr = [1, 3, 5, 7, 9, 11, 13, 15]\nprint(binary_search(arr, 7))",
       "solution_code": "def binary_search(arr, target):\n    left = 0\n    right = len(arr) - 1\n    while left <= right:\n        mid = (left + right) // 2\n        if arr[mid] == target:\n            return mid\n        elif arr[mid] < target:\n            left = mid + 1\n        else:\n            right = mid - 1\n    return -1\n\narr = [1, 3, 5, 7, 9, 11, 13, 15]\nprint(binary_search(arr, 7))  # Output: 3\nprint(binary_search(arr, 2))  # Output: -1",
       "test_cases": [
-        "binary_search([1, 2, 3, 4, 5], 3) == 2",
-        "binary_search([1, 2, 3, 4, 5], 6) == -1",
-        "binary_search([], 1) == -1"
+        {
+          "input": "binary_search([1, 2, 3, 4, 5], 3)",
+          "expected_output": "2",
+          "description": "Verifies: binary_search([1, 2, 3, 4, 5], 3) == 2"
+        },
+        {
+          "input": "binary_search([1, 2, 3, 4, 5], 6)",
+          "expected_output": "-1",
+          "description": "Verifies: binary_search([1, 2, 3, 4, 5], 6) == -1"
+        },
+        {
+          "input": "binary_search([], 1)",
+          "expected_output": "-1",
+          "description": "Verifies: binary_search([], 1) == -1"
+        }
       ],
       "hint": "Ensure the search space is halved in each iteration by updating `left` or `right` based on the comparison at `mid`.",
       "explanation": "Binary search achieves O(log N) by repeatedly dividing the search interval in half. Each comparison eliminates half of the remaining elements, resulting in logarithmic time complexity relative to the input size."
@@ -506,9 +518,21 @@
       "starter_code": "def find_first_occurrence(arr, target):\n    # TODO: implement\n    pass\n\narr = [1, 2, 2, 2, 3, 4, 5]\nprint(find_first_occurrence(arr, 2))",
       "solution_code": "def find_first_occurrence(arr, target):\n    left = 0\n    right = len(arr) - 1\n    result = -1\n    while left <= right:\n        mid = (left + right) // 2\n        if arr[mid] == target:\n            result = mid\n            right = mid - 1\n        elif arr[mid] < target:\n            left = mid + 1\n        else:\n            right = mid - 1\n    return result\n\narr = [1, 2, 2, 2, 3, 4, 5]\nprint(find_first_occurrence(arr, 2))  # Output: 1\nprint(find_first_occurrence(arr, 6))  # Output: -1",
       "test_cases": [
-        "find_first_occurrence([1, 1, 1, 1], 1) == 0",
-        "find_first_occurrence([1, 2, 3, 4], 4) == 3",
-        "find_first_occurrence([1, 3, 5], 2) == -1"
+        {
+          "input": "find_first_occurrence([1, 1, 1, 1], 1)",
+          "expected_output": "0",
+          "description": "Verifies: find_first_occurrence([1, 1, 1, 1], 1) == 0"
+        },
+        {
+          "input": "find_first_occurrence([1, 2, 3, 4], 4)",
+          "expected_output": "3",
+          "description": "Verifies: find_first_occurrence([1, 2, 3, 4], 4) == 3"
+        },
+        {
+          "input": "find_first_occurrence([1, 3, 5], 2)",
+          "expected_output": "-1",
+          "description": "Verifies: find_first_occurrence([1, 3, 5], 2) == -1"
+        }
       ],
       "hint": "When you find the target, continue searching the left half to locate the earliest occurrence.",
       "explanation": "This variant of binary search still operates in O(log N) because we only continue searching one half of the array after each match, maintaining logarithmic behavior even with duplicate values."
@@ -526,10 +550,26 @@
       "starter_code": "def floor_log2(n):\n    # TODO: implement recursively\n    pass\n\nprint(floor_log2(16))",
       "solution_code": "def floor_log2(n):\n    if n < 1:\n        return -1\n    if n == 1:\n        return 0\n    if n % 2 == 0:\n        return 1 + floor_log2(n // 2)\n    else:\n        return floor_log2(n - 1)\n\nprint(floor_log2(16))  # Output: 4\nprint(floor_log2(17))  # Output: 4\nprint(floor_log2(1))   # Output: 0\nprint(floor_log2(0))   # Output: -1",
       "test_cases": [
-        "floor_log2(256) == 8",
-        "floor_log2(500) == 8",
-        "floor_log2(1) == 0",
-        "floor_log2(0) == -1"
+        {
+          "input": "floor_log2(256)",
+          "expected_output": "8",
+          "description": "Verifies: floor_log2(256) == 8"
+        },
+        {
+          "input": "floor_log2(500)",
+          "expected_output": "8",
+          "description": "Verifies: floor_log2(500) == 8"
+        },
+        {
+          "input": "floor_log2(1)",
+          "expected_output": "0",
+          "description": "Verifies: floor_log2(1) == 0"
+        },
+        {
+          "input": "floor_log2(0)",
+          "expected_output": "-1",
+          "description": "Verifies: floor_log2(0) == -1"
+        }
       ],
       "hint": "Use divide-and-conquer: if n is even, one step reduces it to n//2; if odd and greater than 1, reduce it to n-1 before recursing.",
       "explanation": "By halving or nearly halving the problem size at each recursive call, the recursion depth is proportional to log2(n), yielding O(log N) time complexity."
@@ -547,9 +587,21 @@
       "starter_code": "def exists_in_sorted(arr, target):\n    left = 0\n    right = len(arr) - 1\n    while left <= right:\n        mid = (left + right) // 2\n        if arr[mid] == target:\n            return True\n        elif arr[mid] < target:\n            left = mid + 1\n        else:\n            right = mid - 1\n    # TODO: complete\n    return False\n\narr = [2, 4, 6, 8, 10]\nprint(exists_in_sorted(arr, 8))",
       "solution_code": "def exists_in_sorted(arr, target):\n    left = 0\n    right = len(arr) - 1\n    while left <= right:\n        mid = (left + right) // 2\n        if arr[mid] == target:\n            return True\n        elif arr[mid] < target:\n            left = mid + 1\n        else:\n            right = mid - 1\n    return False\n\narr = [2, 4, 6, 8, 10]\nprint(exists_in_sorted(arr, 8))   # True\nprint(exists_in_sorted(arr, 5))   # False",
       "test_cases": [
-        "exists_in_sorted([1, 3, 5, 7, 9], 7) == True",
-        "exists_in_sorted([1, 3, 5, 7, 9], 2) == False",
-        "exists_in_sorted([], 1) == False"
+        {
+          "input": "exists_in_sorted([1, 3, 5, 7, 9], 7)",
+          "expected_output": "True",
+          "description": "Verifies: exists_in_sorted([1, 3, 5, 7, 9], 7) == True"
+        },
+        {
+          "input": "exists_in_sorted([1, 3, 5, 7, 9], 2)",
+          "expected_output": "False",
+          "description": "Verifies: exists_in_sorted([1, 3, 5, 7, 9], 2) == False"
+        },
+        {
+          "input": "exists_in_sorted([], 1)",
+          "expected_output": "False",
+          "description": "Verifies: exists_in_sorted([], 1) == False"
+        }
       ],
       "hint": "The loop naturally terminates when the search space is exhausted; simply return False after the loop ends.",
       "explanation": "This is a standard binary search decision problem. The loop invariant guarantees that if the target exists, it is within the current bounds, and halving those bounds ensures O(log N) time."
@@ -567,10 +619,26 @@
       "starter_code": "def search_roll(roll_list, target):\n    left = 0\n    right = len(roll_list) - 1\n    while left <= right:\n        mid = (left + right) // 2\n        if roll_list[mid] == target:\n            return True\n        elif roll_list[mid] < target:\n            left = mid + 1\n        else:\n            right = mid - 1\n    return False\n\n# TODO: generate a sorted list of 1,000,000 roll numbers\n# TODO: add main block to accept user input\n\nif __name__ == '__main__':\n    pass",
       "solution_code": "import random\n\ndef search_roll(roll_list, target):\n    left = 0\n    right = len(roll_list) - 1\n    while left <= right:\n        mid = (left + right) // 2\n        if roll_list[mid] == target:\n            return True\n        elif roll_list[mid] < target:\n            left = mid + 1\n        else:\n            right = mid - 1\n    return False\n\nif __name__ == '__main__':\n    rolls = list(range(1, 1_000_001))\n    target = int(input('Enter roll number to search: '))\n    print('Found:', search_roll(rolls, target))",
       "test_cases": [
-        "search_roll(list(range(1, 1000001)), 1) == True",
-        "search_roll(list(range(1, 1000001)), 1000000) == True",
-        "search_roll(list(range(1, 1000001)), 0) == False",
-        "search_roll(list(range(1, 1000001)), 1000001) == False"
+        {
+          "input": "search_roll(list(range(1, 1000001)), 1)",
+          "expected_output": "True",
+          "description": "Verifies: search_roll(list(range(1, 1000001)), 1) == True"
+        },
+        {
+          "input": "search_roll(list(range(1, 1000001)), 1000000)",
+          "expected_output": "True",
+          "description": "Verifies: search_roll(list(range(1, 1000001)), 1000000) == True"
+        },
+        {
+          "input": "search_roll(list(range(1, 1000001)), 0)",
+          "expected_output": "False",
+          "description": "Verifies: search_roll(list(range(1, 1000001)), 0) == False"
+        },
+        {
+          "input": "search_roll(list(range(1, 1000001)), 1000001)",
+          "expected_output": "False",
+          "description": "Verifies: search_roll(list(range(1, 1000001)), 1000001) == False"
+        }
       ],
       "hint": "Pre-populate the list with a sorted sequence so binary search can operate directly on indices without additional sorting.",
       "explanation": "In real-world databases and indexed systems, sorted data enables O(log N) lookups. This scenario synthesizes file-like data handling with algorithmic efficiency, demonstrating why logarithmic time is critical for large-scale record retrieval."
@@ -588,9 +656,21 @@
       "starter_code": "def find_duplicate(arr):\n    # TODO: implement O(log N) binary search on value range\n    left = 1\n    right = len(arr) - 1\n    while left < right:\n        mid = (left + right) // 2\n        # Count numbers <= mid\n        count = 0\n        for num in arr:\n            if num <= mid:\n                count += 1\n        # TODO: decide which half to keep\n    return -1\n\narr = [1, 3, 4, 2, 2]\nprint(find_duplicate(arr))",
       "solution_code": "def find_duplicate(arr):\n    left = 1\n    right = len(arr) - 1\n    while left < right:\n        mid = (left + right) // 2\n        count = sum(1 for num in arr if num <= mid)\n        if count <= mid:\n            left = mid + 1\n        else:\n            right = mid\n    return left\n\narr = [1, 3, 4, 2, 2]\nprint(find_duplicate(arr))  # Output: 2\n\narr2 = [3, 1, 3, 4, 2]\nprint(find_duplicate(arr2))  # Output: 3",
       "test_cases": [
-        "find_duplicate([1, 2, 3, 4, 4]) == 4",
-        "find_duplicate([2, 1, 3, 3]) == 3",
-        "find_duplicate([1, 1]) == 1"
+        {
+          "input": "find_duplicate([1, 2, 3, 4, 4])",
+          "expected_output": "4",
+          "description": "Verifies: find_duplicate([1, 2, 3, 4, 4]) == 4"
+        },
+        {
+          "input": "find_duplicate([2, 1, 3, 3])",
+          "expected_output": "3",
+          "description": "Verifies: find_duplicate([2, 1, 3, 3]) == 3"
+        },
+        {
+          "input": "find_duplicate([1, 1])",
+          "expected_output": "1",
+          "description": "Verifies: find_duplicate([1, 1]) == 1"
+        }
       ],
       "hint": "For a given mid value, if more than mid numbers are <= mid, the duplicate lies in the left half; otherwise, it lies in the right half.",
       "explanation": "By binary searching on the value domain (1 to N-1) and counting elements <= mid, we achieve O(log N) iterations, each taking O(N), for an overall O(N log N) time. However, the conceptual mastery here lies in recognizing that the search space is logarithmic in the value range, and with a Fenwick tree or prefix sums this can be optimized to true O(log N). This item challenges students to extend binary search beyond array indices to abstract value ranges."

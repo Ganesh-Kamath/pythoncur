@@ -166,24 +166,25 @@
     },
     {
       "id": "13.5_q10",
-      "type": "real_world_scenario",
+      "type": "write_the_code",
       "concept": "appending_to_files_production_transfer",
-      "skill": "application",
+      "skill": "transfer",
       "difficulty": "hard",
       "prerequisites": [
         "13.5_q9"
       ],
-      "prompt": "Apply Appending to Files to a realistic scenario: process a sequence of records and return only those meeting the business rule:",
-      "starter_code": "records = [{'id': 1, 'active': True}, {'id': 2, 'active': False}]\n# Filter active records\nactive_records = ___",
-      "solution_code": "records = [{'id': 1, 'active': True}, {'id': 2, 'active': False}]\nactive_records = [r for r in records if r['active']]",
+      "prompt": "Transfer Challenge: Solve a practical problem using Appending to Files. Implement the function below to satisfy the stated contract.",
+      "starter_code": "def handle_domain_task(val):\n    # Implement domain logic for Appending to Files\n    return str(val).strip()",
+      "solution_code": "def handle_domain_task(val):\n    return str(val).strip().upper()",
       "test_cases": [
         {
-          "input": "",
-          "expected_output": "Appending to Files Result 10"
+          "input": "'  python  '",
+          "expected_output": "'PYTHON'",
+          "description": "domain sanitization"
         }
       ],
       "hint": "Use a list comprehension to filter records where 'active' is True.",
-      "explanation": "In production Python code, Appending to Files is frequently combined with data filtering to process structured domain models efficiently."
+      "explanation": "Applying clean functional contracts for Appending to Files ensures testable domain operations."
     },
     {
       "id": "13.5_q11",
@@ -443,9 +444,21 @@
       "starter_code": "def append_line1(text):\n    f = open('output.txt', 'a')\n    f.write(text + '\\n')\n    f.close()\n\ndef append_line2(text):\n    f = open('output.txt', 'a')\n    f.write(text + '\\n')\n    f.close()\n\ndef append_line3(text):\n    f = open('output.txt', 'a')\n    f.write(text + '\\n')\n    f.close()",
       "solution_code": "def append_to_file(filepath, lines):\n    with open(filepath, 'a') as f:\n        for line in lines:\n            f.write(line + '\\n')\n\n# Example usage:\n# append_to_file('output.txt', ['first', 'second', 'third'])",
       "test_cases": [
-        "append_to_file('test.txt', ['a', 'b'])",
-        "append_to_file('test.txt', ['x'])",
-        "append_to_file('test.txt', [])"
+        {
+          "input": "",
+          "expected_output": "append_to_file('test.txt', ['a', 'b'])",
+          "description": "append_to_file('test.txt', ['a', 'b'])"
+        },
+        {
+          "input": "",
+          "expected_output": "append_to_file('test.txt', ['x'])",
+          "description": "append_to_file('test.txt', ['x'])"
+        },
+        {
+          "input": "",
+          "expected_output": "append_to_file('test.txt', [])",
+          "description": "append_to_file('test.txt', [])"
+        }
       ],
       "hint": "Use 'with' to manage the file automatically and accept an iterable of lines to reduce code duplication.",
       "explanation": "The original code duplicates file-open and close logic across three functions. The refactored version uses a context manager ('with') to guarantee closure, iterates over any iterable of lines, and writes each with a newline, making it scalable and memory-efficient."

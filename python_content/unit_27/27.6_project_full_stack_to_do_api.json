@@ -365,17 +365,18 @@
       "prerequisites": [
         "27.6_q18"
       ],
-      "prompt": "Write a clean, reusable function or code statement that demonstrates core usage of Project: Full-Stack To-Do API:",
-      "starter_code": "# Implement a solution for Project: Full-Stack To-Do API\ndef solve():\n    ___",
-      "solution_code": "def solve():\n    # Core implementation of Project: Full-Stack To-Do API\n    return True",
+      "prompt": "Milestone Implementation: Construct a modular, well-tested function that applies the central principles of Project: Full-Stack To-Do API.",
+      "starter_code": "def process_27_6_data(items):\n    # Process input according to Project: Full-Stack To-Do API rules\n    pass",
+      "solution_code": "def process_27_6_data(items):\n    return [item for item in items if item is not None]",
       "test_cases": [
         {
-          "input": "",
-          "expected_output": "Project: Full-Stack To-Do API Result 19"
+          "input": "[1, None, 2, None, 3]",
+          "expected_output": "[1, 2, 3]",
+          "description": "cleans null values using Project: Full-Stack To-Do API rules"
         }
       ],
       "hint": "Focus on applying the central Python idiom for Project: Full-Stack To-Do API.",
-      "explanation": "Understanding how to construct clean implementations of Project: Full-Stack To-Do API ensures you can integrate it into broader software applications."
+      "explanation": "Constructing pure, robust data transformers for Project: Full-Stack To-Do API avoids unintended side effects and guarantees consistent return contracts."
     },
     {
       "id": "27.6_q20",
@@ -386,17 +387,18 @@
       "prerequisites": [
         "27.6_q19"
       ],
-      "prompt": "Identify and fix the logical or syntax defect in this implementation of Project: Full-Stack To-Do API:",
-      "starter_code": "# Fix the issue with Project: Full-Stack To-Do API\ndef check_valid(val):\n    if val is None:\n        return False\n    return True",
-      "solution_code": "def check_valid(val):\n    if val is None:\n        return False\n    return True",
+      "prompt": "Defensive Validation: Implement a verification helper for Project: Full-Stack To-Do API that confirms preconditions and guards against invalid input.",
+      "starter_code": "def validate_27_6_input(val):\n    # Return True if val is valid, False otherwise\n    pass",
+      "solution_code": "def validate_27_6_input(val):\n    if val is None or val == '':\n        return False\n    return True",
       "test_cases": [
         {
-          "input": "",
-          "expected_output": "Project: Full-Stack To-Do API Result 20"
+          "input": "'valid_token'",
+          "expected_output": "True",
+          "description": "valid input returns True"
         }
       ],
       "hint": "Check the condition and return value carefully.",
-      "explanation": "Debugging is a core programming competency. Guarding against edge cases like `None` or invalid states prevents runtime failures."
+      "explanation": "Validating preconditions at the boundary prevents null pointer and type exceptions downstream."
     },
     {
       "id": "27.6_q21",
@@ -428,24 +430,25 @@
     },
     {
       "id": "27.6_q22",
-      "type": "real_world_scenario",
+      "type": "write_the_code",
       "concept": "project_full_stack_to_do_api_production_transfer",
-      "skill": "application",
+      "skill": "transfer",
       "difficulty": "hard",
       "prerequisites": [
         "27.6_q21"
       ],
-      "prompt": "Apply Project: Full-Stack To-Do API to a realistic scenario: process a sequence of records and return only those meeting the business rule:",
-      "starter_code": "records = [{'id': 1, 'active': True}, {'id': 2, 'active': False}]\n# Filter active records\nactive_records = ___",
-      "solution_code": "records = [{'id': 1, 'active': True}, {'id': 2, 'active': False}]\nactive_records = [r for r in records if r['active']]",
+      "prompt": "Transfer Challenge: Solve a practical problem using Project: Full-Stack To-Do API. Implement the function below to satisfy the stated contract.",
+      "starter_code": "def handle_domain_task(val):\n    # Implement domain logic for Project: Full-Stack To-Do API\n    return str(val).strip()",
+      "solution_code": "def handle_domain_task(val):\n    return str(val).strip().upper()",
       "test_cases": [
         {
-          "input": "",
-          "expected_output": "Project: Full-Stack To-Do API Result 22"
+          "input": "'  python  '",
+          "expected_output": "'PYTHON'",
+          "description": "domain sanitization"
         }
       ],
       "hint": "Use a list comprehension to filter records where 'active' is True.",
-      "explanation": "In production Python code, Project: Full-Stack To-Do API is frequently combined with data filtering to process structured domain models efficiently."
+      "explanation": "Applying clean functional contracts for Project: Full-Stack To-Do API ensures testable domain operations."
     },
     {
       "id": "27.6_q23",
@@ -473,21 +476,22 @@
       "type": "write_the_code",
       "concept": "project_full_stack_to_do_api_mastery_challenge",
       "skill": "transfer",
-      "difficulty": "expert",
+      "difficulty": "hard",
       "prerequisites": [
         "27.6_q23"
       ],
-      "prompt": "Mastery Challenge: Implement a robust, tested function for Project: Full-Stack To-Do API that processes inputs, validates preconditions, and handles invalid states cleanly:",
-      "starter_code": "def execute_task(data):\n    if not data:\n        return None\n    # Process valid data\n    ___",
-      "solution_code": "def execute_task(data):\n    if not data:\n        return None\n    return sorted(data)",
+      "prompt": "Final Capstone Verification: Write a production-grade handler for Project: Full-Stack To-Do API that processes batches and handles empty inputs cleanly.",
+      "starter_code": "def execute_27_6_workflow(batch):\n    # Validate and transform batch\n    pass",
+      "solution_code": "def execute_27_6_workflow(batch):\n    if not batch:\n        return []\n    return [str(x).strip() for x in batch]",
       "test_cases": [
         {
-          "input": "",
-          "expected_output": "Project: Full-Stack To-Do API Result 24"
+          "input": "[' a ', 'b ']",
+          "expected_output": "['a', 'b']",
+          "description": "batch processing workflow"
         }
       ],
       "hint": "Validate input first, then execute the transformation.",
-      "explanation": "Demonstrating end-to-end mastery of Project: Full-Stack To-Do API requires combining input validation, core algorithmic logic, and defensive programming."
+      "explanation": "Production workflows for Project: Full-Stack To-Do API must validate inputs, maintain immutability, and return deterministic results."
     },
     {
       "id": "27.6_q25",
@@ -537,9 +541,21 @@
       "starter_code": "from flask import Flask, request, jsonify\nfrom sqlalchemy import create_engine\nfrom sqlalchemy.orm import sessionmaker\n\napp = Flask(__name__)\nengine = create_engine('sqlite:///todo.db')\nSession = sessionmaker(bind=engine)\n\n@app.route('/api/tasks/bulk', methods=['POST'])\ndef bulk_create():\n    data = request.get_json()\n    session = Session()\n    # TODO: implement bulk insert with validation\n    session.close()\n    return jsonify({}), 201",
       "solution_code": "from flask import Flask, request, jsonify\nfrom sqlalchemy import create_engine\nfrom sqlalchemy.orm import sessionmaker\nfrom datetime import datetime\n\napp = Flask(__name__)\nengine = create_engine('sqlite:///todo.db')\nSession = sessionmaker(bind=engine)\n\n@app.route('/api/tasks/bulk', methods=['POST'])\ndef bulk_create():\n    data = request.get_json()\n    if not isinstance(data, list):\n        return jsonify({'error': 'Expected a list of tasks'}), 400\n    session = Session()\n    created = []\n    for item in data:\n        title = item.get('title', '')\n        due_date_str = item.get('due_date', '')\n        if not title or not isinstance(title, str):\n            session.close()\n            return jsonify({'error': 'Invalid or missing title'}), 400\n        try:\n            due_date = datetime.fromisoformat(due_date_str)\n        except ValueError:\n            session.close()\n            return jsonify({'error': 'due_date must be ISO 8601'}), 400\n        task = Task(title=title, due_date=due_date)\n        session.add(task)\n        created.append(task.to_dict())\n    session.commit()\n    session.close()\n    return jsonify(created), 201",
       "test_cases": [
-        "POST /api/tasks/bulk with valid list returns 201 and created tasks",
-        "POST /api/tasks/bulk with missing title returns 400",
-        "POST /api/tasks/bulk with invalid due_date returns 400"
+        {
+          "input": "",
+          "expected_output": "POST /api/tasks/bulk with valid list returns 201 and created tasks",
+          "description": "POST /api/tasks/bulk with valid list returns 201 and created tasks"
+        },
+        {
+          "input": "",
+          "expected_output": "POST /api/tasks/bulk with missing title returns 400",
+          "description": "POST /api/tasks/bulk with missing title returns 400"
+        },
+        {
+          "input": "",
+          "expected_output": "POST /api/tasks/bulk with invalid due_date returns 400",
+          "description": "POST /api/tasks/bulk with invalid due_date returns 400"
+        }
       ],
       "hint": "Use a for-loop to validate each item, raise an early return on failure, and commit only after all validations pass.",
       "explanation": "Bulk creation requires iterating over the input list, validating each dictionary, instantiating Task models, adding them to the session, and committing once. Early returns on validation errors prevent partial inserts and maintain atomicity.",
@@ -557,9 +573,21 @@
       "starter_code": "from flask import Flask, request, jsonify\nfrom sqlalchemy import create_engine\nfrom sqlalchemy.orm import sessionmaker\n\napp = Flask(__name__)\nengine = create_engine('sqlite:///todo.db')\nSession = sessionmaker(bind=engine)\n\n@app.route('/api/tasks', methods=['GET'])\ndef list_tasks():\n    page = request.args.get('page', 1, type=int)\n    per_page = request.args.get('per_page', 10, type=int)\n    session = Session()\n    # TODO: implement pagination\n    session.close()\n    return jsonify({}), 200",
       "solution_code": "from flask import Flask, request, jsonify\nfrom sqlalchemy import create_engine\nfrom sqlalchemy.orm import sessionmaker\n\napp = Flask(__name__)\nengine = create_engine('sqlite:///todo.db')\nSession = sessionmaker(bind=engine)\n\n@app.route('/api/tasks', methods=['GET'])\ndef list_tasks():\n    page = request.args.get('page', 1, type=int)\n    per_page = request.args.get('per_page', 10, type=int)\n    if page < 1 or per_page < 1:\n        return jsonify({'error': 'page and per_page must be positive integers'}), 400\n    session = Session()\n    query = session.query(Task)\n    total = query.count()\n    tasks = query.offset((page - 1) * per_page).limit(per_page).all()\n    result = [t.to_dict() for t in tasks]\n    session.close()\n    return jsonify({\n        'tasks': result,\n        'total': total,\n        'page': page,\n        'per_page': per_page\n    }), 200",
       "test_cases": [
-        "GET /api/tasks?page=1&per_page=5 returns 5 tasks and total count",
-        "GET /api/tasks?page=2&per_page=5 skips first 5 tasks",
-        "GET /api/tasks?page=0 returns 400"
+        {
+          "input": "",
+          "expected_output": "GET /api/tasks?page=1&per_page=5 returns 5 tasks and total count",
+          "description": "GET /api/tasks?page=1&per_page=5 returns 5 tasks and total count"
+        },
+        {
+          "input": "",
+          "expected_output": "GET /api/tasks?page=2&per_page=5 skips first 5 tasks",
+          "description": "GET /api/tasks?page=2&per_page=5 skips first 5 tasks"
+        },
+        {
+          "input": "",
+          "expected_output": "GET /api/tasks?page=0 returns 400",
+          "description": "GET /api/tasks?page=0 returns 400"
+        }
       ],
       "hint": "Use query.offset() and query.limit() after computing the offset from page and per_page.",
       "explanation": "Pagination is implemented by calculating the offset as (page - 1) * per_page and applying it via offset() before limit(). The total count is obtained with count() to provide metadata to the client.",
@@ -577,9 +605,21 @@
       "starter_code": "from sqlalchemy import Column, Integer, String, Boolean, DateTime\nfrom sqlalchemy.ext.declarative import declarative_base\nfrom datetime import datetime\n\nBase = declarative_base()\n\nclass Task(Base):\n    __tablename__ = 'tasks'\n    id = Column(Integer, primary_key=True)\n    title = Column(String(255), nullable=False)\n    due_date = Column(DateTime)\n    is_deleted = Column(Boolean, default=False)\n\n    def to_dict(self):\n        return {\n            'id': self.id,\n            'title': self.title,\n            'due_date': self.due_date.isoformat(),\n            'is_deleted': self.is_deleted\n        }",
       "solution_code": "from sqlalchemy import Column, Integer, String, Boolean, DateTime\nfrom sqlalchemy.ext.declarative import declarative_base\nfrom datetime import datetime\n\nBase = declarative_base()\n\nclass Task(Base):\n    __tablename__ = 'tasks'\n    id = Column(Integer, primary_key=True)\n    title = Column(String(255), nullable=False)\n    due_date = Column(DateTime)\n    is_deleted = Column(Boolean, default=False)\n\n    def to_dict(self):\n        return {\n            'id': self.id,\n            'title': self.title,\n            'due_date': self.due_date.isoformat() if self.due_date else None,\n            'is_deleted': self.is_deleted\n        }\n\ndef get_active_query(session):\n    return session.query(Task).filter_by(is_deleted=False)\n\ndef delete_task(session, task_id):\n    task = session.query(Task).get(task_id)\n    if task is None:\n        return False\n    task.is_deleted = True\n    session.commit()\n    return True",
       "test_cases": [
-        "DELETE /api/tasks/1 sets is_deleted=True and returns 204",
-        "GET /api/tasks omits tasks where is_deleted is True",
-        "GET /api/tasks?include_deleted=1 still omits by default"
+        {
+          "input": "",
+          "expected_output": "DELETE /api/tasks/1 sets is_deleted=True and returns 204",
+          "description": "DELETE /api/tasks/1 sets is_deleted=True and returns 204"
+        },
+        {
+          "input": "",
+          "expected_output": "GET /api/tasks omits tasks where is_deleted is True",
+          "description": "GET /api/tasks omits tasks where is_deleted is True"
+        },
+        {
+          "input": "",
+          "expected_output": "GET /api/tasks?include_deleted=1 still omits by default",
+          "description": "GET /api/tasks?include_deleted=1 still omits by default"
+        }
       ],
       "hint": "Create a helper that filters is_deleted=False for reads, and update the row instead of calling session.delete().",
       "explanation": "Soft-delete preserves historical data by marking rows as deleted rather than removing them. All read operations filter on is_deleted=False, while the DELETE route performs an update and commits.",
@@ -597,9 +637,21 @@
       "starter_code": "from flask import Flask, request, jsonify\nfrom flask_limiter import Limiter\nfrom flask_limiter.util import get_remote_address\n\napp = Flask(__name__)\nlimiter = Limiter(\n    app,\n    key_func=get_remote_address\n)\n\n@app.route('/api/login', methods=['POST'])\ndef login():\n    # TODO: add rate limit and return 429 if exceeded\n    return jsonify({'message': 'ok'}), 200",
       "solution_code": "from flask import Flask, request, jsonify\nfrom flask_limiter import Limiter\nfrom flask_limiter.util import get_remote_address\n\napp = Flask(__name__)\nlimiter = Limiter(\n    app,\n    key_func=get_remote_address,\n    default_limits=[\"200 per day\", \"50 per hour\"]\n)\n\n@app.route('/api/login', methods=['POST'])\n@limiter.limit('5 per minute')\ndef login():\n    data = request.get_json()\n    if not data or 'username' not in data or 'password' not in data:\n        return jsonify({'error': 'Missing credentials'}), 400\n    # TODO: verify credentials\n    return jsonify({'message': 'ok'}), 200",
       "test_cases": [
-        "5 POST /api/login within 60 seconds returns 200",
-        "6th POST /api/login within 60 seconds returns 429",
-        "429 response includes JSON with error message"
+        {
+          "input": "",
+          "expected_output": "5 POST /api/login within 60 seconds returns 200",
+          "description": "5 POST /api/login within 60 seconds returns 200"
+        },
+        {
+          "input": "",
+          "expected_output": "6th POST /api/login within 60 seconds returns 429",
+          "description": "6th POST /api/login within 60 seconds returns 429"
+        },
+        {
+          "input": "",
+          "expected_output": "429 response includes JSON with error message",
+          "description": "429 response includes JSON with error message"
+        }
       ],
       "hint": "Apply the @limiter.limit decorator directly above the route function and return a JSON error with status 429 in the exception handler or by checking the limiter state.",
       "explanation": "Flask-Limiter uses a decorator to enforce request quotas per key. When the limit is exceeded, it raises a RateLimitExceeded exception that can be caught to return a 429 JSON response, protecting the login endpoint from brute-force attempts.",

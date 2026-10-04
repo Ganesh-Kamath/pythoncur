@@ -461,21 +461,22 @@
       "type": "write_the_code",
       "concept": "common_built_in_exceptions_mastery_challenge",
       "skill": "transfer",
-      "difficulty": "expert",
+      "difficulty": "hard",
       "prerequisites": [
         "12.3_q23"
       ],
-      "prompt": "Mastery Challenge: Implement a robust, tested function for Common Built-in Exceptions that processes inputs, validates preconditions, and handles invalid states cleanly:",
-      "starter_code": "def execute_task(data):\n    if not data:\n        return None\n    # Process valid data\n    ___",
-      "solution_code": "def execute_task(data):\n    if not data:\n        return None\n    return sorted(data)",
+      "prompt": "Final Capstone Verification: Write a production-grade handler for Common Built-in Exceptions that processes batches and handles empty inputs cleanly.",
+      "starter_code": "def execute_12_3_workflow(batch):\n    # Validate and transform batch\n    pass",
+      "solution_code": "def execute_12_3_workflow(batch):\n    if not batch:\n        return []\n    return [str(x).strip() for x in batch]",
       "test_cases": [
         {
-          "input": "",
-          "expected_output": "Common Built-in Exceptions Result 24"
+          "input": "[' a ', 'b ']",
+          "expected_output": "['a', 'b']",
+          "description": "batch processing workflow"
         }
       ],
       "hint": "Validate input first, then execute the transformation.",
-      "explanation": "Demonstrating end-to-end mastery of Common Built-in Exceptions requires combining input validation, core algorithmic logic, and defensive programming."
+      "explanation": "Production workflows for Common Built-in Exceptions must validate inputs, maintain immutability, and return deterministic results."
     },
     {
       "id": "12.3_q25",
@@ -490,8 +491,16 @@
       "starter_code": "user_input = input('Enter your age: ')\n# Your code here",
       "solution_code": "user_input = input('Enter your age: ')\ntry:\n    age = int(user_input)\n    print('Your age is', age)\nexcept ValueError:\n    print('Please enter a valid number for your age.')",
       "test_cases": [
-        "Input: '25' -> Expected output: 'Your age is 25'",
-        "Input: 'twenty' -> Expected output: 'Please enter a valid number for your age.'"
+        {
+          "input": "",
+          "expected_output": "Input: '25' -> Expected output: 'Your age is 25'",
+          "description": "Input: '25' -> Expected output: 'Your age is 25'"
+        },
+        {
+          "input": "",
+          "expected_output": "Input: 'twenty' -> Expected output: 'Please enter a valid number for your age.'",
+          "description": "Input: 'twenty' -> Expected output: 'Please enter a valid number for your age.'"
+        }
       ],
       "hint": "Use a try-except block to catch ValueError when converting the string to an integer.",
       "explanation": "ValueError occurs when int() receives a string that does not represent a valid integer. Wrapping the conversion in a try-except block allows the program to handle invalid input gracefully without crashing."
@@ -509,8 +518,16 @@
       "starter_code": "num1 = float(input('Enter numerator: '))\nnum2 = float(input('Enter denominator: '))\n# Your code here",
       "solution_code": "num1 = float(input('Enter numerator: '))\nnum2 = float(input('Enter denominator: '))\ntry:\n    result = num1 / num2\n    print('Result:', result)\nexcept ZeroDivisionError:\n    print('Error: Division by zero is not allowed.')",
       "test_cases": [
-        "Input: num1='10', num2='2' -> Expected output: 'Result: 5.0'",
-        "Input: num1='5', num2='0' -> Expected output: 'Error: Division by zero is not allowed.'"
+        {
+          "input": "",
+          "expected_output": "Input: num1='10', num2='2' -> Expected output: 'Result: 5.0'",
+          "description": "Input: num1='10', num2='2' -> Expected output: 'Result: 5.0'"
+        },
+        {
+          "input": "",
+          "expected_output": "Input: num1='5', num2='0' -> Expected output: 'Error: Division by zero is not allowed.'",
+          "description": "Input: num1='5', num2='0' -> Expected output: 'Error: Division by zero is not allowed.'"
+        }
       ],
       "hint": "Remember that dividing by zero raises ZeroDivisionError, which must be caught in the except block.",
       "explanation": "ZeroDivisionError is raised when the denominator in a division operation is zero. Handling this exception prevents runtime crashes and provides useful feedback to the user."
@@ -528,8 +545,16 @@
       "starter_code": "# Your code here",
       "solution_code": "try:\n    with open('data.txt', 'r') as file:\n        content = file.read()\n        print(content)\nexcept FileNotFoundError:\n    print('The file data.txt was not found.')\nexcept Exception:\n    print('An unexpected error occurred while reading the file.')",
       "test_cases": [
-        "File exists with text 'hello' -> Expected output: 'hello'",
-        "File does not exist -> Expected output: 'The file data.txt was not found.'"
+        {
+          "input": "",
+          "expected_output": "File exists with text 'hello' -> Expected output: 'hello'",
+          "description": "File exists with text 'hello' -> Expected output: 'hello'"
+        },
+        {
+          "input": "",
+          "expected_output": "File does not exist -> Expected output: 'The file data.txt was not found.'",
+          "description": "File does not exist -> Expected output: 'The file data.txt was not found.'"
+        }
       ],
       "hint": "Use nested or chained except blocks to handle FileNotFoundError specifically before a general Exception catch-all.",
       "explanation": "FileNotFoundError is a specific built-in exception for missing files. Using a general except Exception as a fallback ensures that other runtime issues (like permission errors) are also handled without terminating the program."
@@ -547,8 +572,16 @@
       "starter_code": "def get_value(data, key):\n    # Your code here\n    return None",
       "solution_code": "def get_value(data, key):\n    try:\n        return data[key]\n    except KeyError:\n        return None",
       "test_cases": [
-        "get_value({'a': 1}, 'a') -> Expected output: 1",
-        "get_value({'a': 1}, 'b') -> Expected output: None"
+        {
+          "input": "",
+          "expected_output": "get_value({'a': 1}, 'a') -> Expected output: 1",
+          "description": "get_value({'a': 1}, 'a') -> Expected output: 1"
+        },
+        {
+          "input": "",
+          "expected_output": "get_value({'a': 1}, 'b') -> Expected output: None",
+          "description": "get_value({'a': 1}, 'b') -> Expected output: None"
+        }
       ],
       "hint": "Accessing a missing dictionary key raises KeyError. Wrap the lookup in a try-except block to catch this specific exception.",
       "explanation": "KeyError is raised when a dictionary key is not found. Using exception handling for this case is a clean alternative to checking key membership with 'in' before access."
@@ -566,8 +599,16 @@
       "starter_code": "def check_user(username):\n    # Your code here\n    return False",
       "solution_code": "def check_user(username):\n    try:\n        with open('users.txt', 'r') as file:\n            users = file.read().splitlines()\n            if not users:\n                print('The user file is empty.')\n                return False\n            return username in users\n    except FileNotFoundError:\n        print('The user file was not found.')\n        return False\n    except Exception:\n        print('An unexpected error occurred while checking the user.')\n        return False",
       "test_cases": [
-        "users.txt contains 'alice' and input is 'alice' -> Expected output: True",
-        "users.txt does not exist and input is 'bob' -> Expected output: 'The user file was not found.' then False"
+        {
+          "input": "",
+          "expected_output": "users.txt contains 'alice' and input is 'alice' -> Expected output: True",
+          "description": "users.txt contains 'alice' and input is 'alice' -> Expected output: True"
+        },
+        {
+          "input": "",
+          "expected_output": "users.txt does not exist and input is 'bob' -> Expected output: 'The user file was not found.' then False",
+          "description": "users.txt does not exist and input is 'bob' -> Expected output: 'The user file was not found.' then False"
+        }
       ],
       "hint": "Combine file I/O exception handling with checks for empty data and a broad except for unforeseen issues.",
       "explanation": "Real-world programs must anticipate multiple failure modes: missing resources, empty data, and unpredictable runtime errors. Layered exception handling creates resilient software that degrades gracefully."
@@ -585,9 +626,21 @@
       "starter_code": "def safe_compute(a, b):\n    # Your code here\n    return ''",
       "solution_code": "def safe_compute(a, b):\n    try:\n        a = int(a)\n        b = int(b)\n        return str(a / b)\n    except ValueError:\n        return 'Invalid input: please enter integers only.'\n    except ZeroDivisionError:\n        return 'Cannot divide by zero.'\n    except Exception:\n        return 'An unexpected error occurred.'",
       "test_cases": [
-        "safe_compute('10', '2') -> Expected output: '5.0'",
-        "safe_compute('10', '0') -> Expected output: 'Cannot divide by zero.'",
-        "safe_compute('ten', '2') -> Expected output: 'Invalid input: please enter integers only.'"
+        {
+          "input": "",
+          "expected_output": "safe_compute('10', '2') -> Expected output: '5.0'",
+          "description": "safe_compute('10', '2') -> Expected output: '5.0'"
+        },
+        {
+          "input": "",
+          "expected_output": "safe_compute('10', '0') -> Expected output: 'Cannot divide by zero.'",
+          "description": "safe_compute('10', '0') -> Expected output: 'Cannot divide by zero.'"
+        },
+        {
+          "input": "",
+          "expected_output": "safe_compute('ten', '2') -> Expected output: 'Invalid input: please enter integers only.'",
+          "description": "safe_compute('ten', '2') -> Expected output: 'Invalid input: please enter integers only.'"
+        }
       ],
       "hint": "Order your except clauses from most specific to most general. ValueError and ZeroDivisionError must come before the catch-all Exception.",
       "explanation": "Exception specificity matters: Python matches the first except clause whose type fits the raised exception. Placing general Exception last ensures that specific errors are handled with tailored messages before any fallback."

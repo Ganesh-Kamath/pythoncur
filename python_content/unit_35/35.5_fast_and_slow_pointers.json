@@ -466,10 +466,26 @@
       "starter_code": "class ListNode:\n    def __init__(self, val=0, next=None):\n        self.val = val\n        self.next = next\n\ndef find_middle(head):\n    # TODO: implement using fast and slow pointers\n    return None",
       "solution_code": "def find_middle(head):\n    slow = head\n    fast = head\n    while fast and fast.next:\n        slow = slow.next\n        fast = fast.next.next\n    return slow",
       "test_cases": [
-        "[1,2,3,4,5] -> 3",
-        "[1,2,3,4] -> 3",
-        "[1] -> 1",
-        "[] -> None"
+        {
+          "input": "",
+          "expected_output": "[1,2,3,4,5] -> 3",
+          "description": "[1,2,3,4,5] -> 3"
+        },
+        {
+          "input": "",
+          "expected_output": "[1,2,3,4] -> 3",
+          "description": "[1,2,3,4] -> 3"
+        },
+        {
+          "input": "",
+          "expected_output": "[1] -> 1",
+          "description": "[1] -> 1"
+        },
+        {
+          "input": "",
+          "expected_output": "[] -> None",
+          "description": "[] -> None"
+        }
       ],
       "hint": "Initialize both pointers at the head. Advance the fast pointer by two steps and the slow pointer by one step in each iteration.",
       "explanation": "The fast pointer reaches the end in half the time of the slow pointer. When fast can no longer move two steps, slow will be at the middle. This runs in O(n) time and O(1) space."
@@ -487,10 +503,26 @@
       "starter_code": "def detect_cycle(head):\n    # TODO: use fast and slow pointers to detect a cycle\n    return False",
       "solution_code": "def detect_cycle(head):\n    slow = head\n    fast = head\n    while fast and fast.next:\n        slow = slow.next\n        fast = fast.next.next\n        if slow is fast:\n            return True\n    return False",
       "test_cases": [
-        "no cycle [1,2,3] -> False",
-        "cycle at node 2 [1,2,3,2] -> True",
-        "self-loop [1,1] -> True",
-        "single node no cycle [1] -> False"
+        {
+          "input": "",
+          "expected_output": "no cycle [1,2,3] -> False",
+          "description": "no cycle [1,2,3] -> False"
+        },
+        {
+          "input": "",
+          "expected_output": "cycle at node 2 [1,2,3,2] -> True",
+          "description": "cycle at node 2 [1,2,3,2] -> True"
+        },
+        {
+          "input": "",
+          "expected_output": "self-loop [1,1] -> True",
+          "description": "self-loop [1,1] -> True"
+        },
+        {
+          "input": "",
+          "expected_output": "single node no cycle [1] -> False",
+          "description": "single node no cycle [1] -> False"
+        }
       ],
       "hint": "If the fast pointer catches up to the slow pointer, a cycle is confirmed. If fast reaches the end, there is no cycle.",
       "explanation": "Floyd's algorithm leverages relative speed: the fast pointer gains one node per iteration on the slow pointer inside a cycle. Meeting proves a loop; reaching null proves acyclic."
@@ -508,10 +540,26 @@
       "starter_code": "def find_cycle_start(head):\n    # TODO: find the start of the cycle using fast/slow pointers\n    return None",
       "solution_code": "def find_cycle_start(head):\n    slow = head\n    fast = head\n    has_cycle = False\n    while fast and fast.next:\n        slow = slow.next\n        fast = fast.next.next\n        if slow is fast:\n            has_cycle = True\n            break\n    if not has_cycle:\n        return None\n    slow = head\n    while slow is not fast:\n        slow = slow.next\n        fast = fast.next\n    return slow",
       "test_cases": [
-        "no cycle [1,2,3] -> None",
-        "cycle start at index 1 [1,2,3,4,2] -> node 2",
-        "cycle start at head [1,2,3,1] -> node 1",
-        "self-loop [1] -> node 1"
+        {
+          "input": "",
+          "expected_output": "no cycle [1,2,3] -> None",
+          "description": "no cycle [1,2,3] -> None"
+        },
+        {
+          "input": "",
+          "expected_output": "cycle start at index 1 [1,2,3,4,2] -> node 2",
+          "description": "cycle start at index 1 [1,2,3,4,2] -> node 2"
+        },
+        {
+          "input": "",
+          "expected_output": "cycle start at head [1,2,3,1] -> node 1",
+          "description": "cycle start at head [1,2,3,1] -> node 1"
+        },
+        {
+          "input": "",
+          "expected_output": "self-loop [1] -> node 1",
+          "description": "self-loop [1] -> node 1"
+        }
       ],
       "hint": "After detecting a meeting point, move one pointer to the head and advance both one step at a time; their next meeting is the cycle start.",
       "explanation": "The distance from head to cycle start equals the distance from meeting point to cycle start. Resetting one pointer to head and moving both at unit speed guarantees convergence at the entry point."
@@ -529,10 +577,26 @@
       "starter_code": "def remove_nth_from_end(head, n):\n    # TODO: remove nth node from end using fast/slow pointers\n    return head",
       "solution_code": "def remove_nth_from_end(head, n):\n    dummy = ListNode(0, head)\n    fast = dummy\n    slow = dummy\n    for _ in range(n):\n        fast = fast.next\n    while fast.next:\n        fast = fast.next\n        slow = slow.next\n    slow.next = slow.next.next\n    return dummy.next",
       "test_cases": [
-        "[1,2,3,4,5], n=2 -> [1,2,3,5]",
-        "[1], n=1 -> []",
-        "[1,2], n=1 -> [1]",
-        "[1,2,3], n=3 -> [2,3]"
+        {
+          "input": "",
+          "expected_output": "[1,2,3,4,5], n=2 -> [1,2,3,5]",
+          "description": "[1,2,3,4,5], n=2 -> [1,2,3,5]"
+        },
+        {
+          "input": "",
+          "expected_output": "[1], n=1 -> []",
+          "description": "[1], n=1 -> []"
+        },
+        {
+          "input": "",
+          "expected_output": "[1,2], n=1 -> [1]",
+          "description": "[1,2], n=1 -> [1]"
+        },
+        {
+          "input": "",
+          "expected_output": "[1,2,3], n=3 -> [2,3]",
+          "description": "[1,2,3], n=3 -> [2,3]"
+        }
       ],
       "hint": "Create a dummy node before head. Advance fast n steps ahead, then move both until fast reaches the last node.",
       "explanation": "The dummy node simplifies edge cases such as removing the head. The n-step lead ensures slow lands exactly before the target node when fast reaches the tail."
@@ -550,10 +614,26 @@
       "starter_code": "def evict_middle(buffer_head):\n    # TODO: remove and return the middle node of the buffer\n    return None",
       "solution_code": "def evict_middle(buffer_head):\n    if not buffer_head:\n        return None\n    prev = None\n    slow = buffer_head\n    fast = buffer_head\n    while fast and fast.next:\n        prev = slow\n        slow = slow.next\n        fast = fast.next.next\n    if prev is None:\n        buffer_head = slow.next\n        return slow\n    prev.next = slow.next\n    return slow",
       "test_cases": [
-        "odd length [10,20,30] -> evict 20, remaining [10,30]",
-        "even length [10,20,30,40] -> evict 30, remaining [10,20,40]",
-        "single node [50] -> evict 50, remaining []",
-        "empty -> None"
+        {
+          "input": "",
+          "expected_output": "odd length [10,20,30] -> evict 20, remaining [10,30]",
+          "description": "odd length [10,20,30] -> evict 20, remaining [10,30]"
+        },
+        {
+          "input": "",
+          "expected_output": "even length [10,20,30,40] -> evict 30, remaining [10,20,40]",
+          "description": "even length [10,20,30,40] -> evict 30, remaining [10,20,40]"
+        },
+        {
+          "input": "",
+          "expected_output": "single node [50] -> evict 50, remaining []",
+          "description": "single node [50] -> evict 50, remaining []"
+        },
+        {
+          "input": "",
+          "expected_output": "empty -> None",
+          "description": "empty -> None"
+        }
       ],
       "hint": "Track the node before slow so you can unlink slow when it is the middle. For even length, the second middle is removed.",
       "explanation": "This scenario mirrors cache eviction policies where a balanced midpoint removal avoids biasing toward either end. The algorithm remains O(n) time and O(1) extra space."
@@ -571,11 +651,31 @@
       "starter_code": "def is_palindrome(head):\n    # TODO: check if linked list is palindrome using fast/slow pointers\n    return True",
       "solution_code": "def is_palindrome(head):\n    if not head or not head.next:\n        return True\n    slow = head\n    fast = head\n    prev = None\n    while fast and fast.next:\n        fast = fast.next.next\n        nxt = slow.next\n        slow.next = prev\n        prev = slow\n        slow = nxt\n    if fast:\n        slow = slow.next\n    while prev and slow:\n        if prev.val != slow.val:\n            return False\n        prev = prev.next\n        slow = slow.next\n    return True",
       "test_cases": [
-        "[1,2,2,1] -> True",
-        "[1,2,3,2,1] -> True",
-        "[1,2,3] -> False",
-        "[1] -> True",
-        "[] -> True"
+        {
+          "input": "",
+          "expected_output": "[1,2,2,1] -> True",
+          "description": "[1,2,2,1] -> True"
+        },
+        {
+          "input": "",
+          "expected_output": "[1,2,3,2,1] -> True",
+          "description": "[1,2,3,2,1] -> True"
+        },
+        {
+          "input": "",
+          "expected_output": "[1,2,3] -> False",
+          "description": "[1,2,3] -> False"
+        },
+        {
+          "input": "",
+          "expected_output": "[1] -> True",
+          "description": "[1] -> True"
+        },
+        {
+          "input": "",
+          "expected_output": "[] -> True",
+          "description": "[] -> True"
+        }
       ],
       "hint": "While advancing slow, reverse the first half in place. After the loop, skip the middle node for odd lengths, then compare both halves.",
       "explanation": "By reversing the first half during traversal, no extra stack or array is needed. This achieves O(n) time and O(1) space, demonstrating mastery of pointer manipulation with fast and slow techniques."

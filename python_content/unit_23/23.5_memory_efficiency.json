@@ -209,16 +209,23 @@
       "type": "write_the_code",
       "concept": "memory_efficiency_mastery_challenge",
       "skill": "transfer",
-      "difficulty": "expert",
+      "difficulty": "hard",
       "prerequisites": [
         "23.5_q11"
       ],
-      "prompt": "Mastery Challenge: Implement a robust, tested function for Memory Efficiency that processes inputs, validates preconditions, and handles invalid states cleanly:",
+      "prompt": "Final Capstone Verification: Write a production-grade handler for Memory Efficiency that processes batches and handles empty inputs cleanly.",
       "correct_answer": "apple | banana | cherry | ",
-      "explanation": "Demonstrating end-to-end mastery of Memory Efficiency requires combining input validation, core algorithmic logic, and defensive programming.",
-      "starter_code": "def execute_task(data):\n    if not data:\n        return None\n    # Process valid data\n    ___",
-      "solution_code": "def execute_task(data):\n    if not data:\n        return None\n    return sorted(data)",
-      "hint": "Validate input first, then execute the transformation."
+      "explanation": "Production workflows for Memory Efficiency must validate inputs, maintain immutability, and return deterministic results.",
+      "starter_code": "def execute_23_5_workflow(batch):\n    # Validate and transform batch\n    pass",
+      "solution_code": "def execute_23_5_workflow(batch):\n    if not batch:\n        return []\n    return [str(x).strip() for x in batch]",
+      "hint": "Validate input first, then execute the transformation.",
+      "test_cases": [
+        {
+          "input": "[' a ', 'b ']",
+          "expected_output": "['a', 'b']",
+          "description": "batch processing workflow"
+        }
+      ]
     },
     {
       "id": "23.5_q13",
@@ -456,9 +463,21 @@
       "starter_code": "def even_numbers(n):\n    # TODO: implement using yield\n    pass\n\nfor x in even_numbers(5):\n    print(x)",
       "solution_code": "def even_numbers(n):\n    count = 0\n    num = 0\n    while count < n:\n        yield num\n        num += 2\n        count += 1\n\nfor x in even_numbers(5):\n    print(x)",
       "test_cases": [
-        "even_numbers(0) should produce no output",
-        "even_numbers(1) should yield 0",
-        "even_numbers(3) should yield 0, 2, 4"
+        {
+          "input": "",
+          "expected_output": "even_numbers(0) should produce no output",
+          "description": "even_numbers(0) should produce no output"
+        },
+        {
+          "input": "",
+          "expected_output": "even_numbers(1) should yield 0",
+          "description": "even_numbers(1) should yield 0"
+        },
+        {
+          "input": "",
+          "expected_output": "even_numbers(3) should yield 0, 2, 4",
+          "description": "even_numbers(3) should yield 0, 2, 4"
+        }
       ],
       "hint": "Use yield to produce values one at a time and avoid storing the entire sequence.",
       "explanation": "A generator uses lazy evaluation, producing values on demand. This keeps memory usage constant regardless of n, unlike a list comprehension which stores all values simultaneously."
@@ -476,9 +495,21 @@
       "starter_code": "def count_error_lines(filepath):\n    # TODO: use a generator to read lines lazily\n    count = 0\n    return count\n\n# Example usage:\n# print(count_error_lines('large_log.txt'))",
       "solution_code": "def count_error_lines(filepath):\n    count = 0\n    with open(filepath, 'r') as file:\n        for line in file:\n            if 'error' in line:\n                count += 1\n    return count\n\n# Example usage:\n# print(count_error_lines('large_log.txt'))",
       "test_cases": [
-        "count_error_lines('empty.txt') returns 0",
-        "count_error_lines('one_error.txt') returns 1",
-        "count_error_lines('multiple_errors.txt') returns the correct total"
+        {
+          "input": "",
+          "expected_output": "count_error_lines('empty.txt') returns 0",
+          "description": "count_error_lines('empty.txt') returns 0"
+        },
+        {
+          "input": "",
+          "expected_output": "count_error_lines('one_error.txt') returns 1",
+          "description": "count_error_lines('one_error.txt') returns 1"
+        },
+        {
+          "input": "",
+          "expected_output": "count_error_lines('multiple_errors.txt') returns the correct total",
+          "description": "count_error_lines('multiple_errors.txt') returns the correct total"
+        }
       ],
       "hint": "Opening a file and iterating over it yields one line at a time; no need to call read() or store lines in a list.",
       "explanation": "Iterating directly over a file object is memory-efficient because Python buffers the file internally and yields one line per iteration, preventing the whole file from residing in RAM."
@@ -496,9 +527,21 @@
       "starter_code": "def fibonacci_memoized(n):\n    # TODO: yield fibonacci numbers up to n terms using minimal memory\n    pass\n\n# Test:\n# list(fibonacci_memoized(10))",
       "solution_code": "def fibonacci_memoized(n):\n    a, b = 0, 1\n    count = 0\n    while count < n:\n        yield a\n        a, b = b, a + b\n        count += 1\n\n# Test:\n# list(fibonacci_memoized(10))",
       "test_cases": [
-        "fibonacci_memoized(0) yields nothing",
-        "fibonacci_memoized(1) yields 0",
-        "fibonacci_memoized(6) yields 0, 1, 1, 2, 3, 5"
+        {
+          "input": "",
+          "expected_output": "fibonacci_memoized(0) yields nothing",
+          "description": "fibonacci_memoized(0) yields nothing"
+        },
+        {
+          "input": "",
+          "expected_output": "fibonacci_memoized(1) yields 0",
+          "description": "fibonacci_memoized(1) yields 0"
+        },
+        {
+          "input": "",
+          "expected_output": "fibonacci_memoized(6) yields 0, 1, 1, 2, 3, 5",
+          "description": "fibonacci_memoized(6) yields 0, 1, 1, 2, 3, 5"
+        }
       ],
       "hint": "Track only the two most recent Fibonacci numbers and update them in each iteration.",
       "explanation": "By maintaining only two state variables (a and b), the generator achieves O(1) space complexity regardless of n, which is optimal for sequential Fibonacci generation."
@@ -516,9 +559,21 @@
       "starter_code": "def filter_csv_rows(filepath):\n    # TODO: parse CSV line by line and yield matching rows\n    pass\n\n# Example row format: name,age,score\n# filter_csv_rows('big_data.csv')",
       "solution_code": "def filter_csv_rows(filepath):\n    with open(filepath, 'r') as file:\n        next(file)  # skip header\n        for line in file:\n            parts = line.strip().split(',')\n            if len(parts) >= 3 and float(parts[2]) > 100:\n                yield line.strip()\n\n# Example row format: name,age,score\n# filter_csv_rows('big_data.csv')",
       "test_cases": [
-        "filter_csv_rows('sample.csv') yields only rows with score > 100",
-        "filter_csv_rows('no_matches.csv') yields nothing",
-        "filter_csv_rows('header_only.csv') yields nothing"
+        {
+          "input": "",
+          "expected_output": "filter_csv_rows('sample.csv') yields only rows with score > 100",
+          "description": "filter_csv_rows('sample.csv') yields only rows with score > 100"
+        },
+        {
+          "input": "",
+          "expected_output": "filter_csv_rows('no_matches.csv') yields nothing",
+          "description": "filter_csv_rows('no_matches.csv') yields nothing"
+        },
+        {
+          "input": "",
+          "expected_output": "filter_csv_rows('header_only.csv') yields nothing",
+          "description": "filter_csv_rows('header_only.csv') yields nothing"
+        }
       ],
       "hint": "Use split(',') to extract columns and compare the third column after converting it to a number.",
       "explanation": "Processing line-by-line ensures memory scales with the longest line, not the total file size. Generators allow downstream code to consume rows immediately without buffering the entire filtered result."
@@ -536,9 +591,21 @@
       "starter_code": "import json\n\ndef stream_metadata_pipeline(socket_reader):\n    # TODO: yield titles for videos with duration > 300 seconds\n    pass\n\n# Example:\n# for title in stream_metadata_pipeline(socket):\n#     print(title)",
       "solution_code": "import json\n\ndef stream_metadata_pipeline(socket_reader):\n    for raw_line in socket_reader:\n        try:\n            obj = json.loads(raw_line.decode('utf-8'))\n        except Exception:\n            continue\n        duration = obj.get('duration', 0)\n        if duration > 300:\n            yield obj.get('title')\n\n# Example:\n# for title in stream_metadata_pipeline(socket):\n#     print(title)",
       "test_cases": [
-        "stream_metadata_pipeline yields only titles when duration exceeds 300",
-        "stream_metadata_pipeline skips malformed JSON lines",
-        "stream_metadata_pipeline handles an empty stream gracefully"
+        {
+          "input": "",
+          "expected_output": "stream_metadata_pipeline yields only titles when duration exceeds 300",
+          "description": "stream_metadata_pipeline yields only titles when duration exceeds 300"
+        },
+        {
+          "input": "",
+          "expected_output": "stream_metadata_pipeline skips malformed JSON lines",
+          "description": "stream_metadata_pipeline skips malformed JSON lines"
+        },
+        {
+          "input": "",
+          "expected_output": "stream_metadata_pipeline handles an empty stream gracefully",
+          "description": "stream_metadata_pipeline handles an empty stream gracefully"
+        }
       ],
       "hint": "Assume socket_reader yields one line at a time; decode each line before parsing JSON.",
       "explanation": "In a real-time streaming context, the volume of data can exceed available RAM. A generator pipeline processes each record as it arrives, applies the filter, and emits only the necessary result, keeping memory bounded and latency low."
@@ -556,9 +623,21 @@
       "starter_code": "import os\n\ndef search_logs(directory, severity, stop_after=None):\n    # TODO: yield matching log lines and stop early if stop_after matches are found\n    pass\n\n# Example:\n# for line in search_logs('/var/log', 'CRITICAL', stop_after=5):\n#     print(line)",
       "solution_code": "import os\n\ndef search_logs(directory, severity, stop_after=None):\n    matches = 0\n    for filename in os.listdir(directory):\n        path = os.path.join(directory, filename)\n        if not os.path.isfile(path):\n            continue\n        with open(path, 'r') as file:\n            for line in file:\n                if severity in line:\n                    yield line.strip()\n                    matches += 1\n                    if stop_after is not None and matches >= stop_after:\n                        return\n\n# Example:\n# for line in search_logs('/var/log', 'CRITICAL', stop_after=5):\n#     print(line)",
       "test_cases": [
-        "search_logs with stop_after=2 yields at most 2 matching lines",
-        "search_logs without stop_after yields all matching lines across all files",
-        "search_logs skips non-file entries in the directory"
+        {
+          "input": "",
+          "expected_output": "search_logs with stop_after=2 yields at most 2 matching lines",
+          "description": "search_logs with stop_after=2 yields at most 2 matching lines"
+        },
+        {
+          "input": "",
+          "expected_output": "search_logs without stop_after yields all matching lines across all files",
+          "description": "search_logs without stop_after yields all matching lines across all files"
+        },
+        {
+          "input": "",
+          "expected_output": "search_logs skips non-file entries in the directory",
+          "description": "search_logs skips non-file entries in the directory"
+        }
       ],
       "hint": "Use os.listdir to enumerate files one by one, open each file inside the loop, and use return to exit the generator early.",
       "explanation": "This design demonstrates mastery of memory efficiency by combining directory iteration, per-file streaming, early termination, and selective yielding. No list of all paths or all matches is ever created, so memory usage remains proportional to the size of the currently open file plus a few counters."

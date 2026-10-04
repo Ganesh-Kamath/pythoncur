@@ -52,19 +52,26 @@
     },
     {
       "id": "1.4_q4",
-      "type": "real_world_scenario",
+      "type": "write_the_code",
       "concept": "the_print_function_production_transfer",
-      "skill": "application",
+      "skill": "transfer",
       "difficulty": "hard",
       "prerequisites": [
         "1.4_q3"
       ],
-      "prompt": "Apply The Print Function to a realistic scenario: process a sequence of records and return only those meeting the business rule:",
+      "prompt": "Transfer Challenge: Solve a practical problem using The Print Function. Implement the function below to satisfy the stated contract.",
       "correct_answer": "B",
-      "explanation": "In production Python code, The Print Function is frequently combined with data filtering to process structured domain models efficiently.",
-      "starter_code": "records = [{'id': 1, 'active': True}, {'id': 2, 'active': False}]\n# Filter active records\nactive_records = ___",
-      "solution_code": "records = [{'id': 1, 'active': True}, {'id': 2, 'active': False}]\nactive_records = [r for r in records if r['active']]",
-      "hint": "Use a list comprehension to filter records where 'active' is True."
+      "explanation": "String multiplication and f-string interpolation create structured terminal banners.",
+      "starter_code": "def format_banner(title):\n    # Return title centered within a 30-char border of '='\n    pass",
+      "solution_code": "def format_banner(title):\n    return f\"{'=' * 5} {title} {'=' * 5}\"",
+      "hint": "Use a list comprehension to filter records where 'active' is True.",
+      "test_cases": [
+        {
+          "input": "'START'",
+          "expected_output": "'===== START ====='",
+          "description": "banner formatting"
+        }
+      ]
     },
     {
       "id": "1.4_q5",
@@ -488,7 +495,13 @@
       ],
       "prompt": "You want to print a clean terminal menu with options on separate lines using a SINGLE `print()` call:\n```text\n--- MENU ---\n1. Start\n2. Exit\n```\nWhich code accomplishes this?",
       "correct_answer": "A",
-      "explanation": "Using `\\n` within a single string breaks the output into distinct lines."
+      "explanation": "Using `\\n` within a single string breaks the output into distinct lines.",
+      "options": [
+        "A. print('1. Start Game\\n2. Load Game\\n3. Exit')",
+        "B. print('1. Start Game', '2. Load Game', '3. Exit', end=' ')",
+        "C. print('1. Start Game' + '2. Load Game' + '3. Exit')",
+        "D. print(['1. Start Game', '2. Load Game', '3. Exit'])"
+      ]
     },
     {
       "id": "1.4_q30",
@@ -504,7 +517,13 @@
       ],
       "prompt": "Which of the following statements about `print()` in modern Python is completely TRUE?",
       "correct_answer": "B",
-      "explanation": "`print()` is a flexible built-in function that formats and routes text to the standard output stream."
+      "explanation": "`print()` is a flexible built-in function that formats and routes text to the standard output stream.",
+      "options": [
+        "A. print is a keyword statement that cannot accept keyword parameters.",
+        "B. print() is a built-in function that formats and displays output with customizable sep and end arguments.",
+        "C. print() always converts all arguments into binary bits before output.",
+        "D. print() returns the text that was printed as a string."
+      ]
     }
   ],
   "unit_num": 1,

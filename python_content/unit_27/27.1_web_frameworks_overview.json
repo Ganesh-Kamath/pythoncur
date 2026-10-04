@@ -448,9 +448,21 @@
       "starter_code": "from flask import Flask, request\n\napp = Flask(__name__)\n\ndef home():\n    return 'Welcome home'\n\ndef about():\n    return 'About page'\n\n@app.route('/home')\ndef home_route():\n    return home()\n\n@app.route('/about')\ndef about_route():\n    return about()\n\nif __name__ == '__main__':\n    app.run()\n",
       "solution_code": "from flask import Flask\n\napp = Flask(__name__)\n\ndef format_response(message, status_code=200):\n    return {'message': message}, status_code\n\n@app.route('/home')\ndef home_route():\n    return format_response('Welcome home')\n\n@app.route('/about')\ndef about_route():\n    return format_response('About page')\n\nif __name__ == '__main__':\n    app.run()\n",
       "test_cases": [
-        "GET /home returns {'message': 'Welcome home'} with status 200",
-        "GET /about returns {'message': 'About page'} with status 200",
-        "No duplicate response formatting logic exists in route handlers"
+        {
+          "input": "",
+          "expected_output": "GET /home returns {'message': 'Welcome home'} with status 200",
+          "description": "GET /home returns {'message': 'Welcome home'} with status 200"
+        },
+        {
+          "input": "",
+          "expected_output": "GET /about returns {'message': 'About page'} with status 200",
+          "description": "GET /about returns {'message': 'About page'} with status 200"
+        },
+        {
+          "input": "",
+          "expected_output": "No duplicate response formatting logic exists in route handlers",
+          "description": "No duplicate response formatting logic exists in route handlers"
+        }
       ],
       "hint": "Extract the repeated return pattern into a single function that accepts the message and optional status code.",
       "explanation": "The original code duplicated the implicit Flask tuple-style return in every handler. By introducing `format_response`, we centralize response construction, making future changes—such as adding headers or JSON serialization—require edits in only one place. This improves maintainability and aligns with DRY principles."
@@ -468,9 +480,21 @@
       "starter_code": "from flask import Flask\n\napp = Flask(__name__)\n\n@app.route('/')\ndef home():\n    return 'Welcome to Web Frameworks'\n\n@app.route('/about')\ndef about():\n    return 'About this course'\n\nif __name__ == '__main__':\n    app.run(debug=True)",
       "solution_code": "from flask import Flask\n\napp = Flask(__name__)\n\n@app.route('/')\ndef home():\n    return 'Welcome to Web Frameworks'\n\n@app.route('/about')\ndef about():\n    return 'About this course'\n\nif __name__ == '__main__':\n    app.run(debug=True)",
       "test_cases": [
-        "GET / returns status 200 and body 'Welcome to Web Frameworks'",
-        "GET /about returns status 200 and body 'About this course'",
-        "GET /nonexistent returns status 404"
+        {
+          "input": "",
+          "expected_output": "GET / returns status 200 and body 'Welcome to Web Frameworks'",
+          "description": "GET / returns status 200 and body 'Welcome to Web Frameworks'"
+        },
+        {
+          "input": "",
+          "expected_output": "GET /about returns status 200 and body 'About this course'",
+          "description": "GET /about returns status 200 and body 'About this course'"
+        },
+        {
+          "input": "",
+          "expected_output": "GET /nonexistent returns status 404",
+          "description": "GET /nonexistent returns status 404"
+        }
       ],
       "hint": "Ensure you import Flask, instantiate the app, use @app.route decorators, and start the server with app.run().",
       "explanation": "Flask is a lightweight WSGI web framework. This exercise demonstrates creating routes, returning string responses, and running the development server. The @app.route decorator maps URLs to view functions."
@@ -488,9 +512,21 @@
       "starter_code": "from flask import Flask, request, jsonify\n\napp = Flask(__name__)\n\n@app.route('/api/greet', methods=['POST'])\ndef greet():\n    data = request.get_json()\n    return jsonify({'message': 'Hello'})\n\n@app.route('/health', methods=['GET'])\ndef health():\n    return jsonify({'status': 'ok'})\n\nif __name__ == '__main__':\n    app.run(debug=True)",
       "solution_code": "from flask import Flask, request, jsonify\n\napp = Flask(__name__)\n\n@app.route('/api/greet', methods=['POST'])\ndef greet():\n    data = request.get_json()\n    name = data.get('name', 'Guest')\n    return jsonify({'message': f'Hello, {name}!'})\n\n@app.route('/health', methods=['GET'])\ndef health():\n    return jsonify({'status': 'ok'})\n\nif __name__ == '__main__':\n    app.run(debug=True)",
       "test_cases": [
-        "POST /api/greet with {'name': 'Alice'} returns 200 and {'message': 'Hello, Alice!'}",
-        "POST /api/greet with missing 'name' returns 200 and {'message': 'Hello, Guest!'}",
-        "GET /health returns 200 and {'status': 'ok'}"
+        {
+          "input": "",
+          "expected_output": "POST /api/greet with {'name': 'Alice'} returns 200 and {'message': 'Hello, Alice!'}",
+          "description": "POST /api/greet with {'name': 'Alice'} returns 200 and {'message': 'Hello, Alice!'}"
+        },
+        {
+          "input": "",
+          "expected_output": "POST /api/greet with missing 'name' returns 200 and {'message': 'Hello, Guest!'}",
+          "description": "POST /api/greet with missing 'name' returns 200 and {'message': 'Hello, Guest!'}"
+        },
+        {
+          "input": "",
+          "expected_output": "GET /health returns 200 and {'status': 'ok'}",
+          "description": "GET /health returns 200 and {'status': 'ok'}"
+        }
       ],
       "hint": "Use request.get_json() to parse incoming JSON. Use jsonify to create a proper JSON response. Provide a default value with dict.get() for robustness.",
       "explanation": "This practical example shows how to handle HTTP methods, parse JSON payloads, and return structured JSON responses using Flask's request and jsonify utilities."
@@ -508,9 +544,21 @@
       "starter_code": "from flask import Flask, render_template, request, redirect, url_for\n\napp = Flask(__name__, template_folder='templates')\n\nusers = {}\n\n@app.route('/register', methods=['GET', 'POST'])\ndef register():\n    if request.method == 'POST':\n        username = request.form.get('username')\n        email = request.form.get('email')\n        # TODO: validate and store\n        return redirect(url_for('users'))\n    return render_template('register.html')\n\n@app.route('/users')\ndef users():\n    return render_template('users.html', users=users)\n\nif __name__ == '__main__':\n    app.run(debug=True)",
       "solution_code": "from flask import Flask, render_template, request, redirect, url_for\n\napp = Flask(__name__, template_folder='templates')\n\nusers = {}\n\n@app.route('/register', methods=['GET', 'POST'])\ndef register():\n    if request.method == 'POST':\n        username = request.form.get('username', '').strip()\n        email = request.form.get('email', '').strip()\n        if not username or not email:\n            return render_template('register.html', error='Both username and email are required.')\n        users[username] = email\n        return redirect(url_for('users'))\n    return render_template('register.html')\n\n@app.route('/users')\ndef users():\n    return render_template('users.html', users=users)\n\nif __name__ == '__main__':\n    app.run(debug=True)",
       "test_cases": [
-        "POST /register with valid username and email stores entry and redirects to /users",
-        "POST /register with empty username returns 200 and renders register.html with error",
-        "GET /users displays all stored users"
+        {
+          "input": "",
+          "expected_output": "POST /register with valid username and email stores entry and redirects to /users",
+          "description": "POST /register with valid username and email stores entry and redirects to /users"
+        },
+        {
+          "input": "",
+          "expected_output": "POST /register with empty username returns 200 and renders register.html with error",
+          "description": "POST /register with empty username returns 200 and renders register.html with error"
+        },
+        {
+          "input": "",
+          "expected_output": "GET /users displays all stored users",
+          "description": "GET /users displays all stored users"
+        }
       ],
       "hint": "Use request.form.get() for form data. Strip whitespace before validation. Return render_template with an error variable on failure. Use redirect and url_for for navigation.",
       "explanation": "This advanced task integrates form handling, input validation, in-memory data persistence, templating with Jinja2, and proper HTTP redirection. It mirrors real-world user registration flows before introducing a persistent database layer."
@@ -528,9 +576,21 @@
       "starter_code": "@app.route('/echo', methods=['GET'])\ndef echo():\n    msg = request.args.get('msg')\n    if msg is None:\n        return 'msg required', 400\n    return msg",
       "solution_code": "@app.route('/echo', methods=['GET', 'POST'])\ndef echo():\n    if request.method == 'POST':\n        msg = request.form.get('msg')\n    else:\n        msg = request.args.get('msg')\n    if not msg:\n        return {'error': 'msg required'}, 400\n    return msg",
       "test_cases": [
-        "GET /echo?msg=hello returns 200 and 'hello'",
-        "POST /echo with form msg=world returns 200 and 'world'",
-        "GET /echo returns 400 and {'error': 'msg required'}"
+        {
+          "input": "",
+          "expected_output": "GET /echo?msg=hello returns 200 and 'hello'",
+          "description": "GET /echo?msg=hello returns 200 and 'hello'"
+        },
+        {
+          "input": "",
+          "expected_output": "POST /echo with form msg=world returns 200 and 'world'",
+          "description": "POST /echo with form msg=world returns 200 and 'world'"
+        },
+        {
+          "input": "",
+          "expected_output": "GET /echo returns 400 and {'error': 'msg required'}",
+          "description": "GET /echo returns 400 and {'error': 'msg required'}"
+        }
       ],
       "hint": "Check request.method to choose between request.args and request.form. Return a JSON dict with a 400 status tuple for missing messages.",
       "explanation": "This challenge tests your understanding of HTTP method branching, parameter extraction from different sources (query vs form), and structured error responses with appropriate status codes."
@@ -548,9 +608,21 @@
       "starter_code": "# TODO: choose framework and justify in comments\n\nconfig = {\n    'framework': None,\n    'database_url': None,\n    'debug': False\n}\n\n# Add your justification comments here\n# Example:\n# # Chosen: FastAPI because it supports async and automatic OpenAPI docs\n\nprint(config)",
       "solution_code": "# Justification: FastAPI is preferred over Flask for this microservice because it\n# natively supports asynchronous request handling (via async/await), which improves\n# concurrency under high load. It also auto-generates interactive API documentation\n# via OpenAPI/Swagger, accelerating integration. Flask is simpler for small apps,\n# but FastAPI's performance and modern tooling align better with scalable REST\n# services backed by PostgreSQL.\n\nconfig = {\n    'framework': 'FastAPI',\n    'database_url': 'postgresql://user:pass@localhost/db',\n    'debug': False,\n    'async_workers': 4\n}\n\nprint(config)",
       "test_cases": [
-        "config['framework'] equals 'FastAPI'",
-        "config contains 'database_url' with a valid PostgreSQL connection string",
-        "script contains explanatory comments comparing Flask and FastAPI"
+        {
+          "input": "",
+          "expected_output": "config['framework'] equals 'FastAPI'",
+          "description": "config['framework'] equals 'FastAPI'"
+        },
+        {
+          "input": "",
+          "expected_output": "config contains 'database_url' with a valid PostgreSQL connection string",
+          "description": "config contains 'database_url' with a valid PostgreSQL connection string"
+        },
+        {
+          "input": "",
+          "expected_output": "script contains explanatory comments comparing Flask and FastAPI",
+          "description": "script contains explanatory comments comparing Flask and FastAPI"
+        }
       ],
       "hint": "Consider async support, automatic docs, and ecosystem maturity when comparing frameworks. Express the choice clearly in inline comments and populate the config dictionary accordingly.",
       "explanation": "This scenario requires synthesizing knowledge of framework characteristics—such as Flask's minimalism versus FastAPI's async capabilities and built-in documentation—to make an informed architectural decision for a production-grade microservice."
@@ -568,9 +640,21 @@
       "starter_code": "from flask import Flask\n\napp = Flask(__name__)\n\n@app.route('/')\ndef home():\n    return 'Home'\n\n@app.route('/status')\ndef status():\n    return {'status': 'healthy'}\n\nif __name__ == '__main__':\n    app.run()\n",
       "solution_code": "from flask import Blueprint, Flask\n\nmain_bp = Blueprint('main', __name__)\n\n@main_bp.route('/')\ndef home():\n    return 'Home'\n\napi_bp = Blueprint('api', __name__)\n\n@api_bp.route('/status')\ndef status():\n    return {'status': 'healthy'}\n\ndef create_app():\n    app = Flask(__name__)\n    app.register_blueprint(main_bp)\n    app.register_blueprint(api_bp, url_prefix='/api')\n    return app\n\nif __name__ == '__main__':\n    app = create_app()\n    app.run(debug=True)",
       "test_cases": [
-        "create_app() returns a Flask instance",
-        "GET / returns 200 and 'Home'",
-        "GET /api/status returns 200 and {'status': 'healthy'}"
+        {
+          "input": "",
+          "expected_output": "create_app() returns a Flask instance",
+          "description": "create_app() returns a Flask instance"
+        },
+        {
+          "input": "",
+          "expected_output": "GET / returns 200 and 'Home'",
+          "description": "GET / returns 200 and 'Home'"
+        },
+        {
+          "input": "",
+          "expected_output": "GET /api/status returns 200 and {'status': 'healthy'}",
+          "description": "GET /api/status returns 200 and {'status': 'healthy'}"
+        }
       ],
       "hint": "Import Blueprint, create two blueprints with distinct names, define routes inside each, register them in create_app() with an optional url_prefix, and instantiate via the factory.",
       "explanation": "Mastery of modular Flask architecture involves decoupling route logic into Blueprints and centralizing app configuration in a factory function. This pattern improves testability, reusability, and scalability, forming the foundation for larger production applications."
