@@ -128,7 +128,7 @@
       "starter_code": "def parse_page(response):\n    if response.status_code != ___:\n        raise ValueError(f'HTTP error: {response.status_code}')\n    return response.text",
       "solution_code": "def parse_page(response):\n    if response.status_code != 200:\n        raise ValueError(f'HTTP error: {response.status_code}')\n    return response.text",
       "hint": "Python built-in functions like print() must be written in lowercase.",
-      "explanation": "HTTP status code 200 represents 'OK' (successful request)."
+      "explanation": "HTTP status code 200 represents 'OK' (successful request). In Python, understanding this core rule ensures predictable execution, prevents common runtime errors, and establishes robust coding habits."
     },
     {
       "id": "42.3_q8",
@@ -188,7 +188,7 @@
       "starter_code": "import time\ndef fetch_with_delay(url, delay_seconds=1.0):\n    time.sleep(delay_seconds)\n    # Proceed to fetch url",
       "solution_code": "import time\ndef fetch_with_delay(url, delay_seconds=1.0):\n    time.sleep(delay_seconds)",
       "hint": "Python built-in functions like print() must be written in lowercase.",
-      "explanation": "`time.sleep()` pauses execution to avoid overloading remote web servers during crawling."
+      "explanation": "`time.sleep()` pauses execution to avoid overloading remote web servers during crawling. In Python, understanding this core rule ensures predictable execution, prevents common runtime errors, and establishes robust coding habits."
     },
     {
       "id": "42.3_q12",
@@ -203,7 +203,7 @@
       "starter_code": "import csv\ndef export_csv(records, filename):\n    with open(filename, 'w', newline='', encoding='utf-8') as f:\n        writer = csv.DictWriter(f, fieldnames=records[0].keys())\n        writer.writeheader()\n        writer.writerows(records)",
       "solution_code": "import csv\ndef export_csv(records, filename):\n    with open(filename, 'w', newline='', encoding='utf-8') as f:\n        writer = csv.DictWriter(f, fieldnames=records[0].keys())\n        writer.writeheader()\n        writer.writerows(records)",
       "hint": "Python built-in functions like print() must be written in lowercase.",
-      "explanation": "`csv.DictWriter` writes dictionary keys as headers and dictionary items as rows."
+      "explanation": "`csv.DictWriter` writes dictionary keys as headers and dictionary items as rows. In Python, understanding this core rule ensures predictable execution, prevents common runtime errors, and establishes robust coding habits."
     },
     {
       "id": "42.3_q13",
@@ -217,7 +217,7 @@
       "prompt": "Scraper API Milestone 1: Initialize a minimal FastAPI or Flask web application instance stored in variable `app`.",
       "starter_code": "# Initialize API application instance\n",
       "solution_code": "# Using Flask or FastAPI standard initialization\ntry:\n    from fastapi import FastAPI\n    app = FastAPI(title=\"Web Scraper API\")\nexcept ImportError:\n    from flask import Flask\n    app = Flask(__name__)\nprint(\"App initialized\")",
-      "explanation": "Instantiating `FastAPI()` or `Flask(__name__)` establishes the core HTTP routing application object.",
+      "explanation": "Instantiating `FastAPI()` or `Flask(__name__)` establishes the core HTTP routing application object. In Python, understanding this core rule ensures predictable execution, prevents common runtime errors, and establishes robust coding habits.",
       "metadata": {
         "concept": "api_framework_initialization",
         "skill": "architecture",
@@ -536,7 +536,7 @@
       "prompt": "Scraper API Milestone: Implement client rate limiting. Given client IP `'192.168.1.1'`, allow up to 3 requests per client using an in-memory dictionary counter `request_counts`.",
       "starter_code": "request_counts = {}\n# Track and limit client requests\n",
       "solution_code": "request_counts = {}\ndef allow_request(ip, limit=3):\n    current = request_counts.get(ip, 0)\n    if current >= limit:\n        return False\n    request_counts[ip] = current + 1\n    return True\nprint(allow_request(\"192.168.1.1\"))",
-      "explanation": "Guards backend scrapers against abuse and denial-of-service surges.",
+      "explanation": "Guards backend scrapers against abuse and denial-of-service surges. In Python, understanding this core rule ensures predictable execution, prevents common runtime errors, and establishes robust coding habits.",
       "metadata": {
         "concept": "rate_limiting_guard",
         "skill": "api_security",
@@ -574,7 +574,7 @@
       "prompt": "Scraper API Milestone: Extract OpenGraph metadata. From HTML `html = '<meta property=\"og:title\" content=\"My Article\">'`, extract the `content` attribute using BeautifulSoup.",
       "starter_code": "from bs4 import BeautifulSoup\nhtml = '<meta property=\"og:title\" content=\"My Article\">'\n# Extract og:title content\n",
       "solution_code": "from bs4 import BeautifulSoup\nhtml = '<meta property=\"og:title\" content=\"My Article\">'\nsoup = BeautifulSoup(html, \"html.parser\")\ntag = soup.find(\"meta\", property=\"og:title\")\nog_title = tag[\"content\"] if tag else \"\"\nprint(og_title)",
-      "explanation": "Targeting `<meta property=\"og:...\">` tags extracts social sharing metadata from pages.",
+      "explanation": "Targeting `<meta property=\"og:...\">` tags extracts social sharing metadata from pages. In Python, understanding this core rule ensures predictable execution, prevents common runtime errors, and establishes robust coding habits.",
       "metadata": {
         "concept": "opengraph_tag_scraping",
         "skill": "scraping",
@@ -593,7 +593,7 @@
       "prompt": "Scraper API Milestone: Automated route testing. Write a test function `test_health_route()` that asserts `health_endpoint()` returns status 200 and `{'status': 'healthy'}`.",
       "starter_code": "def health_endpoint():\n    return 200, {\"status\": \"healthy\"}\n\ndef test_health_route():\n    # Assert status and body\n    pass",
       "solution_code": "def health_endpoint():\n    return 200, {\"status\": \"healthy\"}\n\ndef test_health_route():\n    status, body = health_endpoint()\n    assert status == 200\n    assert body[\"status\"] == \"healthy\"\n\ntest_health_route()\nprint(\"Health test passed\")",
-      "explanation": "Unit testing endpoint handlers ensures API contracts remain unbroken during updates.",
+      "explanation": "Unit testing endpoint handlers ensures API contracts remain unbroken during updates. In Python, understanding this core rule ensures predictable execution, prevents common runtime errors, and establishes robust coding habits.",
       "metadata": {
         "concept": "api_unit_testing",
         "skill": "testing",

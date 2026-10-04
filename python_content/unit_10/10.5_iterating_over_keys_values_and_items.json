@@ -174,7 +174,7 @@
       "prompt": "Consider the following code:\n```python\nweather = {'mon': 'rainy', 'tue': 'sunny', 'wed': 'cloudy'}\nfor key in weather.keys():\n    print(key.upper())\n```\nExplain why the output consists of uppercase keys and what would happen if you replaced `weather.keys()` with just `weather`.",
       "correct_answer": "weather.keys() returns a view object, and key.upper() is called on each key string. Replacing it with weather would produce the same output because direct iteration also yields keys.",
       "explanation": "Directly iterating over a dictionary yields its keys, so weather and weather.keys() produce identical sequences of keys. The .upper() method is called on each key string, converting 'mon', 'tue', and 'wed' to uppercase before printing.",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# TODO: Implement solution for Iterating Over keys(), values(), and items()\n# Follow requirements outlined in the prompt\n",
       "solution_code": "print('Iterating Over keys(), values(), and items()')",
       "test_cases": [
         {

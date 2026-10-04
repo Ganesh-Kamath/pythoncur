@@ -174,7 +174,7 @@
       "prompt": "Explain what happens when the following code is executed and why.\n```python\nimport requests\nr = requests.get('https://httpbin.org/status/500')\n\nif r.ok:\n    print('Request succeeded')\nelse:\n    print('Request failed with status', r.status_code)\n```",
       "correct_answer": "It prints 'Request failed with status 500' because r.ok is False for 5xx codes.",
       "explanation": "The r.ok property returns True only for status codes in the 200-299 range. A 500 status code falls outside this range, so r.ok is False and the else branch executes, printing the failure message.",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# TODO: Implement solution for Status Codes and Error Handling\n# Follow requirements outlined in the prompt\n",
       "solution_code": "print('Status Codes and Error Handling')",
       "test_cases": [
         {
@@ -195,7 +195,7 @@
       "prompt": "Trace the execution of the following code and identify the final output.\n```python\nimport requests\n\ndef fetch_data(url):\n    try:\n        r = requests.get(url, timeout=1)\n        return r.status_code\n    except requests.exceptions.Timeout:\n        return -1\n\nresult = fetch_data('https://httpbin.org/delay/5')\nprint(result)\n```",
       "correct_answer": "-1",
       "explanation": "The requests.get() call specifies a timeout of 1 second, but the URL delays for 5 seconds. This triggers a requests.exceptions.Timeout exception. The except block catches it and returns -1, which is then printed.",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# 1. Define the process_25_4 function\ndef process_25_4():\n    # 2. Implement solution for Status Codes and Error Handling\n    pass\n",
       "solution_code": "print('Status Codes and Error Handling')",
       "test_cases": [
         {

@@ -225,7 +225,7 @@
       "correct_answer": "self in double() refers to b, so b.value is updated from 5 to 10.",
       "explanation": "When b.double() is called, self is bound to b. self.value reads 5 and assigns 10 back to b.value. Printing b.value therefore yields 10.",
       "difficulty": "medium",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# 1. Define the process_20_3 function\ndef process_20_3():\n    # 2. Implement solution for The self Keyword\n    pass\n",
       "solution_code": "print('The self Keyword')",
       "test_cases": [
         {
@@ -535,7 +535,7 @@
         "20.3_q24"
       ],
       "prompt": "Create a class named `Student` that uses `self` to initialize `name` and `grade` attributes. Then write a method `display_info` that prints both attributes using `self`.",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# TODO: Implement solution for The self Keyword\n# Follow requirements outlined in the prompt\n",
       "solution_code": "class Student:\n    def __init__(self, name, grade):\n        self.name = name\n        self.grade = grade\n\n    def display_info(self):\n        print('Name:', self.name)\n        print('Grade:', self.grade)\n\ns1 = Student('Alice', 85)\ns1.display_info()",
       "test_cases": [
         {
@@ -562,7 +562,7 @@
         "20.3_q25"
       ],
       "prompt": "Extend the `Student` class by adding a method `update_grade(self, new_grade)` that modifies the `grade` attribute using `self`. Then demonstrate it by updating a student's grade.",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# TODO: Implement solution for The self Keyword\n# Follow requirements outlined in the prompt\n",
       "solution_code": "class Student:\n    def __init__(self, name, grade):\n        self.name = name\n        self.grade = grade\n\n    def update_grade(self, new_grade):\n        self.grade = new_grade\n\ns1 = Student('Dana', 78)\ns1.update_grade(92)\nprint('Updated grade:', s1.grade)",
       "test_cases": [
         {
@@ -589,7 +589,7 @@
         "20.3_q26"
       ],
       "prompt": "Create a class `BankAccount` with `self` to track `balance`. Implement `deposit(self, amount)` and `withdraw(self, amount)` methods that update `self.balance`. Prevent withdrawals that exceed the balance.",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# TODO: Implement solution for The self Keyword\n# Follow requirements outlined in the prompt\n",
       "solution_code": "class BankAccount:\n    def __init__(self, initial_balance=0):\n        self.balance = initial_balance\n\n    def deposit(self, amount):\n        self.balance += amount\n\n    def withdraw(self, amount):\n        if amount <= self.balance:\n            self.balance -= amount\n            return True\n        return False\n\nacc = BankAccount(100)\nacc.deposit(50)\nprint(acc.withdraw(30))\nprint('Balance:', acc.balance)",
       "test_cases": [
         {
@@ -643,7 +643,7 @@
         "20.3_q28"
       ],
       "prompt": "Design a `LibraryBook` class for a small library system. Each book has a title and availability status. Use `self` to implement `borrow(self)` and `return_book(self)` methods that update availability. Ensure borrowing an already borrowed book is rejected.",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# TODO: Implement solution for The self Keyword\n# Follow requirements outlined in the prompt\n",
       "solution_code": "class LibraryBook:\n    def __init__(self, title):\n        self.title = title\n        self.available = True\n\n    def borrow(self):\n        if self.available:\n            self.available = False\n            return 'Borrowed successfully'\n        return 'Book already borrowed'\n\n    def return_book(self):\n        self.available = True\n        return 'Book returned'\n\nb1 = LibraryBook('Python Basics')\nprint(b1.borrow())\nprint(b1.borrow())\nprint(b1.return_book())",
       "test_cases": [
         {
@@ -670,7 +670,7 @@
         "20.3_q29"
       ],
       "prompt": "Implement a `TaskManager` class where each task has a `name` and `completed` flag. Provide `complete(self)` and `uncomplete(self)` methods using `self`. Then create two independent tasks and verify that completing one does not affect the other.",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# TODO: Implement solution for The self Keyword\n# Follow requirements outlined in the prompt\n",
       "solution_code": "class TaskManager:\n    def __init__(self, name):\n        self.name = name\n        self.completed = False\n\n    def complete(self):\n        self.completed = True\n\n    def uncomplete(self):\n        self.completed = False\n\nt1 = TaskManager('Write tests')\nt2 = TaskManager('Refactor code')\nt1.complete()\nprint(t1.completed, t2.completed)\nt2.uncomplete()\nprint(t1.completed, t2.completed)",
       "test_cases": [
         {

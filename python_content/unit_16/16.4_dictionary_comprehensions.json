@@ -191,7 +191,7 @@
       "prompt": "Explain why the following code produces {'x': 9, 'y': 16} and not {'x': 4, 'y': 9}.\n\n```python\ndata = {'x': 2, 'y': 3}\nresult = {k: v**2 for k, v in data.items()}\nprint(result)\n```",
       "correct_answer": "The value expression uses v**2, so 2 becomes 4 and 3 becomes 9.",
       "explanation": "The comprehension iterates over data.items(), yielding pairs ('x', 2) and ('y', 3). The value expression v**2 squares each value: 2**2 = 4 and 3**2 = 9. Therefore the correct output is {'x': 4, 'y': 9}. The premise in the question is incorrect; the code produces {'x': 4, 'y': 9}, not {'x': 9, 'y': 16}. This tests careful analysis of the actual computation.",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# TODO: Implement solution for Dictionary Comprehensions\n# Follow requirements outlined in the prompt\n",
       "solution_code": "print('Dictionary Comprehensions')",
       "test_cases": [
         {

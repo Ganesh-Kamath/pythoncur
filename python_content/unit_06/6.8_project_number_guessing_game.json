@@ -225,7 +225,7 @@
       "prompt": "Guessing Game Milestone 5: Track attempts. Start `attempts = 0`, simulate 3 guesses by incrementing `attempts += 1` inside a loop, and print the total attempts.",
       "starter_code": "attempts = 0\nsimulated_guesses = [10, 50, 42]\n# Count attempts\n",
       "solution_code": "attempts = 0\nsimulated_guesses = [10, 50, 42]\nfor g in simulated_guesses:\n    attempts += 1\nprint(f\"Total attempts: {attempts}\")",
-      "explanation": "Tracking attempt count provides score metrics and enforces maximum guess limits.",
+      "explanation": "Tracking attempt count provides score metrics and enforces maximum guess limits. In Python, understanding this core rule ensures predictable execution, prevents common runtime errors, and establishes robust coding habits.",
       "metadata": {
         "concept": "attempt_counter",
         "skill": "project_milestone",
@@ -363,7 +363,7 @@
         "6.8_q18"
       ],
       "prompt": "Write the code to import the random module and generate a secret integer between 1 and 100 (inclusive) that the player will try to guess.",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# TODO: Implement solution for Project: Number Guessing Game\n# Follow requirements outlined in the prompt\n",
       "solution_code": "import random\nsecret_number = random.randint(1, 100)",
       "test_cases": [
         {
@@ -384,7 +384,7 @@
         "6.8_q19"
       ],
       "prompt": "Write a while loop that repeatedly prompts the player to enter a guess, converts the input to an integer, and compares it to the secret number. The loop should continue until the guess is correct.",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# TODO: Implement solution for Project: Number Guessing Game\n# Follow requirements outlined in the prompt\n",
       "solution_code": "while True:\n    guess = int(input('Enter your guess: '))\n    if guess == secret_number:\n        break",
       "test_cases": [
         {
@@ -491,7 +491,7 @@
         "6.8_q24"
       ],
       "prompt": "Write Python code to solve this challenge for Project: Number Guessing Game:",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# TODO: Implement solution for Project: Number Guessing Game\n# Follow requirements outlined in the prompt\n",
       "solution_code": "print('Project: Number Guessing Game')",
       "test_cases": [
         {

@@ -179,7 +179,7 @@
       "prompt": "Explain why the following code prints the numbers in reverse order of insertion.\n\n```python\nstack = []\nstack.append(5)\nstack.append(10)\nstack.append(15)\nprint(stack.pop())\nprint(stack.pop())\nprint(stack.pop())\n```",
       "correct_answer": "Because list.pop() removes the last element by default.",
       "explanation": "Python lists implement the stack interface where append() adds to the end and pop() removes from the end. This enforces LIFO behavior, so the most recently added element is the first to be removed.",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# TODO: Implement solution for Stack Concepts (LIFO)\n# Follow requirements outlined in the prompt\n",
       "solution_code": "print('Stack Concepts (LIFO)')",
       "test_cases": [
         {
@@ -200,7 +200,7 @@
       "prompt": "Trace the execution step by step and provide the stack contents after each operation.\n\n```python\nstack = []\nstack.append(100)\nstack.append(200)\nstack.pop()\nstack.append(300)\nstack.pop()\n```",
       "correct_answer": "After each operation: [], [100], [100, 200], [100], [100, 300], [100]",
       "explanation": "Step 1: stack = [] (initial). Step 2: append(100) -> [100]. Step 3: append(200) -> [100, 200]. Step 4: pop() removes 200 -> [100]. Step 5: append(300) -> [100, 300]. Step 6: pop() removes 300 -> [100].",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# TODO: Implement solution for Stack Concepts (LIFO)\n# Follow requirements outlined in the prompt\n",
       "solution_code": "print('Stack Concepts (LIFO)')",
       "test_cases": [
         {

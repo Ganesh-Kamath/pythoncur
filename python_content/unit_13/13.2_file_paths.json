@@ -196,7 +196,7 @@
       "prompt": "Explain the output and behavior of this snippet:\n\n```python\nimport os\n\nbase = 'folder'\nfull = os.path.abspath(os.path.join(base, 'file.txt'))\nprint(full)\n```",
       "correct_answer": "Prints the absolute path to folder/file.txt based on the current working directory",
       "explanation": "os.path.join(base, 'file.txt') creates 'folder/file.txt'. os.path.abspath() then resolves this relative path against the current working directory, producing a full absolute path such as '/home/user/projects/folder/file.txt'.",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# TODO: Implement solution for File Paths\n# Follow requirements outlined in the prompt\n",
       "solution_code": "print('File Paths')",
       "test_cases": [
         {

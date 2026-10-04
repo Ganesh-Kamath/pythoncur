@@ -180,7 +180,7 @@
       "title": "Analyzing Coroutine Execution with await",
       "content": "In Python, the async keyword defines a coroutine function, which returns a coroutine object when called. The await keyword can only be used inside another coroutine (or async function). When await is encountered, the current coroutine yields control back to the event loop, allowing other tasks to run. Once the awaited coroutine completes, execution resumes at the next line. This cooperative multitasking model is essential for I/O-bound operations like network requests or file reads, where waiting would otherwise block the entire program.",
       "prompt": "Write Python code to solve this challenge for The async and await Keywords:",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# TODO: Implement solution for The async and await Keywords\n# Follow requirements outlined in the prompt\n",
       "solution_code": "print('The async and await Keywords')",
       "test_cases": [
         {
@@ -202,7 +202,7 @@
       "prompt": "Trace the execution order of this program step by step:\n```python\nimport asyncio\n\nasync def step_a():\n    print('A start')\n    await asyncio.sleep(0.01)\n    print('A end')\n\nasync def step_b():\n    print('B start')\n    await asyncio.sleep(0.01)\n    print('B end')\n\nasync def main():\n    await step_a()\n    await step_b()\n\nasyncio.run(main())\n```",
       "correct_answer": "A start, A end, B start, B end",
       "explanation": "Because await is used sequentially, step_a() must fully complete before step_b() begins. Within step_a(), 'A start' prints, then await asyncio.sleep(0.01) yields to the event loop, but since no other tasks are scheduled concurrently inside main(), control returns immediately after the sleep, printing 'A end'. Then step_b() runs similarly.",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# 1. Define the process_28_4 function\ndef process_28_4():\n    # 2. Implement solution for The async and await Keywords\n    pass\n",
       "solution_code": "print('The async and await Keywords')",
       "test_cases": [
         {

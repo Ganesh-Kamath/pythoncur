@@ -177,7 +177,7 @@
       "correct_answer": "The virtual environment intercepts pip so that packages are installed into its isolated site-packages",
       "explanation": "A virtual environment modifies the Python path so that `pip` writes installed packages to the venv's own `site-packages` directory. This keeps dependencies isolated from the global interpreter and prevents version conflicts.",
       "id": "17.6_q10",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# TODO: Implement solution for Virtual Environments (venv)\n# Follow requirements outlined in the prompt\n",
       "solution_code": "print('Virtual Environments (venv)')",
       "test_cases": [
         {
@@ -490,7 +490,7 @@
         "17.6_q24"
       ],
       "prompt": "Create a virtual environment named 'myenv' in the current directory, activate it, install the 'requests' package, and verify the installation by printing the installed version.",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# TODO: Implement solution for Virtual Environments (venv)\n# Follow requirements outlined in the prompt\n",
       "solution_code": "import subprocess\nimport sys\n\n# Create virtual environment\nsubprocess.run([\"python\", \"-m\", \"venv\", \"myenv\"], check=True)\n\n# Activate (platform-specific; this example assumes Unix-like shell)\nactivate_script = \"myenv/bin/activate\"\nprint(f\"Activate with: source {activate_script}\")\n\n# After activation, install requests using pip\nsubprocess.run([\"pip\", \"install\", \"requests\"], check=True)\n\n# Verify installation\nimport requests\nprint(f\"requests version: {requests.__version__}\")",
       "test_cases": [
         {
@@ -522,7 +522,7 @@
         "17.6_q25"
       ],
       "prompt": "Write a script that creates a virtual environment, installs packages listed in a requirements.txt file, and outputs the list of installed packages with their versions.",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# TODO: Implement solution for Virtual Environments (venv)\n# Follow requirements outlined in the prompt\n",
       "solution_code": "import subprocess\nimport json\n\n# Create virtual environment\nsubprocess.run([\"python\", \"-m\", \"venv\", \"project_env\"], check=True)\n\n# Activate and install from requirements.txt\nsubprocess.run([\"project_env/bin/pip\", \"install\", \"-r\", \"requirements.txt\"], check=True)\n\n# List installed packages with versions\nresult = subprocess.run([\"project_env/bin/pip\", \"list\"], capture_output=True, text=True)\n\n# Parse and print JSON-like output\nfor line in result.stdout.splitlines():\n    if line.strip():\n        parts = line.split()\n        if len(parts) >= 2:\n            print(f\"{parts[0]}=={parts[1]}\")",
       "test_cases": [
         {
@@ -554,7 +554,7 @@
         "17.6_q26"
       ],
       "prompt": "Create a script that programmatically creates a venv, installs multiple packages with version constraints, deactivates it safely, and cleans up the environment directory afterward.",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# TODO: Implement solution for Virtual Environments (venv)\n# Follow requirements outlined in the prompt\n",
       "solution_code": "import subprocess\nimport shutil\nimport os\nimport sys\n\nenv_name = \"temp_env\"\npackages = [\"numpy>=1.21.0\", \"pandas<2.0.0\"]\n\n# Create venv\nsubprocess.run([\"python\", \"-m\", \"venv\", env_name], check=True)\n\n# Install constrained packages\nsubprocess.run([sys.executable, \"-m\", \"pip\", \"install\"] + packages, cwd=env_name, check=True)\n\n# Deactivate by unsetting PATH modifications (conceptual cleanup)\nos.environ[\"PATH\"] = os.environ.get(\"PATH\", \"\")\n\n# Clean up\nshutil.rmtree(env_name)\nprint(\"Virtual environment created, used, and removed successfully.\")",
       "test_cases": [
         {
@@ -586,7 +586,7 @@
         "17.6_q27"
       ],
       "prompt": "A developer accidentally installed packages in the global Python environment instead of a venv. Write code to detect if a package is installed globally, create a venv, reinstall the package inside it, and confirm isolation.",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# TODO: Implement solution for Virtual Environments (venv)\n# Follow requirements outlined in the prompt\n",
       "solution_code": "import importlib.util\nimport subprocess\nimport sys\n\npackage = \"requests\"\n\n# Check global installation\ndef is_global(pkg):\n    spec = importlib.util.find_spec(pkg)\n    return spec is not None and not spec.origin.startswith(\"venv\")\n\nif is_global(package):\n    print(f\"{package} found in global environment.\")\nelse:\n    print(f\"{package} not found globally.\")\n\n# Create and use venv\nsubprocess.run([\"python\", \"-m\", \"venv\", \"fix_env\"], check=True)\nsubprocess.run([\"fix_env/bin/pip\", \"install\", package], check=True)\n\n# Verify isolation\nimport fix_env.bin.sitecustomize  # noqa: F401\n# Instead, verify by checking pip show inside venv\nresult = subprocess.run([\"fix_env/bin/pip\", \"show\", package], capture_output=True, text=True)\nprint(result.stdout)\n\nimport shutil\nshutil.rmtree(\"fix_env\")",
       "test_cases": [
         {
@@ -618,7 +618,7 @@
         "17.6_q28"
       ],
       "prompt": "You are onboarding a new developer to a project that uses Flask and SQLAlchemy. The project requires Python 3.10, Flask 2.0+, and SQLAlchemy 1.4+. Create a complete setup script that provisions a venv, installs exact versions, generates requirements.txt, and validates the environment.",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# TODO: Implement solution for Virtual Environments (venv)\n# Follow requirements outlined in the prompt\n",
       "solution_code": "import subprocess\nimport json\n\nenv_name = \"webapp_env\"\npython_version = \"3.10\"\npackages = {\"Flask\": \"2.2.3\", \"SQLAlchemy\": \"1.4.47\"}\n\n# Create venv\nsubprocess.run([\"python3.10\", \"-m\", \"venv\", env_name], check=True)\n\n# Install packages with exact versions\ninstall_cmd = [env_name + \"/bin/pip\", \"install\"] + [\n    f\"{k}=={v}\" for k, v in packages.items()\n]\nsubprocess.run(install_cmd, check=True)\n\n# Generate requirements.txt\nreq_lines = [f\"{k}=={v}\" for k, v in packages.items()]\nwith open(\"requirements.txt\", \"w\") as f:\n    f.write(\"\\n\".join(req_lines))\n\n# Validate environment\nresult = subprocess.run([env_name + \"/bin/pip\", \"list\"], capture_output=True, text=True)\nfor line in result.stdout.splitlines():\n    if any(pkg in line for pkg in packages):\n        print(f\"Validated: {line.strip()}\")\n\nimport shutil\nshutil.rmtree(env_name)",
       "test_cases": [
         {
@@ -655,7 +655,7 @@
         "17.6_q29"
       ],
       "prompt": "Write a cross-platform script that creates a venv, installs packages, detects the OS, prints the correct activation command, and includes a deactivation helper function.",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# 1. Define the process_17_6 function\ndef process_17_6():\n    # 2. Implement solution for Virtual Environments (venv)\n    pass\n",
       "solution_code": "import subprocess\nimport platform\nimport sys\n\ndef get_activate_command(env_name):\n    system = platform.system()\n    if system == \"Windows\":\n        return f\"{env_name}\\\\Scripts\\\\activate\"\n    return f\"source {env_name}/bin/activate\"\n\nenv_name = \"master_env\"\nsubprocess.run([sys.executable, \"-m\", \"venv\", env_name], check=True)\nsubprocess.run([env_name + \"/bin/pip\", \"install\", \"requests\", \"flask\"], check=True)\n\nprint(f\"Activate with: {get_activate_command(env_name)}\")\n\ndef deactivate_helper():\n    print(\"Environment deactivated. Restore original PATH and variables.\")\n\ndeactivate_helper()\n\nimport shutil\nshutil.rmtree(env_name)",
       "test_cases": [
         {

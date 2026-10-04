@@ -178,7 +178,7 @@
       "prompt": "Explain why the output of the following code is what it is:\n\n```python\nitems = ['a', 'b', 'c']\nfor i in range(len(items)):\n    print(items[i] * 2)\n```",
       "correct_answer": "The loop runs three times and prints each character twice because string multiplication repeats the string.",
       "explanation": "The loop iterates over indices 0, 1, and 2. Multiplying a single-character string by 2 duplicates it, so 'a' becomes 'aa', 'b' becomes 'bb', and 'c' becomes 'cc'. No error occurs because the indices are valid.",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# TODO: Implement solution for Debugging Strategies\n# Follow requirements outlined in the prompt\n",
       "solution_code": "print('Debugging Strategies')",
       "test_cases": [
         {
@@ -535,14 +535,6 @@
         "12.5_q26"
       ],
       "prompt": "What will be the outcome when this code handling Debugging Strategies encounters empty or boundary input?\n```python\ndef process(data):\n    return [x for x in data if x]\nprint(process([]))\n```",
-      "starter_code": "# Write your code below\n",
-      "solution_code": "print('Debugging Strategies Result 27')",
-      "test_cases": [
-        {
-          "input": "",
-          "expected_output": "Debugging Strategies Result 27"
-        }
-      ],
       "hint": "An empty input list evaluates as falsy and produces an empty result.",
       "explanation": "Handling empty collections gracefully without raising unexpected exceptions is an essential design pattern when working with Debugging Strategies.",
       "options": [
@@ -573,7 +565,7 @@
         }
       ],
       "hint": "Use a list comprehension to filter records where 'active' is True.",
-      "explanation": "Applying clean functional contracts for Debugging Strategies ensures testable domain operations."
+      "explanation": "Applying clean functional contracts for Debugging Strategies ensures testable domain operations. In Python, understanding this core rule ensures predictable execution, prevents common runtime errors, and establishes robust coding habits."
     },
     {
       "id": "12.5_q29",

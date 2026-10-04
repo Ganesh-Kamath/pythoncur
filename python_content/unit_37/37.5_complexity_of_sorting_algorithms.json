@@ -180,7 +180,7 @@
       "prompt": "Explain why the following Python code has a different time complexity than an iterative quicksort implementation that uses an explicit stack instead of recursion.",
       "correct_answer": "The recursive version may hit Python's recursion limit for large inputs, causing a runtime error.",
       "explanation": "While both versions have the same average and worst-case time complexity, Python's recursion depth limit (~1000 by default) means the recursive quicksort can fail on large datasets where an iterative version with an explicit stack would succeed.",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# TODO: Implement solution for Complexity of Sorting Algorithms\n# Follow requirements outlined in the prompt\n",
       "solution_code": "print('Complexity of Sorting Algorithms')",
       "test_cases": [
         {

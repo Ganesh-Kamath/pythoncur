@@ -150,7 +150,7 @@
       "prompt": "Expense Tracker Milestone: Write a function `create_expense(category, amount, note)` that returns a clean dictionary record with keys `category`, `amount` (as float), and `note`.",
       "starter_code": "def create_expense(category, amount, note=\"\"):\n    pass",
       "solution_code": "def create_expense(category, amount, note=\"\"):\n    return {\"category\": category, \"amount\": float(amount), \"note\": note}\n\nprint(create_expense(\"Food\", 12.50))",
-      "explanation": "Standardizes expense entity creation with proper float typing.",
+      "explanation": "Standardizes expense entity creation with proper float typing. In Python, understanding this core rule ensures predictable execution, prevents common runtime errors, and establishes robust coding habits.",
       "metadata": {
         "concept": "expense_entity_constructor",
         "skill": "project_milestone",
@@ -169,7 +169,7 @@
       "prompt": "Expense Tracker Milestone: Given `expenses = [{'category': 'Gas', 'amount': 40.0}]`, format and print each entry as `'Category: $Amount'`.",
       "starter_code": "expenses = [{\"category\": \"Gas\", \"amount\": 40.0}]\n# Format and display\n",
       "solution_code": "expenses = [{\"category\": \"Gas\", \"amount\": 40.0}]\nfor e in expenses:\n    print(f\"{e['category']}: ${e['amount']:.2f}\")",
-      "explanation": "Formats monetary amounts with two decimal places for clear CLI viewing.",
+      "explanation": "Formats monetary amounts with two decimal places for clear CLI viewing. In Python, understanding this core rule ensures predictable execution, prevents common runtime errors, and establishes robust coding habits.",
       "metadata": {
         "concept": "expense_table_display",
         "skill": "project_milestone",
@@ -209,7 +209,7 @@
       "prompt": "Expense Tracker Milestone: Group spending by category. Given `expenses = [{'category': 'A', 'amount': 10}, {'category': 'B', 'amount': 20}, {'category': 'A', 'amount': 15}]`, return a dictionary mapping category to total spend.",
       "starter_code": "expenses = [{\"category\": \"A\", \"amount\": 10}, {\"category\": \"B\", \"amount\": 20}, {\"category\": \"A\", \"amount\": 15}]\nbreakdown = {}\n# Compute category breakdown\n",
       "solution_code": "expenses = [{\"category\": \"A\", \"amount\": 10}, {\"category\": \"B\", \"amount\": 20}, {\"category\": \"A\", \"amount\": 15}]\nbreakdown = {}\nfor e in expenses:\n    breakdown[e[\"category\"]] = breakdown.get(e[\"category\"], 0) + e[\"amount\"]\nprint(breakdown)",
-      "explanation": "Aggregates expenditures per category using `dict.get()`.",
+      "explanation": "Aggregates expenditures per category using `dict.get()`. In Python, understanding this core rule ensures predictable execution, prevents common runtime errors, and establishes robust coding habits.",
       "metadata": {
         "concept": "category_breakdown",
         "skill": "project_milestone",
@@ -228,7 +228,7 @@
       "prompt": "Expense Tracker Milestone: Save expenses to JSON. Given `expenses = [{'category': 'Food', 'amount': 15.0}]`, serialize and write to `'expenses.json'` using `json.dump`.",
       "starter_code": "import json\nexpenses = [{\"category\": \"Food\", \"amount\": 15.0}]\n# Save to expenses.json\n",
       "solution_code": "import json\nexpenses = [{\"category\": \"Food\", \"amount\": 15.0}]\nwith open(\"expenses.json\", \"w\") as f:\n    json.dump(expenses, f, indent=2)",
-      "explanation": "Persisting structured expenses to disk ensures state survives across application restarts.",
+      "explanation": "Persisting structured expenses to disk ensures state survives across application restarts. In Python, understanding this core rule ensures predictable execution, prevents common runtime errors, and establishes robust coding habits.",
       "metadata": {
         "concept": "json_expense_persistence",
         "skill": "project_milestone",
@@ -543,7 +543,7 @@
       "prompt": "Expense Tracker Challenge: Implement `ExpenseTracker` class with methods `add_expense(category, amount)`, `get_total()`, and `get_category_total(category)`.",
       "starter_code": "class ExpenseTracker:\n    # Implement expense tracker system\n    pass",
       "solution_code": "class ExpenseTracker:\n    def __init__(self):\n        self.expenses = []\n    def add_expense(self, category, amount):\n        self.expenses.append({\"category\": category, \"amount\": float(amount)})\n    def get_total(self):\n        return sum(e[\"amount\"] for e in self.expenses)\n    def get_category_total(self, category):\n        return sum(e[\"amount\"] for e in self.expenses if e[\"category\"] == category)\n\ntracker = ExpenseTracker()\ntracker.add_expense(\"Food\", 25.50)\nprint(tracker.get_total())",
-      "explanation": "Consolidates expense recording and multi-dimensional aggregations into an object-oriented tracker.",
+      "explanation": "Consolidates expense recording and multi-dimensional aggregations into an object-oriented tracker. In Python, understanding this core rule ensures predictable execution, prevents common runtime errors, and establishes robust coding habits.",
       "metadata": {
         "concept": "expense_tracker_oop_class",
         "skill": "system_design",

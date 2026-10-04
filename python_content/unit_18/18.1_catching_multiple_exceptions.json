@@ -174,7 +174,7 @@
       "prompt": "Analyze the output and behavior of this code. Explain why the second except clause is unreachable.\n```python\ndef process(val):\n    try:\n        int(val)\n    except ValueError:\n        print('Not a number')\n    except (ValueError, TypeError):\n        print('Generic error')\n\nprocess('abc')\n```",
       "correct_answer": "The second except clause is unreachable because ValueError is caught by the first clause; Python raises SyntaxError at compile time.",
       "explanation": "In Python, except clauses are checked in order. Since ValueError is listed in the first except clause, any ValueError will be caught there. The second except clause lists ValueError again, making it redundant and unreachable. Python detects this at compile time and raises a SyntaxError, so the code never runs.",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# 1. Define the process_18_1 function\ndef process_18_1():\n    # 2. Implement solution for Catching Multiple Exceptions\n    pass\n",
       "solution_code": "print('Catching Multiple Exceptions')",
       "test_cases": [
         {
@@ -548,14 +548,6 @@
         "18.1_q26"
       ],
       "prompt": "What will be the outcome when this code handling Catching Multiple Exceptions encounters empty or boundary input?\n```python\ndef process(data):\n    return [x for x in data if x]\nprint(process([]))\n```",
-      "starter_code": "# Write your code below\n",
-      "solution_code": "print('Catching Multiple Exceptions Result 27')",
-      "test_cases": [
-        {
-          "input": "",
-          "expected_output": "Catching Multiple Exceptions Result 27"
-        }
-      ],
       "hint": "An empty input list evaluates as falsy and produces an empty result.",
       "explanation": "Handling empty collections gracefully without raising unexpected exceptions is an essential design pattern when working with Catching Multiple Exceptions.",
       "options": [

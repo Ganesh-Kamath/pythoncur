@@ -176,7 +176,7 @@
       "prompt": "Analyze the following code and explain why it correctly counts connected components:\n\n```python\ndef count_cc(graph, n):\n    visited = [False] * n\n    cc = 0\n\n    def dfs(u):\n        visited[u] = True\n        for v in graph[u]:\n            if not visited[v]:\n                dfs(v)\n\n    for node in range(n):\n        if not visited[node]:\n            dfs(node)\n            cc += 1\n    return cc\n```",
       "correct_answer": "Because every node is visited exactly once and each unvisited node starts a new component",
       "explanation": "The outer loop iterates over all nodes. If a node has not been visited, it must belong to a new connected component. Running DFS from it marks every node in that component. Incrementing `cc` once per such start correctly counts components.",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# 1. Define the process_39_5 function\ndef process_39_5():\n    # 2. Implement solution for Visited Tracking and Connected Components\n    pass\n",
       "solution_code": "print('Visited Tracking and Connected Components')",
       "test_cases": [
         {
@@ -487,14 +487,6 @@
         "39.5_q26"
       ],
       "prompt": "What will be the outcome when this code handling Visited Tracking and Connected Components encounters empty or boundary input?\n```python\ndef process(data):\n    return [x for x in data if x]\nprint(process([]))\n```",
-      "starter_code": "# Write your code below\n",
-      "solution_code": "print('Visited Tracking and Connected Components Result 27')",
-      "test_cases": [
-        {
-          "input": "",
-          "expected_output": "Visited Tracking and Connected Components Result 27"
-        }
-      ],
       "hint": "An empty input list evaluates as falsy and produces an empty result.",
       "explanation": "Handling empty collections gracefully without raising unexpected exceptions is an essential design pattern when working with Visited Tracking and Connected Components.",
       "options": [

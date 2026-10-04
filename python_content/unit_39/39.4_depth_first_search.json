@@ -190,7 +190,7 @@
         "title": "Why Visited Sets Prevent Infinite Recursion in Cyclic Graphs",
         "content": "DFS relies on the invariant that each node is visited exactly once. In a graph with cycles, failing to track visited nodes leads to infinite recursion. The `visited` set enforces this invariant. Time complexity is O(V + E) because each vertex and edge is examined at most once. Space complexity is O(V) for the recursion stack and the visited set."
       },
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# 1. Define the visited function\ndef visited():\n    # 2. Implement solution for Depth-First Search (DFS)\n    pass\n",
       "solution_code": "print('Depth-First Search (DFS)')",
       "test_cases": [
         {

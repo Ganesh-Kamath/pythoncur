@@ -183,7 +183,7 @@
       "prompt": "Analyze the output and behavior of the following refactored code that sorts a list of dictionaries by age:\n\n```python\ndef sort_by_age(people):\n    return sorted(people, key=lambda p: p['age'])\n\ndata = [{'name': 'Alice', 'age': 30}, {'name': 'Bob', 'age': 25}, {'name': 'Carol', 'age': 35}]\nprint(sort_by_age(data))\n```\n\nExplain why the output is structured as it is and describe what the `sorted` function does with the `key` parameter.",
       "correct_answer": "It returns a new list sorted in ascending order of age because `sorted` creates a new list and the `key` parameter specifies the value to sort by.",
       "explanation": "The `sorted` function returns a new list and does not modify the original `data`. The `key=lambda p: p['age']` tells `sorted` to use the 'age' value of each dictionary as the sorting criterion. By default, `sorted` arranges items in ascending order, so the output is [{'name': 'Bob', 'age': 25}, {'name': 'Alice', 'age': 30}, {'name': 'Carol', 'age': 35}].",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# 1. Define the sorted function\ndef sorted():\n    # 2. Implement solution for Refactoring Spaghetti Code\n    pass\n",
       "solution_code": "print('Refactoring Spaghetti Code')",
       "test_cases": [
         {

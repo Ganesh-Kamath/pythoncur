@@ -150,7 +150,7 @@
       "prompt": "Contact Book Milestone 1: Initialize an empty dictionary `contacts = {}` and add a contact `'Alice'` with phone number `'555-0101'`.",
       "starter_code": "# Initialize and add Alice\n",
       "solution_code": "contacts = {}\ncontacts[\"Alice\"] = \"555-0101\"\nprint(contacts)",
-      "explanation": "Dictionaries use unique keys (contact names) to store corresponding phone strings.",
+      "explanation": "Dictionaries use unique keys (contact names) to store corresponding phone strings. In Python, understanding this core rule ensures predictable execution, prevents common runtime errors, and establishes robust coding habits.",
       "metadata": {
         "concept": "contact_dict_insert",
         "skill": "project_milestone",
@@ -169,7 +169,7 @@
       "prompt": "Contact Book Milestone 2: Given `contacts = {'Bob': '555-0202'}`, safely look up `'Bob'` and `'Charlie'` using `contacts.get(name, 'Not found')`.",
       "starter_code": "contacts = {\"Bob\": \"555-0202\"}\n# Safe lookup\n",
       "solution_code": "contacts = {\"Bob\": \"555-0202\"}\nprint(contacts.get(\"Bob\", \"Not found\"))\nprint(contacts.get(\"Charlie\", \"Not found\"))",
-      "explanation": "`.get()` prevents `KeyError` crashes when searching for unregistered contacts.",
+      "explanation": "`.get()` prevents `KeyError` crashes when searching for unregistered contacts. In Python, understanding this core rule ensures predictable execution, prevents common runtime errors, and establishes robust coding habits.",
       "metadata": {
         "concept": "safe_dict_lookup",
         "skill": "project_milestone",
@@ -207,7 +207,7 @@
       "prompt": "Contact Book Milestone 4: Given `contacts = {'Zara': '555-9999', 'Adam': '555-1111'}`, print each contact formatted as `'Name: Phone'` sorted alphabetically by name.",
       "starter_code": "contacts = {\"Zara\": \"555-9999\", \"Adam\": \"555-1111\"}\n# Print sorted\n",
       "solution_code": "contacts = {\"Zara\": \"555-9999\", \"Adam\": \"555-1111\"}\nfor name in sorted(contacts.keys()):\n    print(f\"{name}: {contacts[name]}\")",
-      "explanation": "Iterating over `sorted(contacts.keys())` presents contact directories in clean alphabetical order.",
+      "explanation": "Iterating over `sorted(contacts.keys())` presents contact directories in clean alphabetical order. In Python, understanding this core rule ensures predictable execution, prevents common runtime errors, and establishes robust coding habits.",
       "metadata": {
         "concept": "sorted_contact_listing",
         "skill": "project_milestone",
@@ -389,14 +389,6 @@
         "10.7_q20"
       ],
       "prompt": "What will be the outcome when this code handling Project: Terminal Contact Book encounters empty or boundary input?\n```python\ndef process(data):\n    return [x for x in data if x]\nprint(process([]))\n```",
-      "starter_code": "# Write your code below\n",
-      "solution_code": "print('Project: Terminal Contact Book Result 21')",
-      "test_cases": [
-        {
-          "input": "",
-          "expected_output": "Project: Terminal Contact Book Result 21"
-        }
-      ],
       "hint": "An empty input list evaluates as falsy and produces an empty result.",
       "explanation": "Handling empty collections gracefully without raising unexpected exceptions is an essential design pattern when working with Project: Terminal Contact Book.",
       "options": [

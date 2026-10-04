@@ -185,7 +185,7 @@
       "prompt": "Consider the following Python function that finds the length of the longest substring without repeating characters:\n\n```python\ndef length_of_longest_substring(s):\n    char_index = {}\n    left = 0\n    max_len = 0\n    for right, char in enumerate(s):\n        if char in char_index and char_index[char] >= left:\n            left = char_index[char] + 1\n        char_index[char] = right\n        max_len = max(max_len, right - left + 1)\n    return max_len\n```\n\nExplain why this problem is a good candidate for the sliding window technique rather than a brute-force nested loop approach.",
       "correct_answer": "Because the contiguous nature of substrings and the need to maintain a dynamic range of unique characters aligns with the expand-and-shrink behavior of a sliding window.",
       "explanation": "The sliding window technique is ideal here because we need to examine contiguous segments of the string while ensuring no character repeats within the current segment. By expanding the right boundary and shrinking the left boundary only when a duplicate is found, we avoid re-examining characters, achieving O(n) time complexity. A brute-force nested loop would check every possible substring independently, leading to O(n^2) or worse time complexity.",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# 1. Define the process_41_2 function\ndef process_41_2():\n    # 2. Implement solution for Recognizing When to use Sliding Window\n    pass\n",
       "solution_code": "print('Recognizing When to use Sliding Window')",
       "test_cases": [
         {
@@ -538,14 +538,6 @@
         "41.2_q26"
       ],
       "prompt": "Even though this sliding window code has a `while` loop nested inside a `for` loop, why is its overall time complexity O(n)?\n```python\nfor right in range(len(nums)):\n    curr += nums[right]\n    while curr > limit:\n        curr -= nums[left]\n        left += 1\n```",
-      "starter_code": "# Write your code below\n",
-      "solution_code": "print('Recognizing When to use Sliding Window Result 27')",
-      "test_cases": [
-        {
-          "input": "",
-          "expected_output": "Recognizing When to use Sliding Window Result 27"
-        }
-      ],
       "hint": "Analyze the total number of operations performed by the two pointers over the entire algorithm.",
       "explanation": "In amortized analysis, `right` advances `n` times and `left` advances at most `n` times. Total pointer movements are 2n, which is asymptotically O(n).",
       "options": [
@@ -588,14 +580,6 @@
         "41.2_q28"
       ],
       "prompt": "What critical bug occurs in a variable-size sliding window if you forget to decrement `left`'s frequency in the frequency map when shrinking the window?",
-      "starter_code": "# Write your code below\n",
-      "solution_code": "print('Recognizing When to use Sliding Window Result 29')",
-      "test_cases": [
-        {
-          "input": "",
-          "expected_output": "Recognizing When to use Sliding Window Result 29"
-        }
-      ],
       "hint": "Think about what state the window maintains as `left` moves forward.",
       "explanation": "The window state must accurately represent only the elements between `left` and `right`. If you fail to decrement the count when advancing `left`, the algorithm over-counts characters.",
       "options": [

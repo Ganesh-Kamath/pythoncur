@@ -214,7 +214,7 @@
       "correct_answer": "match.groups() returns a tuple of captured strings; match.groupdict() returns an empty dict because no named groups were used.",
       "explanation": "match.groups() returns a tuple containing all captured subgroups in order, so it yields ('9921', 'active'). match.groupdict() only works with named groups using (?P<name>...), and since the pattern uses plain parentheses without names, it returns an empty dictionary {}. This distinction is important when designing regexes for structured extraction.",
       "concept": "groups_and_extraction_analysis",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# TODO: Implement solution for Groups and Extraction\n# Follow requirements outlined in the prompt\n",
       "solution_code": "print('Groups and Extraction')",
       "test_cases": [
         {

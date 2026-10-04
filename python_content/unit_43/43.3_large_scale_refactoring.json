@@ -181,7 +181,7 @@
       "prompt": "Explain why the following refactored code produces the output it does:\n\n```python\ndef outer():\n    x = 10\n    def inner():\n        nonlocal x\n        x += 5\n        print(x)\n    inner()\n    print(x)\n\nouter()\n```",
       "correct_answer": "The `nonlocal` keyword allows `inner` to modify `x` from the enclosing scope, so both prints show 15.",
       "explanation": "The `nonlocal x` declaration tells Python that `x` refers to the variable in `outer`'s scope, not a new local variable. After `inner()` increments `x` to `15`, the final `print(x)` in `outer` also sees `15`.",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# 1. Define the process_43_3 function\ndef process_43_3():\n    # 2. Implement solution for Large-Scale Refactoring\n    pass\n",
       "solution_code": "print('Large-Scale Refactoring')",
       "test_cases": [
         {

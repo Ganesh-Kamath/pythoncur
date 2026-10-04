@@ -184,7 +184,7 @@
       "title": "Comparing Sorting Approaches",
       "content": "When analyzing sorting algorithms, it is essential to understand how they behave on different data patterns. Python's built-in Timsort is a hybrid stable sorting algorithm derived from merge sort and insertion sort. It performs well on many real-world datasets because it detects already-sorted runs. In contrast, bubble sort repeatedly swaps adjacent elements and has a worst-case time complexity of O(n^2), making it inefficient for large inputs. Selection sort finds the minimum element in each pass and also runs in O(n^2). Understanding these trade-offs helps you choose the right tool for a given problem. Below is a simple comparison using Python:\n\n```python\ndef bubble_sort(arr):\n    n = len(arr)\n    for i in range(n):\n        for j in range(0, n - i - 1):\n            if arr[j] > arr[j + 1]:\n                arr[j], arr[j + 1] = arr[j + 1], arr[j]\n    return arr\n\narr = [64, 34, 25, 12, 22, 11, 90]\nbubble_sort(arr)\nprint(arr)\n```\nThis code sorts the list in place using the bubble sort method, illustrating its iterative swapping behavior.",
       "prompt": "Write Python code to solve this challenge for Sorting Concepts and Algorithms:",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# TODO: Implement solution for Sorting Concepts and Algorithms\n# Follow requirements outlined in the prompt\n",
       "solution_code": "print('Sorting Concepts and Algorithms')",
       "test_cases": [
         {

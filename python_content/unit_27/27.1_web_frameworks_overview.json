@@ -174,7 +174,7 @@
       "prompt": "A developer writes the following snippet and expects '/about' to display 'About Us'. Instead, the browser shows '404 Not Found'. Explain why this occurs and how to fix it.",
       "correct_answer": "The route decorator is missing, so Flask cannot match the URL; add @app.route('/about')",
       "explanation": "Without @app.route('/about'), Flask has no rule mapping '/about' to a function, so it returns the default 404 page. Adding the decorator binds the path to the function and makes the response available.",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# TODO: Implement solution for Web Frameworks Overview\n# Follow requirements outlined in the prompt\n",
       "solution_code": "print('Web Frameworks Overview')",
       "test_cases": [
         {
@@ -195,7 +195,7 @@
       "prompt": "Trace the execution of the application below when a GET request arrives at '/items/5'. List the order in which the following events occur.\n\n```python\nfrom flask import Flask\n\napp = Flask(__name__)\n\n@app.route('/items/<int:id>')\ndef show_item(id):\n    return f'Item {id}'\n```",
       "correct_answer": "Flask matches '/items/5' to show_item, converts '5' to int 5, calls show_item(5), and returns the string 'Item 5'",
       "explanation": "The routing engine first finds a matching rule, then applies the converter (int) to extract 5, invokes show_item with that integer, and finally returns the evaluated f-string as the HTTP response.",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# 1. Define the process_27_1 function\ndef process_27_1():\n    # 2. Implement solution for Web Frameworks Overview\n    pass\n",
       "solution_code": "print('Web Frameworks Overview')",
       "test_cases": [
         {

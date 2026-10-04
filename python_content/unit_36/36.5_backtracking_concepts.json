@@ -179,7 +179,7 @@
       "prompt": "Explain why the following backtracking function does not produce duplicate subsets when the input contains duplicate elements.",
       "correct_answer": 0,
       "explanation": "The correct approach for handling duplicates in subsets is to sort the input and then, at each recursion level, skip a duplicate element if the previous identical element was not chosen (i.e., when i > start and nums[i] == nums[i-1]). The provided code snippet implies this standard pattern. Without sorting and explicit skipping, duplicate subsets would indeed appear. Sorting ensures identical elements are grouped, and the conditional skip prevents redundant branches.",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# 1. Define the process_36_5 function\ndef process_36_5():\n    # 2. Implement solution for Backtracking Concepts\n    pass\n",
       "solution_code": "print('Backtracking Concepts')",
       "test_cases": [
         {

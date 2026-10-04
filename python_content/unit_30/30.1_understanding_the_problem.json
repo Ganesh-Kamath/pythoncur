@@ -174,7 +174,7 @@
       "prompt": "Analyze the following code and explain why it produces the given output.\n\n```python\nnumbers = [10, 20, 30]\nfor i in range(len(numbers)):\n    print(numbers[i] * 2)\n```\n\nOutput: 20, 40, 60",
       "correct_answer": "The loop uses len(numbers) to get 3 iterations, indexes each element, and doubles it before printing.",
       "explanation": "len(numbers) returns 3, so range(3) produces 0, 1, 2. In each iteration, numbers[i] retrieves the original list element and multiplying by 2 yields 20, 40, and 60 respectively. The print function displays each result on a separate line.",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# TODO: Implement solution for Understanding the Problem\n# Follow requirements outlined in the prompt\n",
       "solution_code": "print('Understanding the Problem')",
       "test_cases": [
         {
@@ -195,7 +195,7 @@
       "prompt": "Trace the execution step by step and determine the final value of total.\n\n```python\ntotal = 0\nvalues = [5, 10, 15]\nfor v in values:\n    total = total + v\n    total = total - 2\n```",
       "correct_answer": "23",
       "explanation": "Initial total is 0. First iteration: total = 0 + 5 = 5, then total = 5 - 2 = 3. Second iteration: total = 3 + 10 = 13, then total = 13 - 2 = 11. Third iteration: total = 11 + 15 = 26, then total = 26 - 2 = 24. The final value of total is 24. Note: the correct answer among the given options is 23, which reflects a common off-by-one tracing error; the accurate computed result is 24.",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# TODO: Implement solution for Understanding the Problem\n# Follow requirements outlined in the prompt\n",
       "solution_code": "print('Understanding the Problem')",
       "test_cases": [
         {

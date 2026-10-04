@@ -174,7 +174,7 @@
       "prompt": "Explain what the following code does and why the output is what it is.\n\n```python\nimport requests\n\nr = requests.get('https://httpbin.org/get')\nprint(r.headers['Content-Type'])\nprint(r.text[:50])\n```",
       "correct_answer": "It prints the content type header and the first 50 characters of the raw response body, which is JSON returned by httpbin.org.",
       "explanation": "The code performs a GET request to httpbin.org/get, which echoes back request details as JSON. r.headers['Content-Type'] retrieves the MIME type of the response (application/json), and r.text[:50] slices the first 50 characters of the decoded response body, showing the start of the JSON payload.",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# TODO: Implement solution for Fetching API Data\n# Follow requirements outlined in the prompt\n",
       "solution_code": "print('Fetching API Data')",
       "test_cases": [
         {
@@ -195,7 +195,7 @@
       "prompt": "Trace the execution of the code step by step and identify the final value of 'count'.\n\n```python\nimport requests\n\nurl = 'https://jsonplaceholder.typicode.com/posts'\nresp = requests.get(url)\nposts = resp.json()\ncount = 0\nfor p in posts:\n    if 'title' in p and len(p['title']) > 10:\n        count += 1\nprint(count)\n```",
       "correct_answer": "count is 100 because every post contains a 'title' key and all titles exceed 10 characters.",
       "explanation": "The loop iterates over all 100 posts. Each post dictionary has a 'title' key, and every title string in the dataset is longer than 10 characters. Therefore the condition is true for every iteration, and count increments to 100.",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# TODO: Implement solution for Fetching API Data\n# Follow requirements outlined in the prompt\n",
       "solution_code": "print('Fetching API Data')",
       "test_cases": [
         {

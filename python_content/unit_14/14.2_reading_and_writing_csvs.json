@@ -174,7 +174,7 @@
       "prompt": "Explain the output and behavior of this script. What file is created and what does it contain?\n\n```python\nimport csv\n\nwith open('log.csv', 'a', newline='') as f:\n    writer = csv.writer(f)\n    writer.writerow(['error', 'timestamp'])\n    writer.writerow(['timeout', '2024-01-15 09:00'])\n```\n\nAssume 'log.csv' already exists with one row: 'status,2024-01-14 08:00'",
       "correct_answer": "'log.csv' keeps its existing row and appends the header and one data row at the end.",
       "explanation": "Opening with mode='a' appends to the existing file without deleting prior content. However, writing a header row after data is unusual; in practice, headers should be written once. The script successfully appends both rows.",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# TODO: Implement solution for Reading and Writing CSVs\n# Follow requirements outlined in the prompt\n",
       "solution_code": "print('Reading and Writing CSVs')",
       "test_cases": [
         {

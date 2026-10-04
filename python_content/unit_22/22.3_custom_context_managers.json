@@ -178,7 +178,7 @@
       "correct_answer": "The inner __enter__ increments to 2, __exit__ decrements to 1, outer __exit__ decrements to 0. Output: Count: 1 then Count: 0. Final: 0.",
       "explanation": "Each with statement calls __enter__ when entering and __exit__ when exiting. The outer with enters first (count becomes 1), then the inner with enters (count becomes 2). The inner with exits first (count becomes 1, prints 'Count: 1'), then the outer with exits (count becomes 0, prints 'Count: 0'). After both with blocks, c.count is 0. The nested structure ensures proper cleanup order: last in, first out.",
       "difficulty": "medium",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# 1. Define the process_22_3 function\ndef process_22_3():\n    # 2. Implement solution for Custom Context Managers\n    pass\n",
       "solution_code": "print('Custom Context Managers')",
       "test_cases": [
         {
@@ -200,7 +200,7 @@
       "correct_answer": "Enter: value = 10\nInside: value = 10\nAfter assign: value = 15\nExit: value = 20\nFinal b.value = 20",
       "explanation": "Step 1: Box.__init__ sets value to 0. Step 2: __enter__ sets value to 10 and prints it. Step 3: Inside the with block, b.value is 10, printed. Step 4: b.value = 15 assigns 15. Step 5: After assign prints 15. Step 6: __exit__ sets value to 20 and prints it. Step 7: The with block ends, but the object b still exists with value 20. The __exit__ method runs regardless of exceptions, and its assignment to 20 overwrites the 15.",
       "difficulty": "medium",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# 1. Define the process_22_3 function\ndef process_22_3():\n    # 2. Implement solution for Custom Context Managers\n    pass\n",
       "solution_code": "print('Custom Context Managers')",
       "test_cases": [
         {

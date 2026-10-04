@@ -174,7 +174,7 @@
       "prompt": "Explain the output produced by the following Python code:\n\n```python\nimport requests\n\nresponse = requests.get('https://api.example.com/info')\nprint('Code:', response.status_code)\nprint('URL:', response.url)\nprint('JSON:', response.json())\n```\n\nAssume the server responds with a 200 OK status and JSON body `{\"status\": \"ok\", \"value\": 100}`.",
       "correct_answer": "Prints the status code 200, the final redirected URL, and the parsed JSON dictionary",
       "explanation": "On success, `response.status_code` is 200. `response.url` shows the final URL after any redirects. `response.json()` parses the JSON text into a Python dictionary, yielding `{'status': 'ok', 'value': 100}`.",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# TODO: Implement solution for HTTP Basics (Client/Server, GET/POST)\n# Follow requirements outlined in the prompt\n",
       "solution_code": "print('HTTP Basics (Client/Server, GET/POST)')",
       "test_cases": [
         {
@@ -195,7 +195,7 @@
       "prompt": "Trace the execution of the following Python code step by step:\n\n```python\nimport requests\n\nurl = 'https://api.example.com/search'\nheaders = {'User-Agent': 'Codolingo-Client'}\n\nresponse = requests.get(url, headers=headers)\nprint('Request sent to:', url)\nprint('Status received:', response.status_code)\nprint('Headers received:', response.headers['Content-Type'])\nprint('Data length:', len(response.text))\n```\n\nAssume the server returns a 200 OK response with Content-Type 'application/json' and a 200-character body.",
       "correct_answer": "1) Import requests, 2) Define url and headers, 3) Send GET request, 4) Print request URL, 5) Print status 200, 6) Print Content-Type, 7) Print 200",
       "explanation": "Execution begins with import, then variable assignment, then the network call, followed by sequential print statements. The trace must include the import step and preserve the order of operations exactly as written.",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# TODO: Implement solution for HTTP Basics (Client/Server, GET/POST)\n# Follow requirements outlined in the prompt\n",
       "solution_code": "print('HTTP Basics (Client/Server, GET/POST)')",
       "test_cases": [
         {

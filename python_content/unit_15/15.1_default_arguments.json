@@ -185,7 +185,7 @@
       "prompt": "Explain why the following code produces the output it does:\n```python\ndef add_values(a=0, b=0):\n    return a + b\n\nprint(add_values(10))\nprint(add_values(b=5))\n```",
       "correct_answer": "The first call uses a=10 and b=0; the second uses a=0 and b=5, so the outputs are 10 and 5.",
       "explanation": "In add_values(10), 10 is assigned to a and b keeps its default of 0, yielding 10. In add_values(b=5), a keeps its default of 0 and b becomes 5, yielding 5. Default arguments can be overridden by positional or keyword arguments.",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# 1. Define the process_15_1 function\ndef process_15_1():\n    # 2. Implement solution for Default Arguments\n    pass\n",
       "solution_code": "print('Default Arguments')",
       "test_cases": [
         {

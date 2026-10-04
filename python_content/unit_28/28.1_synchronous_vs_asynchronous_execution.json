@@ -174,7 +174,7 @@
       "prompt": "Analyze the following output and identify the execution model:\n```\nTask 1 start\nTask 2 start\nTask 1 end\nTask 2 end\n```\nWhich execution model produced this output and why?",
       "correct_answer": "Asynchronous execution with concurrency, because both tasks started before either finished",
       "explanation": "The output shows 'Task 1 start' and 'Task 2 start' before either 'Task 1 end' or 'Task 2 end', indicating both tasks began execution before completion. This interleaving is characteristic of concurrent asynchronous execution, where multiple tasks make progress during I/O waits.",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# TODO: Implement solution for Synchronous vs Asynchronous Execution\n# Follow requirements outlined in the prompt\n",
       "solution_code": "print('Synchronous vs Asynchronous Execution')",
       "test_cases": [
         {
@@ -195,7 +195,7 @@
       "prompt": "Trace the execution flow of the following code step by step:\n```python\nimport asyncio\n\nasync def task_one():\n    print('One start')\n    await asyncio.sleep(0.1)\n    print('One end')\n\nasync def task_two():\n    print('Two start')\n    await asyncio.sleep(0.1)\n    print('Two end')\n\nasync def main():\n    t1 = asyncio.create_task(task_one())\n    t2 = asyncio.create_task(task_two())\n    await asyncio.gather(t1, t2)\n\nasyncio.run(main())\n```\nList the order in which print statements execute.",
       "correct_answer": "One start, Two start, One end, Two end",
       "explanation": "asyncio.create_task schedules both coroutines to run concurrently. The event loop starts both tasks, so 'One start' and 'Two start' print nearly simultaneously. Each then awaits asyncio.sleep(0.1), allowing the other to finish its print. After the sleep, 'One end' and 'Two end' print. The exact interleaving may vary slightly, but both starts precede both ends.",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# 1. Define the process_28_1 function\ndef process_28_1():\n    # 2. Implement solution for Synchronous vs Asynchronous Execution\n    pass\n",
       "solution_code": "print('Synchronous vs Asynchronous Execution')",
       "test_cases": [
         {
@@ -554,16 +554,17 @@
         "28.1_q28"
       ],
       "prompt": "You are building a microservice that must fetch user profiles from 3 external APIs and write aggregated results to a database. Each API call has 200-500 ms latency. The database write is 50 ms and must happen only after all 3 API calls complete. Design both a synchronous implementation and an asynchronous implementation. Compare expected total latency and discuss trade-offs regarding error handling, resource usage, and maintainability.",
-      "starter_code": "import time\nimport asyncio\n\nasync def api_call(name):\n    await asyncio.sleep(0.3)\n    return {'name': name, 'data': 'ok'}\n\nasync def db_write(record):\n    await asyncio.sleep(0.05)\n    return True\n\nasync def sync_workflow(apis):\n    start = time.time()\n    results = []\n    for a in apis:\n        results.append(await api_call(a))\n    ok = await db_write(results)\n    return time.time() - start, ok\n\nasync def async_workflow(apis):\n    start = time.time()\n    tasks = [api_call(a) for a in apis]\n    results = await asyncio.gather(*tasks)\n    ok = await db_write(results)\n    return time.time() - start, ok\n\nif __name__ == '__main__':\n    apis = ['api_a', 'api_b', 'api_c']\n    t1, ok1 = asyncio.run(sync_workflow(apis))\n    t2, ok2 = asyncio.run(async_workflow(apis))\n    print('Sync total:', t1)\n    print('Async total:', t2)\n    print('DB write after APIs:', ok1 and ok2)",
-      "solution_code": "print('OK')",
+      "starter_code": "import asyncio\n# Implement async_workflow that fetches apis concurrently using asyncio.gather\n",
+      "solution_code": "import asyncio\n\nasync def fetch_api(name):\n    await asyncio.sleep(0.01)\n    return {'name': name, 'status': 'ok'}\n\nasync def async_workflow(apis):\n    tasks = [fetch_api(a) for a in apis]\n    results = await asyncio.gather(*tasks)\n    return results",
       "test_cases": [
         {
-          "input": "",
-          "expected_output": "OK"
+          "input": "['api_1', 'api_2', 'api_3']",
+          "expected_output": "[{'name': 'api_1', 'status': 'ok'}, {'name': 'api_2', 'status': 'ok'}, {'name': 'api_3', 'status': 'ok'}]",
+          "description": "concurrent async gather"
         }
       ],
       "hint": "In the sync version, API calls are sequential: 3 * 0.3 + 0.05 = 0.95s. In the async version, API calls overlap: max(0.3, 0.3, 0.3) + 0.05 = 0.35s. The database write must remain after all APIs complete, so use `asyncio.gather` before the write.",
-      "explanation": "This scenario synthesizes concurrency theory with system design. Async reduces latency for I/O-bound aggregation but introduces complexity: partial API failures require individual error handling, connection reuse needs careful management, and debugging async stacks is harder. Sync code is simpler but scales poorly under load."
+      "explanation": "Scheduling I/O-bound tasks concurrently with `asyncio.gather()` overlaps network latency, reducing total wall-clock time from the sum of latencies to roughly the maximum single latency."
     },
     {
       "id": "28.1_q30",

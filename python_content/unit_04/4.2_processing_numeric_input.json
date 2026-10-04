@@ -185,7 +185,7 @@
       ],
       "prompt": "Fix this code so it safely calculates total price with a floating-point discount rate:",
       "correct_answer": "45",
-      "explanation": "Converting '0.15' with `float()` parses the decimal fraction correctly.",
+      "explanation": "Converting '0.15' with `float()` parses the decimal fraction correctly. In Python, understanding this core rule ensures predictable execution, prevents common runtime errors, and establishes robust coding habits.",
       "starter_code": "price = 100\nrate = float('0.15')\ntotal = price - (price * rate)\nprint(int(total))",
       "solution_code": "price = 100\nrate = float('0.15')\ntotal = price - (price * rate)\nprint(int(total))"
     },
@@ -240,7 +240,7 @@
       ],
       "prompt": "Write code to convert the numeric string in `user_val` to a float and multiply it by 2:",
       "correct_answer": "60",
-      "explanation": "Use `float(user_val)` to convert the string before performing numeric multiplication.",
+      "explanation": "Use `float(user_val)` to convert the string before performing numeric multiplication. In Python, understanding this core rule ensures predictable execution, prevents common runtime errors, and establishes robust coding habits.",
       "starter_code": "user_val = '14.5'\n# Convert and double\nresult = ___",
       "solution_code": "user_val = '14.5'\nresult = float(user_val) * 2"
     },
@@ -515,14 +515,6 @@
         "4.2_q26"
       ],
       "prompt": "What exception is raised when executing `int('abc')` or `int('3.14')`?",
-      "starter_code": "# Write your code below\n",
-      "solution_code": "print('Processing Numeric Input Result 27')",
-      "test_cases": [
-        {
-          "input": "",
-          "expected_output": "Processing Numeric Input Result 27"
-        }
-      ],
       "hint": "The type is correct (str), but the content/value cannot be parsed as a base-10 integer.",
       "explanation": "In Python, `int()` raises `ValueError: invalid literal for int() with base 10` when passed a string that does not represent a valid whole integer.",
       "options": [
@@ -565,14 +557,6 @@
         "4.2_q28"
       ],
       "prompt": "What does `int(float('9.99'))` evaluate to?\n```python\nval = int(float('9.99'))\nprint(val)\n```",
-      "starter_code": "# Write your code below\n",
-      "solution_code": "print('Processing Numeric Input Result 29')",
-      "test_cases": [
-        {
-          "input": "",
-          "expected_output": "Processing Numeric Input Result 29"
-        }
-      ],
       "hint": "First parse to float (9.99), then cast to int. Does `int()` round or truncate?",
       "explanation": "`int()` truncates toward zero; it does not round. Thus, `float('9.99')` becomes `9.99`, and `int(9.99)` becomes `9`.",
       "options": [

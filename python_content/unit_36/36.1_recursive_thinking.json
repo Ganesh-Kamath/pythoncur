@@ -190,7 +190,7 @@
       "prompt": "Explain why the following recursive function returns 6 when called with n = 3:\n\ndef sum_up_to(n):\n    if n == 1:\n        return 1\n    return n + sum_up_to(n - 1)\n\nprint(sum_up_to(3))",
       "correct_answer": "It adds 3, 2, and 1 because each call reduces n by 1 until reaching the base case.",
       "explanation": "sum_up_to(3) returns 3 + sum_up_to(2). sum_up_to(2) returns 2 + sum_up_to(1). sum_up_to(1) returns 1. The total is 3 + 2 + 1 = 6. The recursion reduces n by 1 each time until the base case n == 1 is reached.",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# 1. Define the process_36_1 function\ndef process_36_1():\n    # 2. Implement solution for Recursive Thinking\n    pass\n",
       "solution_code": "print('Recursive Thinking')",
       "test_cases": [
         {

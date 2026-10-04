@@ -174,7 +174,7 @@
       "prompt": "Explain what is happening in the following code and why it produces the output shown.\n\n```python\nclass Book:\n    def __init__(self, title):\n        self.title = title\n\n    def get_title(self):\n        return self.title\n\nb = Book('Python Basics')\nprint(b.get_title())\n```",
       "correct_answer": "A class Book is defined and an object b is created. The method get_title accesses the instance attribute title and returns it, which is printed.",
       "explanation": "The class defines an initializer that stores the passed title in self.title. The instance method get_title returns this stored value. The object b is instantiated with 'Python Basics', and calling get_title() returns that string, which print outputs.",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# 1. Define the process_20_1 function\ndef process_20_1():\n    # 2. Implement solution for Objects and Classes\n    pass\n",
       "solution_code": "print('Objects and Classes')",
       "test_cases": [
         {

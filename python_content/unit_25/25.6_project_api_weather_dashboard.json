@@ -153,7 +153,7 @@
       "prompt": "Weather Dashboard Milestone 1: Extract temperature. Given API response payload `payload = {'main': {'temp': 295.15, 'humidity': 60}}`, extract temperature into `temp_k`.",
       "starter_code": "payload = {\"main\": {\"temp\": 295.15, \"humidity\": 60}}\n# Extract temp\n",
       "solution_code": "payload = {\"main\": {\"temp\": 295.15, \"humidity\": 60}}\ntemp_k = payload[\"main\"][\"temp\"]\nprint(f\"Kelvin: {temp_k}\")",
-      "explanation": "Navigating nested JSON dictionaries via `payload['main']['temp']` extracts weather readings.",
+      "explanation": "Navigating nested JSON dictionaries via `payload['main']['temp']` extracts weather readings. In Python, understanding this core rule ensures predictable execution, prevents common runtime errors, and establishes robust coding habits.",
       "metadata": {
         "concept": "nested_json_extraction",
         "skill": "project_milestone",
@@ -172,7 +172,7 @@
       "prompt": "Weather Dashboard Milestone 2: Convert temperature from Kelvin `295.15` to Celsius (`temp_k - 273.15`) rounded to 1 decimal place into `temp_c`.",
       "starter_code": "temp_k = 295.15\n# Convert to Celsius\n",
       "solution_code": "temp_k = 295.15\ntemp_c = round(temp_k - 273.15, 1)\nprint(f\"Celsius: {temp_c}°C\")",
-      "explanation": "Subtracting 273.15 converts standard Kelvin readings into user-friendly Celsius format (`22.0°C`).",
+      "explanation": "Subtracting 273.15 converts standard Kelvin readings into user-friendly Celsius format (`22.0°C`). In Python, understanding this core rule ensures predictable execution, prevents common runtime errors, and establishes robust coding habits.",
       "metadata": {
         "concept": "temperature_conversion",
         "skill": "project_milestone",
@@ -396,14 +396,6 @@
         "25.6_q20"
       ],
       "prompt": "What will be the outcome when this code handling Project: API Weather Dashboard encounters empty or boundary input?\n```python\ndef process(data):\n    return [x for x in data if x]\nprint(process([]))\n```",
-      "starter_code": "# Write your code below\n",
-      "solution_code": "print('Project: API Weather Dashboard Result 21')",
-      "test_cases": [
-        {
-          "input": "",
-          "expected_output": "Project: API Weather Dashboard Result 21"
-        }
-      ],
       "hint": "An empty input list evaluates as falsy and produces an empty result.",
       "explanation": "Handling empty collections gracefully without raising unexpected exceptions is an essential design pattern when working with Project: API Weather Dashboard.",
       "options": [

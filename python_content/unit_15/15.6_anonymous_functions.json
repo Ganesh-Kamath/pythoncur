@@ -190,7 +190,7 @@
       "prompt": "Explain why the following code prints [2, 2, 2] instead of [0, 1, 2].\n```python\nfuncs = [lambda i=i: i for i in range(3)]\nprint([f() for f in funcs])\n```",
       "correct_answer": "Default arguments are evaluated at definition time, so i is captured as 2 for all lambdas.",
       "explanation": "In Python, default argument values are bound when the function is defined. Since i reaches 2 by the end of the loop, all three lambdas default to i=2, producing [2, 2, 2].",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# TODO: Implement solution for Anonymous Functions (lambdas)\n# Follow requirements outlined in the prompt\n",
       "solution_code": "print('Anonymous Functions (lambdas)')",
       "test_cases": [
         {

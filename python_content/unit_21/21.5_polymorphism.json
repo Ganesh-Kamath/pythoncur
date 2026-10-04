@@ -179,7 +179,7 @@
       "correct_answer": "Python uses dynamic method resolution, so the actual object's method is invoked at runtime.",
       "explanation": "Polymorphism relies on dynamic dispatch: the method to execute is determined at runtime based on the actual object's class, not the reference type. Thus, `send_to_printer` calls the overridden `print_document` in each subclass, producing different outputs.",
       "concept": "polymorphism_analysis",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# 1. Define the printers function\ndef printers():\n    # 2. Implement solution for Polymorphism\n    pass\n",
       "solution_code": "print('Polymorphism')",
       "test_cases": [
         {
@@ -200,7 +200,7 @@
       "correct_answer": "20",
       "explanation": "Step 1: `Derived()` creates an instance of `Derived`. Step 2: `use_compute(d)` passes this instance to the function. Step 3: Inside `use_compute`, `obj.compute()` is called. Because `obj` refers to a `Derived` instance, Python invokes `Derived.compute()`, returning 20. Step 4: `value` is assigned 20, and `print(value)` outputs 20. This trace shows polymorphic method resolution.",
       "concept": "polymorphism_tracing",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# 1. Define the process_21_5 function\ndef process_21_5():\n    # 2. Implement solution for Polymorphism\n    pass\n",
       "solution_code": "print('Polymorphism')",
       "test_cases": [
         {

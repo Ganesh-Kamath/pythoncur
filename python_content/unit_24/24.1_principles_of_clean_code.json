@@ -223,7 +223,7 @@
       "prompt": "Trace the execution step by step and determine the final value of result. Identify how DRY and naming contribute to clarity:\n\n```python\ndef sum_values(a, b):\n    total = a + b\n    return total\n\nfirst = 10\nsecond = 25\nresult = sum_values(first, second)\nprint(result)\n```",
       "correct_answer": "result is 35; the function sum_values encapsulates addition, avoiding repeated a + b expressions.",
       "explanation": "Step 1: first is assigned 10. Step 2: second is assigned 25. Step 3: sum_values is called with 10 and 25. Step 4: total becomes 35 and is returned. Step 5: result is assigned 35. Step 6: print outputs 35. The DRY principle is evident because the addition logic lives in one place. Descriptive names (first, second, sum_values, total, result) make the trace intuitive.",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# 1. Define the process_24_1 function\ndef process_24_1():\n    # 2. Implement solution for Principles of Clean Code (DRY, Naming)\n    pass\n",
       "solution_code": "print('Principles of Clean Code (DRY, Naming)')",
       "test_cases": [
         {

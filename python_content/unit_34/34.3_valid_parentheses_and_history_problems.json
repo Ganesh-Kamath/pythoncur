@@ -174,7 +174,7 @@
       "prompt": "Given this code, explain why the output is what it is:\n```python\ndef analyze(s):\n    stack = []\n    for ch in s:\n        if ch == '(':\n            stack.append(ch)\n        elif ch == ')':\n            if stack:\n                stack.pop()\n            else:\n                return False\n    return len(stack) == 0\n\nprint(analyze('())('))\n```",
       "correct_answer": "The function returns False because there is a closing parenthesis without a matching opening one, and one opening parenthesis remains unmatched.",
       "explanation": "Processing '())(': at index 0, '(' is pushed. At index 1, ')' pops the stack. At index 2, ')' finds the stack empty and returns False immediately. The function never reaches the final '('. Therefore, the output is False.",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# 1. Define the process_34_3 function\ndef process_34_3():\n    # 2. Implement solution for Valid Parentheses and History Problems\n    pass\n",
       "solution_code": "print('Valid Parentheses and History Problems')",
       "test_cases": [
         {
@@ -195,7 +195,7 @@
       "prompt": "Trace the execution of this code step by step and determine the final return value:\n```python\ndef queue_stack_trace(s):\n    stack = []\n    q = list(s)\n    while q:\n        ch = q.pop(0)\n        if ch == '(':\n            stack.append(ch)\n        elif ch == ')':\n            if not stack:\n                return False\n            stack.pop()\n    return len(stack) == 0\n\nprint(queue_stack_trace('()()'))\n```",
       "correct_answer": "True, because each '(' is matched by a ')' and the stack is empty at the end.",
       "explanation": "Step 1: ch = '(', stack = ['(']. Step 2: ch = ')', stack.pop() -> []. Step 3: ch = '(', stack = ['(']. Step 4: ch = ')', stack.pop() -> []. Queue is empty and stack is empty, so return True.",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# 1. Define the process_34_3 function\ndef process_34_3():\n    # 2. Implement solution for Valid Parentheses and History Problems\n    pass\n",
       "solution_code": "print('Valid Parentheses and History Problems')",
       "test_cases": [
         {
@@ -500,14 +500,6 @@
         "34.3_q26"
       ],
       "prompt": "What will be the outcome when this code handling Valid Parentheses and History Problems encounters empty or boundary input?\n```python\ndef process(data):\n    return [x for x in data if x]\nprint(process([]))\n```",
-      "starter_code": "# Write your code below\n",
-      "solution_code": "print('Valid Parentheses and History Problems Result 27')",
-      "test_cases": [
-        {
-          "input": "",
-          "expected_output": "Valid Parentheses and History Problems Result 27"
-        }
-      ],
       "hint": "An empty input list evaluates as falsy and produces an empty result.",
       "explanation": "Handling empty collections gracefully without raising unexpected exceptions is an essential design pattern when working with Valid Parentheses and History Problems.",
       "options": [

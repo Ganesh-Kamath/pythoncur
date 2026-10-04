@@ -179,7 +179,7 @@
       "correct_answer": "The code raises UnboundLocalError because x is assigned before being read; use 'global x' to fix it.",
       "explanation": "When Python sees x = 10 inside bad_func(), it treats x as a local variable for the entire function body. However, the earlier print(x) tries to read x before it is assigned locally, causing UnboundLocalError. To read and modify the global x, add 'global x' at the top of the function.",
       "difficulty": "medium",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# 1. Define the process_11_6 function\ndef process_11_6():\n    # 2. Implement solution for Variable Scope (Local vs Global)\n    pass\n",
       "solution_code": "print('Variable Scope (Local vs Global)')",
       "test_cases": [
         {
@@ -525,14 +525,6 @@
         "11.6_q26"
       ],
       "prompt": "What will be the outcome when this code handling Variable Scope (Local vs Global) encounters empty or boundary input?\n```python\ndef process(data):\n    return [x for x in data if x]\nprint(process([]))\n```",
-      "starter_code": "# Write your code below\n",
-      "solution_code": "print('Variable Scope (Local vs Global) Result 27')",
-      "test_cases": [
-        {
-          "input": "",
-          "expected_output": "Variable Scope (Local vs Global) Result 27"
-        }
-      ],
       "hint": "An empty input list evaluates as falsy and produces an empty result.",
       "explanation": "Handling empty collections gracefully without raising unexpected exceptions is an essential design pattern when working with Variable Scope (Local vs Global).",
       "options": [

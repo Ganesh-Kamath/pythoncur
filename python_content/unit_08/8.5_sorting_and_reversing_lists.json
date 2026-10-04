@@ -185,7 +185,7 @@
       "title": "Analyzing In-Place vs. Non-In-Place Operations",
       "content": "When working with lists in Python, it is important to distinguish between methods that modify the list in place and those that return a new list. The sort() and reverse() methods both mutate the original list and return None. This means that if you assign their result to a new variable, that variable will hold None rather than a sorted or reversed list. For example:\n```python\nlst = [3, 1, 2]\nnew_lst = lst.sort()\nprint(new_lst)  # Output: None\n```\nTo create a new sorted list without changing the original, use the built-in sorted() function instead:\n```python\nlst = [3, 1, 2]\nnew_lst = sorted(lst)\nprint(new_lst)  # Output: [1, 2, 3]\n```\nUnderstanding this distinction prevents common bugs where a programmer expects a new list but accidentally gets None.",
       "prompt": "Write Python code to solve this challenge for Sorting and Reversing Lists:",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# TODO: Implement solution for Sorting and Reversing Lists\n# Follow requirements outlined in the prompt\n",
       "solution_code": "print('Sorting and Reversing Lists')",
       "test_cases": [
         {

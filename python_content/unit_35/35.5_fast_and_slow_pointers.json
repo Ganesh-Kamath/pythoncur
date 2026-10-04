@@ -184,7 +184,7 @@
       "correct_answer": "Because fast moves two steps, we must ensure fast.next exists before accessing fast.next.next.",
       "explanation": "In each iteration, fast advances by two nodes: `fast = fast.next.next`. If fast is at the last node, `fast.next` is None, and accessing `fast.next.next` would raise an AttributeError. Therefore, we must verify both `fast` and `fast.next` are not None before the update.",
       "difficulty": "medium",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# 1. Define the process_35_5 function\ndef process_35_5():\n    # 2. Implement solution for Fast and Slow Pointers\n    pass\n",
       "solution_code": "print('Fast and Slow Pointers')",
       "test_cases": [
         {

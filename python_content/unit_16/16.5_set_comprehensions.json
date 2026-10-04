@@ -180,7 +180,7 @@
       "title": "Analyzing Set Comprehension Behavior",
       "content": "Set comprehensions evaluate expressions and collect unique results into a set. Unlike list comprehensions, duplicates are automatically eliminated because sets cannot contain duplicate elements. The order of elements in a set is not guaranteed. Consider the following code:\n\n```python\nwords = ['apple', 'banana', 'apple', 'cherry']\nlengths = {len(w) for w in words}\nprint(lengths)\n```\n\nThe expression len(w) is evaluated for each word. 'apple' appears twice, but len('apple') is 5, so 5 is added only once to the set. The final set contains the unique lengths: {5, 6, 6} becomes {5, 6} because 6 is also produced by 'banana'. Thus, the output is {5, 6}. Understanding this uniqueness property is essential when using set comprehensions for deduplication tasks.",
       "prompt": "Write Python code to solve this challenge for Set Comprehensions:",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# TODO: Implement solution for Set Comprehensions\n# Follow requirements outlined in the prompt\n",
       "solution_code": "print('Set Comprehensions')",
       "test_cases": [
         {

@@ -174,7 +174,7 @@
       "title": "Analyzing Custom Exception Behavior",
       "content": "When you define a custom exception class, you inherit from the built-in Exception class or a subclass of it. This allows your custom exception to participate in Python's exception handling mechanism. Overriding methods like __str__ or __init__ lets you customize how the exception behaves and how it is displayed. In the code below, we define a custom exception and analyze its execution flow.\n\n```python\nclass FileNotFoundErrorCustom(Exception):\n    def __init__(self, filename):\n        self.filename = filename\n        super().__init__(f'File not found: {filename}')\n\n    def __str__(self):\n        return self.args[0] + ' (custom wrapper)'\n\ntry:\n    raise FileNotFoundErrorCustom('data.txt')\nexcept FileNotFoundErrorCustom as e:\n    print(e)\n```\n\nHere, we call super().__init__ to store the original message, then override __str__ to append a custom suffix. The print statement outputs the overridden string representation, demonstrating how method resolution works in custom exception classes.",
       "prompt": "Write Python code to solve this challenge for Custom Exception Classes:",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# TODO: Implement solution for Custom Exception Classes\n# Follow requirements outlined in the prompt\n",
       "solution_code": "print('Custom Exception Classes')",
       "test_cases": [
         {

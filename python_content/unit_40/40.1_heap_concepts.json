@@ -174,7 +174,7 @@
       "prompt": "Explain why using `heapq.heappush` followed by `heapq.heappop` in a loop of length n has an overall time complexity of O(n log n).",
       "correct_answer": "Both operations are O(log n), and they are performed n times, giving O(n log n).",
       "explanation": "`heappush` and `heappop` each maintain the heap invariant by traversing at most the height of the binary tree, which is O(log n) for a heap of size up to n. Executing both inside a loop that runs n times yields n * O(log n) = O(n log n). This is more efficient than repeatedly scanning an unsorted list for the minimum, which would be O(n^2).",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# TODO: Implement solution for Heap Concepts\n# Follow requirements outlined in the prompt\n",
       "solution_code": "print('Heap Concepts')",
       "test_cases": [
         {

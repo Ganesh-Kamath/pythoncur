@@ -178,7 +178,7 @@
       "prompt": "Explain why the following code may produce different results on different runs:\n```python\nimport random\nfrom multiprocessing import Process\n\ndef task():\n    print(random.randint(1, 100))\n\nfor _ in range(5):\n    Process(target=task).start()\n```",
       "correct_answer": "Each process gets its own independent random state, so outputs vary per run and per process.",
       "explanation": "OS-level processes do not share memory. Each process initializes its own random generator state. Therefore, each invocation of random.randint(1, 100) yields an independent value, leading to different output sequences across runs.",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# 1. Define the process_28_3 function\ndef process_28_3():\n    # 2. Implement solution for Multiprocessing Concepts\n    pass\n",
       "solution_code": "print('Multiprocessing Concepts')",
       "test_cases": [
         {
@@ -199,7 +199,7 @@
       "prompt": "Trace the execution order and identify the final value of result.\n```python\nfrom multiprocessing import Process, Value\n\ndef increment(n):\n    n.value += 1\n\nn = Value('i', 0)\np = Process(target=increment, args=(n,))\np.start()\np.join()\nprint('result:', n.value)\n```",
       "correct_answer": "result: 1\nOrder: main starts process, process increments, main joins, main prints.",
       "explanation": "Value('i', 0) creates a synchronized shared memory integer. The child process increments n.value to 1. join() blocks the main process until completion, so printing occurs after the increment. The final value is 1.",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# 1. Define the process_28_3 function\ndef process_28_3():\n    # 2. Implement solution for Multiprocessing Concepts\n    pass\n",
       "solution_code": "print('Multiprocessing Concepts')",
       "test_cases": [
         {

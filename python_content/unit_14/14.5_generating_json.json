@@ -221,7 +221,7 @@
         "14.5_q9"
       ],
       "prompt": "Write Python code to solve this challenge for Generating JSON:",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# TODO: Implement solution for Generating JSON\n# Follow requirements outlined in the prompt\n",
       "solution_code": "print('Generating JSON')",
       "test_cases": [
         {
@@ -243,7 +243,7 @@
       "prompt": "Write a snippet using `json.dump()` that writes dictionary `profile = {'id': 1, 'role': 'admin'}` directly to an open file stream `f`.",
       "starter_code": "import json\nfrom io import StringIO\nprofile = {\"id\": 1, \"role\": \"admin\"}\nf = StringIO()\n# Serialize profile into stream f\n",
       "solution_code": "import json\nfrom io import StringIO\nprofile = {\"id\": 1, \"role\": \"admin\"}\nf = StringIO()\njson.dump(profile, f)\nprint(f.getvalue())",
-      "explanation": "`json.dump(obj, f)` streams serialized JSON directly into the writable file stream.",
+      "explanation": "`json.dump(obj, f)` streams serialized JSON directly into the writable file stream. In Python, understanding this core rule ensures predictable execution, prevents common runtime errors, and establishes robust coding habits.",
       "metadata": {
         "concept": "json_file_stream_dump",
         "skill": "file_io",

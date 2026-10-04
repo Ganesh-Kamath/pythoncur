@@ -190,7 +190,7 @@
       "prompt": "The following BFS function is run on a graph with 5 nodes and 7 edges. The output is `['X', 'Y', 'Z', 'W']`. Explain why node 'V' is missing from the output and whether the function is still correct for its intended purpose.",
       "correct_answer": "Node 'V' is missing because it is not reachable from 'X'; the function is correct for a single connected component.",
       "explanation": "BFS only traverses the connected component containing the start node. If 'V' is in a separate component, it will never be visited. The function remains correct as long as the goal is to explore reachable nodes from 'X'.",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# 1. Define the process_39_3 function\ndef process_39_3():\n    # 2. Implement solution for Breadth-First Search (BFS)\n    pass\n",
       "solution_code": "print('Breadth-First Search (BFS)')",
       "test_cases": [
         {
@@ -542,14 +542,6 @@
         "39.3_q26"
       ],
       "prompt": "What will be the outcome when this code handling Breadth-First Search (BFS) encounters empty or boundary input?\n```python\ndef process(data):\n    return [x for x in data if x]\nprint(process([]))\n```",
-      "starter_code": "# Write your code below\n",
-      "solution_code": "print('Breadth-First Search (BFS) Result 27')",
-      "test_cases": [
-        {
-          "input": "",
-          "expected_output": "Breadth-First Search (BFS) Result 27"
-        }
-      ],
       "hint": "An empty input list evaluates as falsy and produces an empty result.",
       "explanation": "Handling empty collections gracefully without raising unexpected exceptions is an essential design pattern when working with Breadth-First Search (BFS).",
       "options": [

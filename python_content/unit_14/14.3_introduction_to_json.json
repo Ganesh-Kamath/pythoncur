@@ -190,7 +190,7 @@
       "prompt": "Given this code, explain what it does and what values are printed:\nimport json\n\njson_text = '{\"name\": \"Bob\", \"verified\": false}'\nobj = json.loads(json_text)\nprint(type(obj))\nprint(obj.get('name'))",
       "correct_answer": "It prints <class 'dict'> and 'Bob' because json.loads converts JSON to a dictionary and .get retrieves the value safely.",
       "explanation": "json.loads(json_text) returns a dictionary. type(obj) shows <class 'dict'>. obj.get('name') returns 'Bob' without raising an error even if the key were missing.",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# TODO: Implement solution for Introduction to JSON\n# Follow requirements outlined in the prompt\n",
       "solution_code": "print('Introduction to JSON')",
       "test_cases": [
         {

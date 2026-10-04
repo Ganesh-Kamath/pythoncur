@@ -180,7 +180,7 @@
       "prompt": "Explain why the following code produces an unexpected result for the input '007':\n\n```python\ndef check_numeric_string(s):\n    if s.isdigit():\n        return int(s) > 0\n    return False\n\nprint(check_numeric_string('007'))\n```",
       "correct_answer": "int('007') evaluates to 7, which is greater than 0, so the function returns True.",
       "explanation": "'007'.isdigit() returns True because all characters are digits. int('007') converts the string to the integer 7. Since 7 > 0 is True, the function returns True. The edge case is that leading zeros do not prevent conversion to a valid integer.",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# 1. Define the process_43_2 function\ndef process_43_2():\n    # 2. Implement solution for Diagnosing Edge Case Errors\n    pass\n",
       "solution_code": "print('Diagnosing Edge Case Errors')",
       "test_cases": [
         {
@@ -515,14 +515,6 @@
         "43.2_q26"
       ],
       "prompt": "What will be the outcome when this code handling Diagnosing Edge Case Errors encounters empty or boundary input?\n```python\ndef process(data):\n    return [x for x in data if x]\nprint(process([]))\n```",
-      "starter_code": "# Write your code below\n",
-      "solution_code": "print('Diagnosing Edge Case Errors Result 27')",
-      "test_cases": [
-        {
-          "input": "",
-          "expected_output": "Diagnosing Edge Case Errors Result 27"
-        }
-      ],
       "hint": "An empty input list evaluates as falsy and produces an empty result.",
       "explanation": "Handling empty collections gracefully without raising unexpected exceptions is an essential design pattern when working with Diagnosing Edge Case Errors.",
       "options": [

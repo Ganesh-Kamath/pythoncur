@@ -182,7 +182,7 @@
       "prompt": "Consider this code:\n```python\ndef process(data):\n    return [item['value'] * 2 for item in data if item.get('valid') and item['value'] > 0]\n```\nExplain why this comprehension might be difficult to maintain.",
       "correct_answer": "It combines multiple conditions, a method call, and a transformation in one line, making the logic hard to trace and debug.",
       "explanation": "When a comprehension contains multiple conditions (`item.get('valid') and item['value'] > 0`), a method call (`item.get`), and a transformation (`item['value'] * 2`), it becomes a dense expression. A regular loop with explicit steps would be easier to read, test, and modify. This is a primary guideline: avoid comprehensions when the logic is too complex for a single readable line.",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# 1. Define the process_16_6 function\ndef process_16_6():\n    # 2. Implement solution for Readability: When Not to Use Comprehensions\n    pass\n",
       "solution_code": "print('Readability: When Not to Use Comprehensions')",
       "test_cases": [
         {
@@ -585,16 +585,17 @@
         "16.6_q29"
       ],
       "prompt": "Challenge: Implement `summarize_scores` that takes a list of strings representing student records in the format `Name: Score`. Compute and return a dictionary mapping each valid name to their average score. Skip records with missing names or non-integer scores. Use only explicit `for` loops and helper functions; no comprehensions or generator expressions are allowed.",
-      "starter_code": "records = [\n    'Alice: 80',\n    'Bob: 90',\n    'Charlie: bad',\n    'Diana: 85',\n    'Eve: ',\n    'Frank: 70'\n]\n\ndef summarize_scores(records):\n    # TODO: implement without comprehensions\n    return {}\n\nprint(summarize_scores(records))",
-      "solution_code": "print('OK')",
+      "starter_code": "def summarize_scores(records):\n    # Aggregate student scores without comprehensions\n    pass",
+      "solution_code": "def summarize_scores(records):\n    scores = {}\n    for record in records:\n        if ':' not in record:\n            continue\n        parts = record.split(':', 1)\n        name = parts[0].strip()\n        score_str = parts[1].strip()\n        if not name:\n            continue\n        try:\n            score = int(score_str)\n        except ValueError:\n            continue\n        if name not in scores:\n            scores[name] = []\n        scores[name].append(score)\n    result = {}\n    for name, score_list in scores.items():\n        result[name] = sum(score_list) / len(score_list)\n    return result",
       "test_cases": [
         {
-          "input": "",
-          "expected_output": "OK"
+          "input": "['Alice: 80', 'Bob: 90', 'Alice: 100', 'Bad: invalid', ': 50']",
+          "expected_output": "{'Alice': 90.0, 'Bob': 90.0}",
+          "description": "summarizes valid student scores"
         }
       ],
       "hint": "Build an intermediate dictionary of lists first, then compute averages in a second loop.",
-      "explanation": "Mastery means recognizing that even multi-pass aggregation is clearer when each pass has a single responsibility. Using explicit loops separates data collection from transformation, which prevents subtle bugs and makes the code accessible to teammates of varying skill levels."
+      "explanation": "Using explicit loops for multi-pass aggregation clearly separates validation from collection and computation, ensuring robust error tolerance without convoluted nested comprehensions."
     }
   ],
   "unit_num": 16,

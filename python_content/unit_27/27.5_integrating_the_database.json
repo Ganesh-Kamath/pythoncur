@@ -174,7 +174,7 @@
       "prompt": "```python\nimport sqlite3\n\nconn = sqlite3.connect(':memory:')\ncursor = conn.cursor()\ncursor.execute('CREATE TABLE logs (msg TEXT)')\n\nuser_input = \"' OR 1=1; --\"\ncursor.execute('INSERT INTO logs (msg) VALUES (' + user_input + ')')\nconn.commit()\n\ncursor.execute('SELECT msg FROM logs')\nprint(cursor.fetchall())\nconn.close()\n```",
       "correct_answer": "The code executes an unintended SQL statement due to string concatenation.",
       "explanation": "Concatenating user input directly into the SQL query allows SQL injection. The injected payload terminates the string literal, appends a destructive condition, and comments out the rest, altering the query behavior.",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# TODO: Implement solution for Integrating the Database\n# Follow requirements outlined in the prompt\n",
       "solution_code": "print('Integrating the Database')",
       "test_cases": [
         {
@@ -195,7 +195,7 @@
       "prompt": "```python\nimport sqlite3\n\nconn = sqlite3.connect(':memory:')\ncursor = conn.cursor()\ncursor.execute('CREATE TABLE items (val INTEGER)')\ncursor.execute(\"INSERT INTO items (val) VALUES (10)\")\n\ntry:\n    cursor.execute(\"INSERT INTO items (val) VALUES (20)\")\n    cursor.execute(\"INSERT INTO items (val) VALUES (30)\")\n    cursor.execute(\"INSERT INTO items (val) VALUES ('x')\")\n    conn.commit()\nexcept Exception as e:\n    print('Error:', e)\n    conn.rollback()\nfinally:\n    print('Rows:', cursor.execute('SELECT COUNT(*) FROM items').fetchone()[0])\n    conn.close()\n```",
       "correct_answer": "Error: invalid input syntax for type integer\nRows: 1",
       "explanation": "The third INSERT fails with a type error, triggering the except block. The rollback undoes all inserts in the transaction, leaving only the initial row with value 10, so the count is 1.",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# TODO: Implement solution for Integrating the Database\n# Follow requirements outlined in the prompt\n",
       "solution_code": "print('Integrating the Database')",
       "test_cases": [
         {

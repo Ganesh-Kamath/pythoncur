@@ -174,7 +174,7 @@
       "prompt": "Explain the output and behavior of the following code:\n\n```python\ndef create_counter():\n    count = 0\n    def increment():\n        nonlocal count\n        count += 1\n        return count\n    return increment\n\ncounter_a = create_counter()\nprint(counter_a())   # 1\nprint(counter_a())   # 2\n\ncounter_b = create_counter()\nprint(counter_b())   # 1\n```",
       "correct_answer": "Each call to create_counter creates a new closure with its own independent count, so counter_a and counter_b do not share state.",
       "explanation": "Every invocation of create_counter initializes a fresh count variable in its own enclosing scope. The inner increment function closes over that specific count. Therefore, counter_a maintains its own sequence (1, 2) and counter_b starts its own sequence at 1, demonstrating encapsulation in closures.",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# 1. Define the process_15_5 function\ndef process_15_5():\n    # 2. Implement solution for Functions as Values (Higher-Order Functions)\n    pass\n",
       "solution_code": "print('Functions as Values (Higher-Order Functions)')",
       "test_cases": [
         {
@@ -492,14 +492,6 @@
         "15.5_q26"
       ],
       "prompt": "What will be the outcome when this code handling Functions as Values (Higher-Order Functions) encounters empty or boundary input?\n```python\ndef process(data):\n    return [x for x in data if x]\nprint(process([]))\n```",
-      "starter_code": "# Write your code below\n",
-      "solution_code": "print('s as Values (Higher-Order s) Result 27')",
-      "test_cases": [
-        {
-          "input": "",
-          "expected_output": "s as Values (Higher-Order s) Result 27"
-        }
-      ],
       "hint": "An empty input list evaluates as falsy and produces an empty result.",
       "explanation": "Handling empty collections gracefully without raising unexpected exceptions is an essential design pattern when working with Functions as Values (Higher-Order Functions).",
       "options": [

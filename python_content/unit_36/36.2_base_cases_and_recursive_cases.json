@@ -174,7 +174,7 @@
       "prompt": "Explain why the following code prints 4 and not 5, even though the recursive call returns 5.\n\n```python\ndef add_one(n):\n    if n == 0:\n        return 1\n    return add_one(n - 1) + 1\n\nprint(add_one(3))\n```",
       "correct_answer": "The base case returns 1, and there are three recursive levels adding 1 each, resulting in 4.",
       "explanation": "The base case returns 1. For n = 3, the calls unfold as add_one(2) + 1, which becomes (add_one(1) + 1) + 1, which becomes ((add_one(0) + 1) + 1) + 1, yielding (1 + 1 + 1 + 1) = 4. There are three additions of 1 on top of the base case value.",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# 1. Define the process_36_2 function\ndef process_36_2():\n    # 2. Implement solution for Base Cases and Recursive Cases\n    pass\n",
       "solution_code": "print('Base Cases and Recursive Cases')",
       "test_cases": [
         {
@@ -499,14 +499,6 @@
         "36.2_q26"
       ],
       "prompt": "What will be the outcome when this code handling Base Cases and Recursive Cases encounters empty or boundary input?\n```python\ndef process(data):\n    return [x for x in data if x]\nprint(process([]))\n```",
-      "starter_code": "# Write your code below\n",
-      "solution_code": "print('Base Cases and Recursive Cases Result 27')",
-      "test_cases": [
-        {
-          "input": "",
-          "expected_output": "Base Cases and Recursive Cases Result 27"
-        }
-      ],
       "hint": "An empty input list evaluates as falsy and produces an empty result.",
       "explanation": "Handling empty collections gracefully without raising unexpected exceptions is an essential design pattern when working with Base Cases and Recursive Cases.",
       "options": [

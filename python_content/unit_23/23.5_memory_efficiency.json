@@ -174,7 +174,7 @@
       "prompt": "Consider this code:\n\n```python\ndef data_stream(size):\n    for i in range(size):\n        yield i * i\n\nbig = data_stream(10_000_000)\nprint(sum(big))\n```\n\nExplain why this approach is more memory-efficient than creating a list comprehension of the same size.",
       "correct_answer": "The generator computes values lazily and never stores the entire sequence in memory, whereas a list comprehension materializes all 10 million squared values at once.",
       "explanation": "A list comprehension like [i * i for i in range(10_000_000)] allocates memory for all 10 million integers simultaneously, which can consume hundreds of megabytes or gigabytes. In contrast, the generator yields one value at a time, and sum() consumes each value before requesting the next, keeping peak memory usage minimal and constant regardless of size.",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# 1. Define the process_23_5 function\ndef process_23_5():\n    # 2. Implement solution for Memory Efficiency\n    pass\n",
       "solution_code": "print('Memory Efficiency')",
       "test_cases": [
         {
@@ -195,7 +195,7 @@
       "prompt": "Trace the execution of the following code step by step and describe the state of the generator after each yield:\n\n```python\ndef countdown(n):\n    while n > 0:\n        print('About to yield', n)\n        yield n\n        print('After yield, n =', n)\n        n -= 1\n\ngen = countdown(3)\nprint(next(gen))\nprint(next(gen))\nprint(next(gen))\n```",
       "correct_answer": "After first yield: n=3, local state paused before decrement. After second yield: n=2, paused. After third yield: n=1, then n becomes 0 and loop exits.",
       "explanation": "When next(gen) is called, execution runs until the first yield, printing 'About to yield 3' and yielding 3. The local variable n is suspended at 3. The second next(gen) resumes, prints 'After yield, n = 3', decrements n to 2, prints 'About to yield 2', and yields 2. The third next(gen) resumes, prints 'After yield, n = 2', decrements n to 1, prints 'About to yield 1', yields 1, then prints 'After yield, n = 1', decrements n to 0, and the while loop terminates without yielding again. This suspension of local state is what allows generators to maintain minimal memory overhead.",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# 1. Define the process_23_5 function\ndef process_23_5():\n    # 2. Implement solution for Memory Efficiency\n    pass\n",
       "solution_code": "print('Memory Efficiency')",
       "test_cases": [
         {

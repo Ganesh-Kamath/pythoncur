@@ -190,7 +190,7 @@
       "prompt": "Explain the output and behavior of the following code snippet.\n```python\nimport sqlite3\nconn = sqlite3.connect(':memory:')\ncursor = conn.cursor()\ncursor.execute('''\nCREATE TABLE books (\n    book_id INTEGER PRIMARY KEY,\n    title TEXT\n)\n''')\ncursor.execute('''\nCREATE TABLE loans (\n    loan_id INTEGER PRIMARY KEY,\n    book_id INTEGER REFERENCES books(book_id)\n)\n''')\ncursor.execute(\"INSERT INTO books (book_id, title) VALUES (1, 'Python Basics')\")\ncursor.execute(\"INSERT INTO loans (loan_id, book_id) VALUES (10, 1)\")\ncursor.execute('''\nSELECT b.title, l.loan_id\nFROM books b\nLEFT JOIN loans l ON b.book_id = l.book_id\n''')\nprint(cursor.fetchall())\n```",
       "correct_answer": "The output is [('Python Basics', 10)] because the LEFT JOIN finds the matching loan record for the book.",
       "explanation": "The LEFT JOIN returns all rows from the left table (books) and matching rows from the right table (loans). Since a loan with loan_id 10 exists for book_id 1, the result is a single row with the title and the matching loan_id.",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# TODO: Implement solution for Primary Keys and Relationships\n# Follow requirements outlined in the prompt\n",
       "solution_code": "print('Primary Keys and Relationships')",
       "test_cases": [
         {
@@ -215,7 +215,7 @@
       "prompt": "Trace the execution step by step and identify the final state of the database and whether an exception occurs.\n```python\nimport sqlite3\nconn = sqlite3.connect(':memory:')\ncursor = conn.cursor()\ncursor.execute('''\nCREATE TABLE products (\n    prod_id INTEGER PRIMARY KEY,\n    name TEXT\n)\n''')\ncursor.execute(\"INSERT INTO products (prod_id, name) VALUES (1, 'Widget')\")\ncursor.execute(\"INSERT INTO products (prod_id, name) VALUES (1, 'Gadget')\")\ncursor.execute(\"COMMIT\")\nprint(cursor.execute('SELECT * FROM products').fetchall())\n```",
       "correct_answer": "An exception is raised during the second INSERT; no rows are committed; the database remains empty.",
       "explanation": "The second INSERT attempts to use prod_id 1 again, violating the PRIMARY KEY constraint. sqlite3 raises an IntegrityError immediately, preventing the row from being inserted. Because no explicit commit occurred before the error, the transaction is rolled back, leaving the database empty.",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# TODO: Implement solution for Primary Keys and Relationships\n# Follow requirements outlined in the prompt\n",
       "solution_code": "print('Primary Keys and Relationships')",
       "test_cases": [
         {

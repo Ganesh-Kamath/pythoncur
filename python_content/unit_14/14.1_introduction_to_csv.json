@@ -180,7 +180,7 @@
       "prompt": "Explain the output produced by the following Python code and describe what each part of the code does.\n\n```python\nimport csv\n\nwith open('data.csv', 'r') as file:\n    reader = csv.reader(file)\n    header = next(reader)\n    for row in reader:\n        print(f'{header[0]} is {row[1]} years old and lives in {row[2]}')\n```\n\nAssume 'data.csv' contains:\nname,age,city\nAlice,30,New York\nBob,25,Los Angeles",
       "correct_answer": "It prints the header row, then prints each person's name, age, and city in a formatted sentence.",
       "explanation": "next(reader) retrieves and discards the first row (the header). The for loop then iterates over the remaining rows. f-string formatting inserts header[0] (name), row[1] (age), and row[2] (city) into the output string. The result is two lines: 'Alice is 30 years old and lives in New York' and 'Bob is 25 years old and lives in Los Angeles'.",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# TODO: Implement solution for Introduction to CSV\n# Follow requirements outlined in the prompt\n",
       "solution_code": "print('Introduction to CSV')",
       "test_cases": [
         {

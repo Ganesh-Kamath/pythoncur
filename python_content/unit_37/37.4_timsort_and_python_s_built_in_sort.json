@@ -335,7 +335,7 @@
     },
     {
       "id": "37.4_q19",
-      "type": "fix_the_code",
+      "type": "multiple_choice",
       "concept": "timsort_and_pythons_builtin_sort_errors",
       "skill": "debugging",
       "difficulty": "medium",
@@ -346,10 +346,15 @@
         "title": "Understanding Timsort and Built-in sort() Errors",
         "content": "Python's built-in sort() method uses Timsort, a hybrid stable sorting algorithm derived from merge sort and insertion sort. It performs well on many kinds of real-world data. Common errors include passing non-comparable types, modifying the list while iterating, or expecting sort() to return a new list. Remember that list.sort() sorts in-place and returns None, whereas sorted(iterable) returns a new sorted list. Timsort exploits existing order (runs) in data, making it O(n) for nearly sorted inputs and O(n log n) in the worst case. When debugging, always verify that your list elements support comparison operators and that you are not relying on the return value of sort()."
       },
-      "prompt": "Fix the bug in this code for timsort and pythons builtin sort errors:",
-      "starter_code": "# Fix this code\nPrint('Timsort and Python's Built-in sort()')",
-      "solution_code": "print('OK')",
-      "explanation": "Python logical operators use short-circuit evaluation: `and` stops and returns the first falsy operand, while `or` stops and returns the first truthy operand without evaluating subsequent expressions."
+      "prompt": "Diagnose why this sorting call raises a TypeError when sorting tuples with uncomparable secondary fields:\n\n```python\nitems = [(1, 'apple'), (1, None)]\nitems.sort()\n```",
+      "explanation": "Python compares sequences lexicographically. If the primary keys are tied (`1 == 1`), Python compares the next elements (`'apple' < None`), which raises `TypeError: '<' not supported between instances of 'str' and 'NoneType'`.",
+      "options": [
+        "When the first tuple elements tie, Python compares the second elements, and str and None cannot be compared with '<'",
+        "Timsort does not support sorting tuples under any circumstances",
+        "None is automatically converted to zero during sorting",
+        "Tuples are immutable and therefore cannot be sorted by Python"
+      ],
+      "correct_answer": "When the first tuple elements tie, Python compares the second elements, and str and None cannot be compared with '<'"
     },
     {
       "id": "37.4_q20",
@@ -394,10 +399,17 @@
         "title": "Runtime Behavior of Timsort",
         "content": "Timsort is designed to be efficient on partially ordered data. Its worst-case time complexity is O(n log n), but it achieves O(n) on already sorted or reverse-sorted runs. It identifies natural runs in the data and merges them intelligently. When debugging performance issues, consider whether your data is nearly sorted, whether you are using an appropriate key function, and whether you are unnecessarily copying lists. Using sorted() on a generator consumes memory proportional to the output, while list.sort() avoids this overhead by operating in-place."
       },
-      "prompt": "Fix the bug in this code for timsort and pythons builtin sort runtime:",
-      "starter_code": "# Fix this code\nPrint('Timsort and Python's Built-in sort()')",
-      "solution_code": "print('OK')",
-      "explanation": "Python logical operators use short-circuit evaluation: `and` stops and returns the first falsy operand, while `or` stops and returns the first truthy operand without evaluating subsequent expressions."
+      "prompt": "Fix this code so `records` is sorted in-place primarily by `score` descending, and secondarily by `name` ascending for ties:",
+      "starter_code": "records = [{'name': 'Bob', 'score': 90}, {'name': 'Alice', 'score': 90}, {'name': 'Charlie', 'score': 80}]\n# Sort by score desc, then name asc\nrecords.sort(key=___)",
+      "solution_code": "records = [{'name': 'Bob', 'score': 90}, {'name': 'Alice', 'score': 90}, {'name': 'Charlie', 'score': 80}]\nrecords.sort(key=lambda r: (-r['score'], r['name']))\nprint([r['name'] for r in records])",
+      "explanation": "Negating `-r['score']` inverts numeric ordering to descending while keeping string `r['name']` in ascending order, leveraging Timsort's stable multi-key comparison.",
+      "test_cases": [
+        {
+          "input": "",
+          "expected_output": "['Alice', 'Bob', 'Charlie']",
+          "description": "multi-key sorting with Timsort"
+        }
+      ]
     },
     {
       "id": "37.4_q23",

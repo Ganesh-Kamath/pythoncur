@@ -190,7 +190,7 @@
       "correct_answer": "Output is [(\"' OR 1=1; --\",)]; this demonstrates SQL injection vulnerability",
       "explanation": "String concatenation allows malicious input to alter SQL logic. The input is stored literally, but in a real query it could bypass filters. Always use parameterized queries with placeholders.",
       "difficulty": "medium",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# TODO: Implement solution for SQLite with Python (sqlite3)\n# Follow requirements outlined in the prompt\n",
       "solution_code": "print('SQLite with Python (sqlite3)')",
       "test_cases": [
         {
@@ -212,7 +212,7 @@
       "correct_answer": "Charlie",
       "explanation": "fetchone() returns the first matching row as a tuple ('Charlie',). The function checks for None, then returns row[0], which is the first element of the tuple, 'Charlie'.",
       "difficulty": "medium",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# 1. Define the process_26_5 function\ndef process_26_5():\n    # 2. Implement solution for SQLite with Python (sqlite3)\n    pass\n",
       "solution_code": "print('SQLite with Python (sqlite3)')",
       "test_cases": [
         {

@@ -174,7 +174,7 @@
       "prompt": "Explain why heapq.nlargest(3, data) is more efficient than sorting the entire list when k is small compared to n.",
       "correct_answer": "It uses a min-heap of size k, giving O(n log k) time instead of O(n log n).",
       "explanation": "heapq.nlargest maintains a min-heap of size k. Each insertion is O(log k) and we process n elements, resulting in O(n log k). When k << n, this is asymptotically better than O(n log n) sorting.",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# TODO: Implement solution for Priority Queues\n# Follow requirements outlined in the prompt\n",
       "solution_code": "print('Priority Queues')",
       "test_cases": [
         {

@@ -188,7 +188,7 @@
       "prompt": "Consider the following code:\n\n```python\na = {1, 2, 2, 3, 1}\nprint(a)\nprint(len(a))\n```\nExplain why the length of the set is 3 and not 5.",
       "correct_answer": "Sets enforce uniqueness, so duplicate values are stored only once regardless of how many times they appear in the input.",
       "explanation": "A set is an unordered collection of unique elements. When a set is constructed from an iterable, each element is added; if it already exists, the set remains unchanged. Therefore, the values 1, 2, and 3 each appear once, giving a length of 3.",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# TODO: Implement solution for Set Uniqueness and Membership\n# Follow requirements outlined in the prompt\n",
       "solution_code": "print('Set Uniqueness and Membership')",
       "test_cases": [
         {

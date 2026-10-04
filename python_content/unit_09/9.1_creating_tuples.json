@@ -179,7 +179,7 @@
       "prompt": "Explain the output and behavior of the following code snippet:\n```python\nt = (1, 2, 3)\nt.append(4)\nprint(t)\n```",
       "correct_answer": "The code raises an AttributeError because tuples do not have an append method.",
       "explanation": "Tuples are immutable, meaning they do not support item assignment or methods that modify their contents. The append() method exists only for lists, not for tuples. Attempting to call it on a tuple raises an AttributeError.",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# TODO: Implement solution for Creating Tuples\n# Follow requirements outlined in the prompt\n",
       "solution_code": "print('Creating Tuples')",
       "test_cases": [
         {

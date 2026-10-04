@@ -178,7 +178,7 @@
       "prompt": "Explain why the following code produces the result it does:\n```python\nnums = [0, 1, -1, 2, -2]\npos = [n for n in nums if n > 0]\nprint(pos)\n```",
       "correct_answer": "Only positive integers are included because the condition n > 0 excludes zero and negative values.",
       "explanation": "The comprehension filters nums using n > 0. Zero is not greater than zero, and negative numbers are also not greater than zero. Therefore, only 1 and 2 satisfy the condition, producing [1, 2].",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# TODO: Implement solution for Conditional Comprehensions\n# Follow requirements outlined in the prompt\n",
       "solution_code": "print('Conditional Comprehensions')",
       "test_cases": [
         {

@@ -174,7 +174,7 @@
       "prompt": "Pipeline Milestone: Impute missing values. Given `values = [10.0, None, 20.0, None]`, compute the mean of non-null values and replace `None` entries with the mean.",
       "starter_code": "values = [10.0, None, 20.0, None]\n# Impute missing values with mean\n",
       "solution_code": "values = [10.0, None, 20.0, None]\nvalid = [v for v in values if v is not None]\nmean_val = sum(valid) / len(valid)\nimputed = [v if v is not None else mean_val for v in values]\nprint(imputed)",
-      "explanation": "Imputes missing values with dataset averages, preserving distribution.",
+      "explanation": "Imputes missing values with dataset averages, preserving distribution. In Python, understanding this core rule ensures predictable execution, prevents common runtime errors, and establishes robust coding habits.",
       "metadata": {
         "concept": "missing_value_imputation",
         "skill": "project_milestone",
@@ -194,7 +194,7 @@
       "prompt": "Pipeline Milestone: Group sales by month. Given `txs = [{'date': '2026-01-15', 'amt': 100}, {'date': '2026-01-20', 'amt': 50}, {'date': '2026-02-01', 'amt': 80}]`, aggregate sales by month `YYYY-MM`.",
       "starter_code": "txs = [{\"date\": \"2026-01-15\", \"amt\": 100}, {\"date\": \"2026-01-20\", \"amt\": 50}, {\"date\": \"2026-02-01\", \"amt\": 80}]\n# Aggregate by month\n",
       "solution_code": "txs = [{\"date\": \"2026-01-15\", \"amt\": 100}, {\"date\": \"2026-01-20\", \"amt\": 50}, {\"date\": \"2026-02-01\", \"amt\": 80}]\nmonthly = {}\nfor t in txs:\n    month = t[\"date\"][:7]\n    monthly[month] = monthly.get(month, 0) + t[\"amt\"]\nprint(monthly)",
-      "explanation": "Slicing date string `[:7]` extracts `YYYY-MM` as aggregation buckets.",
+      "explanation": "Slicing date string `[:7]` extracts `YYYY-MM` as aggregation buckets. In Python, understanding this core rule ensures predictable execution, prevents common runtime errors, and establishes robust coding habits.",
       "metadata": {
         "concept": "temporal_aggregation",
         "skill": "project_milestone",
@@ -214,7 +214,7 @@
       "prompt": "Pipeline Milestone: Export cleaned records `records = [{'id': 1, 'name': 'Aria'}]` to CSV using `csv.DictWriter`.",
       "starter_code": "import csv\nrecords = [{\"id\": 1, \"name\": \"Aria\"}]\n# Export to clean_data.csv\n",
       "solution_code": "import csv\nfrom io import StringIO\nrecords = [{\"id\": 1, \"name\": \"Aria\"}]\nout = StringIO()\nwriter = csv.DictWriter(out, fieldnames=[\"id\", \"name\"])\nwriter.writeheader()\nwriter.writerows(records)\nprint(out.getvalue())",
-      "explanation": "`csv.DictWriter` ensures proper quoting and header alignment in exported files.",
+      "explanation": "`csv.DictWriter` ensures proper quoting and header alignment in exported files. In Python, understanding this core rule ensures predictable execution, prevents common runtime errors, and establishes robust coding habits.",
       "metadata": {
         "concept": "csv_export_pipeline",
         "skill": "project_milestone",
@@ -234,7 +234,7 @@
       "prompt": "Pipeline Milestone: Generate audit metrics. Write a summary dict `{'input_rows': 100, 'valid_rows': 95, 'dropped_rows': 5}` logging pipeline throughput.",
       "starter_code": "# Generate pipeline audit metrics\n",
       "solution_code": "def generate_audit_metrics(raw_count, clean_count):\n    return {\n        \"input_rows\": raw_count,\n        \"valid_rows\": clean_count,\n        \"dropped_rows\": raw_count - clean_count\n    }\nprint(generate_audit_metrics(100, 95))",
-      "explanation": "Logging input, output, and dropped records provides production pipeline observability.",
+      "explanation": "Logging input, output, and dropped records provides production pipeline observability. In Python, understanding this core rule ensures predictable execution, prevents common runtime errors, and establishes robust coding habits.",
       "metadata": {
         "concept": "pipeline_audit_telemetry",
         "skill": "project_milestone",
@@ -254,7 +254,7 @@
       "prompt": "Pipeline Milestone 1: Load CSV records from `csv_text = 'id,name,spend\\n101,Aria,45.50\\n102,Bob,90.00'` using `csv.DictReader` into a list of dictionaries called `customers`.",
       "starter_code": "import csv\nfrom io import StringIO\n\ncsv_text = \"id,name,spend\\n101,Aria,45.50\\n102,Bob,90.00\"\ncustomers = []\n# Load into customers list\n",
       "solution_code": "import csv\nfrom io import StringIO\n\ncsv_text = \"id,name,spend\\n101,Aria,45.50\\n102,Bob,90.00\"\nreader = csv.DictReader(StringIO(csv_text))\ncustomers = list(reader)\nprint(f\"Loaded {len(customers)} customers\")",
-      "explanation": "`list(csv.DictReader(...))` converts tabular rows into Python dictionaries.",
+      "explanation": "`list(csv.DictReader(...))` converts tabular rows into Python dictionaries. In Python, understanding this core rule ensures predictable execution, prevents common runtime errors, and establishes robust coding habits.",
       "metadata": {
         "concept": "pipeline_csv_ingestion",
         "skill": "implementation",

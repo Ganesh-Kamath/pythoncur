@@ -174,7 +174,7 @@
       "prompt": "Given the following Python code, explain what the variable root.left represents after execution:\n```python\nclass Node:\n    def __init__(self, value):\n        self.value = value\n        self.left = None\n        self.right = None\n\nroot = Node(20)\nchild = Node(15)\nroot.left = child\n```",
       "correct_answer": "A reference to the node with value 15, which is the left child of root",
       "explanation": "The assignment root.left = child stores a reference to the child Node object (value 15) inside the left attribute of root. It does not create a copy; both variables point to the same object in memory.",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# 1. Define the process_38_1 function\ndef process_38_1():\n    # 2. Implement solution for Tree Terminology\n    pass\n",
       "solution_code": "print('Tree Terminology')",
       "test_cases": [
         {

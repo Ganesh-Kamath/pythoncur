@@ -174,7 +174,7 @@
       "prompt": "Explain the behavior of the following code and why the two instances remain independent:\n```python\nclass Counter:\n    def __init__(self, start):\n        self.value = start\n\nc1 = Counter(5)\nc2 = Counter(10)\nc1.value = 99\nprint(c1.value, c2.value)\n```",
       "correct_answer": "Each instance receives its own copy of value during __init__, so c2 remains 10",
       "explanation": "Every time Counter(...) is called, a new object is created and __init__ runs independently. self.value is bound to that specific instance, so c1 and c2 have separate attribute namespaces. Modifying c1.value does not affect c2.",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# 1. Define the process_20_2 function\ndef process_20_2():\n    # 2. Implement solution for The __init__ Method\n    pass\n",
       "solution_code": "print('The __init__ Method')",
       "test_cases": [
         {

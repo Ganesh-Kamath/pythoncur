@@ -190,7 +190,7 @@
       "prompt": "Explain why the following code raises an error and what the error message indicates:\n```python\ntry:\n    a, b, c = (1, 2)\nexcept Exception as e:\n    print(type(e).__name__)\n```",
       "correct_answer": "It prints ValueError because the tuple on the right has 2 elements but 3 variables are on the left.",
       "explanation": "Python requires the number of variables on the left to match the number of items in the iterable on the right. Here, (1, 2) has 2 elements but a, b, c expects 3, so a ValueError is raised.",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# TODO: Implement solution for Tuple Unpacking\n# Follow requirements outlined in the prompt\n",
       "solution_code": "print('Tuple Unpacking')",
       "test_cases": [
         {

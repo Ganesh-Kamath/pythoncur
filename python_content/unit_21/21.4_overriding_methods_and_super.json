@@ -174,7 +174,7 @@
       "prompt": "Consider the following code. Explain why the output is what it is, and describe the role of super().\n\n```python\nclass Parent:\n    def show(self):\n        print('Parent method')\n\nclass Child(Parent):\n    def show(self):\n        super().show()\n        print('Child method')\n\nobj = Child()\nobj.show()\n```",
       "correct_answer": "The output is 'Parent method' then 'Child method' because super().show() explicitly calls the parent's overridden method before the child adds its own behavior.",
       "explanation": "super().show() invokes Parent.show(), printing 'Parent method'. Then Child.show() continues and prints 'Child method'. This demonstrates how super() allows extending parent behavior rather than replacing it.",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# 1. Define the process_21_4 function\ndef process_21_4():\n    # 2. Implement solution for Overriding Methods and super()\n    pass\n",
       "solution_code": "print('Overriding Methods and super()')",
       "test_cases": [
         {
@@ -195,7 +195,7 @@
       "prompt": "Trace the execution of the following code step by step and identify the order of method calls.\n\n```python\nclass A:\n    def greet(self):\n        print('A.greet')\n\nclass B(A):\n    def greet(self):\n        print('B.greet start')\n        super().greet()\n        print('B.greet end')\n\nclass C(B):\n    def greet(self):\n        print('C.greet start')\n        super().greet()\n        print('C.greet end')\n\nobj = C()\nobj.greet()\n```",
       "correct_answer": "C.greet start, B.greet start, A.greet, B.greet end, C.greet end",
       "explanation": "obj.greet() calls C.greet(). Inside C.greet(), super().greet() calls B.greet(). Inside B.greet(), super().greet() calls A.greet(). A.greet prints 'A.greet'. Control returns to B.greet(), which prints 'B.greet end', then to C.greet(), which prints 'C.greet end'.",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# 1. Define the process_21_4 function\ndef process_21_4():\n    # 2. Implement solution for Overriding Methods and super()\n    pass\n",
       "solution_code": "print('Overriding Methods and super()')",
       "test_cases": [
         {

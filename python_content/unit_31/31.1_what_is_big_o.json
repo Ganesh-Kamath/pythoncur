@@ -174,7 +174,7 @@
       "prompt": "Analyze the following function and explain its Big O complexity:\n\n```python\ndef find_pair(arr, target):\n    n = len(arr)\n    for i in range(n):\n        for j in range(i + 1, n):\n            if arr[i] + arr[j] == target:\n                return True\n    return False\n```",
       "correct_answer": "O(n^2): it checks every unique pair using nested loops",
       "explanation": "The outer loop runs n times. The inner loop runs up to n-i-1 times, which is still proportional to n. In the worst case, every pair is examined, yielding quadratic time O(n^2). The early return improves average case but does not change the worst-case complexity.",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# 1. Define the process_31_1 function\ndef process_31_1():\n    # 2. Implement solution for What is Big O?\n    pass\n",
       "solution_code": "print('What is Big O?')",
       "test_cases": [
         {
@@ -195,7 +195,7 @@
       "prompt": "Trace the execution of the following code for input n = 2 and describe how the total operations relate to n:\n\n```python\ndef mystery(n):\n    steps = 0\n    for k in range(n):\n        steps += 1\n        for m in range(n):\n            steps += 1\n    return steps\n```",
       "correct_answer": "steps = 6: outer adds 2 and inner adds 2*2=4, so O(n^2)",
       "explanation": "For n = 2: outer loop runs 2 times, adding 2 to steps. Inner loop runs 2 times for each outer iteration, adding 4 total. Final steps = 6. The inner loop contributes n^2 operations, so the overall complexity is O(n^2).",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# 1. Define the process_31_1 function\ndef process_31_1():\n    # 2. Implement solution for What is Big O?\n    pass\n",
       "solution_code": "print('What is Big O?')",
       "test_cases": [
         {
@@ -517,14 +517,6 @@
         "31.1_q26"
       ],
       "prompt": "What will be the outcome when this code handling What is Big O? encounters empty or boundary input?\n```python\ndef process(data):\n    return [x for x in data if x]\nprint(process([]))\n```",
-      "starter_code": "# Write your code below\n",
-      "solution_code": "print('What is Big O? Result 27')",
-      "test_cases": [
-        {
-          "input": "",
-          "expected_output": "What is Big O? Result 27"
-        }
-      ],
       "hint": "An empty input list evaluates as falsy and produces an empty result.",
       "explanation": "Handling empty collections gracefully without raising unexpected exceptions is an essential design pattern when working with What is Big O?.",
       "options": [

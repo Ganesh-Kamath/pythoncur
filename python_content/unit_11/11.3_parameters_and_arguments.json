@@ -179,7 +179,7 @@
       "prompt": "Explain why original remains 5 and new_val becomes 15 in the code above.",
       "correct_answer": "Because integers are immutable and val is reassigned to a new object inside the function.",
       "explanation": "Python uses pass-by-object-reference. Reassigning val inside the function does not alter the original binding of original. The return value is assigned to new_val, leaving original unaffected.",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# TODO: Implement solution for Parameters and Arguments\n# Follow requirements outlined in the prompt\n",
       "solution_code": "print('Parameters and Arguments')",
       "test_cases": [
         {
@@ -264,7 +264,7 @@
         "None"
       ],
       "correct_answer": "Whiskers is a cat",
-      "explanation": "Keyword arguments match parameter names explicitly, avoiding positional ordering errors.",
+      "explanation": "Keyword arguments match parameter names explicitly, avoiding positional ordering errors. In Python, understanding this core rule ensures predictable execution, prevents common runtime errors, and establishes robust coding habits.",
       "metadata": {
         "concept": "named_argument_order",
         "skill": "tracing",

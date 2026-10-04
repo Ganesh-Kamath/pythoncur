@@ -190,7 +190,7 @@
       "prompt": "A student runs the following code:\n\n```python\nwith open('summary.txt', 'w') as f:\n    f.write('First line')\n    f.write('Second line')\n```\n\nWhich statement correctly explains the state of `summary.txt`?",
       "correct_answer": "The file contains 'First lineSecond line' on a single line",
       "explanation": "The student did not include newline characters or spaces between the two `write()` calls. Therefore, the file stores the exact concatenation 'First lineSecond line' with no line break.",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# TODO: Implement solution for Writing to Files\n# Follow requirements outlined in the prompt\n",
       "solution_code": "print('Writing to Files')",
       "test_cases": [
         {

@@ -174,7 +174,7 @@
       "prompt": "Explain what happens when the following code executes and why:\n\n```python\nimport requests\n\nres = requests.get('https://invalid.url.example')\nprint(res.text)\n```",
       "correct_answer": "It raises a ConnectionError before `res` is assigned, so `print(res.text)` is never reached.",
       "explanation": "An invalid or unreachable URL causes `requests.get()` to raise a `requests.exceptions.ConnectionError`. Since the exception is unhandled, execution halts and the subsequent `print` statement is never executed.",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# TODO: Implement solution for The requests Library\n# Follow requirements outlined in the prompt\n",
       "solution_code": "print('The requests Library')",
       "test_cases": [
         {
@@ -195,7 +195,7 @@
       "prompt": "Trace the execution of the following code step by step:\n\n```python\nimport requests\n\nurl = 'https://api.github.com/users/octocat'\n\ntry:\n    r = requests.get(url, timeout=2)\n    print(r.ok)\nexcept requests.exceptions.Timeout:\n    print('slow')\n```",
       "correct_answer": "1) requests.get is called with a 2-second timeout. 2) The request completes within 2 seconds. 3) r.ok evaluates to True because status_code is 200. 4) 'True' is printed.",
       "explanation": "The timeout of 2 seconds is generous enough for this public API. The response status is 200, so `r.ok` returns True. Since no exception is raised, the except block is skipped and the True value is printed.",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# TODO: Implement solution for The requests Library\n# Follow requirements outlined in the prompt\n",
       "solution_code": "print('The requests Library')",
       "test_cases": [
         {
@@ -506,14 +506,6 @@
         "25.2_q26"
       ],
       "prompt": "What will be the outcome when this code handling The requests Library encounters empty or boundary input?\n```python\ndef process(data):\n    return [x for x in data if x]\nprint(process([]))\n```",
-      "starter_code": "# Write your code below\n",
-      "solution_code": "print('requests Library Result 27')",
-      "test_cases": [
-        {
-          "input": "",
-          "expected_output": "requests Library Result 27"
-        }
-      ],
       "hint": "An empty input list evaluates as falsy and produces an empty result.",
       "explanation": "Handling empty collections gracefully without raising unexpected exceptions is an essential design pattern when working with The requests Library.",
       "options": [

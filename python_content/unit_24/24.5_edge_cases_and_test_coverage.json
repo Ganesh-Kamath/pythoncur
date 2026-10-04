@@ -174,7 +174,7 @@
       "prompt": "Analyze the following test coverage report snippet and explain what is missing:\n\n```\nLines covered: 85%\nBranches covered: 60%\nMissing branch: line 12 (if n < 0)\n```\n\nThe function under test is:\n\n```python\ndef absolute_value(n):\n    if n < 0:\n        return -n\n    return n\n```\n\nWhy is 60% branch coverage concerning, and what test should be added?",
       "correct_answer": "The test `absolute_value(-3)` is missing; add it to cover the if branch",
       "explanation": "Branch coverage of 60% indicates that one conditional branch is not exercised. The `if n < 0` branch is untested. Adding a negative input such as `-3` ensures both branches are covered. Additionally, testing `0` covers the boundary between negative and non-negative, improving robustness.",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# 1. Define the process_24_5 function\ndef process_24_5():\n    # 2. Implement solution for Edge Cases and Test Coverage\n    pass\n",
       "solution_code": "print('Edge Cases and Test Coverage')",
       "test_cases": [
         {
@@ -195,7 +195,7 @@
       "prompt": "Trace the execution of the following test and identify the point where an edge case causes failure:\n\n```python\ndef read_config(path):\n    with open(path, 'r') as f:\n        return f.read()\n\ndef test_read_config():\n    data = read_config('config.txt')\n    assert 'host' in data\n```\n\nAssume `config.txt` does not exist. Trace each step and state the failure point.",
       "correct_answer": "Failure at `with open`: FileNotFoundError is raised",
       "explanation": "When `config.txt` does not exist, `open(path, 'r')` raises `FileNotFoundError` before `f.read()` is called. This is an edge case of missing files. Proper test coverage should include mocking or using temporary files to avoid external dependency failures, or explicitly testing the error-handling path.",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# 1. Define the process_24_5 function\ndef process_24_5():\n    # 2. Implement solution for Edge Cases and Test Coverage\n    pass\n",
       "solution_code": "print('Edge Cases and Test Coverage')",
       "test_cases": [
         {

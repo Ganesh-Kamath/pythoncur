@@ -180,7 +180,7 @@
       "prompt": "Consider this Python code:\n```python\nt1 = (5, 6)\nt2 = t1\nt2 = t2 + (7,)\nprint(t1)\nprint(t2)\n```\nWhy does t1 remain unchanged even though t2 appears to be derived from it?",
       "correct_answer": "Because reassigning t2 creates a new tuple object; the original tuple referenced by t1 is untouched.",
       "explanation": "In Python, variable assignment for immutable types like tuples binds the name to an object. The expression t2 + (7,) evaluates to a brand-new tuple (5, 6, 7) and rebinds t2 to it. The original tuple (5, 6) remains intact, so t1 still points to it.",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# TODO: Implement solution for Tuple Immutability\n# Follow requirements outlined in the prompt\n",
       "solution_code": "print('Tuple Immutability')",
       "test_cases": [
         {

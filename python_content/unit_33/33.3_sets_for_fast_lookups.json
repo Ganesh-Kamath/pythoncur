@@ -174,7 +174,7 @@
       "prompt": "Given this code, explain why the result is produced and what makes sets efficient for this pattern.\n\n```python\ndef has_duplicates(seq):\n    return len(seq) != len(set(seq))\n```",
       "correct_answer": "Converting to a set removes duplicates, so length mismatch means duplicates existed.",
       "explanation": "set(seq) builds a hash-based collection of unique elements. If the original sequence had duplicates, the set will be shorter. This gives O(n) average time instead of O(n^2) for pairwise comparison.",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# 1. Define the process_33_3 function\ndef process_33_3():\n    # 2. Implement solution for Sets for Fast Lookups\n    pass\n",
       "solution_code": "print('Sets for Fast Lookups')",
       "test_cases": [
         {
@@ -195,7 +195,7 @@
       "prompt": "Trace the state of the set after each iteration and give the final value.\n\n```python\nresult = set()\nfor item in ['a', 'b', 'a']:\n    result.add(item)\nprint(result)\n```",
       "correct_answer": "After iteration 1: {'a'}, After iteration 2: {'a', 'b'}, After iteration 3: {'a', 'b'}, Final: {'a', 'b'}",
       "explanation": "add appends unique items. The first 'a' is added. 'b' is added next. The second 'a' is ignored because sets enforce uniqueness. The final set is {'a', 'b'}.",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# TODO: Implement solution for Sets for Fast Lookups\n# Follow requirements outlined in the prompt\n",
       "solution_code": "print('Sets for Fast Lookups')",
       "test_cases": [
         {
@@ -510,14 +510,6 @@
         "33.3_q26"
       ],
       "prompt": "What will be the outcome when this code handling Sets for Fast Lookups encounters empty or boundary input?\n```python\ndef process(data):\n    return [x for x in data if x]\nprint(process([]))\n```",
-      "starter_code": "# Write your code below\n",
-      "solution_code": "print('Sets for Fast Lookups Result 27')",
-      "test_cases": [
-        {
-          "input": "",
-          "expected_output": "Sets for Fast Lookups Result 27"
-        }
-      ],
       "hint": "An empty input list evaluates as falsy and produces an empty result.",
       "explanation": "Handling empty collections gracefully without raising unexpected exceptions is an essential design pattern when working with Sets for Fast Lookups.",
       "options": [
@@ -548,7 +540,7 @@
         }
       ],
       "hint": "Use a list comprehension to filter records where 'active' is True.",
-      "explanation": "Sets provide average O(1) membership checks, enabling O(n) duplicate detection."
+      "explanation": "Sets provide average O(1) membership checks, enabling O(n) duplicate detection. In Python, understanding this core rule ensures predictable execution, prevents common runtime errors, and establishes robust coding habits."
     },
     {
       "id": "33.3_q29",

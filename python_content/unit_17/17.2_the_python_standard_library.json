@@ -182,7 +182,7 @@
       "code": "import math\nimport random\nimport datetime\n\nstart = datetime.datetime(2024, 1, 1)\nend = datetime.datetime(2024, 1, 31)\ndelta = (end - start).days\nrandom_day = start + datetime.timedelta(days=random.randint(0, delta))\nprint(random_day.strftime('%A, %B %d, %Y'))",
       "correct_answer": "It prints a random day in January 2024 as a weekday name, month, and date.",
       "explanation": "The code creates start and end as datetime objects. (end - start).days computes 30. random.randint(0, 30) picks an integer offset. datetime.timedelta(days=...) creates a duration, and adding it to start yields a random datetime within January 2024. strftime formats it as a readable string. No error occurs because datetime and timedelta are compatible.",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# TODO: Implement solution for The Python Standard Library (math, random, datetime)\n# Follow requirements outlined in the prompt\n",
       "solution_code": "print('The Python Standard Library (math, random, datetime)')",
       "test_cases": [
         {

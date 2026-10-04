@@ -181,7 +181,7 @@
       "correct_answer": "The value 5 is not present in the list, causing an AssertionError.",
       "explanation": "assertIn checks membership. Since 5 is not in [1, 2, 3], unittest raises an AssertionError and reports that 5 was not found in the list.",
       "difficulty": "medium",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# 1. Define the process_24_3 function\ndef process_24_3():\n    # 2. Implement solution for Unit Testing Basics\n    pass\n",
       "solution_code": "print('Unit Testing Basics')",
       "test_cases": [
         {
@@ -204,7 +204,7 @@
       "correct_answer": "c = a / b",
       "explanation": "Division by zero raises a ZeroDivisionError when the expression c = a / b is evaluated. The assertion is never reached because the exception aborts the test method.",
       "difficulty": "medium",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# 1. Define the process_24_3 function\ndef process_24_3():\n    # 2. Implement solution for Unit Testing Basics\n    pass\n",
       "solution_code": "print('Unit Testing Basics')",
       "test_cases": [
         {
@@ -538,14 +538,6 @@
         "24.3_q26"
       ],
       "prompt": "What will be the outcome when this code handling Unit Testing Basics encounters empty or boundary input?\n```python\ndef process(data):\n    return [x for x in data if x]\nprint(process([]))\n```",
-      "starter_code": "# Write your code below\n",
-      "solution_code": "print('Unit Testing Basics Result 27')",
-      "test_cases": [
-        {
-          "input": "",
-          "expected_output": "Unit Testing Basics Result 27"
-        }
-      ],
       "hint": "An empty input list evaluates as falsy and produces an empty result.",
       "explanation": "Handling empty collections gracefully without raising unexpected exceptions is an essential design pattern when working with Unit Testing Basics.",
       "options": [

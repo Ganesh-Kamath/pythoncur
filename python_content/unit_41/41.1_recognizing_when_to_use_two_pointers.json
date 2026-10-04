@@ -221,7 +221,7 @@
       "prompt": "Explain why the following two-pointer approach is more efficient than a nested-loop approach for finding a pair with a given sum in a sorted array:\n\n```\ndef two_sum_sorted(arr, target):\n    left = 0\n    right = len(arr) - 1\n    while left < right:\n        s = arr[left] + arr[right]\n        if s == target:\n            return True\n        elif s < target:\n            left += 1\n        else:\n            right -= 1\n    return False\n```",
       "correct_answer": "Because each pointer moves at most n times, yielding O(n) time.",
       "explanation": "The nested-loop approach checks O(n^2) pairs. In contrast, left only increases and right only decreases, so together they traverse the array at most n steps. This gives linear time complexity, which is the key analytical advantage of the two-pointer pattern.",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# 1. Define the process_41_1 function\ndef process_41_1():\n    # 2. Implement solution for Recognizing When to use Two Pointers\n    pass\n",
       "solution_code": "print('Recognizing When to use Two Pointers')",
       "test_cases": [
         {

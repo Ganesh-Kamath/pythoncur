@@ -190,7 +190,7 @@
       "prompt": "Explain why the following code produces an error and what the user sees when it runs:\n\n```python\ncolors = ['red', 'green']\nprint(colors[5])\nprint('Finished')\n```",
       "correct_answer": "The list has only two elements, so index 5 is out of range. Python raises an IndexError and stops before printing 'Finished'.",
       "explanation": "The list colors contains elements at indices 0 and 1 only. Accessing index 5 is invalid and raises an IndexError. Because the exception is unhandled, execution halts at that line and the subsequent print('Finished') statement is never executed.",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# TODO: Implement solution for Common Built-in Exceptions\n# Follow requirements outlined in the prompt\n",
       "solution_code": "print('Common Built-in Exceptions')",
       "test_cases": [
         {

@@ -176,7 +176,7 @@
     },
     {
       "id": "17.4_q10",
-      "type": "write_the_code",
+      "type": "output_prediction",
       "skill": "analysis",
       "difficulty": "medium",
       "concept": "the_name__main_construct_analysis",
@@ -186,17 +186,15 @@
       },
       "prompt": "A file `utils.py` contains:\n\n```python\nprint('Setup')\n\nif __name__ == '__main__':\n    print('Direct only')\n```\n\nAnother file `run.py` contains:\n\n```python\nimport utils\nprint('After import')\n```\n\nWhat is the complete output when `run.py` is executed?",
       "correct_answer": "Setup\nAfter import",
-      "explanation": "When `run.py` imports `utils.py`, the top-level `print('Setup')` runs. The `if __name__ == '__main__'` block is skipped because `utils` is being imported. Then `run.py` prints 'After import'.",
+      "explanation": "When `run.py` imports `utils.py`, top-level module code runs, printing 'Setup'. The `if __name__ == '__main__':` block is skipped because `__name__` is 'utils' during import. Finally, `run.py` prints 'After import'.",
       "prerequisites": [
         "17.4_q9"
       ],
-      "starter_code": "# Write your solution below\n",
-      "solution_code": "print('OK')",
-      "test_cases": [
-        {
-          "input": "",
-          "expected_output": "OK"
-        }
+      "options": [
+        "Setup\nAfter import",
+        "Setup\nDirect only\nAfter import",
+        "After import",
+        "Direct only\nAfter import"
       ]
     },
     {
@@ -567,23 +565,21 @@
     {
       "idx": 28,
       "id": "17.4_q28",
-      "type": "write_the_code",
+      "type": "multiple_choice",
       "concept": "the_name__main_construct_challenge",
       "skill": "problem_solving",
       "difficulty": "hard",
       "prerequisites": [
         "17.4_q27"
       ],
-      "prompt": "A module named utils.py contains a helper function. Another script named runner.py imports utils and also defines its own main logic. Which code snippet correctly uses __name__ == '__main__' in runner.py so that its main logic executes only when runner.py is run directly?",
-      "correct_answer": "if __name__ == '__main__': main()",
-      "explanation": "The special built-in variable __name__ is set to '__main__' only when the script is executed directly. Other values indicate import contexts.",
-      "starter_code": "# Write your solution below\n",
-      "solution_code": "print('OK')",
-      "test_cases": [
-        {
-          "input": "",
-          "expected_output": "OK"
-        }
+      "prompt": "A module named `utils.py` contains helper functions. Another script `runner.py` imports `utils` and defines its own `main()` entrypoint. Which snippet correctly ensures `main()` executes only when `runner.py` is run directly from the command line?",
+      "correct_answer": "if __name__ == '__main__':\n    main()",
+      "explanation": "CPython automatically assigns the string '__main__' to the module attribute `__name__` when the file is the top-level script executed by the interpreter.",
+      "options": [
+        "if __name__ == '__main__':\n    main()",
+        "if __name__ == 'utils':\n    main()",
+        "if __file__ == '__main__':\n    main()",
+        "if __package__ is None:\n    main()"
       ]
     },
     {

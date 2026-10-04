@@ -190,7 +190,7 @@
       "prompt": "Explain why the following program fails to run completely and what the exact error is.\n```python\n# data.py\nitems = [1, 2, 3]\n\ndef show():\n    print(items)\n\n# main.py\nimport data\nshow()\n```",
       "correct_answer": "It works fine and prints [1, 2, 3]",
       "explanation": "When `data.py` is imported, all top-level statements execute, defining `items` and `show`. Then `main.py` calls `show()`, which accesses the already-defined `items` list and prints [1, 2, 3]. There is no error.",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# 1. Define the process_17_1 function\ndef process_17_1():\n    # 2. Implement solution for Importing Modules\n    pass\n",
       "solution_code": "print('Importing Modules')",
       "test_cases": [
         {

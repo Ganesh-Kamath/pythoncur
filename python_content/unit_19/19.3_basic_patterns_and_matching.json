@@ -184,7 +184,7 @@
       "prompt": "Explain the result of the following code snippet:\n\n```python\nimport re\ns = 'cat bat rat'\nresult = re.sub(r'\\b(at)\\b', r'\\1X', s)\nprint(result)\n```",
       "correct_answer": "It replaces every occurrence of 'at' with 'atX', yielding 'catX batX ratX'.",
       "explanation": "The pattern r'\\b(at)\\b' uses word boundaries \\b to match 'at' as a whole word. The replacement r'\\1X' uses a backreference \\1 to keep the matched 'at' and appends 'X'. Because re.sub replaces all non-overlapping matches by default, every whole-word 'at' becomes 'atX'.",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# TODO: Implement solution for Basic Patterns and Matching\n# Follow requirements outlined in the prompt\n",
       "solution_code": "print('Basic Patterns and Matching')",
       "test_cases": [
         {
@@ -526,14 +526,6 @@
         "19.3_q26"
       ],
       "prompt": "What will be the outcome when this code handling Basic Patterns and Matching encounters empty or boundary input?\n```python\ndef process(data):\n    return [x for x in data if x]\nprint(process([]))\n```",
-      "starter_code": "# Write your code below\n",
-      "solution_code": "print('Basic Patterns and Matching Result 27')",
-      "test_cases": [
-        {
-          "input": "",
-          "expected_output": "Basic Patterns and Matching Result 27"
-        }
-      ],
       "hint": "An empty input list evaluates as falsy and produces an empty result.",
       "explanation": "Handling empty collections gracefully without raising unexpected exceptions is an essential design pattern when working with Basic Patterns and Matching.",
       "options": [

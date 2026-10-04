@@ -174,7 +174,7 @@
       "prompt": "Consider the following code:\n\n```python\nmy_tuple = (100, 200)\nit = iter(my_tuple)\nprint(next(it))\nprint(next(it))\nprint(next(it))\n```\n\nExplain why the program behaves this way and what happens on the third next() call.",
       "correct_answer": "The third call raises StopIteration because the iterator is exhausted after two elements.",
       "explanation": "iter() creates an iterator that yields elements from the tuple one at a time. After yielding 100 and 200, the iterator is exhausted. Calling next() again raises StopIteration to signal that there are no more items. This is the standard way Python iterators indicate completion, and it is caught or propagated depending on the surrounding code.",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# TODO: Implement solution for The iter() and next() Functions\n# Follow requirements outlined in the prompt\n",
       "solution_code": "print('The iter() and next() Functions')",
       "test_cases": [
         {
@@ -195,7 +195,7 @@
       "prompt": "Trace the execution of the following code step by step. What values are stored in x and y after the code finishes?\n\n```python\nmy_list = ['x', 'y', 'z']\nit = iter(my_list)\nx = next(it)\ny = next(it)\nprint(x)\nprint(y)\n```",
       "correct_answer": "x = 'x', y = 'y'",
       "explanation": "Step 1: iter(my_list) creates an iterator positioned before the first element. Step 2: next(it) returns 'x' and advances the iterator, so x = 'x'. Step 3: next(it) returns 'y' and advances the iterator, so y = 'y'. Step 4: print(x) outputs 'x'. Step 5: print(y) outputs 'y'. The remaining element 'z' is never accessed.",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# TODO: Implement solution for The iter() and next() Functions\n# Follow requirements outlined in the prompt\n",
       "solution_code": "print('The iter() and next() Functions')",
       "test_cases": [
         {

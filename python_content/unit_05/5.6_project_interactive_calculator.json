@@ -180,7 +180,7 @@
       "starter_code": "def calculate(a, b, op):\n    if op == '+':\n        return a + b\n    elif op == '*':\n        return a * b\n    return None",
       "solution_code": "def calculate(a, b, op):\n    if op == '+':\n        return a + b\n    elif op == '*':\n        return a * b\n    return None",
       "hint": "Python built-in functions like print() must be written in lowercase.",
-      "explanation": "An `if/elif` chain routes calculation to the matching arithmetic operator."
+      "explanation": "An `if/elif` chain routes calculation to the matching arithmetic operator. In Python, understanding this core rule ensures predictable execution, prevents common runtime errors, and establishes robust coding habits."
     },
     {
       "id": "5.6_q10",
@@ -195,7 +195,7 @@
       "starter_code": "def power(base, exponent):\n    return base ___ exponent",
       "solution_code": "def power(base, exponent):\n    return base ** exponent",
       "hint": "Python built-in functions like print() must be written in lowercase.",
-      "explanation": "Python uses the double asterisk `**` for exponentiation."
+      "explanation": "Python uses the double asterisk `**` for exponentiation. In Python, understanding this core rule ensures predictable execution, prevents common runtime errors, and establishes robust coding habits."
     },
     {
       "id": "5.6_q11",
@@ -210,7 +210,7 @@
       "starter_code": "def format_result(val):\n    return f'{val:___}'",
       "solution_code": "def format_result(val):\n    return f'{val:.2f}'",
       "hint": "Python built-in functions like print() must be written in lowercase.",
-      "explanation": "The format specifier `:.2f` formats floats with 2 fixed decimal digits."
+      "explanation": "The format specifier `:.2f` formats floats with 2 fixed decimal digits. In Python, understanding this core rule ensures predictable execution, prevents common runtime errors, and establishes robust coding habits."
     },
     {
       "id": "5.6_q12",
@@ -302,7 +302,7 @@
       "prompt": "Calculator Milestone 4: Add multiplication and division support. Given `a = 24`, `b = 6`, and `op = '/'`, perform the calculation and store in `result`. Handle `op == '*'` as multiplication.",
       "starter_code": "a = 24\nb = 6\nop = \"/\"\nresult = None\n# Add multiplication and division branching\n",
       "solution_code": "a = 24\nb = 6\nop = \"/\"\nresult = None\nif op == \"*\":\n    result = a * b\nelif op == \"/\":\n    result = a / b\nprint(f\"Calculation: {result}\")",
-      "explanation": "Evaluating `op == '/'` executes `24 / 6 = 4.0`.",
+      "explanation": "Evaluating `op == '/'` executes `24 / 6 = 4.0`. In Python, understanding this core rule ensures predictable execution, prevents common runtime errors, and establishes robust coding habits.",
       "metadata": {
         "concept": "calculator_multiplicative_dispatch",
         "skill": "implementation",
@@ -407,14 +407,6 @@
         "5.6_q20"
       ],
       "prompt": "What will be the outcome when this code handling Project: Interactive Calculator encounters empty or boundary input?\n```python\ndef process(data):\n    return [x for x in data if x]\nprint(process([]))\n```",
-      "starter_code": "# Write your code below\n",
-      "solution_code": "print('Project: Interactive Calculator Result 21')",
-      "test_cases": [
-        {
-          "input": "",
-          "expected_output": "Project: Interactive Calculator Result 21"
-        }
-      ],
       "hint": "An empty input list evaluates as falsy and produces an empty result.",
       "explanation": "Handling empty collections gracefully without raising unexpected exceptions is an essential design pattern when working with Project: Interactive Calculator.",
       "options": [
@@ -544,14 +536,6 @@
         "5.6_q26"
       ],
       "prompt": "Calculator Milestone 15: Predict the outcome when an interactive session checks whether the user entered an exit command:\n```python\ncmd = ' QUIT '.strip().lower()\nprint(cmd in ('q', 'quit', 'exit'))\n```",
-      "starter_code": "# Write your code below\n",
-      "solution_code": "print('Project: Interactive Calculator Result 27')",
-      "test_cases": [
-        {
-          "input": "",
-          "expected_output": "Project: Interactive Calculator Result 27"
-        }
-      ],
       "hint": "An empty input list evaluates as falsy and produces an empty result.",
       "explanation": "Stripping and lowercasing converts ' QUIT ' to 'quit', which is present in the exit command tuple, evaluating to True.",
       "options": [

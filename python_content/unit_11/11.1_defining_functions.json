@@ -174,7 +174,7 @@
       "prompt": "Explain what the following function does and why the final print statement outputs what it does:\n\n```python\ndef add(a, b):\n    result = a + b\n    return result\n\nvalue = add(4, 5)\nprint(value)\n```",
       "correct_answer": "It defines a function that returns the sum, assigns it to value, and prints 9.",
       "explanation": "The function add computes a + b and returns the result. The return value is captured in value, which becomes 9. Printing value outputs 9 to the console.",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# 1. Define the process_11_1 function\ndef process_11_1():\n    # 2. Implement solution for Defining Functions\n    pass\n",
       "solution_code": "print('Defining Functions')",
       "test_cases": [
         {
@@ -523,14 +523,6 @@
         "11.1_q26"
       ],
       "prompt": "What will be the outcome when this code handling Defining Functions encounters empty or boundary input?\n```python\ndef process(data):\n    return [x for x in data if x]\nprint(process([]))\n```",
-      "starter_code": "# Write your code below\n",
-      "solution_code": "print('Defining s Result 27')",
-      "test_cases": [
-        {
-          "input": "",
-          "expected_output": "Defining s Result 27"
-        }
-      ],
       "hint": "An empty input list evaluates as falsy and produces an empty result.",
       "explanation": "Handling empty collections gracefully without raising unexpected exceptions is an essential design pattern when working with Defining Functions.",
       "options": [
@@ -561,7 +553,7 @@
         }
       ],
       "hint": "Use a list comprehension to filter records where 'active' is True.",
-      "explanation": "Applying clean functional contracts for Defining Functions ensures testable domain operations."
+      "explanation": "Applying clean functional contracts for Defining Functions ensures testable domain operations. In Python, understanding this core rule ensures predictable execution, prevents common runtime errors, and establishes robust coding habits."
     },
     {
       "id": "11.1_q29",

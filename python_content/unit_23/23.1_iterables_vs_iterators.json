@@ -184,7 +184,7 @@
       "correct_answer": "The list is iterable, and each for loop creates a fresh iterator, so both loops run successfully.",
       "explanation": "Lists are iterables. The for statement internally calls iter() each time it starts a loop, producing a new iterator from the same iterable. Therefore, the second loop is independent and prints 1, 2, 3 again without error.",
       "difficulty": "medium",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# TODO: Implement solution for Iterables vs Iterators\n# Follow requirements outlined in the prompt\n",
       "solution_code": "print('Iterables vs Iterators')",
       "test_cases": [
         {
@@ -206,7 +206,7 @@
       "correct_answer": "3, 2, 1, then StopIteration",
       "explanation": "countdown(3) creates a generator. next(c) returns 3 and decrements n to 2. next(c) returns 2 and decrements n to 1. next(c) returns 1 and decrements n to 0. The while condition n > 0 is now false, so the generator is exhausted. The fourth next(c) raises StopIteration.",
       "difficulty": "medium",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# 1. Define the process_23_1 function\ndef process_23_1():\n    # 2. Implement solution for Iterables vs Iterators\n    pass\n",
       "solution_code": "print('Iterables vs Iterators')",
       "test_cases": [
         {

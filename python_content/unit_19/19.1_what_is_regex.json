@@ -180,7 +180,7 @@
       "prompt": "Explain why the following code produces the output shown:\n\n```python\nimport re\n\ntext = 'The price is $10 and $20'\n\nmatches = re.findall(r'\\$\\d+', text)\n\nprint(matches)\n```\n\nOutput: ['$10', '$20']",
       "correct_answer": "The pattern uses a raw string so backslash is treated literally, and findall returns all non-overlapping matches as a list.",
       "explanation": "In Python, r'\\$\\d+' is a raw string where the backslash before the dollar sign is not an escape sequence but a literal backslash. The pattern therefore looks for a literal '$' followed by one or more digits. re.findall() scans the entire string and collects every non-overlapping match into a list, yielding ['$10', '$20'].",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# TODO: Implement solution for What is Regex?\n# Follow requirements outlined in the prompt\n",
       "solution_code": "print('What is Regex?')",
       "test_cases": [
         {

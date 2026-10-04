@@ -174,7 +174,7 @@
       "prompt": "Analyze the following code snippet. Why does binary search outperform linear search for large sorted datasets?\n\n```python\ndef linear_search(arr, target):\n    for i in range(len(arr)):\n        if arr[i] == target:\n            return i\n    return -1\n\ndef binary_search(arr, target):\n    left = 0\n    right = len(arr) - 1\n    while left <= right:\n        mid = (left + right) // 2\n        if arr[mid] == target:\n            return mid\n        elif arr[mid] < target:\n            left = mid + 1\n        else:\n            right = mid - 1\n    return -1\n```",
       "correct_answer": "Binary search eliminates half the remaining elements each iteration, reducing comparisons logarithmically.",
       "explanation": "Binary search relies on the sorted property to discard half the search space per step, yielding O(log n) comparisons versus O(n) for linear search.",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# 1. Define the process_41_4 function\ndef process_41_4():\n    # 2. Implement solution for Recognizing When to use Binary Search\n    pass\n",
       "solution_code": "print('Recognizing When to use Binary Search')",
       "test_cases": [
         {
@@ -528,14 +528,6 @@
         "41.4_q26"
       ],
       "prompt": "What will be the outcome when this code handling Recognizing When to use Binary Search encounters empty or boundary input?\n```python\ndef process(data):\n    return [x for x in data if x]\nprint(process([]))\n```",
-      "starter_code": "# Write your code below\n",
-      "solution_code": "print('Recognizing When to use Binary Search Result 27')",
-      "test_cases": [
-        {
-          "input": "",
-          "expected_output": "Recognizing When to use Binary Search Result 27"
-        }
-      ],
       "hint": "An empty input list evaluates as falsy and produces an empty result.",
       "explanation": "Handling empty collections gracefully without raising unexpected exceptions is an essential design pattern when working with Recognizing When to use Binary Search.",
       "options": [

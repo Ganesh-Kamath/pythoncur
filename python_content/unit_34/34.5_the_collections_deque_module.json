@@ -174,7 +174,7 @@
       "prompt": "Explain the output and behavior of the following code:\n\n```python\nfrom collections import deque\n\nd = deque([5, 6, 7, 8])\nprint(d[1])\nprint(d[-1])\nprint(len(d))\n```",
       "correct_answer": "It prints 6, 8, 4 because deque supports indexing and slicing like a list, and len() returns the number of elements.",
       "explanation": "A deque object supports indexing (both positive and negative) and the len() function, similar to a list. d[1] accesses the second element (6), d[-1] accesses the last element (8), and len(d) returns 4.",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# TODO: Implement solution for The collections.deque Module\n# Follow requirements outlined in the prompt\n",
       "solution_code": "print('The collections.deque Module')",
       "test_cases": [
         {
@@ -195,7 +195,7 @@
       "prompt": "Trace the execution of the following code and describe the state of the deque after each step:\n\n```python\nfrom collections import deque\n\nd = deque([100])\nprint(d)\nd.append(200)\nprint(d)\nd.appendleft(50)\nprint(d)\nd.pop()\nprint(d)\n```",
       "correct_answer": "Step 1: deque([100]), Step 2: deque([100, 200]), Step 3: deque([50, 100, 200]), Step 4: deque([50, 100])",
       "explanation": "Initially d = deque([100]). append(200) adds 200 to the right, yielding deque([100, 200]). appendleft(50) adds 50 to the left, yielding deque([50, 100, 200]). pop() removes the rightmost element (200), leaving deque([50, 100]).",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# TODO: Implement solution for The collections.deque Module\n# Follow requirements outlined in the prompt\n",
       "solution_code": "print('The collections.deque Module')",
       "test_cases": [
         {

@@ -174,7 +174,7 @@
       "prompt": "Explain why the following code produces the output shown.\n```python\nclass Item:\n    def __init__(self, name):\n        self.name = name\n    def __str__(self):\n        return 'Item: ' + self.name\n    def __repr__(self):\n        return 'Item(' + repr(self.name) + ')'\n    def __eq__(self, other):\n        return isinstance(other, Item) and self.name == other.name\n\ni1 = Item('apple')\ni2 = Item('apple')\nprint(i1)\nprint(repr(i1))\nprint(i1 == i2)\n```\nOutput:\nItem: apple\nItem('apple')\nTrue",
       "correct_answer": "print calls __str__, repr calls __repr__, and __eq__ compares names for equality.",
       "explanation": "print() automatically uses __str__ for a user-friendly view. repr() explicitly requests __repr__ for an unambiguous, reconstructible representation. __eq__ performs a semantic comparison of the name attribute, not object identity, so two distinct Item objects with the same name are considered equal.",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# 1. Define the process_22_1 function\ndef process_22_1():\n    # 2. Implement solution for Dunder Methods (__str__, __repr__, __eq__)\n    pass\n",
       "solution_code": "print('Dunder Methods (__str__, __repr__, __eq__)')",
       "test_cases": [
         {
@@ -195,7 +195,7 @@
       "prompt": "Trace the execution of the following code step by step.\n```python\nclass Box:\n    def __init__(self, color):\n        self.color = color\n    def __str__(self):\n        return 'Box color: ' + self.color\n    def __repr__(self):\n        return 'Box(' + repr(self.color) + ')'\n    def __eq__(self, other):\n        return isinstance(other, Box) and self.color == other.color\n\nb = Box('red')\nprint(b)\nprint(repr(b))\nb2 = Box('red')\nprint(b == b2)\n```",
       "correct_answer": "1. __init__ stores 'red'. 2. print calls __str__ returning 'Box color: red'. 3. repr calls __repr__ returning 'Box('red')'. 4. b2 created. 5. __eq__ compares colors and returns True.",
       "explanation": "Step 1 initializes the instance attribute. Step 2 invokes __str__ via print. Step 3 explicitly invokes __repr__. Step 4 creates a second Box. Step 5 calls __eq__, which verifies the other object is a Box and checks that both colors match, yielding True.",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# 1. Define the process_22_1 function\ndef process_22_1():\n    # 2. Implement solution for Dunder Methods (__str__, __repr__, __eq__)\n    pass\n",
       "solution_code": "print('Dunder Methods (__str__, __repr__, __eq__)')",
       "test_cases": [
         {

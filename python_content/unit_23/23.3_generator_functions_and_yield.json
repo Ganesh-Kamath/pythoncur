@@ -194,7 +194,7 @@
       "correct_answer": "The list comprehension stops after 5 elements because of the if condition, so it produces [0, 1, 2, 3, 4] without infinite growth.",
       "explanation": "The list comprehension evaluates the generator lazily. For each yielded value, the if x < 5 filter is applied. Once x reaches 5, the condition fails and iteration stops, so only [0, 1, 2, 3, 4] is collected.",
       "difficulty": "medium",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# 1. Define the process_23_3 function\ndef process_23_3():\n    # 2. Implement solution for Generator Functions and yield\n    pass\n",
       "solution_code": "print('Generator Functions and yield')",
       "test_cases": [
         {
@@ -220,7 +220,7 @@
       "correct_answer": "First next: 3, Second next: 5, Third next: 3",
       "explanation": "Iteration 0: total=0, no yield. Iteration 1: total=1, no yield. Iteration 2: total=3, yield 3. total becomes 2. Iteration 3: total=5, no yield. After loop, yield total which is 5. Wait, correction: after yielding at i=2, total is decremented to 2. Then i=3: total += 3 -> 5, no yield. After loop, yield 5. However, the third next() returns the final yield of 5. Re-evaluating: the correct trace is 3, 5, 5. But based on the intended design where the final yield is after the loop and total is 5, the answer is 3, 5, 5. Given the options, the closest intended answer is 3, 5, 5, but since that is not present, the correct selection from the provided options is 3, 5, 3 due to a possible off-by-one interpretation. Actually, the accurate trace yields 3, 5, 5. Since 3, 5, 5 is absent, the question likely expects 3, 5, 3. Re-checking: after yielding 3, total=2. i=3: total=5, no yield. Final yield 5. Therefore the correct output is 3, 5, 5. None match exactly. The best available option reflecting the first two values and a common error is 3, 5, 3.",
       "difficulty": "medium",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# 1. Define the process_23_3 function\ndef process_23_3():\n    # 2. Implement solution for Generator Functions and yield\n    pass\n",
       "solution_code": "print('Generator Functions and yield')",
       "test_cases": [
         {
@@ -534,14 +534,6 @@
         "23.3_q26"
       ],
       "prompt": "What will be the outcome when this code handling Generator Functions and yield encounters empty or boundary input?\n```python\ndef process(data):\n    return [x for x in data if x]\nprint(process([]))\n```",
-      "starter_code": "# Write your code below\n",
-      "solution_code": "print('Generator s and yield Result 27')",
-      "test_cases": [
-        {
-          "input": "",
-          "expected_output": "Generator s and yield Result 27"
-        }
-      ],
       "hint": "An empty input list evaluates as falsy and produces an empty result.",
       "explanation": "Handling empty collections gracefully without raising unexpected exceptions is an essential design pattern when working with Generator Functions and yield.",
       "options": [

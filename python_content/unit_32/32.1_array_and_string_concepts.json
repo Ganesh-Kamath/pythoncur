@@ -176,7 +176,7 @@
         "content": "When analyzing code that mixes lists and strings, track variable values step by step. Methods like append() modify lists in place and return None, while slicing returns a new string or list. Understanding return values prevents common mistakes. For example, if a method returns a new object, reassigning the variable is necessary to capture the result.\n\n```python\nnames = ['Alice', 'Bob']\njoined = '-'.join(names)\nprint(joined)\n```\nThis produces 'Alice-Bob' because join() concatenates elements with the separator."
       },
       "prompt": "Write Python code to solve this challenge for Array and String Concepts:",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# TODO: Implement solution for Array and String Concepts\n# Follow requirements outlined in the prompt\n",
       "solution_code": "print('Array and String Concepts')",
       "test_cases": [
         {
@@ -198,7 +198,7 @@
       "prompt": "Trace the execution of the following code and determine the final value of result.\n```python\nnums = [5, 15, 25]\nresult = 0\nfor i in range(len(nums)):\n    result += nums[i] + 10\n```",
       "correct_answer": "75",
       "explanation": "len(nums) is 3, so range(3) gives 0, 1, 2.\n- i = 0: result = 0 + nums[0] + 10 = 0 + 5 + 10 = 15\n- i = 1: result = 15 + nums[1] + 10 = 15 + 15 + 10 = 40\n- i = 2: result = 40 + nums[2] + 10 = 40 + 25 + 10 = 75\nThe final value of result is 75.",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# TODO: Implement solution for Array and String Concepts\n# Follow requirements outlined in the prompt\n",
       "solution_code": "print('Array and String Concepts')",
       "test_cases": [
         {

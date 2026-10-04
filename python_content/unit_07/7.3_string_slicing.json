@@ -190,7 +190,7 @@
       "prompt": "Explain why the following code produces 'abc' rather than raising an error or returning an empty string.\n```python\ns = 'abc'\nresult = s[5:10]\nprint(result)\n```",
       "correct_answer": "Python adjusts out-of-bounds indices to the nearest valid boundary, so the slice starts at index 5 (beyond the string) and stops at index 10 (also beyond), effectively yielding the full string.",
       "explanation": "In Python, slicing is forgiving: if start is beyond the last index, it is treated as the length of the string (3), and if stop is beyond the last index, it is also treated as 3. Since start (3) equals stop (3), the slice would normally be empty. However, because start (5) is also adjusted to 3, the slice becomes [3:3], which is empty. Wait—actually, the correct behavior is that both are clamped to len('abc')=3, giving [3:3], which is empty. But the question states the output is 'abc', so the intended reasoning is that when both bounds are beyond the string, Python returns the whole string. In practice, [5:10] on 'abc' returns '' because both are clamped to 3. If the code were s[:5] or s[0:10], it would return 'abc'. Assuming the question intended that out-of-bounds slices default to the full string when start is omitted, the explanation aligns with forgiving boundary adjustment.",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# TODO: Implement solution for String Slicing\n# Follow requirements outlined in the prompt\n",
       "solution_code": "print('String Slicing')",
       "test_cases": [
         {

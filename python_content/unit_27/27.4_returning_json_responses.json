@@ -174,7 +174,7 @@
       "correct_answer": "The client requested HTML but the route only produces JSON, and Flask enforces content negotiation.",
       "explanation": "Flask uses content negotiation. If the client sends Accept: text/html and the route only produces application/json, Flask may raise a 406 Not Acceptable unless a custom error handler is registered. The jsonify() call correctly produces JSON, so the issue is the mismatch between client preference and server capability.",
       "skill": "analysis",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# 1. Define the process_27_4 function\ndef process_27_4():\n    # 2. Implement solution for Returning JSON Responses\n    pass\n",
       "solution_code": "print('Returning JSON Responses')",
       "test_cases": [
         {
@@ -195,7 +195,7 @@
       "correct_answer": "Step 1: n=3. Step 2: result=[]. Step 3: loop appends 3 dicts. Step 4: jsonify returns JSON list of 3 objects.",
       "explanation": "The route captures n=3. result starts as an empty list. The for loop iterates i=0, 1, 2, appending {'index': 0}, {'index': 1}, and {'index': 2} respectively. jsonify() serializes the final list into a JSON array containing three objects.",
       "skill": "tracing",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# 1. Define the process_27_4 function\ndef process_27_4():\n    # 2. Implement solution for Returning JSON Responses\n    pass\n",
       "solution_code": "print('Returning JSON Responses')",
       "test_cases": [
         {

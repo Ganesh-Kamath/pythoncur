@@ -187,7 +187,7 @@
       "prompt": "Explain why the output of the following code is 'A B' and not 'B A'.\n```python\nfrom collections import deque\nq = deque()\nq.append('A')\nq.append('B')\nprint(q.popleft(), q.popleft())\n```",
       "correct_answer": "Because popleft() always removes the element at the front, preserving insertion order.",
       "explanation": "In a FIFO queue, append() adds to the right and popleft() removes from the left. Thus 'A' is removed before 'B', producing 'A B'.",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# TODO: Implement solution for Queue Concepts (FIFO)\n# Follow requirements outlined in the prompt\n",
       "solution_code": "print('Queue Concepts (FIFO)')",
       "test_cases": [
         {
@@ -208,7 +208,7 @@
       "prompt": "Trace the state of the queue after each step and identify the final queue contents. Start with q = deque().\nStep 1: q.append(5)\nStep 2: q.append(10)\nStep 3: q.popleft()\nStep 4: q.append(15)\nStep 5: q.popleft()",
       "correct_answer": "Step 1: [5], Step 2: [5, 10], Step 3: [10], Step 4: [10, 15], Step 5: [15]",
       "explanation": "After Step 1 and 2, the queue is [5, 10]. Step 3 removes 5, leaving [10]. Step 4 appends 15, giving [10, 15]. Step 5 removes 10, leaving [15].",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# TODO: Implement solution for Queue Concepts (FIFO)\n# Follow requirements outlined in the prompt\n",
       "solution_code": "print('Queue Concepts (FIFO)')",
       "test_cases": [
         {

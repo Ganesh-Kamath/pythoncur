@@ -180,7 +180,7 @@
       "prompt": "Analyze the following code and explain why the output is what it is. Provide a step-by-step breakdown.\n\n```python\ndef timer(func):\n    import time\n    def wrapper(*args, **kwargs):\n        start = time.time()\n        result = func(*args, **kwargs)\n        end = time.time()\n        print(f'Time taken: {end - start}')\n        return result\n    return wrapper\n\n@timer\ndef slow_add(a, b):\n    time.sleep(0.1)\n    return a + b\n\nprint(slow_add(2, 3))\n```",
       "correct_answer": "The decorator measures execution time and prints it; the function returns 5 after a brief delay.",
       "explanation": "The @timer syntax applies timer to slow_add, replacing it with the wrapper. When slow_add(2, 3) is called, wrapper records start time, calls the original slow_add which sleeps 0.1 seconds and returns 5, records end time, prints the elapsed time, and returns 5. print displays 5.",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# 1. Define the process_22_2 function\ndef process_22_2():\n    # 2. Implement solution for Decorators\n    pass\n",
       "solution_code": "print('Decorators')",
       "test_cases": [
         {
@@ -201,7 +201,7 @@
       "prompt": "Trace the execution order of the following code step by step and list the exact sequence of print statements.\n\n```python\ndef trace(func):\n    def wrapper():\n        print('Trace start')\n        func()\n        print('Trace end')\n    return wrapper\n\ndef inner():\n    print('Inner')\n\n@trace\ndef outer():\n    print('Outer')\n    inner()\n\nouter()\n```",
       "correct_answer": "Trace start, Outer, Inner, Trace end",
       "explanation": "outer() calls wrapper from the trace decorator. wrapper prints 'Trace start', then calls the original outer which prints 'Outer', then calls inner() which prints 'Inner', then wrapper prints 'Trace end'. The sequence is Trace start, Outer, Inner, Trace end.",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# 1. Define the process_22_2 function\ndef process_22_2():\n    # 2. Implement solution for Decorators\n    pass\n",
       "solution_code": "print('Decorators')",
       "test_cases": [
         {

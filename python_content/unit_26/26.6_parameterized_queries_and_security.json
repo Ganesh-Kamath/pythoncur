@@ -205,7 +205,7 @@
       "prompt": "Explain why the following code is secure against SQL injection compared to string concatenation.\n\n```python\nimport sqlite3\nuser_id = '1 OR 1=1'\nconn = sqlite3.connect(':memory:')\ncur = conn.cursor()\ncur.execute('SELECT * FROM users WHERE id = ?', (user_id,))\nprint(cur.fetchall())\n```",
       "correct_answer": "The database treats user_id as a literal value, not as executable SQL, so '1 OR 1=1' is searched as text.",
       "explanation": "Parameterized queries separate the SQL command from the data. The driver sends the query plan and the value separately, preventing the database from interpreting user input as commands.",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# TODO: Implement solution for Parameterized Queries and Security\n# Follow requirements outlined in the prompt\n",
       "solution_code": "print('Parameterized Queries and Security')",
       "test_cases": [
         {
@@ -226,7 +226,7 @@
       "prompt": "Trace the execution step by step and identify the final value stored in the variable result.\n\n```python\nimport sqlite3\nconn = sqlite3.connect(':memory:')\ncur = conn.cursor()\ncur.execute('CREATE TABLE scores (value INTEGER)')\ncur.execute('INSERT INTO scores (value) VALUES (?)', (42,))\ncur.execute('INSERT INTO scores (value) VALUES (?)', (7,))\nconn.commit()\ncur.execute('DELETE FROM scores WHERE value = ?')\ncur.execute('INSERT INTO scores (value) VALUES (?)', (99,))\nconn.commit()\ncur.execute('SELECT value FROM scores')\nresult = cur.fetchone()\n```",
       "correct_answer": "(99,)",
       "explanation": "After inserting 42 and 7, a DELETE removes 42. Then 99 is inserted. fetchone() returns the remaining row as a single-element tuple.",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# TODO: Implement solution for Parameterized Queries and Security\n# Follow requirements outlined in the prompt\n",
       "solution_code": "print('Parameterized Queries and Security')",
       "test_cases": [
         {
@@ -267,7 +267,7 @@
       "prompt": "Write a safe parameterized SELECT statement to fetch a user by email `'ada@lovelace.org'` using `cursor.execute('SELECT * FROM users WHERE email = ?', (email,))`.",
       "starter_code": "email = \"ada@lovelace.org\"\n# Execute safe parameterized query\n",
       "solution_code": "email = \"ada@lovelace.org\"\n# In production: cursor.execute(\"SELECT * FROM users WHERE email = ?\", (email,))\nquery = \"SELECT * FROM users WHERE email = ?\"\nparams = (email,)\nprint(f\"Safe query: {query} with {params}\")",
-      "explanation": "Parameterized queries separate SQL instructions from user inputs, preventing SQL injection.",
+      "explanation": "Parameterized queries separate SQL instructions from user inputs, preventing SQL injection. In Python, understanding this core rule ensures predictable execution, prevents common runtime errors, and establishes robust coding habits.",
       "metadata": {
         "concept": "parameterized_select",
         "skill": "security",
@@ -286,7 +286,7 @@
       "prompt": "Write a parameterized INSERT statement with two placeholders `?` to insert a product `name = 'Keyboard'` and `price = 49.99` into table `products`.",
       "starter_code": "name = \"Keyboard\"\nprice = 49.99\n# Build parameterized insert\n",
       "solution_code": "name = \"Keyboard\"\nprice = 49.99\nquery = \"INSERT INTO products (name, price) VALUES (?, ?)\"\nparams = (name, price)\nprint(f\"Insert: {query} with {params}\")",
-      "explanation": "Using multiple `?` placeholders binds multi-column records safely without manual quotation.",
+      "explanation": "Using multiple `?` placeholders binds multi-column records safely without manual quotation. In Python, understanding this core rule ensures predictable execution, prevents common runtime errors, and establishes robust coding habits.",
       "metadata": {
         "concept": "parameterized_insert",
         "skill": "security",

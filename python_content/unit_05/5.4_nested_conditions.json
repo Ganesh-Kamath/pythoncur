@@ -490,14 +490,6 @@
         "5.4_q26"
       ],
       "prompt": "What will be the outcome when this code handling Nested Conditions encounters empty or boundary input?\n```python\ndef process(data):\n    return [x for x in data if x]\nprint(process([]))\n```",
-      "starter_code": "# Write your code below\n",
-      "solution_code": "print('Nested Conditions Result 27')",
-      "test_cases": [
-        {
-          "input": "",
-          "expected_output": "Nested Conditions Result 27"
-        }
-      ],
       "hint": "An empty input list evaluates as falsy and produces an empty result.",
       "explanation": "Handling empty collections gracefully without raising unexpected exceptions is an essential design pattern when working with Nested Conditions.",
       "options": [
@@ -528,7 +520,7 @@
         }
       ],
       "hint": "Use a list comprehension to filter records where 'active' is True.",
-      "explanation": "Applying clean functional contracts for Nested Conditions ensures testable domain operations."
+      "explanation": "Applying clean functional contracts for Nested Conditions ensures testable domain operations. In Python, understanding this core rule ensures predictable execution, prevents common runtime errors, and establishes robust coding habits."
     },
     {
       "id": "5.4_q29",

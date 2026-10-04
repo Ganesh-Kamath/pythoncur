@@ -190,7 +190,7 @@
       "prerequisites": [
         "27.2_q9"
       ],
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# 1. Define the process_27_2 function\ndef process_27_2():\n    # 2. Implement solution for Defining Routes\n    pass\n",
       "solution_code": "print('Defining Routes')",
       "test_cases": [
         {
@@ -215,7 +215,7 @@
       "prerequisites": [
         "27.2_q10"
       ],
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# 1. Define the process_27_2 function\ndef process_27_2():\n    # 2. Implement solution for Defining Routes\n    pass\n",
       "solution_code": "print('Defining Routes')",
       "test_cases": [
         {
@@ -264,7 +264,7 @@
         "@app.get('/users/regex')"
       ],
       "correct_answer": "@app.get('/users/{user_id}') in FastAPI (or '/users/<int:user_id>' in Flask)",
-      "explanation": "FastAPI uses `{param}` brackets with type hints; Flask uses `<converter:param>` tags.",
+      "explanation": "FastAPI uses `{param}` brackets with type hints; Flask uses `<converter:param>` tags. In Python, understanding this core rule ensures predictable execution, prevents common runtime errors, and establishes robust coding habits.",
       "metadata": {
         "concept": "path_parameter_syntax",
         "skill": "routing",
@@ -283,7 +283,7 @@
       "prompt": "Write a route handler function `get_status()` that returns a dictionary `{'status': 'ok', 'version': '1.0'}`.",
       "starter_code": "def get_status():\n    # Return JSON dictionary\n    pass",
       "solution_code": "def get_status():\n    return {\"status\": \"ok\", \"version\": \"1.0\"}\n\nprint(get_status())",
-      "explanation": "Modern Python web frameworks automatically serialize dictionaries into JSON responses.",
+      "explanation": "Modern Python web frameworks automatically serialize dictionaries into JSON responses. In Python, understanding this core rule ensures predictable execution, prevents common runtime errors, and establishes robust coding habits.",
       "metadata": {
         "concept": "json_response_handler",
         "skill": "api_design",

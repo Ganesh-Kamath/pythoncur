@@ -182,7 +182,7 @@
       "prompt": "Explain why the following code returns an empty list.\n\n```python\nimport re\n\ntext = 'Python3.9'\npattern = r'[a-z]{2}'\nresult = re.findall(pattern, text)\nprint(result)\n```",
       "correct_answer": "The pattern requires at least 2 lowercase letters in a row, but 'Python' has uppercase 'P' breaking the sequence.",
       "explanation": "The pattern r'[a-z]{2}' matches 2 or more lowercase letters consecutively. In 'Python3.9', after the uppercase 'P', the sequence 'ython' starts with lowercase letters, but 'y' and 't' are consecutive lowercase, so 'yt' should match. However, the actual output is an empty list because re.findall() with this pattern on 'Python3.9' does find 'yt' if the string were purely lowercase after P. Re-evaluating: the string 'Python3.9' contains 'yt' at indices 1-2, which are lowercase, so the correct explanation is that the pattern does match 'yt', but the provided expected behavior assumes no match due to case sensitivity. The accurate analysis is that the pattern is case-sensitive and 'Python' starts with uppercase 'P', yet 'yt' still qualifies. Therefore, the correct answer should reflect that the pattern does match 'yt'. Given the options, the intended answer highlights case sensitivity, though strictly speaking 'yt' matches. For this curriculum, the accepted explanation emphasizes that uppercase letters disrupt expected lowercase sequences.",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# TODO: Implement solution for Character Classes and Quantifiers\n# Follow requirements outlined in the prompt\n",
       "solution_code": "print('Character Classes and Quantifiers')",
       "test_cases": [
         {
@@ -528,14 +528,6 @@
         "19.4_q26"
       ],
       "prompt": "What will be the outcome when this code handling Character Classes and Quantifiers encounters empty or boundary input?\n```python\ndef process(data):\n    return [x for x in data if x]\nprint(process([]))\n```",
-      "starter_code": "# Write your code below\n",
-      "solution_code": "print('Character Classes and Quantifiers Result 27')",
-      "test_cases": [
-        {
-          "input": "",
-          "expected_output": "Character Classes and Quantifiers Result 27"
-        }
-      ],
       "hint": "An empty input list evaluates as falsy and produces an empty result.",
       "explanation": "Handling empty collections gracefully without raising unexpected exceptions is an essential design pattern when working with Character Classes and Quantifiers.",
       "options": [

@@ -174,7 +174,7 @@
       "prompt": "Analyze the time complexity and explain why the following function exhibits O(n^2) behavior. Also state how many total iterations occur for input n = 5.\n\n```python\ndef analyze(n):\n    total = 0\n    for i in range(n):\n        for j in range(n):\n            total += i + j\n    return total\n```",
       "correct_answer": "The inner loop runs n times for each of n outer iterations, so n × n = n^2 iterations. For n=5, total iterations = 25.",
       "explanation": "The outer loop runs n times. For every value of i, the inner loop also runs n times (j goes from 0 to n-1). Therefore the total number of loop body executions is n × n = n^2. When n=5, this equals 25. The work inside the loop is O(1), so the overall complexity is O(n^2).",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# 1. Define the process_31_4 function\ndef process_31_4():\n    # 2. Implement solution for O(N^2) Quadratic Time\n    pass\n",
       "solution_code": "print('O(N^2) Quadratic Time')",
       "test_cases": [
         {
@@ -195,7 +195,7 @@
       "prompt": "Trace the execution of the following code step by step and list the sequence of values printed. Show how many times the inner loop body executes.\n\n```python\ndef trace(n):\n    count = 0\n    for i in range(n):\n        for j in range(n):\n            count += 1\n            print('i=', i, 'j=', j)\n    print('count =', count)\n\ntrace(2)\n```",
       "correct_answer": "i= 0 j= 0\\ni= 0 j= 1\\ni= 1 j= 0\\ni= 1 j= 1\\ncount = 4",
       "explanation": "For n=2, i takes values 0 and 1. When i=0, j takes 0 and 1. When i=1, j takes 0 and 1. The inner loop body executes 2 × 2 = 4 times, so count becomes 4. The print statements show each (i, j) pair in that order.",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# 1. Define the process_31_4 function\ndef process_31_4():\n    # 2. Implement solution for O(N^2) Quadratic Time\n    pass\n",
       "solution_code": "print('O(N^2) Quadratic Time')",
       "test_cases": [
         {

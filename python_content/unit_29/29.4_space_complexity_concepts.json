@@ -210,7 +210,7 @@
       "prompt": "Given this function, explain why its space complexity is O(n):\n```python\ndef build_pairs(data):\n    pairs = []\n    for x in data:\n        for y in data:\n            pairs.append((x, y))\n    return pairs\n```",
       "correct_answer": "Because the output list `pairs` grows proportionally to n^2, requiring O(n^2) space.",
       "explanation": "The function appends n * n pairs to the list, so the output size is O(n^2). Since the result must be stored, the auxiliary and total space complexity is O(n^2).",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# 1. Define the process_29_4 function\ndef process_29_4():\n    # 2. Implement solution for Space Complexity Concepts\n    pass\n",
       "solution_code": "print('Space Complexity Concepts')",
       "test_cases": [
         {
@@ -231,7 +231,7 @@
       "prompt": "Trace the memory usage step by step for the following code and identify the peak number of distinct integer objects stored in memory at any point:\n```python\ndef f(n):\n    a = [1] * n\n    b = a\n    a.append(2)\n    return b\n\nf(3)\n```",
       "correct_answer": "Peak is 4 integers: 3 in the list, plus 1 appended.",
       "explanation": "Initially `a` references a list with 3 ones. `b = a` shares the same reference. Appending 2 adds one more integer object to the list. The peak distinct integer objects stored is 4 (three 1s and one 2). The list object itself is one container, not an integer.",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# 1. Define the process_29_4 function\ndef process_29_4():\n    # 2. Implement solution for Space Complexity Concepts\n    pass\n",
       "solution_code": "print('Space Complexity Concepts')",
       "test_cases": [
         {

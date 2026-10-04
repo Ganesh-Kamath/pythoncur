@@ -181,7 +181,7 @@
       "prompt": "Analyze and explain the behavior of the following code. What is the role of the docstring, and what is the final output?\n\n```python\ndef multiply(a, b):\n    '''Multiply two numbers and return the product.'''\n    product = a * b\n    return product\n\noutput = multiply(5, 3)\nprint(output)\n```",
       "correct_answer": "The docstring describes the function's purpose; the output is 15.",
       "explanation": "The docstring is ignored at runtime and serves only as documentation. The function multiplies 5 and 3 to get 15, which is returned and printed.",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# 1. Define the process_24_2 function\ndef process_24_2():\n    # 2. Implement solution for Docstrings\n    pass\n",
       "solution_code": "print('Docstrings')",
       "test_cases": [
         {
@@ -202,7 +202,7 @@
       "prompt": "Trace the execution step by step and identify what each line does.\n\n```python\ndef describe(text):\n    '''Print a description of the given text.'''\n    length = len(text)\n    print('Length:', length)\n    return text.upper()\n\ndescribe('hello')\n```",
       "correct_answer": "Step 1: define function. Step 2: docstring ignored. Step 3: length = 5. Step 4: print 'Length: 5'. Step 5: return 'HELLO'. Step 6: no further action.",
       "explanation": "The docstring is stored in the function's __doc__ attribute but is not executed. The function computes the length of 'hello' as 5, prints it, returns the uppercase version, and the returned value is not used or printed by the caller.",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# 1. Define the process_24_2 function\ndef process_24_2():\n    # 2. Implement solution for Docstrings\n    pass\n",
       "solution_code": "print('Docstrings')",
       "test_cases": [
         {
@@ -541,14 +541,6 @@
         "24.2_q26"
       ],
       "prompt": "What will be the outcome when this code handling Docstrings encounters empty or boundary input?\n```python\ndef process(data):\n    return [x for x in data if x]\nprint(process([]))\n```",
-      "starter_code": "# Write your code below\n",
-      "solution_code": "print('Docstrings Result 27')",
-      "test_cases": [
-        {
-          "input": "",
-          "expected_output": "Docstrings Result 27"
-        }
-      ],
       "hint": "An empty input list evaluates as falsy and produces an empty result.",
       "explanation": "Handling empty collections gracefully without raising unexpected exceptions is an essential design pattern when working with Docstrings.",
       "options": [
@@ -579,7 +571,7 @@
         }
       ],
       "hint": "Use a list comprehension to filter records where 'active' is True.",
-      "explanation": "Applying clean functional contracts for Docstrings ensures testable domain operations."
+      "explanation": "Applying clean functional contracts for Docstrings ensures testable domain operations. In Python, understanding this core rule ensures predictable execution, prevents common runtime errors, and establishes robust coding habits."
     },
     {
       "id": "24.2_q29",

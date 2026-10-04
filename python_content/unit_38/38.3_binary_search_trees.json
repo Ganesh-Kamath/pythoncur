@@ -174,7 +174,7 @@
       "prompt": "Analyze the following code and explain why the output is incorrect for a standard BST search.\n\n```python\nclass Node:\n    def __init__(self, key):\n        self.key = key\n        self.left = None\n        self.right = None\n\ndef search(root, key):\n    if root is None:\n        return False\n    if root.key == key:\n        return True\n    if key < root.key:\n        return search(root.left, key)\n    return search(root.right, key)\n\n# Build tree\nroot = Node(20)\nroot.left = Node(10)\nroot.right = Node(30)\nroot.left.right = Node(15)\nprint(search(root, 15))",
       "correct_answer": "The output is correct and returns True",
       "explanation": "The code correctly builds a BST and searches for 15. Since 15 is less than 20, it goes left to 10, then greater than 10, so it goes right to 15. The search returns True. The base case returning False for None is valid; it simply means the key was not found. The output is actually correct, so the explanation must note that the code works as intended for this case.",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# 1. Define the process_38_3 function\ndef process_38_3():\n    # 2. Implement solution for Binary Search Trees (BST)\n    pass\n",
       "solution_code": "print('Binary Search Trees (BST)')",
       "test_cases": [
         {

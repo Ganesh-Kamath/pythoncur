@@ -139,7 +139,7 @@
       "starter_code": "def filter_errors(logs):\n    return [log for log in logs if log['level'] == '___']",
       "solution_code": "def filter_errors(logs):\n    return [log for log in logs if log['level'] == 'ERROR']",
       "hint": "Python built-in functions like print() must be written in lowercase.",
-      "explanation": "A list comprehension filters the logs matching `'level' == 'ERROR'`."
+      "explanation": "A list comprehension filters the logs matching `'level' == 'ERROR'`. In Python, understanding this core rule ensures predictable execution, prevents common runtime errors, and establishes robust coding habits."
     },
     {
       "id": "42.1_q9",
@@ -169,7 +169,7 @@
       "starter_code": "import re\ndef extract_ips(line):\n    return re.findall(r'\\b(?:\\d{1,3}\\.){3}\\d{1,3}\\b', line)",
       "solution_code": "import re\ndef extract_ips(line):\n    return re.findall(r'\\b(?:\\d{1,3}\\.){3}\\d{1,3}\\b', line)",
       "hint": "Python built-in functions like print() must be written in lowercase.",
-      "explanation": "Regular expression `\\b(?:\\d{1,3}\\.){3}\\d{1,3}\\b` matches IPv4 dotted-decimal octets."
+      "explanation": "Regular expression `\\b(?:\\d{1,3}\\.){3}\\d{1,3}\\b` matches IPv4 dotted-decimal octets. In Python, understanding this core rule ensures predictable execution, prevents common runtime errors, and establishes robust coding habits."
     },
     {
       "id": "42.1_q11",
@@ -184,7 +184,7 @@
       "starter_code": "def top_ips(ip_counts):\n    return sorted(ip_counts.items(), key=lambda x: x[1], reverse=True)[:5]",
       "solution_code": "def top_ips(ip_counts):\n    return sorted(ip_counts.items(), key=lambda x: x[1], reverse=True)[:5]",
       "hint": "Python built-in functions like print() must be written in lowercase.",
-      "explanation": "`reverse=True` orders the key-value frequency pairs from highest count to lowest."
+      "explanation": "`reverse=True` orders the key-value frequency pairs from highest count to lowest. In Python, understanding this core rule ensures predictable execution, prevents common runtime errors, and establishes robust coding habits."
     },
     {
       "id": "42.1_q12",
@@ -255,7 +255,7 @@
       "prompt": "Log Parser Milestone 3: Extract ISO timestamps from messy log entries using regex. Given `entry = 'CRITICAL [2026-10-04T14:22:10] Connection lost'`, extract the timestamp inside brackets into `extracted_time`.",
       "starter_code": "import re\nentry = \"CRITICAL [2026-10-04T14:22:10] Connection lost\"\n# Extract ISO timestamp\n",
       "solution_code": "import re\nentry = \"CRITICAL [2026-10-04T14:22:10] Connection lost\"\nmatch = re.search(r\"\\[(.*?)\\]\", entry)\nextracted_time = match.group(1) if match else None\nprint(extracted_time)",
-      "explanation": "Matching `\\[(.*?)\\]` extracts the exact contents between square brackets.",
+      "explanation": "Matching `\\[(.*?)\\]` extracts the exact contents between square brackets. In Python, understanding this core rule ensures predictable execution, prevents common runtime errors, and establishes robust coding habits.",
       "metadata": {
         "concept": "timestamp_extraction_regex",
         "skill": "regex_extraction",
@@ -276,7 +276,7 @@
       "prompt": "Log Parser Milestone 4: Extract log severity level. Given `raw_entry = '04/Oct ERROR: Auth failure'`, extract the severity level `'ERROR'` and normalize it to uppercase.",
       "starter_code": "raw_entry = \"04/Oct ERROR: Auth failure\"\n# Extract severity\n",
       "solution_code": "raw_entry = \"04/Oct ERROR: Auth failure\"\nfor candidate in (\"DEBUG\", \"INFO\", \"WARNING\", \"ERROR\", \"CRITICAL\"):\n    if candidate in raw_entry.upper():\n        severity = candidate\n        break\nprint(f\"Severity: {severity}\")",
-      "explanation": "Testing standard logging levels identifies `'ERROR'` and confirms severity categorization.",
+      "explanation": "Testing standard logging levels identifies `'ERROR'` and confirms severity categorization. In Python, understanding this core rule ensures predictable execution, prevents common runtime errors, and establishes robust coding habits.",
       "metadata": {
         "concept": "severity_level_extraction",
         "skill": "implementation",
@@ -297,7 +297,7 @@
       "prompt": "Log Parser Milestone 5: Filter log records. Given a list of parsed records `logs = [{'level': 'INFO', 'msg': 'ok'}, {'level': 'ERROR', 'msg': 'fail'}, {'level': 'ERROR', 'msg': 'crash'}]`, filter all `'ERROR'` level logs into `error_logs`.",
       "starter_code": "logs = [\n    {\"level\": \"INFO\", \"msg\": \"ok\"},\n    {\"level\": \"ERROR\", \"msg\": \"fail\"},\n    {\"level\": \"ERROR\", \"msg\": \"crash\"}\n]\n# Filter for ERROR logs\n",
       "solution_code": "logs = [\n    {\"level\": \"INFO\", \"msg\": \"ok\"},\n    {\"level\": \"ERROR\", \"msg\": \"fail\"},\n    {\"level\": \"ERROR\", \"msg\": \"crash\"}\n]\nerror_logs = [entry for entry in logs if entry[\"level\"] == \"ERROR\"]\nprint(f\"Found {len(error_logs)} errors\")",
-      "explanation": "List comprehensions filter dictionaries cleanly by key-value criteria in O(n) time.",
+      "explanation": "List comprehensions filter dictionaries cleanly by key-value criteria in O(n) time. In Python, understanding this core rule ensures predictable execution, prevents common runtime errors, and establishes robust coding habits.",
       "metadata": {
         "concept": "log_filtering_by_severity",
         "skill": "filtering",

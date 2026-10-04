@@ -174,7 +174,7 @@
       "title": "Analyzing Enum Member Methods",
       "content": "The `Enum` class provides built-in methods that help inspect and compare members. The `__str__` method returns the member name, while `__repr__` returns a more developer-friendly representation including the class name. The `__eq__` method allows direct comparison between Enum members. For example:\n\n```python\nfrom enum import Enum\n\nclass Size(Enum):\n    SMALL = 1\n    MEDIUM = 2\n    LARGE = 3\n\na = Size.MEDIUM\nb = Size.MEDIUM\n\nprint(str(a))      # Output: MEDIUM\nprint(repr(a))     # Output: <Size.MEDIUM: 2>\nprint(a == b)      # Output: True\nprint(a is b)      # Output: True (same object due to immutability)\n```\n\nUnderstanding these methods is essential for debugging and logging Enum-based systems.",
       "prompt": "Write Python code to solve this challenge for Enums:",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# TODO: Implement solution for Enums\n# Follow requirements outlined in the prompt\n",
       "solution_code": "print('Enums')",
       "test_cases": [
         {
@@ -196,7 +196,7 @@
       "prompt": "Trace the execution of the following code step by step and determine the final value of `result`:\n\n```python\nfrom enum import Enum\n\nclass Phase(Enum):\n    INIT = 0\n    RUNNING = 1\n    DONE = 2\n\ncurrent = Phase.RUNNING\nresult = None\n\nif current == Phase.INIT:\n    result = 'initializing'\nelif current == Phase.RUNNING:\n    result = 'executing'\nelse:\n    result = 'finalizing'\n\nprint(result)\n```",
       "correct_answer": "executing",
       "explanation": "Step 1: `current` is assigned `Phase.RUNNING`. Step 2: The first `if` condition `current == Phase.INIT` is False. Step 3: The `elif` condition `current == Phase.RUNNING` is True, so `result` is set to 'executing'. Step 4: The `else` branch is skipped. Step 5: `print(result)` outputs 'executing'.",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# TODO: Implement solution for Enums\n# Follow requirements outlined in the prompt\n",
       "solution_code": "print('Enums')",
       "test_cases": [
         {

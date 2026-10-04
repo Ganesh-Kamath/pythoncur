@@ -180,7 +180,7 @@
       "title": "Analyzing try-except-else-finally Behavior",
       "content": "In Python, the `try` block attempts risky operations. If no exception occurs, the `else` block runs, keeping exception-handling logic separate from success logic. The `finally` block always executes, making it ideal for cleanup tasks like closing files or releasing locks. Consider this example:\n\n```python\nfile = open('data.txt', 'r')\ntry:\n    data = file.read()\nexcept IOError:\n    print('could not read')\nelse:\n    print('read', len(data), 'chars')\nfinally:\n    file.close()\n```\n\nThe `finally` block guarantees `file.close()` runs even if `read()` fails. Omitting `else` when no extra success logic is needed is also valid.",
       "prompt": "Write Python code to solve this challenge for The else and finally Clauses:",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# TODO: Implement solution for The else and finally Clauses\n# Follow requirements outlined in the prompt\n",
       "solution_code": "print('The else and finally Clauses')",
       "test_cases": [
         {
@@ -478,16 +478,17 @@
         "18.2_q24"
       ],
       "prompt": "Write a function `read_config` that attempts to open and read a JSON file named `settings.json`. If the file opens successfully, print 'Config loaded.' in the `else` block. Regardless of success or failure, print 'Cleanup complete.' in the `finally` block.",
-      "starter_code": "def read_config():\n    try:\n        f = open('settings.json')\n        data = f.read()\n    ",
-      "solution_code": "print('OK')",
+      "starter_code": "def read_config(path):\n    # Return 200 on success, 404 on FileNotFoundError, log attempt in finally\n    pass",
+      "solution_code": "def read_config(path):\n    log = []\n    status = None\n    try:\n        f = open(path)\n        data = f.read()\n        f.close()\n    except FileNotFoundError:\n        status = 404\n    else:\n        status = 200\n    finally:\n        log.append(f'Read attempt for {path}')\n    return status",
       "test_cases": [
         {
-          "input": "",
-          "expected_output": "OK"
+          "input": "'nonexistent_file.cfg'",
+          "expected_output": "404",
+          "description": "handles missing config file"
         }
       ],
       "hint": "Remember that the `else` block runs only when no exception occurs in the `try` block, and `finally` always executes.",
-      "explanation": "The `else` clause is useful for code that should run only when the `try` block completes without raising an exception. The `finally` clause guarantees cleanup actions, such as closing files, execute even if an error occurs.",
+      "explanation": "The `else` clause executes only when the `try` block completes without exceptions, while `finally` guarantees logging regardless of whether the file existed.",
       "difficulty": "medium"
     },
     {
@@ -500,16 +501,17 @@
         "18.2_q25"
       ],
       "prompt": "Write a function `process_data` that connects to a database (simulated here with a dictionary). If the connection is successful, execute the query in the `else` block and return the result. In the `finally` block, close the connection. Simulate a failure by raising a `ConnectionError` when the database name is empty.",
-      "starter_code": "def process_data(db_name):\n    conn = None\n    try:\n        if not db_name:\n            raise ConnectionError('Database missing')\n        conn = {'status': 'open'}\n    ",
-      "solution_code": "print('OK')",
+      "starter_code": "def process_data(db_name):\n    # Connect to db_name, return status in else, close in finally\n    pass",
+      "solution_code": "def process_data(db_name):\n    conn = None\n    try:\n        if not db_name:\n            raise ConnectionError('Database missing')\n        conn = {'status': 'open'}\n    except ConnectionError:\n        return 'Connection Failed'\n    else:\n        return f'Connected to {db_name}'\n    finally:\n        if conn:\n            conn['status'] = 'closed'",
       "test_cases": [
         {
-          "input": "",
-          "expected_output": "OK"
+          "input": "''",
+          "expected_output": "'Connection Failed'",
+          "description": "handles empty db_name failure"
         }
       ],
       "hint": "Ensure the `else` block returns the result and the `finally` block updates the connection status without interfering with the return value.",
-      "explanation": "This pattern separates success-only logic (`else`) from guaranteed cleanup (`finally`), making resource management explicit and safer.",
+      "explanation": "Structuring resource connection logic with `else` (for query execution) and `finally` (for teardown) prevents resource leaks on connection failures.",
       "difficulty": "medium"
     },
     {
@@ -522,16 +524,17 @@
         "18.2_q26"
       ],
       "prompt": "Write a function `safe_transfer` that attempts to transfer money between two accounts. Use `try`, `else`, and `finally`. If no exception occurs, log 'Transfer successful.' in `else`. In `finally`, always log 'Transaction finalized.' and ensure the transfer amount is reset to zero in a `transfers` dictionary. Raise a `ValueError` if either account balance is negative before the transfer.",
-      "starter_code": "def safe_transfer(accounts, from_acc, to_acc, amount):\n    transfers = {}\n    try:\n        if accounts.get(from_acc, 0) < 0 or accounts.get(to_acc, 0) < 0:\n            raise ValueError('Invalid balance')\n        accounts[from_acc] -= amount\n        accounts[to_acc] += amount\n    ",
-      "solution_code": "print('OK')",
+      "starter_code": "def safe_transfer(accounts, from_acc, to_acc, amount):\n    # Transfer funds, record success in else, reset pending in finally\n    pass",
+      "solution_code": "def safe_transfer(accounts, from_acc, to_acc, amount):\n    logs = []\n    transfers = {'pending': amount}\n    try:\n        if accounts.get(from_acc, 0) < 0 or accounts.get(to_acc, 0) < 0:\n            raise ValueError('Invalid balance')\n        accounts[from_acc] = accounts.get(from_acc, 0) - amount\n        accounts[to_acc] = accounts.get(to_acc, 0) + amount\n    except ValueError as e:\n        logs.append(f'Error: {e}')\n    else:\n        logs.append('Transfer successful.')\n    finally:\n        transfers['pending'] = 0\n        logs.append('Transaction finalized.')\n    return logs",
       "test_cases": [
         {
-          "input": "",
-          "expected_output": "OK"
+          "input": "{'a': 100, 'b': 50}, 'a', 'b', 30",
+          "expected_output": "['Transfer successful.', 'Transaction finalized.']",
+          "description": "executes valid transfer with cleanup"
         }
       ],
       "hint": "The `else` block should not contain the transfer logic itself; that belongs in `try`. Use the `finally` block to reset state unconditionally.",
-      "explanation": "Advanced usage involves using `else` to confirm successful state changes and `finally` to perform auditing or state reset, even when exceptions abort the operation.",
+      "explanation": "Guaranteed cleanup in `finally` resets transaction state regardless of whether business validation raised an exception.",
       "difficulty": "hard"
     },
     {

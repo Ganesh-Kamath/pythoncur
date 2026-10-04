@@ -174,7 +174,7 @@
       "prompt": "Explain why the following code raises an error and what the error message indicates:\n```python\nfrom dataclasses import dataclass\n\n@dataclass(frozen=True)\nclass Point:\n    x: int\n    y: int\n\np = Point(1, 2)\np.x = 3\n```",
       "correct_answer": "It raises a TypeError because frozen dataclasses make fields immutable after initialization.",
       "explanation": "Setting frozen=True generates __setattr__ that prevents modification of fields after creation. Assigning to p.x triggers this protection and raises TypeError, indicating the dataclass instance is immutable.",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# TODO: Implement solution for Dataclasses\n# Follow requirements outlined in the prompt\n",
       "solution_code": "print('Dataclasses')",
       "test_cases": [
         {
@@ -195,7 +195,7 @@
       "prompt": "Trace the execution step by step and identify the final value of total_sum. Consider this code:\n```python\nfrom dataclasses import dataclass, field\n\n@dataclass(slots=True)\nclass Counter:\n    value: int = 0\n    total_sum: int = field(init=False)\n\n    def __post_init__(self):\n        self.total_sum = self.value\n\nc = Counter(5)\nc.value = 10\nprint(c.total_sum)\n```",
       "correct_answer": "5, because total_sum is set once during __post_init__ and never updated",
       "explanation": "During __post_init__, total_sum is assigned the initial value of value, which is 5. Changing c.value afterward does not trigger __post_init__ again, so total_sum remains 5.",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# 1. Define the process_22_4 function\ndef process_22_4():\n    # 2. Implement solution for Dataclasses\n    pass\n",
       "solution_code": "print('Dataclasses')",
       "test_cases": [
         {

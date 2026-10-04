@@ -174,7 +174,7 @@
       "prompt": "Analyze the following code and explain why the output is what it is:\n\nclass Speaker:\n    def play(self):\n        return 'Sound'\n\nclass Radio:\n    def __init__(self):\n        self.speaker = Speaker()\n    def broadcast(self):\n        return self.speaker.play() + ' broadcast'\n\nr = Radio()\nprint(r.broadcast())",
       "correct_answer": "The Radio object contains a Speaker instance; broadcast() delegates to speaker.play() and concatenates ' broadcast', yielding 'Sound broadcast'.",
       "explanation": "This demonstrates composition: Radio has-a Speaker rather than is-a Speaker. The broadcast() method delegates the play() call to its internal Speaker object, then appends ' broadcast' to form the complete string.",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# 1. Define the process_21_6 function\ndef process_21_6():\n    # 2. Implement solution for Composition\n    pass\n",
       "solution_code": "print('Composition')",
       "test_cases": [
         {
@@ -195,7 +195,7 @@
       "prompt": "Trace the execution of the following code step by step and identify the final value of result:\n\nclass Wheel:\n    def rotate(self):\n        return 'Wheel rotating'\n\nclass Bicycle:\n    def __init__(self):\n        self.wheel = Wheel()\n    def move(self):\n        return self.wheel.rotate()\n\nb = Bicycle()\nresult = b.move()\nprint(result)",
       "correct_answer": "Step 1: Bicycle() creates self.wheel = Wheel(). Step 2: move() calls self.wheel.rotate(). Step 3: rotate() returns 'Wheel rotating'. Final result: 'Wheel rotating'",
       "explanation": "During instantiation, Bicycle.__init__ assigns a Wheel instance to self.wheel. Calling move() invokes self.wheel.rotate(), which returns 'Wheel rotating'. The final result is therefore 'Wheel rotating'.",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# 1. Define the process_21_6 function\ndef process_21_6():\n    # 2. Implement solution for Composition\n    pass\n",
       "solution_code": "print('Composition')",
       "test_cases": [
         {

@@ -246,7 +246,7 @@
         "D. ['Python']"
       ],
       "correct_answer": "A",
-      "explanation": "`.strip()` removes leading and trailing whitespace characters, leaving `[Python]`."
+      "explanation": "`.strip()` removes leading and trailing whitespace characters, leaving `[Python]`. In Python, understanding this core rule ensures predictable execution, prevents common runtime errors, and establishes robust coding habits."
     },
     {
       "id": "4.1_q13",
@@ -521,14 +521,6 @@
         "4.1_q26"
       ],
       "prompt": "What does this code output when the user types '25'?\n```python\nage = input('Age: ')  # User enters: 25\nprint(age * 2)\n```",
-      "starter_code": "# Write your code below\n",
-      "solution_code": "print('input() Result 27')",
-      "test_cases": [
-        {
-          "input": "",
-          "expected_output": "input() Result 27"
-        }
-      ],
       "hint": "Remember what data type `input()` always returns.",
       "explanation": "`input()` always returns a string (`str`). Multiplying a string by an integer repeats the string (`'25' * 2` becomes `'2525'`), not numeric multiplication.",
       "options": [

@@ -589,15 +589,7 @@
         "25.5_q26"
       ],
       "prompt": "Safe Tag Extraction: Write a function `safe_get_text(tag)` that returns stripped text if tag is not None, or empty string otherwise.",
-      "starter_code": "def safe_get_text(tag):\n    # Return stripped text or '' if tag is None\n    pass",
       "solution_code": "def safe_get_text(tag):\n    return tag.get_text().strip() if tag else ''",
-      "test_cases": [
-        {
-          "input": "None",
-          "expected_output": "''",
-          "description": "returns empty string for missing tag"
-        }
-      ],
       "hint": "An empty input list evaluates as falsy and produces an empty result.",
       "explanation": "Guarding against None when searching HTML soup prevents AttributeError crashes when elements are absent.",
       "options": [

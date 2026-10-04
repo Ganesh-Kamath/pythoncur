@@ -174,7 +174,7 @@
       "prompt": "Explain why the following algorithm runs in O(log N) time. Include the role of halving the search space in your reasoning.\n\n```python\ndef find_power_of_two(n):\n    if n <= 0:\n        return False\n    while n % 2 == 0:\n        n = n // 2\n    return n == 1\n```",
       "correct_answer": "The loop divides n by 2 each time, so it executes at most log2(n) iterations.",
       "explanation": "In each iteration, n is replaced by n // 2, reducing its value exponentially. The number of iterations required to reduce n to 1 is bounded by log2(n), which is logarithmic time.",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# 1. Define the process_31_5 function\ndef process_31_5():\n    # 2. Implement solution for O(log N) Logarithmic Time\n    pass\n",
       "solution_code": "print('O(log N) Logarithmic Time')",
       "test_cases": [
         {
@@ -195,7 +195,7 @@
       "prompt": "Trace the execution of this function for `arr = [1, 3, 5, 7, 9]` and `target = 7`. Show the values of `left`, `right`, and `mid` at each iteration until the function returns.\n\n```python\ndef binary_search_trace(arr, target):\n    left = 0\n    right = len(arr) - 1\n    while left <= right:\n        mid = (left + right) // 2\n        if arr[mid] == target:\n            return mid\n        elif arr[mid] < target:\n            left = mid + 1\n        else:\n            right = mid - 1\n    return -1\n```",
       "correct_answer": "Iteration 1: left=0, right=4, mid=2; Iteration 2: left=3, right=4, mid=3; returns 3",
       "explanation": "Initially left=0 and right=4, so mid=2 and arr[2]=5 which is less than 7, so left becomes 3. Next left=3 and right=4, so mid=3 and arr[3]=7, matching the target, so the function returns 3.",
-      "starter_code": "# Write your solution below\n",
+      "starter_code": "# 1. Define the left function\ndef left():\n    # 2. Implement solution for O(log N) Logarithmic Time\n    pass\n",
       "solution_code": "print('O(log N) Logarithmic Time')",
       "test_cases": [
         {
