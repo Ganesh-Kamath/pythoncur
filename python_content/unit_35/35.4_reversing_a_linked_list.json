@@ -10,7 +10,7 @@
       "difficulty": "easy",
       "prerequisites": [],
       "title": "What Is Reversing a Linked List?",
-      "content": "In a singly linked list, each node points to the next node using a next pointer. Reversing the list means changing these pointers so that every node points to its previous node instead of its next node. After reversal, the original head becomes the new tail, and the original tail becomes the new head. This operation is useful when you need to process data in reverse order without using extra memory for an array. For example, consider the list 1 -> 2 -> 3 -> None. After reversing, it becomes 3 -> 2 -> 1 -> None. You typically use three pointers\u2014prev, current, and next_node\u2014to walk through the list and rewire the links safely.",
+      "content": "In a singly linked list, each node points to the next node using a next pointer. Reversing the list means changing these pointers so that every node points to its previous node instead of its next node. After reversal, the original head becomes the new tail, and the original tail becomes the new head. This operation is useful when you need to process data in reverse order without using extra memory for an array. For example, consider the list 1 -> 2 -> 3 -> None. After reversing, it becomes 3 -> 2 -> 1 -> None. You typically use three pointers—prev, current, and next_node—to walk through the list and rewire the links safely.",
       "concept": "reversing_a_linked_list_basics",
       "prompt": "",
       "explanation": "In Python, this operation directly demonstrates the core behavior of reversing a linked list basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
@@ -172,12 +172,6 @@
         "35.4_q9"
       ],
       "prompt": "Analyze the output and behavior of the code below. The input list is 7 -> 8 -> 9 -> None. Explain why the algorithm returns the correct reversed list and state its time and space complexity.\n\n```python\ndef reverse_iterative(head):\n    prev = None\n    curr = head\n    while curr:\n        nxt = curr.next\n        curr.next = prev\n        prev = curr\n        curr = nxt\n    return prev\n```",
-      "options": [
-        "Returns 7 -> 8 -> 9 -> None in O(n) time and O(1) space because it uses a single pass and only three pointers.",
-        "Returns None because the loop corrupts all next pointers before returning.",
-        "Returns 9 -> 8 -> 7 -> None in O(n) time and O(n) space because it creates new nodes.",
-        "Returns 7 -> 9 -> 8 -> None in O(n^2) time due to nested traversal."
-      ],
       "correct_answer": "Returns 7 -> 8 -> 9 -> None in O(n) time and O(1) space because it uses a single pass and only three pointers.",
       "explanation": "The algorithm iterates once through the list, reversing each next pointer in place. It uses three pointers (prev, curr, nxt), so space is O(1). Since each node is visited exactly once, time complexity is O(n). The final return value prev is the new head (9), yielding 9 -> 8 -> 7 -> None.",
       "starter_code": "# Write your solution below\n",

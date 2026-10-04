@@ -194,12 +194,6 @@
         "content": "When analyzing `replace()`, always check three things: the original string, the substring being replaced, and whether a `count` is provided. Since `replace()` returns a new string, verify that the variable was updated or the return value was used. Also note that `replace()` is case-sensitive: `'A'.replace('a', 'B')` does nothing. Understanding these details helps avoid bugs in text processing."
       },
       "prompt": "Explain why the following code prints '123' instead of modifying the original string.",
-      "options": [
-        "The `replace()` method modifies the string in place and returns None.",
-        "Strings are immutable, so `replace()` returns a new string that must be captured.",
-        "The variable `s` was reassigned to an integer before printing.",
-        "The `print()` function automatically calls `replace()` on its argument."
-      ],
       "correct_answer": "Strings are immutable, so `replace()` returns a new string that must be captured.",
       "explanation": "`replace()` cannot change the original string because strings are immutable. It returns a new string, and only by assigning that return value (or printing it directly) do we see the change.",
       "starter_code": "# Write your solution below\n",

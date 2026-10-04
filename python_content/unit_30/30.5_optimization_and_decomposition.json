@@ -11,7 +11,7 @@
       "difficulty": "easy",
       "prerequisites": [],
       "title": "What Is Optimization and Decomposition?",
-      "content": "Optimization means making a solution use fewer resources\u2014less time, memory, or steps. Decomposition means breaking one big problem into smaller, manageable pieces. For example, instead of writing one giant function, you split the work into helper functions. This makes code easier to read, test, and improve. A simple example: finding the largest number in a list. You can decompose this into two steps: first, find the maximum of a sub-list, then compare across sub-lists. Here is a basic illustration:\n\n```python\ndef find_max(numbers):\n    if not numbers:\n        return None\n    current_max = numbers[0]\n    for num in numbers:\n        if num > current_max:\n            current_max = num\n    return current_max\n\n# Optimization: avoid repeated work by storing the result\nnumbers = [3, 7, 2, 9, 5]\nresult = find_max(numbers)\nprint('The largest number is:', result)\n```\n\nNotice how `find_max` isolates one task. That is decomposition. Later, you can optimize by using built-in functions like `max()` if the list is large.",
+      "content": "Optimization means making a solution use fewer resources—less time, memory, or steps. Decomposition means breaking one big problem into smaller, manageable pieces. For example, instead of writing one giant function, you split the work into helper functions. This makes code easier to read, test, and improve. A simple example: finding the largest number in a list. You can decompose this into two steps: first, find the maximum of a sub-list, then compare across sub-lists. Here is a basic illustration:\n\n```python\ndef find_max(numbers):\n    if not numbers:\n        return None\n    current_max = numbers[0]\n    for num in numbers:\n        if num > current_max:\n            current_max = num\n    return current_max\n\n# Optimization: avoid repeated work by storing the result\nnumbers = [3, 7, 2, 9, 5]\nresult = find_max(numbers)\nprint('The largest number is:', result)\n```\n\nNotice how `find_max` isolates one task. That is decomposition. Later, you can optimize by using built-in functions like `max()` if the list is large.",
       "prompt": "",
       "explanation": "In Python, this operation directly demonstrates the core behavior of optimization and decomposition basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
@@ -190,12 +190,6 @@
         "content": "Analysis involves explaining why code behaves a certain way and how decomposition and optimization affect correctness and performance. When code is decomposed, each function should be verifiable in isolation. Optimization should not alter the observable behavior unless the goal is to change efficiency. In the example below, a list is decomposed into two passes: one to filter, one to sum. While not the most optimized single-pass solution, this decomposition makes the intent explicit and easier to debug. Consider the following code and its output."
       },
       "prompt": "Explain why the following decomposed code produces the output it does, and discuss whether the decomposition helps or hinders optimization.\n\n```python\ndef filter_evens(nums):\n    result = []\n    for n in nums:\n        if n % 2 == 0:\n            result.append(n)\n    return result\n\ndef sum_list(nums):\n    total = 0\n    for n in nums:\n        total = total + n\n    return total\n\nlst = [2, 5, 6, 7, 8]\nevens = filter_evens(lst)\nprint(sum_list(evens))\n```",
-      "options": [
-        "The output is 16 because filter_evens keeps 2, 6, and 8, and sum_list adds them.",
-        "The output is 21 because all numbers are summed after filtering.",
-        "The output is 14 because filter_evens keeps 2, 6, and 8, and sum_list adds them.",
-        "The output is None because sum_list expects the original list."
-      ],
       "correct_answer": "The output is 16 because filter_evens keeps 2, 6, and 8, and sum_list adds them.",
       "explanation": "filter_evens returns [2, 6, 8] because those are the even numbers in lst. sum_list then iterates over [2, 6, 8] and computes 2 + 6 + 8 = 16. The decomposition separates filtering from summing, which improves readability but uses two passes instead of one, so it is less time-efficient than a single-pass optimized version.",
       "prerequisites": [
@@ -221,12 +215,6 @@
         "content": "Tracing execution means following variable values step by step to verify correctness. When code is decomposed, you trace each function call and return value. Optimization can be verified by ensuring that precomputed values are used correctly and that no redundant calculations occur. Below is a decomposed example with a precomputed length. Trace the values of n, i, and total carefully."
       },
       "prompt": "Trace the execution of the following code and record the value of total after each iteration of the loop.\n\n```python\ndef process(nums):\n    n = len(nums)\n    total = 0\n    for i in range(n):\n        if nums[i] > 0:\n            total = total + nums[i]\n    return total\n\nprint(process([0, -2, 3, -1, 4]))\n```",
-      "options": [
-        "After iteration 0: 0, After iteration 1: 0, After iteration 2: 3, After iteration 3: 3, After iteration 4: 7",
-        "After iteration 0: 0, After iteration 1: -2, After iteration 2: 3, After iteration 3: 3, After iteration 4: 7",
-        "After iteration 0: 0, After iteration 1: 0, After iteration 2: 3, After iteration 3: 1, After iteration 4: 7",
-        "After iteration 0: 0, After iteration 1: 0, After iteration 2: 6, After iteration 3: 6, After iteration 4: 10"
-      ],
       "correct_answer": "After iteration 0: 0, After iteration 1: 0, After iteration 2: 3, After iteration 3: 3, After iteration 4: 7",
       "explanation": "n is 5. i = 0: nums[0] is 0, not > 0, total stays 0. i = 1: nums[1] is -2, not > 0, total stays 0. i = 2: nums[2] is 3, > 0, total becomes 0 + 3 = 3. i = 3: nums[3] is -1, not > 0, total stays 3. i = 4: nums[4] is 4, > 0, total becomes 3 + 4 = 7. The function returns 7.",
       "prerequisites": [
@@ -512,7 +500,7 @@
       "id": "30.5_q25",
       "type": "write_the_code",
       "title": "Optimize a Nested Loop for Maximum Sum",
-      "content": "When solving problems with nested loops, we can often reduce time complexity by precomputing values or using mathematical formulas. This exercise asks you to find the maximum sum of any contiguous subarray using an optimized approach (Kadane's algorithm) instead of a brute-force O(n\u00b2) nested loop. Decomposition helps by separating the logic into tracking the current subarray sum and the best sum seen so far.",
+      "content": "When solving problems with nested loops, we can often reduce time complexity by precomputing values or using mathematical formulas. This exercise asks you to find the maximum sum of any contiguous subarray using an optimized approach (Kadane's algorithm) instead of a brute-force O(n²) nested loop. Decomposition helps by separating the logic into tracking the current subarray sum and the best sum seen so far.",
       "concept": "optimization_and_decomposition_implementation",
       "skill": "application",
       "difficulty": "medium",
@@ -537,7 +525,7 @@
         }
       ],
       "hint": "Track the best sum ending at the current position and update the global best as you iterate once through the list.",
-      "explanation": "The brute-force method checks every subarray with nested loops, yielding O(n\u00b2). By decomposing the problem, we realize we only need one pass: at each element, decide whether to extend the current subarray or start fresh. This reduces complexity to O(n) and uses O(1) extra space."
+      "explanation": "The brute-force method checks every subarray with nested loops, yielding O(n²). By decomposing the problem, we realize we only need one pass: at each element, decide whether to extend the current subarray or start fresh. This reduces complexity to O(n) and uses O(1) extra space."
     },
     {
       "id": "30.5_q26",
@@ -616,13 +604,13 @@
         }
       ],
       "hint": "Store results in a dictionary. Before computing `fib(k)`, check if it already exists in the cache.",
-      "explanation": "Without memoization, naive recursion is exponential O(2\u207f). By decomposing the cache into a dictionary and a helper, each Fibonacci number is computed once, reducing complexity to O(n) with O(n) space for the cache."
+      "explanation": "Without memoization, naive recursion is exponential O(2ⁿ). By decomposing the cache into a dictionary and a helper, each Fibonacci number is computed once, reducing complexity to O(n) with O(n) space for the cache."
     },
     {
       "id": "30.5_q28",
       "type": "write_the_code",
       "title": "Challenge: Optimize and Decompose a Path-Finding Search",
-      "content": "Given a grid, find the shortest path from the top-left to the bottom-right corner moving only right or down. A naive approach explores all paths recursively. Your task is to decompose the problem and apply dynamic programming to achieve an optimal O(m \u00d7 n) solution.",
+      "content": "Given a grid, find the shortest path from the top-left to the bottom-right corner moving only right or down. A naive approach explores all paths recursively. Your task is to decompose the problem and apply dynamic programming to achieve an optimal O(m × n) solution.",
       "concept": "optimization_and_decomposition_challenge",
       "skill": "problem_solving",
       "difficulty": "hard",
@@ -643,7 +631,7 @@
         }
       ],
       "hint": "Build a DP table where each cell stores the minimum cost to reach that cell. The first row and column can only be reached from the left or top respectively.",
-      "explanation": "The recursive solution without memoization is exponential due to overlapping subproblems. Decomposing into a bottom-up DP table ensures each cell is computed once, yielding O(m \u00d7 n) time and O(m \u00d7 n) space (or O(n) with rolling array optimization)."
+      "explanation": "The recursive solution without memoization is exponential due to overlapping subproblems. Decomposing into a bottom-up DP table ensures each cell is computed once, yielding O(m × n) time and O(m × n) space (or O(n) with rolling array optimization)."
     },
     {
       "id": "30.5_q29",
@@ -670,7 +658,7 @@
         }
       ],
       "hint": "At each step, find the closest unvisited location to the current position and append it to the route.",
-      "explanation": "The optimal traveling salesman problem is NP-hard, so brute force is impossible for large n. The greedy nearest-neighbor heuristic decomposes the route into local decisions, running in O(n\u00b2) time. It is not always globally optimal, but it scales to real-world sizes and serves as a practical baseline."
+      "explanation": "The optimal traveling salesman problem is NP-hard, so brute force is impossible for large n. The greedy nearest-neighbor heuristic decomposes the route into local decisions, running in O(n²) time. It is not always globally optimal, but it scales to real-world sizes and serves as a practical baseline."
     },
     {
       "id": "30.5_q30",
@@ -701,7 +689,7 @@
         }
       ],
       "hint": "Use a tuple `(i, cap)` as the cache key. At each step, either skip the current item or take it if it fits, then recurse on the next index with reduced capacity.",
-      "explanation": "Without memoization, this recursion explores 2\u207f states. By decomposing the problem into `(index, remaining_capacity)` and caching results, we ensure each state is computed once, giving O(n \u00d7 W) time and O(n \u00d7 W) space. This is the classic 0/1 knapsack dynamic programming solution."
+      "explanation": "Without memoization, this recursion explores 2ⁿ states. By decomposing the problem into `(index, remaining_capacity)` and caching results, we ensure each state is computed once, giving O(n × W) time and O(n × W) space. This is the classic 0/1 knapsack dynamic programming solution."
     }
   ],
   "unit_num": 30,

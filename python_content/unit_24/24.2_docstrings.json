@@ -24,26 +24,15 @@
       "prerequisites": [
         "24.2_q1"
       ],
-      "match_code_to_concept": {
-        "prompt": "Which of the following best describes the purpose of a docstring in Python?",
-        "options": [
-          "It is a comment that is ignored by the Python interpreter and cannot be accessed at runtime.",
-          "It is a string literal that documents the purpose of a function or module and can be accessed via the __doc__ attribute.",
-          "It is a special variable that stores the return value of a function.",
-          "It is a decorator used to modify the behavior of a function."
-        ],
-        "correct_answer": "It is a string literal that documents the purpose of a function or module and can be accessed via the __doc__ attribute.",
-        "explanation": "A docstring is a string literal, usually enclosed in triple quotes, placed at the start of a function, class, or module. Unlike comments, it is preserved as an object and can be retrieved using __doc__."
-      },
-      "prompt": "Which statement best applies to docstrings basics?",
+      "prompt": "Which of the following best describes the purpose of a docstring in Python?",
       "options": [
-        "A. Correct approach for docstrings basics",
-        "Raises a SyntaxError: invalid syntax at runtime",
-        "Raises an IndentationError: unexpected indent",
-        "Silently ignored by the Python parser"
+        "It is a comment that is ignored by the Python interpreter and cannot be accessed at runtime.",
+        "It is a string literal that documents the purpose of a function or module and can be accessed via the __doc__ attribute.",
+        "It is a special variable that stores the return value of a function.",
+        "It is a decorator used to modify the behavior of a function."
       ],
-      "correct_answer": "A. Correct approach for docstrings basics",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of docstrings basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "correct_answer": "It is a string literal that documents the purpose of a function or module and can be accessed via the __doc__ attribute.",
+      "explanation": "A docstring is a string literal, usually enclosed in triple quotes, placed at the start of a function, class, or module. Unlike comments, it is preserved as an object and can be retrieved using __doc__."
     },
     {
       "id": "24.2_q3",
@@ -68,26 +57,15 @@
       "prerequisites": [
         "24.2_q3"
       ],
-      "match_code_to_concept": {
-        "prompt": "Given the following code, where should the docstring be placed to be valid and accessible?\n\n```python\ndef multiply(x, y):\n    result = x * y\n    return result\n```",
-        "options": [
-          "Before the def line, as a module-level comment.",
-          "After the return statement, as the last line inside the function.",
-          "Immediately after the def line and before the result assignment.",
-          "Inside the return statement as part of the expression."
-        ],
-        "correct_answer": "Immediately after the def line and before the result assignment.",
-        "explanation": "A docstring must be the first statement inside a function body. Placing it after the def line and before any executable code ensures it is recognized as the docstring and accessible via __doc__."
-      },
-      "prompt": "Which statement best applies to docstrings syntax?",
+      "prompt": "Given the following code, where should the docstring be placed to be valid and accessible?\n\n```python\ndef multiply(x, y):\n    result = x * y\n    return result\n```",
       "options": [
-        "A. Correct approach for docstrings syntax",
-        "Raises a SyntaxError: invalid syntax at runtime",
-        "Raises an IndentationError: unexpected indent",
-        "Silently ignored by the Python parser"
+        "Before the def line, as a module-level comment.",
+        "After the return statement, as the last line inside the function.",
+        "Immediately after the def line and before the result assignment.",
+        "Inside the return statement as part of the expression."
       ],
-      "correct_answer": "A. Correct approach for docstrings syntax",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of docstrings syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "correct_answer": "Immediately after the def line and before the result assignment.",
+      "explanation": "A docstring must be the first statement inside a function body. Placing it after the def line and before any executable code ensures it is recognized as the docstring and accessible via __doc__."
     },
     {
       "id": "24.2_q5",
@@ -98,26 +76,15 @@
       "prerequisites": [
         "24.2_q4"
       ],
-      "match_code_to_concept": {
-        "prompt": "Which of the following code snippets correctly assigns a docstring to a function?",
-        "options": [
-          "def calc(): return 42  # docstring here",
-          "def calc():\n    42\n    \"\"\"This is a docstring\"\"\"",
-          "def calc():\n    '''This is a docstring'''\n    return 42",
-          "def calc():\n    return 42\n    '''This is a docstring'''"
-        ],
-        "correct_answer": "def calc():\n    '''This is a docstring'''\n    return 42",
-        "explanation": "The docstring must be the first statement inside the function body. The triple-quoted string on the first line after def is the correct placement. Option A uses a comment, not a docstring. Option B places the docstring after an executable statement. Option D places it after the return statement."
-      },
-      "prompt": "Which statement best applies to docstrings matching?",
+      "prompt": "Which of the following code snippets correctly assigns a docstring to a function?",
       "options": [
-        "A. Correct approach for docstrings matching",
-        "Raises a SyntaxError: invalid syntax at runtime",
-        "Raises an IndentationError: unexpected indent",
-        "Silently ignored by the Python parser"
+        "def calc(): return 42  # docstring here",
+        "def calc():\n    42\n    \"\"\"This is a docstring\"\"\"",
+        "def calc():\n    '''This is a docstring'''\n    return 42",
+        "def calc():\n    return 42\n    '''This is a docstring'''"
       ],
-      "correct_answer": "A. Correct approach for docstrings matching",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of docstrings matching. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "correct_answer": "def calc():\n    '''This is a docstring'''\n    return 42",
+      "explanation": "The docstring must be the first statement inside the function body. The triple-quoted string on the first line after def is the correct placement. Option A uses a comment, not a docstring. Option B places the docstring after an executable statement. Option D places it after the return statement."
     },
     {
       "id": "24.2_q6",
@@ -128,26 +95,15 @@
       "prerequisites": [
         "24.2_q5"
       ],
-      "match_code_to_concept": {
-        "prompt": "What is a common pitfall when writing docstrings?",
-        "options": [
-          "Forgetting to indent the docstring so it becomes a regular string expression instead of a docstring.",
-          "Using double quotes instead of triple quotes, which always causes a syntax error.",
-          "Placing the docstring after a return statement, which makes it unreachable.",
-          "Writing the docstring in a separate file, which makes it inaccessible at runtime."
-        ],
-        "correct_answer": "Forgetting to indent the docstring so it becomes a regular string expression instead of a docstring.",
-        "explanation": "If a string literal is not indented under the def line, Python treats it as a regular statement and it is not stored in __doc__. Proper indentation is essential for the interpreter to recognize it as a docstring."
-      },
-      "prompt": "Which statement best applies to docstrings pitfalls?",
+      "prompt": "What is a common pitfall when writing docstrings?",
       "options": [
-        "A. Correct approach for docstrings pitfalls",
-        "Raises a SyntaxError: invalid syntax at runtime",
-        "Raises an IndentationError: unexpected indent",
-        "Silently ignored by the Python parser"
+        "Forgetting to indent the docstring so it becomes a regular string expression instead of a docstring.",
+        "Using double quotes instead of triple quotes, which always causes a syntax error.",
+        "Placing the docstring after a return statement, which makes it unreachable.",
+        "Writing the docstring in a separate file, which makes it inaccessible at runtime."
       ],
-      "correct_answer": "A. Correct approach for docstrings pitfalls",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of docstrings pitfalls. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "correct_answer": "Forgetting to indent the docstring so it becomes a regular string expression instead of a docstring.",
+      "explanation": "If a string literal is not indented under the def line, Python treats it as a regular statement and it is not stored in __doc__. Proper indentation is essential for the interpreter to recognize it as a docstring."
     },
     {
       "id": "24.2_q7",
@@ -216,12 +172,6 @@
         "24.2_q9"
       ],
       "prompt": "Analyze and explain the behavior of the following code. What is the role of the docstring, and what is the final output?\n\n```python\ndef multiply(a, b):\n    '''Multiply two numbers and return the product.'''\n    product = a * b\n    return product\n\noutput = multiply(5, 3)\nprint(output)\n```",
-      "options": [
-        "The docstring describes the function's purpose; the output is 15.",
-        "The docstring executes the multiplication; the output is 5.",
-        "The docstring causes a syntax error; no output is produced.",
-        "The docstring replaces the return statement; the output is None."
-      ],
       "correct_answer": "The docstring describes the function's purpose; the output is 15.",
       "explanation": "The docstring is ignored at runtime and serves only as documentation. The function multiplies 5 and 3 to get 15, which is returned and printed.",
       "starter_code": "# Write your solution below\n",
@@ -243,12 +193,6 @@
         "24.2_q10"
       ],
       "prompt": "Trace the execution step by step and identify what each line does.\n\n```python\ndef describe(text):\n    '''Print a description of the given text.'''\n    length = len(text)\n    print('Length:', length)\n    return text.upper()\n\ndescribe('hello')\n```",
-      "options": [
-        "Step 1: define function. Step 2: docstring stored. Step 3: length = 5. Step 4: print 'Length: 5'. Step 5: return 'HELLO'. Step 6: print 'HELLO'.",
-        "Step 1: define function. Step 2: docstring ignored. Step 3: length = 5. Step 4: print 'Length: 5'. Step 5: return 'HELLO'. Step 6: no further action.",
-        "Step 1: define function. Step 2: docstring causes error. Step 3: length undefined. Step 4: print fails.",
-        "Step 1: define function. Step 2: docstring printed. Step 3: length = 6. Step 4: print 'Length: 6'. Step 5: return 'hello'."
-      ],
       "correct_answer": "Step 1: define function. Step 2: docstring ignored. Step 3: length = 5. Step 4: print 'Length: 5'. Step 5: return 'HELLO'. Step 6: no further action.",
       "explanation": "The docstring is stored in the function's __doc__ attribute but is not executed. The function computes the length of 'hello' as 5, prints it, returns the uppercase version, and the returned value is not used or printed by the caller.",
       "starter_code": "# Write your solution below\n",
@@ -515,54 +459,54 @@
       "id": "24.2_q25",
       "type": "write_the_code",
       "concept": "docstrings_implementation",
-      "skill": "application",
+      "skill": "implementation",
       "difficulty": "medium",
       "prerequisites": [
         "24.2_q24"
       ],
-      "prompt": "Write a statement that prints 'Docstrings Result 25' to standard output.",
-      "starter_code": "# Write your code below\n",
-      "solution_code": "print('Docstrings Result 25')",
+      "prompt": "Write a clean, reusable function or code statement that demonstrates core usage of Docstrings:",
+      "starter_code": "# Implement a solution for Docstrings\ndef solve():\n    ___",
+      "solution_code": "def solve():\n    # Core implementation of Docstrings\n    return True",
       "test_cases": [
         {
           "input": "",
           "expected_output": "Docstrings Result 25"
         }
       ],
-      "hint": "Use print('Docstrings Result 25') to generate the required output.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of docstrings implementation. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "hint": "Focus on applying the central Python idiom for Docstrings.",
+      "explanation": "Understanding how to construct clean implementations of Docstrings ensures you can integrate it into broader software applications."
     },
     {
       "id": "24.2_q26",
-      "type": "write_the_code",
-      "concept": "docstrings_practical",
-      "skill": "application",
+      "type": "fix_the_code",
+      "concept": "docstrings_debugging",
+      "skill": "debugging",
       "difficulty": "medium",
       "prerequisites": [
         "24.2_q25"
       ],
-      "prompt": "Write a statement that prints 'Docstrings Result 26' to standard output.",
-      "starter_code": "# Write your code below\n",
-      "solution_code": "print('Docstrings Result 26')",
+      "prompt": "Identify and fix the logical or syntax defect in this implementation of Docstrings:",
+      "starter_code": "# Fix the issue with Docstrings\ndef check_valid(val):\n    if val is None:\n        return False\n    return True",
+      "solution_code": "def check_valid(val):\n    if val is None:\n        return False\n    return True",
       "test_cases": [
         {
           "input": "",
           "expected_output": "Docstrings Result 26"
         }
       ],
-      "hint": "Use print('Docstrings Result 26') to generate the required output.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of docstrings practical. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "hint": "Check the condition and return value carefully.",
+      "explanation": "Debugging is a core programming competency. Guarding against edge cases like `None` or invalid states prevents runtime failures."
     },
     {
       "id": "24.2_q27",
-      "type": "write_the_code",
-      "concept": "docstrings_advanced",
-      "skill": "application",
+      "type": "code_prediction",
+      "concept": "docstrings_edge_case",
+      "skill": "prediction",
       "difficulty": "hard",
       "prerequisites": [
         "24.2_q26"
       ],
-      "prompt": "Write a statement that prints 'Docstrings Result 27' to standard output.",
+      "prompt": "What will be the outcome when this code handling Docstrings encounters empty or boundary input?\n```python\ndef process(data):\n    return [x for x in data if x]\nprint(process([]))\n```",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Docstrings Result 27')",
       "test_cases": [
@@ -571,71 +515,78 @@
           "expected_output": "Docstrings Result 27"
         }
       ],
-      "hint": "Use print('Docstrings Result 27') to generate the required output.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of docstrings advanced. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "hint": "An empty input list evaluates as falsy and produces an empty result.",
+      "explanation": "Handling empty collections gracefully without raising unexpected exceptions is an essential design pattern when working with Docstrings.",
+      "options": [
+        "[]",
+        "None",
+        "IndexError",
+        "ValueError"
+      ],
+      "correct_answer": "[]"
     },
     {
       "id": "24.2_q28",
-      "type": "write_the_code",
-      "concept": "docstrings_challenge",
-      "skill": "problem_solving",
+      "type": "real_world_scenario",
+      "concept": "docstrings_production_transfer",
+      "skill": "application",
       "difficulty": "hard",
       "prerequisites": [
         "24.2_q27"
       ],
-      "prompt": "Write a statement that prints 'Docstrings Result 28' to standard output.",
-      "starter_code": "# Write your code below\n",
-      "solution_code": "print('Docstrings Result 28')",
+      "prompt": "Apply Docstrings to a realistic scenario: process a sequence of records and return only those meeting the business rule:",
+      "starter_code": "records = [{'id': 1, 'active': True}, {'id': 2, 'active': False}]\n# Filter active records\nactive_records = ___",
+      "solution_code": "records = [{'id': 1, 'active': True}, {'id': 2, 'active': False}]\nactive_records = [r for r in records if r['active']]",
       "test_cases": [
         {
           "input": "",
           "expected_output": "Docstrings Result 28"
         }
       ],
-      "hint": "Use print('Docstrings Result 28') to generate the required output.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of docstrings challenge. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "hint": "Use a list comprehension to filter records where 'active' is True.",
+      "explanation": "In production Python code, Docstrings is frequently combined with data filtering to process structured domain models efficiently."
     },
     {
       "id": "24.2_q29",
-      "type": "write_the_code",
-      "concept": "docstrings_scenario",
-      "skill": "synthesis",
+      "type": "fix_the_code",
+      "concept": "docstrings_refactoring",
+      "skill": "refactoring",
       "difficulty": "hard",
       "prerequisites": [
         "24.2_q28"
       ],
-      "prompt": "Write a statement that prints 'Docstrings Result 29' to standard output.",
-      "starter_code": "# Write your code below\n",
-      "solution_code": "print('Docstrings Result 29')",
+      "prompt": "Refactor this procedural snippet for Docstrings into clean, modular, and idiomatic Python:",
+      "starter_code": "items = [1, 2, 3, 4]\n# Refactor to use idiomatic transformation\nres = []\nfor x in items:\n    res.append(x * 2)",
+      "solution_code": "items = [1, 2, 3, 4]\nres = [x * 2 for x in items]",
       "test_cases": [
         {
           "input": "",
           "expected_output": "Docstrings Result 29"
         }
       ],
-      "hint": "Use print('Docstrings Result 29') to generate the required output.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of docstrings scenario. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "hint": "Convert the accumulator `for` loop into a concise list comprehension.",
+      "explanation": "Replacing boilerplate append loops with list comprehensions is a fundamental Python refactoring that improves both readability and execution speed."
     },
     {
       "id": "24.2_q30",
       "type": "write_the_code",
-      "concept": "docstrings_mastery",
-      "skill": "mastery",
-      "difficulty": "hard",
+      "concept": "docstrings_mastery_challenge",
+      "skill": "transfer",
+      "difficulty": "expert",
       "prerequisites": [
         "24.2_q29"
       ],
-      "prompt": "Write a statement that prints 'Docstrings Result 30' to standard output.",
-      "starter_code": "# Write your code below\n",
-      "solution_code": "print('Docstrings Result 30')",
+      "prompt": "Mastery Challenge: Implement a robust, tested function for Docstrings that processes inputs, validates preconditions, and handles invalid states cleanly:",
+      "starter_code": "def execute_task(data):\n    if not data:\n        return None\n    # Process valid data\n    ___",
+      "solution_code": "def execute_task(data):\n    if not data:\n        return None\n    return sorted(data)",
       "test_cases": [
         {
           "input": "",
           "expected_output": "Docstrings Result 30"
         }
       ],
-      "hint": "Use print('Docstrings Result 30') to generate the required output.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of docstrings mastery. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "hint": "Validate input first, then execute the transformation.",
+      "explanation": "Demonstrating end-to-end mastery of Docstrings requires combining input validation, core algorithmic logic, and defensive programming."
     }
   ],
   "unit_num": 24,

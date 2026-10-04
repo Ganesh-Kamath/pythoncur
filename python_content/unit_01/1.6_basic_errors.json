@@ -47,7 +47,7 @@
         "1.6_q1"
       ],
       "title": "Anatomy of a Traceback",
-      "content": "When Python crashes, it displays a **Traceback**.\n\nA traceback provides clues about the crash:\n1. **File name and Line number**: Where Python was executing when the issue happened.\n2. **Code snippet**: The exact line of code Python was trying to run.\n3. **Error Name & Description (The Bottom Line)**: The specific type of error and what went wrong.\n\n\ud83d\udca1 Pro tip: Always read a traceback from the **bottom line first**!",
+      "content": "When Python crashes, it displays a **Traceback**.\n\nA traceback provides clues about the crash:\n1. **File name and Line number**: Where Python was executing when the issue happened.\n2. **Code snippet**: The exact line of code Python was trying to run.\n3. **Error Name & Description (The Bottom Line)**: The specific type of error and what went wrong.\n\n💡 Pro tip: Always read a traceback from the **bottom line first**!",
       "prompt": "",
       "explanation": "In Python, this operation directly demonstrates the core behavior of traceback anatomy. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
@@ -434,12 +434,6 @@
         "1.6_q24"
       ],
       "prompt": "An online checkout calculates `total_price = subtotal * 0.0`. The script runs with zero errors, but every customer gets free orders. What type of bug is this?",
-      "options": [
-        "A. SyntaxError",
-        "B. NameError",
-        "C. Logic Error",
-        "D. IndentationError"
-      ],
       "correct_answer": "C",
       "explanation": "The syntax is 100% legal, and Python happily calculated the product. The formula itself was mathematically wrong for calculating prices."
     },
@@ -499,12 +493,6 @@
         "1.6_q21"
       ],
       "prompt": "A junior developer says: 'If my code throws an error, I should randomly change characters until it stops crashing.' Why is this an anti-pattern?",
-      "options": [
-        "A. Random guessing wastes time, doesn't teach you the underlying cause, and frequently introduces subtle logic bugs even if the crash disappears.",
-        "B. Changing characters damages your computer keyboard.",
-        "C. Python only allows three changes per script.",
-        "D. Because code errors fix themselves if you wait."
-      ],
       "correct_answer": "A",
       "explanation": "Engineering requires intentional problem-solving: diagnose the root cause using the traceback, understand the mechanism, and apply a reasoned fix."
     },
@@ -523,12 +511,6 @@
         "1.6_q1"
       ],
       "prompt": "Congratulations on finishing Unit 1! Which statement best captures the foundational mental model of Python execution?",
-      "options": [
-        "A. Python executes instructions sequentially, relies on clear syntax, translates source code to bytecode executed by the PVM, and provides descriptive tracebacks when rules are broken.",
-        "B. Python guesses developer intentions and automatically fixes all logic bugs.",
-        "C. Python code runs directly on the CPU without translation.",
-        "D. Python ignores all syntax errors if comments are present."
-      ],
       "correct_answer": "A",
       "explanation": "This synthesizes the entire Unit 1 foundations: sequential execution, syntax parsing, bytecode and the PVM, and diagnostic tracebacks."
     }

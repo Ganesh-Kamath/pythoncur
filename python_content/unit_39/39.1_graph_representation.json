@@ -172,12 +172,6 @@
         "39.1_q9"
       ],
       "prompt": "Analyze the following code and explain what it computes. Then identify the data structure it produces.\n\n```python\ndef build_undirected(edges):\n    g = {}\n    for a, b in edges:\n        g.setdefault(a, []).append(b)\n        g.setdefault(b, []).append(a)\n    return g\n\nedges = [('M', 'N'), ('N', 'O')]\nresult = build_undirected(edges)\n```",
-      "options": [
-        "A directed adjacency list where each edge appears only once",
-        "An undirected adjacency list where each edge is added in both directions",
-        "A set of unique vertices with no edge information",
-        "A weighted adjacency matrix represented as a dictionary of dictionaries"
-      ],
       "correct_answer": "An undirected adjacency list where each edge is added in both directions",
       "explanation": "The function build_undirected processes each edge (a, b) and appends b to a's list and a to b's list. This ensures the graph is undirected: if there is an edge from 'M' to 'N', there is also an edge from 'N' to 'M'. The final result for the given edges is {'M': ['N'], 'N': ['M', 'O'], 'O': ['N']}. This is a standard adjacency list representation for an undirected graph.",
       "starter_code": "# Write your solution below\n",

@@ -127,7 +127,7 @@
         "3.1_q1"
       ],
       "title": "Exponentiation (**)",
-      "content": "Python uses two asterisks `**` for power and exponents:\n```python\nprint(2 ** 4)  # 2 * 2 * 2 * 2 = 16\nprint(5 ** 2)  # 5 squared = 25\n```\n\u26a0\ufe0f Misconception: Do NOT use `^` for exponents! In Python, `^` is the bitwise XOR operator, not power!",
+      "content": "Python uses two asterisks `**` for power and exponents:\n```python\nprint(2 ** 4)  # 2 * 2 * 2 * 2 = 16\nprint(5 ** 2)  # 5 squared = 25\n```\n⚠️ Misconception: Do NOT use `^` for exponents! In Python, `^` is the bitwise XOR operator, not power!",
       "prompt": "",
       "explanation": "In Python, this operation directly demonstrates the core behavior of exponentiation operator. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
@@ -499,12 +499,6 @@
         "3.1_q11"
       ],
       "prompt": "An online store has 53 products and displays 10 products per page. You need to calculate the total number of pages needed so no products are left out. Which formula correctly calculates this?",
-      "options": [
-        "A. `53 // 10`",
-        "B. `(53 + 9) // 10` (or `(products + per_page - 1) // per_page`)",
-        "C. `53 % 10`",
-        "D. `53 / 10`"
-      ],
       "correct_answer": "B",
       "explanation": "Ceiling division for integers can be cleanly expressed as `(n + d - 1) // d`. `(53 + 9) // 10 = 62 // 10 = 6` pages."
     },
@@ -522,12 +516,6 @@
         "3.1_q14"
       ],
       "prompt": "Which of the following summaries regarding Python arithmetic operators is completely TRUE?",
-      "options": [
-        "A. Python supports 7 core operators (`+`, `-`, `*`, `/`, `//`, `%`, `**`); `/` returns float; `//` rounds down to negative infinity; `%` yields remainder; `**` computes power; `^` is bitwise XOR.",
-        "B. Modulo `%` can only be used on strings.",
-        "C. `^` is the power operator and `**` is multiplication.",
-        "D. Division by zero automatically returns Infinity without crashing."
-      ],
       "correct_answer": "A",
       "explanation": "In Python, this operation directly demonstrates the core behavior of arithmetic synthesis. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     }

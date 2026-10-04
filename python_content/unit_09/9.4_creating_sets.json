@@ -172,12 +172,6 @@
         "9.4_q9"
       ],
       "prompt": "Consider the following Python code:\n\n```python\nstudents = {'Alice', 'Bob', 'Charlie'}\nstudents.add('Alice')\nprint(students)\n```\nExplain why the output does not contain duplicate entries for 'Alice'.",
-      "options": [
-        "The add() method automatically removes duplicates.",
-        "Sets inherently store only unique elements, so adding an existing element has no effect.",
-        "Python raises an error when adding duplicates.",
-        "The print() function filters out duplicates."
-      ],
       "correct_answer": "Sets inherently store only unique elements, so adding an existing element has no effect.",
       "explanation": "A fundamental property of sets is that they cannot contain duplicate values. When add() is called with a value that already exists, the set remains unchanged. This is different from lists, which allow duplicates.",
       "starter_code": "# Write your solution below\n",

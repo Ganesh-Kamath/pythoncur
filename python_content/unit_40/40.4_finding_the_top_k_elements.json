@@ -169,12 +169,6 @@
       "difficulty": "medium",
       "concept": "finding_the_top_k_elements_analysis",
       "prompt": "Given this code, explain why the final sorted result contains exactly k elements even when the input array has duplicates and values smaller than the initial heap minimum:\n\n```python\nimport heapq\n\ndef top_k(arr, k):\n    heap = arr[:k]\n    heapq.heapify(heap)\n    for num in arr[k:]:\n        if num > heap[0]:\n            heapq.heapreplace(heap, num)\n    return sorted(heap, reverse=True)\n\narr = [5, 5, 5, 5, 1]\nk = 3\n```",
-      "options": [
-        "heapreplace always maintains heap size k and only replaces when a strictly larger element is found, so the heap never grows beyond k elements.",
-        "The initial slice arr[:k] guarantees k elements, and the loop never appends, only replaces, preserving the size invariant.",
-        "sorted() truncates the list to k items automatically when reverse=True is used.",
-        "Duplicates are removed by heapify, ensuring only unique values remain in the heap."
-      ],
       "correct_answer": "heapreplace always maintains heap size k and only replaces when a strictly larger element is found, so the heap never grows beyond k elements.",
       "explanation": "heapreplace removes the smallest element and inserts the new one in one atomic operation, keeping the heap length constant at k. The condition num > heap[0] ensures only values strictly greater than the current minimum replace it. Thus the heap size remains exactly k, and sorted(heap, reverse=True) returns k elements.",
       "prerequisites": [

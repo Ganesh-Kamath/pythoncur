@@ -176,12 +176,6 @@
         "7.8_q9"
       ],
       "prompt": "Analyze the following code and explain why the final output is what it is:\n```python\nword = 'programming'\nif 'gram' in word:\n    print('Yes')\nelse:\n    print('No')\n```",
-      "options": [
-        "Prints 'Yes' because 'gram' appears consecutively inside 'programming'.",
-        "Prints 'No' because 'gram' is not a separate word in 'programming'.",
-        "Prints 'Yes' because 'gram' is a prefix of 'programming'.",
-        "Prints 'No' because the `in` operator only checks the first character."
-      ],
       "correct_answer": "Prints 'Yes' because 'gram' appears consecutively inside 'programming'.",
       "explanation": "The `in` operator performs a substring search anywhere in the string, not just at the beginning or as a whole word. The sequence 'g', 'r', 'a', 'm' appears starting at index 3 in 'programming', so the condition is `True` and `'Yes'` is printed.",
       "starter_code": "# Write your solution below\n",

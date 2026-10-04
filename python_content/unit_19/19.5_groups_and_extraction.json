@@ -179,12 +179,6 @@
         "19.5_q9"
       ],
       "prompt": "Consider the code below. Explain why the output is what it is and describe what each print statement returns.\n```\nimport re\ntext = 'ID: 9921, Status: active'\npattern = r'ID: (\\d+), Status: (\\w+)'\nmatch = re.search(pattern, text)\nprint(match.groups())\nprint(match.groupdict())\n```",
-      "options": [
-        "match.groups() returns a tuple of captured strings; match.groupdict() returns an empty dict because no named groups were used.",
-        "match.groups() returns a list of strings; match.groupdict() returns a dict mapping group numbers to strings.",
-        "match.groups() returns None; match.groupdict() returns a dict with keys '1' and '2'.",
-        "match.groups() returns a tuple of strings; match.groupdict() raises an error because named groups are missing."
-      ],
       "correct_answer": "match.groups() returns a tuple of captured strings; match.groupdict() returns an empty dict because no named groups were used.",
       "explanation": "match.groups() returns a tuple containing all captured subgroups in order, so it yields ('9921', 'active'). match.groupdict() only works with named groups using (?P<name>...), and since the pattern uses plain parentheses without names, it returns an empty dictionary {}. This distinction is important when designing regexes for structured extraction.",
       "concept": "groups_and_extraction_analysis",

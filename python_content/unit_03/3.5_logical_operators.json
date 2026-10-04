@@ -428,12 +428,6 @@
         "3.5_q5"
       ],
       "prompt": "A museum offers free admission to visitors who are either under 12 OR 65 and older. Which condition tests this eligibility?",
-      "options": [
-        "A. `age < 12 and age >= 65`",
-        "B. `age < 12 or age >= 65`",
-        "C. `12 < age < 65`",
-        "D. `not (age < 12)`"
-      ],
       "correct_answer": "B",
       "explanation": "A person cannot be both under 12 and over 65 at the same time, so `or` is the required operator."
     },
@@ -502,12 +496,6 @@
         "3.5_q7"
       ],
       "prompt": "A customer receives free shipping if they are a `vip_member` OR if their `cart_total >= 50` AND they have `in_stock == True`. Which expression correctly groups this?",
-      "options": [
-        "A. `vip_member or (cart_total >= 50 and in_stock)`",
-        "B. `(vip_member or cart_total >= 50) and in_stock`",
-        "C. `vip_member and cart_total >= 50 and in_stock`",
-        "D. `vip_member and (cart_total >= 50 or in_stock)`"
-      ],
       "correct_answer": "A",
       "explanation": "VIP members always qualify (`vip_member`), or non-VIPs qualify with `$50+` and in-stock items."
     },
@@ -526,12 +514,6 @@
         "3.5_q11"
       ],
       "prompt": "Congratulations on completing Unit 3! Which statement accurately captures Python's operator ecosystem?",
-      "options": [
-        "A. Python provides arithmetic (`+`, `-`, `*`, `/`, `//`, `%`, `**`), augmented assignment (`+=`, etc.), comparisons (`==`, `!=`, `<`, `>`, `<=`, `>=`), and logical operators (`and`, `or`, `not`); operators follow PEMDAS precedence; short-circuit evaluation prevents unnecessary evaluation.",
-        "B. Python uses `&&` and `||` for logical operations; `++` is used to increment variables.",
-        "C. All operators in Python evaluate strictly from left to right with no precedence differences.",
-        "D. Division in Python never produces a float."
-      ],
       "correct_answer": "A",
       "explanation": "This synthesizes all arithmetic, assignment, comparison, and logical operators, precedence hierarchies, and short-circuit evaluation in Unit 3."
     }

@@ -130,22 +130,19 @@
     },
     {
       "id": "7.7_q8",
-      "type": "output_prediction",
-      "skill": "prediction",
+      "type": "fix_the_code",
+      "skill": "debugging",
       "difficulty": "medium",
-      "concept": "string_methods_split_and_join_execution",
-      "prompt": "What is the output of the following code?\n\n```\ns = 'apple,banana,cherry'\nparts = s.split(',')\nresult = ','.join(parts)\nprint(result)\n```",
-      "options": [
-        "'apple,banana,cherry'",
-        "Raises a SyntaxError: invalid syntax at runtime",
-        "Raises an IndentationError: unexpected indent",
-        "Silently ignored by the Python parser"
-      ],
+      "concept": "string_methods_split_and_join_debugging",
+      "prompt": "Identify and fix the logical or syntax defect in this implementation of String Methods: split() and join():",
       "correct_answer": "'apple,banana,cherry'",
-      "explanation": "split(',') separates the string at each comma, producing ['apple', 'banana', 'cherry']. join(',') then inserts a comma between each element, reconstructing the original string exactly.",
+      "explanation": "Debugging is a core programming competency. Guarding against edge cases like `None` or invalid states prevents runtime failures.",
       "prerequisites": [
         "7.7_q7"
-      ]
+      ],
+      "starter_code": "# Fix the issue with String Methods: split() and join()\ndef check_valid(val):\n    if val is None:\n        return False\n    return True",
+      "solution_code": "def check_valid(val):\n    if val is None:\n        return False\n    return True",
+      "hint": "Check the condition and return value carefully."
     },
     {
       "id": "7.7_q9",
@@ -173,12 +170,6 @@
       "difficulty": "medium",
       "concept": "string_methods_split_and_join_analysis",
       "prompt": "Analyze the following code and explain why the output is what it is.\n\n```\nline = 'a;b;c'\nitems = line.split(';')\noutput = ' | '.join(items)\nprint(output)\n```",
-      "options": [
-        "The split uses ';' as separator, then join inserts ' | ' between each item.",
-        "split without argument splits on whitespace, so the result is unchanged.",
-        "join replaces ';' with ' | ' directly without splitting first.",
-        "The code raises a TypeError because join cannot accept a list."
-      ],
       "correct_answer": "The split uses ';' as separator, then join inserts ' | ' between each item.",
       "explanation": "line.split(';') produces ['a', 'b', 'c'] because ';' is the separator. ' | '.join(items) places ' | ' between each list element, yielding 'a | b | c'.",
       "prerequisites": [

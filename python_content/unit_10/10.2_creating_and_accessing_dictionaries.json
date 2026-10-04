@@ -188,12 +188,6 @@
         "content": "When analyzing dictionary code, trace each assignment and access operation in order. Check whether a key exists before accessing it, and note that dictionaries do not maintain order in older Python versions (though insertion order is preserved in modern Python). Pay attention to whether values are being retrieved, updated, or newly inserted."
       },
       "prompt": "Explain why the following code produces the output it does:\n```python\nbook = {'title': 'Python Basics'}\nbook['title'] = 'Advanced Python'\nprint(book['title'])\n```",
-      "options": [
-        "The dictionary is recreated, so the old title is lost.",
-        "The key 'title' is updated to 'Advanced Python', then printed.",
-        "A new key 'title' is added, leaving the old one unchanged.",
-        "The print statement causes a KeyError."
-      ],
       "correct_answer": "The key 'title' is updated to 'Advanced Python', then printed.",
       "explanation": "The assignment `book['title'] = 'Advanced Python'` modifies the existing key `'title'` in place. The subsequent `print(book['title'])` retrieves this updated value and displays it.",
       "starter_code": "# Write your solution below\n",

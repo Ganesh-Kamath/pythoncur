@@ -196,12 +196,6 @@
         "32.1_q10"
       ],
       "prompt": "Trace the execution of the following code and determine the final value of result.\n```python\nnums = [5, 15, 25]\nresult = 0\nfor i in range(len(nums)):\n    result += nums[i] + 10\n```",
-      "options": [
-        "60",
-        "75",
-        "90",
-        "105"
-      ],
       "correct_answer": "75",
       "explanation": "len(nums) is 3, so range(3) gives 0, 1, 2.\n- i = 0: result = 0 + nums[0] + 10 = 0 + 5 + 10 = 15\n- i = 1: result = 15 + nums[1] + 10 = 15 + 15 + 10 = 40\n- i = 2: result = 40 + nums[2] + 10 = 40 + 25 + 10 = 75\nThe final value of result is 75.",
       "starter_code": "# Write your solution below\n",

@@ -179,12 +179,6 @@
         "18.5_q9"
       ],
       "prompt": "Consider the following code snippet:\n\n```python\ndef validate(age):\n    assert age >= 18, 'Age is too low'\n    assert age < 120, 'Age is too high'\n    return 'Eligible'\n\nprint(validate(25))\n```\n\nExplain why both assertions are necessary and what would happen if the first assertion were removed.",
-      "options": [
-        "The first assertion prevents negative ages; removing it allows negative values through.",
-        "The first assertion ensures the age is at least 18; removing it would allow ages below 18 to pass validation.",
-        "The first assertion checks for data types; removing it causes a TypeError.",
-        "Both assertions are redundant; removing one has no effect."
-      ],
       "correct_answer": "The first assertion ensures the age is at least 18; removing it would allow ages below 18 to pass validation.",
       "explanation": "The first assertion enforces a minimum age of 18, which is essential for eligibility criteria. If removed, an age like 10 or 15 would bypass this check and reach the second assertion. The second assertion prevents unrealistic ages above 120. Together they ensure the input is within the valid human age range.",
       "difficulty": "medium",

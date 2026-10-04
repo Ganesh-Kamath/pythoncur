@@ -181,12 +181,6 @@
         "35.5_q9"
       ],
       "prompt": "The following function uses the fast and slow pointer technique. Explain why the loop condition is `while fast and fast.next` instead of `while fast`.",
-      "options": [
-        "Because fast moves two steps, we must ensure fast.next exists before accessing fast.next.next.",
-        "Because slow moves one step, we need an extra check for fast.",
-        "Because the linked list may be empty, we need to check fast first.",
-        "Because Python requires both pointers to be non-None for iteration."
-      ],
       "correct_answer": "Because fast moves two steps, we must ensure fast.next exists before accessing fast.next.next.",
       "explanation": "In each iteration, fast advances by two nodes: `fast = fast.next.next`. If fast is at the last node, `fast.next` is None, and accessing `fast.next.next` would raise an AttributeError. Therefore, we must verify both `fast` and `fast.next` are not None before the update.",
       "difficulty": "medium",

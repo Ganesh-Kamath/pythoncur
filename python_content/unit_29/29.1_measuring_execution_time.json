@@ -175,12 +175,6 @@
         "29.1_q9"
       ],
       "prompt": "Given the following code, explain why the function returns a float and what that value represents:\n\n```python\nimport time\n\ndef timed_sum(a, b):\n    start = time.perf_counter()\n    total = a + b\n    end = time.perf_counter()\n    return end - start\n\nresult = timed_sum(10, 20)\nprint(result)\n```",
-      "options": [
-        "It returns the sum of a and b as an integer",
-        "It returns the elapsed wall-clock time as a float in seconds",
-        "It returns the number of CPU cycles used",
-        "It returns the difference between a and b"
-      ],
       "correct_answer": "It returns the elapsed wall-clock time as a float in seconds",
       "explanation": "time.perf_counter() returns a float representing seconds. Subtracting start from end yields a float representing the elapsed time. The function ignores the actual sum and only returns the timing measurement.",
       "difficulty": "medium",
@@ -203,12 +197,6 @@
         "29.1_q10"
       ],
       "prompt": "Trace the execution of this program and list the order in which the print statements execute:\n\n```python\nimport time\n\ndef trace_demo(n):\n    t0 = time.time()\n    print('t0', t0)\n    for i in range(n):\n        t1 = time.time()\n        print('inside loop', t1)\n    t2 = time.time()\n    print('t2', t2)\n\ntrace_demo(1)\n```",
-      "options": [
-        "t0, inside loop, t2",
-        "t0, t2, inside loop",
-        "inside loop, t0, t2",
-        "t2, t0, inside loop"
-      ],
       "correct_answer": "t0, inside loop, t2",
       "explanation": "The function is called. t0 is assigned and printed first. The loop runs once, assigning t1 and printing inside the loop. After the loop, t2 is assigned and printed. Therefore the order is t0, inside loop, t2.",
       "difficulty": "medium",

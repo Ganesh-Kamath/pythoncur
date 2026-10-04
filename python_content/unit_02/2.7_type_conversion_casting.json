@@ -506,12 +506,6 @@
         "2.7_q8"
       ],
       "prompt": "A CSV log contains comma-separated numbers stored as text: `\"12.5\"` and `\"3.5\"`. Which expression computes their exact sum as a float (16.0)?",
-      "options": [
-        "A. `\"12.5\" + \"3.5\"`",
-        "B. `float(\"12.5\") + float(\"3.5\")`",
-        "C. `int(\"12.5\") + int(\"3.5\")`",
-        "D. `str(12.5 + 3.5)`"
-      ],
       "correct_answer": "B",
       "explanation": "In Python, this operation directly demonstrates the core behavior of file data parsing. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
@@ -531,12 +525,6 @@
         "2.7_q1"
       ],
       "prompt": "Congratulations on completing Unit 2! Which statement best summarizes Python variables, data types, and conversions?",
-      "options": [
-        "A. Variables are named references; identifiers follow snake_case; Python has 4 core scalars (`int`, `float`, `str`, `bool`); types belong to objects, not variables; explicit casting functions (`int()`, `float()`, `str()`, `bool()`) return converted objects.",
-        "B. Variables must be declared with types; strings and integers can be added with `+`; `int()` rounds numbers to the nearest whole number.",
-        "C. Booleans are written in lowercase; single quotes and double quotes cannot be mixed in Python.",
-        "D. All numbers in Python are limited to 32 bits."
-      ],
       "correct_answer": "A",
       "explanation": "This synthesizes the complete learning objectives of Unit 2: variables, naming conventions, core scalar types, dynamic object model, and explicit casting."
     }

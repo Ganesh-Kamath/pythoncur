@@ -179,12 +179,6 @@
         "34.2_q9"
       ],
       "prompt": "Analyze the following function and explain why it raises an error when called with an empty stack.\n\n```python\ndef peek(stack):\n    return stack[-1]\n```",
-      "options": [
-        "It raises IndexError because negative indexing on an empty list is invalid.",
-        "It raises ValueError because the stack has no elements to peek.",
-        "It returns None automatically when the list is empty.",
-        "It raises TypeError because lists do not support indexing."
-      ],
       "correct_answer": "It raises IndexError because negative indexing on an empty list is invalid.",
       "explanation": "In Python, stack[-1] attempts to access the last element. When the list is empty, this access raises an IndexError, not a ValueError.",
       "difficulty": "medium",
@@ -207,12 +201,6 @@
         "34.2_q10"
       ],
       "prompt": "Trace the execution of the following code and list the final contents of the stack.\n\n```python\nstack = []\nstack.append(1)\nstack.append(2)\nstack.pop()\nstack.append(3)\nstack.pop()\nstack.append(4)\n```",
-      "options": [
-        "[1, 2, 3, 4]",
-        "[4]",
-        "[1, 4]",
-        "[2, 3, 4]"
-      ],
       "correct_answer": "[4]",
       "explanation": "Correct trace: start [], append(1) -> [1], append(2) -> [1,2], pop() -> [1], append(3) -> [1,3], pop() -> [1], append(4) -> [1,4].",
       "accepted_answers": [

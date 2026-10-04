@@ -188,12 +188,6 @@
         "content": "After loading JSON, analyzing the result involves checking types, extracting specific fields, and understanding data structure. Use type() to verify if json.loads() produced a dictionary. Use .get() for safer key access to avoid KeyError. The .keys() method lists all keys, while .values() lists values.\n\nExample:\nimport json\n\njson_text = '{\"name\": \"Bob\", \"verified\": false}'\nobj = json.loads(json_text)\nprint(type(obj))\nprint(obj.get('name'))"
       },
       "prompt": "Given this code, explain what it does and what values are printed:\nimport json\n\njson_text = '{\"name\": \"Bob\", \"verified\": false}'\nobj = json.loads(json_text)\nprint(type(obj))\nprint(obj.get('name'))",
-      "options": [
-        "It prints <class 'dict'> and 'Bob' because json.loads converts JSON to a dictionary and .get retrieves the value safely.",
-        "It prints <class 'str'> and 'Bob' because json_text is not parsed.",
-        "It prints <class 'dict'> and None because 'name' is not a valid key.",
-        "It raises a ValueError because false is not valid JSON."
-      ],
       "correct_answer": "It prints <class 'dict'> and 'Bob' because json.loads converts JSON to a dictionary and .get retrieves the value safely.",
       "explanation": "json.loads(json_text) returns a dictionary. type(obj) shows <class 'dict'>. obj.get('name') returns 'Bob' without raising an error even if the key were missing.",
       "starter_code": "# Write your solution below\n",

@@ -189,12 +189,6 @@
         "content": "To analyze output involving returns, identify what the function computes and where the returned value is used. Compare the returned value against what is printed or stored. This helps catch mismatches between expected and actual behavior.\n\n```python\ndef subtract(a, b):\n    return a - b\n\nprint(subtract(10, 3))\n```\n\nThe function returns `7`, which is printed. Analysis confirms the arithmetic and the print statement match."
       },
       "prompt": "Explain why the output of the following code is `12`:\n\n```python\ndef compute(x, y):\n    return x + y\n\nprint(compute(5, 7))\n```",
-      "options": [
-        "The function returns the product of 5 and 7, which is 12.",
-        "The function returns the sum of 5 and 7, which is 12, and print displays it.",
-        "The function returns None, and print adds 5 and 7 to produce 12.",
-        "The function raises an error, but print outputs 12 by default."
-      ],
       "correct_answer": "The function returns the sum of 5 and 7, which is 12, and print displays it.",
       "explanation": "The `compute` function adds `x` and `y` and returns `12`. The `print` function receives this returned value and outputs `12`. The other options incorrectly describe the operation or the behavior of `print`.",
       "prerequisites": [
@@ -495,97 +489,97 @@
     {
       "id": "11.4_q25",
       "type": "write_the_code",
-      "concept": "returning_values_implementation",
-      "skill": "application",
+      "concept": "return_multiple_values",
+      "skill": "implementation",
       "difficulty": "medium",
       "prerequisites": [
         "11.4_q24"
       ],
-      "prompt": "Write a statement that prints 'Returning Values Result 25' to standard output.",
-      "starter_code": "# Write your code below\n",
-      "solution_code": "print('Returning Values Result 25')",
+      "prompt": "Write a function `get_min_max(numbers)` that returns both the minimum and maximum values of a list as a tuple `(min_val, max_val)`:",
+      "starter_code": "def get_min_max(numbers):\n    # Return (min, max)\n    ___",
+      "solution_code": "def get_min_max(numbers):\n    return min(numbers), max(numbers)",
       "test_cases": [
         {
           "input": "",
           "expected_output": "Returning Values Result 25"
         }
       ],
-      "hint": "Use print('Returning Values Result 25') to generate the required output.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of returning values implementation. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "hint": "Return multiple expressions separated by commas: `return a, b`.",
+      "explanation": "In Python, returning multiple values separated by commas automatically packs them into a single tuple (`return a, b` returns `(a, b)`)."
     },
     {
       "id": "11.4_q26",
-      "type": "write_the_code",
-      "concept": "returning_values_practical",
-      "skill": "application",
+      "type": "fix_the_code",
+      "concept": "print_vs_return",
+      "skill": "debugging",
       "difficulty": "medium",
       "prerequisites": [
         "11.4_q25"
       ],
-      "prompt": "Write a statement that prints 'Returning Values Result 26' to standard output.",
-      "starter_code": "# Write your code below\n",
-      "solution_code": "print('Returning Values Result 26')",
+      "prompt": "Fix this function so that it returns the calculated discount price to the caller rather than merely printing it and returning None:",
+      "starter_code": "def apply_discount(price, rate):\n    discounted = price - (price * rate)\n    print(discounted)  # Bug: prints instead of returning",
+      "solution_code": "def apply_discount(price, rate):\n    discounted = price - (price * rate)\n    return discounted",
       "test_cases": [
         {
           "input": "",
           "expected_output": "Returning Values Result 26"
         }
       ],
-      "hint": "Use print('Returning Values Result 26') to generate the required output.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of returning values practical. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "hint": "Replace `print(discounted)` with `return discounted`.",
+      "explanation": "A common beginner mistake is using `print()` instead of `return`. `print()` outputs text to the console, while `return` passes the computed value back to the caller for further use."
     },
     {
       "id": "11.4_q27",
       "type": "write_the_code",
-      "concept": "returning_values_advanced",
-      "skill": "application",
-      "difficulty": "hard",
+      "concept": "early_return_pattern",
+      "skill": "implementation",
+      "difficulty": "medium",
       "prerequisites": [
         "11.4_q26"
       ],
-      "prompt": "Write a statement that prints 'Returning Values Result 27' to standard output.",
-      "starter_code": "# Write your code below\n",
-      "solution_code": "print('Returning Values Result 27')",
+      "prompt": "Write a function `find_first_negative(nums)` that uses an early return to return the first negative number encountered, or `None` if all numbers are positive:",
+      "starter_code": "def find_first_negative(nums):\n    for n in nums:\n        if n < 0:\n            ___  # Return immediately\n    return None",
+      "solution_code": "def find_first_negative(nums):\n    for n in nums:\n        if n < 0:\n            return n\n    return None",
       "test_cases": [
         {
           "input": "",
           "expected_output": "Returning Values Result 27"
         }
       ],
-      "hint": "Use print('Returning Values Result 27') to generate the required output.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of returning values advanced. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "hint": "Use `return n` inside the `if` block to exit the function immediately.",
+      "explanation": "An early return exits the function immediately, avoiding unnecessary iterations and eliminating the need for complex flag variables."
     },
     {
       "id": "11.4_q28",
-      "type": "write_the_code",
-      "concept": "returning_values_challenge",
-      "skill": "problem_solving",
+      "type": "real_world_scenario",
+      "concept": "payroll_calculation",
+      "skill": "application",
       "difficulty": "hard",
       "prerequisites": [
         "11.4_q27"
       ],
-      "prompt": "Write a statement that prints 'Returning Values Result 28' to standard output.",
-      "starter_code": "# Write your code below\n",
-      "solution_code": "print('Returning Values Result 28')",
+      "prompt": "Write a function `calculate_payroll(hourly_rate, hours_worked)` that returns total earnings, calculating 1.5x overtime for any hours worked beyond 40:",
+      "starter_code": "def calculate_payroll(hourly_rate, hours_worked):\n    if hours_worked <= 40:\n        return hourly_rate * hours_worked\n    # Calculate regular + 1.5x overtime for hours > 40\n    ___",
+      "solution_code": "def calculate_payroll(hourly_rate, hours_worked):\n    if hours_worked <= 40:\n        return hourly_rate * hours_worked\n    regular_pay = hourly_rate * 40\n    overtime_pay = (hours_worked - 40) * (hourly_rate * 1.5)\n    return regular_pay + overtime_pay",
       "test_cases": [
         {
           "input": "",
           "expected_output": "Returning Values Result 28"
         }
       ],
-      "hint": "Use print('Returning Values Result 28') to generate the required output.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of returning values challenge. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "hint": "Base pay is `40 * hourly_rate`. Overtime pay is `(hours_worked - 40) * hourly_rate * 1.5`.",
+      "explanation": "Returning computed values allows calling code to save, log, or further process payroll figures (such as tax withholding) downstream."
     },
     {
       "id": "11.4_q29",
-      "type": "write_the_code",
-      "concept": "returning_values_scenario",
-      "skill": "synthesis",
-      "difficulty": "hard",
+      "type": "code_prediction",
+      "concept": "unassigned_return_value",
+      "skill": "prediction",
+      "difficulty": "medium",
       "prerequisites": [
         "11.4_q28"
       ],
-      "prompt": "Write a statement that prints 'Returning Values Result 29' to standard output.",
+      "prompt": "What does this code print?\n```python\ndef add_five(x):\n    return x + 5\n\nval = 10\nadd_five(val)\nprint(val)\n```",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Returning Values Result 29')",
       "test_cases": [
@@ -594,29 +588,36 @@
           "expected_output": "Returning Values Result 29"
         }
       ],
-      "hint": "Use print('Returning Values Result 29') to generate the required output.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of returning values scenario. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "hint": "Was the returned value assigned back to `val`?",
+      "explanation": "Functions return a new value. If the caller does not reassign it (`val = add_five(val)`), `val` remains unchanged.",
+      "options": [
+        "10",
+        "15",
+        "None",
+        "Error"
+      ],
+      "correct_answer": "10"
     },
     {
       "id": "11.4_q30",
       "type": "write_the_code",
-      "concept": "returning_values_mastery",
-      "skill": "mastery",
-      "difficulty": "hard",
+      "concept": "mastery_parse_user_record",
+      "skill": "transfer",
+      "difficulty": "expert",
       "prerequisites": [
         "11.4_q29"
       ],
-      "prompt": "Write a statement that prints 'Returning Values Result 30' to standard output.",
-      "starter_code": "# Write your code below\n",
-      "solution_code": "print('Returning Values Result 30')",
+      "prompt": "Mastery Challenge: Write a function `parse_user(csv_line)` that splits `'Name,Age,Email'`, casts age to an integer, and returns a dictionary `{'name': ..., 'age': ..., 'email': ...}`:",
+      "starter_code": "def parse_user(csv_line):\n    # Split line and return structured dictionary\n    ___",
+      "solution_code": "def parse_user(csv_line):\n    name, age_str, email = csv_line.strip().split(',')\n    return {'name': name, 'age': int(age_str), 'email': email}",
       "test_cases": [
         {
           "input": "",
           "expected_output": "Returning Values Result 30"
         }
       ],
-      "hint": "Use print('Returning Values Result 30') to generate the required output.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of returning values mastery. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "hint": "Use `.split(',')` with tuple unpacking, cast the age with `int()`, and return the dictionary.",
+      "explanation": "This synthesizes string splitting, multiple assignment, type conversion, and returning structured data types."
     }
   ],
   "unit_num": 11,

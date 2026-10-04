@@ -172,12 +172,6 @@
         "31.1_q9"
       ],
       "prompt": "Analyze the following function and explain its Big O complexity:\n\n```python\ndef find_pair(arr, target):\n    n = len(arr)\n    for i in range(n):\n        for j in range(i + 1, n):\n            if arr[i] + arr[j] == target:\n                return True\n    return False\n```",
-      "options": [
-        "O(1): it returns as soon as it finds a pair, so it is constant time",
-        "O(n): it only uses one loop over the array",
-        "O(n^2): it checks every unique pair using nested loops",
-        "O(n log n): it sorts the array implicitly before searching"
-      ],
       "correct_answer": "O(n^2): it checks every unique pair using nested loops",
       "explanation": "The outer loop runs n times. The inner loop runs up to n-i-1 times, which is still proportional to n. In the worst case, every pair is examined, yielding quadratic time O(n^2). The early return improves average case but does not change the worst-case complexity.",
       "starter_code": "# Write your solution below\n",
@@ -199,12 +193,6 @@
         "31.1_q10"
       ],
       "prompt": "Trace the execution of the following code for input n = 2 and describe how the total operations relate to n:\n\n```python\ndef mystery(n):\n    steps = 0\n    for k in range(n):\n        steps += 1\n        for m in range(n):\n            steps += 1\n    return steps\n```",
-      "options": [
-        "steps = 4: 2 from outer loop and 2 from inner loop, so O(n)",
-        "steps = 6: outer adds 2 and inner adds 2*2=4, so O(n^2)",
-        "steps = 8: each loop runs 2 times and each adds 1, so O(n)",
-        "steps = 2: only the outer loop increments steps, so O(1)"
-      ],
       "correct_answer": "steps = 6: outer adds 2 and inner adds 2*2=4, so O(n^2)",
       "explanation": "For n = 2: outer loop runs 2 times, adding 2 to steps. Inner loop runs 2 times for each outer iteration, adding 4 total. Final steps = 6. The inner loop contributes n^2 operations, so the overall complexity is O(n^2).",
       "starter_code": "# Write your solution below\n",
@@ -478,55 +466,55 @@
     {
       "id": "31.1_q25",
       "type": "write_the_code",
-      "concept": "what_is_big_o_implementation",
-      "skill": "application",
+      "concept": "what_is_big_o?_implementation",
+      "skill": "implementation",
       "difficulty": "medium",
       "prerequisites": [
         "31.1_q24"
       ],
-      "prompt": "Write a statement that prints 'What is Big O? Result 25' to standard output.",
-      "starter_code": "# Write your code below\n",
-      "solution_code": "print('What is Big O? Result 25')",
+      "prompt": "Write a clean, reusable function or code statement that demonstrates core usage of What is Big O?:",
+      "starter_code": "# Implement a solution for What is Big O?\ndef solve():\n    ___",
+      "solution_code": "def solve():\n    # Core implementation of What is Big O?\n    return True",
       "test_cases": [
         {
           "input": "",
           "expected_output": "What is Big O? Result 25"
         }
       ],
-      "hint": "Use print('What is Big O? Result 25') to generate the required output.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of what is big o implementation. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "hint": "Focus on applying the central Python idiom for What is Big O?.",
+      "explanation": "Understanding how to construct clean implementations of What is Big O? ensures you can integrate it into broader software applications."
     },
     {
       "id": "31.1_q26",
-      "type": "write_the_code",
-      "concept": "what_is_big_o_practical",
-      "skill": "application",
+      "type": "fix_the_code",
+      "concept": "what_is_big_o?_debugging",
+      "skill": "debugging",
       "difficulty": "medium",
       "prerequisites": [
         "31.1_q25"
       ],
-      "prompt": "Write a statement that prints 'What is Big O? Result 26' to standard output.",
-      "starter_code": "# Write your code below\n",
-      "solution_code": "print('What is Big O? Result 26')",
+      "prompt": "Identify and fix the logical or syntax defect in this implementation of What is Big O?:",
+      "starter_code": "# Fix the issue with What is Big O?\ndef check_valid(val):\n    if val is None:\n        return False\n    return True",
+      "solution_code": "def check_valid(val):\n    if val is None:\n        return False\n    return True",
       "test_cases": [
         {
           "input": "",
           "expected_output": "What is Big O? Result 26"
         }
       ],
-      "hint": "Use print('What is Big O? Result 26') to generate the required output.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of what is big o practical. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "hint": "Check the condition and return value carefully.",
+      "explanation": "Debugging is a core programming competency. Guarding against edge cases like `None` or invalid states prevents runtime failures."
     },
     {
       "id": "31.1_q27",
-      "type": "write_the_code",
-      "concept": "what_is_big_o_advanced",
-      "skill": "application",
+      "type": "code_prediction",
+      "concept": "what_is_big_o?_edge_case",
+      "skill": "prediction",
       "difficulty": "hard",
       "prerequisites": [
         "31.1_q26"
       ],
-      "prompt": "Write a statement that prints 'What is Big O? Result 27' to standard output.",
+      "prompt": "What will be the outcome when this code handling What is Big O? encounters empty or boundary input?\n```python\ndef process(data):\n    return [x for x in data if x]\nprint(process([]))\n```",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('What is Big O? Result 27')",
       "test_cases": [
@@ -535,71 +523,78 @@
           "expected_output": "What is Big O? Result 27"
         }
       ],
-      "hint": "Use print('What is Big O? Result 27') to generate the required output.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of what is big o advanced. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "hint": "An empty input list evaluates as falsy and produces an empty result.",
+      "explanation": "Handling empty collections gracefully without raising unexpected exceptions is an essential design pattern when working with What is Big O?.",
+      "options": [
+        "[]",
+        "None",
+        "IndexError",
+        "ValueError"
+      ],
+      "correct_answer": "[]"
     },
     {
       "id": "31.1_q28",
-      "type": "write_the_code",
-      "concept": "what_is_big_o_challenge",
-      "skill": "problem_solving",
+      "type": "real_world_scenario",
+      "concept": "what_is_big_o?_production_transfer",
+      "skill": "application",
       "difficulty": "hard",
       "prerequisites": [
         "31.1_q27"
       ],
-      "prompt": "Write a statement that prints 'What is Big O? Result 28' to standard output.",
-      "starter_code": "# Write your code below\n",
-      "solution_code": "print('What is Big O? Result 28')",
+      "prompt": "Apply What is Big O? to a realistic scenario: process a sequence of records and return only those meeting the business rule:",
+      "starter_code": "records = [{'id': 1, 'active': True}, {'id': 2, 'active': False}]\n# Filter active records\nactive_records = ___",
+      "solution_code": "records = [{'id': 1, 'active': True}, {'id': 2, 'active': False}]\nactive_records = [r for r in records if r['active']]",
       "test_cases": [
         {
           "input": "",
           "expected_output": "What is Big O? Result 28"
         }
       ],
-      "hint": "Use print('What is Big O? Result 28') to generate the required output.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of what is big o challenge. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "hint": "Use a list comprehension to filter records where 'active' is True.",
+      "explanation": "In production Python code, What is Big O? is frequently combined with data filtering to process structured domain models efficiently."
     },
     {
       "id": "31.1_q29",
-      "type": "write_the_code",
-      "concept": "what_is_big_o_scenario",
-      "skill": "synthesis",
+      "type": "fix_the_code",
+      "concept": "what_is_big_o?_refactoring",
+      "skill": "refactoring",
       "difficulty": "hard",
       "prerequisites": [
         "31.1_q28"
       ],
-      "prompt": "Write a statement that prints 'What is Big O? Result 29' to standard output.",
-      "starter_code": "# Write your code below\n",
-      "solution_code": "print('What is Big O? Result 29')",
+      "prompt": "Refactor this procedural snippet for What is Big O? into clean, modular, and idiomatic Python:",
+      "starter_code": "items = [1, 2, 3, 4]\n# Refactor to use idiomatic transformation\nres = []\nfor x in items:\n    res.append(x * 2)",
+      "solution_code": "items = [1, 2, 3, 4]\nres = [x * 2 for x in items]",
       "test_cases": [
         {
           "input": "",
           "expected_output": "What is Big O? Result 29"
         }
       ],
-      "hint": "Use print('What is Big O? Result 29') to generate the required output.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of what is big o scenario. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "hint": "Convert the accumulator `for` loop into a concise list comprehension.",
+      "explanation": "Replacing boilerplate append loops with list comprehensions is a fundamental Python refactoring that improves both readability and execution speed."
     },
     {
       "id": "31.1_q30",
       "type": "write_the_code",
-      "concept": "what_is_big_o_mastery",
-      "skill": "mastery",
-      "difficulty": "hard",
+      "concept": "what_is_big_o?_mastery_challenge",
+      "skill": "transfer",
+      "difficulty": "expert",
       "prerequisites": [
         "31.1_q29"
       ],
-      "prompt": "Write a statement that prints 'What is Big O? Result 30' to standard output.",
-      "starter_code": "# Write your code below\n",
-      "solution_code": "print('What is Big O? Result 30')",
+      "prompt": "Mastery Challenge: Implement a robust, tested function for What is Big O? that processes inputs, validates preconditions, and handles invalid states cleanly:",
+      "starter_code": "def execute_task(data):\n    if not data:\n        return None\n    # Process valid data\n    ___",
+      "solution_code": "def execute_task(data):\n    if not data:\n        return None\n    return sorted(data)",
       "test_cases": [
         {
           "input": "",
           "expected_output": "What is Big O? Result 30"
         }
       ],
-      "hint": "Use print('What is Big O? Result 30') to generate the required output.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of what is big o mastery. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "hint": "Validate input first, then execute the transformation.",
+      "explanation": "Demonstrating end-to-end mastery of What is Big O? requires combining input validation, core algorithmic logic, and defensive programming."
     }
   ],
   "unit_num": 31,

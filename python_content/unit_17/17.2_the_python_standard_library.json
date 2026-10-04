@@ -180,12 +180,6 @@
       ],
       "prompt": "Explain the behavior and output of the following Python code snippet.",
       "code": "import math\nimport random\nimport datetime\n\nstart = datetime.datetime(2024, 1, 1)\nend = datetime.datetime(2024, 1, 31)\ndelta = (end - start).days\nrandom_day = start + datetime.timedelta(days=random.randint(0, delta))\nprint(random_day.strftime('%A, %B %d, %Y'))",
-      "options": [
-        "It prints a random day in January 2024 as a weekday name, month, and date.",
-        "It raises a TypeError because timedelta cannot be added to datetime.",
-        "It always prints January 31, 2024 because randint is deterministic.",
-        "It prints the current date because start is ignored."
-      ],
       "correct_answer": "It prints a random day in January 2024 as a weekday name, month, and date.",
       "explanation": "The code creates start and end as datetime objects. (end - start).days computes 30. random.randint(0, 30) picks an integer offset. datetime.timedelta(days=...) creates a duration, and adding it to start yields a random datetime within January 2024. strftime formats it as a readable string. No error occurs because datetime and timedelta are compatible.",
       "starter_code": "# Write your solution below\n",
@@ -441,7 +435,7 @@
       ],
       "micro_lesson": {
         "title": "Runtime Errors with Standard Library Functions",
-        "content": "Runtime errors occur during execution, not during parsing. With `math`, calling `math.log(0)` raises a `ValueError` because the logarithm of zero is undefined. With `random`, seeding with a non-integer or using `random.choice()` on an empty sequence raises `TypeError` or `IndexError`. With `datetime`, creating an invalid date like `datetime(2023, 2, 30)` raises `ValueError`. These errors are caught only when the problematic line runs. Always validate inputs before passing them to library functions. For instance, check that a number is positive before computing a logarithm, and ensure a list is non-empty before calling `random.choice()`. Below is a runtime error example:\n\n```python\nimport math\nimport random\nfrom datetime import datetime\n\n# Runtime error: log(0) is undefined\nprint(math.log(0))\n\n# Runtime error: choice on empty list\nprint(random.choice([]))\n\n# Runtime error: invalid date\nprint(datetime(2023, 2, 30))\n```\n\nEach of these lines crashes the program. Defensive programming\u2014checking conditions before calling functions\u2014prevents such runtime failures."
+        "content": "Runtime errors occur during execution, not during parsing. With `math`, calling `math.log(0)` raises a `ValueError` because the logarithm of zero is undefined. With `random`, seeding with a non-integer or using `random.choice()` on an empty sequence raises `TypeError` or `IndexError`. With `datetime`, creating an invalid date like `datetime(2023, 2, 30)` raises `ValueError`. These errors are caught only when the problematic line runs. Always validate inputs before passing them to library functions. For instance, check that a number is positive before computing a logarithm, and ensure a list is non-empty before calling `random.choice()`. Below is a runtime error example:\n\n```python\nimport math\nimport random\nfrom datetime import datetime\n\n# Runtime error: log(0) is undefined\nprint(math.log(0))\n\n# Runtime error: choice on empty list\nprint(random.choice([]))\n\n# Runtime error: invalid date\nprint(datetime(2023, 2, 30))\n```\n\nEach of these lines crashes the program. Defensive programming—checking conditions before calling functions—prevents such runtime failures."
       },
       "prompt": "Fix the bug in this code for the python standard library math random datetime runtime:",
       "starter_code": "# Fix this code\nPrint('The Python Standard Library (math, random, datetime)')",

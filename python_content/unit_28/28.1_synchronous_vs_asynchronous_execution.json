@@ -172,12 +172,6 @@
         "28.1_q9"
       ],
       "prompt": "Analyze the following output and identify the execution model:\n```\nTask 1 start\nTask 2 start\nTask 1 end\nTask 2 end\n```\nWhich execution model produced this output and why?",
-      "options": [
-        "Synchronous execution, because tasks ran one after another",
-        "Asynchronous execution with concurrency, because both tasks started before either finished",
-        "Synchronous execution with parallelism, because tasks ran at the same time",
-        "Asynchronous execution without concurrency, because tasks were awaited sequentially"
-      ],
       "correct_answer": "Asynchronous execution with concurrency, because both tasks started before either finished",
       "explanation": "The output shows 'Task 1 start' and 'Task 2 start' before either 'Task 1 end' or 'Task 2 end', indicating both tasks began execution before completion. This interleaving is characteristic of concurrent asynchronous execution, where multiple tasks make progress during I/O waits.",
       "starter_code": "# Write your solution below\n",
@@ -199,12 +193,6 @@
         "28.1_q10"
       ],
       "prompt": "Trace the execution flow of the following code step by step:\n```python\nimport asyncio\n\nasync def task_one():\n    print('One start')\n    await asyncio.sleep(0.1)\n    print('One end')\n\nasync def task_two():\n    print('Two start')\n    await asyncio.sleep(0.1)\n    print('Two end')\n\nasync def main():\n    t1 = asyncio.create_task(task_one())\n    t2 = asyncio.create_task(task_two())\n    await asyncio.gather(t1, t2)\n\nasyncio.run(main())\n```\nList the order in which print statements execute.",
-      "options": [
-        "One start, Two start, One end, Two end",
-        "One start, One end, Two start, Two end",
-        "Two start, One start, Two end, One end",
-        "One start, Two end, Two start, One end"
-      ],
       "correct_answer": "One start, Two start, One end, Two end",
       "explanation": "asyncio.create_task schedules both coroutines to run concurrently. The event loop starts both tasks, so 'One start' and 'Two start' print nearly simultaneously. Each then awaits asyncio.sleep(0.1), allowing the other to finish its print. After the sleep, 'One end' and 'Two end' print. The exact interleaving may vary slightly, but both starts precede both ends.",
       "starter_code": "# Write your solution below\n",

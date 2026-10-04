@@ -172,12 +172,6 @@
         "28.6_q9"
       ],
       "prompt": "Analyze the following code and explain why it is generally preferred over `asyncio.gather` when you need results as soon as they arrive:\n\n```python\nimport asyncio\nimport aiohttp\n\nasync def fetch(session, url):\n    async with session.get(url) as resp:\n        return await resp.text()\n\nasync def main():\n    async with aiohttp.ClientSession() as session:\n        urls = ['https://fast.com', 'https://slow.com', 'https://medium.com']\n        tasks = [fetch(session, u) for u in urls]\n        for coro in asyncio.as_completed(tasks):\n            print(await coro)\n\nasyncio.run(main())\n```",
-      "options": [
-        "`asyncio.as_completed` processes results in the order the URLs were listed",
-        "`asyncio.as_completed` yields results as soon as each coroutine finishes, regardless of input order",
-        "`asyncio.as_completed` reduces memory usage by not storing intermediate results",
-        "`asyncio.as_completed` automatically retries failed requests"
-      ],
       "correct_answer": "`asyncio.as_completed` yields results as soon as each coroutine finishes, regardless of input order",
       "explanation": "`asyncio.as_completed` returns an iterator that yields futures in the order they complete. This allows you to handle fast responses immediately without waiting for slower ones, which is useful for streaming or progressive rendering.",
       "starter_code": "# Write your solution below\n",
@@ -199,12 +193,6 @@
         "28.6_q10"
       ],
       "prompt": "Trace the execution order of the following code step by step. Which statement best describes when each print occurs?\n\n```python\nimport asyncio\nimport aiohttp\n\nasync def fetch(session, url):\n    print(f'Fetching {url}')\n    async with session.get(url) as resp:\n        await asyncio.sleep(0.1)\n        print(f'Done {url}')\n        return 'ok'\n\nasync def main():\n    async with aiohttp.ClientSession() as session:\n        t1 = asyncio.create_task(fetch(session, 'A'))\n        t2 = asyncio.create_task(fetch(session, 'B'))\n        await asyncio.gather(t1, t2)\n        print('All done')\n\nasyncio.run(main())\n```",
-      "options": [
-        "Prints 'Fetching A', 'Fetching B', then 'Done A', 'Done B', then 'All done'",
-        "Prints 'Fetching A', 'Fetching B', then 'All done', then 'Done A', 'Done B'",
-        "Prints 'Fetching A', 'Done A', 'Fetching B', 'Done B', then 'All done'",
-        "Prints 'Fetching A', 'Fetching B', then 'Done A', 'Done B', then 'All done' (order of Done A/B may vary)"
-      ],
       "correct_answer": "Prints 'Fetching A', 'Fetching B', then 'Done A', 'Done B', then 'All done' (order of Done A/B may vary)",
       "explanation": "Both tasks start immediately because they are created with `create_task`. The `await asyncio.sleep(0.1)` simulates network latency. Since both tasks sleep for the same duration, their completion order is non-deterministic, but `gather` waits for both before printing 'All done'.",
       "starter_code": "# Write your solution below\n",

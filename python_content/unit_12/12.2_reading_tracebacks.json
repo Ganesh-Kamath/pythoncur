@@ -185,12 +185,6 @@
         "content": "When analyzing a traceback, identify three key elements: the exception class (e.g., IndexError, KeyError), the exception message, and the file/line reference. The exception class tells you what went wrong. The message gives context. The file and line tell you exactly where to look. The call stack reveals how the error traveled through your program. A common mistake is ignoring the call stack and only reading the top line, which can mislead you into fixing the wrong function."
       },
       "prompt": "Explain what each part of this traceback means and identify the likely bug:\n```\nIndexError: list index out of range\n  File 'app.py', line 7, in process_data\n  File 'app.py', line 12, in main\n  File 'app.py', line 20, in <module>\n```",
-      "options": [
-        "The bug is in main at line 12 because it calls process_data.",
-        "The bug is an IndexError in process_data at line 7 because an element was accessed beyond the list bounds.",
-        "The bug is a KeyError because a dictionary key is missing.",
-        "The bug is in <module> at line 20 because it is the entry point."
-      ],
       "correct_answer": "The bug is an IndexError in process_data at line 7 because an element was accessed beyond the list bounds.",
       "explanation": "The exception class is IndexError, which means a sequence index was invalid. The file and line point to process_data at line 7. The call stack shows main called process_data, but the root cause is in process_data, not in main or the module entry point.",
       "prerequisites": [

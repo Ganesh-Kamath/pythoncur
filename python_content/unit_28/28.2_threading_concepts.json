@@ -172,12 +172,6 @@
         "28.2_q9"
       ],
       "prompt": "Analyze the following code and explain why the output may be inconsistent across runs:\n\n```python\nimport threading\n\ndef counter():\n    for _ in range(100000):\n        global x\n        x += 1\n\nx = 0\nt1 = threading.Thread(target=counter)\nt2 = threading.Thread(target=counter)\nt1.start()\nt2.start()\nt1.join()\nt2.join()\nprint(x)\n```",
-      "options": [
-        "Because print is not thread-safe",
-        "Because += is not atomic and leads to race conditions",
-        "Because global variables cannot be shared between threads",
-        "Because threads always execute in strict alternation"
-      ],
       "correct_answer": "Because += is not atomic and leads to race conditions",
       "explanation": "The statement x += 1 expands to a read, increment, and write. Two threads can interleave these steps, causing lost updates. Therefore, x may end up less than 200000, making the output inconsistent.",
       "starter_code": "# Write your solution below\n",
@@ -199,12 +193,6 @@
         "28.2_q10"
       ],
       "prompt": "Trace the execution step by step and identify the final value of result:\n\n```python\nimport threading\n\ndef compute(n):\n    return n * n\n\ndef worker(x, y, out):\n    out['val'] = compute(x) + compute(y)\n\nout = {}\nt = threading.Thread(target=worker, args=(3, 4, out))\nt.start()\nt.join()\nresult = out['val']\nprint(result)\n```",
-      "options": [
-        "25",
-        "12",
-        "9",
-        "7"
-      ],
       "correct_answer": "25",
       "explanation": "worker computes 3*3 + 4*4 = 9 + 16 = 25. The dictionary out is shared by reference, so after the thread joins, result = out['val'] = 25.",
       "starter_code": "# Write your solution below\n",

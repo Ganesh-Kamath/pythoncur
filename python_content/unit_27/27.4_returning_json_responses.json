@@ -171,12 +171,6 @@
         "27.4_q9"
       ],
       "prompt": "Explain why the following route returns a 406 Not Acceptable error when the client sends 'Accept: text/html'.\n```python\nfrom flask import Flask, jsonify\n\napp = Flask(__name__)\n\n@app.route('/data')\ndef data():\n    return jsonify({'message': 'hello'})\n```",
-      "options": [
-        "The server does not support JSON serialization.",
-        "The client requested HTML but the route only produces JSON, and Flask enforces content negotiation.",
-        "The jsonify() function is missing an import.",
-        "The route returns a string instead of a Response object."
-      ],
       "correct_answer": "The client requested HTML but the route only produces JSON, and Flask enforces content negotiation.",
       "explanation": "Flask uses content negotiation. If the client sends Accept: text/html and the route only produces application/json, Flask may raise a 406 Not Acceptable unless a custom error handler is registered. The jsonify() call correctly produces JSON, so the issue is the mismatch between client preference and server capability.",
       "skill": "analysis",
@@ -198,12 +192,6 @@
         "27.4_q10"
       ],
       "prompt": "Trace the execution step by step for the request to '/items/3'. Show the state of variables after each major step.\n```python\nfrom flask import Flask, jsonify\n\napp = Flask(__name__)\n\n@app.route('/items/<int:n>')\ndef items(n):\n    result = []\n    for i in range(n):\n        result.append({'index': i})\n    return jsonify(result)\n```",
-      "options": [
-        "Step 1: n=3. Step 2: result=[]. Step 3: loop appends 3 dicts. Step 4: jsonify returns JSON list of 3 objects.",
-        "Step 1: n=3. Step 2: result=[{'index': 3}]. Step 3: loop appends one dict. Step 4: jsonify returns a single object.",
-        "Step 1: n=3. Step 2: result=[]. Step 3: loop appends 0 dicts. Step 4: jsonify returns an empty list.",
-        "Step 1: n=3. Step 2: result=[]. Step 3: loop appends 3 strings. Step 4: jsonify returns a JSON string."
-      ],
       "correct_answer": "Step 1: n=3. Step 2: result=[]. Step 3: loop appends 3 dicts. Step 4: jsonify returns JSON list of 3 objects.",
       "explanation": "The route captures n=3. result starts as an empty list. The for loop iterates i=0, 1, 2, appending {'index': 0}, {'index': 1}, and {'index': 2} respectively. jsonify() serializes the final list into a JSON array containing three objects.",
       "skill": "tracing",
@@ -458,7 +446,7 @@
         }
       ],
       "hint": "Create one helper that accepts optional data, error, and status, then use it across all route handlers to eliminate duplication.",
-      "explanation": "Consolidating JSON response creation into a single helper reduces duplication, enforces consistent status codes and mimetypes, and makes future changes\u2014such as adding logging or default headers\u2014trivial to apply across every endpoint."
+      "explanation": "Consolidating JSON response creation into a single helper reduces duplication, enforces consistent status codes and mimetypes, and makes future changes—such as adding logging or default headers—trivial to apply across every endpoint."
     },
     {
       "id": "27.4_q25",

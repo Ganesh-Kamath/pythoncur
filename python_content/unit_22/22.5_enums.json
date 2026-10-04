@@ -24,26 +24,15 @@
       "prerequisites": [
         "22.5_q1"
       ],
-      "match_code_to_concept": {
-        "prompt": "Which statement best describes the purpose of using an Enum in Python?",
-        "options": [
-          "To store large amounts of data efficiently",
-          "To define a fixed set of named constants for better readability",
-          "To perform mathematical calculations on strings",
-          "To automatically sort lists in descending order"
-        ],
-        "correct_answer": "To define a fixed set of named constants for better readability",
-        "explanation": "Enums are designed to represent a limited, fixed collection of named values. This improves code clarity and prevents invalid values from being assigned."
-      },
-      "prompt": "Which statement best applies to enums basics?",
+      "prompt": "Which statement best describes the purpose of using an Enum in Python?",
       "options": [
-        "A. Correct approach for enums basics",
-        "Raises a SyntaxError: invalid syntax at runtime",
-        "Raises an IndentationError: unexpected indent",
-        "Silently ignored by the Python parser"
+        "To store large amounts of data efficiently",
+        "To define a fixed set of named constants for better readability",
+        "To perform mathematical calculations on strings",
+        "To automatically sort lists in descending order"
       ],
-      "correct_answer": "A. Correct approach for enums basics",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of enums basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "correct_answer": "To define a fixed set of named constants for better readability",
+      "explanation": "Enums are designed to represent a limited, fixed collection of named values. This improves code clarity and prevents invalid values from being assigned."
     },
     {
       "id": "22.5_q3",
@@ -68,26 +57,15 @@
       "prerequisites": [
         "22.5_q3"
       ],
-      "match_code_to_concept": {
-        "prompt": "Given the enum definition below, what is printed by the last line?\n\n```python\nfrom enum import Enum\n\nclass Priority(Enum):\n    LOW = 1\n    MEDIUM = 2\n\nprint(Priority.MEDIUM.name)\n```",
-        "options": [
-          "'MEDIUM'",
-          "2",
-          "Priority.MEDIUM",
-          "TypeError"
-        ],
-        "correct_answer": "'MEDIUM'",
-        "explanation": "The .name attribute returns the member name as a string. Therefore, Priority.MEDIUM.name evaluates to the string 'MEDIUM'."
-      },
-      "prompt": "Which statement best applies to enums syntax?",
+      "prompt": "Given the enum definition below, what is printed by the last line?\n\n```python\nfrom enum import Enum\n\nclass Priority(Enum):\n    LOW = 1\n    MEDIUM = 2\n\nprint(Priority.MEDIUM.name)\n```",
       "options": [
-        "A. Correct approach for enums syntax",
-        "Raises a SyntaxError: invalid syntax at runtime",
-        "Raises an IndentationError: unexpected indent",
-        "Silently ignored by the Python parser"
+        "'MEDIUM'",
+        "2",
+        "Priority.MEDIUM",
+        "TypeError"
       ],
-      "correct_answer": "A. Correct approach for enums syntax",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of enums syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "correct_answer": "'MEDIUM'",
+      "explanation": "The .name attribute returns the member name as a string. Therefore, Priority.MEDIUM.name evaluates to the string 'MEDIUM'."
     },
     {
       "id": "22.5_q5",
@@ -98,26 +76,15 @@
       "prerequisites": [
         "22.5_q4"
       ],
-      "match_code_to_concept": {
-        "prompt": "Which code correctly checks whether a variable `color` is the RED member of the Color enum?",
-        "options": [
-          "if color == 'RED':",
-          "if color == Color.RED:",
-          "if color.RED == True:",
-          "if color in Color.RED:"
-        ],
-        "correct_answer": "if color == Color.RED:",
-        "explanation": "Enum members are compared by identity or equality. Using the enum member directly (Color.RED) is the correct and readable way to check membership."
-      },
-      "prompt": "Which statement best applies to enums matching?",
+      "prompt": "Which code correctly checks whether a variable `color` is the RED member of the Color enum?",
       "options": [
-        "A. Correct approach for enums matching",
-        "Raises a SyntaxError: invalid syntax at runtime",
-        "Raises an IndentationError: unexpected indent",
-        "Silently ignored by the Python parser"
+        "if color == 'RED':",
+        "if color == Color.RED:",
+        "if color.RED == True:",
+        "if color in Color.RED:"
       ],
-      "correct_answer": "A. Correct approach for enums matching",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of enums matching. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "correct_answer": "if color == Color.RED:",
+      "explanation": "Enum members are compared by identity or equality. Using the enum member directly (Color.RED) is the correct and readable way to check membership."
     },
     {
       "id": "22.5_q6",
@@ -128,26 +95,15 @@
       "prerequisites": [
         "22.5_q5"
       ],
-      "match_code_to_concept": {
-        "prompt": "What happens if you accidentally compare an Enum member to its integer value?\n\n```python\nfrom enum import Enum\n\nclass Size(Enum):\n    SMALL = 1\n\nprint(Size.SMALL == 1)\n```",
-        "options": [
-          "It raises a TypeError",
-          "It prints True because the values are equal",
-          "It prints False because Enum members are not integers",
-          "It prints False because the comparison is between an Enum and an int"
-        ],
-        "correct_answer": "It prints True because the values are equal",
-        "explanation": "Enum members can be compared to their underlying values. Since Size.SMALL has value 1, the expression Size.SMALL == 1 evaluates to True. However, this can lead to subtle bugs if you intended to compare members directly."
-      },
-      "prompt": "Which statement best applies to enums pitfalls?",
+      "prompt": "What happens if you accidentally compare an Enum member to its integer value?\n\n```python\nfrom enum import Enum\n\nclass Size(Enum):\n    SMALL = 1\n\nprint(Size.SMALL == 1)\n```",
       "options": [
-        "A. Correct approach for enums pitfalls",
-        "Raises a SyntaxError: invalid syntax at runtime",
-        "Raises an IndentationError: unexpected indent",
-        "Silently ignored by the Python parser"
+        "It raises a TypeError",
+        "It prints True because the values are equal",
+        "It prints False because Enum members are not integers",
+        "It prints False because the comparison is between an Enum and an int"
       ],
-      "correct_answer": "A. Correct approach for enums pitfalls",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of enums pitfalls. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "correct_answer": "It prints True because the values are equal",
+      "explanation": "Enum members can be compared to their underlying values. Since Size.SMALL has value 1, the expression Size.SMALL == 1 evaluates to True. However, this can lead to subtle bugs if you intended to compare members directly."
     },
     {
       "id": "22.5_q7",
@@ -238,12 +194,6 @@
         "22.5_q10"
       ],
       "prompt": "Trace the execution of the following code step by step and determine the final value of `result`:\n\n```python\nfrom enum import Enum\n\nclass Phase(Enum):\n    INIT = 0\n    RUNNING = 1\n    DONE = 2\n\ncurrent = Phase.RUNNING\nresult = None\n\nif current == Phase.INIT:\n    result = 'initializing'\nelif current == Phase.RUNNING:\n    result = 'executing'\nelse:\n    result = 'finalizing'\n\nprint(result)\n```",
-      "options": [
-        "initializing",
-        "executing",
-        "finalizing",
-        "None"
-      ],
       "correct_answer": "executing",
       "explanation": "Step 1: `current` is assigned `Phase.RUNNING`. Step 2: The first `if` condition `current == Phase.INIT` is False. Step 3: The `elif` condition `current == Phase.RUNNING` is True, so `result` is set to 'executing'. Step 4: The `else` branch is skipped. Step 5: `print(result)` outputs 'executing'.",
       "starter_code": "# Write your solution below\n",

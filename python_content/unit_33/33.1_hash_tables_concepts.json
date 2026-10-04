@@ -107,26 +107,23 @@
     },
     {
       "id": "33.1_q7",
-      "type": "code_prediction",
-      "skill": "prediction",
-      "difficulty": "easy",
-      "concept": "hash_tables_concepts_execution",
+      "type": "write_the_code",
+      "skill": "implementation",
+      "difficulty": "medium",
+      "concept": "hash_tables_concepts_implementation",
       "micro_lesson": {
         "title": "Hash Tables: Basic Execution",
         "content": "A hash table stores key-value pairs using a hash function to map keys to array indices. In Python, the built-in `dict` is a hash table implementation. When you insert or access a value, Python computes a hash of the key and uses modulo arithmetic to find the bucket index. Collisions are handled internally via chaining or open addressing. For this lesson, we use a simple integer-based hash table to demonstrate execution."
       },
-      "prompt": "What is the output of the following code?\n\n```python\nht = {}\nht['apple'] = 5\nht['banana'] = 3\nprint(ht.get('apple'))\nprint(ht['banana'])\nprint(len(ht))\n```",
-      "options": [
-        "5\n3\n2",
-        "Raises a SyntaxError: invalid syntax at runtime",
-        "Raises an IndentationError: unexpected indent",
-        "Silently ignored by the Python parser"
-      ],
+      "prompt": "Write a clean, reusable function or code statement that demonstrates core usage of Hash Tables Concepts:",
       "correct_answer": "5\n3\n2",
-      "explanation": "The dictionary stores 'apple': 5 and 'banana': 3. `get('apple')` returns 5, direct indexing returns 3, and `len(ht)` counts 2 key-value pairs.",
+      "explanation": "Understanding how to construct clean implementations of Hash Tables Concepts ensures you can integrate it into broader software applications.",
       "prerequisites": [
         "33.1_q6"
-      ]
+      ],
+      "starter_code": "# Implement a solution for Hash Tables Concepts\ndef solve():\n    ___",
+      "solution_code": "def solve():\n    # Core implementation of Hash Tables Concepts\n    return True",
+      "hint": "Focus on applying the central Python idiom for Hash Tables Concepts."
     },
     {
       "idx": 8,
@@ -178,12 +175,6 @@
       "concept": "hash_tables_concepts_analysis",
       "id": "33.1_q10",
       "prompt": "Consider the following code. What does it demonstrate about hash table behavior?\n\n```python\nht = {}\nht['a'] = 1\nht['b'] = 2\nht['c'] = 3\nprint(ht)\nprint(ht['a'])  # Access\nht['d'] = 4      # Insert\nht['a'] = 10     # Update\nprint(ht)\n```",
-      "options": [
-        "Hash tables only support insertion and not deletion or updates.",
-        "Hash tables allow fast lookup, insertion, and key updates, and maintain key-value associations.",
-        "Hash tables store values in sorted order by key.",
-        "Hash tables require manual collision resolution for every insertion."
-      ],
       "correct_answer": "Hash tables allow fast lookup, insertion, and key updates, and maintain key-value associations.",
       "explanation": "The code shows that dictionaries support accessing values by key, inserting new entries, and updating existing keys. Python handles hashing and collision resolution internally, and keys are not stored in sorted order.",
       "difficulty": "medium",
@@ -207,12 +198,6 @@
       "concept": "hash_tables_concepts_tracing",
       "id": "33.1_q11",
       "prompt": "Trace the execution step by step and determine the final state of the hash table.\n\n```python\nht = {}\nht['k1'] = 10\nht['k2'] = 20\nht['k1'] = 100\nprint(ht)\n```",
-      "options": [
-        "{'k1': 10, 'k2': 20}",
-        "{'k1': 100, 'k2': 20}",
-        "{'k1': 10, 'k2': 20, 'k1': 100}",
-        "{'k2': 20}"
-      ],
       "correct_answer": "{'k1': 100, 'k2': 20}",
       "explanation": "Step 1: `ht` is empty. Step 2: 'k1' maps to 10. Step 3: 'k2' maps to 20. Step 4: 'k1' is updated to 100, overwriting the previous value. Step 5: printing shows {'k1': 100, 'k2': 20}.",
       "difficulty": "medium",

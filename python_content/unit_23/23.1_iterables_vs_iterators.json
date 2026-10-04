@@ -181,12 +181,6 @@
         "23.1_q9"
       ],
       "prompt": "Explain why the following code raises an error on the second loop.\n\n```python\nnums = [1, 2, 3]\nfor n in nums:\n    print(n)\n\nfor n in nums:\n    print(n)\n```",
-      "options": [
-        "Lists are not iterable, so the first loop fails.",
-        "The list is exhausted after the first loop, so the second loop cannot restart.",
-        "The list is iterable, and each for loop creates a fresh iterator, so both loops run successfully.",
-        "The second loop fails because lists can only be used once."
-      ],
       "correct_answer": "The list is iterable, and each for loop creates a fresh iterator, so both loops run successfully.",
       "explanation": "Lists are iterables. The for statement internally calls iter() each time it starts a loop, producing a new iterator from the same iterable. Therefore, the second loop is independent and prints 1, 2, 3 again without error.",
       "difficulty": "medium",
@@ -209,12 +203,6 @@
         "23.1_q10"
       ],
       "prompt": "Trace the execution and state changes in this code. Provide the value returned by each next() call and the final state of the iterator.\n\n```python\ndef countdown(n):\n    while n > 0:\n        yield n\n        n -= 1\n\nc = countdown(3)\nprint(next(c))\nprint(next(c))\nprint(next(c))\nprint(next(c))\n```",
-      "options": [
-        "3, 2, 1, then StopIteration",
-        "3, 2, 1, then 0",
-        "3, 2, 1, then None",
-        "3, 2, 1, then Error: n is not defined"
-      ],
       "correct_answer": "3, 2, 1, then StopIteration",
       "explanation": "countdown(3) creates a generator. next(c) returns 3 and decrements n to 2. next(c) returns 2 and decrements n to 1. next(c) returns 1 and decrements n to 0. The while condition n > 0 is now false, so the generator is exhausted. The fourth next(c) raises StopIteration.",
       "difficulty": "medium",

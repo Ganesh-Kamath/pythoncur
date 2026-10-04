@@ -172,12 +172,6 @@
         "43.1_q9"
       ],
       "prompt": "Explain why the following recursive function eventually terminates and what it computes.\n\n```python\ndef countdown(n):\n    if n == 0:\n        return\n    print(n)\n    countdown(n - 1)\n\ncntdown(3)\n```",
-      "options": [
-        "It terminates because n decreases by 1 each call until reaching 0, printing 3, 2, 1.",
-        "It terminates because n increases each call until reaching infinity.",
-        "It never terminates because the base case is n == 1.",
-        "It terminates by printing 0, 0, 0 because the base case is reached immediately."
-      ],
       "correct_answer": "It terminates because n decreases by 1 each call until reaching 0, printing 3, 2, 1.",
       "explanation": "Each recursive call reduces n by 1, guaranteeing progress toward the base case n == 0. The print statements execute during the unwinding phase after the deepest call returns, producing 3, then 2, then 1.",
       "starter_code": "# Write your solution below\n",

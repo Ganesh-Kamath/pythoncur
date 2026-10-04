@@ -178,12 +178,6 @@
         "17.7_q9"
       ],
       "prompt": "A project has a requirements.txt with 'flask==2.0.1' and 'werkzeug==2.0.1'. After running 'pip freeze > requirements.txt' in an active environment, the file contains 'flask==2.2.2' and 'werkzeug==2.2.2'. Explain why the installed versions differ from the original requirements.",
-      "options": [
-        "pip freeze only records packages installed via pip install -r, so versions changed to latest.",
-        "pip freeze captures the currently installed versions in the environment, which were upgraded after the original requirements were installed.",
-        "The requirements.txt was edited manually, causing version mismatches.",
-        "Virtual environments ignore requirements.txt and always use system packages."
-      ],
       "correct_answer": "pip freeze captures the currently installed versions in the environment, which were upgraded after the original requirements were installed.",
       "explanation": "pip freeze outputs the exact versions of packages currently present in the active environment. If packages were upgraded after installation, pip freeze reflects those newer versions, not the original pinned versions.",
       "starter_code": "# Write your solution below\n",
@@ -585,7 +579,7 @@
         "tool rolls back environment on failure"
       ],
       "hint": "Use shutil.move for atomic rollback; wrap installation in try/finally to ensure cleanup.",
-      "explanation": "This mastery item combines automation, security auditing, and fault tolerance\u2014key competencies for maintaining production-grade Python projects."
+      "explanation": "This mastery item combines automation, security auditing, and fault tolerance—key competencies for maintaining production-grade Python projects."
     }
   ],
   "unit_num": 17,

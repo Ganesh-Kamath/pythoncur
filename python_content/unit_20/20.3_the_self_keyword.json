@@ -191,12 +191,6 @@
         "content": "When a method assigns a value using self.attribute, it modifies the instance's own dictionary. This is different from local variables or class variables. To analyze output, identify every self reference and determine which instance it belongs to at runtime."
       },
       "prompt": "Explain why the following code produces the output it does:\n\nclass Box:\n    def __init__(self, value):\n        self.value = value\n\n    def double(self):\n        self.value = self.value * 2\n\nb = Box(5)\nb.double()\nprint(b.value)\n\nWrite a detailed explanation of how self enables this result.",
-      "options": [
-        "self in double() refers to b, so b.value is updated from 5 to 10.",
-        "self creates a new local variable, leaving b.value unchanged.",
-        "self refers to the class, so the output is 5.",
-        "The code raises an error because self is not defined outside the method."
-      ],
       "correct_answer": "self in double() refers to b, so b.value is updated from 5 to 10.",
       "explanation": "When b.double() is called, self is bound to b. self.value reads 5 and assigns 10 back to b.value. Printing b.value therefore yields 10.",
       "difficulty": "medium",

@@ -172,12 +172,6 @@
         "16.3_q9"
       ],
       "prompt": "Explain why the following code produces a set with fewer elements than the raw Cartesian product would suggest:\n\n```python\npairs = {(x, y) for x in [1, 2] for y in [1, 2]}\nprint(pairs)\n```",
-      "options": [
-        "Because tuples are unhashable and some are discarded.",
-        "Because the comprehension removes duplicate tuples automatically.",
-        "Because the inner loop runs only once due to a break statement.",
-        "Because set comprehension inherently deduplicates elements."
-      ],
       "correct_answer": "Because set comprehension inherently deduplicates elements.",
       "explanation": "A set comprehension collects unique hashable elements. Although the Cartesian product of [1, 2] with itself yields four tuples, all are already unique here. The key property is that sets cannot contain duplicates, so if any (x, y) pair appeared more than once, only one copy would remain. In this specific case the output is {(1, 1), (1, 2), (2, 1), (2, 2)}, but the deduplication rule is what distinguishes set comprehensions from list comprehensions.",
       "starter_code": "# Write your solution below\n",

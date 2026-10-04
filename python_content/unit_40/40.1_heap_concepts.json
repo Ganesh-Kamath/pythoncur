@@ -32,7 +32,7 @@
         "Elements are stored in sorted order from left to right."
       ],
       "correct_answer": "Every parent node is less than or equal to its children.",
-      "explanation": "In a min-heap, the smallest element is at the root, and every parent is less than or equal to its children. Option A describes a max-heap. Option C is incorrect because heaps do not require perfect balance\u2014only the heap property. Option D is incorrect because a heap is not fully sorted, only partially ordered."
+      "explanation": "In a min-heap, the smallest element is at the root, and every parent is less than or equal to its children. Option A describes a max-heap. Option C is incorrect because heaps do not require perfect balance—only the heap property. Option D is incorrect because a heap is not fully sorted, only partially ordered."
     },
     {
       "id": "40.1_q3",
@@ -172,12 +172,6 @@
         "40.1_q9"
       ],
       "prompt": "Explain why using `heapq.heappush` followed by `heapq.heappop` in a loop of length n has an overall time complexity of O(n log n).",
-      "options": [
-        "Both operations are O(log n), and they are performed n times, giving O(n log n).",
-        "`heappush` is O(n) and `heappop` is O(1), so the total is O(n).",
-        "The heap stores n elements and sorting is O(n^2), so the total is O(n^2).",
-        "Only one operation is O(log n), so the total is O(log n)."
-      ],
       "correct_answer": "Both operations are O(log n), and they are performed n times, giving O(n log n).",
       "explanation": "`heappush` and `heappop` each maintain the heap invariant by traversing at most the height of the binary tree, which is O(log n) for a heap of size up to n. Executing both inside a loop that runs n times yields n * O(log n) = O(n log n). This is more efficient than repeatedly scanning an unsorted list for the minimum, which would be O(n^2).",
       "starter_code": "# Write your solution below\n",

@@ -172,12 +172,6 @@
         "27.5_q9"
       ],
       "prompt": "```python\nimport sqlite3\n\nconn = sqlite3.connect(':memory:')\ncursor = conn.cursor()\ncursor.execute('CREATE TABLE logs (msg TEXT)')\n\nuser_input = \"' OR 1=1; --\"\ncursor.execute('INSERT INTO logs (msg) VALUES (' + user_input + ')')\nconn.commit()\n\ncursor.execute('SELECT msg FROM logs')\nprint(cursor.fetchall())\nconn.close()\n```",
-      "options": [
-        "The code safely inserts the literal string into the table.",
-        "The code executes an unintended SQL statement due to string concatenation.",
-        "The code raises a syntax error because of the semicolon.",
-        "The code ignores the input and inserts an empty string."
-      ],
       "correct_answer": "The code executes an unintended SQL statement due to string concatenation.",
       "explanation": "Concatenating user input directly into the SQL query allows SQL injection. The injected payload terminates the string literal, appends a destructive condition, and comments out the rest, altering the query behavior.",
       "starter_code": "# Write your solution below\n",
@@ -199,12 +193,6 @@
         "27.5_q10"
       ],
       "prompt": "```python\nimport sqlite3\n\nconn = sqlite3.connect(':memory:')\ncursor = conn.cursor()\ncursor.execute('CREATE TABLE items (val INTEGER)')\ncursor.execute(\"INSERT INTO items (val) VALUES (10)\")\n\ntry:\n    cursor.execute(\"INSERT INTO items (val) VALUES (20)\")\n    cursor.execute(\"INSERT INTO items (val) VALUES (30)\")\n    cursor.execute(\"INSERT INTO items (val) VALUES ('x')\")\n    conn.commit()\nexcept Exception as e:\n    print('Error:', e)\n    conn.rollback()\nfinally:\n    print('Rows:', cursor.execute('SELECT COUNT(*) FROM items').fetchone()[0])\n    conn.close()\n```",
-      "options": [
-        "Error: invalid input syntax for type integer\nRows: 1",
-        "Error: invalid input syntax for type integer\nRows: 2",
-        "No error\nRows: 3",
-        "Error: no such table\nRows: 0"
-      ],
       "correct_answer": "Error: invalid input syntax for type integer\nRows: 1",
       "explanation": "The third INSERT fails with a type error, triggering the except block. The rollback undoes all inserts in the transaction, leaving only the initial row with value 10, so the count is 1.",
       "starter_code": "# Write your solution below\n",

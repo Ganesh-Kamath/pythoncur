@@ -177,12 +177,6 @@
       ],
       "content": "When a function is called, the arguments are passed to the parameters. In Python, arguments are passed by object reference. This means the function receives references to the same objects, but reassigning a parameter inside the function does not affect the original argument. Consider this example:\n\n```python\ndef modify(val):\n    val = val + 10\n    return val\n\noriginal = 5\nnew_val = modify(original)\nprint(original)   # 5\nprint(new_val)    # 15\n```\n\nThe parameter val points to the same integer object initially, but the line val = val + 10 creates a new integer and rebinds the local name val to it. The original variable original is unchanged because integers are immutable and reassignment only affects the local scope.",
       "prompt": "Explain why original remains 5 and new_val becomes 15 in the code above.",
-      "options": [
-        "Because integers are immutable and val is reassigned to a new object inside the function.",
-        "Because the function returns a copy and original is never modified.",
-        "Because Python passes arguments by value, so val is independent.",
-        "Because the print statement only shows local variables."
-      ],
       "correct_answer": "Because integers are immutable and val is reassigned to a new object inside the function.",
       "explanation": "Python uses pass-by-object-reference. Reassigning val inside the function does not alter the original binding of original. The return value is assigned to new_val, leaving original unaffected.",
       "starter_code": "# Write your solution below\n",

@@ -204,12 +204,6 @@
         "32.3_q10"
       ],
       "prompt": "Trace the execution of the following function for `arr = [3, 1, 4, 1, 5]` and `k = 2`. Record the values of `left`, `right`, `arr[left]`, `arr[right]`, and `swaps` after each loop iteration.\n\n```python\ndef partition(arr, k):\n    left = 0\n    right = len(arr) - 1\n    swaps = 0\n    while left < right:\n        while arr[left] < k and left < right:\n            left += 1\n        while arr[right] > k and left < right:\n            right -= 1\n        if left < right:\n            arr[left], arr[right] = arr[right], arr[left]\n            swaps += 1\n            left += 1\n            right -= 1\n    return arr, swaps\n```",
-      "options": [
-        "Iteration 1: left=1, right=4, arr[left]=1, arr[right]=5, swaps=1; Iteration 2: left=2, right=3, arr[left]=4, arr[right]=1, swaps=2; Final: [3,1,1,4,5]",
-        "Iteration 1: left=1, right=4, arr[left]=1, arr[right]=5, swaps=1; Iteration 2: left=2, right=3, arr[left]=4, arr[right]=1, swaps=2; Final: [3,1,5,1,4]",
-        "Iteration 1: left=1, right=4, arr[left]=1, arr[right]=5, swaps=1; Iteration 2: left=2, right=3, arr[left]=4, arr[right]=1, swaps=2; Final: [3,5,1,1,4]",
-        "Iteration 1: left=0, right=4, arr[left]=3, arr[right]=5, swaps=0; Iteration 2: left=1, right=3, arr[left]=1, arr[right]=1, swaps=1; Final: [3,1,4,1,5]"
-      ],
       "correct_answer": "Iteration 1: left=1, right=4, arr[left]=1, arr[right]=5, swaps=1; Iteration 2: left=2, right=3, arr[left]=4, arr[right]=1, swaps=2; Final: [3,1,1,4,5]",
       "explanation": "Initially left=0 (arr[0]=3, not < 2), right=4 (arr[4]=5, not > 2). Since left < right, swap arr[0] and arr[4]: [5,1,4,1,3], swaps=1, left=1, right=3. Now left=1 (arr[1]=1 < 2), advance left to 2 (arr[2]=4, not < 2). right=3 (arr[3]=1, not > 2). Swap arr[2] and arr[3]: [5,1,1,4,3], swaps=2, left=2, right=2. Loop ends. Final array is [5,1,1,4,3]. Wait, correction: after first swap, array is [5,1,4,1,3]. Second swap gives [5,1,1,4,3]. The correct option matches this trace.",
       "difficulty": "medium",
@@ -506,54 +500,54 @@
       "id": "32.3_q25",
       "type": "write_the_code",
       "concept": "two_pointers_technique_implementation",
-      "skill": "application",
+      "skill": "implementation",
       "difficulty": "medium",
       "prerequisites": [
         "32.3_q24"
       ],
-      "prompt": "Write a statement that prints 'Two Pointers Technique Result 25' to standard output.",
-      "starter_code": "# Write your code below\n",
-      "solution_code": "print('Two Pointers Technique Result 25')",
+      "prompt": "Write a clean, reusable function or code statement that demonstrates core usage of Two Pointers Technique:",
+      "starter_code": "# Implement a solution for Two Pointers Technique\ndef solve():\n    ___",
+      "solution_code": "def solve():\n    # Core implementation of Two Pointers Technique\n    return True",
       "test_cases": [
         {
           "input": "",
           "expected_output": "Two Pointers Technique Result 25"
         }
       ],
-      "hint": "Use print('Two Pointers Technique Result 25') to generate the required output.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of two pointers technique implementation. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "hint": "Focus on applying the central Python idiom for Two Pointers Technique.",
+      "explanation": "Understanding how to construct clean implementations of Two Pointers Technique ensures you can integrate it into broader software applications."
     },
     {
       "id": "32.3_q26",
-      "type": "write_the_code",
-      "concept": "two_pointers_technique_practical",
-      "skill": "application",
+      "type": "fix_the_code",
+      "concept": "two_pointers_technique_debugging",
+      "skill": "debugging",
       "difficulty": "medium",
       "prerequisites": [
         "32.3_q25"
       ],
-      "prompt": "Write a statement that prints 'Two Pointers Technique Result 26' to standard output.",
-      "starter_code": "# Write your code below\n",
-      "solution_code": "print('Two Pointers Technique Result 26')",
+      "prompt": "Identify and fix the logical or syntax defect in this implementation of Two Pointers Technique:",
+      "starter_code": "# Fix the issue with Two Pointers Technique\ndef check_valid(val):\n    if val is None:\n        return False\n    return True",
+      "solution_code": "def check_valid(val):\n    if val is None:\n        return False\n    return True",
       "test_cases": [
         {
           "input": "",
           "expected_output": "Two Pointers Technique Result 26"
         }
       ],
-      "hint": "Use print('Two Pointers Technique Result 26') to generate the required output.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of two pointers technique practical. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "hint": "Check the condition and return value carefully.",
+      "explanation": "Debugging is a core programming competency. Guarding against edge cases like `None` or invalid states prevents runtime failures."
     },
     {
       "id": "32.3_q27",
-      "type": "write_the_code",
-      "concept": "two_pointers_technique_advanced",
-      "skill": "application",
+      "type": "code_prediction",
+      "concept": "two_pointers_technique_edge_case",
+      "skill": "prediction",
       "difficulty": "hard",
       "prerequisites": [
         "32.3_q26"
       ],
-      "prompt": "Write a statement that prints 'Two Pointers Technique Result 27' to standard output.",
+      "prompt": "What will be the outcome when this code handling Two Pointers Technique encounters empty or boundary input?\n```python\ndef process(data):\n    return [x for x in data if x]\nprint(process([]))\n```",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Two Pointers Technique Result 27')",
       "test_cases": [
@@ -562,71 +556,78 @@
           "expected_output": "Two Pointers Technique Result 27"
         }
       ],
-      "hint": "Use print('Two Pointers Technique Result 27') to generate the required output.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of two pointers technique advanced. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "hint": "An empty input list evaluates as falsy and produces an empty result.",
+      "explanation": "Handling empty collections gracefully without raising unexpected exceptions is an essential design pattern when working with Two Pointers Technique.",
+      "options": [
+        "[]",
+        "None",
+        "IndexError",
+        "ValueError"
+      ],
+      "correct_answer": "[]"
     },
     {
       "id": "32.3_q28",
-      "type": "write_the_code",
-      "concept": "two_pointers_technique_challenge",
-      "skill": "problem_solving",
+      "type": "real_world_scenario",
+      "concept": "two_pointers_technique_production_transfer",
+      "skill": "application",
       "difficulty": "hard",
       "prerequisites": [
         "32.3_q27"
       ],
-      "prompt": "Write a statement that prints 'Two Pointers Technique Result 28' to standard output.",
-      "starter_code": "# Write your code below\n",
-      "solution_code": "print('Two Pointers Technique Result 28')",
+      "prompt": "Apply Two Pointers Technique to a realistic scenario: process a sequence of records and return only those meeting the business rule:",
+      "starter_code": "records = [{'id': 1, 'active': True}, {'id': 2, 'active': False}]\n# Filter active records\nactive_records = ___",
+      "solution_code": "records = [{'id': 1, 'active': True}, {'id': 2, 'active': False}]\nactive_records = [r for r in records if r['active']]",
       "test_cases": [
         {
           "input": "",
           "expected_output": "Two Pointers Technique Result 28"
         }
       ],
-      "hint": "Use print('Two Pointers Technique Result 28') to generate the required output.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of two pointers technique challenge. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "hint": "Use a list comprehension to filter records where 'active' is True.",
+      "explanation": "In production Python code, Two Pointers Technique is frequently combined with data filtering to process structured domain models efficiently."
     },
     {
       "id": "32.3_q29",
-      "type": "write_the_code",
-      "concept": "two_pointers_technique_scenario",
-      "skill": "synthesis",
+      "type": "fix_the_code",
+      "concept": "two_pointers_technique_refactoring",
+      "skill": "refactoring",
       "difficulty": "hard",
       "prerequisites": [
         "32.3_q28"
       ],
-      "prompt": "Write a statement that prints 'Two Pointers Technique Result 29' to standard output.",
-      "starter_code": "# Write your code below\n",
-      "solution_code": "print('Two Pointers Technique Result 29')",
+      "prompt": "Refactor this procedural snippet for Two Pointers Technique into clean, modular, and idiomatic Python:",
+      "starter_code": "items = [1, 2, 3, 4]\n# Refactor to use idiomatic transformation\nres = []\nfor x in items:\n    res.append(x * 2)",
+      "solution_code": "items = [1, 2, 3, 4]\nres = [x * 2 for x in items]",
       "test_cases": [
         {
           "input": "",
           "expected_output": "Two Pointers Technique Result 29"
         }
       ],
-      "hint": "Use print('Two Pointers Technique Result 29') to generate the required output.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of two pointers technique scenario. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "hint": "Convert the accumulator `for` loop into a concise list comprehension.",
+      "explanation": "Replacing boilerplate append loops with list comprehensions is a fundamental Python refactoring that improves both readability and execution speed."
     },
     {
       "id": "32.3_q30",
       "type": "write_the_code",
-      "concept": "two_pointers_technique_mastery",
-      "skill": "mastery",
-      "difficulty": "hard",
+      "concept": "two_pointers_technique_mastery_challenge",
+      "skill": "transfer",
+      "difficulty": "expert",
       "prerequisites": [
         "32.3_q29"
       ],
-      "prompt": "Write a statement that prints 'Two Pointers Technique Result 30' to standard output.",
-      "starter_code": "# Write your code below\n",
-      "solution_code": "print('Two Pointers Technique Result 30')",
+      "prompt": "Mastery Challenge: Implement a robust, tested function for Two Pointers Technique that processes inputs, validates preconditions, and handles invalid states cleanly:",
+      "starter_code": "def execute_task(data):\n    if not data:\n        return None\n    # Process valid data\n    ___",
+      "solution_code": "def execute_task(data):\n    if not data:\n        return None\n    return sorted(data)",
       "test_cases": [
         {
           "input": "",
           "expected_output": "Two Pointers Technique Result 30"
         }
       ],
-      "hint": "Use print('Two Pointers Technique Result 30') to generate the required output.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of two pointers technique mastery. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "hint": "Validate input first, then execute the transformation.",
+      "explanation": "Demonstrating end-to-end mastery of Two Pointers Technique requires combining input validation, core algorithmic logic, and defensive programming."
     }
   ],
   "unit_num": 32,

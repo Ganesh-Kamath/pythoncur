@@ -11,7 +11,7 @@
       "difficulty": "easy",
       "prerequisites": [],
       "title": "What Is a Tree in Data Structures?",
-      "content": "A tree is a hierarchical data structure in computer science. Unlike a linear list, a tree organizes data in levels starting from a single node called the root. Each node can have zero or more child nodes, and each child has exactly one parent. The topmost node is the root, which has no parent. Nodes with no children are called leaves. The path from the root to any node defines its ancestry, and the depth of a node is the number of edges from the root to that node. In Python, we often represent trees using classes and objects. Here is a simple example:\n\n```python\nclass Node:\n    def __init__(self, value):\n        self.value = value\n        self.children = []\n\nroot = Node('root')\nchild = Node('child')\nroot.children.append(child)\n```\n\nThis code creates a root node and attaches one child to it. Recognizing these terms\u2014root, child, parent, leaf, and hierarchy\u2014is essential before working with more complex tree algorithms.",
+      "content": "A tree is a hierarchical data structure in computer science. Unlike a linear list, a tree organizes data in levels starting from a single node called the root. Each node can have zero or more child nodes, and each child has exactly one parent. The topmost node is the root, which has no parent. Nodes with no children are called leaves. The path from the root to any node defines its ancestry, and the depth of a node is the number of edges from the root to that node. In Python, we often represent trees using classes and objects. Here is a simple example:\n\n```python\nclass Node:\n    def __init__(self, value):\n        self.value = value\n        self.children = []\n\nroot = Node('root')\nchild = Node('child')\nroot.children.append(child)\n```\n\nThis code creates a root node and attaches one child to it. Recognizing these terms—root, child, parent, leaf, and hierarchy—is essential before working with more complex tree algorithms.",
       "prompt": "",
       "explanation": "In Python, this operation directly demonstrates the core behavior of tree terminology basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
@@ -24,26 +24,15 @@
       "prerequisites": [
         "38.1_q1"
       ],
-      "match_code_to_concept": {
-        "prompt": "Which term describes the topmost node in a tree that has no parent?",
-        "options": [
-          "Leaf",
-          "Root",
-          "Child",
-          "Sibling"
-        ],
-        "correct_answer": "Root",
-        "explanation": "The root is defined as the single topmost node in a tree and has no parent. A leaf has no children, a child has a parent, and siblings share the same parent."
-      },
-      "prompt": "Which statement best applies to tree terminology basics?",
+      "prompt": "Which term describes the topmost node in a tree that has no parent?",
       "options": [
-        "A. Correct approach for tree terminology basics",
-        "Raises a SyntaxError: invalid syntax at runtime",
-        "Raises an IndentationError: unexpected indent",
-        "Silently ignored by the Python parser"
+        "Leaf",
+        "Root",
+        "Child",
+        "Sibling"
       ],
-      "correct_answer": "A. Correct approach for tree terminology basics",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of tree terminology basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "correct_answer": "Root",
+      "explanation": "The root is defined as the single topmost node in a tree and has no parent. A leaf has no children, a child has a parent, and siblings share the same parent."
     },
     {
       "id": "38.1_q3",
@@ -68,26 +57,15 @@
       "prerequisites": [
         "38.1_q3"
       ],
-      "match_code_to_concept": {
-        "prompt": "In the following pre-order traversal function, what is printed first for a tree with root value 'A' and one child with value 'B'?",
-        "options": [
-          "'B'",
-          "'A'",
-          "Nothing, because the function returns None",
-          "An error because children are not defined"
-        ],
-        "correct_answer": "'A'",
-        "explanation": "Pre-order traversal visits the current node before its children. Therefore, 'A' is printed before 'B'. The function does not return None silently; it prints values and returns None implicitly."
-      },
-      "prompt": "Which statement best applies to tree terminology syntax?",
+      "prompt": "In the following pre-order traversal function, what is printed first for a tree with root value 'A' and one child with value 'B'?",
       "options": [
-        "A. Correct approach for tree terminology syntax",
-        "Raises a SyntaxError: invalid syntax at runtime",
-        "Raises an IndentationError: unexpected indent",
-        "Silently ignored by the Python parser"
+        "'B'",
+        "'A'",
+        "Nothing, because the function returns None",
+        "An error because children are not defined"
       ],
-      "correct_answer": "A. Correct approach for tree terminology syntax",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of tree terminology syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "correct_answer": "'A'",
+      "explanation": "Pre-order traversal visits the current node before its children. Therefore, 'A' is printed before 'B'. The function does not return None silently; it prints values and returns None implicitly."
     },
     {
       "id": "38.1_q5",
@@ -98,26 +76,15 @@
       "prerequisites": [
         "38.1_q4"
       ],
-      "match_code_to_concept": {
-        "prompt": "Match the term to its definition.",
-        "options": [
-          "A node with no children is called a leaf.",
-          "The node directly above another node is called its parent.",
-          "A node with no parent is called the root.",
-          "All of the above are correct matches."
-        ],
-        "correct_answer": "All of the above are correct matches.",
-        "explanation": "All three statements accurately describe standard tree terminology: leaf nodes have no children, the parent is the ancestor node, and the root is the unique node without a parent."
-      },
-      "prompt": "Which statement best applies to tree terminology matching?",
+      "prompt": "Match the term to its definition.",
       "options": [
-        "A. Correct approach for tree terminology matching",
-        "Raises a SyntaxError: invalid syntax at runtime",
-        "Raises an IndentationError: unexpected indent",
-        "Silently ignored by the Python parser"
+        "A node with no children is called a leaf.",
+        "The node directly above another node is called its parent.",
+        "A node with no parent is called the root.",
+        "All of the above are correct matches."
       ],
-      "correct_answer": "A. Correct approach for tree terminology matching",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of tree terminology matching. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "correct_answer": "All of the above are correct matches.",
+      "explanation": "All three statements accurately describe standard tree terminology: leaf nodes have no children, the parent is the ancestor node, and the root is the unique node without a parent."
     },
     {
       "id": "38.1_q6",
@@ -128,26 +95,15 @@
       "prerequisites": [
         "38.1_q5"
       ],
-      "match_code_to_concept": {
-        "prompt": "Which common mistake can occur when a tree node is initialized without setting its children list?",
-        "options": [
-          "The node will raise an AttributeError when trying to append a child.",
-          "The node will automatically create an empty children list.",
-          "The tree will become a binary tree by default.",
-          "The root will be incorrectly identified as a leaf."
-        ],
-        "correct_answer": "The node will raise an AttributeError when trying to append a child.",
-        "explanation": "If `self.children` is not initialized, accessing `node.children.append(child)` causes an `AttributeError` because the attribute does not exist. Proper initialization prevents this runtime error."
-      },
-      "prompt": "Which statement best applies to tree terminology pitfalls?",
+      "prompt": "Which common mistake can occur when a tree node is initialized without setting its children list?",
       "options": [
-        "A. Correct approach for tree terminology pitfalls",
-        "Raises a SyntaxError: invalid syntax at runtime",
-        "Raises an IndentationError: unexpected indent",
-        "Silently ignored by the Python parser"
+        "The node will raise an AttributeError when trying to append a child.",
+        "The node will automatically create an empty children list.",
+        "The tree will become a binary tree by default.",
+        "The root will be incorrectly identified as a leaf."
       ],
-      "correct_answer": "A. Correct approach for tree terminology pitfalls",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of tree terminology pitfalls. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "correct_answer": "The node will raise an AttributeError when trying to append a child.",
+      "explanation": "If `self.children` is not initialized, accessing `node.children.append(child)` causes an `AttributeError` because the attribute does not exist. Proper initialization prevents this runtime error."
     },
     {
       "id": "38.1_q7",
@@ -216,12 +172,6 @@
         "38.1_q9"
       ],
       "prompt": "Given the following Python code, explain what the variable root.left represents after execution:\n```python\nclass Node:\n    def __init__(self, value):\n        self.value = value\n        self.left = None\n        self.right = None\n\nroot = Node(20)\nchild = Node(15)\nroot.left = child\n```",
-      "options": [
-        "A reference to the root node itself",
-        "A reference to the node with value 15, which is the left child of root",
-        "A copy of the node with value 15",
-        "An independent node unrelated to root"
-      ],
       "correct_answer": "A reference to the node with value 15, which is the left child of root",
       "explanation": "The assignment root.left = child stores a reference to the child Node object (value 15) inside the left attribute of root. It does not create a copy; both variables point to the same object in memory.",
       "starter_code": "# Write your solution below\n",
@@ -604,7 +554,7 @@
         "root.left.left = BinaryTreeNode('ls')\nassert summarize_tree(root) == {'total_nodes': 4, 'leaf_directories': 3, 'max_depth': 2}"
       ],
       "hint": "Use a recursive helper that tracks depth; a leaf directory has no children, while internal nodes have at least one child.",
-      "explanation": "This scenario synthesizes tree terminology\u2014root, leaf, internal node, depth, and sibling\u2014into a realistic file-system abstraction, demonstrating how terminology maps to domain models."
+      "explanation": "This scenario synthesizes tree terminology—root, leaf, internal node, depth, and sibling—into a realistic file-system abstraction, demonstrating how terminology maps to domain models."
     },
     {
       "id": "38.1_q30",

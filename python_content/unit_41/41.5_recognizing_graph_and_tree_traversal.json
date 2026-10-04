@@ -153,12 +153,6 @@
         "41.5_q8"
       ],
       "prompt": "Fix this code snippet implementing Recognizing Graph and Tree Traversal correctly:",
-      "options": [
-        "45",
-        "22",
-        "value_9",
-        "Error"
-      ],
       "correct_answer": "45",
       "explanation": "Applying standard Python idioms ensures correct behavior: queue FIFO order explores level by level; stack LIFO order explores depth first.",
       "starter_code": "# Recognizing Graph and Tree Traversal implementation\n___",
@@ -166,24 +160,24 @@
     },
     {
       "id": "41.5_q10",
-      "type": "write_the_code",
-      "concept": "recognizing_graph_and_tree_traversal_analysis",
-      "skill": "analysis",
-      "difficulty": "medium",
+      "type": "real_world_scenario",
+      "concept": "recognizing_graph_and_tree_traversal_production_transfer",
+      "skill": "application",
+      "difficulty": "hard",
       "prerequisites": [
         "41.5_q9"
       ],
-      "prompt": "Write a statement that prints 'Recognizing Graph and Tree Traversal Result 10' to standard output.",
-      "starter_code": "# Write your code below\n",
-      "solution_code": "print('Recognizing Graph and Tree Traversal Result 10')",
+      "prompt": "Apply Recognizing Graph and Tree Traversal to a realistic scenario: process a sequence of records and return only those meeting the business rule:",
+      "starter_code": "records = [{'id': 1, 'active': True}, {'id': 2, 'active': False}]\n# Filter active records\nactive_records = ___",
+      "solution_code": "records = [{'id': 1, 'active': True}, {'id': 2, 'active': False}]\nactive_records = [r for r in records if r['active']]",
       "test_cases": [
         {
           "input": "",
           "expected_output": "Recognizing Graph and Tree Traversal Result 10"
         }
       ],
-      "hint": "Use print('Recognizing Graph and Tree Traversal Result 10') to generate the required output.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of recognizing graph and tree traversal analysis. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "hint": "Use a list comprehension to filter records where 'active' is True.",
+      "explanation": "In production Python code, Recognizing Graph and Tree Traversal is frequently combined with data filtering to process structured domain models efficiently."
     },
     {
       "id": "41.5_q11",
@@ -214,12 +208,6 @@
         "41.5_q11"
       ],
       "prompt": "Write the canonical Python code statement for Recognizing Graph and Tree Traversal:",
-      "options": [
-        "60",
-        "30",
-        "value_12",
-        "Error"
-      ],
       "correct_answer": "60",
       "explanation": "Canonical implementation: from collections import deque\nq = deque([start])\nvisited = {start}. Queue fifo order explores level by level; stack lifo order explores depth first.",
       "starter_code": "# Complete the statement\n___",

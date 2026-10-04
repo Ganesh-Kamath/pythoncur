@@ -172,12 +172,6 @@
         "36.3_q9"
       ],
       "prompt": "Explain why the following code raises a RecursionError for large values of n, and describe the state of the call stack at the point of failure:\n\n```python\ndef deep(n):\n    if n == 0:\n        return\n    deep(n - 1)\n    print('back', n)\n\ndeep(10000)\n```",
-      "options": [
-        "The function uses too much heap memory for variables, causing an out-of-memory error.",
-        "Each recursive call adds a frame to the call stack; Python limits stack depth, so exceeding it raises RecursionError before any 'back' prints occur.",
-        "The base case is missing, so the function loops forever in the same frame.",
-        "The print statement inside the recursive call causes infinite I/O blocking."
-      ],
       "correct_answer": "Each recursive call adds a frame to the call stack; Python limits stack depth, so exceeding it raises RecursionError before any 'back' prints occur.",
       "explanation": "The call stack stores one frame per active function call. Python enforces a maximum recursion depth (default around 1000). When deep(10000) is called, 10000 frames are pushed before the limit is reached, triggering RecursionError. No unwinding occurs, so 'back' is never printed.",
       "starter_code": "# Write your solution below\n",

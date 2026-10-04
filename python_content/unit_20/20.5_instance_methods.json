@@ -172,12 +172,6 @@
         "20.5_q9"
       ],
       "prompt": "Explain why the following code produces the output shown:\n\n```python\nclass Box:\n    def __init__(self, contents):\n        self.contents = contents\n    def empty(self):\n        self.contents = ''\n        return self.contents\n\nb = Box('toys')\nprint(b.empty())\nprint(b.contents)\n```\n\nOutput:\n1\n''",
-      "options": [
-        "The method returns the new empty string and updates the instance attribute.",
-        "The method returns the old value and does not change the instance.",
-        "The method raises an error because contents is immutable.",
-        "The method creates a local variable instead of updating the instance."
-      ],
       "correct_answer": "The method returns the new empty string and updates the instance attribute.",
       "explanation": "Inside `empty`, `self.contents = ''` reassigns the instance attribute `contents` to the empty string. The assignment returns None, but the next statement `return self.contents` reads the updated value, which is ''. Both the returned value and `b.contents` reflect this change because they refer to the same instance attribute.",
       "starter_code": "# Write your solution below\n",

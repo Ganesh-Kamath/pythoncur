@@ -10,7 +10,7 @@
       "diff": "easy",
       "concept": "dynamic_programming_introduction_basics",
       "title": "What is Dynamic Programming?",
-      "content": "Dynamic Programming (DP) is a method for solving complex problems by breaking them down into simpler overlapping subproblems. The key idea is to store the results of subproblems so that each subproblem is solved only once. This avoids redundant computations and improves efficiency. Two essential properties define a problem as suitable for DP: (1) optimal substructure \u2014 the optimal solution to the problem can be constructed from optimal solutions to its subproblems; and (2) overlapping subproblems \u2014 the same subproblems are solved multiple times. A classic example is computing Fibonacci numbers. A naive recursive approach recalculates the same values repeatedly, whereas DP stores intermediate results in a table or array. Here is a simple Python implementation of Fibonacci using DP:\n\n```python\ndef fibonacci(n):\n    if n <= 1:\n        return n\n    dp = [0] * (n + 1)\n    dp[0] = 0\n    dp[1] = 1\n    for i in range(2, n + 1):\n        dp[i] = dp[i - 1] + dp[i - 2]\n    return dp[n]\n\nprint(fibonacci(6))\n```\n\nIn this code, the list `dp` acts as a memoization table. Each entry `dp[i]` stores the result for the subproblem of size `i`, ensuring we never recompute it.",
+      "content": "Dynamic Programming (DP) is a method for solving complex problems by breaking them down into simpler overlapping subproblems. The key idea is to store the results of subproblems so that each subproblem is solved only once. This avoids redundant computations and improves efficiency. Two essential properties define a problem as suitable for DP: (1) optimal substructure — the optimal solution to the problem can be constructed from optimal solutions to its subproblems; and (2) overlapping subproblems — the same subproblems are solved multiple times. A classic example is computing Fibonacci numbers. A naive recursive approach recalculates the same values repeatedly, whereas DP stores intermediate results in a table or array. Here is a simple Python implementation of Fibonacci using DP:\n\n```python\ndef fibonacci(n):\n    if n <= 1:\n        return n\n    dp = [0] * (n + 1)\n    dp[0] = 0\n    dp[1] = 1\n    for i in range(2, n + 1):\n        dp[i] = dp[i - 1] + dp[i - 2]\n    return dp[n]\n\nprint(fibonacci(6))\n```\n\nIn this code, the list `dp` acts as a memoization table. Each entry `dp[i]` stores the result for the subproblem of size `i`, ensuring we never recompute it.",
       "difficulty": "easy",
       "prerequisites": [],
       "prompt": "",
@@ -191,12 +191,6 @@
         "content": "When analyzing a DP solution, always verify the base case and the recurrence relation. The output is not just a number; it represents an optimal substructure. For instance, in a longest common subsequence problem, the DP table entry dp[i][j] stores the length of the LCS for the prefixes ending at i and j. The final cell dp[m][n] gives the answer. Time complexity is typically O(n*m) for a 2D table, and space can often be optimized to O(min(n, m)) by keeping only two rows."
       },
       "prompt": "Explain the output and behavior of the following code:\n\n```python\ndef lcs_length(a, b):\n    m, n = len(a), len(b)\n    dp = [[0] * (n + 1) for _ in range(m + 1)]\n    for i in range(1, m + 1):\n        for j in range(1, n + 1):\n            if a[i - 1] == b[j - 1]:\n                dp[i][j] = dp[i - 1][j - 1] + 1\n            else:\n                dp[i][j] = max(dp[i - 1][j], dp[i][j - 1])\n    return dp[m][n]\n\nprint(lcs_length('abcde', 'ace'))\n```",
-      "options": [
-        "The code returns 2 because it finds the longest common subsequence 'ac'.",
-        "The code returns 3 because 'ace' is a subsequence of both strings.",
-        "The code returns 3 because the longest common subsequence is 'ace'.",
-        "The code returns 5 because it concatenates the two strings."
-      ],
       "correct_answer": "The code returns 3 because 'ace' is a subsequence of both strings.",
       "explanation": "The DP table correctly identifies 'ace' as the longest common subsequence with length 3.",
       "prerequisites": [

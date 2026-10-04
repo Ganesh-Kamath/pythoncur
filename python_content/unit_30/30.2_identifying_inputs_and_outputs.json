@@ -176,12 +176,6 @@
         "30.2_q9"
       ],
       "prompt": "Analyze the following code and explain what inputs it expects and what outputs it produces.\n\n```python\nprice = float(input('Enter price: '))\nquantity = int(input('Enter quantity: '))\ntotal = price * quantity\nprint('Total cost:', total)\n```",
-      "options": [
-        "Input: two numbers. Output: the product of the two numbers.",
-        "Input: one number. Output: the square of the number.",
-        "Input: two strings. Output: concatenated strings.",
-        "Input: one string. Output: an error."
-      ],
       "correct_answer": "Input: two numbers. Output: the product of the two numbers.",
       "explanation": "The code expects two inputs from the user: a price (converted to float) and a quantity (converted to int). It multiplies them and prints the total cost, so the output is the product of the two values.",
       "starter_code": "# Write your solution below\n",
@@ -203,12 +197,6 @@
         "30.2_q10"
       ],
       "prompt": "Trace the execution of the following code step by step, identifying the input and each output.\n\n```python\nname = input('Enter name: ')\nage = int(input('Enter age: '))\nprint(name, 'is', age, 'years old.')\n```\n\nAssume the user enters 'Leo' and then 10.",
-      "options": [
-        "Input: 'Enter name: ' and 'Enter age: '. Outputs: Leo, 10, Leo is 10 years old.",
-        "Input: 'Enter name: ' and 'Enter age: '. Outputs: Enter name: Leo, Enter age: 10, Leo is 10 years old.",
-        "Input: 'Enter name: ' and 'Enter age: '. Outputs: Leo, 10, Error.",
-        "Input: no prompts. Output: Leo is 10 years old."
-      ],
       "correct_answer": "Input: 'Enter name: ' and 'Enter age: '. Outputs: Leo, 10, Leo is 10 years old.",
       "explanation": "The first input() displays 'Enter name: ' and stores 'Leo'. The second input() displays 'Enter age: ' and stores the string '10', which int() converts to 10. The print statement outputs the four values separated by spaces: Leo, 10, Leo is 10 years old.",
       "starter_code": "# Write your solution below\n",

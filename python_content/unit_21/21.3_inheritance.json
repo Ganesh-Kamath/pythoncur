@@ -185,12 +185,6 @@
         "content": "To analyze inheritance output, identify which class defines the method being called and whether any override exists in the child class. If the child class lacks the method, the parent's implementation is used. The presence or absence of super() calls also affects the final result."
       },
       "prompt": "Given the following code, explain why the output is 'Derived' and not 'Base'.\n\nclass Base:\n    def process(self):\n        return 'Base'\n\nclass Derived(Base):\n    def process(self):\n        return 'Derived'\n\nd = Derived()\nprint(d.process())",
-      "options": [
-        "Because Derived inherits from Base and does not override process",
-        "Because Derived overrides process and returns 'Derived', so Base is not used",
-        "Because Base.process is called via super() implicitly",
-        "Because the print function defaults to Derived"
-      ],
       "correct_answer": "Because Derived overrides process and returns 'Derived', so Base is not used",
       "explanation": "The Derived class explicitly defines its own process method. When d.process() is invoked, Python executes Derived.process, which returns 'Derived'. The parent method in Base is ignored because the child provides a direct override.",
       "prerequisites": [
@@ -216,12 +210,6 @@
         "content": "Tracing execution means following the program line by line, noting which class method is executed at each step. For inheritance, track whether the current class defines the method or delegates to a parent via super() or implicit lookup."
       },
       "prompt": "Trace the execution of the following code and state the final return value of call_action().\n\nclass Action:\n    def act(self):\n        return 'Action base'\n\nclass SpecialAction(Action):\n    def act(self):\n        return 'SpecialAction'\n\nclass UltimateAction(SpecialAction):\n    def act(self):\n        return super().act() + ' ultimate'\n\nu = UltimateAction()\nresult = u.act()\nprint(result)",
-      "options": [
-        "'SpecialAction ultimate'",
-        "'Action base ultimate'",
-        "'Action base'",
-        "'SpecialAction base ultimate'"
-      ],
       "correct_answer": "'SpecialAction ultimate'",
       "explanation": "UltimateAction.act calls super().act(), which resolves to SpecialAction.act and returns 'SpecialAction'. Appending ' ultimate' produces 'SpecialAction ultimate'. The base Action method is not reached because SpecialAction already overrides act.",
       "prerequisites": [

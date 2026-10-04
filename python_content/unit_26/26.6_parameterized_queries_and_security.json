@@ -172,12 +172,6 @@
         "26.6_q9"
       ],
       "prompt": "Explain why the following code is secure against SQL injection compared to string concatenation.\n\n```python\nimport sqlite3\nuser_id = '1 OR 1=1'\nconn = sqlite3.connect(':memory:')\ncur = conn.cursor()\ncur.execute('SELECT * FROM users WHERE id = ?', (user_id,))\nprint(cur.fetchall())\n```",
-      "options": [
-        "The database treats user_id as a literal value, not as executable SQL, so '1 OR 1=1' is searched as text.",
-        "The query fails because '1 OR 1=1' is invalid SQL syntax inside a parameter.",
-        "The database automatically escapes the string and removes the OR keyword before execution.",
-        "The parameter is concatenated into the query string, but sqlite3 sanitizes it internally."
-      ],
       "correct_answer": "The database treats user_id as a literal value, not as executable SQL, so '1 OR 1=1' is searched as text.",
       "explanation": "Parameterized queries separate the SQL command from the data. The driver sends the query plan and the value separately, preventing the database from interpreting user input as commands.",
       "starter_code": "# Write your solution below\n",
@@ -199,12 +193,6 @@
         "26.6_q10"
       ],
       "prompt": "Trace the execution step by step and identify the final value stored in the variable result.\n\n```python\nimport sqlite3\nconn = sqlite3.connect(':memory:')\ncur = conn.cursor()\ncur.execute('CREATE TABLE scores (value INTEGER)')\ncur.execute('INSERT INTO scores (value) VALUES (?)', (42,))\ncur.execute('INSERT INTO scores (value) VALUES (?)', (7,))\nconn.commit()\ncur.execute('DELETE FROM scores WHERE value = ?')\ncur.execute('INSERT INTO scores (value) VALUES (?)', (99,))\nconn.commit()\ncur.execute('SELECT value FROM scores')\nresult = cur.fetchone()\n```",
-      "options": [
-        "(99,)",
-        "(42,)",
-        "(7,)",
-        "None"
-      ],
       "correct_answer": "(99,)",
       "explanation": "After inserting 42 and 7, a DELETE removes 42. Then 99 is inserted. fetchone() returns the remaining row as a single-element tuple.",
       "starter_code": "# Write your solution below\n",

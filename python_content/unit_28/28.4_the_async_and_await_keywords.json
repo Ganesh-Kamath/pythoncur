@@ -200,12 +200,6 @@
         "28.4_q10"
       ],
       "prompt": "Trace the execution order of this program step by step:\n```python\nimport asyncio\n\nasync def step_a():\n    print('A start')\n    await asyncio.sleep(0.01)\n    print('A end')\n\nasync def step_b():\n    print('B start')\n    await asyncio.sleep(0.01)\n    print('B end')\n\nasync def main():\n    await step_a()\n    await step_b()\n\nasyncio.run(main())\n```",
-      "options": [
-        "A start, B start, A end, B end",
-        "A start, A end, B start, B end",
-        "B start, A start, A end, B end",
-        "A start, B start, B end, A end"
-      ],
       "correct_answer": "A start, A end, B start, B end",
       "explanation": "Because await is used sequentially, step_a() must fully complete before step_b() begins. Within step_a(), 'A start' prints, then await asyncio.sleep(0.01) yields to the event loop, but since no other tasks are scheduled concurrently inside main(), control returns immediately after the sleep, printing 'A end'. Then step_b() runs similarly.",
       "starter_code": "# Write your solution below\n",

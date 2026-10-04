@@ -126,22 +126,19 @@
     },
     {
       "id": "16.2_q8",
-      "type": "output_prediction",
-      "concept": "conditional_comprehensions_execution",
-      "skill": "prediction",
+      "type": "fix_the_code",
+      "concept": "conditional_comprehensions_debugging",
+      "skill": "debugging",
       "difficulty": "medium",
       "prerequisites": [
         "16.2_q7"
       ],
-      "prompt": "What is the output of the following code?\n```python\nwords = ['apple', 'banana', 'cherry', 'date']\nshort = [w for w in words if len(w) > 5]\nprint(short)\n```",
-      "options": [
-        "['banana', 'cherry']",
-        "Raises a SyntaxError: invalid syntax at runtime",
-        "Raises an IndentationError: unexpected indent",
-        "Silently ignored by the Python parser"
-      ],
+      "prompt": "Identify and fix the logical or syntax defect in this implementation of Conditional Comprehensions:",
       "correct_answer": "['banana', 'cherry']",
-      "explanation": "The condition len(w) > 5 filters the list. 'apple' has length 5, 'banana' has length 6, 'cherry' has length 6, and 'date' has length 4. Only 'banana' and 'cherry' meet the condition, so the output is ['banana', 'cherry']."
+      "explanation": "Debugging is a core programming competency. Guarding against edge cases like `None` or invalid states prevents runtime failures.",
+      "starter_code": "# Fix the issue with Conditional Comprehensions\ndef check_valid(val):\n    if val is None:\n        return False\n    return True",
+      "solution_code": "def check_valid(val):\n    if val is None:\n        return False\n    return True",
+      "hint": "Check the condition and return value carefully."
     },
     {
       "id": "16.2_q9",
@@ -172,12 +169,6 @@
         "16.2_q9"
       ],
       "prompt": "Explain why the following code produces the result it does:\n```python\nnums = [0, 1, -1, 2, -2]\npos = [n for n in nums if n > 0]\nprint(pos)\n```",
-      "options": [
-        "Only positive integers are included because the condition n > 0 excludes zero and negative values.",
-        "All non-zero numbers are included because the condition checks for truthiness.",
-        "Zero is included because 0 > 0 evaluates to True in Python.",
-        "Negative numbers are included because the condition is reversed."
-      ],
       "correct_answer": "Only positive integers are included because the condition n > 0 excludes zero and negative values.",
       "explanation": "The comprehension filters nums using n > 0. Zero is not greater than zero, and negative numbers are also not greater than zero. Therefore, only 1 and 2 satisfy the condition, producing [1, 2].",
       "starter_code": "# Write your solution below\n",

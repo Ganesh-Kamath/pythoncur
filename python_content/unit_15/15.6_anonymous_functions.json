@@ -188,12 +188,6 @@
         "content": "When analyzing lambda output, consider variable scope, default arguments, and side effects. A lambda captures variables from its enclosing scope. If the captured variable changes after the lambda is defined, the lambda uses the current value at call time. Default arguments, however, are evaluated once at definition time, which can lead to unexpected behavior if mutable objects are involved."
       },
       "prompt": "Explain why the following code prints [2, 2, 2] instead of [0, 1, 2].\n```python\nfuncs = [lambda i=i: i for i in range(3)]\nprint([f() for f in funcs])\n```",
-      "options": [
-        "Default arguments are evaluated at call time, so i is 2 for all lambdas.",
-        "Default arguments are evaluated at definition time, so i is captured as 2 for all lambdas.",
-        "The range function returns 2 for every element.",
-        "Lambda expressions cannot access loop variables."
-      ],
       "correct_answer": "Default arguments are evaluated at definition time, so i is captured as 2 for all lambdas.",
       "explanation": "In Python, default argument values are bound when the function is defined. Since i reaches 2 by the end of the loop, all three lambdas default to i=2, producing [2, 2, 2].",
       "starter_code": "# Write your solution below\n",
@@ -627,7 +621,7 @@
         "[1, 2, 3, 4, 5, 6]"
       ],
       "hint": "First isolate even numbers with `filter()` and `lambda`. Then use `reduce()` with a multiplication lambda. Handle the empty case before reducing.",
-      "explanation": "This exercise demonstrates mastery by combining `filter()`, `reduce()`, and a conditional check\u2014all orchestrated through anonymous functions. `reduce(lambda a, b: a * b, evens)` accumulates the product, and the guard clause ensures correctness for edge cases."
+      "explanation": "This exercise demonstrates mastery by combining `filter()`, `reduce()`, and a conditional check—all orchestrated through anonymous functions. `reduce(lambda a, b: a * b, evens)` accumulates the product, and the guard clause ensures correctness for edge cases."
     }
   ],
   "unit_num": 15,

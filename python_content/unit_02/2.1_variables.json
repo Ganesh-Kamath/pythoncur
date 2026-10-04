@@ -498,12 +498,6 @@
         "2.1_q8"
       ],
       "prompt": "A developer writes:\n```python\nsubtotal = 100\ntax = subtotal * 0.10\nsubtotal = 200\n```\nWhat is the value of `tax` now, and why?",
-      "options": [
-        "A. 20.0, because variables automatically update like spreadsheet formulas.",
-        "B. 10.0, because `tax` was calculated using `subtotal`'s value at that specific point in time; Python does NOT dynamically link variables like spreadsheets.",
-        "C. 0.0",
-        "D. It causes a runtime crash."
-      ],
       "correct_answer": "B",
       "explanation": "Critical mental model: Python is imperative, not reactive. Expressions evaluate eagerly. Changing `subtotal` later has zero effect on already-computed `tax`."
     },
@@ -521,12 +515,6 @@
         "2.1_q26"
       ],
       "prompt": "Which of the following statements about Python variables is completely TRUE?",
-      "options": [
-        "A. Variables are statically typed containers that cannot change value or type once created.",
-        "B. Variables are names referencing objects in memory; assignment evaluates the right-hand side first and binds the name; variables can be dynamically reassigned to new objects.",
-        "C. Variable names must always end with `.py`.",
-        "D. Variable assignment checks for mathematical balance on both sides."
-      ],
       "correct_answer": "B",
       "explanation": "In Python, this operation directly demonstrates the core behavior of variables synthesis. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     }

@@ -188,12 +188,6 @@
         "content": "When analyzing database output, it is important to verify that relationships are correctly represented. A JOIN operation combines rows from two tables based on a related column, typically a primary key and a foreign key. If the relationship is defined properly, the joined result will show consistent and meaningful associations. Analyzing the output requires checking for duplicate rows, missing matches, and referential integrity. The following code performs a JOIN and prints the combined result."
       },
       "prompt": "Explain the output and behavior of the following code snippet.\n```python\nimport sqlite3\nconn = sqlite3.connect(':memory:')\ncursor = conn.cursor()\ncursor.execute('''\nCREATE TABLE books (\n    book_id INTEGER PRIMARY KEY,\n    title TEXT\n)\n''')\ncursor.execute('''\nCREATE TABLE loans (\n    loan_id INTEGER PRIMARY KEY,\n    book_id INTEGER REFERENCES books(book_id)\n)\n''')\ncursor.execute(\"INSERT INTO books (book_id, title) VALUES (1, 'Python Basics')\")\ncursor.execute(\"INSERT INTO loans (loan_id, book_id) VALUES (10, 1)\")\ncursor.execute('''\nSELECT b.title, l.loan_id\nFROM books b\nLEFT JOIN loans l ON b.book_id = l.book_id\n''')\nprint(cursor.fetchall())\n```",
-      "options": [
-        "The output is [('Python Basics', 10)] because the LEFT JOIN finds the matching loan record for the book.",
-        "The output is [('Python Basics', None)] because the LEFT JOIN preserves the book even if no loan exists.",
-        "The output is [] because the foreign key constraint prevents the INSERT from succeeding.",
-        "The output raises an error because LEFT JOIN is not valid syntax in sqlite3."
-      ],
       "correct_answer": "The output is [('Python Basics', 10)] because the LEFT JOIN finds the matching loan record for the book.",
       "explanation": "The LEFT JOIN returns all rows from the left table (books) and matching rows from the right table (loans). Since a loan with loan_id 10 exists for book_id 1, the result is a single row with the title and the matching loan_id.",
       "starter_code": "# Write your solution below\n",
@@ -219,12 +213,6 @@
         "content": "Tracing execution involves following each statement to understand how data changes and how constraints affect behavior. When a PRIMARY KEY or FOREIGN KEY constraint is violated, the database transaction may be rolled back or raise an exception. Tracing helps identify at which step an error occurs. In Python, the sqlite3 module uses transactions that are committed with commit() or rolled back with rollback(). Understanding the sequence of operations is critical when working with relational data."
       },
       "prompt": "Trace the execution step by step and identify the final state of the database and whether an exception occurs.\n```python\nimport sqlite3\nconn = sqlite3.connect(':memory:')\ncursor = conn.cursor()\ncursor.execute('''\nCREATE TABLE products (\n    prod_id INTEGER PRIMARY KEY,\n    name TEXT\n)\n''')\ncursor.execute(\"INSERT INTO products (prod_id, name) VALUES (1, 'Widget')\")\ncursor.execute(\"INSERT INTO products (prod_id, name) VALUES (1, 'Gadget')\")\ncursor.execute(\"COMMIT\")\nprint(cursor.execute('SELECT * FROM products').fetchall())\n```",
-      "options": [
-        "An exception is raised during the second INSERT; no rows are committed; the database remains empty.",
-        "Both rows are inserted successfully; the output is [(1, 'Widget'), (1, 'Gadget')].",
-        "The second INSERT is silently ignored; the output is [(1, 'Widget')].",
-        "An exception is raised during COMMIT; the first row is rolled back; the database is empty."
-      ],
       "correct_answer": "An exception is raised during the second INSERT; no rows are committed; the database remains empty.",
       "explanation": "The second INSERT attempts to use prod_id 1 again, violating the PRIMARY KEY constraint. sqlite3 raises an IntegrityError immediately, preventing the row from being inserted. Because no explicit commit occurred before the error, the transaction is rolled back, leaving the database empty.",
       "starter_code": "# Write your solution below\n",

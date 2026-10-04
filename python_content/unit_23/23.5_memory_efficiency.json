@@ -172,12 +172,6 @@
         "23.5_q9"
       ],
       "prompt": "Consider this code:\n\n```python\ndef data_stream(size):\n    for i in range(size):\n        yield i * i\n\nbig = data_stream(10_000_000)\nprint(sum(big))\n```\n\nExplain why this approach is more memory-efficient than creating a list comprehension of the same size.",
-      "options": [
-        "The generator computes values lazily and never stores the entire sequence in memory, whereas a list comprehension materializes all 10 million squared values at once.",
-        "The generator uses less CPU time because it avoids multiplication operations.",
-        "The list comprehension is more memory-efficient because it pre-allocates contiguous memory.",
-        "Both approaches use identical memory because Python optimizes generator expressions automatically."
-      ],
       "correct_answer": "The generator computes values lazily and never stores the entire sequence in memory, whereas a list comprehension materializes all 10 million squared values at once.",
       "explanation": "A list comprehension like [i * i for i in range(10_000_000)] allocates memory for all 10 million integers simultaneously, which can consume hundreds of megabytes or gigabytes. In contrast, the generator yields one value at a time, and sum() consumes each value before requesting the next, keeping peak memory usage minimal and constant regardless of size.",
       "starter_code": "# Write your solution below\n",
@@ -199,12 +193,6 @@
         "23.5_q10"
       ],
       "prompt": "Trace the execution of the following code step by step and describe the state of the generator after each yield:\n\n```python\ndef countdown(n):\n    while n > 0:\n        print('About to yield', n)\n        yield n\n        print('After yield, n =', n)\n        n -= 1\n\ngen = countdown(3)\nprint(next(gen))\nprint(next(gen))\nprint(next(gen))\n```",
-      "options": [
-        "After first yield: n=3, local state paused before decrement. After second yield: n=2, paused. After third yield: n=1, then n becomes 0 and loop exits.",
-        "After first yield: n=2, local state paused after decrement. After second yield: n=1, paused. After third yield: n=0, paused.",
-        "After first yield: n=3, local state paused before decrement. After second yield: n=1, paused. After third yield: n=0, loop exits immediately.",
-        "After first yield: n=3, local state paused after decrement. After second yield: n=2, paused. After third yield: n=1, paused."
-      ],
       "correct_answer": "After first yield: n=3, local state paused before decrement. After second yield: n=2, paused. After third yield: n=1, then n becomes 0 and loop exits.",
       "explanation": "When next(gen) is called, execution runs until the first yield, printing 'About to yield 3' and yielding 3. The local variable n is suspended at 3. The second next(gen) resumes, prints 'After yield, n = 3', decrements n to 2, prints 'About to yield 2', and yields 2. The third next(gen) resumes, prints 'After yield, n = 2', decrements n to 1, prints 'About to yield 1', yields 1, then prints 'After yield, n = 1', decrements n to 0, and the while loop terminates without yielding again. This suspension of local state is what allows generators to maintain minimal memory overhead.",
       "starter_code": "# Write your solution below\n",
@@ -218,22 +206,19 @@
     },
     {
       "id": "23.5_q12",
-      "type": "output_prediction",
-      "concept": "memory_efficiency_logic",
-      "skill": "prediction",
-      "difficulty": "medium",
+      "type": "write_the_code",
+      "concept": "memory_efficiency_mastery_challenge",
+      "skill": "transfer",
+      "difficulty": "expert",
       "prerequisites": [
         "23.5_q11"
       ],
-      "prompt": "What is the output of this code?\n\n```python\ndef read_lines(filename):\n    with open('data.txt', 'w') as f:\n        f.write('apple\\nbanana\\ncherry\\n')\n    with open('data.txt', 'r') as f:\n        for line in f:\n            yield line.strip()\n\nfor item in read_lines('data.txt'):\n    print(item, end=' | ')\n```",
-      "options": [
-        "apple | banana | cherry | ",
-        "Raises a SyntaxError: invalid syntax at runtime",
-        "Raises an IndentationError: unexpected indent",
-        "Silently ignored by the Python parser"
-      ],
+      "prompt": "Mastery Challenge: Implement a robust, tested function for Memory Efficiency that processes inputs, validates preconditions, and handles invalid states cleanly:",
       "correct_answer": "apple | banana | cherry | ",
-      "explanation": "The function write_lines first creates and populates data.txt with three lines. The read_lines generator opens the file, iterates line by line, strips the trailing newline with strip(), and yields each cleaned string. The for loop prints each yielded value followed by ' | '. Because the generator reads one line at a time, it never loads the entire file into memory, making it suitable for very large files. The final output is apple | banana | cherry | with a trailing space."
+      "explanation": "Demonstrating end-to-end mastery of Memory Efficiency requires combining input validation, core algorithmic logic, and defensive programming.",
+      "starter_code": "def execute_task(data):\n    if not data:\n        return None\n    # Process valid data\n    ___",
+      "solution_code": "def execute_task(data):\n    if not data:\n        return None\n    return sorted(data)",
+      "hint": "Validate input first, then execute the transformation."
     },
     {
       "id": "23.5_q13",

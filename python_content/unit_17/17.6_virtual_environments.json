@@ -24,26 +24,15 @@
       "prerequisites": [
         "17.6_q1"
       ],
-      "match_code_to_concept": {
-        "prompt": "Which command creates a new virtual environment named 'project_env'?",
-        "options": [
-          "pip install project_env",
-          "python -m venv project_env",
-          "venv create project_env",
-          "activate project_env"
-        ],
-        "correct_answer": "python -m venv project_env",
-        "explanation": "The standard way to create a virtual environment is by using the built-in venv module with python -m venv <name>. This ensures the environment uses the correct Python version and creates the necessary directory structure."
-      },
-      "prompt": "Which statement best applies to virtual environments venv basics?",
+      "prompt": "Which command creates a new virtual environment named 'project_env'?",
       "options": [
-        "A. Correct approach for virtual environments venv basics",
-        "Raises a SyntaxError: invalid syntax at runtime",
-        "Raises an IndentationError: unexpected indent",
-        "Silently ignored by the Python parser"
+        "pip install project_env",
+        "python -m venv project_env",
+        "venv create project_env",
+        "activate project_env"
       ],
-      "correct_answer": "A. Correct approach for virtual environments venv basics",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of virtual environments venv basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "correct_answer": "python -m venv project_env",
+      "explanation": "The standard way to create a virtual environment is by using the built-in venv module with python -m venv <name>. This ensures the environment uses the correct Python version and creates the necessary directory structure."
     },
     {
       "id": "17.6_q3",
@@ -68,26 +57,15 @@
       "prerequisites": [
         "17.6_q3"
       ],
-      "match_code_to_concept": {
-        "prompt": "Given the following code run inside an activated virtual environment, what does sys.executable return?",
-        "options": [
-          "The path to the system-wide Python installation",
-          "The path to the Python interpreter inside the virtual environment",
-          "The string 'venv'",
-          "An error because sys is not imported"
-        ],
-        "correct_answer": "The path to the Python interpreter inside the virtual environment",
-        "explanation": "When a venv is active, sys.executable reflects the isolated interpreter located in the venv directory. This allows you to verify that you are indeed working inside the correct environment."
-      },
-      "prompt": "Which statement best applies to virtual environments venv syntax?",
+      "prompt": "Given the following code run inside an activated virtual environment, what does sys.executable return?",
       "options": [
-        "A. Correct approach for virtual environments venv syntax",
-        "Raises a SyntaxError: invalid syntax at runtime",
-        "Raises an IndentationError: unexpected indent",
-        "Silently ignored by the Python parser"
+        "The path to the system-wide Python installation",
+        "The path to the Python interpreter inside the virtual environment",
+        "The string 'venv'",
+        "An error because sys is not imported"
       ],
-      "correct_answer": "A. Correct approach for virtual environments venv syntax",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of virtual environments venv syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "correct_answer": "The path to the Python interpreter inside the virtual environment",
+      "explanation": "When a venv is active, sys.executable reflects the isolated interpreter located in the venv directory. This allows you to verify that you are indeed working inside the correct environment."
     },
     {
       "id": "17.6_q5",
@@ -98,26 +76,15 @@
       "prerequisites": [
         "17.6_q4"
       ],
-      "match_code_to_concept": {
-        "prompt": "Match the venv command to its purpose.",
-        "options": [
-          "python -m venv myenv: Deactivate the current environment",
-          "deactivate: Create a new virtual environment",
-          "source myenv/bin/activate: Activate the virtual environment on Unix-like systems",
-          "pip freeze: Remove the current environment"
-        ],
-        "correct_answer": "source myenv/bin/activate: Activate the virtual environment on Unix-like systems",
-        "explanation": "The command source myenv/bin/activate is used on Unix-like systems to activate the virtual environment. The other options either mismatch the command with the purpose or describe unrelated operations."
-      },
-      "prompt": "Which statement best applies to virtual environments venv matching?",
+      "prompt": "Match the venv command to its purpose.",
       "options": [
-        "A. Correct approach for virtual environments venv matching",
-        "Raises a SyntaxError: invalid syntax at runtime",
-        "Raises an IndentationError: unexpected indent",
-        "Silently ignored by the Python parser"
+        "python -m venv myenv: Deactivate the current environment",
+        "deactivate: Create a new virtual environment",
+        "source myenv/bin/activate: Activate the virtual environment on Unix-like systems",
+        "pip freeze: Remove the current environment"
       ],
-      "correct_answer": "A. Correct approach for virtual environments venv matching",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of virtual environments venv matching. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "correct_answer": "source myenv/bin/activate: Activate the virtual environment on Unix-like systems",
+      "explanation": "The command source myenv/bin/activate is used on Unix-like systems to activate the virtual environment. The other options either mismatch the command with the purpose or describe unrelated operations."
     },
     {
       "id": "17.6_q6",
@@ -128,26 +95,15 @@
       "prerequisites": [
         "17.6_q5"
       ],
-      "match_code_to_concept": {
-        "prompt": "Which statement best describes a common pitfall when working with virtual environments?",
-        "options": [
-          "Packages installed in one venv are automatically available in all other venvs",
-          "Forgetting to activate a venv before running a script can lead to installing packages in the global Python environment",
-          "Virtual environments slow down code execution significantly",
-          "You must reinstall Python every time you create a new venv"
-        ],
-        "correct_answer": "Forgetting to activate a venv before running a script can lead to installing packages in the global Python environment",
-        "explanation": "A frequent mistake is to run pip install inside a project directory without first activating its venv. This installs packages into the global site-packages, polluting the system Python and potentially causing conflicts with other projects."
-      },
-      "prompt": "Which statement best applies to virtual environments venv pitfalls?",
+      "prompt": "Which statement best describes a common pitfall when working with virtual environments?",
       "options": [
-        "A. Correct approach for virtual environments venv pitfalls",
-        "Raises a SyntaxError: invalid syntax at runtime",
-        "Raises an IndentationError: unexpected indent",
-        "Silently ignored by the Python parser"
+        "Packages installed in one venv are automatically available in all other venvs",
+        "Forgetting to activate a venv before running a script can lead to installing packages in the global Python environment",
+        "Virtual environments slow down code execution significantly",
+        "You must reinstall Python every time you create a new venv"
       ],
-      "correct_answer": "A. Correct approach for virtual environments venv pitfalls",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of virtual environments venv pitfalls. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "correct_answer": "Forgetting to activate a venv before running a script can lead to installing packages in the global Python environment",
+      "explanation": "A frequent mistake is to run pip install inside a project directory without first activating its venv. This installs packages into the global site-packages, polluting the system Python and potentially causing conflicts with other projects."
     },
     {
       "id": "17.6_q7",
@@ -218,12 +174,6 @@
         "17.6_q9"
       ],
       "prompt": "After running the following commands, a developer observes this output:\n\n```\n(venv) $ pip show numpy\nName: numpy\nVersion: 1.24.3\nLocation: /home/user/myenv/lib/python3.11/site-packages\nRequires:\n```\n\nExplain why the `Location` field is inside the virtual environment directory rather than the global site-packages directory.",
-      "options": [
-        "The package was installed using `pip install --user`, which defaults to the venv",
-        "The virtual environment intercepts pip so that packages are installed into its isolated site-packages",
-        "The global site-packages directory is read-only, forcing installation into the venv",
-        "The `Location` field is always relative to the current working directory"
-      ],
       "correct_answer": "The virtual environment intercepts pip so that packages are installed into its isolated site-packages",
       "explanation": "A virtual environment modifies the Python path so that `pip` writes installed packages to the venv's own `site-packages` directory. This keeps dependencies isolated from the global interpreter and prevents version conflicts.",
       "id": "17.6_q10",
@@ -617,7 +567,7 @@
         "validation output shows installed packages"
       ],
       "hint": "Pin versions using == in pip install commands, and use subprocess with the venv's pip path for all operations.",
-      "explanation": "This scenario mirrors real-world onboarding by combining version pinning, dependency generation, and validation\u2014critical for consistent team workflows and production deployments."
+      "explanation": "This scenario mirrors real-world onboarding by combining version pinning, dependency generation, and validation—critical for consistent team workflows and production deployments."
     },
     {
       "id": "17.6_q30",
@@ -638,7 +588,7 @@
         "cleanup removes environment directory"
       ],
       "hint": "Use platform.system() to branch OS-specific paths, and ensure pip path uses the venv's Python executable.",
-      "explanation": "Mastery here requires synthesizing OS detection, activation logic, and cleanup into a robust, portable automation script\u2014skills directly applicable to deployment and DevOps tasks."
+      "explanation": "Mastery here requires synthesizing OS detection, activation logic, and cleanup into a robust, portable automation script—skills directly applicable to deployment and DevOps tasks."
     }
   ],
   "unit_num": 17,

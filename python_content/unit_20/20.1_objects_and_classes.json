@@ -172,12 +172,6 @@
         "20.1_q9"
       ],
       "prompt": "Explain what is happening in the following code and why it produces the output shown.\n\n```python\nclass Book:\n    def __init__(self, title):\n        self.title = title\n\n    def get_title(self):\n        return self.title\n\nb = Book('Python Basics')\nprint(b.get_title())\n```",
-      "options": [
-        "A class Book is defined and an object b is created. The method get_title accesses the instance attribute title and returns it, which is printed.",
-        "The __init__ method is called after get_title, causing an error.",
-        "The title is a class variable, not an instance variable, so it is shared across all objects.",
-        "The print statement calls __init__ directly and displays the memory address."
-      ],
       "correct_answer": "A class Book is defined and an object b is created. The method get_title accesses the instance attribute title and returns it, which is printed.",
       "explanation": "The class defines an initializer that stores the passed title in self.title. The instance method get_title returns this stored value. The object b is instantiated with 'Python Basics', and calling get_title() returns that string, which print outputs.",
       "starter_code": "# Write your solution below\n",

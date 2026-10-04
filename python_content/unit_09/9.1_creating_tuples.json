@@ -21,30 +21,19 @@
       "skill": "recall",
       "difficulty": "easy",
       "concept": "creating_tuples_basics",
-      "match_code_to_concept": {
-        "prompt": "Which of the following creates a valid tuple in Python?",
-        "options": [
-          "my_tuple = (1, 2, 3)",
-          "my_tuple = [1, 2, 3]",
-          "my_tuple = 1, 2, 3",
-          "my_tuple = (1 2 3)"
-        ],
-        "correct_answer": "my_tuple = (1, 2, 3)",
-        "explanation": "Option A is correct because parentheses with comma-separated values create a tuple. Option B creates a list, not a tuple. Option C creates a tuple without parentheses, which is valid but not the standard syntax shown here; however, the question asks for the explicit tuple syntax. Option D is invalid because elements must be separated by commas, not spaces."
-      },
       "id": "9.1_q2",
       "prerequisites": [
         "9.1_q1"
       ],
-      "prompt": "Which statement best applies to creating tuples basics?",
+      "prompt": "Which of the following creates a valid tuple in Python?",
       "options": [
-        "A. Correct approach for creating tuples basics",
-        "Raises a SyntaxError: invalid syntax at runtime",
-        "Raises an IndentationError: unexpected indent",
-        "Silently ignored by the Python parser"
+        "my_tuple = (1, 2, 3)",
+        "my_tuple = [1, 2, 3]",
+        "my_tuple = 1, 2, 3",
+        "my_tuple = (1 2 3)"
       ],
-      "correct_answer": "A. Correct approach for creating tuples basics",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of creating tuples basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "correct_answer": "my_tuple = (1, 2, 3)",
+      "explanation": "Parentheses enclosing comma-separated values like `(1, 2, 3)` construct an immutable tuple. Square brackets `[1, 2, 3]` define a mutable list, and omitting commas as in `(1 2 3)` raises a SyntaxError. A common beginner misconception is assuming parentheses alone make a tuple; in reality, commas separate elements to define the tuple structure."
     },
     {
       "idx": 3,
@@ -67,30 +56,19 @@
       "skill": "reasoning",
       "difficulty": "easy",
       "concept": "creating_tuples_syntax",
-      "match_code_to_concept": {
-        "prompt": "Which statement correctly describes tuple creation syntax?",
-        "options": [
-          "Parentheses are always required to create a tuple.",
-          "A single value in parentheses like (5) is a tuple.",
-          "A trailing comma is necessary for a single-element tuple.",
-          "Tuples cannot contain mixed data types."
-        ],
-        "correct_answer": "A trailing comma is necessary for a single-element tuple.",
-        "explanation": "Option C is correct. To create a tuple with one element, you must use a trailing comma, as in (5,). Option A is false because you can create a tuple without parentheses, like 1, 2, 3. Option B is false because (5) evaluates to the integer 5, not a tuple. Option D is false because tuples can hold any mix of data types, such as (1, 'hello', 3.14)."
-      },
       "id": "9.1_q4",
       "prerequisites": [
         "9.1_q3"
       ],
-      "prompt": "Which statement best applies to creating tuples syntax?",
+      "prompt": "Which statement correctly describes tuple creation syntax?",
       "options": [
-        "A. Correct approach for creating tuples syntax",
-        "Raises a SyntaxError: invalid syntax at runtime",
-        "Raises an IndentationError: unexpected indent",
-        "Silently ignored by the Python parser"
+        "Parentheses are always required to create a tuple.",
+        "A single value in parentheses like (5) is a tuple.",
+        "A trailing comma is necessary for a single-element tuple.",
+        "Tuples cannot contain mixed data types."
       ],
-      "correct_answer": "A. Correct approach for creating tuples syntax",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of creating tuples syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "correct_answer": "A trailing comma is necessary for a single-element tuple.",
+      "explanation": "Option C is correct. To create a tuple with one element, you must use a trailing comma, as in (5,). Option A is false because you can create a tuple without parentheses, like 1, 2, 3. Option B is false because (5) evaluates to the integer 5, not a tuple. Option D is false because tuples can hold any mix of data types, such as (1, 'hello', 3.14)."
     },
     {
       "idx": 5,
@@ -98,30 +76,19 @@
       "skill": "recognition",
       "difficulty": "easy",
       "concept": "creating_tuples_matching",
-      "match_code_to_concept": {
-        "prompt": "Match each code snippet to the tuple concept it demonstrates.",
-        "options": [
-          "code: (1, 2, 3)  ->  concept: single-element tuple",
-          "code: 1, 2, 3  ->  concept: tuple without parentheses",
-          "code: (1,)  ->  concept: standard multi-element tuple",
-          "code: (1, 2, 3)  ->  concept: tuple with trailing comma"
-        ],
-        "correct_answer": "code: 1, 2, 3  ->  concept: tuple without parentheses",
-        "explanation": "Option B is the only correct match. The snippet 1, 2, 3 creates a tuple without using parentheses. Option A is wrong because (1, 2, 3) is a multi-element tuple, not single-element. Option C is wrong because (1,) is a single-element tuple, not a standard multi-element tuple. Option D is wrong because (1, 2, 3) does not have a trailing comma; a trailing comma would look like (1, 2, 3,)."
-      },
       "id": "9.1_q5",
       "prerequisites": [
         "9.1_q4"
       ],
-      "prompt": "Which statement best applies to creating tuples matching?",
+      "prompt": "Match each code snippet to the tuple concept it demonstrates.",
       "options": [
-        "A. Correct approach for creating tuples matching",
-        "Raises a SyntaxError: invalid syntax at runtime",
-        "Raises an IndentationError: unexpected indent",
-        "Silently ignored by the Python parser"
+        "code: (1, 2, 3)  ->  concept: single-element tuple",
+        "code: 1, 2, 3  ->  concept: tuple without parentheses",
+        "code: (1,)  ->  concept: standard multi-element tuple",
+        "code: (1, 2, 3)  ->  concept: tuple with trailing comma"
       ],
-      "correct_answer": "A. Correct approach for creating tuples matching",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of creating tuples matching. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "correct_answer": "code: 1, 2, 3  ->  concept: tuple without parentheses",
+      "explanation": "Option B is the only correct match. The snippet 1, 2, 3 creates a tuple without using parentheses. Option A is wrong because (1, 2, 3) is a multi-element tuple, not single-element. Option C is wrong because (1,) is a single-element tuple, not a standard multi-element tuple. Option D is wrong because (1, 2, 3) does not have a trailing comma; a trailing comma would look like (1, 2, 3,)."
     },
     {
       "idx": 6,
@@ -129,30 +96,19 @@
       "skill": "comprehension",
       "difficulty": "easy",
       "concept": "creating_tuples_pitfalls",
-      "match_code_to_concept": {
-        "prompt": "Which common mistake should you avoid when creating tuples?",
-        "options": [
-          "Using commas to separate elements inside parentheses.",
-          "Forgetting the trailing comma in a single-element tuple.",
-          "Using square brackets instead of parentheses for a tuple.",
-          "Assigning a tuple to a variable with a descriptive name."
-        ],
-        "correct_answer": "Forgetting the trailing comma in a single-element tuple.",
-        "explanation": "Option B is the correct pitfall to avoid. Writing (42) creates the integer 42, not a tuple. You must write (42,) to create a single-element tuple. Option A is not a mistake; commas are required. Option C describes creating a list, which is different from a tuple but not a 'mistake' in the same sense. Option D is good practice, not a pitfall."
-      },
       "id": "9.1_q6",
       "prerequisites": [
         "9.1_q5"
       ],
-      "prompt": "Which statement best applies to creating tuples pitfalls?",
+      "prompt": "Which common mistake should you avoid when creating tuples?",
       "options": [
-        "A. Correct approach for creating tuples pitfalls",
-        "Raises a SyntaxError: invalid syntax at runtime",
-        "Raises an IndentationError: unexpected indent",
-        "Silently ignored by the Python parser"
+        "Using commas to separate elements inside parentheses.",
+        "Forgetting the trailing comma in a single-element tuple.",
+        "Using square brackets instead of parentheses for a tuple.",
+        "Assigning a tuple to a variable with a descriptive name."
       ],
-      "correct_answer": "A. Correct approach for creating tuples pitfalls",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of creating tuples pitfalls. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "correct_answer": "Forgetting the trailing comma in a single-element tuple.",
+      "explanation": "Option B is the correct pitfall to avoid. Writing (42) creates the integer 42, not a tuple. You must write (42,) to create a single-element tuple. Option A is not a mistake; commas are required. Option C describes creating a list, which is different from a tuple but not a 'mistake' in the same sense. Option D is good practice, not a pitfall."
     },
     {
       "id": "9.1_q7",
@@ -221,12 +177,6 @@
         "9.1_q9"
       ],
       "prompt": "Explain the output and behavior of the following code snippet:\n```python\nt = (1, 2, 3)\nt.append(4)\nprint(t)\n```",
-      "options": [
-        "The output is (1, 2, 3, 4) because tuples have an append method.",
-        "The code raises an AttributeError because tuples do not have an append method.",
-        "The output is (1, 2, 3) because the append call is ignored silently.",
-        "The code raises a TypeError because tuples cannot be modified."
-      ],
       "correct_answer": "The code raises an AttributeError because tuples do not have an append method.",
       "explanation": "Tuples are immutable, meaning they do not support item assignment or methods that modify their contents. The append() method exists only for lists, not for tuples. Attempting to call it on a tuple raises an AttributeError.",
       "starter_code": "# Write your solution below\n",

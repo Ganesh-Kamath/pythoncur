@@ -54,22 +54,19 @@
     {
       "id": "26.1_q4",
       "idx": 4,
-      "type": "multiple_choice",
-      "concept": "introduction_to_databases_syntax",
-      "skill": "reasoning",
-      "difficulty": "easy",
+      "type": "real_world_scenario",
+      "concept": "introduction_to_databases_production_transfer",
+      "skill": "application",
+      "difficulty": "hard",
       "prerequisites": [
         "26.1_q3"
       ],
-      "prompt": "Given the following Python code, what is the result of the execute call?",
-      "options": [
-        "It inserts a row with name 'Banana' and price 0.8 into the products table",
-        "Raises a SyntaxError: invalid syntax at runtime",
-        "Raises an IndentationError: unexpected indent",
-        "Silently ignored by the Python parser"
-      ],
+      "prompt": "Apply Introduction to Databases to a realistic scenario: process a sequence of records and return only those meeting the business rule:",
       "correct_answer": "It inserts a row with name 'Banana' and price 0.8 into the products table",
-      "explanation": "The SQL statement is an INSERT INTO command with VALUES, which adds a new record. The cursor.execute method runs this command against the connected database."
+      "explanation": "In production Python code, Introduction to Databases is frequently combined with data filtering to process structured domain models efficiently.",
+      "starter_code": "records = [{'id': 1, 'active': True}, {'id': 2, 'active': False}]\n# Filter active records\nactive_records = ___",
+      "solution_code": "records = [{'id': 1, 'active': True}, {'id': 2, 'active': False}]\nactive_records = [r for r in records if r['active']]",
+      "hint": "Use a list comprehension to filter records where 'active' is True."
     },
     {
       "id": "26.1_q5",
@@ -197,12 +194,6 @@
         "content": "When you query a database, the cursor returns rows that you can fetch using fetchall or fetchone. fetchall returns a list of tuples, where each tuple represents one row. Understanding the structure of the result is important for processing data in Python. For example:\n\n```python\nimport sqlite3\nconn = sqlite3.connect('school.db')\ncursor = conn.cursor()\ncursor.execute('SELECT * FROM students')\nrows = cursor.fetchall()\nprint(rows)\n```\n\nIf the table has columns id and name, each row will be a tuple like (1, 'Alice')."
       },
       "prompt": "Given the code above, what does the variable rows contain after execution, assuming the students table has two records?",
-      "options": [
-        "A list of tuples, where each tuple holds one student's data",
-        "A dictionary mapping column names to values",
-        "A single string with all student names concatenated",
-        "An integer count of the records found"
-      ],
       "correct_answer": "A list of tuples, where each tuple holds one student's data",
       "explanation": "fetchall() returns all matching rows as a list of tuples. It does not return dictionaries, strings, or counts unless explicitly aggregated with SQL functions.",
       "difficulty": "medium",
@@ -230,12 +221,6 @@
       },
       "prompt": "Trace the execution and identify the final value of result.",
       "code": "import sqlite3\nconn = sqlite3.connect('school.db')\ncursor = conn.cursor()\ncursor.execute('INSERT INTO students (id, name) VALUES (3, \"Bob\")')\ncursor.execute('SELECT * FROM students')\nresult = cursor.fetchall()\nconn.close()",
-      "options": [
-        "A list of tuples containing all students including the newly inserted record",
-        "An empty list because the table was empty before insertion",
-        "A single tuple with only Bob's data",
-        "An error because the INSERT was not committed"
-      ],
       "correct_answer": "A list of tuples containing all students including the newly inserted record",
       "explanation": "In SQLite, DML statements like INSERT are auto-committed in autocommit mode by default in many contexts, but even without explicit commit, the row is visible in the same connection. The SELECT fetches all rows, so result contains every student tuple.",
       "difficulty": "medium",
@@ -607,7 +592,7 @@
         }
       ],
       "hint": "Use INSERT OR IGNORE to avoid primary key violations, check rowcount to decide between insert and update, and wrap operations in try/except/finally with commit and rollback for atomicity.",
-      "explanation": "This scenario synthesizes transaction safety, upsert patterns, and audit logging\u2014core concerns in production database applications. Students must coordinate multiple SQL statements within a single transaction and ensure cleanup via finally."
+      "explanation": "This scenario synthesizes transaction safety, upsert patterns, and audit logging—core concerns in production database applications. Students must coordinate multiple SQL statements within a single transaction and ensure cleanup via finally."
     },
     {
       "id": "26.1_q30",

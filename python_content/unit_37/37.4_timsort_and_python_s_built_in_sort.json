@@ -158,12 +158,6 @@
         "37.4_q8"
       ],
       "prompt": "Fix this code snippet implementing Timsort and Python Built-in Sort correctly:",
-      "options": [
-        "45",
-        "22",
-        "value_9",
-        "Error"
-      ],
       "correct_answer": "45",
       "explanation": "Applying standard Python idioms ensures correct behavior: stability guarantees relative order of equal keys is preserved.",
       "starter_code": "# Timsort and Python Built-in Sort implementation\n___",
@@ -171,24 +165,24 @@
     },
     {
       "id": "37.4_q10",
-      "type": "write_the_code",
-      "concept": "timsort_and_pythons_builtin_sort_analysis",
-      "skill": "analysis",
-      "difficulty": "medium",
+      "type": "real_world_scenario",
+      "concept": "timsort_and_python's_built_in_sort_production_transfer",
+      "skill": "application",
+      "difficulty": "hard",
       "prerequisites": [
         "37.4_q9"
       ],
-      "prompt": "Write a statement that prints 'Timsort and Python's Built-in sort() Result 10' to standard output.",
-      "starter_code": "# Write your code below\n",
-      "solution_code": "print('OK')",
+      "prompt": "Apply Timsort and Python's Built-in sort() to a realistic scenario: process a sequence of records and return only those meeting the business rule:",
+      "starter_code": "records = [{'id': 1, 'active': True}, {'id': 2, 'active': False}]\n# Filter active records\nactive_records = ___",
+      "solution_code": "records = [{'id': 1, 'active': True}, {'id': 2, 'active': False}]\nactive_records = [r for r in records if r['active']]",
       "test_cases": [
         {
           "input": "",
           "expected_output": "OK"
         }
       ],
-      "hint": "Use print('Timsort and Python's Built-in sort() Result 10') to generate the required output.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of timsort and pythons builtin sort analysis. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "hint": "Use a list comprehension to filter records where 'active' is True.",
+      "explanation": "In production Python code, Timsort and Python's Built-in sort() is frequently combined with data filtering to process structured domain models efficiently."
     },
     {
       "id": "37.4_q11",
@@ -219,12 +213,6 @@
         "37.4_q11"
       ],
       "prompt": "Write the canonical Python code statement for Timsort and Python Built-in Sort:",
-      "options": [
-        "60",
-        "30",
-        "value_12",
-        "Error"
-      ],
       "correct_answer": "60",
       "explanation": "Canonical implementation: pairs = [(1, 'b'), (2, 'a'), (1, 'a')]\npairs.sort(key=lambda x: x[0]). Stability guarantees relative order of equal keys is preserved.",
       "starter_code": "# Complete the statement\n___",

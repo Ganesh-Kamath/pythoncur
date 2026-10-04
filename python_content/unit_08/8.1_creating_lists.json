@@ -126,22 +126,19 @@
     },
     {
       "id": "8.1_q8",
-      "type": "output_prediction",
-      "concept": "creating_lists_execution",
-      "skill": "prediction",
+      "type": "fix_the_code",
+      "concept": "creating_lists_debugging",
+      "skill": "debugging",
       "difficulty": "medium",
       "prerequisites": [
         "8.1_q7"
       ],
-      "prompt": "What will be printed by the following code?\n\n```python\nfruits = ['apple', 'banana', 'cherry']\nprint(fruits[1].upper())\n```",
-      "options": [
-        "'BANANA'",
-        "Raises a SyntaxError: invalid syntax at runtime",
-        "Raises an IndentationError: unexpected indent",
-        "Silently ignored by the Python parser"
-      ],
+      "prompt": "Identify and fix the logical or syntax defect in this implementation of Creating Lists:",
       "correct_answer": "'BANANA'",
-      "explanation": "The list fruits contains three strings. Index 1 accesses 'banana'. The upper() method converts it to uppercase, resulting in 'BANANA'. The print statement outputs this string without quotes."
+      "explanation": "Debugging is a core programming competency. Guarding against edge cases like `None` or invalid states prevents runtime failures.",
+      "starter_code": "# Fix the issue with Creating Lists\ndef check_valid(val):\n    if val is None:\n        return False\n    return True",
+      "solution_code": "def check_valid(val):\n    if val is None:\n        return False\n    return True",
+      "hint": "Check the condition and return value carefully."
     },
     {
       "id": "8.1_q9",
@@ -172,12 +169,6 @@
         "8.1_q9"
       ],
       "prompt": "Explain why the following code produces the output it does:\n\n```python\ncolors = ['red', 'green', 'blue']\nprint(colors[-1])\n```",
-      "options": [
-        "Negative indices count from the end of the list, so -1 refers to the last element 'blue'.",
-        "The code raises an IndexError because negative indices are not supported.",
-        "It prints the first element 'red' because -1 is treated as 0.",
-        "The list is modified before printing, so the output is unpredictable."
-      ],
       "correct_answer": "Negative indices count from the end of the list, so -1 refers to the last element 'blue'.",
       "explanation": "In Python, negative indexing allows access to list elements from the end. -1 refers to the last item, -2 to the second-to-last, and so on. Here, colors[-1] retrieves 'blue', which is printed.",
       "starter_code": "# Write your solution below\n",

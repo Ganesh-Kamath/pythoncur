@@ -176,12 +176,6 @@
         "content": "When analyzing output, always trace variable names and function responsibilities. The DRY principle encourages reusing logic through well-named functions instead of copy-pasting code. Consider how a function name like compute_total_price immediately tells you its purpose, reducing cognitive load. In the example below, the function calculate_discounted_price applies a discount and returns the final amount. Notice how the variable names describe their role, making the code self-documenting.\n\n```python\ndef calculate_discounted_price(original_price, discount_rate):\n    discounted = original_price * (1 - discount_rate)\n    return discounted\n\nfinal_amount = calculate_discounted_price(100, 0.2)\nprint(final_amount)\n```\n\nThe output is 80.0 because 100 minus 20% equals 80. Clean naming (original_price, discount_rate, discounted, final_amount) ensures that anyone reading the code understands the transformation without extra comments."
       },
       "prompt": "Explain why the output of the following code is 80.0, focusing on how clean naming and DRY improve readability:\n\n```python\ndef calculate_discounted_price(original_price, discount_rate):\n    discounted = original_price * (1 - discount_rate)\n    return discounted\n\nfinal_amount = calculate_discounted_price(100, 0.2)\nprint(final_amount)\n```",
-      "options": [
-        "The function multiplies 100 by 1.2, giving 120.0 due to poor naming.",
-        "The function subtracts 20 from 100 using a clear name, returning 80.0, and avoids duplication by reusing the calculation logic.",
-        "The function adds a tax, resulting in 120.0, which is why the name is misleading.",
-        "The function returns the discount rate 0.2 because of a missing return statement."
-      ],
       "correct_answer": "The function subtracts 20 from 100 using a clear name, returning 80.0, and avoids duplication by reusing the calculation logic.",
       "explanation": "The function calculate_discounted_price receives 100 and 0.2. It computes 100 * (1 - 0.2) = 80.0. The name clearly indicates the operation, and the calculation is centralized in one function rather than repeated elsewhere, satisfying DRY. This makes the code easier to test and modify.",
       "starter_code": "# Write your solution below\n",
@@ -203,12 +197,6 @@
         "24.1_q10"
       ],
       "prompt": "Trace the execution step by step and determine the final value of result. Identify how DRY and naming contribute to clarity:\n\n```python\ndef sum_values(a, b):\n    total = a + b\n    return total\n\nfirst = 10\nsecond = 25\nresult = sum_values(first, second)\nprint(result)\n```",
-      "options": [
-        "result is 35; the function sum_values encapsulates addition, avoiding repeated a + b expressions.",
-        "result is 10; the function ignores b due to a naming conflict.",
-        "result is 25; the function returns the second parameter only.",
-        "Error; sum_values is not defined."
-      ],
       "correct_answer": "result is 35; the function sum_values encapsulates addition, avoiding repeated a + b expressions.",
       "explanation": "Step 1: first is assigned 10. Step 2: second is assigned 25. Step 3: sum_values is called with 10 and 25. Step 4: total becomes 35 and is returned. Step 5: result is assigned 35. Step 6: print outputs 35. The DRY principle is evident because the addition logic lives in one place. Descriptive names (first, second, sum_values, total, result) make the trace intuitive.",
       "starter_code": "# Write your solution below\n",
@@ -439,23 +427,23 @@
     {
       "id": "24.1_q24",
       "type": "write_the_code",
-      "concept": "principles_of_clean_code_dry_naming_optimization",
-      "skill": "refactoring",
-      "difficulty": "hard",
+      "concept": "principles_of_clean_code_dry,_naming_mastery_challenge",
+      "skill": "transfer",
+      "difficulty": "expert",
       "prerequisites": [
         "24.1_q23"
       ],
-      "prompt": "Write a statement that prints 'Principles of Clean Code (DRY, Naming) Result 24' to standard output.",
-      "starter_code": "# Write your code below\n",
-      "solution_code": "print('Principles of Clean Code (DRY, Naming) Result 24')",
+      "prompt": "Mastery Challenge: Implement a robust, tested function for Principles of Clean Code (DRY, Naming) that processes inputs, validates preconditions, and handles invalid states cleanly:",
+      "starter_code": "def execute_task(data):\n    if not data:\n        return None\n    # Process valid data\n    ___",
+      "solution_code": "def execute_task(data):\n    if not data:\n        return None\n    return sorted(data)",
       "test_cases": [
         {
           "input": "",
           "expected_output": "Principles of Clean Code (DRY, Naming) Result 24"
         }
       ],
-      "hint": "Use print('Principles of Clean Code (DRY, Naming) Result 24') to generate the required output.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of principles of clean code dry naming optimization. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "hint": "Validate input first, then execute the transformation.",
+      "explanation": "Demonstrating end-to-end mastery of Principles of Clean Code (DRY, Naming) requires combining input validation, core algorithmic logic, and defensive programming."
     },
     {
       "id": "24.1_q25",

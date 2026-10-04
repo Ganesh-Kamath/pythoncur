@@ -24,26 +24,15 @@
       "prerequisites": [
         "14.2_q1"
       ],
-      "match_code_to_concept": {
-        "prompt": "Which Python module is commonly used to read and write CSV files?",
-        "options": [
-          "json",
-          "csv",
-          "os",
-          "math"
-        ],
-        "correct_answer": "csv",
-        "explanation": "The csv module is specifically designed for handling CSV files in Python. The json module is for JSON data, os is for operating system interactions, and math is for mathematical functions."
-      },
-      "prompt": "Which statement best applies to reading and writing csvs basics?",
+      "prompt": "Which Python module is commonly used to read and write CSV files?",
       "options": [
-        "A. Correct approach for reading and writing csvs basics",
-        "Raises a SyntaxError: invalid syntax at runtime",
-        "Raises an IndentationError: unexpected indent",
-        "Silently ignored by the Python parser"
+        "json",
+        "csv",
+        "os",
+        "math"
       ],
-      "correct_answer": "A. Correct approach for reading and writing csvs basics",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of reading and writing csvs basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "correct_answer": "csv",
+      "explanation": "The csv module is specifically designed for handling CSV files in Python. The json module is for JSON data, os is for operating system interactions, and math is for mathematical functions."
     },
     {
       "id": "14.2_q3",
@@ -68,26 +57,15 @@
       "prerequisites": [
         "14.2_q3"
       ],
-      "match_code_to_concept": {
-        "prompt": "In the following code, what does newline='' prevent when opening a CSV file for writing?",
-        "options": [
-          "It prevents the file from being created.",
-          "It prevents extra blank rows between data rows.",
-          "It prevents commas from being written.",
-          "It prevents the file from being read later."
-        ],
-        "correct_answer": "It prevents extra blank rows between data rows.",
-        "explanation": "On Windows, the default newline handling can insert an extra blank row after each written row when using csv.writer. Setting newline='' disables this automatic translation and ensures clean CSV output."
-      },
-      "prompt": "Which statement best applies to reading and writing csvs syntax?",
+      "prompt": "In the following code, what does newline='' prevent when opening a CSV file for writing?",
       "options": [
-        "A. Correct approach for reading and writing csvs syntax",
-        "Raises a SyntaxError: invalid syntax at runtime",
-        "Raises an IndentationError: unexpected indent",
-        "Silently ignored by the Python parser"
+        "It prevents the file from being created.",
+        "It prevents extra blank rows between data rows.",
+        "It prevents commas from being written.",
+        "It prevents the file from being read later."
       ],
-      "correct_answer": "A. Correct approach for reading and writing csvs syntax",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of reading and writing csvs syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "correct_answer": "It prevents extra blank rows between data rows.",
+      "explanation": "On Windows, the default newline handling can insert an extra blank row after each written row when using csv.writer. Setting newline='' disables this automatic translation and ensures clean CSV output."
     },
     {
       "id": "14.2_q5",
@@ -98,26 +76,15 @@
       "prerequisites": [
         "14.2_q4"
       ],
-      "match_code_to_concept": {
-        "prompt": "Match the function to its purpose when working with CSV files.",
-        "options": [
-          "csv.writer() creates a writer object to write rows to a CSV file.",
-          "csv.reader() creates a reader object to read rows from a CSV file.",
-          "Both A and B are correct.",
-          "Neither A nor B is correct."
-        ],
-        "correct_answer": "Both A and B are correct.",
-        "explanation": "csv.writer() is used to write data into a CSV file, while csv.reader() is used to read data from a CSV file. Both are fundamental tools in the csv module."
-      },
-      "prompt": "Which statement best applies to reading and writing csvs matching?",
+      "prompt": "Match the function to its purpose when working with CSV files.",
       "options": [
-        "A. Correct approach for reading and writing csvs matching",
-        "Raises a SyntaxError: invalid syntax at runtime",
-        "Raises an IndentationError: unexpected indent",
-        "Silently ignored by the Python parser"
+        "csv.writer() creates a writer object to write rows to a CSV file.",
+        "csv.reader() creates a reader object to read rows from a CSV file.",
+        "Both A and B are correct.",
+        "Neither A nor B is correct."
       ],
-      "correct_answer": "A. Correct approach for reading and writing csvs matching",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of reading and writing csvs matching. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "correct_answer": "Both A and B are correct.",
+      "explanation": "csv.writer() is used to write data into a CSV file, while csv.reader() is used to read data from a CSV file. Both are fundamental tools in the csv module."
     },
     {
       "id": "14.2_q6",
@@ -128,26 +95,15 @@
       "prerequisites": [
         "14.2_q5"
       ],
-      "match_code_to_concept": {
-        "prompt": "Which of the following is a common pitfall when writing CSV files in Python?",
-        "options": [
-          "Forgetting to close the file or use a with statement, which can leave data unwritten.",
-          "Using double quotes inside string literals without escaping them.",
-          "Writing all data as a single string instead of a list of lists.",
-          "All of the above."
-        ],
-        "correct_answer": "All of the above.",
-        "explanation": "Not closing files properly can cause data loss. Unescaped double quotes inside strings break CSV formatting. Writing data as a single string rather than a list of rows prevents proper row separation. Being aware of these issues helps produce valid CSV output."
-      },
-      "prompt": "Which statement best applies to reading and writing csvs pitfalls?",
+      "prompt": "Which of the following is a common pitfall when writing CSV files in Python?",
       "options": [
-        "A. Correct approach for reading and writing csvs pitfalls",
-        "Raises a SyntaxError: invalid syntax at runtime",
-        "Raises an IndentationError: unexpected indent",
-        "Silently ignored by the Python parser"
+        "Forgetting to close the file or use a with statement, which can leave data unwritten.",
+        "Using double quotes inside string literals without escaping them.",
+        "Writing all data as a single string instead of a list of lists.",
+        "All of the above."
       ],
-      "correct_answer": "A. Correct approach for reading and writing csvs pitfalls",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of reading and writing csvs pitfalls. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "correct_answer": "All of the above.",
+      "explanation": "Not closing files properly can cause data loss. Unescaped double quotes inside strings break CSV formatting. Writing data as a single string rather than a list of rows prevents proper row separation. Being aware of these issues helps produce valid CSV output."
     },
     {
       "id": "14.2_q7",
@@ -216,12 +172,6 @@
         "14.2_q9"
       ],
       "prompt": "Explain the output and behavior of this script. What file is created and what does it contain?\n\n```python\nimport csv\n\nwith open('log.csv', 'a', newline='') as f:\n    writer = csv.writer(f)\n    writer.writerow(['error', 'timestamp'])\n    writer.writerow(['timeout', '2024-01-15 09:00'])\n```\n\nAssume 'log.csv' already exists with one row: 'status,2024-01-14 08:00'",
-      "options": [
-        "A new file 'log.csv' is created with only the two new rows.",
-        "'log.csv' is overwritten and contains only the header and one data row.",
-        "'log.csv' keeps its existing row and appends the header and one data row at the end.",
-        "An error occurs because the file cannot be opened in append mode with csv.writer."
-      ],
       "correct_answer": "'log.csv' keeps its existing row and appends the header and one data row at the end.",
       "explanation": "Opening with mode='a' appends to the existing file without deleting prior content. However, writing a header row after data is unusual; in practice, headers should be written once. The script successfully appends both rows.",
       "starter_code": "# Write your solution below\n",
@@ -235,22 +185,19 @@
     },
     {
       "id": "14.2_q11",
-      "type": "code_prediction",
-      "concept": "reading_and_writing_csvs_tracing",
-      "skill": "tracing",
-      "difficulty": "medium",
+      "type": "fix_the_code",
+      "concept": "reading_and_writing_csvs_refactoring",
+      "skill": "refactoring",
+      "difficulty": "hard",
       "prerequisites": [
         "14.2_q10"
       ],
-      "prompt": "Trace the execution and determine the final value of 'lines'.\n\n```python\nimport csv\n\nwith open('notes.csv', newline='') as f:\n    reader = csv.reader(f)\n    lines = [f'Line {i+1}: {row[0].strip()}' for i, row in enumerate(reader)]\nprint(lines)\n```\n\nAssume 'notes.csv' contains:\n  apple\nbanana\n  cherry",
-      "options": [
-        "['Line 1: apple', 'Line 2: banana', 'Line 3: cherry']",
-        "Raises a SyntaxError: invalid syntax at runtime",
-        "Raises an IndentationError: unexpected indent",
-        "Silently ignored by the Python parser"
-      ],
+      "prompt": "Refactor this procedural snippet for Reading and Writing CSVs into clean, modular, and idiomatic Python:",
       "correct_answer": "['Line 1: apple', 'Line 2: banana', 'Line 3: cherry']",
-      "explanation": "enumerate yields index i starting at 0. row[0] is each first column. strip() removes leading and trailing whitespace, so '  apple' becomes 'apple'. The list comprehension builds three formatted strings in order."
+      "explanation": "Replacing boilerplate append loops with list comprehensions is a fundamental Python refactoring that improves both readability and execution speed.",
+      "starter_code": "items = [1, 2, 3, 4]\n# Refactor to use idiomatic transformation\nres = []\nfor x in items:\n    res.append(x * 2)",
+      "solution_code": "items = [1, 2, 3, 4]\nres = [x * 2 for x in items]",
+      "hint": "Convert the accumulator `for` loop into a concise list comprehension."
     },
     {
       "id": "14.2_q12",

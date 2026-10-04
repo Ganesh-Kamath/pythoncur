@@ -13,7 +13,7 @@
         "2.1_q1"
       ],
       "title": "Integers: Whole Numbers",
-      "content": "An **integer** (`int`) is a whole number without a fractional or decimal part. Integers can be positive, negative, or zero:\n```python\nscore = 100\nfreezing_point = -5\nitems = 0\n```\nIn Python 3, integers have **arbitrary precision**\u2014they can grow as large as your computer's memory allows, without overflowing!",
+      "content": "An **integer** (`int`) is a whole number without a fractional or decimal part. Integers can be positive, negative, or zero:\n```python\nscore = 100\nfreezing_point = -5\nitems = 0\n```\nIn Python 3, integers have **arbitrary precision**—they can grow as large as your computer's memory allows, without overflowing!",
       "prompt": "",
       "explanation": "In Python, this operation directly demonstrates the core behavior of int definition. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
@@ -199,7 +199,7 @@
         "2.3_q3"
       ],
       "title": "Floating-Point Precision Gotcha",
-      "content": "Computers store floating-point numbers in base-2 (binary). Just as fractions like 1/3 cannot be represented cleanly in base-10 decimals (`0.33333...`), fractions like 1/10 (`0.1`) cannot be stored with exact finite binary bits.\n\nBecause of this:\n```python\nprint(0.1 + 0.2)\n# Outputs: 0.30000000000000004\n```\nThis is not a Python bug\u2014it is an inherent property of hardware IEEE 754 floating-point arithmetic across virtually all languages.",
+      "content": "Computers store floating-point numbers in base-2 (binary). Just as fractions like 1/3 cannot be represented cleanly in base-10 decimals (`0.33333...`), fractions like 1/10 (`0.1`) cannot be stored with exact finite binary bits.\n\nBecause of this:\n```python\nprint(0.1 + 0.2)\n# Outputs: 0.30000000000000004\n```\nThis is not a Python bug—it is an inherent property of hardware IEEE 754 floating-point arithmetic across virtually all languages.",
       "prompt": "",
       "explanation": "In Python, this operation directly demonstrates the core behavior of float precision. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
@@ -500,12 +500,6 @@
         "2.3_q7"
       ],
       "prompt": "A marathon is 26.2 miles. A runner completes it in 210 minutes. Which expression calculates their average pace in minutes per mile?",
-      "options": [
-        "A. `210 * 26.2`",
-        "B. `210 / 26.2`",
-        "C. `26.2 / 210`",
-        "D. `210 // 26.2`"
-      ],
       "correct_answer": "B",
       "explanation": "Pace in minutes per mile is total minutes divided by total miles: `210 / 26.2`."
     },
@@ -522,12 +516,6 @@
         "2.3_q12"
       ],
       "prompt": "Which statement accurately describes integers and floats in Python?",
-      "options": [
-        "A. `int` represents arbitrarily large whole numbers; `float` represents real numbers with decimals using hardware IEEE 754; standard division `/` always returns a float.",
-        "B. `int` overflows at 2,147,483,647; `float` cannot be used with arithmetic.",
-        "C. Integers and floats cannot be added together in the same expression.",
-        "D. Division in Python always rounds down to zero."
-      ],
       "correct_answer": "A",
       "explanation": "This accurately summarizes arbitrary-precision integers, IEEE 754 floats, and Python 3 division behavior."
     }

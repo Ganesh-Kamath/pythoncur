@@ -24,26 +24,15 @@
       "prerequisites": [
         "31.5_q1"
       ],
-      "match_code_to_concept": {
-        "prompt": "Which scenario best represents O(log N) time complexity?",
-        "options": [
-          "Checking every item in a list one by one",
-          "Repeatedly dividing the problem size by two until it reaches one",
-          "Comparing every pair of items in a list",
-          "Sorting a list using bubble sort"
-        ],
-        "correct_answer": "Repeatedly dividing the problem size by two until it reaches one",
-        "explanation": "O(log N) arises when the input size is halved at each step, such as in binary search. Linear, quadratic, and bubble sort do not halve the problem size."
-      },
-      "prompt": "Which statement best applies to olog n logarithmic time basics?",
+      "prompt": "Which scenario best represents O(log N) time complexity?",
       "options": [
-        "A. Correct approach for olog n logarithmic time basics",
-        "Raises a SyntaxError: invalid syntax at runtime",
-        "Raises an IndentationError: unexpected indent",
-        "Silently ignored by the Python parser"
+        "Checking every item in a list one by one",
+        "Repeatedly dividing the problem size by two until it reaches one",
+        "Comparing every pair of items in a list",
+        "Sorting a list using bubble sort"
       ],
-      "correct_answer": "A. Correct approach for olog n logarithmic time basics",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of olog n logarithmic time basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "correct_answer": "Repeatedly dividing the problem size by two until it reaches one",
+      "explanation": "O(log N) arises when the input size is halved at each step, such as in binary search. Linear, quadratic, and bubble sort do not halve the problem size."
     },
     {
       "id": "31.5_q3",
@@ -68,26 +57,15 @@
       "prerequisites": [
         "31.5_q3"
       ],
-      "match_code_to_concept": {
-        "prompt": "In the following loop, which update pattern makes the runtime O(log N)?",
-        "options": [
-          "i = i + 1",
-          "i = i // 2",
-          "i = i * i",
-          "i = i - 1"
-        ],
-        "correct_answer": "i = i // 2",
-        "explanation": "Dividing by a constant (here 2) halves the remaining work each iteration, yielding logarithmic growth. Adding 1 or subtracting 1 gives linear O(N), and i = i * i grows too fast, leading to much worse complexity."
-      },
-      "prompt": "Which statement best applies to olog n logarithmic time syntax?",
+      "prompt": "In the following loop, which update pattern makes the runtime O(log N)?",
       "options": [
-        "A. Correct approach for olog n logarithmic time syntax",
-        "Raises a SyntaxError: invalid syntax at runtime",
-        "Raises an IndentationError: unexpected indent",
-        "Silently ignored by the Python parser"
+        "i = i + 1",
+        "i = i // 2",
+        "i = i * i",
+        "i = i - 1"
       ],
-      "correct_answer": "A. Correct approach for olog n logarithmic time syntax",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of olog n logarithmic time syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "correct_answer": "i = i // 2",
+      "explanation": "Dividing by a constant (here 2) halves the remaining work each iteration, yielding logarithmic growth. Adding 1 or subtracting 1 gives linear O(N), and i = i * i grows too fast, leading to much worse complexity."
     },
     {
       "id": "31.5_q5",
@@ -98,26 +76,15 @@
       "prerequisites": [
         "31.5_q4"
       ],
-      "match_code_to_concept": {
-        "prompt": "Match the algorithm to its time complexity.",
-        "options": [
-          "Binary search on a sorted list: O(log N)",
-          "Linear search on an unsorted list: O(log N)",
-          "Binary search on a sorted list: O(N)",
-          "Linear search on an unsorted list: O(log N)"
-        ],
-        "correct_answer": "Binary search on a sorted list: O(log N)",
-        "explanation": "Binary search halves the search space each step, giving O(log N). Linear search checks every element, giving O(N). The other two pairings are incorrect."
-      },
-      "prompt": "Which statement best applies to olog n logarithmic time matching?",
+      "prompt": "Match the algorithm to its time complexity.",
       "options": [
-        "A. Correct approach for olog n logarithmic time matching",
-        "Raises a SyntaxError: invalid syntax at runtime",
-        "Raises an IndentationError: unexpected indent",
-        "Silently ignored by the Python parser"
+        "Binary search on a sorted list: O(log N)",
+        "Linear search on an unsorted list: O(log N)",
+        "Binary search on a sorted list: O(N)",
+        "Linear search on an unsorted list: O(log N)"
       ],
-      "correct_answer": "A. Correct approach for olog n logarithmic time matching",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of olog n logarithmic time matching. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "correct_answer": "Binary search on a sorted list: O(log N)",
+      "explanation": "Binary search halves the search space each step, giving O(log N). Linear search checks every element, giving O(N). The other two pairings are incorrect."
     },
     {
       "id": "31.5_q6",
@@ -128,26 +95,15 @@
       "prerequisites": [
         "31.5_q5"
       ],
-      "match_code_to_concept": {
-        "prompt": "Which statement is a common misconception about O(log N)?",
-        "options": [
-          "It is always faster than O(N) for any input size",
-          "It only applies when the input is sorted",
-          "It can appear in recursive divide-and-conquer algorithms",
-          "It requires the input to be a power of two"
-        ],
-        "correct_answer": "It is always faster than O(N) for any input size",
-        "explanation": "Big O describes growth rate asymptotically; for very small N, constant factors and overhead may make O(log N) slower in practice. It is not guaranteed to be faster for every tiny input. O(log N) does not require sorted input by definition, though binary search does."
-      },
-      "prompt": "Which statement best applies to olog n logarithmic time pitfalls?",
+      "prompt": "Which statement is a common misconception about O(log N)?",
       "options": [
-        "A. Correct approach for olog n logarithmic time pitfalls",
-        "Raises a SyntaxError: invalid syntax at runtime",
-        "Raises an IndentationError: unexpected indent",
-        "Silently ignored by the Python parser"
+        "It is always faster than O(N) for any input size",
+        "It only applies when the input is sorted",
+        "It can appear in recursive divide-and-conquer algorithms",
+        "It requires the input to be a power of two"
       ],
-      "correct_answer": "A. Correct approach for olog n logarithmic time pitfalls",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of olog n logarithmic time pitfalls. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "correct_answer": "It is always faster than O(N) for any input size",
+      "explanation": "Big O describes growth rate asymptotically; for very small N, constant factors and overhead may make O(log N) slower in practice. It is not guaranteed to be faster for every tiny input. O(log N) does not require sorted input by definition, though binary search does."
     },
     {
       "id": "31.5_q7",
@@ -216,12 +172,6 @@
         "31.5_q9"
       ],
       "prompt": "Explain why the following algorithm runs in O(log N) time. Include the role of halving the search space in your reasoning.\n\n```python\ndef find_power_of_two(n):\n    if n <= 0:\n        return False\n    while n % 2 == 0:\n        n = n // 2\n    return n == 1\n```",
-      "options": [
-        "The loop divides n by 2 each time, so it executes at most log2(n) iterations.",
-        "The loop checks every integer up to n, making it O(N).",
-        "The loop runs exactly n times because n is decremented by 1 each iteration.",
-        "The loop runs in constant time because it only performs one comparison."
-      ],
       "correct_answer": "The loop divides n by 2 each time, so it executes at most log2(n) iterations.",
       "explanation": "In each iteration, n is replaced by n // 2, reducing its value exponentially. The number of iterations required to reduce n to 1 is bounded by log2(n), which is logarithmic time.",
       "starter_code": "# Write your solution below\n",
@@ -243,12 +193,6 @@
         "31.5_q10"
       ],
       "prompt": "Trace the execution of this function for `arr = [1, 3, 5, 7, 9]` and `target = 7`. Show the values of `left`, `right`, and `mid` at each iteration until the function returns.\n\n```python\ndef binary_search_trace(arr, target):\n    left = 0\n    right = len(arr) - 1\n    while left <= right:\n        mid = (left + right) // 2\n        if arr[mid] == target:\n            return mid\n        elif arr[mid] < target:\n            left = mid + 1\n        else:\n            right = mid - 1\n    return -1\n```",
-      "options": [
-        "Iteration 1: left=0, right=4, mid=2; Iteration 2: left=3, right=4, mid=3; returns 3",
-        "Iteration 1: left=0, right=4, mid=2; Iteration 2: left=0, right=1, mid=0; returns -1",
-        "Iteration 1: left=0, right=4, mid=2; Iteration 2: left=3, right=4, mid=3; Iteration 3: left=4, right=4, mid=4; returns 4",
-        "Iteration 1: left=0, right=4, mid=2; Iteration 2: left=0, right=2, mid=1; returns -1"
-      ],
       "correct_answer": "Iteration 1: left=0, right=4, mid=2; Iteration 2: left=3, right=4, mid=3; returns 3",
       "explanation": "Initially left=0 and right=4, so mid=2 and arr[2]=5 which is less than 7, so left becomes 3. Next left=3 and right=4, so mid=3 and arr[3]=7, matching the target, so the function returns 3.",
       "starter_code": "# Write your solution below\n",

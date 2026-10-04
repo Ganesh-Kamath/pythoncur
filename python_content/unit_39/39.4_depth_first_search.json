@@ -184,12 +184,6 @@
         "39.4_q9"
       ],
       "prompt": "Analyze the following DFS traversal on a cyclic graph and explain why the `visited` set is essential:\n\n```\ngraph = {0: [1, 2], 1: [0, 3], 2: [0, 3], 3: [1, 2, 4], 4: [3]}\nvisited = set()\ndef dfs(node):\n    visited.add(node)\n    for neighbor in graph[node]:\n        if neighbor not in visited:\n            dfs(neighbor)\n\ndfs(0)\nprint(visited)\n```\n\nWhy does this code terminate and print exactly 5 nodes?",
-      "options": [
-        "The `visited` set ensures each node is processed only once, preventing infinite recursion on the cycle between nodes 1, 2, and 3.",
-        "The `visited` set is unnecessary because the graph is a tree with no cycles.",
-        "The `visited` set only prevents duplicate printing but does not affect recursion depth.",
-        "The `visited` set causes the algorithm to skip valid nodes, so it prints fewer than 5 nodes."
-      ],
       "correct_answer": "The `visited` set ensures each node is processed only once, preventing infinite recursion on the cycle between nodes 1, 2, and 3.",
       "explanation": "Without the `visited` set, the recursive calls between nodes 1, 2, and 3 would create an infinite loop because each node calls its neighbors, who call back. The `visited` set breaks this cycle by ensuring that once a node is processed, it is never entered again. Since the graph has 5 nodes and all are reachable from 0, the output is {0, 1, 2, 3, 4}, exactly 5 nodes.",
       "micro_lesson": {

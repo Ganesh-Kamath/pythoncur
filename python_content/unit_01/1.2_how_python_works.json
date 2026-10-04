@@ -71,22 +71,19 @@
     },
     {
       "id": "1.2_q5",
-      "type": "multiple_choice",
-      "concept": "source_code",
-      "skill": "reasoning",
-      "difficulty": "medium",
+      "type": "fix_the_code",
+      "concept": "how_python_works_refactoring",
+      "skill": "refactoring",
+      "difficulty": "hard",
       "prerequisites": [
         "1.2_q3"
       ],
-      "prompt": "You write a Python script that performs a complex calculation, save it as 'analysis.py', and close your text editor. Has the calculation been performed yet?",
-      "options": [
-        "C",
-        "Raises a SyntaxError: invalid syntax at runtime",
-        "Raises an IndentationError: unexpected indent",
-        "Silently ignored by the Python parser"
-      ],
+      "prompt": "Refactor this procedural snippet for How Python Works into clean, modular, and idiomatic Python:",
       "correct_answer": "C",
-      "explanation": "Source code is inert text. It does not perform any actions until you explicitly tell a Python implementation (like CPython) to execute it."
+      "explanation": "Replacing boilerplate append loops with list comprehensions is a fundamental Python refactoring that improves both readability and execution speed.",
+      "starter_code": "items = [1, 2, 3, 4]\n# Refactor to use idiomatic transformation\nres = []\nfor x in items:\n    res.append(x * 2)",
+      "solution_code": "items = [1, 2, 3, 4]\nres = [x * 2 for x in items]",
+      "hint": "Convert the accumulator `for` loop into a concise list comprehension."
     },
     {
       "id": "1.2_q6",
@@ -137,7 +134,7 @@
       "difficulty": "easy",
       "prerequisites": [],
       "title": "Python the Language vs. CPython the Software",
-      "content": "**Python** is a programming language \u2014 a specification of syntax and rules.\n\nBut a language specification alone cannot run your code. You need a software **implementation** that understands those rules and carries them out.\n\nThe most widely used implementation is called **CPython**. It is written primarily in the C programming language. When you download and 'install Python' from python.org, you are typically installing CPython.",
+      "content": "**Python** is a programming language — a specification of syntax and rules.\n\nBut a language specification alone cannot run your code. You need a software **implementation** that understands those rules and carries them out.\n\nThe most widely used implementation is called **CPython**. It is written primarily in the C programming language. When you download and 'install Python' from python.org, you are typically installing CPython.",
       "prompt": "",
       "explanation": "In Python, this operation directly demonstrates the core behavior of cpython. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
@@ -170,7 +167,7 @@
         "1.2_q8"
       ],
       "title": "Step 1: Parsing Your Code",
-      "content": "When you run a Python script, CPython first **parses** your source code. Parsing means reading through the text and checking that it follows Python's grammar rules.\n\nIf the syntax is valid, CPython builds an internal representation of your code's structure (sometimes called an **Abstract Syntax Tree**, or AST). Think of it like diagramming a sentence to understand its grammar before acting on its meaning.\n\nIf the syntax is *not* valid, CPython raises a **SyntaxError** and stops \u2014 your program never begins executing.",
+      "content": "When you run a Python script, CPython first **parses** your source code. Parsing means reading through the text and checking that it follows Python's grammar rules.\n\nIf the syntax is valid, CPython builds an internal representation of your code's structure (sometimes called an **Abstract Syntax Tree**, or AST). Think of it like diagramming a sentence to understand its grammar before acting on its meaning.\n\nIf the syntax is *not* valid, CPython raises a **SyntaxError** and stops — your program never begins executing.",
       "prompt": "",
       "explanation": "In Python, this operation directly demonstrates the core behavior of parsing. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
@@ -184,7 +181,7 @@
         "1.2_q10"
       ],
       "title": "Step 2: Compiling to Bytecode",
-      "content": "After parsing succeeds, CPython **compiles** your code into **bytecode** \u2014 an intermediate, lower-level set of instructions.\n\nBytecode is not your source code, and it is not machine code either. It is a compact format specifically designed for CPython's runtime to process efficiently.\n\nCPython performs this compilation automatically when the source needs to be compiled. It can also cache compiled bytecode in `.pyc` files to avoid unnecessary recompilation later.",
+      "content": "After parsing succeeds, CPython **compiles** your code into **bytecode** — an intermediate, lower-level set of instructions.\n\nBytecode is not your source code, and it is not machine code either. It is a compact format specifically designed for CPython's runtime to process efficiently.\n\nCPython performs this compilation automatically when the source needs to be compiled. It can also cache compiled bytecode in `.pyc` files to avoid unnecessary recompilation later.",
       "prompt": "",
       "explanation": "In Python, this operation directly demonstrates the core behavior of bytecode. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
@@ -205,7 +202,7 @@
         "D. An encrypted version of your source code for security."
       ],
       "correct_answer": "C",
-      "explanation": "Bytecode is an intermediate representation \u2014 it is neither the human-readable source text nor the native machine code that a CPU runs. It is a compact instruction format designed to be processed by CPython's runtime (the Python Virtual Machine)."
+      "explanation": "Bytecode is an intermediate representation — it is neither the human-readable source text nor the native machine code that a CPU runs. It is a compact instruction format designed to be processed by CPython's runtime (the Python Virtual Machine)."
     },
     {
       "id": "1.2_q13",
@@ -217,7 +214,7 @@
         "1.2_q11"
       ],
       "title": "Step 3: The Python Virtual Machine (PVM)",
-      "content": "Once bytecode is produced, it is handed to the **Python Virtual Machine (PVM)** \u2014 the runtime engine inside CPython.\n\nThe PVM is *software*, not a physical machine. It reads each bytecode instruction and carries out the corresponding operations, using the operating system and CPU to perform the actual work.\n\nThe PVM is what makes your Python program actually *do* things.",
+      "content": "Once bytecode is produced, it is handed to the **Python Virtual Machine (PVM)** — the runtime engine inside CPython.\n\nThe PVM is *software*, not a physical machine. It reads each bytecode instruction and carries out the corresponding operations, using the operating system and CPU to perform the actual work.\n\nThe PVM is what makes your Python program actually *do* things.",
       "prompt": "",
       "explanation": "In Python, this operation directly demonstrates the core behavior of pvm. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
@@ -238,7 +235,7 @@
         "D. It converts every bytecode instruction directly into a single machine-code instruction."
       ],
       "correct_answer": "B",
-      "explanation": "The PVM is software \u2014 it is the runtime engine within CPython that processes bytecode instructions. It is not a piece of hardware, and it is not the operating system. It uses the OS and CPU to carry out the work, but the PVM itself is a software component."
+      "explanation": "The PVM is software — it is the runtime engine within CPython that processes bytecode instructions. It is not a piece of hardware, and it is not the operating system. It uses the OS and CPU to carry out the work, but the PVM itself is a software component."
     },
     {
       "id": "1.2_q15",
@@ -264,7 +261,7 @@
         "CPython compiles the parsed code into bytecode.",
         "The PVM executes the bytecode instructions."
       ],
-      "explanation": "The CPython pipeline is: write source \u2192 parse/check syntax \u2192 compile to bytecode \u2192 PVM executes bytecode."
+      "explanation": "The CPython pipeline is: write source → parse/check syntax → compile to bytecode → PVM executes bytecode."
     },
     {
       "id": "1.2_q16",
@@ -298,7 +295,7 @@
         "1.2_q13"
       ],
       "title": "Why Python Is Called 'Interpreted'",
-      "content": "Python is commonly described as an **interpreted language**. This is a useful high-level classification: Python programs are executed through a runtime (the PVM) rather than being distributed as standalone machine-code executables.\n\nHowever, 'interpreted' does **not** mean that CPython performs zero compilation, and it does **not** mean source code is sent directly to the CPU. As you have learned, CPython *does* compile your source code \u2014 into bytecode. The bytecode is then executed by the Python runtime.\n\nThe difference from traditionally compiled languages (like C) is not that one compiles and the other does not. Rather, C compilers produce native machine-code executables, while CPython compiles to bytecode that still requires the Python runtime to execute.",
+      "content": "Python is commonly described as an **interpreted language**. This is a useful high-level classification: Python programs are executed through a runtime (the PVM) rather than being distributed as standalone machine-code executables.\n\nHowever, 'interpreted' does **not** mean that CPython performs zero compilation, and it does **not** mean source code is sent directly to the CPU. As you have learned, CPython *does* compile your source code — into bytecode. The bytecode is then executed by the Python runtime.\n\nThe difference from traditionally compiled languages (like C) is not that one compiles and the other does not. Rather, C compilers produce native machine-code executables, while CPython compiles to bytecode that still requires the Python runtime to execute.",
       "prompt": "",
       "explanation": "In Python, this operation directly demonstrates the core behavior of interpreted language. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
@@ -313,13 +310,13 @@
       ],
       "prompt": "A friend says: 'Python skips compilation entirely and just reads the source code directly.' What is wrong with this claim?",
       "options": [
-        "A. Nothing \u2014 Python truly performs zero compilation.",
+        "A. Nothing — Python truly performs zero compilation.",
         "B. CPython does compile source code, but it compiles it into intermediate bytecode rather than into standalone machine-code executables.",
         "C. Python is only a compiled language and is never interpreted in any sense.",
         "D. Python compiles source code directly into CPU machine code, just like C does."
       ],
       "correct_answer": "B",
-      "explanation": "CPython automatically compiles your source code into bytecode before the PVM executes it. The 'interpreted' label refers to the fact that Python programs run through a runtime rather than being distributed as native machine-code executables \u2014 it does not mean that zero compilation occurs."
+      "explanation": "CPython automatically compiles your source code into bytecode before the PVM executes it. The 'interpreted' label refers to the fact that Python programs run through a runtime rather than being distributed as native machine-code executables — it does not mean that zero compilation occurs."
     },
     {
       "id": "1.2_q19",
@@ -333,8 +330,8 @@
       ],
       "prompt": "Does the physical CPU inside your computer directly execute Python source code or Python bytecode?",
       "options": [
-        "A. Yes \u2014 modern CPUs are designed to understand Python bytecode natively.",
-        "B. Yes \u2014 the CPU reads Python source code directly and executes it.",
+        "A. Yes — modern CPUs are designed to understand Python bytecode natively.",
+        "B. Yes — the CPU reads Python source code directly and executes it.",
         "C. No. The CPU only executes native machine code. When running CPython, the CPU executes CPython's own machine code, and CPython's runtime processes the Python bytecode.",
         "D. No. The operating system translates Python source code into machine code."
       ],
@@ -351,28 +348,29 @@
         "1.2_q13"
       ],
       "title": "Cross-Platform Execution",
-      "content": "Python is available on many operating systems \u2014 Windows, macOS, Linux, and more.\n\nPython source code can often run on different operating systems because compatible Python implementations are available for those systems. If your program uses portable Python features and its dependencies are available on the target system, the same `.py` file can often be reused with little or no change.\n\nHowever, perfect portability is not guaranteed. OS-specific file paths, platform-dependent libraries, native dependencies, or environment differences can sometimes require adjustments when moving code between systems.",
+      "content": "Python is available on many operating systems — Windows, macOS, Linux, and more.\n\nPython source code can often run on different operating systems because compatible Python implementations are available for those systems. If your program uses portable Python features and its dependencies are available on the target system, the same `.py` file can often be reused with little or no change.\n\nHowever, perfect portability is not guaranteed. OS-specific file paths, platform-dependent libraries, native dependencies, or environment differences can sometimes require adjustments when moving code between systems.",
       "prompt": "",
       "explanation": "In Python, this operation directly demonstrates the core behavior of cross platform. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
     {
       "id": "1.2_q21",
-      "type": "multiple_choice",
-      "concept": "cross_platform",
-      "skill": "application",
-      "difficulty": "medium",
+      "type": "code_prediction",
+      "concept": "how_python_works_edge_case",
+      "skill": "prediction",
+      "difficulty": "hard",
       "prerequisites": [
         "1.2_q20"
       ],
-      "prompt": "You write a simple Python script on Windows that prints a greeting and performs basic math. You email the .py file to a friend who uses a Mac. Will it likely run on their machine?",
+      "prompt": "What will be the outcome when this code handling How Python Works encounters empty or boundary input?\n```python\ndef process(data):\n    return [x for x in data if x]\nprint(process([]))\n```",
       "options": [
-        "A",
-        "Raises a SyntaxError: invalid syntax at runtime",
-        "Raises an IndentationError: unexpected indent",
-        "Silently ignored by the Python parser"
+        "[]",
+        "None",
+        "IndexError",
+        "ValueError"
       ],
-      "correct_answer": "A",
-      "explanation": "Simple Python scripts that use only standard, cross-platform features will generally run on any operating system that has a compatible Python implementation installed. However, scripts using OS-specific features or external dependencies might require adjustments."
+      "correct_answer": "[]",
+      "explanation": "Handling empty collections gracefully without raising unexpected exceptions is an essential design pattern when working with How Python Works.",
+      "hint": "An empty input list evaluates as falsy and produces an empty result."
     },
     {
       "id": "1.2_q22",
@@ -437,13 +435,8 @@
         "1.2_q24"
       ],
       "prompt": "You write a 10-line Python script. Line 1 prints 'Hello'. Line 5 has a syntax error (a missing closing parenthesis). When you run the script, what happens?",
-      "options": [
-        "A. It prints 'Hello' from line 1, then crashes at line 5.",
-        "B. It crashes immediately without printing anything, because syntax errors prevent execution from starting.",
-        "C. It skips line 5 and runs the rest of the program."
-      ],
       "correct_answer": "B",
-      "explanation": "Syntax errors are caught during the parsing/compilation stage, before the PVM begins executing any bytecode. Because CPython cannot produce valid bytecode for the entire file, no part of the program runs \u2014 not even line 1."
+      "explanation": "Syntax errors are caught during the parsing/compilation stage, before the PVM begins executing any bytecode. Because CPython cannot produce valid bytecode for the entire file, no part of the program runs — not even line 1."
     },
     {
       "id": "1.2_q26",
@@ -455,11 +448,6 @@
         "1.2_q24"
       ],
       "prompt": "You write a 10-line script. Line 1 prints 'Hello'. Line 5 attempts to divide a number by zero. When you run the script, what happens?",
-      "options": [
-        "A. It prints 'Hello', then crashes at line 5 with a runtime error.",
-        "B. It crashes immediately without printing anything.",
-        "C. It skips line 5 and continues running the remaining lines."
-      ],
       "correct_answer": "A",
       "explanation": "The syntax is valid, so CPython successfully compiles the entire file to bytecode and the PVM begins executing it. Line 1 runs and prints 'Hello'. When the PVM reaches line 5 and encounters the division by zero, a runtime error (ZeroDivisionError) occurs and the program crashes at that point."
     },
@@ -509,14 +497,8 @@
         "1.2_q24"
       ],
       "prompt": "A student runs a Python script and sees this output:\n\n  File \"app.py\", line 3\n    print(\"Hello World\"\n                      ^\nSyntaxError: unexpected EOF while parsing\n\nThe script had a print('Starting...') on line 1, but that text never appeared. Why?",
-      "options": [
-        "A. The print on line 1 ran, but its output was erased by the SyntaxError.",
-        "B. CPython detected the syntax error during parsing/compilation, before execution began. No bytecode was generated, so the PVM never ran any part of the program \u2014 including line 1.",
-        "C. Line 1 was skipped because CPython starts execution from the line containing the error.",
-        "D. The operating system blocked line 1 from printing because the file contained an error."
-      ],
       "correct_answer": "B",
-      "explanation": "Syntax errors are caught during the parsing/compilation stage. Because CPython could not produce valid bytecode for the file, the PVM never began executing any part of the program. This is why no output from earlier lines appeared \u2014 the entire program was blocked from running."
+      "explanation": "Syntax errors are caught during the parsing/compilation stage. Because CPython could not produce valid bytecode for the file, the PVM never began executing any part of the program. This is why no output from earlier lines appeared — the entire program was blocked from running."
     },
     {
       "id": "1.2_q30",
@@ -529,13 +511,8 @@
         "1.2_q19"
       ],
       "prompt": "Imagine you uninstall CPython from your computer but leave all your .py source code files on the desktop. You then try to run one of them. What happens?",
-      "options": [
-        "A. The files are permanently destroyed when CPython is uninstalled.",
-        "B. The CPU will execute them directly because it understands Python.",
-        "C. The source code files are safe (they are just text), but they cannot be executed because no Python implementation is installed to parse, compile, and run them."
-      ],
       "correct_answer": "C",
-      "explanation": "Source code is plain text \u2014 it exists independently of any Python installation. However, without a Python implementation like CPython, there is no software to parse your source code, compile it to bytecode, or run the PVM to execute it. Reinstalling Python (or another compatible implementation) would allow you to run your scripts again."
+      "explanation": "Source code is plain text — it exists independently of any Python installation. However, without a Python implementation like CPython, there is no software to parse your source code, compile it to bytecode, or run the PVM to execute it. Reinstalling Python (or another compatible implementation) would allow you to run your scripts again."
     }
   ],
   "unit_num": 1,

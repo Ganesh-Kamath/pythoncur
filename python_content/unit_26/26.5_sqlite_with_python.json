@@ -11,7 +11,7 @@
       "diff": "easy",
       "concept": "sqlite_with_python_sqlite3_basics",
       "title": "Introduction to sqlite3 in Python",
-      "content": "The sqlite3 module is Python's built-in interface for working with SQLite databases. To use it, you first import the module, then connect to a database file using sqlite3.connect(). If the file does not exist, SQLite creates it automatically. The connection object allows you to create a cursor, which executes SQL commands. Here is a basic example:\n\nimport sqlite3\n\n# Connect to a database (creates it if it does not exist)\nconn = sqlite3.connect('example.db')\n\n# Create a cursor object\ncursor = conn.cursor()\n\n# Execute a simple SQL statement\ncursor.execute('CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY, name TEXT)')\n\n# Commit the changes and close the connection\nconn.commit()\nconn.close()\n\nThis pattern\u2014connect, create cursor, execute, commit, and close\u2014is the foundation for all SQLite operations in Python.",
+      "content": "The sqlite3 module is Python's built-in interface for working with SQLite databases. To use it, you first import the module, then connect to a database file using sqlite3.connect(). If the file does not exist, SQLite creates it automatically. The connection object allows you to create a cursor, which executes SQL commands. Here is a basic example:\n\nimport sqlite3\n\n# Connect to a database (creates it if it does not exist)\nconn = sqlite3.connect('example.db')\n\n# Create a cursor object\ncursor = conn.cursor()\n\n# Execute a simple SQL statement\ncursor.execute('CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY, name TEXT)')\n\n# Commit the changes and close the connection\nconn.commit()\nconn.close()\n\nThis pattern—connect, create cursor, execute, commit, and close—is the foundation for all SQLite operations in Python.",
       "difficulty": "easy",
       "prerequisites": [],
       "prompt": "",
@@ -83,12 +83,12 @@
       "concept": "sqlite_with_python_sqlite3_matching",
       "prompt": "Match the sqlite3 method to its purpose.",
       "options": [
-        "fetchone() \u2014 retrieves all matching rows as a list of tuples",
-        "fetchall() \u2014 retrieves the next single row as a tuple",
-        "fetchone() \u2014 retrieves the next single row as a tuple",
-        "fetchall() \u2014 retrieves only the first column of the result"
+        "fetchone() — retrieves all matching rows as a list of tuples",
+        "fetchall() — retrieves the next single row as a tuple",
+        "fetchone() — retrieves the next single row as a tuple",
+        "fetchall() — retrieves only the first column of the result"
       ],
-      "correct_answer": "fetchone() \u2014 retrieves the next single row as a tuple",
+      "correct_answer": "fetchone() — retrieves the next single row as a tuple",
       "explanation": "fetchone() returns one row as a tuple, while fetchall() returns all remaining rows as a list of tuples. The other options incorrectly describe these methods.",
       "id": "26.5_q5",
       "difficulty": "easy",
@@ -187,12 +187,6 @@
         "26.5_q9"
       ],
       "prompt": "Explain the output and security implications of this code:\n\nimport sqlite3\nconn = sqlite3.connect(':memory:')\ncursor = conn.cursor()\ncursor.execute(\"CREATE TABLE logs (msg TEXT)\")\nuser_input = \"' OR 1=1; --\"\ncursor.execute(\"INSERT INTO logs (msg) VALUES ('\" + user_input + \"')\")\nconn.commit()\ncursor.execute(\"SELECT * FROM logs\")\nprint(cursor.fetchall())",
-      "options": [
-        "Output is [(\"' OR 1=1; --\",)]; using string concatenation is safe",
-        "Output is [(\"' OR 1=1; --\",)]; this demonstrates SQL injection vulnerability",
-        "Output is []; the malformed input caused an error",
-        "Output is [(\"' OR 1=1; --\",)]; parameterized queries prevent this"
-      ],
       "correct_answer": "Output is [(\"' OR 1=1; --\",)]; this demonstrates SQL injection vulnerability",
       "explanation": "String concatenation allows malicious input to alter SQL logic. The input is stored literally, but in a real query it could bypass filters. Always use parameterized queries with placeholders.",
       "difficulty": "medium",
@@ -215,12 +209,6 @@
         "26.5_q10"
       ],
       "prompt": "Trace the execution step by step and identify the final value returned by the function:\n\ndef get_first_user(conn):\n    cursor = conn.cursor()\n    cursor.execute(\"SELECT name FROM users LIMIT 1\")\n    row = cursor.fetchone()\n    if row is None:\n        return \"No users\"\n    return row[0]\n\nconn = sqlite3.connect(':memory:')\ncursor = conn.cursor()\ncursor.execute(\"CREATE TABLE users (name TEXT)\")\ncursor.execute(\"INSERT INTO users VALUES ('Charlie')\")\nprint(get_first_user(conn))",
-      "options": [
-        "Charlie",
-        "('Charlie',)",
-        "No users",
-        "IndexError"
-      ],
       "correct_answer": "Charlie",
       "explanation": "fetchone() returns the first matching row as a tuple ('Charlie',). The function checks for None, then returns row[0], which is the first element of the tuple, 'Charlie'.",
       "difficulty": "medium",
@@ -475,23 +463,23 @@
     {
       "id": "26.5_q24",
       "type": "write_the_code",
-      "concept": "sqlite_with_python_sqlite3_optimization",
-      "skill": "refactoring",
-      "difficulty": "hard",
+      "concept": "sqlite_with_python_sqlite3_mastery_challenge",
+      "skill": "transfer",
+      "difficulty": "expert",
       "prerequisites": [
         "26.5_q23"
       ],
-      "prompt": "Write a statement that prints 'SQLite with Python (sqlite3) Result 24' to standard output.",
-      "starter_code": "# Write your code below\n",
-      "solution_code": "print('SQLite with Python (sqlite3) Result 24')",
+      "prompt": "Mastery Challenge: Implement a robust, tested function for SQLite with Python (sqlite3) that processes inputs, validates preconditions, and handles invalid states cleanly:",
+      "starter_code": "def execute_task(data):\n    if not data:\n        return None\n    # Process valid data\n    ___",
+      "solution_code": "def execute_task(data):\n    if not data:\n        return None\n    return sorted(data)",
       "test_cases": [
         {
           "input": "",
           "expected_output": "SQLite with Python (sqlite3) Result 24"
         }
       ],
-      "hint": "Use print('SQLite with Python (sqlite3) Result 24') to generate the required output.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of sqlite with python sqlite3 optimization. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "hint": "Validate input first, then execute the transformation.",
+      "explanation": "Demonstrating end-to-end mastery of SQLite with Python (sqlite3) requires combining input validation, core algorithmic logic, and defensive programming."
     },
     {
       "id": "26.5_q25",

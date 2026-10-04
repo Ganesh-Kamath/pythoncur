@@ -191,12 +191,6 @@
         "content": "When you call append() or insert() on a list, the list object is modified in place. These methods do not return the updated list; they return None. A common beginner mistake is writing new_list = my_list.append(5), which sets new_list to None instead of the modified list."
       },
       "prompt": "Explain why the following code does not work as intended:\n```python\nmy_list = [1, 2]\nresult = my_list.append(3)\nprint(result)\n```",
-      "options": [
-        "append() returns None, so result is None and my_list is not updated",
-        "The code is correct; result will be [1, 2, 3]",
-        "append() only works on empty lists",
-        "The print statement must come before append()"
-      ],
       "correct_answer": "append() returns None, so result is None and my_list is not updated",
       "explanation": "my_list.append(3) modifies my_list to [1, 2, 3] but returns None. Therefore result becomes None, and printing it shows None instead of the list.",
       "difficulty": "medium",

@@ -153,12 +153,6 @@
         "6.7_q8"
       ],
       "prompt": "Fix this code so `inner_count` is reset to 0 at the start of every outer iteration:",
-      "options": [
-        "45",
-        "22",
-        "value_9",
-        "Error"
-      ],
       "correct_answer": "45",
       "explanation": "Variables scoped to an inner loop must be reinitialized inside the outer loop body, otherwise they retain their previous state.",
       "starter_code": "inner_count = 0\nfor outer in range(3):\n    while inner_count < 2:\n        print(outer, inner_count)\n        inner_count += 1",
@@ -212,12 +206,6 @@
         "6.7_q11"
       ],
       "prompt": "Write a nested list comprehension to generate all pairs `(x, y)` for `x in range(2)` and `y in range(2)`:",
-      "options": [
-        "60",
-        "30",
-        "value_12",
-        "Error"
-      ],
       "correct_answer": "60",
       "explanation": "In list comprehensions, multiple `for` clauses evaluate left-to-right from outer to inner.",
       "starter_code": "# Generate pairs [(0, 0), (0, 1), (1, 0), (1, 1)]\npairs = ___",

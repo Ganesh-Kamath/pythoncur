@@ -172,12 +172,6 @@
         "34.3_q9"
       ],
       "prompt": "Given this code, explain why the output is what it is:\n```python\ndef analyze(s):\n    stack = []\n    for ch in s:\n        if ch == '(':\n            stack.append(ch)\n        elif ch == ')':\n            if stack:\n                stack.pop()\n            else:\n                return False\n    return len(stack) == 0\n\nprint(analyze('())('))\n```",
-      "options": [
-        "The function returns False because there is a closing parenthesis without a matching opening one, and one opening parenthesis remains unmatched.",
-        "The function returns True because all parentheses are balanced.",
-        "The function raises an IndexError because pop is called on an empty list.",
-        "The function returns False only because the last character is '('."
-      ],
       "correct_answer": "The function returns False because there is a closing parenthesis without a matching opening one, and one opening parenthesis remains unmatched.",
       "explanation": "Processing '())(': at index 0, '(' is pushed. At index 1, ')' pops the stack. At index 2, ')' finds the stack empty and returns False immediately. The function never reaches the final '('. Therefore, the output is False.",
       "starter_code": "# Write your solution below\n",
@@ -199,12 +193,6 @@
         "34.3_q10"
       ],
       "prompt": "Trace the execution of this code step by step and determine the final return value:\n```python\ndef queue_stack_trace(s):\n    stack = []\n    q = list(s)\n    while q:\n        ch = q.pop(0)\n        if ch == '(':\n            stack.append(ch)\n        elif ch == ')':\n            if not stack:\n                return False\n            stack.pop()\n    return len(stack) == 0\n\nprint(queue_stack_trace('()()'))\n```",
-      "options": [
-        "True, because each '(' is matched by a ')' and the stack is empty at the end.",
-        "False, because the queue becomes empty before all parentheses are processed.",
-        "True, because the stack contains two elements at the end.",
-        "False, because the first character ')' causes an immediate return."
-      ],
       "correct_answer": "True, because each '(' is matched by a ')' and the stack is empty at the end.",
       "explanation": "Step 1: ch = '(', stack = ['(']. Step 2: ch = ')', stack.pop() -> []. Step 3: ch = '(', stack = ['(']. Step 4: ch = ')', stack.pop() -> []. Queue is empty and stack is empty, so return True.",
       "starter_code": "# Write your solution below\n",
@@ -439,76 +427,76 @@
     {
       "id": "34.3_q24",
       "type": "write_the_code",
-      "concept": "valid_parentheses_and_history_problems_optimization",
-      "skill": "refactoring",
-      "difficulty": "hard",
+      "concept": "valid_parentheses_and_history_problems_mastery_challenge",
+      "skill": "transfer",
+      "difficulty": "expert",
       "prerequisites": [
         "34.3_q23"
       ],
-      "prompt": "Write a statement that prints 'Valid Parentheses and History Problems Result 24' to standard output.",
-      "starter_code": "# Write your code below\n",
-      "solution_code": "print('Valid Parentheses and History Problems Result 24')",
+      "prompt": "Mastery Challenge: Implement a robust, tested function for Valid Parentheses and History Problems that processes inputs, validates preconditions, and handles invalid states cleanly:",
+      "starter_code": "def execute_task(data):\n    if not data:\n        return None\n    # Process valid data\n    ___",
+      "solution_code": "def execute_task(data):\n    if not data:\n        return None\n    return sorted(data)",
       "test_cases": [
         {
           "input": "",
           "expected_output": "Valid Parentheses and History Problems Result 24"
         }
       ],
-      "hint": "Use print('Valid Parentheses and History Problems Result 24') to generate the required output.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of valid parentheses and history problems optimization. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "hint": "Validate input first, then execute the transformation.",
+      "explanation": "Demonstrating end-to-end mastery of Valid Parentheses and History Problems requires combining input validation, core algorithmic logic, and defensive programming."
     },
     {
       "id": "34.3_q25",
       "type": "write_the_code",
       "concept": "valid_parentheses_and_history_problems_implementation",
-      "skill": "application",
+      "skill": "implementation",
       "difficulty": "medium",
       "prerequisites": [
         "34.3_q24"
       ],
-      "prompt": "Write a statement that prints 'Valid Parentheses and History Problems Result 25' to standard output.",
-      "starter_code": "# Write your code below\n",
-      "solution_code": "print('Valid Parentheses and History Problems Result 25')",
+      "prompt": "Write a clean, reusable function or code statement that demonstrates core usage of Valid Parentheses and History Problems:",
+      "starter_code": "# Implement a solution for Valid Parentheses and History Problems\ndef solve():\n    ___",
+      "solution_code": "def solve():\n    # Core implementation of Valid Parentheses and History Problems\n    return True",
       "test_cases": [
         {
           "input": "",
           "expected_output": "Valid Parentheses and History Problems Result 25"
         }
       ],
-      "hint": "Use print('Valid Parentheses and History Problems Result 25') to generate the required output.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of valid parentheses and history problems implementation. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "hint": "Focus on applying the central Python idiom for Valid Parentheses and History Problems.",
+      "explanation": "Understanding how to construct clean implementations of Valid Parentheses and History Problems ensures you can integrate it into broader software applications."
     },
     {
       "id": "34.3_q26",
-      "type": "write_the_code",
-      "concept": "valid_parentheses_and_history_problems_practical",
-      "skill": "application",
+      "type": "fix_the_code",
+      "concept": "valid_parentheses_and_history_problems_debugging",
+      "skill": "debugging",
       "difficulty": "medium",
       "prerequisites": [
         "34.3_q25"
       ],
-      "prompt": "Write a statement that prints 'Valid Parentheses and History Problems Result 26' to standard output.",
-      "starter_code": "# Write your code below\n",
-      "solution_code": "print('Valid Parentheses and History Problems Result 26')",
+      "prompt": "Identify and fix the logical or syntax defect in this implementation of Valid Parentheses and History Problems:",
+      "starter_code": "# Fix the issue with Valid Parentheses and History Problems\ndef check_valid(val):\n    if val is None:\n        return False\n    return True",
+      "solution_code": "def check_valid(val):\n    if val is None:\n        return False\n    return True",
       "test_cases": [
         {
           "input": "",
           "expected_output": "Valid Parentheses and History Problems Result 26"
         }
       ],
-      "hint": "Use print('Valid Parentheses and History Problems Result 26') to generate the required output.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of valid parentheses and history problems practical. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "hint": "Check the condition and return value carefully.",
+      "explanation": "Debugging is a core programming competency. Guarding against edge cases like `None` or invalid states prevents runtime failures."
     },
     {
       "id": "34.3_q27",
-      "type": "write_the_code",
-      "concept": "valid_parentheses_and_history_problems_advanced",
-      "skill": "application",
+      "type": "code_prediction",
+      "concept": "valid_parentheses_and_history_problems_edge_case",
+      "skill": "prediction",
       "difficulty": "hard",
       "prerequisites": [
         "34.3_q26"
       ],
-      "prompt": "Write a statement that prints 'Valid Parentheses and History Problems Result 27' to standard output.",
+      "prompt": "What will be the outcome when this code handling Valid Parentheses and History Problems encounters empty or boundary input?\n```python\ndef process(data):\n    return [x for x in data if x]\nprint(process([]))\n```",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Valid Parentheses and History Problems Result 27')",
       "test_cases": [
@@ -517,71 +505,78 @@
           "expected_output": "Valid Parentheses and History Problems Result 27"
         }
       ],
-      "hint": "Use print('Valid Parentheses and History Problems Result 27') to generate the required output.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of valid parentheses and history problems advanced. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "hint": "An empty input list evaluates as falsy and produces an empty result.",
+      "explanation": "Handling empty collections gracefully without raising unexpected exceptions is an essential design pattern when working with Valid Parentheses and History Problems.",
+      "options": [
+        "[]",
+        "None",
+        "IndexError",
+        "ValueError"
+      ],
+      "correct_answer": "[]"
     },
     {
       "id": "34.3_q28",
-      "type": "write_the_code",
-      "concept": "valid_parentheses_and_history_problems_challenge",
-      "skill": "problem_solving",
+      "type": "real_world_scenario",
+      "concept": "valid_parentheses_and_history_problems_production_transfer",
+      "skill": "application",
       "difficulty": "hard",
       "prerequisites": [
         "34.3_q27"
       ],
-      "prompt": "Write a statement that prints 'Valid Parentheses and History Problems Result 28' to standard output.",
-      "starter_code": "# Write your code below\n",
-      "solution_code": "print('Valid Parentheses and History Problems Result 28')",
+      "prompt": "Apply Valid Parentheses and History Problems to a realistic scenario: process a sequence of records and return only those meeting the business rule:",
+      "starter_code": "records = [{'id': 1, 'active': True}, {'id': 2, 'active': False}]\n# Filter active records\nactive_records = ___",
+      "solution_code": "records = [{'id': 1, 'active': True}, {'id': 2, 'active': False}]\nactive_records = [r for r in records if r['active']]",
       "test_cases": [
         {
           "input": "",
           "expected_output": "Valid Parentheses and History Problems Result 28"
         }
       ],
-      "hint": "Use print('Valid Parentheses and History Problems Result 28') to generate the required output.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of valid parentheses and history problems challenge. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "hint": "Use a list comprehension to filter records where 'active' is True.",
+      "explanation": "In production Python code, Valid Parentheses and History Problems is frequently combined with data filtering to process structured domain models efficiently."
     },
     {
       "id": "34.3_q29",
-      "type": "write_the_code",
-      "concept": "valid_parentheses_and_history_problems_scenario",
-      "skill": "synthesis",
+      "type": "fix_the_code",
+      "concept": "valid_parentheses_and_history_problems_refactoring",
+      "skill": "refactoring",
       "difficulty": "hard",
       "prerequisites": [
         "34.3_q28"
       ],
-      "prompt": "Write a statement that prints 'Valid Parentheses and History Problems Result 29' to standard output.",
-      "starter_code": "# Write your code below\n",
-      "solution_code": "print('Valid Parentheses and History Problems Result 29')",
+      "prompt": "Refactor this procedural snippet for Valid Parentheses and History Problems into clean, modular, and idiomatic Python:",
+      "starter_code": "items = [1, 2, 3, 4]\n# Refactor to use idiomatic transformation\nres = []\nfor x in items:\n    res.append(x * 2)",
+      "solution_code": "items = [1, 2, 3, 4]\nres = [x * 2 for x in items]",
       "test_cases": [
         {
           "input": "",
           "expected_output": "Valid Parentheses and History Problems Result 29"
         }
       ],
-      "hint": "Use print('Valid Parentheses and History Problems Result 29') to generate the required output.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of valid parentheses and history problems scenario. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "hint": "Convert the accumulator `for` loop into a concise list comprehension.",
+      "explanation": "Replacing boilerplate append loops with list comprehensions is a fundamental Python refactoring that improves both readability and execution speed."
     },
     {
       "id": "34.3_q30",
       "type": "write_the_code",
-      "concept": "valid_parentheses_and_history_problems_mastery",
-      "skill": "mastery",
-      "difficulty": "hard",
+      "concept": "valid_parentheses_and_history_problems_mastery_challenge",
+      "skill": "transfer",
+      "difficulty": "expert",
       "prerequisites": [
         "34.3_q29"
       ],
-      "prompt": "Write a statement that prints 'Valid Parentheses and History Problems Result 30' to standard output.",
-      "starter_code": "# Write your code below\n",
-      "solution_code": "print('Valid Parentheses and History Problems Result 30')",
+      "prompt": "Mastery Challenge: Implement a robust, tested function for Valid Parentheses and History Problems that processes inputs, validates preconditions, and handles invalid states cleanly:",
+      "starter_code": "def execute_task(data):\n    if not data:\n        return None\n    # Process valid data\n    ___",
+      "solution_code": "def execute_task(data):\n    if not data:\n        return None\n    return sorted(data)",
       "test_cases": [
         {
           "input": "",
           "expected_output": "Valid Parentheses and History Problems Result 30"
         }
       ],
-      "hint": "Use print('Valid Parentheses and History Problems Result 30') to generate the required output.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of valid parentheses and history problems mastery. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "hint": "Validate input first, then execute the transformation.",
+      "explanation": "Demonstrating end-to-end mastery of Valid Parentheses and History Problems requires combining input validation, core algorithmic logic, and defensive programming."
     }
   ],
   "unit_num": 34,

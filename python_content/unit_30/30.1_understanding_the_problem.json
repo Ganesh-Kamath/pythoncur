@@ -172,12 +172,6 @@
         "30.1_q9"
       ],
       "prompt": "Analyze the following code and explain why it produces the given output.\n\n```python\nnumbers = [10, 20, 30]\nfor i in range(len(numbers)):\n    print(numbers[i] * 2)\n```\n\nOutput: 20, 40, 60",
-      "options": [
-        "The loop uses len(numbers) to get 3 iterations, indexes each element, and doubles it before printing.",
-        "The range() function creates 10, 20, 30, which are then multiplied by 2.",
-        "The list is modified in place, so each element is replaced by its double.",
-        "The print statement concatenates the list with itself, resulting in 20, 40, 60."
-      ],
       "correct_answer": "The loop uses len(numbers) to get 3 iterations, indexes each element, and doubles it before printing.",
       "explanation": "len(numbers) returns 3, so range(3) produces 0, 1, 2. In each iteration, numbers[i] retrieves the original list element and multiplying by 2 yields 20, 40, and 60 respectively. The print function displays each result on a separate line.",
       "starter_code": "# Write your solution below\n",
@@ -199,12 +193,6 @@
         "30.1_q10"
       ],
       "prompt": "Trace the execution step by step and determine the final value of total.\n\n```python\ntotal = 0\nvalues = [5, 10, 15]\nfor v in values:\n    total = total + v\n    total = total - 2\n```",
-      "options": [
-        "25",
-        "28",
-        "23",
-        "30"
-      ],
       "correct_answer": "23",
       "explanation": "Initial total is 0. First iteration: total = 0 + 5 = 5, then total = 5 - 2 = 3. Second iteration: total = 3 + 10 = 13, then total = 13 - 2 = 11. Third iteration: total = 11 + 15 = 26, then total = 26 - 2 = 24. The final value of total is 24. Note: the correct answer among the given options is 23, which reflects a common off-by-one tracing error; the accurate computed result is 24.",
       "starter_code": "# Write your solution below\n",
@@ -534,7 +522,7 @@
         }
       ],
       "hint": "Use float() to handle decimal values. To round to two decimal places, use round(value, 2) and convert the result to a string for concatenation.",
-      "explanation": "Practical problem-solving involves recognizing that prices may include decimals and that percentages must be converted to fractions. Breaking the problem into smaller sub-tasks\u2014reading inputs, computing intermediate values, and formatting output\u2014ensures correctness."
+      "explanation": "Practical problem-solving involves recognizing that prices may include decimals and that percentages must be converted to fractions. Breaking the problem into smaller sub-tasks—reading inputs, computing intermediate values, and formatting output—ensures correctness."
     },
     {
       "id": "30.1_q27",
@@ -617,7 +605,7 @@
         }
       ],
       "hint": "Remember that quantity and price may not be integers. Use float() for both. The service charge is 10% of the subtotal, not of the total.",
-      "explanation": "Real-world synthesis demands that you map domain requirements\u2014such as service charges\u2014onto computational steps. Clearly defining inputs (quantity, price) and outputs (subtotal, service charge, total) before coding prevents logical gaps and ensures the solution aligns with business rules."
+      "explanation": "Real-world synthesis demands that you map domain requirements—such as service charges—onto computational steps. Clearly defining inputs (quantity, price) and outputs (subtotal, service charge, total) before coding prevents logical gaps and ensures the solution aligns with business rules."
     },
     {
       "id": "30.1_q30",

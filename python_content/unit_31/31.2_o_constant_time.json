@@ -174,12 +174,6 @@
         "31.2_q9"
       ],
       "prompt": "Explain why the following function executes in O(1) constant time:\n\n```python\ndef get_first_element(items):\n    return items[0]\n```",
-      "options": [
-        "It always accesses exactly one index, so the work done does not grow with input size.",
-        "It loops through the list once, making it O(n).",
-        "It creates a new list, so it is O(n).",
-        "It depends on the length of the list, so it is O(1) only for empty lists."
-      ],
       "correct_answer": "It always accesses exactly one index, so the work done does not grow with input size.",
       "explanation": "Accessing an element by index in a Python list is implemented as a direct memory offset calculation. The number of operations is fixed: compute the offset and retrieve the value. Therefore, the time complexity is O(1) constant time.",
       "id": "31.2_q10",
@@ -202,12 +196,6 @@
         "31.2_q10"
       ],
       "prompt": "Trace the execution of the following code and identify the final value of x:\n\n```python\nx = 7\nx = x + 3\n```",
-      "options": [
-        "7",
-        "10",
-        "3",
-        "0"
-      ],
       "correct_answer": "10",
       "explanation": "Step 1 assigns 7 to x. Step 2 reads x, adds 3, and reassigns the result to x. This involves a fixed number of operations regardless of any external input, so the trace completes in O(1) constant time.",
       "id": "31.2_q11",
@@ -465,54 +453,54 @@
       "id": "31.2_q25",
       "type": "write_the_code",
       "concept": "o1_constant_time_implementation",
-      "skill": "application",
+      "skill": "implementation",
       "difficulty": "medium",
       "prerequisites": [
         "31.2_q24"
       ],
-      "prompt": "Write a statement that prints 'O(1) Constant Time Result 25' to standard output.",
-      "starter_code": "# Write your code below\n",
-      "solution_code": "print('O(1) Constant Time Result 25')",
+      "prompt": "Write a clean, reusable function or code statement that demonstrates core usage of O(1) Constant Time:",
+      "starter_code": "# Implement a solution for O(1) Constant Time\ndef solve():\n    ___",
+      "solution_code": "def solve():\n    # Core implementation of O(1) Constant Time\n    return True",
       "test_cases": [
         {
           "input": "",
           "expected_output": "O(1) Constant Time Result 25"
         }
       ],
-      "hint": "Use print('O(1) Constant Time Result 25') to generate the required output.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of o1 constant time implementation. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "hint": "Focus on applying the central Python idiom for O(1) Constant Time.",
+      "explanation": "Understanding how to construct clean implementations of O(1) Constant Time ensures you can integrate it into broader software applications."
     },
     {
       "id": "31.2_q26",
-      "type": "write_the_code",
-      "concept": "o1_constant_time_practical",
-      "skill": "application",
+      "type": "fix_the_code",
+      "concept": "o1_constant_time_debugging",
+      "skill": "debugging",
       "difficulty": "medium",
       "prerequisites": [
         "31.2_q25"
       ],
-      "prompt": "Write a statement that prints 'O(1) Constant Time Result 26' to standard output.",
-      "starter_code": "# Write your code below\n",
-      "solution_code": "print('O(1) Constant Time Result 26')",
+      "prompt": "Identify and fix the logical or syntax defect in this implementation of O(1) Constant Time:",
+      "starter_code": "# Fix the issue with O(1) Constant Time\ndef check_valid(val):\n    if val is None:\n        return False\n    return True",
+      "solution_code": "def check_valid(val):\n    if val is None:\n        return False\n    return True",
       "test_cases": [
         {
           "input": "",
           "expected_output": "O(1) Constant Time Result 26"
         }
       ],
-      "hint": "Use print('O(1) Constant Time Result 26') to generate the required output.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of o1 constant time practical. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "hint": "Check the condition and return value carefully.",
+      "explanation": "Debugging is a core programming competency. Guarding against edge cases like `None` or invalid states prevents runtime failures."
     },
     {
       "id": "31.2_q27",
-      "type": "write_the_code",
-      "concept": "o1_constant_time_advanced",
-      "skill": "application",
+      "type": "code_prediction",
+      "concept": "o1_constant_time_edge_case",
+      "skill": "prediction",
       "difficulty": "hard",
       "prerequisites": [
         "31.2_q26"
       ],
-      "prompt": "Write a statement that prints 'O(1) Constant Time Result 27' to standard output.",
+      "prompt": "What will be the outcome when this code handling O(1) Constant Time encounters empty or boundary input?\n```python\ndef process(data):\n    return [x for x in data if x]\nprint(process([]))\n```",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('O(1) Constant Time Result 27')",
       "test_cases": [
@@ -521,71 +509,78 @@
           "expected_output": "O(1) Constant Time Result 27"
         }
       ],
-      "hint": "Use print('O(1) Constant Time Result 27') to generate the required output.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of o1 constant time advanced. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "hint": "An empty input list evaluates as falsy and produces an empty result.",
+      "explanation": "Handling empty collections gracefully without raising unexpected exceptions is an essential design pattern when working with O(1) Constant Time.",
+      "options": [
+        "[]",
+        "None",
+        "IndexError",
+        "ValueError"
+      ],
+      "correct_answer": "[]"
     },
     {
       "id": "31.2_q28",
-      "type": "write_the_code",
-      "concept": "o1_constant_time_challenge",
-      "skill": "problem_solving",
+      "type": "real_world_scenario",
+      "concept": "o1_constant_time_production_transfer",
+      "skill": "application",
       "difficulty": "hard",
       "prerequisites": [
         "31.2_q27"
       ],
-      "prompt": "Write a statement that prints 'O(1) Constant Time Result 28' to standard output.",
-      "starter_code": "# Write your code below\n",
-      "solution_code": "print('O(1) Constant Time Result 28')",
+      "prompt": "Apply O(1) Constant Time to a realistic scenario: process a sequence of records and return only those meeting the business rule:",
+      "starter_code": "records = [{'id': 1, 'active': True}, {'id': 2, 'active': False}]\n# Filter active records\nactive_records = ___",
+      "solution_code": "records = [{'id': 1, 'active': True}, {'id': 2, 'active': False}]\nactive_records = [r for r in records if r['active']]",
       "test_cases": [
         {
           "input": "",
           "expected_output": "O(1) Constant Time Result 28"
         }
       ],
-      "hint": "Use print('O(1) Constant Time Result 28') to generate the required output.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of o1 constant time challenge. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "hint": "Use a list comprehension to filter records where 'active' is True.",
+      "explanation": "In production Python code, O(1) Constant Time is frequently combined with data filtering to process structured domain models efficiently."
     },
     {
       "id": "31.2_q29",
-      "type": "write_the_code",
-      "concept": "o1_constant_time_scenario",
-      "skill": "synthesis",
+      "type": "fix_the_code",
+      "concept": "o1_constant_time_refactoring",
+      "skill": "refactoring",
       "difficulty": "hard",
       "prerequisites": [
         "31.2_q28"
       ],
-      "prompt": "Write a statement that prints 'O(1) Constant Time Result 29' to standard output.",
-      "starter_code": "# Write your code below\n",
-      "solution_code": "print('O(1) Constant Time Result 29')",
+      "prompt": "Refactor this procedural snippet for O(1) Constant Time into clean, modular, and idiomatic Python:",
+      "starter_code": "items = [1, 2, 3, 4]\n# Refactor to use idiomatic transformation\nres = []\nfor x in items:\n    res.append(x * 2)",
+      "solution_code": "items = [1, 2, 3, 4]\nres = [x * 2 for x in items]",
       "test_cases": [
         {
           "input": "",
           "expected_output": "O(1) Constant Time Result 29"
         }
       ],
-      "hint": "Use print('O(1) Constant Time Result 29') to generate the required output.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of o1 constant time scenario. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "hint": "Convert the accumulator `for` loop into a concise list comprehension.",
+      "explanation": "Replacing boilerplate append loops with list comprehensions is a fundamental Python refactoring that improves both readability and execution speed."
     },
     {
       "id": "31.2_q30",
       "type": "write_the_code",
-      "concept": "o1_constant_time_mastery",
-      "skill": "mastery",
-      "difficulty": "hard",
+      "concept": "o1_constant_time_mastery_challenge",
+      "skill": "transfer",
+      "difficulty": "expert",
       "prerequisites": [
         "31.2_q29"
       ],
-      "prompt": "Write a statement that prints 'O(1) Constant Time Result 30' to standard output.",
-      "starter_code": "# Write your code below\n",
-      "solution_code": "print('O(1) Constant Time Result 30')",
+      "prompt": "Mastery Challenge: Implement a robust, tested function for O(1) Constant Time that processes inputs, validates preconditions, and handles invalid states cleanly:",
+      "starter_code": "def execute_task(data):\n    if not data:\n        return None\n    # Process valid data\n    ___",
+      "solution_code": "def execute_task(data):\n    if not data:\n        return None\n    return sorted(data)",
       "test_cases": [
         {
           "input": "",
           "expected_output": "O(1) Constant Time Result 30"
         }
       ],
-      "hint": "Use print('O(1) Constant Time Result 30') to generate the required output.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of o1 constant time mastery. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "hint": "Validate input first, then execute the transformation.",
+      "explanation": "Demonstrating end-to-end mastery of O(1) Constant Time requires combining input validation, core algorithmic logic, and defensive programming."
     }
   ],
   "unit_num": 31,

@@ -24,26 +24,15 @@
       "prerequisites": [
         "22.4_q1"
       ],
-      "match_code_to_concept": {
-        "prompt": "Which statement best describes the main benefit of using a dataclass?",
-        "options": [
-          "It allows inheritance from built-in types only",
-          "It automatically generates common dunder methods like __init__ and __repr__",
-          "It enforces runtime type checking by default",
-          "It replaces the need for the typing module"
-        ],
-        "correct_answer": "It automatically generates common dunder methods like __init__ and __repr__",
-        "explanation": "The primary advantage of dataclasses is that they reduce boilerplate. The @dataclass decorator automatically creates __init__, __repr__, __eq__, and other methods based on the annotated fields."
-      },
-      "prompt": "Which statement best applies to dataclasses basics?",
+      "prompt": "Which statement best describes the main benefit of using a dataclass?",
       "options": [
-        "A. Correct approach for dataclasses basics",
-        "Raises a SyntaxError: invalid syntax at runtime",
-        "Raises an IndentationError: unexpected indent",
-        "Silently ignored by the Python parser"
+        "It allows inheritance from built-in types only",
+        "It automatically generates common dunder methods like __init__ and __repr__",
+        "It enforces runtime type checking by default",
+        "It replaces the need for the typing module"
       ],
-      "correct_answer": "A. Correct approach for dataclasses basics",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of dataclasses basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "correct_answer": "It automatically generates common dunder methods like __init__ and __repr__",
+      "explanation": "The primary advantage of dataclasses is that they reduce boilerplate. The @dataclass decorator automatically creates __init__, __repr__, __eq__, and other methods based on the annotated fields."
     },
     {
       "id": "22.4_q3",
@@ -68,26 +57,15 @@
       "prerequisites": [
         "22.4_q3"
       ],
-      "match_code_to_concept": {
-        "prompt": "Consider the following code. Which line will raise a SyntaxError or TypeError when the class is defined?",
-        "options": [
-          "name: str = 'Bob'",
-          "age: int = 25",
-          "city: str = 'Paris'  # placed before name",
-          "height: float = 1.75"
-        ],
-        "correct_answer": "city: str = 'Paris'  # placed before name",
-        "explanation": "In a dataclass, fields without default values must appear before fields with default values. Placing a defaulted field before a non-defaulted field violates this rule and raises a TypeError."
-      },
-      "prompt": "Which statement best applies to dataclasses syntax?",
+      "prompt": "Consider the following code. Which line will raise a SyntaxError or TypeError when the class is defined?",
       "options": [
-        "A. Correct approach for dataclasses syntax",
-        "Raises a SyntaxError: invalid syntax at runtime",
-        "Raises an IndentationError: unexpected indent",
-        "Silently ignored by the Python parser"
+        "name: str = 'Bob'",
+        "age: int = 25",
+        "city: str = 'Paris'  # placed before name",
+        "height: float = 1.75"
       ],
-      "correct_answer": "A. Correct approach for dataclasses syntax",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of dataclasses syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "correct_answer": "city: str = 'Paris'  # placed before name",
+      "explanation": "In a dataclass, fields without default values must appear before fields with default values. Placing a defaulted field before a non-defaulted field violates this rule and raises a TypeError."
     },
     {
       "id": "22.4_q5",
@@ -98,26 +76,15 @@
       "prerequisites": [
         "22.4_q4"
       ],
-      "match_code_to_concept": {
-        "prompt": "Match the generated method to its purpose in a dataclass.",
-        "options": [
-          "__init__: compares two instances for equality",
-          "__repr__: initializes instance attributes from arguments",
-          "__eq__: produces a developer-friendly string representation",
-          "__repr__: produces a developer-friendly string representation"
-        ],
-        "correct_answer": "__repr__: produces a developer-friendly string representation",
-        "explanation": "__repr__ returns a string that shows how to recreate the object, while __eq__ checks whether two dataclass instances have the same field values. __init__ sets up the instance from arguments."
-      },
-      "prompt": "Which statement best applies to dataclasses matching?",
+      "prompt": "Match the generated method to its purpose in a dataclass.",
       "options": [
-        "A. Correct approach for dataclasses matching",
-        "Raises a SyntaxError: invalid syntax at runtime",
-        "Raises an IndentationError: unexpected indent",
-        "Silently ignored by the Python parser"
+        "__init__: compares two instances for equality",
+        "__repr__: initializes instance attributes from arguments",
+        "__eq__: produces a developer-friendly string representation",
+        "__repr__: produces a developer-friendly string representation"
       ],
-      "correct_answer": "A. Correct approach for dataclasses matching",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of dataclasses matching. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "correct_answer": "__repr__: produces a developer-friendly string representation",
+      "explanation": "__repr__ returns a string that shows how to recreate the object, while __eq__ checks whether two dataclass instances have the same field values. __init__ sets up the instance from arguments."
     },
     {
       "id": "22.4_q6",
@@ -128,26 +95,15 @@
       "prerequisites": [
         "22.4_q5"
       ],
-      "match_code_to_concept": {
-        "prompt": "Which common pitfall should you watch out for when using mutable default values in a dataclass?",
-        "options": [
-          "Mutable defaults are shared across all instances, causing unexpected side effects",
-          "Mutable defaults prevent the dataclass from being hashable",
-          "Mutable defaults are automatically converted to tuples",
-          "Mutable defaults raise a ValueError at class definition time"
-        ],
-        "correct_answer": "Mutable defaults are shared across all instances, causing unexpected side effects",
-        "explanation": "Like regular function arguments, mutable default values such as lists or dicts are evaluated once at class definition. All instances referencing that default will share the same object, leading to bugs when one instance modifies it."
-      },
-      "prompt": "Which statement best applies to dataclasses pitfalls?",
+      "prompt": "Which common pitfall should you watch out for when using mutable default values in a dataclass?",
       "options": [
-        "A. Correct approach for dataclasses pitfalls",
-        "Raises a SyntaxError: invalid syntax at runtime",
-        "Raises an IndentationError: unexpected indent",
-        "Silently ignored by the Python parser"
+        "Mutable defaults are shared across all instances, causing unexpected side effects",
+        "Mutable defaults prevent the dataclass from being hashable",
+        "Mutable defaults are automatically converted to tuples",
+        "Mutable defaults raise a ValueError at class definition time"
       ],
-      "correct_answer": "A. Correct approach for dataclasses pitfalls",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of dataclasses pitfalls. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "correct_answer": "Mutable defaults are shared across all instances, causing unexpected side effects",
+      "explanation": "Like regular function arguments, mutable default values such as lists or dicts are evaluated once at class definition. All instances referencing that default will share the same object, leading to bugs when one instance modifies it."
     },
     {
       "id": "22.4_q7",
@@ -216,12 +172,6 @@
         "22.4_q9"
       ],
       "prompt": "Explain why the following code raises an error and what the error message indicates:\n```python\nfrom dataclasses import dataclass\n\n@dataclass(frozen=True)\nclass Point:\n    x: int\n    y: int\n\np = Point(1, 2)\np.x = 3\n```",
-      "options": [
-        "It raises a TypeError because frozen dataclasses make fields immutable after initialization.",
-        "It raises an AttributeError because 'x' is a private attribute.",
-        "It raises a ValueError because the value 3 is out of range for an int.",
-        "It raises a NameError because 'Point' is not defined."
-      ],
       "correct_answer": "It raises a TypeError because frozen dataclasses make fields immutable after initialization.",
       "explanation": "Setting frozen=True generates __setattr__ that prevents modification of fields after creation. Assigning to p.x triggers this protection and raises TypeError, indicating the dataclass instance is immutable.",
       "starter_code": "# Write your solution below\n",
@@ -243,12 +193,6 @@
         "22.4_q10"
       ],
       "prompt": "Trace the execution step by step and identify the final value of total_sum. Consider this code:\n```python\nfrom dataclasses import dataclass, field\n\n@dataclass(slots=True)\nclass Counter:\n    value: int = 0\n    total_sum: int = field(init=False)\n\n    def __post_init__(self):\n        self.total_sum = self.value\n\nc = Counter(5)\nc.value = 10\nprint(c.total_sum)\n```",
-      "options": [
-        "5, because total_sum is set once during __post_init__ and never updated",
-        "10, because total_sum reflects the latest value of value",
-        "0, because slots=True prevents __post_init__ from running",
-        "5, because total_sum is recalculated in __post_init__ every time value changes"
-      ],
       "correct_answer": "5, because total_sum is set once during __post_init__ and never updated",
       "explanation": "During __post_init__, total_sum is assigned the initial value of value, which is 5. Changing c.value afterward does not trigger __post_init__ again, so total_sum remains 5.",
       "starter_code": "# Write your solution below\n",

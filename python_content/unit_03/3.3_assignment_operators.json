@@ -500,12 +500,6 @@
         "3.3_q5"
       ],
       "prompt": "A subtotal is `subtotal = 100.0`. A 10% tax needs to be applied, so `subtotal` becomes 1.10 times its original value. Which single augmented assignment does this?",
-      "options": [
-        "A. `subtotal += 1.10`",
-        "B. `subtotal *= 1.10`",
-        "C. `subtotal =+ 10`",
-        "D. `subtotal **= 1.10`"
-      ],
       "correct_answer": "B",
       "explanation": "In Python, this operation directly demonstrates the core behavior of shopping cart tax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
@@ -524,12 +518,6 @@
         "3.3_q27"
       ],
       "prompt": "Which of the following summaries regarding Python assignment operators is completely TRUE?",
-      "options": [
-        "A. Python supports augmented operators (`+=`, `-=`, `*=`, etc.); `++` and `--` do NOT exist; the right-hand side is fully evaluated before assignment; variables must be initialized prior to augmentation; for immutable scalars, assignment rebinds the name to a new object.",
-        "B. Python supports `x++` and `x--` just like C and Java.",
-        "C. Writing `x =+ 5` is identical to `x += 5`.",
-        "D. Augmented operators can only be used on integers, never on strings."
-      ],
       "correct_answer": "A",
       "explanation": "This encapsulates Python assignment mechanics, compound operators, and the non-existence of increment operators."
     }

@@ -188,12 +188,6 @@
         "content": "When analyzing file output, consider the mode used, whether the file already exists, and how strings are assembled. Mode `'w'` truncates the file before writing. If you use `'a'`, the file is opened for appending and existing content is preserved. Also, `write()` returns the number of characters written, which can be useful for validation. For example:\n\n```python\nwith open('log.txt', 'w') as f:\n    chars = f.write('Log entry\\n')\nprint(chars)\n```\n\nThis prints `9` because 'Log entry\\n' has nine characters, demonstrating that `write()` both stores data and reports length."
       },
       "prompt": "A student runs the following code:\n\n```python\nwith open('summary.txt', 'w') as f:\n    f.write('First line')\n    f.write('Second line')\n```\n\nWhich statement correctly explains the state of `summary.txt`?",
-      "options": [
-        "The file contains 'First lineSecond line' on a single line",
-        "The file contains 'First line' and then 'Second line' on a new line",
-        "The file is empty because the writes were not flushed",
-        "The operation fails because 'summary.txt' already exists"
-      ],
       "correct_answer": "The file contains 'First lineSecond line' on a single line",
       "explanation": "The student did not include newline characters or spaces between the two `write()` calls. Therefore, the file stores the exact concatenation 'First lineSecond line' with no line break.",
       "starter_code": "# Write your solution below\n",
@@ -441,23 +435,23 @@
     {
       "id": "13.4_q24",
       "type": "write_the_code",
-      "concept": "writing_to_files_optimization",
-      "skill": "refactoring",
-      "difficulty": "hard",
+      "concept": "writing_to_files_mastery_challenge",
+      "skill": "transfer",
+      "difficulty": "expert",
       "prerequisites": [
         "13.4_q23"
       ],
-      "prompt": "Write a statement that prints 'Writing to Files Result 24' to standard output.",
-      "starter_code": "# Write your code below\n",
-      "solution_code": "print('Writing to Files Result 24')",
+      "prompt": "Mastery Challenge: Implement a robust, tested function for Writing to Files that processes inputs, validates preconditions, and handles invalid states cleanly:",
+      "starter_code": "def execute_task(data):\n    if not data:\n        return None\n    # Process valid data\n    ___",
+      "solution_code": "def execute_task(data):\n    if not data:\n        return None\n    return sorted(data)",
       "test_cases": [
         {
           "input": "",
           "expected_output": "Writing to Files Result 24"
         }
       ],
-      "hint": "Use print('Writing to Files Result 24') to generate the required output.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of writing to files optimization. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "hint": "Validate input first, then execute the transformation.",
+      "explanation": "Demonstrating end-to-end mastery of Writing to Files requires combining input validation, core algorithmic logic, and defensive programming."
     },
     {
       "id": "13.4_q25",

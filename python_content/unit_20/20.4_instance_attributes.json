@@ -24,26 +24,15 @@
       "prerequisites": [
         "20.4_q1"
       ],
-      "match_code_to_concept": {
-        "prompt": "Which line correctly creates an instance attribute inside a class constructor?",
-        "options": [
-          "color = 'blue'",
-          "self.color = 'blue'",
-          "Car.color = 'blue'",
-          "def color = 'blue'"
-        ],
-        "correct_answer": "self.color = 'blue'",
-        "explanation": "Inside a class method, instance attributes must be assigned using self. to bind the attribute to the specific instance. The other options either create a local variable, a class attribute, or use invalid syntax."
-      },
-      "prompt": "Which statement best applies to instance attributes basics?",
+      "prompt": "Which line correctly creates an instance attribute inside a class constructor?",
       "options": [
-        "A. Correct approach for instance attributes basics",
-        "Raises a SyntaxError: invalid syntax at runtime",
-        "Raises an IndentationError: unexpected indent",
-        "Silently ignored by the Python parser"
+        "color = 'blue'",
+        "self.color = 'blue'",
+        "Car.color = 'blue'",
+        "def color = 'blue'"
       ],
-      "correct_answer": "A. Correct approach for instance attributes basics",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of instance attributes basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "correct_answer": "self.color = 'blue'",
+      "explanation": "Inside a class method, instance attributes must be assigned using self. to bind the attribute to the specific instance. The other options either create a local variable, a class attribute, or use invalid syntax."
     },
     {
       "id": "20.4_q3",
@@ -68,26 +57,15 @@
       "prerequisites": [
         "20.4_q3"
       ],
-      "match_code_to_concept": {
-        "prompt": "Given the class below, what is printed when the code runs?",
-        "options": [
-          "name: Alice",
-          "name: None",
-          "AttributeError",
-          "name: Bob"
-        ],
-        "correct_answer": "name: Alice",
-        "explanation": "The __init__ method assigns self.name = name when an object is created. The instance attribute is then accessed with alice.name, which returns 'Alice'. No error occurs because the attribute is properly defined."
-      },
-      "prompt": "Which statement best applies to instance attributes syntax?",
+      "prompt": "Given the class below, what is printed when the code runs?",
       "options": [
-        "A. Correct approach for instance attributes syntax",
-        "Raises a SyntaxError: invalid syntax at runtime",
-        "Raises an IndentationError: unexpected indent",
-        "Silently ignored by the Python parser"
+        "name: Alice",
+        "name: None",
+        "AttributeError",
+        "name: Bob"
       ],
-      "correct_answer": "A. Correct approach for instance attributes syntax",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of instance attributes syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "correct_answer": "name: Alice",
+      "explanation": "The __init__ method assigns self.name = name when an object is created. The instance attribute is then accessed with alice.name, which returns 'Alice'. No error occurs because the attribute is properly defined."
     },
     {
       "id": "20.4_q5",
@@ -98,26 +76,15 @@
       "prerequisites": [
         "20.4_q4"
       ],
-      "match_code_to_concept": {
-        "prompt": "Match each code fragment to its purpose related to instance attributes.",
-        "options": [
-          "self.color = 'red'  ->  Assigns an instance attribute",
-          "Car.color = 'red'   ->  Assigns an instance attribute",
-          "color = 'red'       ->  Assigns an instance attribute",
-          "def color:          ->  Assigns an instance attribute"
-        ],
-        "correct_answer": "self.color = 'red'  ->  Assigns an instance attribute",
-        "explanation": "Only self.color = 'red' correctly creates an instance attribute inside a method. Car.color creates a class attribute, color = 'red' is a local variable, and def color: is a method signature, not an assignment."
-      },
-      "prompt": "Which statement best applies to instance attributes matching?",
+      "prompt": "Match each code fragment to its purpose related to instance attributes.",
       "options": [
-        "A. Correct approach for instance attributes matching",
-        "Raises a SyntaxError: invalid syntax at runtime",
-        "Raises an IndentationError: unexpected indent",
-        "Silently ignored by the Python parser"
+        "self.color = 'red'  ->  Assigns an instance attribute",
+        "Car.color = 'red'   ->  Assigns an instance attribute",
+        "color = 'red'       ->  Assigns an instance attribute",
+        "def color:          ->  Assigns an instance attribute"
       ],
-      "correct_answer": "A. Correct approach for instance attributes matching",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of instance attributes matching. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "correct_answer": "self.color = 'red'  ->  Assigns an instance attribute",
+      "explanation": "Only self.color = 'red' correctly creates an instance attribute inside a method. Car.color creates a class attribute, color = 'red' is a local variable, and def color: is a method signature, not an assignment."
     },
     {
       "id": "20.4_q6",
@@ -128,26 +95,15 @@
       "prerequisites": [
         "20.4_q5"
       ],
-      "match_code_to_concept": {
-        "prompt": "What mistake is made in the following code?",
-        "options": [
-          "The attribute is assigned before the object is created",
-          "The attribute is assigned outside __init__ and becomes shared",
-          "The attribute name conflicts with a method name",
-          "The attribute is assigned using a default value incorrectly"
-        ],
-        "correct_answer": "The attribute is assigned outside __init__ and becomes shared",
-        "explanation": "If you write x.value = 10 outside __init__ on one instance, that attribute is added only to that instance. However, a common pitfall is placing an assignment like value = 10 directly in the class body, which makes it a class attribute shared by all instances. The code shown assigns inside __init__ with self, so it is actually correct; the pitfall question tests awareness that missing self. causes shared state."
-      },
-      "prompt": "Which statement best applies to instance attributes pitfalls?",
+      "prompt": "What mistake is made in the following code?",
       "options": [
-        "A. Correct approach for instance attributes pitfalls",
-        "Raises a SyntaxError: invalid syntax at runtime",
-        "Raises an IndentationError: unexpected indent",
-        "Silently ignored by the Python parser"
+        "The attribute is assigned before the object is created",
+        "The attribute is assigned outside __init__ and becomes shared",
+        "The attribute name conflicts with a method name",
+        "The attribute is assigned using a default value incorrectly"
       ],
-      "correct_answer": "A. Correct approach for instance attributes pitfalls",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of instance attributes pitfalls. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "correct_answer": "The attribute is assigned outside __init__ and becomes shared",
+      "explanation": "If you write x.value = 10 outside __init__ on one instance, that attribute is added only to that instance. However, a common pitfall is placing an assignment like value = 10 directly in the class body, which makes it a class attribute shared by all instances. The code shown assigns inside __init__ with self, so it is actually correct; the pitfall question tests awareness that missing self. causes shared state."
     },
     {
       "id": "20.4_q7",
@@ -197,12 +153,6 @@
         "20.4_q8"
       ],
       "prompt": "Fix this code snippet implementing Instance Attributes correctly:",
-      "options": [
-        "45",
-        "22",
-        "value_9",
-        "Error"
-      ],
       "correct_answer": "45",
       "explanation": "Applying standard Python idioms ensures correct behavior: instance attributes are bound to individual objects via self.",
       "starter_code": "# Instance Attributes implementation\n___",
@@ -210,24 +160,24 @@
     },
     {
       "id": "20.4_q10",
-      "type": "write_the_code",
-      "concept": "instance_attributes_analysis",
-      "skill": "analysis",
-      "difficulty": "medium",
+      "type": "real_world_scenario",
+      "concept": "instance_attributes_production_transfer",
+      "skill": "application",
+      "difficulty": "hard",
       "prerequisites": [
         "20.4_q9"
       ],
-      "prompt": "Write a statement that prints 'Instance Attributes Result 10' to standard output.",
-      "starter_code": "# Write your code below\n",
-      "solution_code": "print('Instance Attributes Result 10')",
+      "prompt": "Apply Instance Attributes to a realistic scenario: process a sequence of records and return only those meeting the business rule:",
+      "starter_code": "records = [{'id': 1, 'active': True}, {'id': 2, 'active': False}]\n# Filter active records\nactive_records = ___",
+      "solution_code": "records = [{'id': 1, 'active': True}, {'id': 2, 'active': False}]\nactive_records = [r for r in records if r['active']]",
       "test_cases": [
         {
           "input": "",
           "expected_output": "Instance Attributes Result 10"
         }
       ],
-      "hint": "Use print('Instance Attributes Result 10') to generate the required output.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of instance attributes analysis. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "hint": "Use a list comprehension to filter records where 'active' is True.",
+      "explanation": "In production Python code, Instance Attributes is frequently combined with data filtering to process structured domain models efficiently."
     },
     {
       "id": "20.4_q11",
@@ -258,12 +208,6 @@
         "20.4_q11"
       ],
       "prompt": "Write the canonical Python code statement for Instance Attributes:",
-      "options": [
-        "60",
-        "30",
-        "value_12",
-        "Error"
-      ],
       "correct_answer": "60",
       "explanation": "Canonical implementation: class User:\n    def __init__(self, username):\n        self.username = username. Instance attributes are bound to individual objects via self.",
       "starter_code": "# Complete the statement\n___",

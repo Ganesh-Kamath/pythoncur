@@ -172,12 +172,6 @@
         "27.1_q9"
       ],
       "prompt": "A developer writes the following snippet and expects '/about' to display 'About Us'. Instead, the browser shows '404 Not Found'. Explain why this occurs and how to fix it.",
-      "options": [
-        "The route decorator is missing, so Flask cannot match the URL; add @app.route('/about')",
-        "The function name 'about' conflicts with a built-in; rename it to 'show_about'",
-        "The return value is a dictionary, which Flask does not render; convert it to a string",
-        "The server is not running; start it with app.run()"
-      ],
       "correct_answer": "The route decorator is missing, so Flask cannot match the URL; add @app.route('/about')",
       "explanation": "Without @app.route('/about'), Flask has no rule mapping '/about' to a function, so it returns the default 404 page. Adding the decorator binds the path to the function and makes the response available.",
       "starter_code": "# Write your solution below\n",
@@ -199,12 +193,6 @@
         "27.1_q10"
       ],
       "prompt": "Trace the execution of the application below when a GET request arrives at '/items/5'. List the order in which the following events occur.\n\n```python\nfrom flask import Flask\n\napp = Flask(__name__)\n\n@app.route('/items/<int:id>')\ndef show_item(id):\n    return f'Item {id}'\n```",
-      "options": [
-        "Flask matches '/items/5' to show_item, converts '5' to int 5, calls show_item(5), and returns the string 'Item 5'",
-        "Flask converts '5' to int 5 first, then matches '/items/5', calls show_item('5'), and returns 'Item 5'",
-        "Flask calls show_item(5), then matches '/items/5', and returns 'Item 5'",
-        "Flask returns 'Item 5' directly without calling show_item"
-      ],
       "correct_answer": "Flask matches '/items/5' to show_item, converts '5' to int 5, calls show_item(5), and returns the string 'Item 5'",
       "explanation": "The routing engine first finds a matching rule, then applies the converter (int) to extract 5, invokes show_item with that integer, and finally returns the evaluated f-string as the HTTP response.",
       "starter_code": "# Write your solution below\n",
@@ -465,7 +453,7 @@
         "No duplicate response formatting logic exists in route handlers"
       ],
       "hint": "Extract the repeated return pattern into a single function that accepts the message and optional status code.",
-      "explanation": "The original code duplicated the implicit Flask tuple-style return in every handler. By introducing `format_response`, we centralize response construction, making future changes\u2014such as adding headers or JSON serialization\u2014require edits in only one place. This improves maintainability and aligns with DRY principles."
+      "explanation": "The original code duplicated the implicit Flask tuple-style return in every handler. By introducing `format_response`, we centralize response construction, making future changes—such as adding headers or JSON serialization—require edits in only one place. This improves maintainability and aligns with DRY principles."
     },
     {
       "id": "27.1_q25",
@@ -565,7 +553,7 @@
         "script contains explanatory comments comparing Flask and FastAPI"
       ],
       "hint": "Consider async support, automatic docs, and ecosystem maturity when comparing frameworks. Express the choice clearly in inline comments and populate the config dictionary accordingly.",
-      "explanation": "This scenario requires synthesizing knowledge of framework characteristics\u2014such as Flask's minimalism versus FastAPI's async capabilities and built-in documentation\u2014to make an informed architectural decision for a production-grade microservice."
+      "explanation": "This scenario requires synthesizing knowledge of framework characteristics—such as Flask's minimalism versus FastAPI's async capabilities and built-in documentation—to make an informed architectural decision for a production-grade microservice."
     },
     {
       "id": "27.1_q30",

@@ -176,12 +176,6 @@
         "21.5_q9"
       ],
       "prompt": "Consider the following Python code:\n```python\nclass Printer:\n    def print_document(self):\n        return 'Generic print'\n\nclass ColorPrinter(Printer):\n    def print_document(self):\n        return 'Color print'\n\nclass LaserPrinter(Printer):\n    def print_document(self):\n        return 'Laser print'\n\ndef send_to_printer(printer):\n    return printer.print_document()\n\nprinters = [Printer(), ColorPrinter(), LaserPrinter()]\nfor p in printers:\n    print(send_to_printer(p))\n```\nExplain why the output differs for each object in the `printers` list despite using the same function `send_to_printer`.",
-      "options": [
-        "The function uses static binding, so the base class method is always called.",
-        "Python uses dynamic method resolution, so the actual object's method is invoked at runtime.",
-        "Each object is converted to a string before printing.",
-        "The `print_document` method is defined only in the base class."
-      ],
       "correct_answer": "Python uses dynamic method resolution, so the actual object's method is invoked at runtime.",
       "explanation": "Polymorphism relies on dynamic dispatch: the method to execute is determined at runtime based on the actual object's class, not the reference type. Thus, `send_to_printer` calls the overridden `print_document` in each subclass, producing different outputs.",
       "concept": "polymorphism_analysis",
@@ -203,12 +197,6 @@
         "21.5_q10"
       ],
       "prompt": "Trace the execution of the following Python code step by step and identify the final return value:\n```python\nclass Base:\n    def compute(self):\n        return 10\n\nclass Derived(Base):\n    def compute(self):\n        return 20\n\ndef use_compute(obj):\n    return obj.compute()\n\nd = Derived()\nvalue = use_compute(d)\nprint(value)\n```\nWhat is the final value printed to the console?",
-      "options": [
-        "10",
-        "20",
-        "None",
-        "Error"
-      ],
       "correct_answer": "20",
       "explanation": "Step 1: `Derived()` creates an instance of `Derived`. Step 2: `use_compute(d)` passes this instance to the function. Step 3: Inside `use_compute`, `obj.compute()` is called. Because `obj` refers to a `Derived` instance, Python invokes `Derived.compute()`, returning 20. Step 4: `value` is assigned 20, and `print(value)` outputs 20. This trace shows polymorphic method resolution.",
       "concept": "polymorphism_tracing",

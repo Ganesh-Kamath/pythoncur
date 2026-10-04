@@ -172,12 +172,6 @@
         "21.2_q9"
       ],
       "prompt": "Consider this code:\n\n```python\nclass BankAccount:\n    interest_rate = 0.05\n    \n    def __init__(self, owner, balance):\n        self.owner = owner\n        self.balance = balance\n    \n    @classmethod\n    def apply_interest(cls, account):\n        account.balance = account.balance * (1 + cls.interest_rate)\n    \n    @staticmethod\n    def is_valid(amount):\n        return amount > 0\n```\n\nExplain why `BankAccount.apply_interest(acct)` works on an instance, while `BankAccount.is_valid(100)` does not require an instance or class reference.",
-      "options": [
-        "apply_interest uses cls to access the class interest_rate, while is_valid is a standalone helper that only needs its arguments",
-        "apply_interest modifies an instance attribute, so it must be called on an instance, while is_valid is a regular function",
-        "apply_interest is decorated with @classmethod so it ignores self, while is_valid ignores cls and self",
-        "Both methods are equivalent; the difference is only stylistic"
-      ],
       "correct_answer": "apply_interest uses cls to access the class interest_rate, while is_valid is a standalone helper that only needs its arguments",
       "explanation": "A class method receives the class as the first argument, allowing it to read or modify class-level state such as interest_rate, even when passed an instance. A static method has no implicit first argument; it is essentially a namespaced function and is called directly with the arguments it needs, such as amount in is_valid.",
       "starter_code": "# Write your solution below\n",
@@ -199,12 +193,6 @@
         "21.2_q10"
       ],
       "prompt": "Trace the execution step by step and list the values of `DataProcessor.counter` and the printed output after each relevant line in this code:\n\n```python\nclass DataProcessor:\n    counter = 0\n    \n    def __init__(self):\n        DataProcessor.counter += 1\n        self.id = DataProcessor.counter\n    \n    @classmethod\n    def reset_counter(cls):\n        cls.counter = 0\n    \n    @staticmethod\n    def log(message):\n        print('LOG:', message)\n\nDataProcessor.reset_counter()\nd1 = DataProcessor()\nDataProcessor.log('First created')\nd2 = DataProcessor()\nDataProcessor.log('Second created')\nprint('Total instances:', DataProcessor.counter)\n```",
-      "options": [
-        "After reset: 0, After d1: 1 (LOG: First created), After d2: 2, Final: 2",
-        "After reset: 0, After d1: 1, After d2: 3, Final: 3",
-        "After reset: 0, After d1: 1 (LOG: First created), After d2: 2, Final: 0",
-        "After reset: 0, After d1: 0 (LOG: First created), After d2: 1, Final: 1"
-      ],
       "correct_answer": "After reset: 0, After d1: 1 (LOG: First created), After d2: 2, Final: 2",
       "explanation": "reset_counter sets counter to 0. d1.__init__ increments counter to 1 and stores 1 in self.id; log prints 'LOG: First created'. d2.__init__ increments counter to 2 and stores 2 in self.id; log prints 'LOG: Second created'. The final print shows 2, the total number of instances created.",
       "starter_code": "# Write your solution below\n",

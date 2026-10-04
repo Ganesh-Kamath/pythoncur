@@ -188,12 +188,6 @@
         "content": "When an exception occurs, Python prints a traceback that helps you locate the problem. The traceback includes the exception type, the error message, and the file and line number where the error happened. For example, accessing a list index that does not exist raises an IndexError. Consider this code:\n\n```python\nitems = [10, 20]\nprint(items[5])\nprint('All done')\n```\n\nThe list items has only two elements at indices 0 and 1. Accessing index 5 is out of range, so Python raises an IndexError. The traceback points to line 2. The print statement on line 3 is never reached. Analyzing tracebacks is a fundamental debugging skill."
       },
       "prompt": "Explain why the following code produces an error and what the user sees when it runs:\n\n```python\ncolors = ['red', 'green']\nprint(colors[5])\nprint('Finished')\n```",
-      "options": [
-        "The list has only two elements, so index 5 is out of range. Python raises an IndexError and stops before printing 'Finished'.",
-        "The list is empty, so Python raises an IndexError on the first access.",
-        "The code runs successfully and prints 'Finished' after showing 'red'.",
-        "Python raises a KeyError because the index is treated as a key."
-      ],
       "correct_answer": "The list has only two elements, so index 5 is out of range. Python raises an IndexError and stops before printing 'Finished'.",
       "explanation": "The list colors contains elements at indices 0 and 1 only. Accessing index 5 is invalid and raises an IndexError. Because the exception is unhandled, execution halts at that line and the subsequent print('Finished') statement is never executed.",
       "starter_code": "# Write your solution below\n",
@@ -465,23 +459,23 @@
     {
       "id": "12.3_q24",
       "type": "write_the_code",
-      "concept": "common_builtin_exceptions_optimization",
-      "skill": "refactoring",
-      "difficulty": "hard",
+      "concept": "common_built_in_exceptions_mastery_challenge",
+      "skill": "transfer",
+      "difficulty": "expert",
       "prerequisites": [
         "12.3_q23"
       ],
-      "prompt": "Write a statement that prints 'Common Built-in Exceptions Result 24' to standard output.",
-      "starter_code": "# Write your code below\n",
-      "solution_code": "print('Common Built-in Exceptions Result 24')",
+      "prompt": "Mastery Challenge: Implement a robust, tested function for Common Built-in Exceptions that processes inputs, validates preconditions, and handles invalid states cleanly:",
+      "starter_code": "def execute_task(data):\n    if not data:\n        return None\n    # Process valid data\n    ___",
+      "solution_code": "def execute_task(data):\n    if not data:\n        return None\n    return sorted(data)",
       "test_cases": [
         {
           "input": "",
           "expected_output": "Common Built-in Exceptions Result 24"
         }
       ],
-      "hint": "Use print('Common Built-in Exceptions Result 24') to generate the required output.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of common builtin exceptions optimization. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "hint": "Validate input first, then execute the transformation.",
+      "explanation": "Demonstrating end-to-end mastery of Common Built-in Exceptions requires combining input validation, core algorithmic logic, and defensive programming."
     },
     {
       "id": "12.3_q25",

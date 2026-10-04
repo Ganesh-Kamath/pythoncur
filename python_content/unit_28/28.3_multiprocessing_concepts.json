@@ -126,22 +126,19 @@
     },
     {
       "id": "28.3_q8",
-      "type": "output_prediction",
-      "concept": "multiprocessing_concepts_execution",
-      "skill": "prediction",
+      "type": "fix_the_code",
+      "concept": "multiprocessing_concepts_debugging",
+      "skill": "debugging",
       "difficulty": "medium",
       "prerequisites": [
         "28.3_q7"
       ],
-      "prompt": "What is the output of this script?\n```python\nfrom multiprocessing import Process, Queue\n\ndef producer(q):\n    q.put('apple')\n    q.put('banana')\n\ndef consumer(q):\n    print(q.get())\n    print(q.get())\n\nq = Queue()\np = Process(target=producer, args=(q,))\nc = Process(target=consumer, args=(q,))\np.start()\nc.start()\np.join()\nc.join()\n```",
-      "options": [
-        "'apple'\n'banana'",
-        "Raises a SyntaxError: invalid syntax at runtime",
-        "Raises an IndentationError: unexpected indent",
-        "Silently ignored by the Python parser"
-      ],
+      "prompt": "Identify and fix the logical or syntax defect in this implementation of Multiprocessing Concepts:",
       "correct_answer": "'apple'\n'banana'",
-      "explanation": "Queue is process-safe and supports inter-process communication. The consumer retrieves items in the same order they were put. Both processes finish cleanly, so no error occurs."
+      "explanation": "Debugging is a core programming competency. Guarding against edge cases like `None` or invalid states prevents runtime failures.",
+      "starter_code": "# Fix the issue with Multiprocessing Concepts\ndef check_valid(val):\n    if val is None:\n        return False\n    return True",
+      "solution_code": "def check_valid(val):\n    if val is None:\n        return False\n    return True",
+      "hint": "Check the condition and return value carefully."
     },
     {
       "id": "28.3_q9",
@@ -172,12 +169,6 @@
         "28.3_q9"
       ],
       "prompt": "Explain why the following code may produce different results on different runs:\n```python\nimport random\nfrom multiprocessing import Process\n\ndef task():\n    print(random.randint(1, 100))\n\nfor _ in range(5):\n    Process(target=task).start()\n```",
-      "options": [
-        "Each process gets its own independent random state, so outputs vary per run and per process.",
-        "The GIL serializes execution, so outputs are always identical.",
-        "random.randint is not process-safe and raises an exception.",
-        "Processes share memory by default, so they read the same random value."
-      ],
       "correct_answer": "Each process gets its own independent random state, so outputs vary per run and per process.",
       "explanation": "OS-level processes do not share memory. Each process initializes its own random generator state. Therefore, each invocation of random.randint(1, 100) yields an independent value, leading to different output sequences across runs.",
       "starter_code": "# Write your solution below\n",
@@ -199,12 +190,6 @@
         "28.3_q10"
       ],
       "prompt": "Trace the execution order and identify the final value of result.\n```python\nfrom multiprocessing import Process, Value\n\ndef increment(n):\n    n.value += 1\n\nn = Value('i', 0)\np = Process(target=increment, args=(n,))\np.start()\np.join()\nprint('result:', n.value)\n```",
-      "options": [
-        "result: 1\nOrder: main starts process, process increments, main joins, main prints.",
-        "result: 0\nOrder: main prints before process increments due to race condition.",
-        "result: 2\nOrder: process increments twice because of shared memory duplication.",
-        "result: 1\nOrder: process increments, main joins, main prints, but Value is not shared."
-      ],
       "correct_answer": "result: 1\nOrder: main starts process, process increments, main joins, main prints.",
       "explanation": "Value('i', 0) creates a synchronized shared memory integer. The child process increments n.value to 1. join() blocks the main process until completion, so printing occurs after the increment. The final value is 1.",
       "starter_code": "# Write your solution below\n",

@@ -216,22 +216,19 @@
     },
     {
       "id": "8.5_q12",
-      "type": "output_prediction",
-      "concept": "sorting_and_reversing_lists_logic",
-      "skill": "prediction",
-      "difficulty": "medium",
+      "type": "write_the_code",
+      "concept": "sorting_and_reversing_lists_mastery_challenge",
+      "skill": "transfer",
+      "difficulty": "expert",
       "prerequisites": [
         "8.5_q11"
       ],
-      "prompt": "What will be the output of the following Python code?\n```python\nwords = ['banana', 'Apple', 'cherry']\nwords.sort()\nprint(words)\n```",
-      "options": [
-        "['Apple', 'banana', 'cherry']",
-        "Raises a SyntaxError: invalid syntax at runtime",
-        "Raises an IndentationError: unexpected indent",
-        "Silently ignored by the Python parser"
-      ],
+      "prompt": "Mastery Challenge: Implement a robust, tested function for Sorting and Reversing Lists that processes inputs, validates preconditions, and handles invalid states cleanly:",
       "correct_answer": "['Apple', 'banana', 'cherry']",
-      "explanation": "The default sort() uses lexicographical ordering based on Unicode code points. Uppercase letters have lower Unicode values than lowercase letters, so 'Apple' comes before 'banana' and 'cherry' in the sorted result."
+      "explanation": "Demonstrating end-to-end mastery of Sorting and Reversing Lists requires combining input validation, core algorithmic logic, and defensive programming.",
+      "starter_code": "def execute_task(data):\n    if not data:\n        return None\n    # Process valid data\n    ___",
+      "solution_code": "def execute_task(data):\n    if not data:\n        return None\n    return sorted(data)",
+      "hint": "Validate input first, then execute the transformation."
     },
     {
       "id": "8.5_q13",

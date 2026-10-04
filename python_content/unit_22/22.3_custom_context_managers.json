@@ -175,12 +175,6 @@
         "22.3_q9"
       ],
       "prompt": "Analyze the following code and explain the behavior in detail:\n\nclass Counter:\n    def __init__(self):\n        self.count = 0\n\n    def __enter__(self):\n        self.count += 1\n        return self\n\n    def __exit__(self, exc_type, exc_val, exc_tb):\n        self.count -= 1\n        print(f'Count: {self.count}')\n\nc = Counter()\nwith c:\n    with c:\n        print('Nested')\n\nprint(f'Final: {c.count}')",
-      "options": [
-        "The inner __enter__ increments to 2, __exit__ decrements to 1, outer __exit__ decrements to 0. Output: Count: 1 then Count: 0. Final: 0.",
-        "The inner __enter__ increments to 1, __exit__ decrements to 0, outer __exit__ decrements to -1. Output: Count: 0 then Count: -1. Final: -1.",
-        "The inner __enter__ increments to 2, __exit__ decrements to 1, outer __exit__ decrements to 0. Output: Count: 2 then Count: 0. Final: 0.",
-        "The inner __enter__ increments to 1, __exit__ decrements to 0, outer __exit__ decrements to -1. Output: Count: 0 then Count: -1. Final: 0."
-      ],
       "correct_answer": "The inner __enter__ increments to 2, __exit__ decrements to 1, outer __exit__ decrements to 0. Output: Count: 1 then Count: 0. Final: 0.",
       "explanation": "Each with statement calls __enter__ when entering and __exit__ when exiting. The outer with enters first (count becomes 1), then the inner with enters (count becomes 2). The inner with exits first (count becomes 1, prints 'Count: 1'), then the outer with exits (count becomes 0, prints 'Count: 0'). After both with blocks, c.count is 0. The nested structure ensures proper cleanup order: last in, first out.",
       "difficulty": "medium",
@@ -203,12 +197,6 @@
         "22.3_q10"
       ],
       "prompt": "Trace the execution of this code step by step, showing the value of self.value after each operation:\n\nclass Box:\n    def __init__(self):\n        self.value = 0\n\n    def __enter__(self):\n        self.value = 10\n        print('Enter: value =', self.value)\n        return self\n\n    def __exit__(self, exc_type, exc_val, exc_tb):\n        self.value = 20\n        print('Exit: value =', self.value)\n\nwith Box() as b:\n    print('Inside: value =', b.value)\n    b.value = 15\n    print('After assign: value =', b.value)",
-      "options": [
-        "Enter: value = 10\nInside: value = 10\nAfter assign: value = 15\nExit: value = 20\nFinal b.value = 20",
-        "Enter: value = 10\nInside: value = 10\nAfter assign: value = 15\nExit: value = 15\nFinal b.value = 15",
-        "Enter: value = 0\nInside: value = 10\nAfter assign: value = 15\nExit: value = 20\nFinal b.value = 20",
-        "Enter: value = 10\nInside: value = 15\nAfter assign: value = 15\nExit: value = 20\nFinal b.value = 20"
-      ],
       "correct_answer": "Enter: value = 10\nInside: value = 10\nAfter assign: value = 15\nExit: value = 20\nFinal b.value = 20",
       "explanation": "Step 1: Box.__init__ sets value to 0. Step 2: __enter__ sets value to 10 and prints it. Step 3: Inside the with block, b.value is 10, printed. Step 4: b.value = 15 assigns 15. Step 5: After assign prints 15. Step 6: __exit__ sets value to 20 and prints it. Step 7: The with block ends, but the object b still exists with value 20. The __exit__ method runs regardless of exceptions, and its assignment to 20 overwrites the 15.",
       "difficulty": "medium",

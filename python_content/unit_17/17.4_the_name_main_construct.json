@@ -185,12 +185,6 @@
         "content": "To analyze output, trace execution line by line and determine whether each statement is inside or outside the `__name__ == '__main__'` guard. Remember that imports trigger top-level execution but skip the guarded block."
       },
       "prompt": "A file `utils.py` contains:\n\n```python\nprint('Setup')\n\nif __name__ == '__main__':\n    print('Direct only')\n```\n\nAnother file `run.py` contains:\n\n```python\nimport utils\nprint('After import')\n```\n\nWhat is the complete output when `run.py` is executed?",
-      "options": [
-        "Setup\nDirect only\nAfter import",
-        "Setup\nAfter import",
-        "Direct only\nAfter import",
-        "Setup\nDirect only"
-      ],
       "correct_answer": "Setup\nAfter import",
       "explanation": "When `run.py` imports `utils.py`, the top-level `print('Setup')` runs. The `if __name__ == '__main__'` block is skipped because `utils` is being imported. Then `run.py` prints 'After import'.",
       "prerequisites": [
@@ -573,12 +567,6 @@
         "17.4_q27"
       ],
       "prompt": "A module named utils.py contains a helper function. Another script named runner.py imports utils and also defines its own main logic. Which code snippet correctly uses __name__ == '__main__' in runner.py so that its main logic executes only when runner.py is run directly?",
-      "options": [
-        "if __name__ == '__main__': main()",
-        "if __name__ == 'utils.py': main()",
-        "if __name__ == '__name__': main()",
-        "if __name__ == '__file__': main()"
-      ],
       "correct_answer": "if __name__ == '__main__': main()",
       "explanation": "The special built-in variable __name__ is set to '__main__' only when the script is executed directly. Other values indicate import contexts.",
       "starter_code": "# Write your solution below\n",

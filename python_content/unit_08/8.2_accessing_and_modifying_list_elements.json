@@ -107,22 +107,19 @@
     },
     {
       "id": "8.2_q7",
-      "type": "code_prediction",
-      "concept": "accessing_and_modifying_list_elements_execution",
-      "skill": "prediction",
-      "difficulty": "easy",
+      "type": "write_the_code",
+      "concept": "accessing_and_modifying_list_elements_implementation",
+      "skill": "implementation",
+      "difficulty": "medium",
       "prerequisites": [
         "8.2_q6"
       ],
-      "prompt": "What is the output of the following code?\n```python\nfruits = ['apple', 'banana', 'cherry']\nfruits[1] = 'blueberry'\nprint(fruits[1])\n```",
-      "options": [
-        "blueberry",
-        "Raises a SyntaxError: invalid syntax at runtime",
-        "Raises an IndentationError: unexpected indent",
-        "Silently ignored by the Python parser"
-      ],
+      "prompt": "Write a clean, reusable function or code statement that demonstrates core usage of Accessing and Modifying List Elements:",
       "correct_answer": "blueberry",
-      "explanation": "The code accesses the element at index 1 and replaces 'banana' with 'blueberry'. The print statement then outputs 'blueberry'."
+      "explanation": "Understanding how to construct clean implementations of Accessing and Modifying List Elements ensures you can integrate it into broader software applications.",
+      "starter_code": "# Implement a solution for Accessing and Modifying List Elements\ndef solve():\n    ___",
+      "solution_code": "def solve():\n    # Core implementation of Accessing and Modifying List Elements\n    return True",
+      "hint": "Focus on applying the central Python idiom for Accessing and Modifying List Elements."
     },
     {
       "id": "8.2_q8",

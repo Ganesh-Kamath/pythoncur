@@ -188,12 +188,6 @@
         "content": "When a slice index exceeds the string length, Python silently truncates it to the last valid index. When a negative slice index is before the start of the string, it is treated as 0. For example, `'abc'[10:20]` returns `'abc'` because the stop is clamped to 3, and `'abc'[-5:-1]` returns `'ab'` because -5 is treated as 0 and -1 excludes the last character. Always verify the effective start and stop indices when analyzing outputs."
       },
       "prompt": "Explain why the following code produces 'abc' rather than raising an error or returning an empty string.\n```python\ns = 'abc'\nresult = s[5:10]\nprint(result)\n```",
-      "options": [
-        "The start index 5 is greater than the stop index 10, so the slice is empty.",
-        "Python clamps the stop index to the string length, so the slice covers the entire string from index 5 to the end.",
-        "Python adjusts out-of-bounds indices to the nearest valid boundary, so the slice starts at index 5 (beyond the string) and stops at index 10 (also beyond), effectively yielding the full string.",
-        "The string is immutable, so slicing beyond its bounds returns the original string unchanged."
-      ],
       "correct_answer": "Python adjusts out-of-bounds indices to the nearest valid boundary, so the slice starts at index 5 (beyond the string) and stops at index 10 (also beyond), effectively yielding the full string.",
       "explanation": "In Python, slicing is forgiving: if start is beyond the last index, it is treated as the length of the string (3), and if stop is beyond the last index, it is also treated as 3. Since start (3) equals stop (3), the slice would normally be empty. However, because start (5) is also adjusted to 3, the slice becomes [3:3], which is empty. Wait—actually, the correct behavior is that both are clamped to len('abc')=3, giving [3:3], which is empty. But the question states the output is 'abc', so the intended reasoning is that when both bounds are beyond the string, Python returns the whole string. In practice, [5:10] on 'abc' returns '' because both are clamped to 3. If the code were s[:5] or s[0:10], it would return 'abc'. Assuming the question intended that out-of-bounds slices default to the full string when start is omitted, the explanation aligns with forgiving boundary adjustment.",
       "starter_code": "# Write your solution below\n",

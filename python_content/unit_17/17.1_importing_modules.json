@@ -188,12 +188,6 @@
         "content": "To analyze import behavior, trace the execution order carefully. The import statement triggers module loading. If the imported module has side effects at the top level, they run immediately. If the imported module references names that are not yet defined in its own scope, an exception occurs during import. Understanding this helps debug circular imports and unexpected errors."
       },
       "prompt": "Explain why the following program fails to run completely and what the exact error is.\n```python\n# data.py\nitems = [1, 2, 3]\n\ndef show():\n    print(items)\n\n# main.py\nimport data\nshow()\n```",
-      "options": [
-        "It works fine and prints [1, 2, 3]",
-        "It raises NameError because show is not defined in main.py",
-        "It raises NameError because items is not defined when show is called",
-        "It raises ImportError because data.py is missing"
-      ],
       "correct_answer": "It works fine and prints [1, 2, 3]",
       "explanation": "When `data.py` is imported, all top-level statements execute, defining `items` and `show`. Then `main.py` calls `show()`, which accesses the already-defined `items` list and prints [1, 2, 3]. There is no error.",
       "starter_code": "# Write your solution below\n",

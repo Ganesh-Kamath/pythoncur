@@ -455,12 +455,6 @@
         "2.4_q11"
       ],
       "prompt": "You are building a CLI tool and need to print a decorative border of 40 asterisks `*`. Which approach is most Pythonic?",
-      "options": [
-        "A. `print(\"****************************************\")`",
-        "B. `print(\"*\" * 40)`",
-        "C. Writing 40 individual print statements.",
-        "D. `print(\"*\" + 40)`"
-      ],
       "correct_answer": "B",
       "explanation": "In Python, this operation directly demonstrates the core behavior of cli header generation. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
@@ -493,12 +487,6 @@
         "2.4_q6"
       ],
       "prompt": "When storing a long, structured SQL database query in Python, what string format is recommended for readability?\n```python\nquery = \"\"\"\nSELECT id, name, email\nFROM users\nWHERE active = 1\n\"\"\"\n```",
-      "options": [
-        "A. A triple-quoted string, because it preserves line breaks and formatting cleanly.",
-        "B. Concatenating 10 single-quoted strings with plus signs.",
-        "C. Storing it as an integer.",
-        "D. Python cannot store SQL queries."
-      ],
       "correct_answer": "A",
       "explanation": "Triple-quoted multi-line strings make large queries, HTML, and documentation readable without manual `\\n` escaping."
     },
@@ -517,12 +505,6 @@
         "2.4_q23"
       ],
       "prompt": "Which of the following statements about Python strings is completely TRUE?",
-      "options": [
-        "A. Strings are immutable sequences of Unicode characters; single and double quotes are interchangeable; `+` concatenates; `*` repeats; `len()` counts characters.",
-        "B. Strings can be directly added to integers using `+` without type conversion.",
-        "C. Modifying a character in a string alters the existing object in memory.",
-        "D. Strings can only contain English ASCII characters."
-      ],
       "correct_answer": "A",
       "explanation": "In Python, this operation directly demonstrates the core behavior of string synthesis. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     }

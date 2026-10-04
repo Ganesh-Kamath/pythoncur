@@ -188,12 +188,6 @@
         "content": "A two-pointer solution is preferable to brute force when the problem can be reduced to comparing elements from opposite ends. Each pointer moves at most n steps, so the total work is O(n). This is optimal for single-pass pair problems. However, it only works reliably when the array is sorted or when pointer movement is monotonic and does not revisit indices."
       },
       "prompt": "Explain why the following two-pointer approach is more efficient than a nested-loop approach for finding a pair with a given sum in a sorted array:\n\n```\ndef two_sum_sorted(arr, target):\n    left = 0\n    right = len(arr) - 1\n    while left < right:\n        s = arr[left] + arr[right]\n        if s == target:\n            return True\n        elif s < target:\n            left += 1\n        else:\n            right -= 1\n    return False\n```",
-      "options": [
-        "Because each pointer moves at most n times, yielding O(n) time.",
-        "Because it uses extra memory to cache sums.",
-        "Because it sorts the array during traversal.",
-        "Because it checks every pair exactly once."
-      ],
       "correct_answer": "Because each pointer moves at most n times, yielding O(n) time.",
       "explanation": "The nested-loop approach checks O(n^2) pairs. In contrast, left only increases and right only decreases, so together they traverse the array at most n steps. This gives linear time complexity, which is the key analytical advantage of the two-pointer pattern.",
       "starter_code": "# Write your solution below\n",
@@ -450,7 +444,7 @@
       ],
       "micro_lesson": {
         "title": "Runtime Pitfalls of Two Pointers",
-        "content": "Two pointers usually yield O(n) time, but hidden costs can appear. A frequent runtime mistake is resetting one pointer inside the loop, turning an O(n) algorithm into O(n\u00b2). Another issue is using two pointers on a data structure that does not support O(1) random access, such as a linked list without a tail pointer. Consider this inefficient pattern:\n\n```python\ndef count_pairs(nums, target):\n    count = 0\n    for i in range(len(nums)):\n        left = i + 1\n        right = len(nums) - 1\n        while left < right:\n            if nums[left] + nums[right] == target:\n                count += 1\n                left += 1\n                right -= 1\n            elif nums[left] + nums[right] < target:\n                left += 1\n            else:\n                right -= 1\n    return count\n```\n\nHere, the outer loop repeats the two-pointer scan for every starting index, causing quadratic time. Recognize when a single two-pointer pass suffices instead of nested traversal."
+        "content": "Two pointers usually yield O(n) time, but hidden costs can appear. A frequent runtime mistake is resetting one pointer inside the loop, turning an O(n) algorithm into O(n²). Another issue is using two pointers on a data structure that does not support O(1) random access, such as a linked list without a tail pointer. Consider this inefficient pattern:\n\n```python\ndef count_pairs(nums, target):\n    count = 0\n    for i in range(len(nums)):\n        left = i + 1\n        right = len(nums) - 1\n        while left < right:\n            if nums[left] + nums[right] == target:\n                count += 1\n                left += 1\n                right -= 1\n            elif nums[left] + nums[right] < target:\n                left += 1\n            else:\n                right -= 1\n    return count\n```\n\nHere, the outer loop repeats the two-pointer scan for every starting index, causing quadratic time. Recognize when a single two-pointer pass suffices instead of nested traversal."
       },
       "prompt": "Fix the bug in this code for recognizing when to use two pointers runtime:",
       "starter_code": "# Fix this code\nPrint('Recognizing When to use Two Pointers')",

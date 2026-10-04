@@ -175,12 +175,6 @@
         "39.2_q9"
       ],
       "prompt": "Given the adjacency list `graph = {'A': ['B', 'C'], 'B': ['A', 'C', 'D'], 'C': ['A', 'B'], 'D': ['B']}`, explain why the degree of node 'B' is 3 and how this is represented in the list structure.",
-      "options": [
-        "Node 'B' appears in three lists: 'A', 'C', and 'D', so its degree is 3.",
-        "Node 'B' has three outgoing edges because it appears as a key with three values in its own list.",
-        "Node 'B' is connected to 'A', 'C', and 'D', and its degree is the length of its own adjacency list, which is 3.",
-        "Node 'B' has degree 3 because the total number of edges in the graph is 4."
-      ],
       "correct_answer": "Node 'B' is connected to 'A', 'C', and 'D', and its degree is the length of its own adjacency list, which is 3.",
       "explanation": "In an undirected graph, the degree of a node equals the number of neighbors it has. Here, 'B' is adjacent to 'A', 'C', and 'D', so len(graph['B']) is 3, representing its degree.",
       "difficulty": "medium",

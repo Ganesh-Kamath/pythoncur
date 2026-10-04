@@ -178,12 +178,6 @@
         "10.6_q9"
       ],
       "prompt": "Explain the result of the following code and describe how the nested structure is accessed:\n```python\nconfig = {'database': {'host': 'localhost', 'port': 5432}}\nvalue = config['database']['host']\nprint(value)\n```",
-      "options": [
-        "The code prints 'localhost' by first indexing into the 'database' dictionary and then indexing into its 'host' key.",
-        "The code raises a KeyError because 'host' is not a top-level key.",
-        "The code prints 5432 because it accesses the 'port' key directly.",
-        "The code fails because nested dictionaries cannot be chained with bracket notation."
-      ],
       "correct_answer": "The code prints 'localhost' by first indexing into the 'database' dictionary and then indexing into its 'host' key.",
       "explanation": "Chaining bracket notation is valid for nested dictionaries. The first bracket resolves to the inner dictionary {'host': 'localhost', 'port': 5432}, and the second bracket extracts the string 'localhost'.",
       "starter_code": "# Write your solution below\n",

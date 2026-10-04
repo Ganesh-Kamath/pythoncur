@@ -180,12 +180,6 @@
         "16.6_q9"
       ],
       "prompt": "Consider this code:\n```python\ndef process(data):\n    return [item['value'] * 2 for item in data if item.get('valid') and item['value'] > 0]\n```\nExplain why this comprehension might be difficult to maintain.",
-      "options": [
-        "It uses a dictionary lookup inside a comprehension, which is always inefficient.",
-        "It combines multiple conditions, a method call, and a transformation in one line, making the logic hard to trace and debug.",
-        "It should use a generator expression instead of a list comprehension for memory reasons.",
-        "It will raise a KeyError if any item lacks the 'value' key."
-      ],
       "correct_answer": "It combines multiple conditions, a method call, and a transformation in one line, making the logic hard to trace and debug.",
       "explanation": "When a comprehension contains multiple conditions (`item.get('valid') and item['value'] > 0`), a method call (`item.get`), and a transformation (`item['value'] * 2`), it becomes a dense expression. A regular loop with explicit steps would be easier to read, test, and modify. This is a primary guideline: avoid comprehensions when the logic is too complex for a single readable line.",
       "starter_code": "# Write your solution below\n",

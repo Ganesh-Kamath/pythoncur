@@ -185,12 +185,6 @@
         "content": "To analyze route output, identify the URL path, HTTP method, and registered decorators. Then determine which function handles the request and what it returns. Consider edge cases such as missing methods, conflicting routes, or dynamic segments. A route with a dynamic segment like '/user/<username>' captures part of the URL and passes it as a variable to the function. Static routes return fixed responses, while dynamic routes can personalize output based on input.\n\n```python\nfrom flask import Flask\n\napp = Flask(__name__)\n\n@app.route('/user/<username>')\ndef show_user(username):\n    return f'User: {username}'\n```\n\nWhen '/user/alice' is requested, username becomes 'alice' and the function returns 'User: alice'."
       },
       "prompt": "Explain why the following route produces the output shown when '/user/bob' is requested.\n\n```python\nfrom flask import Flask\n\napp = Flask(__name__)\n\n@app.route('/user/<username>')\ndef show_user(username):\n    return f'User: {username}'\n```",
-      "options": [
-        "The dynamic segment captures 'bob' and substitutes it into the return string.",
-        "The route ignores the URL and always returns a fixed string.",
-        "Flask raises an error because dynamic segments are not supported.",
-        "The function returns None because no static route matches."
-      ],
       "correct_answer": "The dynamic segment captures 'bob' and substitutes it into the return string.",
       "explanation": "The '/user/<username>' route uses a dynamic segment. When the request is '/user/bob', Flask extracts 'bob' and passes it as the username argument to show_user. The f-string then interpolates username, producing 'User: bob'. Dynamic segments are a core feature of Flask routing.",
       "prerequisites": [
@@ -216,12 +210,6 @@
         "content": "Tracing execution means following the request step by step through the route definitions. Start with the incoming request, identify the path and method, scan registered routes in definition order, and note the first match. If multiple decorators exist, each one adds a possible entry point. The traced path ends when the view function executes and returns a response. If no route matches, the trace ends with a 404 response.\n\n```python\nfrom flask import Flask\n\napp = Flask(__name__)\n\n@app.route('/page1')\n@app.route('/page2')\ndef shared_page():\n    return 'Shared response'\n```\n\nTrace for '/page2': request arrives, Flask checks '/page1' (no match), checks '/page2' (match), calls shared_page, returns 'Shared response'."
       },
       "prompt": "Trace the execution for a GET request to '/page2' in the following code and list the steps in order.\n\n```python\nfrom flask import Flask\n\napp = Flask(__name__)\n\n@app.route('/page1')\n@app.route('/page2')\ndef shared_page():\n    return 'Shared response'\n```",
-      "options": [
-        "1. Request arrives at '/page2'. 2. Flask checks '/page1' (no match). 3. Flask checks '/page2' (match). 4. shared_page executes. 5. Returns 'Shared response'.",
-        "1. Request arrives at '/page2'. 2. Flask checks '/page2' (match). 3. shared_page executes. 4. Returns 'Shared response'.",
-        "1. Request arrives at '/page2'. 2. Flask checks '/page1' (match). 3. shared_page executes. 4. Returns 'Shared response'.",
-        "1. Request arrives at '/page2'. 2. Flask returns 404 immediately."
-      ],
       "correct_answer": "1. Request arrives at '/page2'. 2. Flask checks '/page1' (no match). 3. Flask checks '/page2' (match). 4. shared_page executes. 5. Returns 'Shared response'.",
       "explanation": "Flask evaluates routes in the order they are defined. '/page1' is checked first and does not match '/page2'. Then '/page2' is checked, matches, and shared_page is called. The function returns 'Shared response', completing the trace successfully.",
       "prerequisites": [

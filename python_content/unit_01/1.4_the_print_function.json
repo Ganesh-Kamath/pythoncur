@@ -52,22 +52,19 @@
     },
     {
       "id": "1.4_q4",
-      "type": "code_prediction",
-      "concept": "multiple_arguments",
-      "skill": "prediction",
-      "difficulty": "easy",
+      "type": "real_world_scenario",
+      "concept": "the_print_function_production_transfer",
+      "skill": "application",
+      "difficulty": "hard",
       "prerequisites": [
         "1.4_q3"
       ],
-      "prompt": "What does this code output?\n```python\nprint(\"Apple\", \"Banana\", \"Cherry\")\n```",
-      "options": [
-        "B",
-        "Raises a SyntaxError: invalid syntax at runtime",
-        "Raises an IndentationError: unexpected indent",
-        "Silently ignored by the Python parser"
-      ],
+      "prompt": "Apply The Print Function to a realistic scenario: process a sequence of records and return only those meeting the business rule:",
       "correct_answer": "B",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of multiple arguments. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "explanation": "In production Python code, The Print Function is frequently combined with data filtering to process structured domain models efficiently.",
+      "starter_code": "records = [{'id': 1, 'active': True}, {'id': 2, 'active': False}]\n# Filter active records\nactive_records = ___",
+      "solution_code": "records = [{'id': 1, 'active': True}, {'id': 2, 'active': False}]\nactive_records = [r for r in records if r['active']]",
+      "hint": "Use a list comprehension to filter records where 'active' is True."
     },
     {
       "id": "1.4_q5",
@@ -490,12 +487,6 @@
         "1.4_q14"
       ],
       "prompt": "You want to print a clean terminal menu with options on separate lines using a SINGLE `print()` call:\n```text\n--- MENU ---\n1. Start\n2. Exit\n```\nWhich code accomplishes this?",
-      "options": [
-        "A. `print(\"--- MENU ---\\n1. Start\\n2. Exit\")`",
-        "B. `print(\"--- MENU ---\", \"1. Start\", \"2. Exit\", sep=\" \")`",
-        "C. `print(\"--- MENU ---\\t1. Start\\t2. Exit\")`",
-        "D. `print(\"--- MENU ---\\1. Start\\2. Exit\")`"
-      ],
       "correct_answer": "A",
       "explanation": "Using `\\n` within a single string breaks the output into distinct lines."
     },
@@ -512,12 +503,6 @@
         "1.4_q14"
       ],
       "prompt": "Which of the following statements about `print()` in modern Python is completely TRUE?",
-      "options": [
-        "A. `print()` is a keyword statement that cannot take keyword arguments.",
-        "B. `print()` is a built-in function that accepts multiple positional arguments and optional keyword arguments like `sep` and `end`.",
-        "C. `print()` automatically sends all text to a network server.",
-        "D. `print()` converts all code into compiled C binaries."
-      ],
       "correct_answer": "B",
       "explanation": "`print()` is a flexible built-in function that formats and routes text to the standard output stream."
     }

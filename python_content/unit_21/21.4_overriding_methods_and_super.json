@@ -172,12 +172,6 @@
         "21.4_q9"
       ],
       "prompt": "Consider the following code. Explain why the output is what it is, and describe the role of super().\n\n```python\nclass Parent:\n    def show(self):\n        print('Parent method')\n\nclass Child(Parent):\n    def show(self):\n        super().show()\n        print('Child method')\n\nobj = Child()\nobj.show()\n```",
-      "options": [
-        "The output is 'Parent method' then 'Child method' because super().show() explicitly calls the parent's overridden method before the child adds its own behavior.",
-        "The output is 'Child method' then 'Parent method' because super() always runs after the child code.",
-        "The output is only 'Child method' because super() replaces the parent method entirely.",
-        "The output is only 'Parent method' because the child method overrides and does not call super()."
-      ],
       "correct_answer": "The output is 'Parent method' then 'Child method' because super().show() explicitly calls the parent's overridden method before the child adds its own behavior.",
       "explanation": "super().show() invokes Parent.show(), printing 'Parent method'. Then Child.show() continues and prints 'Child method'. This demonstrates how super() allows extending parent behavior rather than replacing it.",
       "starter_code": "# Write your solution below\n",
@@ -199,12 +193,6 @@
         "21.4_q10"
       ],
       "prompt": "Trace the execution of the following code step by step and identify the order of method calls.\n\n```python\nclass A:\n    def greet(self):\n        print('A.greet')\n\nclass B(A):\n    def greet(self):\n        print('B.greet start')\n        super().greet()\n        print('B.greet end')\n\nclass C(B):\n    def greet(self):\n        print('C.greet start')\n        super().greet()\n        print('C.greet end')\n\nobj = C()\nobj.greet()\n```",
-      "options": [
-        "C.greet start, B.greet start, A.greet, B.greet end, C.greet end",
-        "C.greet start, B.greet start, C.greet end, A.greet, B.greet end",
-        "A.greet, B.greet start, C.greet start, B.greet end, C.greet end",
-        "B.greet start, C.greet start, A.greet, C.greet end, B.greet end"
-      ],
       "correct_answer": "C.greet start, B.greet start, A.greet, B.greet end, C.greet end",
       "explanation": "obj.greet() calls C.greet(). Inside C.greet(), super().greet() calls B.greet(). Inside B.greet(), super().greet() calls A.greet(). A.greet prints 'A.greet'. Control returns to B.greet(), which prints 'B.greet end', then to C.greet(), which prints 'C.greet end'.",
       "starter_code": "# Write your solution below\n",

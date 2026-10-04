@@ -185,12 +185,6 @@
         "content": "When analyzing output from JSON parsing, verify both the data type and the value. Use type() to inspect the parsed result. Strings inside JSON remain strings; numbers remain numbers; booleans remain booleans. A common mistake is assuming the entire parsed object is a string. Also, remember that json.loads() requires valid JSON syntax, including quotes around keys and string values. Invalid JSON raises a json.JSONDecodeError.\n\n```python\nimport json\n\nraw = '{\"items\": [10, 20, 30], \"count\": 3}'\nresult = json.loads(raw)\nprint(result)\nprint(result['items'])\nprint(type(result['count']))\n```"
       },
       "prompt": "Explain the following output:\n\n```\n{'items': [10, 20, 30], 'count': 3}\n[10, 20, 30]\n<class 'int'>\n```",
-      "options": [
-        "The JSON was parsed into a dictionary, the list was accessed, and the count is an integer.",
-        "The JSON was parsed into a list, the dictionary was accessed, and the count is a string.",
-        "The output shows a tuple, a set, and a float.",
-        "The JSON failed to parse and returned default None values."
-      ],
       "correct_answer": "The JSON was parsed into a dictionary, the list was accessed, and the count is an integer.",
       "explanation": "json.loads() converted the JSON string into a Python dict. result['items'] is a list of integers, and result['count'] is an int, confirmed by type(). The other options misidentify the data structures or types.",
       "prerequisites": [

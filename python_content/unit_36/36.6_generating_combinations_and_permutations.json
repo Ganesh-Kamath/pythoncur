@@ -172,12 +172,6 @@
         "36.6_q9"
       ],
       "prompt": "Analyze the following recursive permutation generator. Explain why the time complexity is O(n * n!) and how the space complexity relates to the recursion depth.",
-      "options": [
-        "There are n! permutations, each of length n, and the recursion stack depth is at most n, giving O(n * n!) time and O(n) auxiliary space.",
-        "There are n! permutations, each of length n, and the recursion stack depth is n!, giving O(n! * n) time and O(n!) space.",
-        "There are n permutations of length n, and the recursion depth is O(n), giving O(n^2) time and O(n) space.",
-        "The time complexity is O(n) because each element is visited once, and space is O(1) because the list is modified in place."
-      ],
       "correct_answer": "There are n! permutations, each of length n, and the recursion stack depth is at most n, giving O(n * n!) time and O(n) auxiliary space.",
       "explanation": "A permutation of n distinct elements has n! possibilities. For each permutation, we perform O(n) work to copy or append the path. The recursion depth is bounded by n, so the call stack uses O(n) space. Thus, time is O(n * n!) and auxiliary space is O(n).",
       "starter_code": "# Write your solution below\n",

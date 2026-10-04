@@ -11,7 +11,7 @@
       "difficulty": "easy",
       "prerequisites": [],
       "title": "What is HTTP and How Do Clients and Servers Talk?",
-      "content": "HTTP (HyperText Transfer Protocol) is the foundation of data communication on the web. A client is a program that requests data\u2014such as your browser or a Python script using the requests library. A server is a program that waits for and responds to those requests, hosting websites or APIs. When you visit a webpage, your client sends an HTTP request, and the server sends back an HTTP response. Two of the most common HTTP methods are GET and POST. GET retrieves data from the server, like fetching a webpage or querying an API. POST sends data to the server to create or update a resource, such as submitting a login form or adding a new record. In Python, you can interact with HTTP using the built-in urllib module or the popular requests library. Here is a simple example using urllib to perform a GET request:\n\n```python\nimport urllib.request\n\nurl = 'https://api.example.com/data'\nresponse = urllib.request.urlopen(url)\nprint(response.read().decode('utf-8'))\n```\n\nNotice how the client opens a connection to the server, sends the request implicitly, and reads the response. POST requests are similar but require sending data, typically in the body of the request, using urllib.request.Request with a data parameter.",
+      "content": "HTTP (HyperText Transfer Protocol) is the foundation of data communication on the web. A client is a program that requests data—such as your browser or a Python script using the requests library. A server is a program that waits for and responds to those requests, hosting websites or APIs. When you visit a webpage, your client sends an HTTP request, and the server sends back an HTTP response. Two of the most common HTTP methods are GET and POST. GET retrieves data from the server, like fetching a webpage or querying an API. POST sends data to the server to create or update a resource, such as submitting a login form or adding a new record. In Python, you can interact with HTTP using the built-in urllib module or the popular requests library. Here is a simple example using urllib to perform a GET request:\n\n```python\nimport urllib.request\n\nurl = 'https://api.example.com/data'\nresponse = urllib.request.urlopen(url)\nprint(response.read().decode('utf-8'))\n```\n\nNotice how the client opens a connection to the server, sends the request implicitly, and reads the response. POST requests are similar but require sending data, typically in the body of the request, using urllib.request.Request with a data parameter.",
       "prompt": "",
       "explanation": "In Python, this operation directly demonstrates the core behavior of http basics clientserver getpost basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
@@ -172,12 +172,6 @@
         "25.1_q9"
       ],
       "prompt": "Explain the output produced by the following Python code:\n\n```python\nimport requests\n\nresponse = requests.get('https://api.example.com/info')\nprint('Code:', response.status_code)\nprint('URL:', response.url)\nprint('JSON:', response.json())\n```\n\nAssume the server responds with a 200 OK status and JSON body `{\"status\": \"ok\", \"value\": 100}`.",
-      "options": [
-        "Prints the status code 200, the final redirected URL, and the parsed JSON dictionary",
-        "Prints an error because .json() requires a POST request",
-        "Prints 404 because the URL is invalid",
-        "Prints None for all three lines because the response is empty"
-      ],
       "correct_answer": "Prints the status code 200, the final redirected URL, and the parsed JSON dictionary",
       "explanation": "On success, `response.status_code` is 200. `response.url` shows the final URL after any redirects. `response.json()` parses the JSON text into a Python dictionary, yielding `{'status': 'ok', 'value': 100}`.",
       "starter_code": "# Write your solution below\n",
@@ -199,12 +193,6 @@
         "25.1_q10"
       ],
       "prompt": "Trace the execution of the following Python code step by step:\n\n```python\nimport requests\n\nurl = 'https://api.example.com/search'\nheaders = {'User-Agent': 'Codolingo-Client'}\n\nresponse = requests.get(url, headers=headers)\nprint('Request sent to:', url)\nprint('Status received:', response.status_code)\nprint('Headers received:', response.headers['Content-Type'])\nprint('Data length:', len(response.text))\n```\n\nAssume the server returns a 200 OK response with Content-Type 'application/json' and a 200-character body.",
-      "options": [
-        "1) Assign url and headers, 2) Send GET with headers, 3) Print request URL, 4) Print status 200, 5) Print Content-Type, 6) Print 200",
-        "1) Import requests, 2) Define url and headers, 3) Send GET request, 4) Print request URL, 5) Print status 200, 6) Print Content-Type, 7) Print 200",
-        "1) Import requests, 2) Send GET, 3) Print URL, 4) Print status, 5) Print headers, 6) Print length",
-        "1) Define variables, 2) Make request, 3) Print status, 4) Print URL, 5) Print headers, 6) Print length"
-      ],
       "correct_answer": "1) Import requests, 2) Define url and headers, 3) Send GET request, 4) Print request URL, 5) Print status 200, 6) Print Content-Type, 7) Print 200",
       "explanation": "Execution begins with import, then variable assignment, then the network call, followed by sequential print statements. The trace must include the import step and preserve the order of operations exactly as written.",
       "starter_code": "# Write your solution below\n",
@@ -598,7 +586,7 @@
         "last_response contains status_code, headers, and url"
       ],
       "hint": "Store the response object in an instance variable. Use json= for POST payloads. Return a summary dict from last_response to avoid exposing the raw object.",
-      "explanation": "Encapsulating HTTP logic in a class promotes reuse, consistency, and testability. This mastery task requires combining OOP principles with API interaction, error handling, and response introspection\u2014skills essential for building scalable networked applications."
+      "explanation": "Encapsulating HTTP logic in a class promotes reuse, consistency, and testability. This mastery task requires combining OOP principles with API interaction, error handling, and response introspection—skills essential for building scalable networked applications."
     }
   ],
   "unit_num": 25,

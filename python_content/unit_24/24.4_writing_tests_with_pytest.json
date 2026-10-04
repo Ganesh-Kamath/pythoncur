@@ -172,12 +172,6 @@
         "24.4_q9"
       ],
       "prompt": "Analyze the following pytest report and explain what it indicates about the test suite:\n\n```\n============================= test session starts ==============================\nplatform linux -- Python 3.10.0, pytest-7.0.0, pluggy-1.0.0\ncollected 3 items\n\ntest_report.py::test_a PASSED                                            [ 33%]\ntest_report.py::test_b PASSED                                            [ 66%]\ntest_report.py::test_c PASSED                                            [100%]\n\n============================== 3 passed in 0.01s ==============================\n```",
-      "options": [
-        "All three tests passed successfully with no failures or errors",
-        "One test failed but the report was truncated",
-        "The tests were skipped due to missing dependencies",
-        "Only two tests were collected and executed"
-      ],
       "correct_answer": "All three tests passed successfully with no failures or errors",
       "explanation": "The report shows 3 collected items, each marked with PASSED, and a final summary of 3 passed. There are no failures, errors, or skips, indicating a fully successful test run.",
       "starter_code": "# Write your solution below\n",
@@ -199,12 +193,6 @@
         "24.4_q10"
       ],
       "prompt": "Trace the execution flow of the following test and identify the order of operations:\n\n```python\n# test_trace.py\ndef test_sequence():\n    x = 10\n    y = x + 5\n    assert y == 15\n    z = y * 2\n    assert z == 30\n```",
-      "options": [
-        "x assigned 10, y assigned 15, assert y == 15 passes, z assigned 30, assert z == 30 passes",
-        "assert y == 15 fails, x assigned 10, y assigned 15, z assigned 30",
-        "z assigned 30, y assigned 15, x assigned 10, both asserts pass",
-        "pytest skips the function because it lacks a fixture"
-      ],
       "correct_answer": "x assigned 10, y assigned 15, assert y == 15 passes, z assigned 30, assert z == 30 passes",
       "explanation": "Execution proceeds sequentially: x is bound to 10, y to 15, the first assert succeeds, z becomes 30, and the second assert also succeeds. pytest reports the test passed if no exception is raised.",
       "starter_code": "# Write your solution below\n",

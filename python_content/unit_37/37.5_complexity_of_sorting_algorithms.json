@@ -178,12 +178,6 @@
         "37.5_q9"
       ],
       "prompt": "Explain why the following Python code has a different time complexity than an iterative quicksort implementation that uses an explicit stack instead of recursion.",
-      "options": [
-        "The recursive version always uses more memory due to call stack overhead.",
-        "The recursive version may hit Python's recursion limit for large inputs, causing a runtime error.",
-        "The recursive version performs more comparisons on average than iterative quicksort.",
-        "The recursive version cannot sort in place, so it uses extra space."
-      ],
       "correct_answer": "The recursive version may hit Python's recursion limit for large inputs, causing a runtime error.",
       "explanation": "While both versions have the same average and worst-case time complexity, Python's recursion depth limit (~1000 by default) means the recursive quicksort can fail on large datasets where an iterative version with an explicit stack would succeed.",
       "starter_code": "# Write your solution below\n",

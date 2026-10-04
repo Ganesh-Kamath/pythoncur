@@ -194,12 +194,6 @@
         "content": "When constructing file paths, using os.path.join() ensures compatibility across operating systems. The os.path.abspath() function converts a relative path into an absolute one based on the current working directory. Analyzing output requires identifying whether the path is absolute, relative, or invalid, and predicting the resulting file operation."
       },
       "prompt": "Explain the output and behavior of this snippet:\n\n```python\nimport os\n\nbase = 'folder'\nfull = os.path.abspath(os.path.join(base, 'file.txt'))\nprint(full)\n```",
-      "options": [
-        "Prints a relative path 'folder/file.txt'",
-        "Prints the absolute path to folder/file.txt based on the current working directory",
-        "Prints 'file.txt' only",
-        "Raises an error because os.path.join() requires absolute paths"
-      ],
       "correct_answer": "Prints the absolute path to folder/file.txt based on the current working directory",
       "explanation": "os.path.join(base, 'file.txt') creates 'folder/file.txt'. os.path.abspath() then resolves this relative path against the current working directory, producing a full absolute path such as '/home/user/projects/folder/file.txt'.",
       "starter_code": "# Write your solution below\n",

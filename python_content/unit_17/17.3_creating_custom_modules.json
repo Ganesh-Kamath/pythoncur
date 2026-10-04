@@ -176,12 +176,6 @@
         "17.3_q9"
       ],
       "prompt": "A student creates a file named `utils.py` with the following content:\n\n```python\ndef greet():\n    message = 'Hi there'\n    return message\n```\n\nThen, in `main.py`, the student writes:\n\n```python\nimport utils\n\nprint(utils.greet)\n```\n\nExplain why this code does not print the string 'Hi there' and what the actual output is.",
-      "options": [
-        "It prints 'Hi there' because the function is called automatically upon import.",
-        "It prints the function object itself because the function was not called with parentheses.",
-        "It raises a NameError because 'greet' is not defined in utils.py.",
-        "It prints 'None' because the function returns nothing when not called."
-      ],
       "correct_answer": "It prints the function object itself because the function was not called with parentheses.",
       "explanation": "The line `print(utils.greet)` references the function object `greet` without invoking it. Therefore, Python prints the representation of the function object, such as `<function greet at 0x...>`. To get the returned string, the student must call `utils.greet()` with parentheses.",
       "starter_code": "# Write your solution below\n",

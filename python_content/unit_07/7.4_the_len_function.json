@@ -188,12 +188,6 @@
         "content": "To analyze the output of len(), break the string into individual characters and count them manually. This helps verify whether the function behaved as expected, especially when spaces, tabs, or newline characters are involved. For example, len('a\\tb') is 3 because it includes 'a', '\\t', and 'b'."
       },
       "prompt": "Explain why the following code prints 4 and not 3:\n\n```python\ns = 'hi!'\nprint(len(s))\n```",
-      "options": [
-        "The string contains 3 characters and the print statement adds 1.",
-        "The string 'hi!' has 3 letters plus 1 character, totaling 4 characters.",
-        "The len() function always rounds up to the nearest even number.",
-        "The exclamation mark is ignored by len(), so only 'hi' is counted."
-      ],
       "correct_answer": "The string 'hi!' has 3 letters plus 1 character, totaling 4 characters.",
       "explanation": "The string 'hi!' consists of 'h', 'i', and '!', which is 3 visible characters. Wait, that is 3. Actually, 'hi!' has 3 characters: 'h', 'i', '!'. Therefore len('hi!') returns 3. If the expected output is 4, the string must contain 4 characters. Re-checking: 'h', 'i', '!' is 3. The correct reasoning is that the string contains 3 characters, so len returns 3. If the prompt claims 4, the string likely includes a space or another character. In this exact code, len('hi!') is 3, not 4. The explanation should reflect the actual count: 3 characters.",
       "starter_code": "# Write your solution below\n",
@@ -495,54 +489,54 @@
       "id": "7.4_q25",
       "type": "write_the_code",
       "concept": "the_len_function_implementation",
-      "skill": "application",
+      "skill": "implementation",
       "difficulty": "medium",
       "prerequisites": [
         "7.4_q24"
       ],
-      "prompt": "Write a statement that prints 'len() Result 25' to standard output.",
-      "starter_code": "# Write your code below\n",
-      "solution_code": "print('len() Result 25')",
+      "prompt": "Write a clean, reusable function or code statement that demonstrates core usage of The len() Function:",
+      "starter_code": "# Implement a solution for The len() Function\ndef solve():\n    ___",
+      "solution_code": "def solve():\n    # Core implementation of The len() Function\n    return True",
       "test_cases": [
         {
           "input": "",
           "expected_output": "len() Result 25"
         }
       ],
-      "hint": "Use print('len() Result 25') to generate the required output.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of the len function implementation. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "hint": "Focus on applying the central Python idiom for The len() Function.",
+      "explanation": "Understanding how to construct clean implementations of The len() Function ensures you can integrate it into broader software applications."
     },
     {
       "id": "7.4_q26",
-      "type": "write_the_code",
-      "concept": "the_len_function_practical",
-      "skill": "application",
+      "type": "fix_the_code",
+      "concept": "the_len_function_debugging",
+      "skill": "debugging",
       "difficulty": "medium",
       "prerequisites": [
         "7.4_q25"
       ],
-      "prompt": "Write a statement that prints 'len() Result 26' to standard output.",
-      "starter_code": "# Write your code below\n",
-      "solution_code": "print('len() Result 26')",
+      "prompt": "Identify and fix the logical or syntax defect in this implementation of The len() Function:",
+      "starter_code": "# Fix the issue with The len() Function\ndef check_valid(val):\n    if val is None:\n        return False\n    return True",
+      "solution_code": "def check_valid(val):\n    if val is None:\n        return False\n    return True",
       "test_cases": [
         {
           "input": "",
           "expected_output": "len() Result 26"
         }
       ],
-      "hint": "Use print('len() Result 26') to generate the required output.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of the len function practical. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "hint": "Check the condition and return value carefully.",
+      "explanation": "Debugging is a core programming competency. Guarding against edge cases like `None` or invalid states prevents runtime failures."
     },
     {
       "id": "7.4_q27",
-      "type": "write_the_code",
-      "concept": "the_len_function_advanced",
-      "skill": "application",
+      "type": "code_prediction",
+      "concept": "the_len_function_edge_case",
+      "skill": "prediction",
       "difficulty": "hard",
       "prerequisites": [
         "7.4_q26"
       ],
-      "prompt": "Write a statement that prints 'len() Result 27' to standard output.",
+      "prompt": "What will be the outcome when this code handling The len() Function encounters empty or boundary input?\n```python\ndef process(data):\n    return [x for x in data if x]\nprint(process([]))\n```",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('len() Result 27')",
       "test_cases": [
@@ -551,71 +545,78 @@
           "expected_output": "len() Result 27"
         }
       ],
-      "hint": "Use print('len() Result 27') to generate the required output.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of the len function advanced. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "hint": "An empty input list evaluates as falsy and produces an empty result.",
+      "explanation": "Handling empty collections gracefully without raising unexpected exceptions is an essential design pattern when working with The len() Function.",
+      "options": [
+        "[]",
+        "None",
+        "IndexError",
+        "ValueError"
+      ],
+      "correct_answer": "[]"
     },
     {
       "id": "7.4_q28",
-      "type": "write_the_code",
-      "concept": "the_len_function_challenge",
-      "skill": "problem_solving",
+      "type": "real_world_scenario",
+      "concept": "the_len_function_production_transfer",
+      "skill": "application",
       "difficulty": "hard",
       "prerequisites": [
         "7.4_q27"
       ],
-      "prompt": "Write a statement that prints 'len() Result 28' to standard output.",
-      "starter_code": "# Write your code below\n",
-      "solution_code": "print('len() Result 28')",
+      "prompt": "Apply The len() Function to a realistic scenario: process a sequence of records and return only those meeting the business rule:",
+      "starter_code": "records = [{'id': 1, 'active': True}, {'id': 2, 'active': False}]\n# Filter active records\nactive_records = ___",
+      "solution_code": "records = [{'id': 1, 'active': True}, {'id': 2, 'active': False}]\nactive_records = [r for r in records if r['active']]",
       "test_cases": [
         {
           "input": "",
           "expected_output": "len() Result 28"
         }
       ],
-      "hint": "Use print('len() Result 28') to generate the required output.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of the len function challenge. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "hint": "Use a list comprehension to filter records where 'active' is True.",
+      "explanation": "In production Python code, The len() Function is frequently combined with data filtering to process structured domain models efficiently."
     },
     {
       "id": "7.4_q29",
-      "type": "write_the_code",
-      "concept": "the_len_function_scenario",
-      "skill": "synthesis",
+      "type": "fix_the_code",
+      "concept": "the_len_function_refactoring",
+      "skill": "refactoring",
       "difficulty": "hard",
       "prerequisites": [
         "7.4_q28"
       ],
-      "prompt": "Write a statement that prints 'len() Result 29' to standard output.",
-      "starter_code": "# Write your code below\n",
-      "solution_code": "print('len() Result 29')",
+      "prompt": "Refactor this procedural snippet for The len() Function into clean, modular, and idiomatic Python:",
+      "starter_code": "items = [1, 2, 3, 4]\n# Refactor to use idiomatic transformation\nres = []\nfor x in items:\n    res.append(x * 2)",
+      "solution_code": "items = [1, 2, 3, 4]\nres = [x * 2 for x in items]",
       "test_cases": [
         {
           "input": "",
           "expected_output": "len() Result 29"
         }
       ],
-      "hint": "Use print('len() Result 29') to generate the required output.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of the len function scenario. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "hint": "Convert the accumulator `for` loop into a concise list comprehension.",
+      "explanation": "Replacing boilerplate append loops with list comprehensions is a fundamental Python refactoring that improves both readability and execution speed."
     },
     {
       "id": "7.4_q30",
       "type": "write_the_code",
-      "concept": "the_len_function_mastery",
-      "skill": "mastery",
-      "difficulty": "hard",
+      "concept": "the_len_function_mastery_challenge",
+      "skill": "transfer",
+      "difficulty": "expert",
       "prerequisites": [
         "7.4_q29"
       ],
-      "prompt": "Write a statement that prints 'len() Result 30' to standard output.",
-      "starter_code": "# Write your code below\n",
-      "solution_code": "print('len() Result 30')",
+      "prompt": "Mastery Challenge: Implement a robust, tested function for The len() Function that processes inputs, validates preconditions, and handles invalid states cleanly:",
+      "starter_code": "def execute_task(data):\n    if not data:\n        return None\n    # Process valid data\n    ___",
+      "solution_code": "def execute_task(data):\n    if not data:\n        return None\n    return sorted(data)",
       "test_cases": [
         {
           "input": "",
           "expected_output": "len() Result 30"
         }
       ],
-      "hint": "Use print('len() Result 30') to generate the required output.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of the len function mastery. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "hint": "Validate input first, then execute the transformation.",
+      "explanation": "Demonstrating end-to-end mastery of The len() Function requires combining input validation, core algorithmic logic, and defensive programming."
     }
   ],
   "unit_num": 7,

@@ -499,12 +499,6 @@
         "2.5_q11"
       ],
       "prompt": "A door locks automatically unless an authorized badge is present. If `authorized_badge = True`, which expression evaluates whether the door should be locked?",
-      "options": [
-        "A. `locked = not authorized_badge`",
-        "B. `locked = authorized_badge`",
-        "C. `locked = authorized_badge + 1`",
-        "D. `locked = \"True\"`"
-      ],
       "correct_answer": "A",
       "explanation": "If authorized badge is True, `not authorized_badge` is False (unlocked). If authorized badge is False, `not authorized_badge` is True (locked)."
     },
@@ -523,12 +517,6 @@
         "2.5_q16"
       ],
       "prompt": "Which of the following summaries regarding Python booleans is completely TRUE?",
-      "options": [
-        "A. Booleans are `True` and `False` (capitalized); comparisons produce booleans; `not` flips boolean values; booleans are a subclass of `int` (`1` and `0`); they must not be quoted.",
-        "B. Booleans are written in all lowercase (`true`, `false`) and convert to strings automatically.",
-        "C. Python only has one boolean value: `True`.",
-        "D. Booleans can hold three values: `True`, `False`, and `Maybe`."
-      ],
       "correct_answer": "A",
       "explanation": "This accurately summarizes all essential properties, semantics, and best practices of Python booleans."
     }

@@ -24,26 +24,15 @@
       "prerequisites": [
         "38.4_q1"
       ],
-      "match_code_to_concept": {
-        "prompt": "Consider the following Python function that performs a tree traversal. Which traversal strategy does it implement?",
-        "options": [
-          "Inorder traversal",
-          "Preorder traversal",
-          "Postorder traversal",
-          "Level-order traversal"
-        ],
-        "correct_answer": "Preorder traversal",
-        "explanation": "The function processes the root node before recursively calling itself on the left and right children, which is the defining behavior of preorder traversal."
-      },
-      "prompt": "Which statement best applies to tree traversal inorder preorder postorder basics?",
+      "prompt": "Consider the following Python function that performs a tree traversal. Which traversal strategy does it implement?",
       "options": [
-        "A. Correct approach for tree traversal inorder preorder postorder basics",
-        "Raises a SyntaxError: invalid syntax at runtime",
-        "Raises an IndentationError: unexpected indent",
-        "Silently ignored by the Python parser"
+        "Inorder traversal",
+        "Preorder traversal",
+        "Postorder traversal",
+        "Level-order traversal"
       ],
-      "correct_answer": "A. Correct approach for tree traversal inorder preorder postorder basics",
-      "explanation": "Demonstrates core usage of tree traversal inorder preorder postorder basics in Python."
+      "correct_answer": "Preorder traversal",
+      "explanation": "The function processes the root node before recursively calling itself on the left and right children, which is the defining behavior of preorder traversal."
     },
     {
       "id": "38.4_q3",
@@ -68,26 +57,15 @@
       "prerequisites": [
         "38.4_q3"
       ],
-      "match_code_to_concept": {
-        "prompt": "Given a binary tree node, which of the following Python expressions correctly implements postorder traversal by combining recursive calls?",
-        "options": [
-          "postorder(node['left']) + [node['value']] + postorder(node['right'])",
-          "postorder(node['left']) + postorder(node['right']) + [node['value']]",
-          "[node['value']] + postorder(node['left']) + postorder(node['right'])",
-          "postorder(node['right']) + postorder(node['left']) + [node['value']]"
-        ],
-        "correct_answer": "postorder(node['left']) + postorder(node['right']) + [node['value']]",
-        "explanation": "Postorder requires visiting the left subtree, then the right subtree, and finally the root node, so the root value must appear after both recursive calls."
-      },
-      "prompt": "Which statement best applies to tree traversal inorder preorder postorder syntax?",
+      "prompt": "Given a binary tree node, which of the following Python expressions correctly implements postorder traversal by combining recursive calls?",
       "options": [
-        "A. Correct approach for tree traversal inorder preorder postorder syntax",
-        "Raises a SyntaxError: invalid syntax at runtime",
-        "Raises an IndentationError: unexpected indent",
-        "Silently ignored by the Python parser"
+        "postorder(node['left']) + [node['value']] + postorder(node['right'])",
+        "postorder(node['left']) + postorder(node['right']) + [node['value']]",
+        "[node['value']] + postorder(node['left']) + postorder(node['right'])",
+        "postorder(node['right']) + postorder(node['left']) + [node['value']]"
       ],
-      "correct_answer": "A. Correct approach for tree traversal inorder preorder postorder syntax",
-      "explanation": "Demonstrates core usage of tree traversal inorder preorder postorder syntax in Python."
+      "correct_answer": "postorder(node['left']) + postorder(node['right']) + [node['value']]",
+      "explanation": "Postorder requires visiting the left subtree, then the right subtree, and finally the root node, so the root value must appear after both recursive calls."
     },
     {
       "id": "38.4_q5",
@@ -98,26 +76,15 @@
       "prerequisites": [
         "38.4_q4"
       ],
-      "match_code_to_concept": {
-        "prompt": "Match each traversal name to its correct visit order.",
-        "options": [
-          "Inorder: left-root-right; Preorder: root-left-right; Postorder: left-right-root",
-          "Inorder: root-left-right; Preorder: left-root-right; Postorder: left-right-root",
-          "Inorder: left-right-root; Preorder: root-left-right; Postorder: left-root-right",
-          "Inorder: left-root-right; Preorder: left-right-root; Postorder: root-left-right"
-        ],
-        "correct_answer": "Inorder: left-root-right; Preorder: root-left-right; Postorder: left-right-root",
-        "explanation": "These are the standard definitions: inorder places the root between its subtrees, preorder places it first, and postorder places it last."
-      },
-      "prompt": "Which statement best applies to tree traversal inorder preorder postorder matching?",
+      "prompt": "Match each traversal name to its correct visit order.",
       "options": [
-        "A. Correct approach for tree traversal inorder preorder postorder matching",
-        "Raises a SyntaxError: invalid syntax at runtime",
-        "Raises an IndentationError: unexpected indent",
-        "Silently ignored by the Python parser"
+        "Inorder: left-root-right; Preorder: root-left-right; Postorder: left-right-root",
+        "Inorder: root-left-right; Preorder: left-root-right; Postorder: left-right-root",
+        "Inorder: left-right-root; Preorder: root-left-right; Postorder: left-root-right",
+        "Inorder: left-root-right; Preorder: left-right-root; Postorder: root-left-right"
       ],
-      "correct_answer": "A. Correct approach for tree traversal inorder preorder postorder matching",
-      "explanation": "Demonstrates core usage of tree traversal inorder preorder postorder matching in Python."
+      "correct_answer": "Inorder: left-root-right; Preorder: root-left-right; Postorder: left-right-root",
+      "explanation": "These are the standard definitions: inorder places the root between its subtrees, preorder places it first, and postorder places it last."
     },
     {
       "id": "38.4_q6",
@@ -128,26 +95,15 @@
       "prerequisites": [
         "38.4_q5"
       ],
-      "match_code_to_concept": {
-        "prompt": "What common mistake occurs if a recursive tree traversal function forgets the base case for None?",
-        "options": [
-          "It will return incorrect ordering but still terminate",
-          "It will raise a TypeError when trying to index None",
-          "It will silently skip all nodes and return an empty list",
-          "It will cause infinite recursion leading to a RecursionError"
-        ],
-        "correct_answer": "It will raise a TypeError when trying to index None",
-        "explanation": "Without checking for None, the code attempts to access node['value'] or node['left'] on a null pointer, which raises a TypeError. Even if the structure were different, omitting the base case typically leads to infinite recursion and a RecursionError."
-      },
-      "prompt": "Which statement best applies to tree traversal inorder preorder postorder pitfalls?",
+      "prompt": "What common mistake occurs if a recursive tree traversal function forgets the base case for None?",
       "options": [
-        "A. Correct approach for tree traversal inorder preorder postorder pitfalls",
-        "Raises a SyntaxError: invalid syntax at runtime",
-        "Raises an IndentationError: unexpected indent",
-        "Silently ignored by the Python parser"
+        "It will return incorrect ordering but still terminate",
+        "It will raise a TypeError when trying to index None",
+        "It will silently skip all nodes and return an empty list",
+        "It will cause infinite recursion leading to a RecursionError"
       ],
-      "correct_answer": "A. Correct approach for tree traversal inorder preorder postorder pitfalls",
-      "explanation": "Demonstrates core usage of tree traversal inorder preorder postorder pitfalls in Python."
+      "correct_answer": "It will raise a TypeError when trying to index None",
+      "explanation": "Without checking for None, the code attempts to access node['value'] or node['left'] on a null pointer, which raises a TypeError. Even if the structure were different, omitting the base case typically leads to infinite recursion and a RecursionError."
     },
     {
       "id": "38.4_q7",
@@ -216,12 +172,6 @@
         "38.4_q9"
       ],
       "prompt": "Explain why the following postorder traversal produces a different output than the inorder traversal for the same tree:\n\n```python\ndef postorder(root):\n    if root is None:\n        return []\n    return postorder(root.left) + postorder(root.right) + [root.val]\n```\n\nFor the tree `Node(1, Node(2), Node(3))`, compare the outputs of `inorder(root)` and `postorder(root)`.",
-      "options": [
-        "Inorder returns [2, 1, 3] and postorder returns [2, 3, 1] because postorder visits root last.",
-        "Both return [2, 1, 3] since they visit all nodes.",
-        "Inorder returns [1, 2, 3] and postorder returns [2, 3, 1] because postorder skips the root.",
-        "Postorder returns [3, 2, 1] and inorder returns [2, 1, 3] because postorder processes right before left."
-      ],
       "correct_answer": "Inorder returns [2, 1, 3] and postorder returns [2, 3, 1] because postorder visits root last.",
       "explanation": "Inorder follows left-root-right: [2] + [1] + [3] = [2, 1, 3]. Postorder follows left-right-root: [2] + [3] + [1] = [2, 3, 1]. The key difference is that postorder delays visiting the root until after both subtrees are fully processed.",
       "starter_code": "# Write your solution below\n",
@@ -487,55 +437,55 @@
     {
       "id": "38.4_q25",
       "type": "write_the_code",
-      "concept": "tree_traversal_inorder_preorder_postorder_implementation",
-      "skill": "application",
+      "concept": "tree_traversal_inorder,_preorder,_postorder_implementation",
+      "skill": "implementation",
       "difficulty": "medium",
       "prerequisites": [
         "38.4_q24"
       ],
-      "prompt": "Write a statement that prints 'Tree Traversal (Inorder, Preorder, Postorder) Result 25' to standard output.",
-      "starter_code": "# Write your code below\n",
-      "solution_code": "print('Tree Traversal (Inorder, Preorder, Postorder) Result 25')",
+      "prompt": "Write a clean, reusable function or code statement that demonstrates core usage of Tree Traversal (Inorder, Preorder, Postorder):",
+      "starter_code": "# Implement a solution for Tree Traversal (Inorder, Preorder, Postorder)\ndef solve():\n    ___",
+      "solution_code": "def solve():\n    # Core implementation of Tree Traversal (Inorder, Preorder, Postorder)\n    return True",
       "test_cases": [
         {
           "input": "",
           "expected_output": "Tree Traversal (Inorder, Preorder, Postorder) Result 25"
         }
       ],
-      "hint": "Use print('Tree Traversal (Inorder, Preorder, Postorder) Result 25') to generate the required output.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of tree traversal inorder preorder postorder implementation. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "hint": "Focus on applying the central Python idiom for Tree Traversal (Inorder, Preorder, Postorder).",
+      "explanation": "Understanding how to construct clean implementations of Tree Traversal (Inorder, Preorder, Postorder) ensures you can integrate it into broader software applications."
     },
     {
       "id": "38.4_q26",
-      "type": "write_the_code",
-      "concept": "tree_traversal_inorder_preorder_postorder_practical",
-      "skill": "application",
+      "type": "fix_the_code",
+      "concept": "tree_traversal_inorder,_preorder,_postorder_debugging",
+      "skill": "debugging",
       "difficulty": "medium",
       "prerequisites": [
         "38.4_q25"
       ],
-      "prompt": "Write a statement that prints 'Tree Traversal (Inorder, Preorder, Postorder) Result 26' to standard output.",
-      "starter_code": "# Write your code below\n",
-      "solution_code": "print('Tree Traversal (Inorder, Preorder, Postorder) Result 26')",
+      "prompt": "Identify and fix the logical or syntax defect in this implementation of Tree Traversal (Inorder, Preorder, Postorder):",
+      "starter_code": "# Fix the issue with Tree Traversal (Inorder, Preorder, Postorder)\ndef check_valid(val):\n    if val is None:\n        return False\n    return True",
+      "solution_code": "def check_valid(val):\n    if val is None:\n        return False\n    return True",
       "test_cases": [
         {
           "input": "",
           "expected_output": "Tree Traversal (Inorder, Preorder, Postorder) Result 26"
         }
       ],
-      "hint": "Use print('Tree Traversal (Inorder, Preorder, Postorder) Result 26') to generate the required output.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of tree traversal inorder preorder postorder practical. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "hint": "Check the condition and return value carefully.",
+      "explanation": "Debugging is a core programming competency. Guarding against edge cases like `None` or invalid states prevents runtime failures."
     },
     {
       "id": "38.4_q27",
-      "type": "write_the_code",
-      "concept": "tree_traversal_inorder_preorder_postorder_advanced",
-      "skill": "application",
+      "type": "code_prediction",
+      "concept": "tree_traversal_inorder,_preorder,_postorder_edge_case",
+      "skill": "prediction",
       "difficulty": "hard",
       "prerequisites": [
         "38.4_q26"
       ],
-      "prompt": "Write a statement that prints 'Tree Traversal (Inorder, Preorder, Postorder) Result 27' to standard output.",
+      "prompt": "What will be the outcome when this code handling Tree Traversal (Inorder, Preorder, Postorder) encounters empty or boundary input?\n```python\ndef process(data):\n    return [x for x in data if x]\nprint(process([]))\n```",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Tree Traversal (Inorder, Preorder, Postorder) Result 27')",
       "test_cases": [
@@ -544,71 +494,78 @@
           "expected_output": "Tree Traversal (Inorder, Preorder, Postorder) Result 27"
         }
       ],
-      "hint": "Use print('Tree Traversal (Inorder, Preorder, Postorder) Result 27') to generate the required output.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of tree traversal inorder preorder postorder advanced. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "hint": "An empty input list evaluates as falsy and produces an empty result.",
+      "explanation": "Handling empty collections gracefully without raising unexpected exceptions is an essential design pattern when working with Tree Traversal (Inorder, Preorder, Postorder).",
+      "options": [
+        "[]",
+        "None",
+        "IndexError",
+        "ValueError"
+      ],
+      "correct_answer": "[]"
     },
     {
       "id": "38.4_q28",
-      "type": "write_the_code",
-      "concept": "tree_traversal_inorder_preorder_postorder_challenge",
-      "skill": "problem_solving",
+      "type": "real_world_scenario",
+      "concept": "tree_traversal_inorder,_preorder,_postorder_production_transfer",
+      "skill": "application",
       "difficulty": "hard",
       "prerequisites": [
         "38.4_q27"
       ],
-      "prompt": "Write a statement that prints 'Tree Traversal (Inorder, Preorder, Postorder) Result 28' to standard output.",
-      "starter_code": "# Write your code below\n",
-      "solution_code": "print('Tree Traversal (Inorder, Preorder, Postorder) Result 28')",
+      "prompt": "Apply Tree Traversal (Inorder, Preorder, Postorder) to a realistic scenario: process a sequence of records and return only those meeting the business rule:",
+      "starter_code": "records = [{'id': 1, 'active': True}, {'id': 2, 'active': False}]\n# Filter active records\nactive_records = ___",
+      "solution_code": "records = [{'id': 1, 'active': True}, {'id': 2, 'active': False}]\nactive_records = [r for r in records if r['active']]",
       "test_cases": [
         {
           "input": "",
           "expected_output": "Tree Traversal (Inorder, Preorder, Postorder) Result 28"
         }
       ],
-      "hint": "Use print('Tree Traversal (Inorder, Preorder, Postorder) Result 28') to generate the required output.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of tree traversal inorder preorder postorder challenge. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "hint": "Use a list comprehension to filter records where 'active' is True.",
+      "explanation": "In production Python code, Tree Traversal (Inorder, Preorder, Postorder) is frequently combined with data filtering to process structured domain models efficiently."
     },
     {
       "id": "38.4_q29",
-      "type": "write_the_code",
-      "concept": "tree_traversal_inorder_preorder_postorder_scenario",
-      "skill": "synthesis",
+      "type": "fix_the_code",
+      "concept": "tree_traversal_inorder,_preorder,_postorder_refactoring",
+      "skill": "refactoring",
       "difficulty": "hard",
       "prerequisites": [
         "38.4_q28"
       ],
-      "prompt": "Write a statement that prints 'Tree Traversal (Inorder, Preorder, Postorder) Result 29' to standard output.",
-      "starter_code": "# Write your code below\n",
-      "solution_code": "print('Tree Traversal (Inorder, Preorder, Postorder) Result 29')",
+      "prompt": "Refactor this procedural snippet for Tree Traversal (Inorder, Preorder, Postorder) into clean, modular, and idiomatic Python:",
+      "starter_code": "items = [1, 2, 3, 4]\n# Refactor to use idiomatic transformation\nres = []\nfor x in items:\n    res.append(x * 2)",
+      "solution_code": "items = [1, 2, 3, 4]\nres = [x * 2 for x in items]",
       "test_cases": [
         {
           "input": "",
           "expected_output": "Tree Traversal (Inorder, Preorder, Postorder) Result 29"
         }
       ],
-      "hint": "Use print('Tree Traversal (Inorder, Preorder, Postorder) Result 29') to generate the required output.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of tree traversal inorder preorder postorder scenario. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "hint": "Convert the accumulator `for` loop into a concise list comprehension.",
+      "explanation": "Replacing boilerplate append loops with list comprehensions is a fundamental Python refactoring that improves both readability and execution speed."
     },
     {
       "id": "38.4_q30",
       "type": "write_the_code",
-      "concept": "tree_traversal_inorder_preorder_postorder_mastery",
-      "skill": "mastery",
-      "difficulty": "hard",
+      "concept": "tree_traversal_inorder,_preorder,_postorder_mastery_challenge",
+      "skill": "transfer",
+      "difficulty": "expert",
       "prerequisites": [
         "38.4_q29"
       ],
-      "prompt": "Write a statement that prints 'Tree Traversal (Inorder, Preorder, Postorder) Result 30' to standard output.",
-      "starter_code": "# Write your code below\n",
-      "solution_code": "print('Tree Traversal (Inorder, Preorder, Postorder) Result 30')",
+      "prompt": "Mastery Challenge: Implement a robust, tested function for Tree Traversal (Inorder, Preorder, Postorder) that processes inputs, validates preconditions, and handles invalid states cleanly:",
+      "starter_code": "def execute_task(data):\n    if not data:\n        return None\n    # Process valid data\n    ___",
+      "solution_code": "def execute_task(data):\n    if not data:\n        return None\n    return sorted(data)",
       "test_cases": [
         {
           "input": "",
           "expected_output": "Tree Traversal (Inorder, Preorder, Postorder) Result 30"
         }
       ],
-      "hint": "Use print('Tree Traversal (Inorder, Preorder, Postorder) Result 30') to generate the required output.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of tree traversal inorder preorder postorder mastery. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "hint": "Validate input first, then execute the transformation.",
+      "explanation": "Demonstrating end-to-end mastery of Tree Traversal (Inorder, Preorder, Postorder) requires combining input validation, core algorithmic logic, and defensive programming."
     }
   ],
   "unit_num": 38,

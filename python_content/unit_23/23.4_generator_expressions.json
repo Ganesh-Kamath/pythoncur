@@ -146,21 +146,22 @@
     {
       "id": "23.4_q9",
       "type": "code_prediction",
-      "concept": "generator_expressions_flow",
+      "concept": "generator_expressions_edge_case",
       "skill": "prediction",
-      "difficulty": "medium",
+      "difficulty": "hard",
       "prerequisites": [
         "23.4_q8"
       ],
-      "prompt": "What happens when this code runs?\n\n```python\ndef process(data):\n    for item in (x.upper() for x in data):\n        print(item)\n        break\n\nprocess(['apple', 'banana'])\n```",
+      "prompt": "What will be the outcome when this code handling Generator Expressions encounters empty or boundary input?\n```python\ndef process(data):\n    return [x for x in data if x]\nprint(process([]))\n```",
       "options": [
-        "Prints 'APPLE' and stops after the first iteration",
-        "Raises a SyntaxError: invalid syntax at runtime",
-        "Raises an IndentationError: unexpected indent",
-        "Silently ignored by the Python parser"
+        "[]",
+        "None",
+        "IndexError",
+        "ValueError"
       ],
-      "correct_answer": "Prints 'APPLE' and stops after the first iteration",
-      "explanation": "The generator expression yields 'APPLE' and 'BANANA'. The for loop prints the first item, then break exits the loop immediately without consuming the rest of the generator."
+      "correct_answer": "[]",
+      "explanation": "Handling empty collections gracefully without raising unexpected exceptions is an essential design pattern when working with Generator Expressions.",
+      "hint": "An empty input list evaluates as falsy and produces an empty result."
     },
     {
       "id": "23.4_q10",
@@ -172,12 +173,6 @@
         "23.4_q9"
       ],
       "prompt": "Explain why the following code produces an empty tuple and does not raise an error:\n\n```python\nresult = tuple(x for x in [] if x > 0)\nprint(result)\n```",
-      "options": [
-        "The generator is empty, so tuple() receives no items and returns an empty tuple",
-        "The condition x > 0 causes a ValueError on empty input",
-        "tuple() ignores generator expressions and always returns None",
-        "The code raises a StopIteration exception"
-      ],
       "correct_answer": "The generator is empty, so tuple() receives no items and returns an empty tuple",
       "explanation": "When the iterable is empty, the generator yields nothing. tuple() collects zero items and returns (), which is an empty tuple. No exception occurs because the generator is valid and simply exhausted immediately.",
       "starter_code": "# Write your solution below\n",
@@ -199,12 +194,6 @@
         "23.4_q10"
       ],
       "prompt": "Trace the execution step by step and list the values yielded in order:\n\n```python\ngen = (n ** 2 for n in [2, 3, 4] if n % 2 == 0)\nprint(list(gen))\n```",
-      "options": [
-        "Yields 4, then 16",
-        "Yields 4, then 9, then 16",
-        "Yields 2, then 4",
-        "Yields 4, then 9"
-      ],
       "correct_answer": "Yields 4, then 16",
       "explanation": "Iteration 1: n = 2, condition passes, yield 2 ** 2 = 4. Iteration 2: n = 3, condition fails, skip. Iteration 3: n = 4, condition passes, yield 4 ** 2 = 16. list(gen) collects [4, 16].",
       "starter_code": "# Write your solution below\n",

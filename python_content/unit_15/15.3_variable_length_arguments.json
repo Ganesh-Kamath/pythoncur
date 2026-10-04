@@ -113,23 +113,20 @@
     },
     {
       "id": "15.3_q7",
-      "type": "code_prediction",
-      "concept": "variablelength_arguments_args_execution",
-      "skill": "prediction",
+      "type": "write_the_code",
+      "concept": "variable_length_arguments_*args_implementation",
+      "skill": "implementation",
       "diff": "easy",
       "prerequisites": [
         "15.3_q6"
       ],
-      "prompt": "Given the following Python function and call, what is the output?\n\ndef show(*args):\n    for item in args:\n        print(item)\n\nshow('apple', 'banana', 'cherry')",
-      "options": [
-        "apple\nbanana\ncherry",
-        "Raises a SyntaxError: invalid syntax at runtime",
-        "Raises an IndentationError: unexpected indent",
-        "Silently ignored by the Python parser"
-      ],
+      "prompt": "Write a clean, reusable function or code statement that demonstrates core usage of Variable-Length Arguments (*args):",
       "correct_answer": "apple\nbanana\ncherry",
-      "explanation": "The *args parameter collects all positional arguments into a tuple. The for loop iterates over each element and prints it on a separate line because print adds a newline by default.",
-      "difficulty": "easy"
+      "explanation": "Understanding how to construct clean implementations of Variable-Length Arguments (*args) ensures you can integrate it into broader software applications.",
+      "difficulty": "medium",
+      "starter_code": "# Implement a solution for Variable-Length Arguments (*args)\ndef solve():\n    ___",
+      "solution_code": "def solve():\n    # Core implementation of Variable-Length Arguments (*args)\n    return True",
+      "hint": "Focus on applying the central Python idiom for Variable-Length Arguments (*args)."
     },
     {
       "id": "15.3_q8",

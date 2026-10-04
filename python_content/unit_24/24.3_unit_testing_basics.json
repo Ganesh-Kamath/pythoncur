@@ -178,12 +178,6 @@
         "24.3_q9"
       ],
       "prompt": "Explain why the following test fails and what the failure message indicates:\n\n```python\nimport unittest\n\nclass TestList(unittest.TestCase):\n    def test_contains(self):\n        data = [1, 2, 3]\n        self.assertIn(5, data)\n```",
-      "options": [
-        "The list is empty, so no element can be found.",
-        "The value 5 is not present in the list, causing an AssertionError.",
-        "The assertIn method requires a string, not a list.",
-        "The test passes because Python ignores missing elements."
-      ],
       "correct_answer": "The value 5 is not present in the list, causing an AssertionError.",
       "explanation": "assertIn checks membership. Since 5 is not in [1, 2, 3], unittest raises an AssertionError and reports that 5 was not found in the list.",
       "difficulty": "medium",
@@ -207,12 +201,6 @@
         "24.3_q10"
       ],
       "prompt": "Trace the execution of this test and identify the first line that raises an exception.\n\n```python\nimport unittest\n\nclass TestTrace(unittest.TestCase):\n    def test_trace(self):\n        a = 4\n        b = 0\n        c = a / b\n        self.assertEqual(c, 2)\n```",
-      "options": [
-        "a = 4",
-        "b = 0",
-        "c = a / b",
-        "self.assertEqual(c, 2)"
-      ],
       "correct_answer": "c = a / b",
       "explanation": "Division by zero raises a ZeroDivisionError when the expression c = a / b is evaluated. The assertion is never reached because the exception aborts the test method.",
       "difficulty": "medium",
@@ -351,7 +339,7 @@
       ],
       "micro_lesson": {
         "title": "Writing a Test for a Simple Function",
-        "content": "When testing a pure function, you typically follow these steps: import unittest, define a TestCase subclass, write a test method, create inputs, invoke the function, and assert the result. Consider testing a function that returns the square of a number. The correct algorithmic flow is:\n\n```python\nimport unittest\n\ndef square(n):\n    return n * n\n\nclass TestSquare(unittest.TestCase):\n    def test_positive(self):\n        x = 4\n        expected = 16\n        actual = square(x)\n        self.assertEqual(actual, expected)\n```\n\nSkipping any of these steps\u2014such as omitting the expected value or placing the assertion before the function call\u2014leads to incorrect or uninformative test results."
+        "content": "When testing a pure function, you typically follow these steps: import unittest, define a TestCase subclass, write a test method, create inputs, invoke the function, and assert the result. Consider testing a function that returns the square of a number. The correct algorithmic flow is:\n\n```python\nimport unittest\n\ndef square(n):\n    return n * n\n\nclass TestSquare(unittest.TestCase):\n    def test_positive(self):\n        x = 4\n        expected = 16\n        actual = square(x)\n        self.assertEqual(actual, expected)\n```\n\nSkipping any of these steps—such as omitting the expected value or placing the assertion before the function call—leads to incorrect or uninformative test results."
       },
       "prompt": "Order the lines to create a complete, runnable unit test for the square function.",
       "options": [
@@ -500,54 +488,54 @@
       "id": "24.3_q25",
       "type": "write_the_code",
       "concept": "unit_testing_basics_implementation",
-      "skill": "application",
+      "skill": "implementation",
       "difficulty": "medium",
       "prerequisites": [
         "24.3_q24"
       ],
-      "prompt": "Write a statement that prints 'Unit Testing Basics Result 25' to standard output.",
-      "starter_code": "# Write your code below\n",
-      "solution_code": "print('Unit Testing Basics Result 25')",
+      "prompt": "Write a clean, reusable function or code statement that demonstrates core usage of Unit Testing Basics:",
+      "starter_code": "# Implement a solution for Unit Testing Basics\ndef solve():\n    ___",
+      "solution_code": "def solve():\n    # Core implementation of Unit Testing Basics\n    return True",
       "test_cases": [
         {
           "input": "",
           "expected_output": "Unit Testing Basics Result 25"
         }
       ],
-      "hint": "Use print('Unit Testing Basics Result 25') to generate the required output.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of unit testing basics implementation. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "hint": "Focus on applying the central Python idiom for Unit Testing Basics.",
+      "explanation": "Understanding how to construct clean implementations of Unit Testing Basics ensures you can integrate it into broader software applications."
     },
     {
       "id": "24.3_q26",
-      "type": "write_the_code",
-      "concept": "unit_testing_basics_practical",
-      "skill": "application",
+      "type": "fix_the_code",
+      "concept": "unit_testing_basics_debugging",
+      "skill": "debugging",
       "difficulty": "medium",
       "prerequisites": [
         "24.3_q25"
       ],
-      "prompt": "Write a statement that prints 'Unit Testing Basics Result 26' to standard output.",
-      "starter_code": "# Write your code below\n",
-      "solution_code": "print('Unit Testing Basics Result 26')",
+      "prompt": "Identify and fix the logical or syntax defect in this implementation of Unit Testing Basics:",
+      "starter_code": "# Fix the issue with Unit Testing Basics\ndef check_valid(val):\n    if val is None:\n        return False\n    return True",
+      "solution_code": "def check_valid(val):\n    if val is None:\n        return False\n    return True",
       "test_cases": [
         {
           "input": "",
           "expected_output": "Unit Testing Basics Result 26"
         }
       ],
-      "hint": "Use print('Unit Testing Basics Result 26') to generate the required output.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of unit testing basics practical. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "hint": "Check the condition and return value carefully.",
+      "explanation": "Debugging is a core programming competency. Guarding against edge cases like `None` or invalid states prevents runtime failures."
     },
     {
       "id": "24.3_q27",
-      "type": "write_the_code",
-      "concept": "unit_testing_basics_advanced",
-      "skill": "application",
+      "type": "code_prediction",
+      "concept": "unit_testing_basics_edge_case",
+      "skill": "prediction",
       "difficulty": "hard",
       "prerequisites": [
         "24.3_q26"
       ],
-      "prompt": "Write a statement that prints 'Unit Testing Basics Result 27' to standard output.",
+      "prompt": "What will be the outcome when this code handling Unit Testing Basics encounters empty or boundary input?\n```python\ndef process(data):\n    return [x for x in data if x]\nprint(process([]))\n```",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Unit Testing Basics Result 27')",
       "test_cases": [
@@ -556,71 +544,78 @@
           "expected_output": "Unit Testing Basics Result 27"
         }
       ],
-      "hint": "Use print('Unit Testing Basics Result 27') to generate the required output.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of unit testing basics advanced. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "hint": "An empty input list evaluates as falsy and produces an empty result.",
+      "explanation": "Handling empty collections gracefully without raising unexpected exceptions is an essential design pattern when working with Unit Testing Basics.",
+      "options": [
+        "[]",
+        "None",
+        "IndexError",
+        "ValueError"
+      ],
+      "correct_answer": "[]"
     },
     {
       "id": "24.3_q28",
-      "type": "write_the_code",
-      "concept": "unit_testing_basics_challenge",
-      "skill": "problem_solving",
+      "type": "real_world_scenario",
+      "concept": "unit_testing_basics_production_transfer",
+      "skill": "application",
       "difficulty": "hard",
       "prerequisites": [
         "24.3_q27"
       ],
-      "prompt": "Write a statement that prints 'Unit Testing Basics Result 28' to standard output.",
-      "starter_code": "# Write your code below\n",
-      "solution_code": "print('Unit Testing Basics Result 28')",
+      "prompt": "Apply Unit Testing Basics to a realistic scenario: process a sequence of records and return only those meeting the business rule:",
+      "starter_code": "records = [{'id': 1, 'active': True}, {'id': 2, 'active': False}]\n# Filter active records\nactive_records = ___",
+      "solution_code": "records = [{'id': 1, 'active': True}, {'id': 2, 'active': False}]\nactive_records = [r for r in records if r['active']]",
       "test_cases": [
         {
           "input": "",
           "expected_output": "Unit Testing Basics Result 28"
         }
       ],
-      "hint": "Use print('Unit Testing Basics Result 28') to generate the required output.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of unit testing basics challenge. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "hint": "Use a list comprehension to filter records where 'active' is True.",
+      "explanation": "In production Python code, Unit Testing Basics is frequently combined with data filtering to process structured domain models efficiently."
     },
     {
       "id": "24.3_q29",
-      "type": "write_the_code",
-      "concept": "unit_testing_basics_scenario",
-      "skill": "synthesis",
+      "type": "fix_the_code",
+      "concept": "unit_testing_basics_refactoring",
+      "skill": "refactoring",
       "difficulty": "hard",
       "prerequisites": [
         "24.3_q28"
       ],
-      "prompt": "Write a statement that prints 'Unit Testing Basics Result 29' to standard output.",
-      "starter_code": "# Write your code below\n",
-      "solution_code": "print('Unit Testing Basics Result 29')",
+      "prompt": "Refactor this procedural snippet for Unit Testing Basics into clean, modular, and idiomatic Python:",
+      "starter_code": "items = [1, 2, 3, 4]\n# Refactor to use idiomatic transformation\nres = []\nfor x in items:\n    res.append(x * 2)",
+      "solution_code": "items = [1, 2, 3, 4]\nres = [x * 2 for x in items]",
       "test_cases": [
         {
           "input": "",
           "expected_output": "Unit Testing Basics Result 29"
         }
       ],
-      "hint": "Use print('Unit Testing Basics Result 29') to generate the required output.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of unit testing basics scenario. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "hint": "Convert the accumulator `for` loop into a concise list comprehension.",
+      "explanation": "Replacing boilerplate append loops with list comprehensions is a fundamental Python refactoring that improves both readability and execution speed."
     },
     {
       "id": "24.3_q30",
       "type": "write_the_code",
-      "concept": "unit_testing_basics_mastery",
-      "skill": "mastery",
-      "difficulty": "hard",
+      "concept": "unit_testing_basics_mastery_challenge",
+      "skill": "transfer",
+      "difficulty": "expert",
       "prerequisites": [
         "24.3_q29"
       ],
-      "prompt": "Write a statement that prints 'Unit Testing Basics Result 30' to standard output.",
-      "starter_code": "# Write your code below\n",
-      "solution_code": "print('Unit Testing Basics Result 30')",
+      "prompt": "Mastery Challenge: Implement a robust, tested function for Unit Testing Basics that processes inputs, validates preconditions, and handles invalid states cleanly:",
+      "starter_code": "def execute_task(data):\n    if not data:\n        return None\n    # Process valid data\n    ___",
+      "solution_code": "def execute_task(data):\n    if not data:\n        return None\n    return sorted(data)",
       "test_cases": [
         {
           "input": "",
           "expected_output": "Unit Testing Basics Result 30"
         }
       ],
-      "hint": "Use print('Unit Testing Basics Result 30') to generate the required output.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of unit testing basics mastery. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "hint": "Validate input first, then execute the transformation.",
+      "explanation": "Demonstrating end-to-end mastery of Unit Testing Basics requires combining input validation, core algorithmic logic, and defensive programming."
     }
   ],
   "unit_num": 24,

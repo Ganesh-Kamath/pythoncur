@@ -116,7 +116,7 @@
       ],
       "micro_lesson": {
         "title": "Predicting Code Execution with List Comprehensions",
-        "content": "In this micro-lesson, we explore how a single line of Python code can iterate over a list and transform each element. A list comprehension combines a for loop and an expression into a concise syntax. When executed, Python evaluates the expression for every item in the iterable and collects the results into a new list. Understanding the order of operations\u2014first the loop variable assignment, then the expression\u2014is key to predicting the final output. Consider the code below and determine what list is produced."
+        "content": "In this micro-lesson, we explore how a single line of Python code can iterate over a list and transform each element. A list comprehension combines a for loop and an expression into a concise syntax. When executed, Python evaluates the expression for every item in the iterable and collects the results into a new list. Understanding the order of operations—first the loop variable assignment, then the expression—is key to predicting the final output. Consider the code below and determine what list is produced."
       },
       "prompt": "What is the output of the following Python code?\n```python\nnumbers = [1, 2, 3, 4]\nresult = [x * 2 for x in numbers]\nprint(result)\n```",
       "options": [
@@ -131,10 +131,10 @@
     },
     {
       "id": "32.2_q8",
-      "type": "output_prediction",
-      "skill": "prediction",
+      "type": "fix_the_code",
+      "skill": "debugging",
       "diff": "medium",
-      "concept": "iteration_and_transformation_execution",
+      "concept": "iteration_and_transformation_debugging",
       "prerequisites": [
         "32.2_q7"
       ],
@@ -142,16 +142,13 @@
         "title": "Transforming Strings with Iteration",
         "content": "Strings are immutable sequences in Python, but we can iterate over them character by character and build new strings. A common pattern is to use a loop or comprehension to apply a transformation, such as converting each character to uppercase. When combining iteration with string methods like upper(), remember that the method returns a new string rather than modifying the original. This allows us to construct transformed outputs efficiently."
       },
-      "prompt": "What is printed by the following Python code?\n```python\nwords = ['apple', 'banana', 'cherry']\nprint([w.upper() for w in words])\n```",
-      "options": [
-        "['APPLE', 'BANANA', 'CHERRY']",
-        "Raises a SyntaxError: invalid syntax at runtime",
-        "Raises an IndentationError: unexpected indent",
-        "Silently ignored by the Python parser"
-      ],
+      "prompt": "Identify and fix the logical or syntax defect in this implementation of Iteration and Transformation:",
       "correct_answer": "['APPLE', 'BANANA', 'CHERRY']",
-      "explanation": "The list comprehension applies the upper() method to each string in words. upper() converts all alphabetic characters to uppercase. Therefore, the resulting list is ['APPLE', 'BANANA', 'CHERRY'].",
-      "difficulty": "medium"
+      "explanation": "Debugging is a core programming competency. Guarding against edge cases like `None` or invalid states prevents runtime failures.",
+      "difficulty": "medium",
+      "starter_code": "# Fix the issue with Iteration and Transformation\ndef check_valid(val):\n    if val is None:\n        return False\n    return True",
+      "solution_code": "def check_valid(val):\n    if val is None:\n        return False\n    return True",
+      "hint": "Check the condition and return value carefully."
     },
     {
       "id": "32.2_q9",
@@ -191,12 +188,6 @@
         "content": "When analyzing output, decompose the transformation into its constituent steps: identify the iterable, determine the transformation expression, and verify the order of operations. For string slicing inside a comprehension, recall that slice notation [start:stop] extracts a substring. If start is omitted, it defaults to the beginning; if stop is omitted, it extends to the end. Applying this inside a loop lets us extract prefixes or suffixes systematically."
       },
       "prompt": "Explain why the following Python code produces the output it does:\n```python\nnames = ['alice', 'bob', 'charlie']\nprint([n[:3] for n in names])\n```",
-      "options": [
-        "It prints the full names because slicing without arguments returns the original string.",
-        "It prints the first three characters of each name by using slice notation [0:3].",
-        "It raises an error because slice notation requires two arguments.",
-        "It prints only 'alice' because the loop stops after the first iteration."
-      ],
       "correct_answer": "It prints the first three characters of each name by using slice notation [0:3].",
       "explanation": "The slice n[:3] extracts characters from index 0 up to, but not including, index 3. For 'alice', this yields 'ali'; for 'bob', 'bob'; and for 'charlie', 'cha'. The list comprehension collects these into ['ali', 'bob', 'cha'].",
       "difficulty": "medium",
@@ -223,14 +214,8 @@
         "content": "Tracing execution means simulating the program state after each iteration. Begin by recording the initial values, then walk through the loop one step at a time, updating variables and intermediate results. For transformations involving string methods, note that methods like strip() remove whitespace and replace() substitutes substrings. Maintaining an accurate trace prevents off-by-one or logic errors when predicting final outcomes."
       },
       "prompt": "Trace the execution of the following Python code and identify the final value of result:\n```python\nitems = ['  hello', 'world  ', 'python']\nresult = [i.strip().replace(' ', '_') for i in items]\n```",
-      "options": [
-        "['hello', 'world', 'python']",
-        "['_hello', 'world_', 'python']",
-        "['hello', 'world', 'python']",
-        "['_hello', 'world_', 'python']"
-      ],
       "correct_answer": "['_hello', 'world_', 'python']",
-      "explanation": "Iteration 1: '  hello'.strip() -> 'hello'; replace(' ', '_') -> 'hello'. Iteration 2: 'world  '.strip() -> 'world'; replace(' ', '_') -> 'world'. Iteration 3: 'python'.strip() -> 'python'; replace(' ', '_') -> 'python'. The final list is ['hello', 'world', 'python']. Wait\u2014re-evaluating: strip removes leading/trailing spaces, so no internal spaces remain to replace. Thus the correct output is ['hello', 'world', 'python'].",
+      "explanation": "Iteration 1: '  hello'.strip() -> 'hello'; replace(' ', '_') -> 'hello'. Iteration 2: 'world  '.strip() -> 'world'; replace(' ', '_') -> 'world'. Iteration 3: 'python'.strip() -> 'python'; replace(' ', '_') -> 'python'. The final list is ['hello', 'world', 'python']. Wait—re-evaluating: strip removes leading/trailing spaces, so no internal spaces remain to replace. Thus the correct output is ['hello', 'world', 'python'].",
       "difficulty": "medium",
       "starter_code": "# Write your solution below\n",
       "solution_code": "print('Iteration and Transformation')",

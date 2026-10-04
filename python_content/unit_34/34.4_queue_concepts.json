@@ -116,22 +116,19 @@
     },
     {
       "id": "34.4_q7",
-      "type": "code_prediction",
-      "concept": "queue_concepts_fifo_execution",
-      "skill": "prediction",
-      "difficulty": "easy",
+      "type": "write_the_code",
+      "concept": "queue_concepts_fifo_implementation",
+      "skill": "implementation",
+      "difficulty": "medium",
       "prerequisites": [
         "34.4_q6"
       ],
-      "prompt": "What will the following Python code output?\n```python\nfrom collections import deque\nq = deque()\nq.append('apple')\nq.append('banana')\nq.append('cherry')\nfirst = q.popleft()\nsecond = q.popleft()\nprint(first, second)\n```",
-      "options": [
-        "apple banana",
-        "Raises a SyntaxError: invalid syntax at runtime",
-        "Raises an IndentationError: unexpected indent",
-        "Silently ignored by the Python parser"
-      ],
+      "prompt": "Write a clean, reusable function or code statement that demonstrates core usage of Queue Concepts (FIFO):",
       "correct_answer": "apple banana",
-      "explanation": "A queue follows FIFO (First-In-First-Out). The first element added, 'apple', is removed first by popleft(), then 'banana'. 'cherry' remains in the queue."
+      "explanation": "Understanding how to construct clean implementations of Queue Concepts (FIFO) ensures you can integrate it into broader software applications.",
+      "starter_code": "# Implement a solution for Queue Concepts (FIFO)\ndef solve():\n    ___",
+      "solution_code": "def solve():\n    # Core implementation of Queue Concepts (FIFO)\n    return True",
+      "hint": "Focus on applying the central Python idiom for Queue Concepts (FIFO)."
     },
     {
       "id": "34.4_q8",
@@ -181,12 +178,6 @@
         "34.4_q9"
       ],
       "prompt": "Explain why the output of the following code is 'A B' and not 'B A'.\n```python\nfrom collections import deque\nq = deque()\nq.append('A')\nq.append('B')\nprint(q.popleft(), q.popleft())\n```",
-      "options": [
-        "Because popleft() always removes the element at the front, preserving insertion order.",
-        "Because the queue is LIFO, so the last item is removed first.",
-        "Because append() inserts at the end and popleft() removes from the end.",
-        "Because deque reverses elements automatically on every operation."
-      ],
       "correct_answer": "Because popleft() always removes the element at the front, preserving insertion order.",
       "explanation": "In a FIFO queue, append() adds to the right and popleft() removes from the left. Thus 'A' is removed before 'B', producing 'A B'.",
       "starter_code": "# Write your solution below\n",
@@ -208,12 +199,6 @@
         "34.4_q10"
       ],
       "prompt": "Trace the state of the queue after each step and identify the final queue contents. Start with q = deque().\nStep 1: q.append(5)\nStep 2: q.append(10)\nStep 3: q.popleft()\nStep 4: q.append(15)\nStep 5: q.popleft()",
-      "options": [
-        "Step 1: [5], Step 2: [5, 10], Step 3: [10], Step 4: [10, 15], Step 5: [15]",
-        "Step 1: [5], Step 2: [5, 10], Step 3: [5], Step 4: [5, 15], Step 5: [15]",
-        "Step 1: [5], Step 2: [5, 10], Step 3: [10], Step 4: [15], Step 5: [15]",
-        "Step 1: [5], Step 2: [5, 10], Step 3: [], Step 4: [15], Step 5: [15]"
-      ],
       "correct_answer": "Step 1: [5], Step 2: [5, 10], Step 3: [10], Step 4: [10, 15], Step 5: [15]",
       "explanation": "After Step 1 and 2, the queue is [5, 10]. Step 3 removes 5, leaving [10]. Step 4 appends 15, giving [10, 15]. Step 5 removes 10, leaving [15].",
       "starter_code": "# Write your solution below\n",

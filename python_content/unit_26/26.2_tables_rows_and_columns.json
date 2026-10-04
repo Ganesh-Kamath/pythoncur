@@ -185,12 +185,6 @@
         "content": "When analyzing the output of code that manipulates table-like data, break the problem into discrete steps: identify the initial data structure, determine the transformation applied in each line, and verify the final state. Look for common pitfalls such as off-by-one errors in indexing, incorrect boolean logic, or unintended mutations. In SQL terms, this is akin to reviewing an execution plan: understand what rows are filtered, what columns are projected, and whether aggregation or grouping occurs. A careful analysis ensures you can explain not only what the output is, but why it is correct."
       },
       "prompt": "Analyze the following code and explain its output step by step:\n\n```python\norders = [\n    {'order_id': 101, 'amount': 150.0, 'status': 'completed'},\n    {'order_id': 102, 'amount': 75.5, 'status': 'pending'},\n    {'order_id': 103, 'amount': 200.0, 'status': 'completed'}\n]\n\ncompleted = [o['order_id'] for o in orders if o['status'] == 'completed']\nprint(completed)\n```",
-      "options": [
-        "The code filters for completed orders and prints their IDs: [101, 103].",
-        "The code sums all amounts and prints 425.5.",
-        "The code prints all order IDs regardless of status: [101, 102, 103].",
-        "The code raises a KeyError because 'status' is missing."
-      ],
       "correct_answer": "The code filters for completed orders and prints their IDs: [101, 103].",
       "explanation": "The list comprehension iterates through orders and includes only those where o['status'] == 'completed'. Order 101 and 103 meet this condition, so their order_ids are collected into the list completed, which is then printed as [101, 103].",
       "prerequisites": [
@@ -216,12 +210,6 @@
         "content": "Tracing execution means simulating the program state after each statement. For table operations, maintain a mental model of the current list of rows and track how each loop iteration or comprehension modifies an accumulator variable. Write down the value of the accumulator after each relevant step. This disciplined approach prevents errors when dealing with nested conditions or multiple transformations. Tracing is especially useful when debugging unexpected outputs in database-like workflows implemented in Python."
       },
       "prompt": "Trace the execution of the following code and identify the final value of 'total':\n\n```python\nrecords = [\n    {'value': 10},\n    {'value': 20},\n    {'value': 30}\n]\n\ntotal = 0\nfor r in records:\n    if r['value'] % 2 == 0:\n        total += r['value']\nprint(total)\n```",
-      "options": [
-        "60",
-        "30",
-        "0",
-        "10"
-      ],
       "correct_answer": "60",
       "explanation": "Tracing step by step: total starts at 0. First record: value 10, 10 % 2 == 0 is True, total becomes 10. Second record: value 20, 20 % 2 == 0 is True, total becomes 30. Third record: value 30, 30 % 2 == 0 is True, total becomes 60. The final printed value is 60.",
       "prerequisites": [

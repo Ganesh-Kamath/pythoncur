@@ -488,12 +488,6 @@
         "3.4_q1"
       ],
       "prompt": "A highway speed monitor triggers a fine if a vehicle's `speed` is strictly greater than `65`. What is the condition?",
-      "options": [
-        "A. `speed > 65`",
-        "B. `speed == 65`",
-        "C. `speed < 65`",
-        "D. `speed >= 65`"
-      ],
       "correct_answer": "A",
       "explanation": "In Python, this operation directly demonstrates the core behavior of speed limit violation. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     },
@@ -531,12 +525,6 @@
         "3.4_q15"
       ],
       "prompt": "Which of the following summaries regarding Python comparison operators is completely TRUE?",
-      "options": [
-        "A. Python has 6 comparison operators producing booleans; numbers compare by value; strings compare by Unicode code points; Python supports chained comparisons (`a < b < c`); strings and numbers cannot be compared with `<`/`>`; `is` checks memory identity while `==` checks value equality.",
-        "B. Python uses `===` for strict comparison like JavaScript.",
-        "C. In Python, `\"20\" < \"3\"` evaluates to False because strings auto-convert to numbers during comparisons.",
-        "D. Chained comparisons like `10 <= x <= 20` cause a syntax error in Python."
-      ],
       "correct_answer": "A",
       "explanation": "This encapsulates all comparison operators, lexicographical string comparison, chaining, type restrictions, and identity vs equality."
     }

@@ -513,12 +513,6 @@
         "2.6_q25"
       ],
       "prompt": "A developer writes an order script:\n```python\nunit_price = \"25\"\nquantity = 2\ntotal = unit_price * quantity\nprint(total)\n```\nIt prints `2525` instead of `50`. What diagnostic tool should they use to uncover the bug?",
-      "options": [
-        "A. Reinstall Python.",
-        "B. Check `type(unit_price)` to discover that `unit_price` is a string (`str`), which was repeated rather than mathematically multiplied.",
-        "C. Change `quantity` to 2.0.",
-        "D. Replace `total` with `\"total\"`."
-      ],
       "correct_answer": "B",
       "explanation": "Calling `type(unit_price)` immediately reveals that `unit_price` is a string (`str`), explaining why `* 2` performed string repetition."
     },
@@ -537,12 +531,6 @@
         "2.6_q26"
       ],
       "prompt": "Which statement accurately captures Python's data type architecture?",
-      "options": [
-        "A. Python is dynamically and strongly typed; objects carry types while variables are untyped references; `type()` inspects class membership; `isinstance()` verifies types and inheritance.",
-        "B. Python is statically typed; variables must be declared with types before use; `type()` is only available in Python 2.",
-        "C. All numbers in Python are converted to strings before execution.",
-        "D. In Python, variables carry types and objects are untyped memory slots."
-      ],
       "correct_answer": "A",
       "explanation": "This synthesizes dynamic typing, strong typing, object-bound types, and the roles of `type()` and `isinstance()`."
     }

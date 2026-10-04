@@ -159,12 +159,6 @@
         "26.4_q8"
       ],
       "prompt": "Fix this code snippet implementing Basic SQL in Python correctly:",
-      "options": [
-        "45",
-        "22",
-        "value_9",
-        "Error"
-      ],
       "correct_answer": "45",
       "explanation": "Applying standard Python idioms ensures correct behavior: parameterized queries protect against SQL injection attacks.",
       "starter_code": "# Basic SQL in Python implementation\n___",
@@ -172,24 +166,24 @@
     },
     {
       "id": "26.4_q10",
-      "type": "write_the_code",
-      "concept": "basic_sql_crud_operations_analysis",
-      "skill": "analysis",
-      "difficulty": "medium",
+      "type": "real_world_scenario",
+      "concept": "basic_sql_crud_operations_production_transfer",
+      "skill": "application",
+      "difficulty": "hard",
       "prerequisites": [
         "26.4_q9"
       ],
-      "prompt": "Write a statement that prints 'Basic SQL (CRUD Operations) Result 10' to standard output.",
-      "starter_code": "# Write your code below\n",
-      "solution_code": "print('Basic SQL (CRUD Operations) Result 10')",
+      "prompt": "Apply Basic SQL (CRUD Operations) to a realistic scenario: process a sequence of records and return only those meeting the business rule:",
+      "starter_code": "records = [{'id': 1, 'active': True}, {'id': 2, 'active': False}]\n# Filter active records\nactive_records = ___",
+      "solution_code": "records = [{'id': 1, 'active': True}, {'id': 2, 'active': False}]\nactive_records = [r for r in records if r['active']]",
       "test_cases": [
         {
           "input": "",
           "expected_output": "Basic SQL (CRUD Operations) Result 10"
         }
       ],
-      "hint": "Use print('Basic SQL (CRUD Operations) Result 10') to generate the required output.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of basic sql crud operations analysis. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "hint": "Use a list comprehension to filter records where 'active' is True.",
+      "explanation": "In production Python code, Basic SQL (CRUD Operations) is frequently combined with data filtering to process structured domain models efficiently."
     },
     {
       "id": "26.4_q11",
@@ -229,12 +223,6 @@
         "26.4_q11"
       ],
       "prompt": "Write the canonical Python code statement for Basic SQL in Python:",
-      "options": [
-        "60",
-        "30",
-        "value_12",
-        "Error"
-      ],
       "correct_answer": "60",
       "explanation": "Canonical implementation: cursor.execute('SELECT * FROM users WHERE id = ?', (user_id,)). Parameterized queries protect against sql injection attacks.",
       "starter_code": "# Complete the statement\n___",
@@ -406,17 +394,11 @@
       "prerequisites": [
         "26.4_q19"
       ],
-      "fix_the_code": {
-        "prompt": "The following Python function is supposed to insert a new book into a library database, but it contains a simple syntax error that prevents it from running. Fix the code so it executes correctly.",
-        "starter_code": "import sqlite3\n\ndef add_book(title, author):\n    conn = sqlite3.connect('library.db')\n    cur = conn.cursor()\n    cur.execute('INSERT INTO books (title, author) VALUES (%s, %s)', title, author)\n    conn.close()",
-        "solution_code": "import sqlite3\n\ndef add_book(title, author):\n    conn = sqlite3.connect('library.db')\n    cur = conn.cursor()\n    cur.execute('INSERT INTO books (title, author) VALUES (%s, %s)', (title, author))\n    conn.commit()\n    conn.close()",
-        "hint": "The execute method expects a single tuple or list for parameters. Also, changes to the database must be committed.",
-        "explanation": "The original code passed title and author as separate arguments to execute(), but the method requires a single iterable (tuple or list) containing all parameters. The corrected code wraps (title, author) in parentheses to form a tuple. Additionally, conn.commit() is added to persist the INSERT operation to the database."
-      },
-      "prompt": "Fix the bug in this code for basic sql crud operations fix:",
-      "starter_code": "# Fix this code\nPrint('Basic SQL (CRUD Operations)')",
-      "solution_code": "print('Basic SQL (CRUD Operations)')",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of basic sql crud operations fix. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "prompt": "The following Python function is supposed to insert a new book into a library database, but it contains a simple syntax error that prevents it from running. Fix the code so it executes correctly.",
+      "starter_code": "import sqlite3\n\ndef add_book(title, author):\n    conn = sqlite3.connect('library.db')\n    cur = conn.cursor()\n    cur.execute('INSERT INTO books (title, author) VALUES (%s, %s)', title, author)\n    conn.close()",
+      "solution_code": "import sqlite3\n\ndef add_book(title, author):\n    conn = sqlite3.connect('library.db')\n    cur = conn.cursor()\n    cur.execute('INSERT INTO books (title, author) VALUES (%s, %s)', (title, author))\n    conn.commit()\n    conn.close()",
+      "explanation": "The original code passed title and author as separate arguments to execute(), but the method requires a single iterable (tuple or list) containing all parameters. The corrected code wraps (title, author) in parentheses to form a tuple. Additionally, conn.commit() is added to persist the INSERT operation to the database.",
+      "hint": "The execute method expects a single tuple or list for parameters. Also, changes to the database must be committed."
     },
     {
       "id": "26.4_q21",
@@ -427,17 +409,11 @@
       "prerequisites": [
         "26.4_q20"
       ],
-      "fix_the_code": {
-        "prompt": "This function attempts to update a student's grade, but it does not handle the case where the student does not exist. Modify the code to safely update only existing records and avoid unintended side effects.",
-        "starter_code": "import sqlite3\n\ndef update_grade(student_id, new_grade):\n    conn = sqlite3.connect('school.db')\n    cur = conn.cursor()\n    cur.execute('UPDATE students SET grade = %s WHERE id = %s', new_grade, student_id)\n    conn.commit()\n    conn.close()",
-        "solution_code": "import sqlite3\n\ndef update_grade(student_id, new_grade):\n    conn = sqlite3.connect('school.db')\n    cur = conn.cursor()\n    cur.execute('SELECT 1 FROM students WHERE id = %s', (student_id,))\n    if cur.fetchone() is not None:\n        cur.execute('UPDATE students SET grade = %s WHERE id = %s', (new_grade, student_id))\n        conn.commit()\n    else:\n        print('Student not found; no update performed.')\n    conn.close()",
-        "hint": "Check whether the target record exists before attempting the UPDATE. Use fetchone() to inspect the result of a SELECT query.",
-        "explanation": "Without verifying existence, the UPDATE statement silently affects zero rows if the student_id is missing, which may be acceptable but is often unclear to the caller. The repaired version first runs a SELECT to confirm the record exists. Only then does it execute the UPDATE and commit. This edge-case handling improves predictability and user feedback."
-      },
-      "prompt": "Fix the bug in this code for basic sql crud operations edge cases:",
-      "starter_code": "# Fix this code\nPrint('Basic SQL (CRUD Operations)')",
-      "solution_code": "print('Basic SQL (CRUD Operations)')",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of basic sql crud operations edge cases. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "prompt": "This function attempts to update a student's grade, but it does not handle the case where the student does not exist. Modify the code to safely update only existing records and avoid unintended side effects.",
+      "starter_code": "import sqlite3\n\ndef update_grade(student_id, new_grade):\n    conn = sqlite3.connect('school.db')\n    cur = conn.cursor()\n    cur.execute('UPDATE students SET grade = %s WHERE id = %s', new_grade, student_id)\n    conn.commit()\n    conn.close()",
+      "solution_code": "import sqlite3\n\ndef update_grade(student_id, new_grade):\n    conn = sqlite3.connect('school.db')\n    cur = conn.cursor()\n    cur.execute('SELECT 1 FROM students WHERE id = %s', (student_id,))\n    if cur.fetchone() is not None:\n        cur.execute('UPDATE students SET grade = %s WHERE id = %s', (new_grade, student_id))\n        conn.commit()\n    else:\n        print('Student not found; no update performed.')\n    conn.close()",
+      "explanation": "Without verifying existence, the UPDATE statement silently affects zero rows if the student_id is missing, which may be acceptable but is often unclear to the caller. The repaired version first runs a SELECT to confirm the record exists. Only then does it execute the UPDATE and commit. This edge-case handling improves predictability and user feedback.",
+      "hint": "Check whether the target record exists before attempting the UPDATE. Use fetchone() to inspect the result of a SELECT query."
     },
     {
       "id": "26.4_q22",
@@ -469,17 +445,11 @@
       "prerequisites": [
         "26.4_q22"
       ],
-      "fix_the_code": {
-        "prompt": "The following function is meant to retrieve all active users, but the logic is flawed and returns incorrect data. Repair the code to correctly implement a READ operation with a WHERE filter.",
-        "starter_code": "import sqlite3\n\ndef get_active_users():\n    conn = sqlite3.connect('app.db')\n    cur = conn.cursor()\n    cur.execute('SELECT * FROM users WHERE status = active')\n    results = cur.fetchall()\n    conn.close()\n    return results",
-        "solution_code": "import sqlite3\n\ndef get_active_users():\n    conn = sqlite3.connect('app.db')\n    cur = conn.cursor()\n    cur.execute('SELECT * FROM users WHERE status = %s', ('active',))\n    results = cur.fetchall()\n    conn.close()\n    return results",
-        "hint": "SQL string literals must be quoted in the query, and parameter values must be supplied as a tuple to execute().",
-        "explanation": "The original code used the bare word active without quotes, causing a syntax error in SQL. The corrected query uses %s with the string 'active' inside a tuple. This ensures proper parameterization and safely filters users whose status column equals 'active'."
-      },
-      "prompt": "Fix the bug in this code for basic sql crud operations logic repair:",
-      "starter_code": "# Fix this code\nPrint('Basic SQL (CRUD Operations)')",
-      "solution_code": "print('Basic SQL (CRUD Operations)')",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of basic sql crud operations logic repair. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "prompt": "The following function is meant to retrieve all active users, but the logic is flawed and returns incorrect data. Repair the code to correctly implement a READ operation with a WHERE filter.",
+      "starter_code": "import sqlite3\n\ndef get_active_users():\n    conn = sqlite3.connect('app.db')\n    cur = conn.cursor()\n    cur.execute('SELECT * FROM users WHERE status = active')\n    results = cur.fetchall()\n    conn.close()\n    return results",
+      "solution_code": "import sqlite3\n\ndef get_active_users():\n    conn = sqlite3.connect('app.db')\n    cur = conn.cursor()\n    cur.execute('SELECT * FROM users WHERE status = %s', ('active',))\n    results = cur.fetchall()\n    conn.close()\n    return results",
+      "explanation": "The original code used the bare word active without quotes, causing a syntax error in SQL. The corrected query uses %s with the string 'active' inside a tuple. This ensures proper parameterization and safely filters users whose status column equals 'active'.",
+      "hint": "SQL string literals must be quoted in the query, and parameter values must be supplied as a tuple to execute()."
     },
     {
       "id": "26.4_q24",

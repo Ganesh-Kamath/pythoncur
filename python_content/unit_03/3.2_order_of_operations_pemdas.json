@@ -504,12 +504,6 @@
         "3.2_q15"
       ],
       "prompt": "Compound interest is `principal * (1 + rate) ** years`. Given `principal = 1000`, `rate = 0.05`, and `years = 2`, which line correctly evaluates this?",
-      "options": [
-        "A. `amount = principal * (1 + rate) ** years`",
-        "B. `amount = (principal * 1 + rate) ** years`",
-        "C. `amount = principal * 1 + rate ** years`",
-        "D. `amount = principal * (1 + rate * years)`"
-      ],
       "correct_answer": "A",
       "explanation": "Parentheses compute `1 + rate = 1.05`. Then `1.05 ** 2 = 1.1025`. Then multiplied by `principal`."
     },
@@ -527,12 +521,6 @@
         "3.2_q21"
       ],
       "prompt": "Which statement accurately summarizes Python operator precedence?",
-      "options": [
-        "A. Parentheses evaluate first; exponents evaluate right-to-left; multiplication, division, and modulo share equal precedence (left-to-right); addition and subtraction share equal precedence (left-to-right); explicit parentheses are best for clarity.",
-        "B. Python always evaluates all expressions strictly left-to-right regardless of operator.",
-        "C. Addition always runs before multiplication in Python.",
-        "D. Exponents evaluate left-to-right like all other operators."
-      ],
       "correct_answer": "A",
       "explanation": "In Python, this operation directly demonstrates the core behavior of pemdas synthesis. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
     }

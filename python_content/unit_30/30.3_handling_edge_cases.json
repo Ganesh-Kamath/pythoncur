@@ -197,12 +197,6 @@
         "content": "To analyze output, trace the program state step by step. Pay special attention to conditions that guard against invalid inputs. When an edge case is detected, the program may return early, raise an exception, or substitute a default value. Understanding why a particular result occurs requires examining every conditional branch."
       },
       "prompt": "Explain why the following function returns 'invalid' for the input -5.\n\n```python\ndef check_positive(n):\n    if n > 0:\n        return 'valid'\n    return 'invalid'\n\nprint(check_positive(-5))\n```",
-      "options": [
-        "The function only accepts positive integers, so -5 triggers the else branch.",
-        "The function raises a ValueError for negative numbers.",
-        "The function returns 'valid' because -5 is treated as truthy.",
-        "The function returns 'invalid' because the condition n > 0 is False."
-      ],
       "correct_answer": "The function returns 'invalid' because the condition n > 0 is False.",
       "explanation": "The condition n > 0 evaluates to False when n is -5. Since there is no elif or else-if branch, execution proceeds to the final return 'invalid'. This shows that negative values are edge cases handled by the default return path.",
       "id": "30.3_q10",
@@ -230,12 +224,6 @@
         "content": "Tracing execution means recording the value of variables and the current line after each step. When an edge case exists, trace carefully through the guard condition. If the guard fails, note the early return or exception. This methodical approach prevents overlooking boundary behavior."
       },
       "prompt": "Trace the execution of the following function for the input 0.\n\n```python\ndef safe_sqrt(x):\n    if x < 0:\n        return None\n    if x == 0:\n        return 0\n    return x ** 0.5\n\nprint(safe_sqrt(0))\n```",
-      "options": [
-        "x = 0, x < 0 is False, x == 0 is True, returns 0",
-        "x = 0, x < 0 is True, returns None",
-        "x = 0, x < 0 is False, x == 0 is False, returns 0 ** 0.5",
-        "x = 0, x < 0 is False, x == 0 is True, returns None"
-      ],
       "correct_answer": "x = 0, x < 0 is False, x == 0 is True, returns 0",
       "explanation": "Starting with x = 0, the first condition x < 0 is False, so we skip to the next condition. x == 0 is True, so the function returns 0 immediately. The final return is never reached, which is why 0 is handled as a special edge case.",
       "id": "30.3_q11",
@@ -442,7 +430,7 @@
       ],
       "micro_lesson": {
         "title": "Identifying Edge Case Failures",
-        "content": "When writing robust Python programs, edge cases often cause crashes or incorrect outputs. An edge case occurs at the extreme ends of input ranges\u2014such as empty strings, zero values, or negative numbers. In this micro-lesson, we examine how a function that computes a safe division can fail when the denominator is zero. The traceback points to a ZeroDivisionError, but the root cause is the absence of an edge-case guard. Always inspect boundary conditions before assuming the main logic is correct."
+        "content": "When writing robust Python programs, edge cases often cause crashes or incorrect outputs. An edge case occurs at the extreme ends of input ranges—such as empty strings, zero values, or negative numbers. In this micro-lesson, we examine how a function that computes a safe division can fail when the denominator is zero. The traceback points to a ZeroDivisionError, but the root cause is the absence of an edge-case guard. Always inspect boundary conditions before assuming the main logic is correct."
       },
       "prompt": "Fix the bug in this code for handling edge cases errors:",
       "starter_code": "# Fix this code\nPrint('Handling Edge Cases')",
@@ -521,7 +509,7 @@
       "prerequisites": [
         "30.3_q23"
       ],
-      "prompt": "Refactor the provided function to eliminate redundant checks, improve readability, and robustly handle all edge cases\u2014including None, empty containers, and non-numeric types\u2014while preserving the original contract.",
+      "prompt": "Refactor the provided function to eliminate redundant checks, improve readability, and robustly handle all edge cases—including None, empty containers, and non-numeric types—while preserving the original contract.",
       "starter_code": "def safe_sum(values):\n    total = 0\n    if values is not None:\n        for v in values:\n            if isinstance(v, (int, float)):\n                total = total + v\n            else:\n                return None\n    else:\n        return None\n    return total",
       "solution_code": "def safe_sum(values):\n    if not values:\n        return 0\n    total = 0\n    for v in values:\n        if not isinstance(v, (int, float)):\n            raise TypeError('safe_sum expects numeric values')\n        total += v\n    return total",
       "test_cases": [

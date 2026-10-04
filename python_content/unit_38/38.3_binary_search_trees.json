@@ -24,26 +24,15 @@
       "prerequisites": [
         "38.3_q1"
       ],
-      "match_code_to_concept": {
-        "prompt": "Which statement correctly describes the Binary Search Tree property?",
-        "options": [
-          "Every node has at most two children, and all left subtree keys are less than the node key.",
-          "Every node has exactly two children, and all right subtree keys are less than the node key.",
-          "Every node has at most two children, and all right subtree keys are less than the node key.",
-          "Every node has at least one child, and all left subtree keys are greater than the node key."
-        ],
-        "correct_answer": "Every node has at most two children, and all left subtree keys are less than the node key.",
-        "explanation": "The BST property states that for any node, all keys in the left subtree are strictly less than the node's key, and all keys in the right subtree are strictly greater. Option 1 correctly captures this rule."
-      },
-      "prompt": "Which statement best applies to binary search trees bst basics?",
+      "prompt": "Which statement correctly describes the Binary Search Tree property?",
       "options": [
-        "A. Correct approach for binary search trees bst basics",
-        "Raises a SyntaxError: invalid syntax at runtime",
-        "Raises an IndentationError: unexpected indent",
-        "Silently ignored by the Python parser"
+        "Every node has at most two children, and all left subtree keys are less than the node key.",
+        "Every node has exactly two children, and all right subtree keys are less than the node key.",
+        "Every node has at most two children, and all right subtree keys are less than the node key.",
+        "Every node has at least one child, and all left subtree keys are greater than the node key."
       ],
-      "correct_answer": "A. Correct approach for binary search trees bst basics",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of binary search trees bst basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "correct_answer": "Every node has at most two children, and all left subtree keys are less than the node key.",
+      "explanation": "The BST property states that for any node, all keys in the left subtree are strictly less than the node's key, and all keys in the right subtree are strictly greater. Option 1 correctly captures this rule."
     },
     {
       "id": "38.3_q3",
@@ -68,26 +57,15 @@
       "prerequisites": [
         "38.3_q3"
       ],
-      "match_code_to_concept": {
-        "prompt": "Given the following code snippet, what is the purpose of setting `self.left = None` and `self.right = None` inside the `__init__` method?",
-        "options": [
-          "To ensure the node is a leaf by default until children are explicitly assigned.",
-          "To prevent the node from being garbage collected prematurely.",
-          "To enforce the BST ordering property at initialization.",
-          "To allocate memory for future recursive calls."
-        ],
-        "correct_answer": "To ensure the node is a leaf by default until children are explicitly assigned.",
-        "explanation": "Initializing child pointers to None means the node starts as a leaf. This is a standard Python pattern that safely represents an empty subtree and prevents AttributeError when recursive traversal checks for missing children."
-      },
-      "prompt": "Which statement best applies to binary search trees bst syntax?",
+      "prompt": "Given the following code snippet, what is the purpose of setting `self.left = None` and `self.right = None` inside the `__init__` method?",
       "options": [
-        "A. Correct approach for binary search trees bst syntax",
-        "Raises a SyntaxError: invalid syntax at runtime",
-        "Raises an IndentationError: unexpected indent",
-        "Silently ignored by the Python parser"
+        "To ensure the node is a leaf by default until children are explicitly assigned.",
+        "To prevent the node from being garbage collected prematurely.",
+        "To enforce the BST ordering property at initialization.",
+        "To allocate memory for future recursive calls."
       ],
-      "correct_answer": "A. Correct approach for binary search trees bst syntax",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of binary search trees bst syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "correct_answer": "To ensure the node is a leaf by default until children are explicitly assigned.",
+      "explanation": "Initializing child pointers to None means the node starts as a leaf. This is a standard Python pattern that safely represents an empty subtree and prevents AttributeError when recursive traversal checks for missing children."
     },
     {
       "id": "38.3_q5",
@@ -98,26 +76,15 @@
       "prerequisites": [
         "38.3_q4"
       ],
-      "match_code_to_concept": {
-        "prompt": "Match the following traversal behavior to the correct BST property outcome:",
-        "options": [
-          "Pre-order traversal visits nodes in ascending sorted order for a valid BST.",
-          "In-order traversal visits nodes in ascending sorted order for a valid BST.",
-          "Post-order traversal visits nodes in ascending sorted order for a valid BST.",
-          "Level-order traversal visits nodes in descending sorted order for a valid BST."
-        ],
-        "correct_answer": "In-order traversal visits nodes in ascending sorted order for a valid BST.",
-        "explanation": "Due to the BST property, an in-order traversal (left, root, right) processes smaller keys before larger keys, producing ascending sorted output. Pre-order, post-order, and level-order do not guarantee sorted order."
-      },
-      "prompt": "Which statement best applies to binary search trees bst matching?",
+      "prompt": "Match the following traversal behavior to the correct BST property outcome:",
       "options": [
-        "A. Correct approach for binary search trees bst matching",
-        "Raises a SyntaxError: invalid syntax at runtime",
-        "Raises an IndentationError: unexpected indent",
-        "Silently ignored by the Python parser"
+        "Pre-order traversal visits nodes in ascending sorted order for a valid BST.",
+        "In-order traversal visits nodes in ascending sorted order for a valid BST.",
+        "Post-order traversal visits nodes in ascending sorted order for a valid BST.",
+        "Level-order traversal visits nodes in descending sorted order for a valid BST."
       ],
-      "correct_answer": "A. Correct approach for binary search trees bst matching",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of binary search trees bst matching. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "correct_answer": "In-order traversal visits nodes in ascending sorted order for a valid BST.",
+      "explanation": "Due to the BST property, an in-order traversal (left, root, right) processes smaller keys before larger keys, producing ascending sorted output. Pre-order, post-order, and level-order do not guarantee sorted order."
     },
     {
       "id": "38.3_q6",
@@ -128,26 +95,15 @@
       "prerequisites": [
         "38.3_q5"
       ],
-      "match_code_to_concept": {
-        "prompt": "What is a common pitfall when inserting duplicate keys into a basic BST implementation?",
-        "options": [
-          "The duplicate key is silently ignored and the tree remains unchanged.",
-          "The duplicate key may be placed inconsistently, violating the strict BST property.",
-          "The duplicate key automatically creates a balanced subtree.",
-          "The duplicate key is always inserted into the right subtree by standard convention."
-        ],
-        "correct_answer": "The duplicate key may be placed inconsistently, violating the strict BST property.",
-        "explanation": "A basic BST definition often assumes strict inequality (left < node < right). If duplicates are allowed without a defined policy (e.g., always left or always right), the tree may break the expected ordering invariant, leading to incorrect search results."
-      },
-      "prompt": "Which statement best applies to binary search trees bst pitfalls?",
+      "prompt": "What is a common pitfall when inserting duplicate keys into a basic BST implementation?",
       "options": [
-        "A. Correct approach for binary search trees bst pitfalls",
-        "Raises a SyntaxError: invalid syntax at runtime",
-        "Raises an IndentationError: unexpected indent",
-        "Silently ignored by the Python parser"
+        "The duplicate key is silently ignored and the tree remains unchanged.",
+        "The duplicate key may be placed inconsistently, violating the strict BST property.",
+        "The duplicate key automatically creates a balanced subtree.",
+        "The duplicate key is always inserted into the right subtree by standard convention."
       ],
-      "correct_answer": "A. Correct approach for binary search trees bst pitfalls",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of binary search trees bst pitfalls. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "correct_answer": "The duplicate key may be placed inconsistently, violating the strict BST property.",
+      "explanation": "A basic BST definition often assumes strict inequality (left < node < right). If duplicates are allowed without a defined policy (e.g., always left or always right), the tree may break the expected ordering invariant, leading to incorrect search results."
     },
     {
       "id": "38.3_q7",
@@ -216,12 +172,6 @@
         "38.3_q9"
       ],
       "prompt": "Analyze the following code and explain why the output is incorrect for a standard BST search.\n\n```python\nclass Node:\n    def __init__(self, key):\n        self.key = key\n        self.left = None\n        self.right = None\n\ndef search(root, key):\n    if root is None:\n        return False\n    if root.key == key:\n        return True\n    if key < root.key:\n        return search(root.left, key)\n    return search(root.right, key)\n\n# Build tree\nroot = Node(20)\nroot.left = Node(10)\nroot.right = Node(30)\nroot.left.right = Node(15)\nprint(search(root, 15))",
-      "options": [
-        "The output is correct and returns True",
-        "The output is incorrect because left and right children are swapped in the tree construction",
-        "The output is incorrect because the search does not handle duplicate keys",
-        "The output is incorrect because the base case returns False instead of None"
-      ],
       "correct_answer": "The output is correct and returns True",
       "explanation": "The code correctly builds a BST and searches for 15. Since 15 is less than 20, it goes left to 10, then greater than 10, so it goes right to 15. The search returns True. The base case returning False for None is valid; it simply means the key was not found. The output is actually correct, so the explanation must note that the code works as intended for this case.",
       "starter_code": "# Write your solution below\n",

@@ -153,12 +153,6 @@
         "4.2_q8"
       ],
       "prompt": "Fix this code so it safely calculates total price with a floating-point discount rate:",
-      "options": [
-        "45",
-        "22",
-        "value_9",
-        "Error"
-      ],
       "correct_answer": "45",
       "explanation": "Converting '0.15' with `float()` parses the decimal fraction correctly.",
       "starter_code": "price = 100\nrate = float('0.15')\ntotal = price - (price * rate)\nprint(int(total))",
@@ -212,12 +206,6 @@
         "4.2_q11"
       ],
       "prompt": "Write code to convert the numeric string in `user_val` to a float and multiply it by 2:",
-      "options": [
-        "60",
-        "30",
-        "value_12",
-        "Error"
-      ],
       "correct_answer": "60",
       "explanation": "Use `float(user_val)` to convert the string before performing numeric multiplication.",
       "starter_code": "user_val = '14.5'\n# Convert and double\nresult = ___",
@@ -427,56 +415,56 @@
     },
     {
       "id": "4.2_q25",
-      "type": "write_the_code",
-      "concept": "processing_numeric_input_implementation",
-      "skill": "application",
+      "type": "fix_the_code",
+      "concept": "numeric_input_casting",
+      "skill": "debugging",
       "difficulty": "medium",
       "prerequisites": [
         "4.2_q24"
       ],
-      "prompt": "Write a statement that prints 'Processing Numeric Input Result 25' to standard output.",
-      "starter_code": "# Write your code below\n",
-      "solution_code": "print('Processing Numeric Input Result 25')",
+      "prompt": "Fix this code so it calculates the correct sum instead of concatenating strings:",
+      "starter_code": "num1 = input('Enter first: ')\nnum2 = input('Enter second: ')\ntotal = num1 + num2\nprint('Total:', total)",
+      "solution_code": "num1 = int(input('Enter first: '))\nnum2 = int(input('Enter second: '))\ntotal = num1 + num2\nprint('Total:', total)",
       "test_cases": [
         {
           "input": "",
           "expected_output": "Processing Numeric Input Result 25"
         }
       ],
-      "hint": "Use print('Processing Numeric Input Result 25') to generate the required output.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of processing numeric input implementation. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "hint": "Wrap each `input()` call in `int()` to convert strings to integers.",
+      "explanation": "Because `input()` returns strings, the `+` operator performs string concatenation (`'5' + '5' = '55'`). Wrapping `input()` in `int()` converts them to numbers so arithmetic addition occurs."
     },
     {
       "id": "4.2_q26",
       "type": "write_the_code",
-      "concept": "processing_numeric_input_practical",
-      "skill": "application",
+      "concept": "float_parsing",
+      "skill": "implementation",
       "difficulty": "medium",
       "prerequisites": [
         "4.2_q25"
       ],
-      "prompt": "Write a statement that prints 'Processing Numeric Input Result 26' to standard output.",
-      "starter_code": "# Write your code below\n",
-      "solution_code": "print('Processing Numeric Input Result 26')",
+      "prompt": "Write code to read a decimal price from the user and calculate total price with 10% tax added:",
+      "starter_code": "# Read price as float and calculate total with 10% tax\nprice = float(input('Price: '))\ntotal = ___",
+      "solution_code": "price = float(input('Price: '))\ntotal = price * 1.10",
       "test_cases": [
         {
           "input": "",
           "expected_output": "Processing Numeric Input Result 26"
         }
       ],
-      "hint": "Use print('Processing Numeric Input Result 26') to generate the required output.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of processing numeric input practical. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "hint": "Multiply price by 1.10 or add `price * 0.10`.",
+      "explanation": "`float()` converts decimal number strings (like '19.99') into IEEE 754 floating-point numbers suitable for financial calculations."
     },
     {
       "id": "4.2_q27",
-      "type": "write_the_code",
-      "concept": "processing_numeric_input_advanced",
-      "skill": "application",
+      "type": "error_diagnosis",
+      "concept": "value_error_non_numeric",
+      "skill": "diagnosis",
       "difficulty": "hard",
       "prerequisites": [
         "4.2_q26"
       ],
-      "prompt": "Write a statement that prints 'Processing Numeric Input Result 27' to standard output.",
+      "prompt": "What exception is raised when executing `int('abc')` or `int('3.14')`?",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Processing Numeric Input Result 27')",
       "test_cases": [
@@ -485,40 +473,47 @@
           "expected_output": "Processing Numeric Input Result 27"
         }
       ],
-      "hint": "Use print('Processing Numeric Input Result 27') to generate the required output.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of processing numeric input advanced. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "hint": "The type is correct (str), but the content/value cannot be parsed as a base-10 integer.",
+      "explanation": "In Python, `int()` raises `ValueError: invalid literal for int() with base 10` when passed a string that does not represent a valid whole integer.",
+      "options": [
+        "ValueError",
+        "TypeError",
+        "SyntaxError",
+        "CastError"
+      ],
+      "correct_answer": "ValueError"
     },
     {
       "id": "4.2_q28",
-      "type": "write_the_code",
-      "concept": "processing_numeric_input_challenge",
-      "skill": "problem_solving",
+      "type": "real_world_scenario",
+      "concept": "safe_numeric_parsing",
+      "skill": "application",
       "difficulty": "hard",
       "prerequisites": [
         "4.2_q27"
       ],
-      "prompt": "Write a statement that prints 'Processing Numeric Input Result 28' to standard output.",
-      "starter_code": "# Write your code below\n",
-      "solution_code": "print('Processing Numeric Input Result 28')",
+      "prompt": "Write code that attempts to convert `user_str` to an integer, assigning `0` if a `ValueError` occurs:",
+      "starter_code": "user_str = 'invalid'\ntry:\n    val = int(user_str)\nexcept ValueError:\n    val = ___",
+      "solution_code": "user_str = 'invalid'\ntry:\n    val = int(user_str)\nexcept ValueError:\n    val = 0",
       "test_cases": [
         {
           "input": "",
           "expected_output": "Processing Numeric Input Result 28"
         }
       ],
-      "hint": "Use print('Processing Numeric Input Result 28') to generate the required output.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of processing numeric input challenge. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "hint": "Assign 0 inside the `except ValueError:` block.",
+      "explanation": "Using `try...except ValueError` is the idiomatic Python way (EAFP: Easier to Ask for Forgiveness than Permission) to handle unpredictable user inputs safely."
     },
     {
       "id": "4.2_q29",
-      "type": "write_the_code",
-      "concept": "processing_numeric_input_scenario",
-      "skill": "synthesis",
-      "difficulty": "hard",
+      "type": "code_prediction",
+      "concept": "float_int_truncation",
+      "skill": "prediction",
+      "difficulty": "medium",
       "prerequisites": [
         "4.2_q28"
       ],
-      "prompt": "Write a statement that prints 'Processing Numeric Input Result 29' to standard output.",
+      "prompt": "What does `int(float('9.99'))` evaluate to?\n```python\nval = int(float('9.99'))\nprint(val)\n```",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Processing Numeric Input Result 29')",
       "test_cases": [
@@ -527,29 +522,36 @@
           "expected_output": "Processing Numeric Input Result 29"
         }
       ],
-      "hint": "Use print('Processing Numeric Input Result 29') to generate the required output.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of processing numeric input scenario. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "hint": "First parse to float (9.99), then cast to int. Does `int()` round or truncate?",
+      "explanation": "`int()` truncates toward zero; it does not round. Thus, `float('9.99')` becomes `9.99`, and `int(9.99)` becomes `9`.",
+      "options": [
+        "9",
+        "10",
+        "9.99",
+        "ValueError"
+      ],
+      "correct_answer": "9"
     },
     {
       "id": "4.2_q30",
       "type": "write_the_code",
-      "concept": "processing_numeric_input_mastery",
-      "skill": "mastery",
+      "concept": "mastery_age_milestone_calculator",
+      "skill": "transfer",
       "difficulty": "hard",
       "prerequisites": [
         "4.2_q29"
       ],
-      "prompt": "Write a statement that prints 'Processing Numeric Input Result 30' to standard output.",
-      "starter_code": "# Write your code below\n",
-      "solution_code": "print('Processing Numeric Input Result 30')",
+      "prompt": "Write a complete snippet that asks the user for their birth year, computes their approximate age assuming the current year is 2026, and prints 'You are approximately X years old':",
+      "starter_code": "# Calculate and display approximate age based on current year 2026\nyear_str = input('Birth year: ')\n___",
+      "solution_code": "year_str = input('Birth year: ')\nage = 2026 - int(year_str)\nprint(f'You are approximately {age} years old')",
       "test_cases": [
         {
           "input": "",
           "expected_output": "Processing Numeric Input Result 30"
         }
       ],
-      "hint": "Use print('Processing Numeric Input Result 30') to generate the required output.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of processing numeric input mastery. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "hint": "Convert year_str with `int()` and subtract it from 2026.",
+      "explanation": "This synthesizes user string input, explicit type casting with `int()`, arithmetic subtraction, and f-string output formatting."
     }
   ],
   "unit_num": 4,

@@ -181,12 +181,6 @@
         "13.3_q9"
       ],
       "prompt": "Explain why the following code is safer than using open() without with:\n```python\nwith open('config.txt', 'r') as f:\n    data = f.read()\n```",
-      "options": [
-        "It runs faster.",
-        "It ensures the file is closed even if an error occurs inside the block.",
-        "It allows writing to the file.",
-        "It reduces memory usage."
-      ],
       "correct_answer": "It ensures the file is closed even if an error occurs inside the block.",
       "explanation": "Without with, a programmer must remember to call f.close() in a finally block or rely on garbage collection, which is unreliable. The with statement invokes the context manager's __exit__ method automatically, guaranteeing resource cleanup.",
       "difficulty": "medium",

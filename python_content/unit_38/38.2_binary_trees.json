@@ -172,12 +172,6 @@
         "38.2_q9"
       ],
       "prompt": "Consider the following recursive function that counts nodes in a binary tree:\n\n```python\ndef count_nodes(root):\n    if root is None:\n        return 0\n    return 1 + count_nodes(root.left) + count_nodes(root.right)\n```\n\nIf the tree has a root with value 1, a left child with value 2, and that left child has a left child with value 3, what does count_nodes(root) return and why?",
-      "options": [
-        "3, because it counts the root, the left child, and the left-left grandchild",
-        "2, because only the root and its direct left child are counted",
-        "1, because the function only counts leaf nodes",
-        "0, because the base case is triggered immediately"
-      ],
       "correct_answer": "3, because it counts the root, the left child, and the left-left grandchild",
       "explanation": "The function adds 1 for the current node and recursively sums counts from both subtrees. For this tree: root (1) + left subtree (2 + 1 + 0 + 0) + right subtree (0) = 3 total nodes. The base case returns 0 for None children.",
       "starter_code": "# Write your solution below\n",

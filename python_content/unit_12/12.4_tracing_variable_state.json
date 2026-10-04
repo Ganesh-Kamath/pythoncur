@@ -194,12 +194,6 @@
         "content": "When analyzing output, compare the expected trace against the actual result. Common mistakes include reading a variable before it is assigned or using an outdated value after reassignment. Consider this code:\n\n```python\na = 4\nb = a + 2\na = b - 3\nprint(b)\n```\n\nThe output is `6` because `a` starts at `4`, `b` becomes `6`, and `a` is later reduced to `3`, but `b` is never changed again."
       },
       "prompt": "This code is intended to calculate the perimeter of a rectangle with length 5 and width 3, but it produces an unexpected output. Explain why the output is 8 instead of the expected 16.\n\n```python\nlength = 5\nwidth = 3\nperimeter = length + width\nprint(perimeter)\n```",
-      "options": [
-        "The formula used only adds length and width, not twice each.",
-        "The variables were declared with wrong data types.",
-        "The print statement was placed before the calculation.",
-        "Python does not support perimeter calculations natively."
-      ],
       "correct_answer": "The formula used only adds length and width, not twice each.",
       "explanation": "The code computes `length + width = 5 + 3 = 8`. A rectangle perimeter is `2 * (length + width)`, so the correct value should be `16`. The bug is an incorrect formula, not a type error or placement issue.",
       "difficulty": "medium",

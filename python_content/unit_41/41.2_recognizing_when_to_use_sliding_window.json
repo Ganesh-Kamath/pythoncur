@@ -22,31 +22,20 @@
       "skill": "recall",
       "diff": "easy",
       "concept": "recognizing_when_to_use_sliding_window_basics",
-      "match_code_to_concept": {
-        "prompt": "Which of the following scenarios is a strong signal to use the sliding window pattern?",
-        "options": [
-          "Sorting a list of numbers in ascending order",
-          "Finding the longest contiguous substring that meets a length or character constraint",
-          "Building a binary search tree from sorted input",
-          "Reversing a linked list in place"
-        ],
-        "correct_answer": "Finding the longest contiguous substring that meets a length or character constraint",
-        "explanation": "Sliding window shines when you need to examine contiguous segments and can efficiently expand or shrink them. The other options describe sorting, tree construction, and pointer reversal, which use entirely different algorithmic strategies."
-      },
       "id": "41.2_q2",
       "difficulty": "easy",
       "prerequisites": [
         "41.2_q1"
       ],
-      "prompt": "Which statement best applies to recognizing when to use sliding window basics?",
+      "prompt": "Which of the following scenarios is a strong signal to use the sliding window pattern?",
       "options": [
-        "A. Correct approach for recognizing when to use sliding window basics",
-        "Raises a SyntaxError: invalid syntax at runtime",
-        "Raises an IndentationError: unexpected indent",
-        "Silently ignored by the Python parser"
+        "Sorting a list of numbers in ascending order",
+        "Finding the longest contiguous substring that meets a length or character constraint",
+        "Building a binary search tree from sorted input",
+        "Reversing a linked list in place"
       ],
-      "correct_answer": "A. Correct approach for recognizing when to use sliding window basics",
-      "explanation": "Demonstrates core usage of recognizing when to use sliding window basics in Python."
+      "correct_answer": "Finding the longest contiguous substring that meets a length or character constraint",
+      "explanation": "Sliding window shines when you need to examine contiguous segments and can efficiently expand or shrink them. The other options describe sorting, tree construction, and pointer reversal, which use entirely different algorithmic strategies."
     },
     {
       "idx": 3,
@@ -70,31 +59,20 @@
       "skill": "reasoning",
       "diff": "easy",
       "concept": "recognizing_when_to_use_sliding_window_syntax",
-      "match_code_to_concept": {
-        "prompt": "In the snippet below, what is the role of the while loop inside the for loop?",
-        "options": [
-          "It resets the right pointer to the beginning of the array",
-          "It shrinks the window from the left until the constraint is satisfied again",
-          "It sorts the elements currently inside the window",
-          "It copies the window contents into a new list"
-        ],
-        "correct_answer": "It shrinks the window from the left until the constraint is satisfied again",
-        "explanation": "The while loop maintains the invariant that the window state is valid. When the sum or condition becomes too large or invalid, left is incremented and the corresponding element is subtracted, effectively sliding the window forward."
-      },
       "id": "41.2_q4",
       "difficulty": "easy",
       "prerequisites": [
         "41.2_q3"
       ],
-      "prompt": "Which statement best applies to recognizing when to use sliding window syntax?",
+      "prompt": "In the snippet below, what is the role of the while loop inside the for loop?",
       "options": [
-        "A. Correct approach for recognizing when to use sliding window syntax",
-        "Raises a SyntaxError: invalid syntax at runtime",
-        "Raises an IndentationError: unexpected indent",
-        "Silently ignored by the Python parser"
+        "It resets the right pointer to the beginning of the array",
+        "It shrinks the window from the left until the constraint is satisfied again",
+        "It sorts the elements currently inside the window",
+        "It copies the window contents into a new list"
       ],
-      "correct_answer": "A. Correct approach for recognizing when to use sliding window syntax",
-      "explanation": "Demonstrates core usage of recognizing when to use sliding window syntax in Python."
+      "correct_answer": "It shrinks the window from the left until the constraint is satisfied again",
+      "explanation": "The while loop maintains the invariant that the window state is valid. When the sum or condition becomes too large or invalid, left is incremented and the corresponding element is subtracted, effectively sliding the window forward."
     },
     {
       "idx": 5,
@@ -102,31 +80,20 @@
       "skill": "recognition",
       "diff": "easy",
       "concept": "recognizing_when_to_use_sliding_window_matching",
-      "match_code_to_concept": {
-        "prompt": "Match the problem statement to the correct algorithmic pattern.",
-        "options": [
-          "Sliding window: 'Find the maximum sum of a subarray of length k'",
-          "Two pointers on sorted array: 'Find the pair of numbers that sum to a target'",
-          "Sliding window: 'Find the longest substring with all distinct characters'",
-          "Binary search: 'Find the first bad version in a sequence of versions'"
-        ],
-        "correct_answer": "Sliding window: 'Find the maximum sum of a subarray of length k'",
-        "explanation": "A fixed-size contiguous segment with an aggregate property is a textbook sliding window use case. While 'longest substring with all distinct characters' is also sliding window, the question asks for the best match among the options, and the fixed-length maximum sum is the most direct illustration of the pattern."
-      },
       "id": "41.2_q5",
       "difficulty": "easy",
       "prerequisites": [
         "41.2_q4"
       ],
-      "prompt": "Which statement best applies to recognizing when to use sliding window matching?",
+      "prompt": "Match the problem statement to the correct algorithmic pattern.",
       "options": [
-        "A. Correct approach for recognizing when to use sliding window matching",
-        "Raises a SyntaxError: invalid syntax at runtime",
-        "Raises an IndentationError: unexpected indent",
-        "Silently ignored by the Python parser"
+        "Sliding window: 'Find the maximum sum of a subarray of length k'",
+        "Two pointers on sorted array: 'Find the pair of numbers that sum to a target'",
+        "Sliding window: 'Find the longest substring with all distinct characters'",
+        "Binary search: 'Find the first bad version in a sequence of versions'"
       ],
-      "correct_answer": "A. Correct approach for recognizing when to use sliding window matching",
-      "explanation": "Demonstrates core usage of recognizing when to use sliding window matching in Python."
+      "correct_answer": "Sliding window: 'Find the maximum sum of a subarray of length k'",
+      "explanation": "A fixed-size contiguous segment with an aggregate property is a textbook sliding window use case. While 'longest substring with all distinct characters' is also sliding window, the question asks for the best match among the options, and the fixed-length maximum sum is the most direct illustration of the pattern."
     },
     {
       "idx": 6,
@@ -134,31 +101,20 @@
       "skill": "comprehension",
       "diff": "easy",
       "concept": "recognizing_when_to_use_sliding_window_pitfalls",
-      "match_code_to_concept": {
-        "prompt": "Which pitfall should you watch out for when applying sliding window?",
-        "options": [
-          "Forgetting to update the window state when moving either pointer",
-          "Using recursion instead of iteration for every window operation",
-          "Declaring variables outside the function scope unnecessarily",
-          "Importing too many standard library modules"
-        ],
-        "correct_answer": "Forgetting to update the window state when moving either pointer",
-        "explanation": "If you move left or right without updating the tracked value\u2014such as a running sum, character frequency, or count of unique elements\u2014the window becomes inconsistent and the algorithm produces wrong results. The other choices are general coding habits, not specific sliding window pitfalls."
-      },
       "id": "41.2_q6",
       "difficulty": "easy",
       "prerequisites": [
         "41.2_q5"
       ],
-      "prompt": "Which statement best applies to recognizing when to use sliding window pitfalls?",
+      "prompt": "Which pitfall should you watch out for when applying sliding window?",
       "options": [
-        "A. Correct approach for recognizing when to use sliding window pitfalls",
-        "Raises a SyntaxError: invalid syntax at runtime",
-        "Raises an IndentationError: unexpected indent",
-        "Silently ignored by the Python parser"
+        "Forgetting to update the window state when moving either pointer",
+        "Using recursion instead of iteration for every window operation",
+        "Declaring variables outside the function scope unnecessarily",
+        "Importing too many standard library modules"
       ],
-      "correct_answer": "A. Correct approach for recognizing when to use sliding window pitfalls",
-      "explanation": "Demonstrates core usage of recognizing when to use sliding window pitfalls in Python."
+      "correct_answer": "Forgetting to update the window state when moving either pointer",
+      "explanation": "If you move left or right without updating the tracked value—such as a running sum, character frequency, or count of unique elements—the window becomes inconsistent and the algorithm produces wrong results. The other choices are general coding habits, not specific sliding window pitfalls."
     },
     {
       "id": "41.2_q7",
@@ -227,12 +183,6 @@
         "41.2_q9"
       ],
       "prompt": "Consider the following Python function that finds the length of the longest substring without repeating characters:\n\n```python\ndef length_of_longest_substring(s):\n    char_index = {}\n    left = 0\n    max_len = 0\n    for right, char in enumerate(s):\n        if char in char_index and char_index[char] >= left:\n            left = char_index[char] + 1\n        char_index[char] = right\n        max_len = max(max_len, right - left + 1)\n    return max_len\n```\n\nExplain why this problem is a good candidate for the sliding window technique rather than a brute-force nested loop approach.",
-      "options": [
-        "Because it requires sorting the characters first to detect duplicates efficiently.",
-        "Because the contiguous nature of substrings and the need to maintain a dynamic range of unique characters aligns with the expand-and-shrink behavior of a sliding window.",
-        "Because recursion naturally models the backtracking needed when a duplicate character is found.",
-        "Because the problem can be solved in O(1) space using only a single integer variable."
-      ],
       "correct_answer": "Because the contiguous nature of substrings and the need to maintain a dynamic range of unique characters aligns with the expand-and-shrink behavior of a sliding window.",
       "explanation": "The sliding window technique is ideal here because we need to examine contiguous segments of the string while ensuring no character repeats within the current segment. By expanding the right boundary and shrinking the left boundary only when a duplicate is found, we avoid re-examining characters, achieving O(n) time complexity. A brute-force nested loop would check every possible substring independently, leading to O(n^2) or worse time complexity.",
       "starter_code": "# Write your solution below\n",
@@ -539,55 +489,55 @@
     {
       "id": "41.2_q25",
       "type": "write_the_code",
-      "concept": "recognizing_when_to_use_sliding_window_implementation",
-      "skill": "application",
+      "concept": "fixed_sliding_window_max_sum",
+      "skill": "implementation",
       "difficulty": "medium",
       "prerequisites": [
         "41.2_q24"
       ],
-      "prompt": "Write a statement that prints 'Recognizing When to use Sliding Window Result 25' to standard output.",
-      "starter_code": "# Write your code below\n",
-      "solution_code": "print('Recognizing When to use Sliding Window Result 25')",
+      "prompt": "Implement a function `max_subarray_sum(nums, k)` that finds the maximum sum of any contiguous subarray of size `k` in O(n) time:",
+      "starter_code": "def max_subarray_sum(nums, k):\n    if len(nums) < k:\n        return 0\n    # Compute initial window sum, then slide\n    ___",
+      "solution_code": "def max_subarray_sum(nums, k):\n    if len(nums) < k:\n        return 0\n    curr_sum = sum(nums[:k])\n    max_sum = curr_sum\n    for i in range(k, len(nums)):\n        curr_sum += nums[i] - nums[i - k]\n        max_sum = max(max_sum, curr_sum)\n    return max_sum",
       "test_cases": [
         {
           "input": "",
           "expected_output": "Recognizing When to use Sliding Window Result 25"
         }
       ],
-      "hint": "Use print('Recognizing When to use Sliding Window Result 25') to generate the required output.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of recognizing when to use sliding window implementation. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "hint": "Calculate the sum of the first `k` elements, then slide the window by adding `nums[i]` and subtracting `nums[i - k]`.",
+      "explanation": "A fixed-size sliding window updates the running sum in O(1) time per step rather than recomputing `sum(nums[i:i+k])` which would take O(k), reducing total time complexity from O(n*k) to O(n)."
     },
     {
       "id": "41.2_q26",
-      "type": "write_the_code",
-      "concept": "recognizing_when_to_use_sliding_window_practical",
-      "skill": "application",
-      "difficulty": "medium",
+      "type": "fix_the_code",
+      "concept": "sliding_window_off_by_one",
+      "skill": "debugging",
+      "difficulty": "hard",
       "prerequisites": [
         "41.2_q25"
       ],
-      "prompt": "Write a statement that prints 'Recognizing When to use Sliding Window Result 26' to standard output.",
-      "starter_code": "# Write your code below\n",
-      "solution_code": "print('Recognizing When to use Sliding Window Result 26')",
+      "prompt": "Fix the off-by-one window length calculation in this implementation of minimum size subarray sum:",
+      "starter_code": "def min_sub_array_len(target, nums):\n    left = 0\n    curr_sum = 0\n    min_len = float('inf')\n    for right in range(len(nums)):\n        curr_sum += nums[right]\n        while curr_sum >= target:\n            # Bug: off by one in window length calculation\n            min_len = min(min_len, right - left)\n            curr_sum -= nums[left]\n            left += 1\n    return min_len if min_len != float('inf') else 0",
+      "solution_code": "def min_sub_array_len(target, nums):\n    left = 0\n    curr_sum = 0\n    min_len = float('inf')\n    for right in range(len(nums)):\n        curr_sum += nums[right]\n        while curr_sum >= target:\n            min_len = min(min_len, right - left + 1)\n            curr_sum -= nums[left]\n            left += 1\n    return min_len if min_len != float('inf') else 0",
       "test_cases": [
         {
           "input": "",
           "expected_output": "Recognizing When to use Sliding Window Result 26"
         }
       ],
-      "hint": "Use print('Recognizing When to use Sliding Window Result 26') to generate the required output.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of recognizing when to use sliding window practical. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "hint": "Indices are 0-based: the number of elements between `left` and `right` inclusive is `right - left + 1`.",
+      "explanation": "In 0-indexed sequences, the distance between `left` and `right` indices inclusive is `right - left + 1`. Using `right - left` is a classic off-by-one bug that undercounts the subarray length by 1."
     },
     {
       "id": "41.2_q27",
-      "type": "write_the_code",
-      "concept": "recognizing_when_to_use_sliding_window_advanced",
-      "skill": "application",
-      "difficulty": "hard",
+      "type": "code_prediction",
+      "concept": "sliding_window_time_complexity",
+      "skill": "analysis",
+      "difficulty": "medium",
       "prerequisites": [
         "41.2_q26"
       ],
-      "prompt": "Write a statement that prints 'Recognizing When to use Sliding Window Result 27' to standard output.",
+      "prompt": "Even though this sliding window code has a `while` loop nested inside a `for` loop, why is its overall time complexity O(n)?\n```python\nfor right in range(len(nums)):\n    curr += nums[right]\n    while curr > limit:\n        curr -= nums[left]\n        left += 1\n```",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Recognizing When to use Sliding Window Result 27')",
       "test_cases": [
@@ -596,40 +546,47 @@
           "expected_output": "Recognizing When to use Sliding Window Result 27"
         }
       ],
-      "hint": "Use print('Recognizing When to use Sliding Window Result 27') to generate the required output.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of recognizing when to use sliding window advanced. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "hint": "Analyze the total number of operations performed by the two pointers over the entire algorithm.",
+      "explanation": "In amortized analysis, `right` advances `n` times and `left` advances at most `n` times. Total pointer movements are 2n, which is asymptotically O(n).",
+      "options": [
+        "Both `left` and `right` only advance forward, moving at most `n` times each",
+        "The Python compiler optimizes while loops automatically to O(1)",
+        "Because `nums` is always pre-sorted",
+        "The while loop only executes on the last iteration"
+      ],
+      "correct_answer": "Both `left` and `right` only advance forward, moving at most `n` times each"
     },
     {
       "id": "41.2_q28",
-      "type": "write_the_code",
-      "concept": "recognizing_when_to_use_sliding_window_challenge",
-      "skill": "problem_solving",
+      "type": "real_world_scenario",
+      "concept": "server_latency_monitoring",
+      "skill": "application",
       "difficulty": "hard",
       "prerequisites": [
         "41.2_q27"
       ],
-      "prompt": "Write a statement that prints 'Recognizing When to use Sliding Window Result 28' to standard output.",
-      "starter_code": "# Write your code below\n",
-      "solution_code": "print('Recognizing When to use Sliding Window Result 28')",
+      "prompt": "A server records request latencies in milliseconds. Write a sliding window function that detects whether any consecutive window of `k` requests had an average latency exceeding `threshold`:",
+      "starter_code": "def alert_latency_spike(latencies, k, threshold):\n    if len(latencies) < k:\n        return False\n    curr_sum = sum(latencies[:k])\n    if curr_sum / k > threshold:\n        return True\n    for i in range(k, len(latencies)):\n        curr_sum += latencies[i] - latencies[i - k]\n        if curr_sum / k > threshold:\n            return True\n    return False",
+      "solution_code": "def alert_latency_spike(latencies, k, threshold):\n    if len(latencies) < k:\n        return False\n    curr_sum = sum(latencies[:k])\n    if curr_sum / k > threshold:\n        return True\n    for i in range(k, len(latencies)):\n        curr_sum += latencies[i] - latencies[i - k]\n        if curr_sum / k > threshold:\n            return True\n    return False",
       "test_cases": [
         {
           "input": "",
           "expected_output": "Recognizing When to use Sliding Window Result 28"
         }
       ],
-      "hint": "Use print('Recognizing When to use Sliding Window Result 28') to generate the required output.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of recognizing when to use sliding window challenge. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "hint": "Update the running sum by adding the incoming latency and subtracting the outgoing latency.",
+      "explanation": "Sliding window calculates rolling averages for live time-series monitoring in O(1) space and O(n) time, making it ideal for streaming telemetry."
     },
     {
       "id": "41.2_q29",
-      "type": "write_the_code",
-      "concept": "recognizing_when_to_use_sliding_window_scenario",
-      "skill": "synthesis",
+      "type": "error_diagnosis",
+      "concept": "window_state_invalidation",
+      "skill": "diagnosis",
       "difficulty": "hard",
       "prerequisites": [
         "41.2_q28"
       ],
-      "prompt": "Write a statement that prints 'Recognizing When to use Sliding Window Result 29' to standard output.",
+      "prompt": "What critical bug occurs in a variable-size sliding window if you forget to decrement `left`'s frequency in the frequency map when shrinking the window?",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Recognizing When to use Sliding Window Result 29')",
       "test_cases": [
@@ -638,29 +595,36 @@
           "expected_output": "Recognizing When to use Sliding Window Result 29"
         }
       ],
-      "hint": "Use print('Recognizing When to use Sliding Window Result 29') to generate the required output.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of recognizing when to use sliding window scenario. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "hint": "Think about what state the window maintains as `left` moves forward.",
+      "explanation": "The window state must accurately represent only the elements between `left` and `right`. If you fail to decrement the count when advancing `left`, the algorithm over-counts characters.",
+      "options": [
+        "The frequency map continues to count characters that are no longer inside the active window",
+        "Python raises a KeyError immediately",
+        "The right pointer resets to index 0",
+        "The string length changes automatically"
+      ],
+      "correct_answer": "The frequency map continues to count characters that are no longer inside the active window"
     },
     {
       "id": "41.2_q30",
       "type": "write_the_code",
-      "concept": "recognizing_when_to_use_sliding_window_mastery",
-      "skill": "mastery",
-      "difficulty": "hard",
+      "concept": "mastery_longest_unique_substring",
+      "skill": "transfer",
+      "difficulty": "expert",
       "prerequisites": [
         "41.2_q29"
       ],
-      "prompt": "Write a statement that prints 'Recognizing When to use Sliding Window Result 30' to standard output.",
-      "starter_code": "# Write your code below\n",
-      "solution_code": "print('Recognizing When to use Sliding Window Result 30')",
+      "prompt": "Mastery Challenge: Implement `longest_unique_substr_len(s)` that returns the length of the longest substring without repeating characters in O(n) time:",
+      "starter_code": "def longest_unique_substr_len(s):\n    seen = set()\n    left = 0\n    max_len = 0\n    for right in range(len(s)):\n        # Expand and shrink window dynamically\n        ___",
+      "solution_code": "def longest_unique_substr_len(s):\n    seen = set()\n    left = 0\n    max_len = 0\n    for right in range(len(s)):\n        while s[right] in seen:\n            seen.remove(s[left])\n            left += 1\n        seen.add(s[right])\n        max_len = max(max_len, right - left + 1)\n    return max_len",
       "test_cases": [
         {
           "input": "",
           "expected_output": "Recognizing When to use Sliding Window Result 30"
         }
       ],
-      "hint": "Use print('Recognizing When to use Sliding Window Result 30') to generate the required output.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of recognizing when to use sliding window mastery. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "hint": "When `s[right]` is already in `seen`, shrink from `left` by removing `s[left]` and incrementing `left` until the duplicate is gone.",
+      "explanation": "This canonical sliding window algorithm maintains a set of characters currently inside the window, expanding with `right` and shrinking with `left` whenever a duplicate appears."
     }
   ],
   "unit_num": 41,

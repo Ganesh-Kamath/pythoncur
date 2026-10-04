@@ -153,12 +153,6 @@
         "36.4_q8"
       ],
       "prompt": "Fix this code snippet implementing Recursion vs Iteration correctly:",
-      "options": [
-        "45",
-        "22",
-        "value_9",
-        "Error"
-      ],
       "correct_answer": "45",
       "explanation": "Applying standard Python idioms ensures correct behavior: recursion risks RecursionError if base case is missing or depth exceeds limit.",
       "starter_code": "# Recursion vs Iteration implementation\n___",
@@ -166,24 +160,24 @@
     },
     {
       "id": "36.4_q10",
-      "type": "write_the_code",
-      "concept": "recursion_vs_iteration_analysis",
-      "skill": "analysis",
-      "difficulty": "medium",
+      "type": "real_world_scenario",
+      "concept": "recursion_vs_iteration_production_transfer",
+      "skill": "application",
+      "difficulty": "hard",
       "prerequisites": [
         "36.4_q9"
       ],
-      "prompt": "Write a statement that prints 'Recursion vs Iteration Result 10' to standard output.",
-      "starter_code": "# Write your code below\n",
-      "solution_code": "print('Recursion vs Iteration Result 10')",
+      "prompt": "Apply Recursion vs Iteration to a realistic scenario: process a sequence of records and return only those meeting the business rule:",
+      "starter_code": "records = [{'id': 1, 'active': True}, {'id': 2, 'active': False}]\n# Filter active records\nactive_records = ___",
+      "solution_code": "records = [{'id': 1, 'active': True}, {'id': 2, 'active': False}]\nactive_records = [r for r in records if r['active']]",
       "test_cases": [
         {
           "input": "",
           "expected_output": "Recursion vs Iteration Result 10"
         }
       ],
-      "hint": "Use print('Recursion vs Iteration Result 10') to generate the required output.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of recursion vs iteration analysis. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "hint": "Use a list comprehension to filter records where 'active' is True.",
+      "explanation": "In production Python code, Recursion vs Iteration is frequently combined with data filtering to process structured domain models efficiently."
     },
     {
       "id": "36.4_q11",
@@ -214,12 +208,6 @@
         "36.4_q11"
       ],
       "prompt": "Write the canonical Python code statement for Recursion vs Iteration:",
-      "options": [
-        "60",
-        "30",
-        "value_12",
-        "Error"
-      ],
       "correct_answer": "60",
       "explanation": "Canonical implementation: def factorial(n):\n    return 1 if n <= 1 else n * factorial(n - 1). Recursion risks recursionerror if base case is missing or depth exceeds limit.",
       "starter_code": "# Complete the statement\n___",
@@ -478,54 +466,54 @@
       "id": "36.4_q25",
       "type": "write_the_code",
       "concept": "recursion_vs_iteration_implementation",
-      "skill": "application",
+      "skill": "implementation",
       "difficulty": "medium",
       "prerequisites": [
         "36.4_q24"
       ],
-      "prompt": "Write a statement that prints 'Recursion vs Iteration Result 25' to standard output.",
-      "starter_code": "# Write your code below\n",
-      "solution_code": "print('Recursion vs Iteration Result 25')",
+      "prompt": "Write a clean, reusable function or code statement that demonstrates core usage of Recursion vs Iteration:",
+      "starter_code": "# Implement a solution for Recursion vs Iteration\ndef solve():\n    ___",
+      "solution_code": "def solve():\n    # Core implementation of Recursion vs Iteration\n    return True",
       "test_cases": [
         {
           "input": "",
           "expected_output": "Recursion vs Iteration Result 25"
         }
       ],
-      "hint": "Use print('Recursion vs Iteration Result 25') to generate the required output.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of recursion vs iteration implementation. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "hint": "Focus on applying the central Python idiom for Recursion vs Iteration.",
+      "explanation": "Understanding how to construct clean implementations of Recursion vs Iteration ensures you can integrate it into broader software applications."
     },
     {
       "id": "36.4_q26",
-      "type": "write_the_code",
-      "concept": "recursion_vs_iteration_practical",
-      "skill": "application",
+      "type": "fix_the_code",
+      "concept": "recursion_vs_iteration_debugging",
+      "skill": "debugging",
       "difficulty": "medium",
       "prerequisites": [
         "36.4_q25"
       ],
-      "prompt": "Write a statement that prints 'Recursion vs Iteration Result 26' to standard output.",
-      "starter_code": "# Write your code below\n",
-      "solution_code": "print('Recursion vs Iteration Result 26')",
+      "prompt": "Identify and fix the logical or syntax defect in this implementation of Recursion vs Iteration:",
+      "starter_code": "# Fix the issue with Recursion vs Iteration\ndef check_valid(val):\n    if val is None:\n        return False\n    return True",
+      "solution_code": "def check_valid(val):\n    if val is None:\n        return False\n    return True",
       "test_cases": [
         {
           "input": "",
           "expected_output": "Recursion vs Iteration Result 26"
         }
       ],
-      "hint": "Use print('Recursion vs Iteration Result 26') to generate the required output.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of recursion vs iteration practical. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "hint": "Check the condition and return value carefully.",
+      "explanation": "Debugging is a core programming competency. Guarding against edge cases like `None` or invalid states prevents runtime failures."
     },
     {
       "id": "36.4_q27",
-      "type": "write_the_code",
-      "concept": "recursion_vs_iteration_advanced",
-      "skill": "application",
+      "type": "code_prediction",
+      "concept": "recursion_vs_iteration_edge_case",
+      "skill": "prediction",
       "difficulty": "hard",
       "prerequisites": [
         "36.4_q26"
       ],
-      "prompt": "Write a statement that prints 'Recursion vs Iteration Result 27' to standard output.",
+      "prompt": "What will be the outcome when this code handling Recursion vs Iteration encounters empty or boundary input?\n```python\ndef process(data):\n    return [x for x in data if x]\nprint(process([]))\n```",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('Recursion vs Iteration Result 27')",
       "test_cases": [
@@ -534,71 +522,78 @@
           "expected_output": "Recursion vs Iteration Result 27"
         }
       ],
-      "hint": "Use print('Recursion vs Iteration Result 27') to generate the required output.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of recursion vs iteration advanced. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "hint": "An empty input list evaluates as falsy and produces an empty result.",
+      "explanation": "Handling empty collections gracefully without raising unexpected exceptions is an essential design pattern when working with Recursion vs Iteration.",
+      "options": [
+        "[]",
+        "None",
+        "IndexError",
+        "ValueError"
+      ],
+      "correct_answer": "[]"
     },
     {
       "id": "36.4_q28",
-      "type": "write_the_code",
-      "concept": "recursion_vs_iteration_challenge",
-      "skill": "problem_solving",
+      "type": "real_world_scenario",
+      "concept": "recursion_vs_iteration_production_transfer",
+      "skill": "application",
       "difficulty": "hard",
       "prerequisites": [
         "36.4_q27"
       ],
-      "prompt": "Write a statement that prints 'Recursion vs Iteration Result 28' to standard output.",
-      "starter_code": "# Write your code below\n",
-      "solution_code": "print('Recursion vs Iteration Result 28')",
+      "prompt": "Apply Recursion vs Iteration to a realistic scenario: process a sequence of records and return only those meeting the business rule:",
+      "starter_code": "records = [{'id': 1, 'active': True}, {'id': 2, 'active': False}]\n# Filter active records\nactive_records = ___",
+      "solution_code": "records = [{'id': 1, 'active': True}, {'id': 2, 'active': False}]\nactive_records = [r for r in records if r['active']]",
       "test_cases": [
         {
           "input": "",
           "expected_output": "Recursion vs Iteration Result 28"
         }
       ],
-      "hint": "Use print('Recursion vs Iteration Result 28') to generate the required output.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of recursion vs iteration challenge. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "hint": "Use a list comprehension to filter records where 'active' is True.",
+      "explanation": "In production Python code, Recursion vs Iteration is frequently combined with data filtering to process structured domain models efficiently."
     },
     {
       "id": "36.4_q29",
-      "type": "write_the_code",
-      "concept": "recursion_vs_iteration_scenario",
-      "skill": "synthesis",
+      "type": "fix_the_code",
+      "concept": "recursion_vs_iteration_refactoring",
+      "skill": "refactoring",
       "difficulty": "hard",
       "prerequisites": [
         "36.4_q28"
       ],
-      "prompt": "Write a statement that prints 'Recursion vs Iteration Result 29' to standard output.",
-      "starter_code": "# Write your code below\n",
-      "solution_code": "print('Recursion vs Iteration Result 29')",
+      "prompt": "Refactor this procedural snippet for Recursion vs Iteration into clean, modular, and idiomatic Python:",
+      "starter_code": "items = [1, 2, 3, 4]\n# Refactor to use idiomatic transformation\nres = []\nfor x in items:\n    res.append(x * 2)",
+      "solution_code": "items = [1, 2, 3, 4]\nres = [x * 2 for x in items]",
       "test_cases": [
         {
           "input": "",
           "expected_output": "Recursion vs Iteration Result 29"
         }
       ],
-      "hint": "Use print('Recursion vs Iteration Result 29') to generate the required output.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of recursion vs iteration scenario. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "hint": "Convert the accumulator `for` loop into a concise list comprehension.",
+      "explanation": "Replacing boilerplate append loops with list comprehensions is a fundamental Python refactoring that improves both readability and execution speed."
     },
     {
       "id": "36.4_q30",
       "type": "write_the_code",
-      "concept": "recursion_vs_iteration_mastery",
-      "skill": "mastery",
-      "difficulty": "hard",
+      "concept": "recursion_vs_iteration_mastery_challenge",
+      "skill": "transfer",
+      "difficulty": "expert",
       "prerequisites": [
         "36.4_q29"
       ],
-      "prompt": "Write a statement that prints 'Recursion vs Iteration Result 30' to standard output.",
-      "starter_code": "# Write your code below\n",
-      "solution_code": "print('Recursion vs Iteration Result 30')",
+      "prompt": "Mastery Challenge: Implement a robust, tested function for Recursion vs Iteration that processes inputs, validates preconditions, and handles invalid states cleanly:",
+      "starter_code": "def execute_task(data):\n    if not data:\n        return None\n    # Process valid data\n    ___",
+      "solution_code": "def execute_task(data):\n    if not data:\n        return None\n    return sorted(data)",
       "test_cases": [
         {
           "input": "",
           "expected_output": "Recursion vs Iteration Result 30"
         }
       ],
-      "hint": "Use print('Recursion vs Iteration Result 30') to generate the required output.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of recursion vs iteration mastery. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "hint": "Validate input first, then execute the transformation.",
+      "explanation": "Demonstrating end-to-end mastery of Recursion vs Iteration requires combining input validation, core algorithmic logic, and defensive programming."
     }
   ],
   "unit_num": 36,

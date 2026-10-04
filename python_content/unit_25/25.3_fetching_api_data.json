@@ -24,26 +24,15 @@
       "prerequisites": [
         "25.3_q1"
       ],
-      "match_code_to_concept": {
-        "prompt": "Which statement correctly imports and makes a basic GET request to fetch data from an API in Python?",
-        "options": [
-          "import requests; data = requests.post('https://api.example.com')",
-          "import requests; response = requests.get('https://api.example.com')",
-          "import requests; response = requests.get('https://api.example.com', method='GET')",
-          "import requests; response = requests.fetch('https://api.example.com')"
-        ],
-        "correct_answer": "import requests; response = requests.get('https://api.example.com')",
-        "explanation": "The `requests.get()` function is the standard way to perform an HTTP GET request. The `post()` method is used for sending data, not retrieving it. The `fetch()` function does not exist in the `requests` library. While specifying `method='GET'` is valid, the simplest and most common syntax is `requests.get(url)`."
-      },
-      "prompt": "Which statement best applies to fetching api data basics?",
+      "prompt": "Which statement correctly imports and makes a basic GET request to fetch data from an API in Python?",
       "options": [
-        "A. Correct approach for fetching api data basics",
-        "Raises a SyntaxError: invalid syntax at runtime",
-        "Raises an IndentationError: unexpected indent",
-        "Silently ignored by the Python parser"
+        "import requests; data = requests.post('https://api.example.com')",
+        "import requests; response = requests.get('https://api.example.com')",
+        "import requests; response = requests.get('https://api.example.com', method='GET')",
+        "import requests; response = requests.fetch('https://api.example.com')"
       ],
-      "correct_answer": "A. Correct approach for fetching api data basics",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of fetching api data basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "correct_answer": "import requests; response = requests.get('https://api.example.com')",
+      "explanation": "The `requests.get()` function is the standard way to perform an HTTP GET request. The `post()` method is used for sending data, not retrieving it. The `fetch()` function does not exist in the `requests` library. While specifying `method='GET'` is valid, the simplest and most common syntax is `requests.get(url)`."
     },
     {
       "id": "25.3_q3",
@@ -68,26 +57,15 @@
       "prerequisites": [
         "25.3_q3"
       ],
-      "match_code_to_concept": {
-        "prompt": "Given the code below, what will be printed when it runs successfully?\n\n```python\nimport requests\nurl = 'https://jsonplaceholder.typicode.com/posts/1'\nresponse = requests.get(url)\ndata = response.json()\nprint(data['title'])\n```",
-        "options": [
-          "The title of post 1",
-          "A list of all posts",
-          "An error because 'title' is missing",
-          "The HTTP status code 200"
-        ],
-        "correct_answer": "The title of post 1",
-        "explanation": "The `response.json()` call parses the JSON payload into a Python dictionary. The dictionary contains a key `'title'` with a string value representing the post's title. Therefore, `print(data['title'])` outputs that string. It does not print the status code, nor does it return a list, and the key exists in the sample data."
-      },
-      "prompt": "Which statement best applies to fetching api data syntax?",
+      "prompt": "Given the code below, what will be printed when it runs successfully?\n\n```python\nimport requests\nurl = 'https://jsonplaceholder.typicode.com/posts/1'\nresponse = requests.get(url)\ndata = response.json()\nprint(data['title'])\n```",
       "options": [
-        "A. Correct approach for fetching api data syntax",
-        "Raises a SyntaxError: invalid syntax at runtime",
-        "Raises an IndentationError: unexpected indent",
-        "Silently ignored by the Python parser"
+        "The title of post 1",
+        "A list of all posts",
+        "An error because 'title' is missing",
+        "The HTTP status code 200"
       ],
-      "correct_answer": "A. Correct approach for fetching api data syntax",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of fetching api data syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "correct_answer": "The title of post 1",
+      "explanation": "The `response.json()` call parses the JSON payload into a Python dictionary. The dictionary contains a key `'title'` with a string value representing the post's title. Therefore, `print(data['title'])` outputs that string. It does not print the status code, nor does it return a list, and the key exists in the sample data."
     },
     {
       "id": "25.3_q5",
@@ -98,26 +76,15 @@
       "prerequisites": [
         "25.3_q4"
       ],
-      "match_code_to_concept": {
-        "prompt": "Which code snippet correctly matches the concept of extracting a nested value from fetched API JSON data?",
-        "options": [
-          "data = response.text; print(data[0])",
-          "data = response.json(); print(data['user']['name'])",
-          "data = requests.get(url); print(data['user']['name'])",
-          "data = response.json(); print(data.user.name)"
-        ],
-        "correct_answer": "data = response.json(); print(data['user']['name'])",
-        "explanation": "You must first call `response.json()` to convert the response body into a Python dictionary. Then you access nested keys using bracket notation like `data['user']['name']`. `response.text` returns a raw string, not a dictionary. `requests.get(url)` returns a response object, not parsed data. Dictionary keys cannot be accessed with dot notation unless you convert to an object, which is not standard for JSON parsing."
-      },
-      "prompt": "Which statement best applies to fetching api data matching?",
+      "prompt": "Which code snippet correctly matches the concept of extracting a nested value from fetched API JSON data?",
       "options": [
-        "A. Correct approach for fetching api data matching",
-        "Raises a SyntaxError: invalid syntax at runtime",
-        "Raises an IndentationError: unexpected indent",
-        "Silently ignored by the Python parser"
+        "data = response.text; print(data[0])",
+        "data = response.json(); print(data['user']['name'])",
+        "data = requests.get(url); print(data['user']['name'])",
+        "data = response.json(); print(data.user.name)"
       ],
-      "correct_answer": "A. Correct approach for fetching api data matching",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of fetching api data matching. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "correct_answer": "data = response.json(); print(data['user']['name'])",
+      "explanation": "You must first call `response.json()` to convert the response body into a Python dictionary. Then you access nested keys using bracket notation like `data['user']['name']`. `response.text` returns a raw string, not a dictionary. `requests.get(url)` returns a response object, not parsed data. Dictionary keys cannot be accessed with dot notation unless you convert to an object, which is not standard for JSON parsing."
     },
     {
       "id": "25.3_q6",
@@ -128,26 +95,15 @@
       "prerequisites": [
         "25.3_q5"
       ],
-      "match_code_to_concept": {
-        "prompt": "A beginner writes the following code. What is a common pitfall they might encounter?\n\n```python\nimport requests\nurl = 'https://api.example.com/data'\nresponse = requests.get(url)\nprint(response['name'])\n```",
-        "options": [
-          "They forgot to install the `requests` library.",
-          "They tried to index the response object like a dictionary instead of parsing JSON first.",
-          "They used a POST request instead of a GET request.",
-          "They did not specify a timeout parameter."
-        ],
-        "correct_answer": "They tried to index the response object like a dictionary instead of parsing JSON first.",
-        "explanation": "The `response` object from `requests.get()` is not a dictionary; it is a `Response` instance. Attempting `response['name']` raises a `TypeError`. You must call `response.json()` to obtain the dictionary before accessing keys. While installing the library is important, the code as written would fail at runtime due to this specific mistake. A timeout is good practice but not the immediate cause of this error."
-      },
-      "prompt": "Which statement best applies to fetching api data pitfalls?",
+      "prompt": "A beginner writes the following code. What is a common pitfall they might encounter?\n\n```python\nimport requests\nurl = 'https://api.example.com/data'\nresponse = requests.get(url)\nprint(response['name'])\n```",
       "options": [
-        "A. Correct approach for fetching api data pitfalls",
-        "Raises a SyntaxError: invalid syntax at runtime",
-        "Raises an IndentationError: unexpected indent",
-        "Silently ignored by the Python parser"
+        "They forgot to install the `requests` library.",
+        "They tried to index the response object like a dictionary instead of parsing JSON first.",
+        "They used a POST request instead of a GET request.",
+        "They did not specify a timeout parameter."
       ],
-      "correct_answer": "A. Correct approach for fetching api data pitfalls",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of fetching api data pitfalls. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "correct_answer": "They tried to index the response object like a dictionary instead of parsing JSON first.",
+      "explanation": "The `response` object from `requests.get()` is not a dictionary; it is a `Response` instance. Attempting `response['name']` raises a `TypeError`. You must call `response.json()` to obtain the dictionary before accessing keys. While installing the library is important, the code as written would fail at runtime due to this specific mistake. A timeout is good practice but not the immediate cause of this error."
     },
     {
       "id": "25.3_q7",
@@ -216,12 +172,6 @@
         "25.3_q9"
       ],
       "prompt": "Explain what the following code does and why the output is what it is.\n\n```python\nimport requests\n\nr = requests.get('https://httpbin.org/get')\nprint(r.headers['Content-Type'])\nprint(r.text[:50])\n```",
-      "options": [
-        "It prints the content type header and the first 50 characters of the raw response body, which is JSON returned by httpbin.org.",
-        "It prints the request headers and the full response text, which is HTML.",
-        "It raises a KeyError because 'Content-Type' is not in headers.",
-        "It prints the status code and the first 50 bytes of the response."
-      ],
       "correct_answer": "It prints the content type header and the first 50 characters of the raw response body, which is JSON returned by httpbin.org.",
       "explanation": "The code performs a GET request to httpbin.org/get, which echoes back request details as JSON. r.headers['Content-Type'] retrieves the MIME type of the response (application/json), and r.text[:50] slices the first 50 characters of the decoded response body, showing the start of the JSON payload.",
       "starter_code": "# Write your solution below\n",
@@ -243,12 +193,6 @@
         "25.3_q10"
       ],
       "prompt": "Trace the execution of the code step by step and identify the final value of 'count'.\n\n```python\nimport requests\n\nurl = 'https://jsonplaceholder.typicode.com/posts'\nresp = requests.get(url)\nposts = resp.json()\ncount = 0\nfor p in posts:\n    if 'title' in p and len(p['title']) > 10:\n        count += 1\nprint(count)\n```",
-      "options": [
-        "count is 99 because all 100 posts have titles longer than 10 characters.",
-        "count is 100 because every post contains a 'title' key and all titles exceed 10 characters.",
-        "count is 0 because the condition is never met.",
-        "count is 50 because half of the posts have long titles."
-      ],
       "correct_answer": "count is 100 because every post contains a 'title' key and all titles exceed 10 characters.",
       "explanation": "The loop iterates over all 100 posts. Each post dictionary has a 'title' key, and every title string in the dataset is longer than 10 characters. Therefore the condition is true for every iteration, and count increments to 100.",
       "starter_code": "# Write your solution below\n",

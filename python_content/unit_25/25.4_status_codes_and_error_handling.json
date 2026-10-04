@@ -172,12 +172,6 @@
         "25.4_q9"
       ],
       "prompt": "Explain what happens when the following code is executed and why.\n```python\nimport requests\nr = requests.get('https://httpbin.org/status/500')\n\nif r.ok:\n    print('Request succeeded')\nelse:\n    print('Request failed with status', r.status_code)\n```",
-      "options": [
-        "It prints 'Request succeeded' because 500 is considered okay.",
-        "It prints 'Request failed with status 500' because r.ok is False for 5xx codes.",
-        "It raises an exception because 500 is a server error.",
-        "It prints nothing because the if condition is invalid."
-      ],
       "correct_answer": "It prints 'Request failed with status 500' because r.ok is False for 5xx codes.",
       "explanation": "The r.ok property returns True only for status codes in the 200-299 range. A 500 status code falls outside this range, so r.ok is False and the else branch executes, printing the failure message.",
       "starter_code": "# Write your solution below\n",
@@ -199,12 +193,6 @@
         "25.4_q10"
       ],
       "prompt": "Trace the execution of the following code and identify the final output.\n```python\nimport requests\n\ndef fetch_data(url):\n    try:\n        r = requests.get(url, timeout=1)\n        return r.status_code\n    except requests.exceptions.Timeout:\n        return -1\n\nresult = fetch_data('https://httpbin.org/delay/5')\nprint(result)\n```",
-      "options": [
-        "5",
-        "-1",
-        "0",
-        "TimeoutError"
-      ],
       "correct_answer": "-1",
       "explanation": "The requests.get() call specifies a timeout of 1 second, but the URL delays for 5 seconds. This triggers a requests.exceptions.Timeout exception. The except block catches it and returns -1, which is then printed.",
       "starter_code": "# Write your solution below\n",

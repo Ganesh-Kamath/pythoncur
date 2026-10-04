@@ -177,12 +177,6 @@
         "28.5_q9"
       ],
       "prompt": "Explain the output and execution order of the following asyncio program:\n```python\nimport asyncio\n\nasync def slow():\n    await asyncio.sleep(0.1)\n    print('slow')\n\nasync def main():\n    t = asyncio.create_task(slow())\n    print('main start')\n    await t\n    print('main end')\n\nasyncio.run(main())\n```",
-      "options": [
-        "main start prints first because create_task schedules immediately but does not run the coroutine yet; after awaiting t, slow completes and prints.",
-        "slow prints first because create_task runs the coroutine immediately in the background.",
-        "main start and slow print simultaneously because create_task makes them concurrent.",
-        "main start prints first, then main end prints immediately after, and slow prints last due to scheduling delay."
-      ],
       "correct_answer": "main start prints first because create_task schedules immediately but does not run the coroutine yet; after awaiting t, slow completes and prints.",
       "explanation": "create_task schedules the coroutine on the event loop but does not execute it until the loop processes pending tasks. main continues and prints 'main start' immediately. When await t is reached, the event loop runs slow to completion, printing 'slow', then resumes main to print 'main end'. This demonstrates that task creation is non-blocking, but awaiting waits for completion.",
       "starter_code": "# Write your solution below\n",
@@ -204,12 +198,6 @@
         "28.5_q10"
       ],
       "prompt": "Trace the execution step by step for this snippet:\n```python\nimport asyncio\n\nasync def step1():\n    print('1')\n    await asyncio.sleep(0)\n    print('1b')\n\nasync def step2():\n    print('2')\n    await asyncio.sleep(0)\n    print('2b')\n\nasync def main():\n    await step1()\n    await step2()\n\nasyncio.run(main())\n```\nList the prints in the exact order they occur.",
-      "options": [
-        "1, 1b, 2, 2b",
-        "1, 2, 1b, 2b",
-        "1, 2, 2b, 1b",
-        "2, 1, 1b, 2b"
-      ],
       "correct_answer": "1, 1b, 2, 2b",
       "explanation": "main awaits step1; step1 prints '1', then await asyncio.sleep(0) yields control back to the event loop, allowing step2 to start. step2 prints '2', then await asyncio.sleep(0) yields again. Control returns to step1, which prints '1b'. Finally step2 prints '2b'. The zero-second sleeps create micro-tasks that allow interleaving between top-level awaits.",
       "starter_code": "# Write your solution below\n",

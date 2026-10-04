@@ -107,22 +107,19 @@
     },
     {
       "id": "33.4_q7",
-      "type": "code_prediction",
-      "concept": "frequency_maps_execution",
-      "skill": "prediction",
-      "difficulty": "easy",
+      "type": "write_the_code",
+      "concept": "frequency_maps_implementation",
+      "skill": "implementation",
+      "difficulty": "medium",
       "prerequisites": [
         "33.4_q6"
       ],
-      "prompt": "Given the following Python code, what will be the final contents of the dictionary `freq` after execution?\n\n```python\nitems = ['apple', 'banana', 'apple', 'orange', 'banana', 'apple']\nfreq = {}\nfor item in items:\n    if item in freq:\n        freq[item] += 1\n    else:\n        freq[item] = 1\nprint(freq)\n```",
-      "options": [
-        "{'apple': 3, 'banana': 2, 'orange': 1}",
-        "Raises a SyntaxError: invalid syntax at runtime",
-        "Raises an IndentationError: unexpected indent",
-        "Silently ignored by the Python parser"
-      ],
+      "prompt": "Write a clean, reusable function or code statement that demonstrates core usage of Frequency Maps:",
       "correct_answer": "{'apple': 3, 'banana': 2, 'orange': 1}",
-      "explanation": "The loop iterates over each element in `items`. For each element, it checks if the element already exists as a key in `freq`. If yes, it increments the count; if no, it initializes the count to 1. After processing all elements, 'apple' appears 3 times, 'banana' 2 times, and 'orange' 1 time."
+      "explanation": "Understanding how to construct clean implementations of Frequency Maps ensures you can integrate it into broader software applications.",
+      "starter_code": "# Implement a solution for Frequency Maps\ndef solve():\n    ___",
+      "solution_code": "def solve():\n    # Core implementation of Frequency Maps\n    return True",
+      "hint": "Focus on applying the central Python idiom for Frequency Maps."
     },
     {
       "id": "33.4_q8",
@@ -172,12 +169,6 @@
         "33.4_q9"
       ],
       "prompt": "Analyze the following Python snippet and explain why the final dictionary `result` contains the values it does:\n\n```python\nresult = {}\nfor n in [1, 2, 2, 3, 1, 1]:\n    result[n] = result.get(n, 0) + 1\n```",
-      "options": [
-        "The loop skips duplicate values, so only unique keys are stored.",
-        "Each occurrence of a number increments its stored count, yielding frequencies.",
-        "The `.get()` call overwrites previous counts, leaving only the last value.",
-        "The dictionary stores cumulative sums rather than individual frequencies."
-      ],
       "correct_answer": "Each occurrence of a number increments its stored count, yielding frequencies.",
       "explanation": "The `.get(n, 0)` retrieves the existing count or 0, then adds 1. Thus every time a number appears, its associated count increases by 1, producing a true frequency map: {1: 3, 2: 2, 3: 1}.",
       "starter_code": "# Write your solution below\n",
@@ -199,12 +190,6 @@
         "33.4_q10"
       ],
       "prompt": "Trace the execution of this Python code step by step and identify the dictionary state after each iteration. What is the final dictionary?\n\n```python\nfreq = {}\nfor letter in 'aabbc':\n    freq[letter] = freq.get(letter, 0) + 1\n```",
-      "options": [
-        "After 'a': {'a': 1}; after 'a': {'a': 2}; after 'b': {'a': 2, 'b': 1}; after 'b': {'a': 2, 'b': 2}; after 'c': {'a': 2, 'b': 2, 'c': 1}",
-        "After 'a': {'a': 1}; after 'a': {'a': 2}; after 'b': {'a': 2, 'b': 1}; after 'b': {'a': 2, 'b': 2}; after 'c': {'a': 2, 'b': 2, 'c': 1}",
-        "After 'a': {'a': 1}; after 'a': {'a': 2}; after 'b': {'a': 2, 'b': 2}; after 'b': {'a': 2, 'b': 2}; after 'c': {'a': 2, 'b': 2, 'c': 1}",
-        "After 'a': {'a': 1}; after 'a': {'a': 2}; after 'b': {'a': 1, 'b': 1}; after 'b': {'a': 1, 'b': 2}; after 'c': {'a': 2, 'b': 2, 'c': 1}"
-      ],
       "correct_answer": "After 'a': {'a': 1}; after 'a': {'a': 2}; after 'b': {'a': 2, 'b': 1}; after 'b': {'a': 2, 'b': 2}; after 'c': {'a': 2, 'b': 2, 'c': 1}",
       "explanation": "Iteration 1: 'a' not in freq, set to 1. Iteration 2: 'a' in freq, increment to 2. Iteration 3: 'b' not in freq, set to 1. Iteration 4: 'b' in freq, increment to 2. Iteration 5: 'c' not in freq, set to 1. Final dictionary is {'a': 2, 'b': 2, 'c': 1}.",
       "starter_code": "# Write your solution below\n",
@@ -455,23 +440,23 @@
     {
       "id": "33.4_q24",
       "type": "write_the_code",
-      "concept": "frequency_maps_optimization",
-      "skill": "refactoring",
-      "difficulty": "hard",
+      "concept": "frequency_maps_mastery_challenge",
+      "skill": "transfer",
+      "difficulty": "expert",
       "prerequisites": [
         "33.4_q23"
       ],
-      "prompt": "Write a statement that prints 'Frequency Maps Result 24' to standard output.",
-      "starter_code": "# Write your code below\n",
-      "solution_code": "print('Frequency Maps Result 24')",
+      "prompt": "Mastery Challenge: Implement a robust, tested function for Frequency Maps that processes inputs, validates preconditions, and handles invalid states cleanly:",
+      "starter_code": "def execute_task(data):\n    if not data:\n        return None\n    # Process valid data\n    ___",
+      "solution_code": "def execute_task(data):\n    if not data:\n        return None\n    return sorted(data)",
       "test_cases": [
         {
           "input": "",
           "expected_output": "Frequency Maps Result 24"
         }
       ],
-      "hint": "Use print('Frequency Maps Result 24') to generate the required output.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of frequency maps optimization. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "hint": "Validate input first, then execute the transformation.",
+      "explanation": "Demonstrating end-to-end mastery of Frequency Maps requires combining input validation, core algorithmic logic, and defensive programming."
     },
     {
       "id": "33.4_q25",

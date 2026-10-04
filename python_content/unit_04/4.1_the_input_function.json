@@ -153,12 +153,6 @@
         "4.1_q8"
       ],
       "prompt": "Fix this code so that it removes surrounding whitespace from the user's input before printing it:",
-      "options": [
-        "45",
-        "22",
-        "value_9",
-        "Error"
-      ],
       "correct_answer": "45",
       "explanation": "`.strip()` is a method call and must include parentheses `()` to execute and return the cleaned string.",
       "starter_code": "name = input('Name: ').strip\nprint(f'Hello {name}')",
@@ -425,56 +419,56 @@
     },
     {
       "id": "4.1_q25",
-      "type": "write_the_code",
-      "concept": "the_input_function_implementation",
-      "skill": "application",
+      "type": "fix_the_code",
+      "concept": "input_strip_whitespace",
+      "skill": "debugging",
       "difficulty": "medium",
       "prerequisites": [
         "4.1_q24"
       ],
-      "prompt": "Write a statement that prints 'input() Result 25' to standard output.",
-      "starter_code": "# Write your code below\n",
-      "solution_code": "print('input() Result 25')",
+      "prompt": "Fix this code so that extraneous leading and trailing spaces entered by the user are automatically removed:",
+      "starter_code": "raw_username = input('Enter username: ')\nclean_username = raw_username.strip\nprint(f'User registered: {clean_username}')",
+      "solution_code": "raw_username = input('Enter username: ')\nclean_username = raw_username.strip()\nprint(f'User registered: {clean_username}')",
       "test_cases": [
         {
           "input": "",
           "expected_output": "input() Result 25"
         }
       ],
-      "hint": "Use print('input() Result 25') to generate the required output.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of the input function implementation. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "hint": "`.strip` is a method. Remember to call it with parentheses `()`.",
+      "explanation": "In Python, method names without parentheses reference the method object itself rather than calling it. Calling `.strip()` executes the string stripping operation and returns the sanitized string."
     },
     {
       "id": "4.1_q26",
       "type": "write_the_code",
-      "concept": "the_input_function_practical",
-      "skill": "application",
+      "concept": "prompt_string_formatting",
+      "skill": "implementation",
       "difficulty": "medium",
       "prerequisites": [
         "4.1_q25"
       ],
-      "prompt": "Write a statement that prints 'input() Result 26' to standard output.",
-      "starter_code": "# Write your code below\n",
-      "solution_code": "print('input() Result 26')",
+      "prompt": "Write a line of code that asks the user 'Enter your city: ' and stores their response in a variable named `city`:",
+      "starter_code": "# Prompt the user for their city\ncity = ___",
+      "solution_code": "city = input('Enter your city: ')",
       "test_cases": [
         {
           "input": "",
           "expected_output": "input() Result 26"
         }
       ],
-      "hint": "Use print('input() Result 26') to generate the required output.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of the input function practical. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "hint": "Pass the prompt string directly to `input()`.",
+      "explanation": "`input(prompt)` displays the prompt text to the standard output and halts execution until the user presses Enter, returning the typed string."
     },
     {
       "id": "4.1_q27",
-      "type": "write_the_code",
-      "concept": "the_input_function_advanced",
-      "skill": "application",
-      "difficulty": "hard",
+      "type": "code_prediction",
+      "concept": "input_return_type",
+      "skill": "prediction",
+      "difficulty": "medium",
       "prerequisites": [
         "4.1_q26"
       ],
-      "prompt": "Write a statement that prints 'input() Result 27' to standard output.",
+      "prompt": "What does this code output when the user types '25'?\n```python\nage = input('Age: ')  # User enters: 25\nprint(age * 2)\n```",
       "starter_code": "# Write your code below\n",
       "solution_code": "print('input() Result 27')",
       "test_cases": [
@@ -483,71 +477,78 @@
           "expected_output": "input() Result 27"
         }
       ],
-      "hint": "Use print('input() Result 27') to generate the required output.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of the input function advanced. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "hint": "Remember what data type `input()` always returns.",
+      "explanation": "`input()` always returns a string (`str`). Multiplying a string by an integer repeats the string (`'25' * 2` becomes `'2525'`), not numeric multiplication.",
+      "options": [
+        "2525",
+        "50",
+        "TypeError: cannot multiply str",
+        "None"
+      ],
+      "correct_answer": "2525"
     },
     {
       "id": "4.1_q28",
-      "type": "mini_challenge",
-      "concept": "the_input_function_challenge",
-      "skill": "problem_solving",
+      "type": "real_world_scenario",
+      "concept": "command_line_confirmation",
+      "skill": "application",
       "difficulty": "hard",
       "prerequisites": [
         "4.1_q27"
       ],
-      "prompt": "Write a statement that prints 'input() Result 28' to standard output.",
-      "starter_code": "# Write your code below\n",
-      "solution_code": "print('input() Result 28')",
+      "prompt": "Write code to ask the user 'Proceed? (y/n): ' and print 'Confirmed' if they enter 'y' or 'Y', or 'Cancelled' otherwise:",
+      "starter_code": "ans = input('Proceed? (y/n): ').strip().lower()\nif ans == 'y':\n    ___",
+      "solution_code": "ans = input('Proceed? (y/n): ').strip().lower()\nif ans == 'y':\n    print('Confirmed')\nelse:\n    print('Cancelled')",
       "test_cases": [
         {
           "input": "",
           "expected_output": "input() Result 28"
         }
       ],
-      "hint": "Use print('input() Result 28') to generate the required output.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of the input function challenge. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "hint": "Use `.lower()` to normalize the response before comparing with 'y'.",
+      "explanation": "Normalizing user input with `.strip().lower()` handles unexpected whitespace and case differences gracefully before branching."
     },
     {
       "id": "4.1_q29",
-      "type": "write_the_code",
-      "concept": "the_input_function_scenario",
-      "skill": "synthesis",
+      "type": "fix_the_code",
+      "concept": "input_in_loop",
+      "skill": "debugging",
       "difficulty": "hard",
       "prerequisites": [
         "4.1_q28"
       ],
-      "prompt": "Write a statement that prints 'input() Result 29' to standard output.",
-      "starter_code": "# Write your code below\n",
-      "solution_code": "print('input() Result 29')",
+      "prompt": "Fix this loop so it repeatedly asks for a password until the user enters 'secret':",
+      "starter_code": "pwd = ''\nwhile pwd != 'secret':\n    print('Enter password:')\n    # Missing prompt assignment",
+      "solution_code": "pwd = ''\nwhile pwd != 'secret':\n    pwd = input('Enter password: ')",
       "test_cases": [
         {
           "input": "",
           "expected_output": "input() Result 29"
         }
       ],
-      "hint": "Use print('input() Result 29') to generate the required output.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of the input function scenario. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "hint": "Assign the result of `input()` to the `pwd` loop variable.",
+      "explanation": "Without reassigning the loop variable with `pwd = input(...)`, the loop condition will never change, resulting in an infinite loop."
     },
     {
       "id": "4.1_q30",
-      "type": "mini_challenge",
-      "concept": "the_input_function_mastery",
-      "skill": "mastery",
+      "type": "write_the_code",
+      "concept": "mastery_interactive_greeter",
+      "skill": "transfer",
       "difficulty": "hard",
       "prerequisites": [
         "4.1_q29"
       ],
-      "prompt": "Write a statement that prints 'input() Result 30' to standard output.",
-      "starter_code": "# Write your code below\n",
-      "solution_code": "print('input() Result 30')",
+      "prompt": "Write a complete script that prompts for a user's first name, then their last name, and prints 'Welcome, <First> <Last>!' with surrounding whitespace removed:",
+      "starter_code": "# Prompt for first and last name, then display formatted greeting\nfirst = ___\nlast = ___\n___",
+      "solution_code": "first = input('First name: ').strip()\nlast = input('Last name: ').strip()\nprint(f'Welcome, {first} {last}!')",
       "test_cases": [
         {
           "input": "",
           "expected_output": "input() Result 30"
         }
       ],
-      "hint": "Use print('input() Result 30') to generate the required output.",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of the input function mastery. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "hint": "Read each input with `.strip()` and combine them inside an f-string.",
+      "explanation": "Combining `input()`, string stripping, and f-string interpolation is the standard pattern for building clean interactive command-line interfaces."
     }
   ],
   "unit_num": 4,

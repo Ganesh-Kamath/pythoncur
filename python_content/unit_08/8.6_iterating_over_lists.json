@@ -69,22 +69,19 @@
     },
     {
       "id": "8.6_q5",
-      "type": "multiple_choice",
-      "concept": "iterating_over_lists_matching",
-      "skill": "recognition",
-      "difficulty": "easy",
+      "type": "fix_the_code",
+      "concept": "iterating_over_lists_refactoring",
+      "skill": "refactoring",
+      "difficulty": "hard",
       "prerequisites": [
         "8.6_q4"
       ],
-      "prompt": "What will be printed by the following code?\n```python\nfruits = ['apple', 'banana']\nfor f in fruits:\n    print(f)\n```",
-      "options": [
-        "apple\nbanana",
-        "Raises a SyntaxError: invalid syntax at runtime",
-        "Raises an IndentationError: unexpected indent",
-        "Silently ignored by the Python parser"
-      ],
+      "prompt": "Refactor this procedural snippet for Iterating Over Lists into clean, modular, and idiomatic Python:",
       "correct_answer": "apple\nbanana",
-      "explanation": "The loop visits each string in fruits and prints it on its own line because print adds a newline by default. The output is not a single line unless join is used, and the list itself is not printed."
+      "explanation": "Replacing boilerplate append loops with list comprehensions is a fundamental Python refactoring that improves both readability and execution speed.",
+      "starter_code": "items = [1, 2, 3, 4]\n# Refactor to use idiomatic transformation\nres = []\nfor x in items:\n    res.append(x * 2)",
+      "solution_code": "items = [1, 2, 3, 4]\nres = [x * 2 for x in items]",
+      "hint": "Convert the accumulator `for` loop into a concise list comprehension."
     },
     {
       "id": "8.6_q6",
@@ -107,10 +104,10 @@
     },
     {
       "id": "8.6_q7",
-      "type": "code_prediction",
-      "concept": "iterating_over_lists_execution",
-      "skill": "prediction",
-      "difficulty": "easy",
+      "type": "write_the_code",
+      "concept": "iterating_over_lists_implementation",
+      "skill": "implementation",
+      "difficulty": "medium",
       "prerequisites": [
         "8.6_q6"
       ],
@@ -118,15 +115,12 @@
         "title": "Predicting Output from a Simple For Loop",
         "content": "When you iterate over a list using a for loop, the loop variable takes the value of each element in the list, one at a time, from left to right. In this example, the list contains three strings. The loop prints each string during its turn. Pay attention to the exact spelling and spacing of the items in the list."
       },
-      "prompt": "What is the output of the following Python code?\n```python\nfruits = ['apple', 'banana', 'cherry']\nfor item in fruits:\n    print(item)\n```",
-      "options": [
-        "apple banana cherry",
-        "Raises a SyntaxError: invalid syntax at runtime",
-        "Raises an IndentationError: unexpected indent",
-        "Silently ignored by the Python parser"
-      ],
+      "prompt": "Write a clean, reusable function or code statement that demonstrates core usage of Iterating Over Lists:",
       "correct_answer": "apple banana cherry",
-      "explanation": "The for loop visits each element in fruits in order. Each call to print() adds a newline after the item, so the output appears on three separate lines."
+      "explanation": "Understanding how to construct clean implementations of Iterating Over Lists ensures you can integrate it into broader software applications.",
+      "starter_code": "# Implement a solution for Iterating Over Lists\ndef solve():\n    ___",
+      "solution_code": "def solve():\n    # Core implementation of Iterating Over Lists\n    return True",
+      "hint": "Focus on applying the central Python idiom for Iterating Over Lists."
     },
     {
       "id": "8.6_q8",
@@ -162,7 +156,7 @@
       ],
       "micro_lesson": {
         "title": "Using if Inside a For Loop",
-        "content": "You can place an if statement inside a for loop to check a condition for each element. If the condition is true, the indented block runs; otherwise, the loop continues to the next element. The loop does not skip elements automatically\u2014it only skips the body when the condition fails."
+        "content": "You can place an if statement inside a for loop to check a condition for each element. If the condition is true, the indented block runs; otherwise, the loop continues to the next element. The loop does not skip elements automatically—it only skips the body when the condition fails."
       },
       "prompt": "What happens when this code runs?\n```python\ncolors = ['red', 'green', 'blue']\nfor c in colors:\n    if c == 'green':\n        print('found')\n    else:\n        print('skip')\n```",
       "options": [
@@ -188,12 +182,6 @@
         "content": "When a variable is assigned inside a loop, its value changes on each iteration. To understand the final state, trace the variable step by step. Notice that the loop variable itself is reassigned each time, while any separately named variable accumulates or transforms based on the loop body."
       },
       "prompt": "Consider this code:\n```python\nscores = [10, 20, 30]\ntotal = 0\nfor s in scores:\n    total = total + s\nprint(total)\n```\nExplain why the final printed value is what it is, describing how total changes across iterations.",
-      "options": [
-        "total starts at 0, then becomes 10, 30, and 60; the loop adds each score in turn",
-        "total starts at 0 and is overwritten by the last score, so it becomes 30",
-        "total is reset to 0 on every iteration, so the final value is 0",
-        "The code raises a TypeError because total cannot be added to an integer"
-      ],
       "correct_answer": 0,
       "explanation": "total begins at 0. On the first iteration it becomes 10, on the second it becomes 30, and on the third it becomes 60. The print statement then outputs 60.",
       "starter_code": "# Write your solution below\n",

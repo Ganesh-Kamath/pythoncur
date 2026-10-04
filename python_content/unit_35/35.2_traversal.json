@@ -172,12 +172,6 @@
         "35.2_q9"
       ],
       "prompt": "Analyze the following traversal code and explain why the output is what it is:\n\n```\nclass Node:\n    def __init__(self, data):\n        self.data = data\n        self.next = None\n\nhead = None\n\ncurrent = head\nwhile current:\n    print(current.data)\n    current = current.next\n```",
-      "options": [
-        "It prints nothing because the list is empty",
-        "It raises an AttributeError because head is None",
-        "It prints 0 because None is treated as zero",
-        "It enters an infinite loop"
-      ],
       "correct_answer": "It prints nothing because the list is empty",
       "explanation": "The while condition evaluates to False immediately because head is None, so the loop body never executes. No print statement runs, resulting in no output.",
       "starter_code": "# Write your solution below\n",

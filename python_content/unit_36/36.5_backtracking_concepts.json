@@ -25,26 +25,15 @@
       "prerequisites": [
         "36.5_q1"
       ],
-      "match_code_to_concept": {
-        "prompt": "Consider this recursive helper:\n```python\ndef helper(path):\n    if is_complete(path):\n        return True\n    for choice in get_options():\n        if is_valid(choice):\n            path.append(choice)\n            if helper(path):\n                return True\n            path.pop()\n    return False\n```\nWhat does the line `path.pop()` accomplish?",
-        "options": [
-          "It adds a new choice to the path",
-          "It removes the last choice to try a different branch",
-          "It checks whether the path is complete",
-          "It returns True immediately"
-        ],
-        "correct_answer": "It removes the last choice to try a different branch",
-        "explanation": "The `path.pop()` call removes the most recently added element, undoing the choice so the loop can try the next option. This is the core 'backtracking' step that enables the algorithm to explore alternative branches without restarting from scratch."
-      },
-      "prompt": "Which statement best applies to backtracking concepts basics?",
+      "prompt": "Consider this recursive helper:\n```python\ndef helper(path):\n    if is_complete(path):\n        return True\n    for choice in get_options():\n        if is_valid(choice):\n            path.append(choice)\n            if helper(path):\n                return True\n            path.pop()\n    return False\n```\nWhat does the line `path.pop()` accomplish?",
       "options": [
-        "A. Correct approach for backtracking concepts basics",
-        "Raises a SyntaxError: invalid syntax at runtime",
-        "Raises an IndentationError: unexpected indent",
-        "Silently ignored by the Python parser"
+        "It adds a new choice to the path",
+        "It removes the last choice to try a different branch",
+        "It checks whether the path is complete",
+        "It returns True immediately"
       ],
-      "correct_answer": "A. Correct approach for backtracking concepts basics",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of backtracking concepts basics. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "correct_answer": "It removes the last choice to try a different branch",
+      "explanation": "The `path.pop()` call removes the most recently added element, undoing the choice so the loop can try the next option. This is the core 'backtracking' step that enables the algorithm to explore alternative branches without restarting from scratch."
     },
     {
       "idx": 3,
@@ -71,26 +60,15 @@
       "prerequisites": [
         "36.5_q3"
       ],
-      "match_code_to_concept": {
-        "prompt": "In the `subsets` function above, why is `list(current)` used instead of `current` when appending to `result`?",
-        "options": [
-          "Because `current` is a string and must be converted",
-          "Because `current` is a mutable list that would change later",
-          "Because `current` must be sorted before storing",
-          "Because `current` is empty at first"
-        ],
-        "correct_answer": "Because `current` is a mutable list that would change later",
-        "explanation": "`current` is a list object. If we append `current` directly, `result` stores a reference to that same list. Subsequent `append` and `pop` operations would modify the stored reference, corrupting all previously saved subsets. `list(current)` creates a shallow copy, freezing the state at that moment."
-      },
-      "prompt": "Which statement best applies to backtracking concepts syntax?",
+      "prompt": "In the `subsets` function above, why is `list(current)` used instead of `current` when appending to `result`?",
       "options": [
-        "A. Correct approach for backtracking concepts syntax",
-        "Raises a SyntaxError: invalid syntax at runtime",
-        "Raises an IndentationError: unexpected indent",
-        "Silently ignored by the Python parser"
+        "Because `current` is a string and must be converted",
+        "Because `current` is a mutable list that would change later",
+        "Because `current` must be sorted before storing",
+        "Because `current` is empty at first"
       ],
-      "correct_answer": "A. Correct approach for backtracking concepts syntax",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of backtracking concepts syntax. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "correct_answer": "Because `current` is a mutable list that would change later",
+      "explanation": "`current` is a list object. If we append `current` directly, `result` stores a reference to that same list. Subsequent `append` and `pop` operations would modify the stored reference, corrupting all previously saved subsets. `list(current)` creates a shallow copy, freezing the state at that moment."
     },
     {
       "idx": 5,
@@ -102,26 +80,15 @@
       "prerequisites": [
         "36.5_q4"
       ],
-      "match_code_to_concept": {
-        "prompt": "Match each term to its role in backtracking.",
-        "options": [
-          "Base case: when a solution is found or no valid moves remain; Choose: add a candidate to the current path; Explore: recurse with the updated path; Unchoose: remove the last candidate to try another branch",
-          "Base case: loop through all options; Choose: return False immediately; Explore: append to result; Unchoose: print the path",
-          "Base case: start the loop; Choose: pop the last element; Explore: check validity; Unchoose: append a new element",
-          "Base case: initialize variables; Choose: copy the path; Explore: sort the input; Unchoose: return True"
-        ],
-        "correct_answer": "Base case: when a solution is found or no valid moves remain; Choose: add a candidate to the current path; Explore: recurse with the updated path; Unchoose: remove the last candidate to try another branch",
-        "explanation": "These four terms describe the standard backtracking template. The base case stops recursion. Choose adds a candidate. Explore recurses deeper. Unchoose (backtrack) removes the candidate so sibling branches can try different choices."
-      },
-      "prompt": "Which statement best applies to backtracking concepts matching?",
+      "prompt": "Match each term to its role in backtracking.",
       "options": [
-        "A. Correct approach for backtracking concepts matching",
-        "Raises a SyntaxError: invalid syntax at runtime",
-        "Raises an IndentationError: unexpected indent",
-        "Silently ignored by the Python parser"
+        "Base case: when a solution is found or no valid moves remain; Choose: add a candidate to the current path; Explore: recurse with the updated path; Unchoose: remove the last candidate to try another branch",
+        "Base case: loop through all options; Choose: return False immediately; Explore: append to result; Unchoose: print the path",
+        "Base case: start the loop; Choose: pop the last element; Explore: check validity; Unchoose: append a new element",
+        "Base case: initialize variables; Choose: copy the path; Explore: sort the input; Unchoose: return True"
       ],
-      "correct_answer": "A. Correct approach for backtracking concepts matching",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of backtracking concepts matching. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "correct_answer": "Base case: when a solution is found or no valid moves remain; Choose: add a candidate to the current path; Explore: recurse with the updated path; Unchoose: remove the last candidate to try another branch",
+      "explanation": "These four terms describe the standard backtracking template. The base case stops recursion. Choose adds a candidate. Explore recurses deeper. Unchoose (backtrack) removes the candidate so sibling branches can try different choices."
     },
     {
       "idx": 6,
@@ -133,26 +100,15 @@
       "prerequisites": [
         "36.5_q5"
       ],
-      "match_code_to_concept": {
-        "prompt": "A student writes the following subset generator. Which mistake is most likely to cause incorrect output?",
-        "options": [
-          "Using `current.pop()` after the recursive call without checking if the call succeeded",
-          "Using `list(current)` instead of `current` when appending to `result`",
-          "Omitting the base case entirely",
-          "Using `range(start, len(nums))` but forgetting to pass `i + 1` to the recursive call"
-        ],
-        "correct_answer": "Omitting the base case entirely",
-        "explanation": "Without a base case, the recursion has no stopping condition. It will keep appending elements until `current` grows beyond the input size, eventually causing a `RecursionError`. While the other options affect correctness or efficiency, omitting the base case guarantees failure. In subset generation, the base case is implicit in the loop finishing, but for problems like N-Queens or Sudoku a clear base case is essential."
-      },
-      "prompt": "Which statement best applies to backtracking concepts pitfalls?",
+      "prompt": "A student writes the following subset generator. Which mistake is most likely to cause incorrect output?",
       "options": [
-        "A. Correct approach for backtracking concepts pitfalls",
-        "Raises a SyntaxError: invalid syntax at runtime",
-        "Raises an IndentationError: unexpected indent",
-        "Silently ignored by the Python parser"
+        "Using `current.pop()` after the recursive call without checking if the call succeeded",
+        "Using `list(current)` instead of `current` when appending to `result`",
+        "Omitting the base case entirely",
+        "Using `range(start, len(nums))` but forgetting to pass `i + 1` to the recursive call"
       ],
-      "correct_answer": "A. Correct approach for backtracking concepts pitfalls",
-      "explanation": "In Python, this operation directly demonstrates the core behavior of backtracking concepts pitfalls. When Python executes this statement, it resolves the expressions in strict sequence and applies the language's standard evaluation rules. A common learner mistake is misinterpreting how types, precedence, or variable bindings interact, leading to unexpected runtime output or silent logic errors."
+      "correct_answer": "Omitting the base case entirely",
+      "explanation": "Without a base case, the recursion has no stopping condition. It will keep appending elements until `current` grows beyond the input size, eventually causing a `RecursionError`. While the other options affect correctness or efficiency, omitting the base case guarantees failure. In subset generation, the base case is implicit in the loop finishing, but for problems like N-Queens or Sudoku a clear base case is essential."
     },
     {
       "id": "36.5_q7",
@@ -221,12 +177,6 @@
         "36.5_q9"
       ],
       "prompt": "Explain why the following backtracking function does not produce duplicate subsets when the input contains duplicate elements.",
-      "options": [
-        "It sorts the input first, so duplicates are adjacent and skipped with a condition.",
-        "It uses a set to store results, automatically removing duplicates.",
-        "The for loop only iterates once per element, preventing repeated selections.",
-        "It modifies the original list in place, which inherently avoids duplicates."
-      ],
       "correct_answer": 0,
       "explanation": "The correct approach for handling duplicates in subsets is to sort the input and then, at each recursion level, skip a duplicate element if the previous identical element was not chosen (i.e., when i > start and nums[i] == nums[i-1]). The provided code snippet implies this standard pattern. Without sorting and explicit skipping, duplicate subsets would indeed appear. Sorting ensures identical elements are grouped, and the conditional skip prevents redundant branches.",
       "starter_code": "# Write your solution below\n",
